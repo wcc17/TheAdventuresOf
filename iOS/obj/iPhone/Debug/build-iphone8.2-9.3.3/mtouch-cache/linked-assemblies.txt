@@ -1,0 +1,10 @@
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone8.2-9.3.3/mtouch-cache/Link/TheAdventuresOf.iOS.exe
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone8.2-9.3.3/mtouch-cache/Link/System.Runtime.Serialization.dll
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone8.2-9.3.3/mtouch-cache/Link/OpenTK-1.0.dll
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone8.2-9.3.3/mtouch-cache/Link/System.dll
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone8.2-9.3.3/mtouch-cache/Link/System.Xml.dll
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone8.2-9.3.3/mtouch-cache/Link/System.Xml.Linq.dll
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone8.2-9.3.3/mtouch-cache/Link/MonoGame.Framework.dll
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone8.2-9.3.3/mtouch-cache/Link/Xamarin.iOS.dll
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone8.2-9.3.3/mtouch-cache/Link/System.Core.dll
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone8.2-9.3.3/mtouch-cache/Link/mscorlib.dll

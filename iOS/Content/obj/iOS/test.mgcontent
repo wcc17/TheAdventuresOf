@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/test.xml</SourceFile>
+  <SourceTime>2016-03-30T02:36:23-04:00</SourceTime>
+  <DestFile>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/bin/iOS/test.xnb</DestFile>
+  <DestTime>2016-08-07T19:30:17-04:00</DestTime>
+  <Importer>XmlImporter</Importer>
+  <ImporterTime>2016-03-30T02:36:22-04:00</ImporterTime>
+  <Processor>PassThroughProcessor</Processor>
+  <ProcessorTime>2016-03-30T02:36:22-04:00</ProcessorTime>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

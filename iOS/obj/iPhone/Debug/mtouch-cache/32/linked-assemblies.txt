@@ -1,0 +1,8 @@
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/mtouch-cache/32/Link/Xamarin.iOS.dll
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/mtouch-cache/32/Link/System.Core.dll
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/mtouch-cache/32/Link/MonoGame.Framework.dll
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/mtouch-cache/32/Link/OpenTK-1.0.dll
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/mtouch-cache/32/Link/System.dll
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/mtouch-cache/32/Link/System.Runtime.Serialization.dll
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/mtouch-cache/32/Link/mscorlib.dll
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/mtouch-cache/32/Link/TheAdventuresOf.iOS.exe

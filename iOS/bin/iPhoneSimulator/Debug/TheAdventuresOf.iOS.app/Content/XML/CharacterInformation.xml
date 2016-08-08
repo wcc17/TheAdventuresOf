@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Characters>
+  <Player>
+    <Speed>245</Speed>
+    <AnimationSpeed>0.08</AnimationSpeed>
+    <JumpSpeed>500</JumpSpeed>
+    <JumpHeight>150</JumpHeight>
+    <!-- these just make it easier to put the sword where it needs to be -->
+    <LeftSwordOffset>5</LeftSwordOffset>
+    <RightSwordOffset>1</RightSwordOffset>
+    <SwordYOffset>45</SwordYOffset>
+  </Player>
+  <Monsters>
+    <BlockMonster>
+      <Speed>200</Speed>
+      <AnimationSpeed>0.08</AnimationSpeed>
+    </BlockMonster>
+  </Monsters>
+</Characters>
