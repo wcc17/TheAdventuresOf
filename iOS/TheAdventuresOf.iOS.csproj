@@ -116,6 +116,7 @@
     <BundleResource Include="Content\sword_1080p.png" />
     <BundleResource Include="Content\XML\CharacterInformation.xml" />
     <BundleResource Include="Content\XML\LevelInformation.xml" />
+    <BundleResource Include="Content\blockmonster_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

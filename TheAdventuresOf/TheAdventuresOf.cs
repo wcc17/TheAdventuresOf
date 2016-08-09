@@ -16,6 +16,7 @@ namespace TheAdventuresOf
 		Screen screen;
 
 		Player player;
+		Monster blockMonster;
 		Level level;
 
 		public TheAdventuresOf()
@@ -36,13 +37,9 @@ namespace TheAdventuresOf
 		protected override void Initialize()
 		{
 			screen = new Screen(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
-
 			level = new Level();
-
 			player = new Player();
-			player = XmlImporter.LoadPlayerInformation(player);
-			player.InitializePlayer(200f, Level.groundLevel, 85, 88);
-
+			blockMonster = new Monster();
 			base.Initialize();
 		}
 
@@ -60,6 +57,18 @@ namespace TheAdventuresOf
 
 			//need level textures to do this, so initializing in LoadContent
 			level.InitializeLevel();
+
+			player = XmlImporter.LoadPlayerInformation(player);
+			player.InitializeCharacter(200f, 
+			                           Level.groundLevel, 
+			                           AssetManager.playerTexture.Width / player.frameCount, 
+			                           AssetManager.playerTexture.Height);
+
+			blockMonster = XmlImporter.LoadBlockMonsterInformation(blockMonster);
+			blockMonster.InitializeCharacter(500f, 
+			                                 Level.groundLevel,
+			                                 AssetManager.blockMonsterTexture.Width / blockMonster.frameCount, 
+			                                 AssetManager.blockMonsterTexture.Height);
 
 			FrameRate.LoadContent(Content);
 			Controller.InitializeController(this.GraphicsDevice);
@@ -99,8 +108,11 @@ namespace TheAdventuresOf
 			//Draw background 
 			level.Draw(spriteBatch);
 
+			//Draw monster
+			blockMonster.Draw(spriteBatch, AssetManager.blockMonsterTexture);
+
 			//Draw player
-			player.Draw(spriteBatch);
+			player.Draw(spriteBatch, AssetManager.playerTexture);
 
 			//Draw controller and buttons
 			Controller.Draw(spriteBatch);

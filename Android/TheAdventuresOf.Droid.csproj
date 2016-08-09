@@ -64,6 +64,7 @@
     <None Include="Assets\Content\sword_1080p.png" />
     <None Include="Assets\Content\CharacterInformation.xml" />
     <None Include="Assets\Content\LevelInformation.xml" />
+    <None Include="Assets\Content\blockmonster_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Icon.png" />

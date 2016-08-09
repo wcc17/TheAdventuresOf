@@ -26,3 +26,4 @@
 /Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/optimized/Content/character_1080p.png
 /Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/optimized/Content/sword_1080p.png
 /Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/optimized/
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone8.2-9.3.3/optimized/Content/blockmonster_1080p.png

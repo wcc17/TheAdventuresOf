@@ -21,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Player.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\XmlImporter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\AssetManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Monster.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

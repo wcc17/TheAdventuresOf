@@ -9,11 +9,13 @@
     <LeftSwordOffset>5</LeftSwordOffset>
     <RightSwordOffset>1</RightSwordOffset>
     <SwordYOffset>45</SwordYOffset>
+    <FrameCount>2</FrameCount>
   </Player>
   <Monsters>
     <BlockMonster>
       <Speed>200</Speed>
       <AnimationSpeed>0.08</AnimationSpeed>
+      <FrameCount>2</FrameCount>
     </BlockMonster>
   </Monsters>
 </Characters>

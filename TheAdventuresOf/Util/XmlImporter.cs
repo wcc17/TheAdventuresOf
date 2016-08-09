@@ -33,9 +33,24 @@ namespace TheAdventuresOf
 			player.leftSwordOffset = (float)playerElement.Element("LeftSwordOffset");
 			player.rightSwordOffset = (float)playerElement.Element("RightSwordOffset");
 			player.swordYOffset = (float)playerElement.Element("SwordYOffset");
+			player.frameCount = (int)playerElement.Element("FrameCount");
 
 			return player;
 		}
+
+		public static Monster LoadBlockMonsterInformation(Monster blockMonster)
+		{
+			XElement charactersElement = characterDocument.Element("Characters");
+			XElement monstersElement = charactersElement.Element("Monsters");
+			XElement blockMonsterElement = monstersElement.Element("BlockMonster");
+
+			blockMonster.speed = (float)blockMonsterElement.Element("Speed");
+			blockMonster.animationSpeed = (float)blockMonsterElement.Element("AnimationSpeed");
+			blockMonster.frameCount = (int)blockMonsterElement.Element("FrameCount");
+
+			return blockMonster;
+		}
+
 	}
 }
 

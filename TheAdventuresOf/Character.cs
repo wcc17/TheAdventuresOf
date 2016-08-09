@@ -15,6 +15,7 @@ namespace TheAdventuresOf
 
 		public Vector2 positionVector;
 
+		public int frameCount;
 		public Animation standAnimation;
 		public Animation walkAnimation;
 		public Animation currentAnimation;
@@ -26,8 +27,9 @@ namespace TheAdventuresOf
 		public bool moveRight = true;
 		public bool isMoving;
 
-		public void InitializeCharacter(float startX, float startY, int characterWidth, int characterHeight)
+		public virtual void InitializeCharacter(float startX, float startY, int characterWidth, int characterHeight)
 		{
+			Console.WriteLine("initializing character");
 			this.characterWidth = characterWidth;
 			this.characterHeight = characterHeight;
 
@@ -37,26 +39,21 @@ namespace TheAdventuresOf
 			InitializeAnimation();
 		}
 
-		public void InitializeAnimation()
-		{
-			//TODO: fix this characterWidth - 1. Theres a black bar appearing on the first frame that I can't get rid of
-			//for now, the fix is to do characterWidth - 1, but thats not the greatest solution.
-			//the character will probably need to be redrawn, but I'm not going to mess with it for now
-			walkAnimation = new Animation();
-			walkAnimation.AddFrame(new Rectangle(0, 0, characterWidth-1, characterHeight), TimeSpan.FromSeconds(animationSpeed));
-			walkAnimation.AddFrame(new Rectangle(characterWidth, 0, characterWidth-1, characterHeight), TimeSpan.FromSeconds(animationSpeed));
-
-			standAnimation = new Animation();
-			standAnimation.AddFrame(new Rectangle(0, 0, characterWidth - 1, characterHeight), TimeSpan.FromSeconds(animationSpeed));
-		}
-
 		public void UpdateCharacterBounds()
 		{
 			characterBounds.X = (int)positionVector.X;
 			characterBounds.Y = (int)positionVector.Y;
 		}
 
-		public void HandleLevelBoundCollision(int direction, int boundX)
+		public virtual void HandleMovement(GameTime gameTime)
+		{
+		}
+
+		public virtual void InitializeAnimation()
+		{
+		}
+
+		public virtual void HandleLevelBoundCollision(int direction, int boundX)
 		{
 			switch (direction)
 			{
@@ -82,7 +79,7 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public void HandleAnimation(GameTime gameTime)
+		public virtual void HandleAnimation(GameTime gameTime)
 		{
 			if (isMoving)
 			{
@@ -92,22 +89,6 @@ namespace TheAdventuresOf
 			else {
 				currentAnimation = standAnimation;
 				currentAnimation.Update(gameTime);
-			}
-		}
-
-		public void HandleMovement(GameTime gameTime)
-		{
-			if (Controller.leftButtonPressed)
-			{
-				Console.WriteLine("Character: Left button pressed");
-				Move(gameTime, LEFT);
-				UpdateCharacterBounds();
-			}
-			if (Controller.rightButtonPressed)
-			{
-				Console.WriteLine("Character: Right button pressed");
-				Move(gameTime, RIGHT);
-				UpdateCharacterBounds();
 			}
 		}
 
@@ -132,17 +113,17 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public virtual void Draw(SpriteBatch spriteBatch)
+		public virtual void Draw(SpriteBatch spriteBatch, Texture2D texture)
 		{
 			//get current frame for animations
 			var sourceRectangle = currentAnimation.CurrentRectangle;
 
 			if (moveRight)
 			{
-				spriteBatch.Draw(AssetManager.characterTexture, positionVector, sourceRectangle, Color.White);
+				spriteBatch.Draw(texture, positionVector, sourceRectangle, Color.White);
 			}
 			else if(moveLeft) {
-				spriteBatch.Draw(AssetManager.characterTexture, positionVector, sourceRectangle: sourceRectangle, color: Color.White, effects: SpriteEffects.FlipHorizontally);
+				spriteBatch.Draw(texture, positionVector, sourceRectangle: sourceRectangle, color: Color.White, effects: SpriteEffects.FlipHorizontally);
 			}
 		}
 	}

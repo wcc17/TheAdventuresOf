@@ -22,7 +22,7 @@ namespace TheAdventuresOf
 		public bool hasJumped;
 		public bool isJumping;
 
-		public void InitializePlayer(float startX, float startY, int characterWidth, int characterHeight)
+		public override void InitializeCharacter(float startX, float startY, int characterWidth, int characterHeight)
 		{
 			base.InitializeCharacter(startX, startY, characterWidth, characterHeight);
 
@@ -31,11 +31,60 @@ namespace TheAdventuresOf
 			variableJumpSpeed = jumpSpeed;
 		}
 
+		public override void InitializeAnimation()
+		{
+			//TODO: fix this characterWidth - 1. Theres a black bar appearing on the first frame that I can't get rid of
+			//for now, the fix is to do characterWidth - 1, but thats not the greatest solution.
+			//the character will probably need to be redrawn, but I'm not going to mess with it for now
+			//TODO: can probably put this in a loop. all charactesr only have 3-4 frames tops, so can loop through them with playerFrames variable
+			walkAnimation = new Animation();
+			walkAnimation.AddFrame(new Rectangle(0, 0, characterWidth - 1, characterHeight), TimeSpan.FromSeconds(animationSpeed));
+			walkAnimation.AddFrame(new Rectangle(characterWidth, 0, characterWidth - 1, characterHeight), TimeSpan.FromSeconds(animationSpeed));
+
+			standAnimation = new Animation();
+			standAnimation.AddFrame(new Rectangle(0, 0, characterWidth - 1, characterHeight), TimeSpan.FromSeconds(animationSpeed));
+
+			currentAnimation = standAnimation;
+
+			base.InitializeAnimation();
+		}
+
 		public override void Update(GameTime gameTime, bool buttonPressed)
 		{
 			HandleJump(gameTime);
 
 			base.Update(gameTime, buttonPressed);
+		}
+
+		public override void HandleMovement(GameTime gameTime)
+		{
+			if (Controller.leftButtonPressed)
+			{
+				Console.WriteLine("Character: Left button pressed");
+				Move(gameTime, LEFT);
+				UpdateCharacterBounds();
+			}
+			if (Controller.rightButtonPressed)
+			{
+				Console.WriteLine("Character: Right button pressed");
+				Move(gameTime, RIGHT);
+				UpdateCharacterBounds();
+			}
+		}
+
+		public override void HandleLevelBoundCollision(int direction, int boundX)
+		{
+			base.HandleLevelBoundCollision(direction, boundX);
+			MoveSword(direction);
+		}
+
+		public override void HandleAnimation(GameTime gameTime)
+		{
+			//TODO: preventing animation from changing while jumping works this way for now, but may need to change if more are added
+			if (!isJumping)
+			{
+				base.HandleAnimation(gameTime);
+			}
 		}
 
 		public void HandleJump(GameTime gameTime)
@@ -70,10 +119,10 @@ namespace TheAdventuresOf
 		public override void Move(GameTime gameTime, int direction)
 		{
 			base.Move(gameTime, direction);
-			MoveSword(gameTime, direction);
+			MoveSword(direction);
 		}
 
-		public void MoveSword(GameTime gameTime, int direction)
+		public void MoveSword(int direction)
 		{
 			switch (direction)
 			{
@@ -117,9 +166,9 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public override void Draw(SpriteBatch spriteBatch)
+		public override void Draw(SpriteBatch spriteBatch, Texture2D texture)
 		{
-			base.Draw(spriteBatch);
+			base.Draw(spriteBatch, texture);
 
 			if (moveRight)
 			{
