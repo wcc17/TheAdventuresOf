@@ -27,6 +27,12 @@ namespace TheAdventuresOf
 		public bool moveRight = true;
 		public bool isMoving;
 
+		//completely overriden methods
+		public virtual void HandleMovement(GameTime gameTime) { }
+		public virtual void InitializeAnimation() { }
+		public virtual void Move(GameTime gameTime, int direction) { }
+		public virtual void HandleAnimation(GameTime gameTime) { }
+
 		public virtual void InitializeCharacter(float startX, float startY, int characterWidth, int characterHeight)
 		{
 			Console.WriteLine("initializing character");
@@ -45,14 +51,6 @@ namespace TheAdventuresOf
 			characterBounds.Y = (int)positionVector.Y;
 		}
 
-		public virtual void HandleMovement(GameTime gameTime)
-		{
-		}
-
-		public virtual void InitializeAnimation()
-		{
-		}
-
 		public virtual void HandleLevelBoundCollision(int direction, int boundX)
 		{
 			switch (direction)
@@ -66,51 +64,10 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public virtual void Update(GameTime gameTime, bool buttonPressed)
+		//TODO: only player needs buttonPressed. leave as optional or give Monster its own Update method. Who knows yet
+		public virtual void Update(GameTime gameTime, bool buttonPressed = false)
 		{
 			HandleAnimation(gameTime);
-
-			//reset isMoving before checking again to see if player is still moving
-			isMoving = false;
-
-			if (buttonPressed)
-			{
-				HandleMovement(gameTime);
-			}
-		}
-
-		public virtual void HandleAnimation(GameTime gameTime)
-		{
-			if (isMoving)
-			{
-				currentAnimation = walkAnimation;
-				currentAnimation.Update(gameTime);
-			}
-			else {
-				currentAnimation = standAnimation;
-				currentAnimation.Update(gameTime);
-			}
-		}
-
-		public virtual void Move(GameTime gameTime, int direction)
-		{
-			switch (direction)
-			{
-				case LEFT:
-					isMoving = true;
-					moveRight = false;
-					moveLeft = true;
-
-					positionVector.X -= (speed * (float)gameTime.ElapsedGameTime.TotalSeconds);
-					break;
-				case RIGHT:
-					isMoving = true;
-					moveRight = true;
-					moveLeft = false;
-
-					positionVector.X += (speed * (float)gameTime.ElapsedGameTime.TotalSeconds);
-					break;
-			}
 		}
 
 		public virtual void Draw(SpriteBatch spriteBatch, Texture2D texture)

@@ -53,6 +53,14 @@ namespace TheAdventuresOf
 		{
 			HandleJump(gameTime);
 
+			//reset isMoving before checking again to see if player is still moving
+			isMoving = false;
+
+			if (buttonPressed)
+			{
+				HandleMovement(gameTime);
+			}
+
 			base.Update(gameTime, buttonPressed);
 		}
 
@@ -83,7 +91,15 @@ namespace TheAdventuresOf
 			//TODO: preventing animation from changing while jumping works this way for now, but may need to change if more are added
 			if (!isJumping)
 			{
-				base.HandleAnimation(gameTime);
+				if (isMoving)
+				{
+					currentAnimation = walkAnimation;
+					currentAnimation.Update(gameTime);
+				}
+				else {
+					currentAnimation = standAnimation;
+					currentAnimation.Update(gameTime);
+				}
 			}
 		}
 
@@ -118,7 +134,24 @@ namespace TheAdventuresOf
 
 		public override void Move(GameTime gameTime, int direction)
 		{
-			base.Move(gameTime, direction);
+			switch (direction)
+			{
+				case LEFT:
+					isMoving = true;
+					moveRight = false;
+					moveLeft = true;
+
+					positionVector.X -= (speed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+					break;
+				case RIGHT:
+					isMoving = true;
+					moveRight = true;
+					moveLeft = false;
+
+					positionVector.X += (speed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+					break;
+			}
+
 			MoveSword(direction);
 		}
 

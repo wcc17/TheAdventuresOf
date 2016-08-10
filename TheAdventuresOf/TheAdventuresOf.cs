@@ -90,7 +90,10 @@ namespace TheAdventuresOf
 
 			screen.Update(gameTime);
 			player.Update(gameTime, Controller.isButtonPressed);
+			blockMonster.Update(gameTime);
+
 			level.CheckCollision(player);
+			level.CheckCollision(blockMonster);
 
 			base.Update(gameTime);
 		}

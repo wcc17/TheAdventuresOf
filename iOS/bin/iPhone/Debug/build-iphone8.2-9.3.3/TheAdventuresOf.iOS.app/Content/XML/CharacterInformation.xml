@@ -16,6 +16,8 @@
       <Speed>200</Speed>
       <AnimationSpeed>0.08</AnimationSpeed>
       <FrameCount>2</FrameCount>
+      <MoveDistanceLimit>150</MoveDistanceLimit>
+      <MoveDelayTime>1.5</MoveDelayTime>
     </BlockMonster>
   </Monsters>
 </Characters>
