@@ -1,17 +1,18 @@
 ﻿<Properties StartupItem="iOS/TheAdventuresOf.iOS.csproj">
   <MonoDevelop.Ide.ItemProperties.TheAdventuresOf.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TheAdventuresOf/Character.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TheAdventuresOf/Monster.cs">
     <Files>
-      <File FileName="TheAdventuresOf/TheAdventuresOf.cs" Line="53" Column="4" />
+      <File FileName="TheAdventuresOf/TheAdventuresOf.cs" Line="97" Column="40" />
       <File FileName="TheAdventuresOf/Level.cs" Line="40" Column="5" />
-      <File FileName="TheAdventuresOf/Character.cs" Line="11" Column="3" />
       <File FileName="TheAdventuresOf/Screen.cs" Line="49" Column="4" />
       <File FileName="TheAdventuresOf/Controller.cs" Line="50" Column="11" />
       <File FileName="TheAdventuresOf/Button.cs" Line="44" Column="1" />
       <File FileName="TheAdventuresOf/Util/FrameRate.cs" Line="10" Column="3" />
-      <File FileName="TheAdventuresOf/AssetManager.cs" Line="18" Column="158" />
-      <File FileName="TheAdventuresOf/Player.cs" Line="7" Column="3" />
-      <File FileName="TheAdventuresOf/Util/XmlImporter.cs" Line="8" Column="4" />
+      <File FileName="TheAdventuresOf/Util/XmlImporter.cs" Line="36" Column="51" />
+      <File FileName="TheAdventuresOf/Monster.cs" Line="97" Column="46" />
+      <File FileName="TheAdventuresOf/Util/AssetManager.cs" Line="1" Column="1" />
+      <File FileName="TheAdventuresOf/Player.cs" Line="76" Column="5" NotebookId="1" />
+      <File FileName="TheAdventuresOf/Character.cs" Line="52" Column="4" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
@@ -19,5 +20,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.TheAdventuresOf.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
+  <MonoDevelop.Ide.ItemProperties.TheAdventuresOf.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.3b7e4d9f0e9abc8e5417ecd258baf36bfdf028d0" />
 </Properties>

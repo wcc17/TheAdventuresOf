@@ -27,3 +27,13 @@
 /Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/optimized/Content/sword_1080p.png
 /Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/optimized/
 /Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone8.2-9.3.3/optimized/Content/blockmonster_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/optimized/Content/blockmonster_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone7.2-9.3.3/optimized/GameThumbnail.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone7.2-9.3.3/optimized/Content/controller_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone7.2-9.3.3/optimized/Content/level1background_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone7.2-9.3.3/optimized/Content/splash_iphone6splus.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone7.2-9.3.3/optimized/Content/arrow_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone7.2-9.3.3/optimized/Content/character_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone7.2-9.3.3/optimized/Content/sword_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone7.2-9.3.3/optimized/Content/blockmonster_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone7.2-9.3.3/optimized/

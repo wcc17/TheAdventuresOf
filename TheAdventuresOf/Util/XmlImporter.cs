@@ -49,6 +49,7 @@ namespace TheAdventuresOf
 			blockMonster.frameCount = (int)blockMonsterElement.Element("FrameCount");
 			blockMonster.moveDistanceLimit = (int)blockMonsterElement.Element("MoveDistanceLimit");
 			blockMonster.moveDelayTime = (float)blockMonsterElement.Element("MoveDelayTime");
+			blockMonster.rotationSpeed = (float)blockMonsterElement.Element("RotationSpeed");
 			return blockMonster;
 		}
 

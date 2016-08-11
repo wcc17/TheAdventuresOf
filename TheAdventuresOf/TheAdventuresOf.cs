@@ -94,6 +94,7 @@ namespace TheAdventuresOf
 
 			level.CheckCollision(player);
 			level.CheckCollision(blockMonster);
+			player.CheckCollision(blockMonster);
 
 			base.Update(gameTime);
 		}

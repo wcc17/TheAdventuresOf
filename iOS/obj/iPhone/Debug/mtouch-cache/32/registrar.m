@@ -1501,17 +1501,19 @@ static id native_to_managed_trampoline_21 (id self, SEL _cmd, MonoMethod **manag
 		"MonoGame.Framework", 
 		"mscorlib", 
 		"System", 
+		"System.Xml", 
 		"Xamarin.iOS", 
 		"System.Core", 
 		"OpenTK-1.0", 
-		"System.Runtime.Serialization"
+		"System.Runtime.Serialization", 
+		"System.Xml.Linq"
 	};
 
 	static struct MTRegistrationMap __xamarin_registration_map = {
 		NULL,
 		__xamarin_registration_assemblies,
 		__xamarin_class_map,
-		8,
+		10,
 		79,
 		7
 	};

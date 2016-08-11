@@ -7,12 +7,16 @@ namespace TheAdventuresOf
 {
 	public class Monster : Character
 	{
+		public const float RIGHT_ANGLE_RADIANS = (90 * MathHelper.Pi) / 180;
+
 		public int moveDistanceLimit;
 		public float moveDelayTime;
+		public float rotationSpeed;
+		public bool isDead;
 
 		float distanceMoved = 0;
 		TimeSpan timeDelayed = TimeSpan.FromSeconds(0);
-		bool delayMove = false;
+		bool delayMove;
 
 		//don't want to instantiate a new Random object every frame
 		Random rand = new Random();
@@ -37,58 +41,102 @@ namespace TheAdventuresOf
 
 		public override void Update(GameTime gameTime, bool buttonPressed = false)
 		{
-			if (!delayMove)
+			//first check if monster should be dead. next check if move should be delayed. next check if we need to make a move
+			//finally, if we're moving, check to see if we need to stop moving and delay the next move
+			if (!isDead)
 			{
-				if (!isMoving)
+				if (!delayMove)
 				{
-					RandomizeMovement();
-				}
-				else {
-					if (distanceMoved > moveDistanceLimit)
+					if (!isMoving)
 					{
-						distanceMoved = 0;
-						isMoving = false;
-
-						delayMove = true;
+						RandomizeMovement();
 					}
+					else 
+					{
+						//stop movement
+						if (distanceMoved > moveDistanceLimit)
+						{
+							distanceMoved = 0;
+							isMoving = false;
 
-					//animation is handled here only 
-					base.Update(gameTime, false);
+							delayMove = true;
+						}
 
-					HandleMovement(gameTime);
+						//animation is handled here only 
+						base.Update(gameTime, false);
+
+						HandleMovement(gameTime);
+					}
+				}
+				else 
+				{
+					HandleDelay(gameTime);
 				}
 			}
-			else {
-				timeDelayed = timeDelayed.Add(gameTime.ElapsedGameTime);
-				if (timeDelayed.TotalSeconds > moveDelayTime)
+			else 
+			{
+				//TODO: I don't like that I'm setting this every frame, but I'll figure it out soon
+				currentAnimation = walkAnimation;
+				HandleDeath(gameTime);
+			}
+		}
+
+		void HandleDelay(GameTime gameTime)
+		{
+			timeDelayed = timeDelayed.Add(gameTime.ElapsedGameTime);
+			if (timeDelayed.TotalSeconds > moveDelayTime)
+			{
+				delayMove = false;
+				timeDelayed = TimeSpan.FromSeconds(0);
+			}
+		}
+
+		void HandleDeath(GameTime gameTime)
+		{
+			//should rotate 90 degrees to the direction opposite of the direction they're facing
+			//after that should slowly sink down into the ground until they're off screen, slowly becoming more transparent
+			if ( (moveLeft && rotation < RIGHT_ANGLE_RADIANS) || (moveRight && rotation > -RIGHT_ANGLE_RADIANS))
+			{
+				float degreesToRotate = rotationSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+				float radiansToRotate = (degreesToRotate * MathHelper.Pi) / 180;
+				if (moveLeft)
 				{
-					delayMove = false;
-					timeDelayed = TimeSpan.FromSeconds(0);
+					rotation += radiansToRotate;
+					Console.WriteLine("rotation = " + rotation);
+				}
+				else if (moveRight)
+				{
+					rotation -= radiansToRotate;
+					Console.WriteLine("rotation = " + rotation);
 				}
 			}
 		}
 
 		void RandomizeMovement()
 		{
-			int randNext = rand.Next(0, 2);
-			if (randNext == 0)
+			if (rand.Next(0, 2) == 0)
 			{
 				//if 0, start moving, otherwise don't
 				isMoving = true;
 
-				//and choose a random direction
-				if (rand.Next(0, 2) == 0)
-				{
-					moveRight = false;
-					moveLeft = true;
-				}
-				else {
-					moveLeft = false;
-					moveRight = true;
-				}
+				ChooseRandomDirection();
 			}
 			else {
 				delayMove = true;
+			}
+		}
+
+		void ChooseRandomDirection()
+		{
+			//and choose a random direction
+			if (rand.Next(0, 2) == 0)
+			{
+				moveRight = false;
+				moveLeft = true;
+			}
+			else {
+				moveLeft = false;
+				moveRight = true;
 			}
 		}
 

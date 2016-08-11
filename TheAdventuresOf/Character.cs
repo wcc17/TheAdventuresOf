@@ -10,10 +10,12 @@ namespace TheAdventuresOf
 
 		public float speed;
 		public float animationSpeed;
+		public float rotation = 0;
 
 		public Rectangle characterBounds;
 
 		public Vector2 positionVector;
+		public Vector2 originVector;
 
 		public int frameCount;
 		public Animation standAnimation;
@@ -40,12 +42,13 @@ namespace TheAdventuresOf
 			this.characterHeight = characterHeight;
 
 			positionVector = new Vector2(startX, startY);
+			originVector = new Vector2(characterWidth / 2, characterHeight / 2);
 
 			characterBounds = new Rectangle((int)positionVector.X, (int)positionVector.Y, characterWidth, characterHeight);
 			InitializeAnimation();
 		}
 
-		public void UpdateCharacterBounds()
+		public virtual void UpdateCharacterBounds()
 		{
 			characterBounds.X = (int)positionVector.X;
 			characterBounds.Y = (int)positionVector.Y;
@@ -77,10 +80,13 @@ namespace TheAdventuresOf
 
 			if (moveRight)
 			{
-				spriteBatch.Draw(texture, positionVector, sourceRectangle, Color.White);
+				spriteBatch.Draw(texture, positionVector, sourceRectangle: sourceRectangle,
+								 color: Color.White, rotation: rotation, effects: SpriteEffects.None);
 			}
-			else if(moveLeft) {
-				spriteBatch.Draw(texture, positionVector, sourceRectangle: sourceRectangle, color: Color.White, effects: SpriteEffects.FlipHorizontally);
+			else if (moveLeft)
+			{
+				spriteBatch.Draw(texture, positionVector, sourceRectangle: sourceRectangle,
+								 color: Color.White, rotation: rotation, effects: SpriteEffects.FlipHorizontally);
 			}
 		}
 	}

@@ -10,6 +10,7 @@ namespace TheAdventuresOf
 		public float jumpSpeed;
 		public float jumpHeight;
 
+		public Rectangle swordBounds;
 		public float leftSwordOffset;
 		public float rightSwordOffset;
 		public float swordYOffset;
@@ -29,6 +30,11 @@ namespace TheAdventuresOf
 			swordPositionVector = new Vector2(startX + characterWidth - rightSwordOffset, startY + swordYOffset);
 			jumpHeightLimit = startY - jumpHeight;
 			variableJumpSpeed = jumpSpeed;
+
+			swordBounds = new Rectangle((int)swordPositionVector.X, 
+			                            (int)swordPositionVector.Y, 
+			                            AssetManager.swordTexture.Width, 
+			                            AssetManager.swordTexture.Height);
 		}
 
 		public override void InitializeAnimation()
@@ -84,6 +90,19 @@ namespace TheAdventuresOf
 		{
 			base.HandleLevelBoundCollision(direction, boundX);
 			MoveSword(direction);
+		}
+
+		public void CheckCollision(Monster monster)
+		{
+			if (swordBounds.Intersects(monster.characterBounds))
+			{
+				monster.isDead = true;
+				Console.WriteLine("MONSTER DEAD");
+			}
+			else if (characterBounds.Intersects(monster.characterBounds))
+			{
+				Console.WriteLine("CHARACTER HURT");
+			}
 		}
 
 		public override void HandleAnimation(GameTime gameTime)
@@ -153,6 +172,18 @@ namespace TheAdventuresOf
 			}
 
 			MoveSword(direction);
+		}
+
+		public override void UpdateCharacterBounds()
+		{
+			base.UpdateCharacterBounds();
+			UpdateSwordBounds();
+		}
+
+		public void UpdateSwordBounds()
+		{
+			swordBounds.X = (int)swordPositionVector.X;
+			swordBounds.Y = (int)swordPositionVector.Y;
 		}
 
 		public void MoveSword(int direction)

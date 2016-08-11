@@ -311,7 +311,19 @@ System_Runtime_Serialization_DateTimeOffsetAdapter_set_OffsetMinutes_int16:
 
 Lme_d:
 .text
-ut_15:
+	.align 2
+	.no_dead_strip System_Runtime_Serialization_KnownTypeAttribute__ctor_System_Type
+System_Runtime_Serialization_KnownTypeAttribute__ctor_System_Type:
+
+	.byte 128,64,45,233,13,112,160,225,0,1,45,233,3,223,77,226,0,0,141,229,4,16,141,229,4,16,157,229,0,0,157,229
+	.byte 8,16,128,229,2,15,128,226
+bl _p_1
+
+	.byte 4,0,157,229,3,223,141,226,0,1,189,232,128,128,189,232
+
+Lme_e:
+.text
+ut_16:
 
 	.byte 8,0,128,226
 	b System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_get_Key
@@ -335,9 +347,9 @@ bl _mono_gsharedvt_value_copy
 
 	.byte 6,223,139,226,48,9,189,232,128,128,189,232
 
-Lme_f:
+Lme_10:
 .text
-ut_16:
+ut_17:
 
 	.byte 8,0,128,226
 	b System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_set_Key_K_GSHAREDVT
@@ -360,9 +372,9 @@ bl _mono_gsharedvt_value_copy
 
 	.byte 7,223,139,226,64,9,189,232,128,128,189,232
 
-Lme_10:
+Lme_11:
 .text
-ut_17:
+ut_18:
 
 	.byte 8,0,128,226
 	b System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_get_Value
@@ -386,9 +398,9 @@ bl _mono_gsharedvt_value_copy
 
 	.byte 6,223,139,226,48,9,189,232,128,128,189,232
 
-Lme_11:
+Lme_12:
 .text
-ut_18:
+ut_19:
 
 	.byte 8,0,128,226
 	b System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_set_Value_V_GSHAREDVT
@@ -411,7 +423,7 @@ bl _mono_gsharedvt_value_copy
 
 	.byte 7,223,139,226,64,9,189,232,128,128,189,232
 
-Lme_12:
+Lme_13:
 .text
 	.align 3
 jit_code_end:
@@ -435,6 +447,7 @@ bl System_Runtime_Serialization_DateTimeOffsetAdapter_get_UtcDateTime
 bl System_Runtime_Serialization_DateTimeOffsetAdapter_set_UtcDateTime_System_DateTime
 bl System_Runtime_Serialization_DateTimeOffsetAdapter_get_OffsetMinutes
 bl System_Runtime_Serialization_DateTimeOffsetAdapter_set_OffsetMinutes_int16
+bl System_Runtime_Serialization_KnownTypeAttribute__ctor_System_Type
 bl method_addresses
 bl System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_get_Key
 bl System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_set_Key_K_GSHAREDVT
@@ -447,7 +460,7 @@ method_addresses_end:
 unbox_trampolines:
 
 	.long 0,1,2,3,10,11,12,13
-	.long 15,16,17,18
+	.long 16,17,18,19
 unbox_trampolines_end:
 
 	.long 0
@@ -462,10 +475,10 @@ bl ut_10
 bl ut_11
 bl ut_12
 bl ut_13
-bl ut_15
 bl ut_16
 bl ut_17
 bl ut_18
+bl ut_19
 
 	.long 0
 .section __TEXT, __const
@@ -482,7 +495,8 @@ unwind_info:
 	.byte 14,8,68,11,31,12,13,0,68,14,8,135,2,72,14,12,136,3,142,1,68,14,32,2,48,10,68,14,12,68,8,8
 	.byte 14,8,68,11,40,12,13,0,68,14,8,135,2,72,14,16,136,4,139,3,142,1,68,14,32,68,13,11,2,32,10,68
 	.byte 13,13,14,16,68,8,8,8,11,14,8,68,11,30,12,13,0,68,14,8,135,2,72,14,12,136,3,142,1,68,14,24
-	.byte 76,10,68,14,12,68,8,8,14,8,68,11,48,12,13,0,68,14,8,135,2,72,14,24,132,6,133,5,136,4,139,3
+	.byte 76,10,68,14,12,68,8,8,14,8,68,11,31,12,13,0,68,14,8,135,2,72,14,12,136,3,142,1,68,14,24,2
+	.byte 32,10,68,14,12,68,8,8,14,8,68,11,48,12,13,0,68,14,8,135,2,72,14,24,132,6,133,5,136,4,139,3
 	.byte 142,1,68,14,48,68,13,11,2,136,10,68,13,13,14,24,68,8,4,8,5,8,8,8,11,14,8,68,11,44,12,13
 	.byte 0,68,14,8,135,2,72,14,20,134,5,136,4,139,3,142,1,68,14,48,68,13,11,2,100,10,68,13,13,14,20,68
 	.byte 8,6,8,8,8,11,14,8,68,11
@@ -496,55 +510,55 @@ plt_wrapper_write_barrier_object_wbarrier_noconc_intptr:
 _p_1:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_System_Runtime_Serialization_got - . + 56,387
+	.long mono_aot_System_Runtime_Serialization_got - . + 56,389
 	.no_dead_strip plt__rgctx_fetch_0
 plt__rgctx_fetch_0:
 _p_2:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_System_Runtime_Serialization_got - . + 60,412
+	.long mono_aot_System_Runtime_Serialization_got - . + 60,414
 	.no_dead_strip plt__rgctx_fetch_1
 plt__rgctx_fetch_1:
 _p_3:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_System_Runtime_Serialization_got - . + 64,451
+	.long mono_aot_System_Runtime_Serialization_got - . + 64,453
 	.no_dead_strip plt__rgctx_fetch_2
 plt__rgctx_fetch_2:
 _p_4:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_System_Runtime_Serialization_got - . + 68,476
+	.long mono_aot_System_Runtime_Serialization_got - . + 68,478
 	.no_dead_strip plt__rgctx_fetch_3
 plt__rgctx_fetch_3:
 _p_5:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_System_Runtime_Serialization_got - . + 72,512
+	.long mono_aot_System_Runtime_Serialization_got - . + 72,514
 	.no_dead_strip plt__rgctx_fetch_4
 plt__rgctx_fetch_4:
 _p_6:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_System_Runtime_Serialization_got - . + 76,537
+	.long mono_aot_System_Runtime_Serialization_got - . + 76,539
 	.no_dead_strip plt__rgctx_fetch_5
 plt__rgctx_fetch_5:
 _p_7:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_System_Runtime_Serialization_got - . + 80,576
+	.long mono_aot_System_Runtime_Serialization_got - . + 80,578
 	.no_dead_strip plt__rgctx_fetch_6
 plt__rgctx_fetch_6:
 _p_8:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_System_Runtime_Serialization_got - . + 84,601
+	.long mono_aot_System_Runtime_Serialization_got - . + 84,603
 	.no_dead_strip plt__rgctx_fetch_7
 plt__rgctx_fetch_7:
 _p_9:
 
 	.byte 0,192,159,229,12,240,159,231
-	.long mono_aot_System_Runtime_Serialization_got - . + 88,637
+	.long mono_aot_System_Runtime_Serialization_got - . + 88,639
 plt_end:
 .section __DATA, __bss
 	.align 3
@@ -656,8 +670,8 @@ _mono_aot_file_info:
 	.align 2
 	.long unbox_trampoline_addresses
 
-	.long 14,96,10,19,66,923871743,0,1408
-	.long 128,4,4,10,0,14,2016,600
+	.long 14,96,10,20,66,923871743,0,1462
+	.long 128,4,4,10,0,14,2072,600
 	.long 400,232,0,320,368,280,0,192
 	.long 48,0,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
@@ -1474,70 +1488,186 @@ LDIFF_SYM108=Lme_d - System_Runtime_Serialization_DateTimeOffsetAdapter_set_Offs
 Lfde13_end:
 
 .section __DWARF, __debug_info,regular,debug
+LTDIE_12:
+
+	.byte 5
+	.asciz "System_Reflection_MemberInfo"
+
+	.byte 8,16
+LDIFF_SYM109=LTDIE_2 - Ldebug_info_start
+	.long LDIFF_SYM109
+	.byte 2,35,0,0,7
+	.asciz "System_Reflection_MemberInfo"
+
+LDIFF_SYM110=LTDIE_12 - Ldebug_info_start
+	.long LDIFF_SYM110
+LTDIE_12_POINTER:
+
+	.byte 13
+LDIFF_SYM111=LTDIE_12 - Ldebug_info_start
+	.long LDIFF_SYM111
+LTDIE_12_REFERENCE:
+
+	.byte 14
+LDIFF_SYM112=LTDIE_12 - Ldebug_info_start
+	.long LDIFF_SYM112
+LTDIE_11:
+
+	.byte 5
+	.asciz "System_Type"
+
+	.byte 12,16
+LDIFF_SYM113=LTDIE_12 - Ldebug_info_start
+	.long LDIFF_SYM113
+	.byte 2,35,0,6
+	.asciz "_impl"
+
+LDIFF_SYM114=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM114
+	.byte 2,35,8,0,7
+	.asciz "System_Type"
+
+LDIFF_SYM115=LTDIE_11 - Ldebug_info_start
+	.long LDIFF_SYM115
+LTDIE_11_POINTER:
+
+	.byte 13
+LDIFF_SYM116=LTDIE_11 - Ldebug_info_start
+	.long LDIFF_SYM116
+LTDIE_11_REFERENCE:
+
+	.byte 14
+LDIFF_SYM117=LTDIE_11 - Ldebug_info_start
+	.long LDIFF_SYM117
 LTDIE_10:
+
+	.byte 5
+	.asciz "System_Runtime_Serialization_KnownTypeAttribute"
+
+	.byte 12,16
+LDIFF_SYM118=LTDIE_4 - Ldebug_info_start
+	.long LDIFF_SYM118
+	.byte 2,35,0,6
+	.asciz "type"
+
+LDIFF_SYM119=LTDIE_11_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM119
+	.byte 2,35,8,0,7
+	.asciz "System_Runtime_Serialization_KnownTypeAttribute"
+
+LDIFF_SYM120=LTDIE_10 - Ldebug_info_start
+	.long LDIFF_SYM120
+LTDIE_10_POINTER:
+
+	.byte 13
+LDIFF_SYM121=LTDIE_10 - Ldebug_info_start
+	.long LDIFF_SYM121
+LTDIE_10_REFERENCE:
+
+	.byte 14
+LDIFF_SYM122=LTDIE_10 - Ldebug_info_start
+	.long LDIFF_SYM122
+	.byte 2
+	.asciz "System.Runtime.Serialization.KnownTypeAttribute:.ctor"
+	.asciz "System_Runtime_Serialization_KnownTypeAttribute__ctor_System_Type"
+
+	.byte 5,18
+	.long System_Runtime_Serialization_KnownTypeAttribute__ctor_System_Type
+	.long Lme_e
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM123=LTDIE_10_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM123
+	.byte 2,125,0,3
+	.asciz "type"
+
+LDIFF_SYM124=LTDIE_11_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM124
+	.byte 2,125,4,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM125=Lfde14_end - Lfde14_start
+	.long LDIFF_SYM125
+Lfde14_start:
+
+	.long 0
+	.align 2
+	.long System_Runtime_Serialization_KnownTypeAttribute__ctor_System_Type
+
+LDIFF_SYM126=Lme_e - System_Runtime_Serialization_KnownTypeAttribute__ctor_System_Type
+	.long LDIFF_SYM126
+	.byte 68,14,8,135,2,72,14,12,136,3,142,1,68,14,24,2,32,10,68,14,12,68,8,8,14,8,68,11
+	.align 2
+Lfde14_end:
+
+.section __DWARF, __debug_info,regular,debug
+LTDIE_13:
 
 	.byte 5
 	.asciz "System_Runtime_Serialization_KeyValue`2"
 
 	.byte 16,16
-LDIFF_SYM109=LTDIE_1 - Ldebug_info_start
-	.long LDIFF_SYM109
+LDIFF_SYM127=LTDIE_1 - Ldebug_info_start
+	.long LDIFF_SYM127
 	.byte 2,35,0,6
 	.asciz "key"
 
-LDIFF_SYM110=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM110
+LDIFF_SYM128=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM128
 	.byte 2,35,8,6
 	.asciz "value"
 
-LDIFF_SYM111=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM111
+LDIFF_SYM129=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM129
 	.byte 2,35,12,0,7
 	.asciz "System_Runtime_Serialization_KeyValue`2"
 
-LDIFF_SYM112=LTDIE_10 - Ldebug_info_start
-	.long LDIFF_SYM112
-LTDIE_10_POINTER:
+LDIFF_SYM130=LTDIE_13 - Ldebug_info_start
+	.long LDIFF_SYM130
+LTDIE_13_POINTER:
 
 	.byte 13
-LDIFF_SYM113=LTDIE_10 - Ldebug_info_start
-	.long LDIFF_SYM113
-LTDIE_10_REFERENCE:
+LDIFF_SYM131=LTDIE_13 - Ldebug_info_start
+	.long LDIFF_SYM131
+LTDIE_13_REFERENCE:
 
 	.byte 14
-LDIFF_SYM114=LTDIE_10 - Ldebug_info_start
-	.long LDIFF_SYM114
+LDIFF_SYM132=LTDIE_13 - Ldebug_info_start
+	.long LDIFF_SYM132
 	.byte 2
 	.asciz "System.Runtime.Serialization.KeyValue`2<K_GSHAREDVT,_V_GSHAREDVT>:get_Key"
 	.asciz "System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_get_Key"
 
 	.byte 1,41
 	.long System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_get_Key
-	.long Lme_f
+	.long Lme_10
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM115=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM115
+LDIFF_SYM133=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM133
 	.byte 2,123,8,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM116=Lfde14_end - Lfde14_start
-	.long LDIFF_SYM116
-Lfde14_start:
+LDIFF_SYM134=Lfde15_end - Lfde15_start
+	.long LDIFF_SYM134
+Lfde15_start:
 
 	.long 0
 	.align 2
 	.long System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_get_Key
 
-LDIFF_SYM117=Lme_f - System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_get_Key
-	.long LDIFF_SYM117
+LDIFF_SYM135=Lme_10 - System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_get_Key
+	.long LDIFF_SYM135
 	.byte 68,14,8,135,2,72,14,24,132,6,133,5,136,4,139,3,142,1,68,14,48,68,13,11,2,136,10,68,13,13,14,24
 	.byte 68,8,4,8,5,8,8,8,11,14,8,68,11
 	.align 2
-Lfde14_end:
+Lfde15_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -1547,36 +1677,36 @@ Lfde14_end:
 
 	.byte 1,42
 	.long System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_set_Key_K_GSHAREDVT
-	.long Lme_10
+	.long Lme_11
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM118=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM118
+LDIFF_SYM136=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM136
 	.byte 2,123,8,3
 	.asciz "value"
 
-LDIFF_SYM119=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM119
+LDIFF_SYM137=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM137
 	.byte 1,80,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM120=Lfde15_end - Lfde15_start
-	.long LDIFF_SYM120
-Lfde15_start:
+LDIFF_SYM138=Lfde16_end - Lfde16_start
+	.long LDIFF_SYM138
+Lfde16_start:
 
 	.long 0
 	.align 2
 	.long System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_set_Key_K_GSHAREDVT
 
-LDIFF_SYM121=Lme_10 - System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_set_Key_K_GSHAREDVT
-	.long LDIFF_SYM121
+LDIFF_SYM139=Lme_11 - System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_set_Key_K_GSHAREDVT
+	.long LDIFF_SYM139
 	.byte 68,14,8,135,2,72,14,20,134,5,136,4,139,3,142,1,68,14,48,68,13,11,2,100,10,68,13,13,14,20,68,8
 	.byte 6,8,8,8,11,14,8,68,11
 	.align 2
-Lfde15_end:
+Lfde16_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -1586,31 +1716,31 @@ Lfde15_end:
 
 	.byte 1,48
 	.long System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_get_Value
-	.long Lme_11
+	.long Lme_12
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM122=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM122
+LDIFF_SYM140=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM140
 	.byte 2,123,8,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM123=Lfde16_end - Lfde16_start
-	.long LDIFF_SYM123
-Lfde16_start:
+LDIFF_SYM141=Lfde17_end - Lfde17_start
+	.long LDIFF_SYM141
+Lfde17_start:
 
 	.long 0
 	.align 2
 	.long System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_get_Value
 
-LDIFF_SYM124=Lme_11 - System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_get_Value
-	.long LDIFF_SYM124
+LDIFF_SYM142=Lme_12 - System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_get_Value
+	.long LDIFF_SYM142
 	.byte 68,14,8,135,2,72,14,24,132,6,133,5,136,4,139,3,142,1,68,14,48,68,13,11,2,136,10,68,13,13,14,24
 	.byte 68,8,4,8,5,8,8,8,11,14,8,68,11
 	.align 2
-Lfde16_end:
+Lfde17_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -1620,36 +1750,36 @@ Lfde16_end:
 
 	.byte 1,49
 	.long System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_set_Value_V_GSHAREDVT
-	.long Lme_12
+	.long Lme_13
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM125=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM125
+LDIFF_SYM143=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM143
 	.byte 2,123,8,3
 	.asciz "value"
 
-LDIFF_SYM126=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM126
+LDIFF_SYM144=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM144
 	.byte 1,80,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM127=Lfde17_end - Lfde17_start
-	.long LDIFF_SYM127
-Lfde17_start:
+LDIFF_SYM145=Lfde18_end - Lfde18_start
+	.long LDIFF_SYM145
+Lfde18_start:
 
 	.long 0
 	.align 2
 	.long System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_set_Value_V_GSHAREDVT
 
-LDIFF_SYM128=Lme_12 - System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_set_Value_V_GSHAREDVT
-	.long LDIFF_SYM128
+LDIFF_SYM146=Lme_13 - System_Runtime_Serialization_KeyValue_2_K_GSHAREDVT_V_GSHAREDVT_set_Value_V_GSHAREDVT
+	.long LDIFF_SYM146
 	.byte 68,14,8,135,2,72,14,20,134,5,136,4,139,3,142,1,68,14,48,68,13,11,2,100,10,68,13,13,14,20,68,8
 	.byte 6,8,8,8,11,14,8,68,11
 	.align 2
-Lfde17_end:
+Lfde18_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -1677,6 +1807,9 @@ Ldebug_line_start:
 
 	.byte 1,0,0
 	.asciz "DateTimeOffsetAdapter.cs"
+
+	.byte 1,0,0
+	.asciz "KnownTypeAttribute.cs"
 
 	.byte 1,0,0
 	.asciz "<unknown>"
@@ -1767,6 +1900,12 @@ Ldebug_line_header_end:
 	.long System_Runtime_Serialization_DateTimeOffsetAdapter_set_OffsetMinutes_int16
 
 	.byte 4,4,1,10,3,37,2,32,1,2,16,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,5,2
+	.long System_Runtime_Serialization_KnownTypeAttribute__ctor_System_Type
+
+	.byte 4,5,1,10,3,19,2,32,1,2,28,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,5,2

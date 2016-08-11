@@ -18,6 +18,7 @@
       <FrameCount>2</FrameCount>
       <MoveDistanceLimit>150</MoveDistanceLimit>
       <MoveDelayTime>1.5</MoveDelayTime>
+      <RotationSpeed>500</RotationSpeed>
     </BlockMonster>
   </Monsters>
 </Characters>
