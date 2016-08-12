@@ -18,3 +18,4 @@
 /Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/TheAdventuresOf.iOS.exe
 /Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/TheAdventuresOf.iOS.exe.mdb
 /Users/wcc17/Development/TheAdventuresOf/iOS/bin/iPhoneSimulator/Debug/MonoGame.Framework.dll
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/optimized/Content/blockmonster_1080p.png

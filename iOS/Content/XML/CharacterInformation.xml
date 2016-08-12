@@ -19,6 +19,7 @@
       <MoveDistanceLimit>150</MoveDistanceLimit>
       <MoveDelayTime>1.5</MoveDelayTime>
       <RotationSpeed>500</RotationSpeed>
+      <SinkSpeed>300</SinkSpeed>
     </BlockMonster>
   </Monsters>
 </Characters>

@@ -7,11 +7,13 @@ namespace TheAdventuresOf
 {
 	public class Monster : Character
 	{
-		public const float RIGHT_ANGLE_RADIANS = (90 * MathHelper.Pi) / 180;
+		public static float RIGHT_ANGLE_RADIANS = (90 * MathHelper.Pi) / 180;
 
 		public int moveDistanceLimit;
 		public float moveDelayTime;
 		public float rotationSpeed;
+		public float sinkSpeed;
+		public bool isDying;
 		public bool isDead;
 
 		float distanceMoved = 0;
@@ -43,7 +45,7 @@ namespace TheAdventuresOf
 		{
 			//first check if monster should be dead. next check if move should be delayed. next check if we need to make a move
 			//finally, if we're moving, check to see if we need to stop moving and delay the next move
-			if (!isDead)
+			if (!isDying)
 			{
 				if (!delayMove)
 				{
@@ -95,7 +97,7 @@ namespace TheAdventuresOf
 		{
 			//should rotate 90 degrees to the direction opposite of the direction they're facing
 			//after that should slowly sink down into the ground until they're off screen, slowly becoming more transparent
-			if ( (moveLeft && rotation < RIGHT_ANGLE_RADIANS) || (moveRight && rotation > -RIGHT_ANGLE_RADIANS))
+			if ((moveLeft && rotation < RIGHT_ANGLE_RADIANS) || (moveRight && rotation > -RIGHT_ANGLE_RADIANS))
 			{
 				float degreesToRotate = rotationSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 				float radiansToRotate = (degreesToRotate * MathHelper.Pi) / 180;
@@ -109,6 +111,15 @@ namespace TheAdventuresOf
 					rotation -= radiansToRotate;
 					Console.WriteLine("rotation = " + rotation);
 				}
+			}
+			else if (positionVector.Y < Screen.FULL_SCREEN_HEIGHT)
+			{
+				positionVector.Y += (sinkSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+			}
+			else
+			{
+				isDead = true;
+				Console.WriteLine("Monster is completely dead.");	
 			}
 		}
 

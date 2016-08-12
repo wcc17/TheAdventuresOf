@@ -29,6 +29,8 @@ namespace TheAdventuresOf
 		public bool moveRight = true;
 		public bool isMoving;
 
+		public Color tintColor = Color.White;
+
 		//completely overriden methods
 		public virtual void HandleMovement(GameTime gameTime) { }
 		public virtual void InitializeAnimation() { }
@@ -42,9 +44,13 @@ namespace TheAdventuresOf
 			this.characterHeight = characterHeight;
 
 			positionVector = new Vector2(startX, startY);
-			originVector = new Vector2(characterWidth / 2, characterHeight / 2);
+			originVector = new Vector2(characterWidth / 2, 
+			                           characterHeight / 2);
 
-			characterBounds = new Rectangle((int)positionVector.X, (int)positionVector.Y, characterWidth, characterHeight);
+			characterBounds = new Rectangle((int)positionVector.X, 
+			                                (int)positionVector.Y, 
+			                                characterWidth, 
+			                                characterHeight);
 			InitializeAnimation();
 		}
 
@@ -80,13 +86,23 @@ namespace TheAdventuresOf
 
 			if (moveRight)
 			{
-				spriteBatch.Draw(texture, positionVector, sourceRectangle: sourceRectangle,
-								 color: Color.White, rotation: rotation, effects: SpriteEffects.None);
+				spriteBatch.Draw(texture, 
+				                 new Vector2(positionVector.X + originVector.X, positionVector.Y + originVector.Y), 
+				                 sourceRectangle: sourceRectangle,
+								 color: tintColor, 
+				                 rotation: rotation, 
+				                 effects: SpriteEffects.None,
+				                 origin: originVector);
 			}
 			else if (moveLeft)
 			{
-				spriteBatch.Draw(texture, positionVector, sourceRectangle: sourceRectangle,
-								 color: Color.White, rotation: rotation, effects: SpriteEffects.FlipHorizontally);
+				spriteBatch.Draw(texture, 
+				                 new Vector2(positionVector.X + originVector.X, positionVector.Y + originVector.Y), 
+				                 sourceRectangle: sourceRectangle,
+				                 color: tintColor, 
+				                 rotation: rotation, 
+				                 effects: SpriteEffects.FlipHorizontally,
+				                 origin: originVector);
 			}
 		}
 	}

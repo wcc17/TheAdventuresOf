@@ -96,7 +96,7 @@ namespace TheAdventuresOf
 		{
 			if (swordBounds.Intersects(monster.characterBounds))
 			{
-				monster.isDead = true;
+				monster.isDying = true;
 				Console.WriteLine("MONSTER DEAD");
 			}
 			else if (characterBounds.Intersects(monster.characterBounds))

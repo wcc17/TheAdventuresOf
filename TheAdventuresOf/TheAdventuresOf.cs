@@ -90,11 +90,29 @@ namespace TheAdventuresOf
 
 			screen.Update(gameTime);
 			player.Update(gameTime, Controller.isButtonPressed);
-			blockMonster.Update(gameTime);
+
+			//TODO: eventually this will be handled else where when there are more than one monsters, but this is fine for only one.
+			//preferablly they will just be removed from a collection that is being updated or drawn
+			if (!blockMonster.isDead)
+			{
+				blockMonster.Update(gameTime);
+			}
 
 			level.CheckCollision(player);
-			level.CheckCollision(blockMonster);
-			player.CheckCollision(blockMonster);
+
+			//TODO: eventually this will be handled else where when there are more than one monsters, but this is fine for only one.
+			//preferablly they will just be removed from a collection that is being updated or drawn
+			if (!blockMonster.isDead)
+			{
+				level.CheckCollision(blockMonster);
+			}
+
+			//TODO: eventually this will be handled else where when there are more than one monsters, but this is fine for only one.
+			//preferablly they will just be removed from a collection that is being updated or drawn
+			if (!blockMonster.isDead)
+			{
+				player.CheckCollision(blockMonster);
+			}
 
 			base.Update(gameTime);
 		}
@@ -112,8 +130,13 @@ namespace TheAdventuresOf
 			//Draw background 
 			level.Draw(spriteBatch);
 
-			//Draw monster
-			blockMonster.Draw(spriteBatch, AssetManager.blockMonsterTexture);
+			//TODO: eventually this will be handled else where when there are more than one monsters, but this is fine for only one.
+			//preferablly they will just be removed from a collection that is being updated or drawn
+			if (!blockMonster.isDead)
+			{
+				//Draw monster
+				blockMonster.Draw(spriteBatch, AssetManager.blockMonsterTexture);
+			}
 
 			//Draw player
 			player.Draw(spriteBatch, AssetManager.playerTexture);
