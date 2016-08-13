@@ -7,21 +7,42 @@ namespace TheAdventuresOf
 {
 	public class Monster : Character
 	{
+		public static int UP = 0;
+		public static int DOWN = 1;
 		public static float RIGHT_ANGLE_RADIANS = (90 * MathHelper.Pi) / 180;
 
 		public int moveDistanceLimit;
 		public float moveDelayTime;
 		public float rotationSpeed;
-		public float sinkSpeed;
+		public float upDownSpeed;
+		public bool isSpawning;
 		public bool isDying;
 		public bool isDead;
 
-		float distanceMoved = 0;
 		TimeSpan timeDelayed = TimeSpan.FromSeconds(0);
+		float distanceMoved;
 		bool delayMove;
 
 		//don't want to instantiate a new Random object every frame
 		Random rand = new Random();
+
+		public void InitializeSpawn()
+		{
+			reset();
+
+			//assuming that new X position is set in main Update function for now
+			ChooseRandomDirection();
+			if (moveLeft)
+			{
+				rotation = RIGHT_ANGLE_RADIANS;
+			}
+			else
+			{
+				rotation = -RIGHT_ANGLE_RADIANS;
+			}
+
+			isSpawning = true;
+		}
 
 		public override void InitializeAnimation()
 		{
@@ -41,48 +62,6 @@ namespace TheAdventuresOf
 			base.HandleLevelBoundCollision(direction, boundX);
 		}
 
-		public override void Update(GameTime gameTime, bool buttonPressed = false)
-		{
-			//first check if monster should be dead. next check if move should be delayed. next check if we need to make a move
-			//finally, if we're moving, check to see if we need to stop moving and delay the next move
-			if (!isDying)
-			{
-				if (!delayMove)
-				{
-					if (!isMoving)
-					{
-						RandomizeMovement();
-					}
-					else 
-					{
-						//stop movement
-						if (distanceMoved > moveDistanceLimit)
-						{
-							distanceMoved = 0;
-							isMoving = false;
-
-							delayMove = true;
-						}
-
-						//animation is handled here only 
-						base.Update(gameTime, false);
-
-						HandleMovement(gameTime);
-					}
-				}
-				else 
-				{
-					HandleDelay(gameTime);
-				}
-			}
-			else 
-			{
-				//TODO: I don't like that I'm setting this every frame, but I'll figure it out soon
-				currentAnimation = walkAnimation;
-				HandleDeath(gameTime);
-			}
-		}
-
 		void HandleDelay(GameTime gameTime)
 		{
 			timeDelayed = timeDelayed.Add(gameTime.ElapsedGameTime);
@@ -93,33 +72,182 @@ namespace TheAdventuresOf
 			}
 		}
 
+		void HandleSpawn(GameTime gameTime)
+		{
+			if (positionVector.Y > Level.groundLevel)
+			{
+				MoveUpDown(gameTime, UP);
+			}
+			else if( (moveLeft && rotation > 0) || (moveRight && rotation < 0) )
+			{
+				Console.WriteLine("Rotation: " + rotation);
+				Rotate(gameTime);
+			}
+			else
+			{
+				rotation = 0;
+				isSpawning = false;
+				currentAnimation = standAnimation;
+				UpdateCharacterBounds();
+				Console.WriteLine("Monster is done spawning");
+			}
+				
+		}
+
 		void HandleDeath(GameTime gameTime)
 		{
 			//should rotate 90 degrees to the direction opposite of the direction they're facing
 			//after that should slowly sink down into the ground until they're off screen, slowly becoming more transparent
-			if ((moveLeft && rotation < RIGHT_ANGLE_RADIANS) || (moveRight && rotation > -RIGHT_ANGLE_RADIANS))
+			if ((moveLeft && rotation > -RIGHT_ANGLE_RADIANS) || (moveRight && rotation < RIGHT_ANGLE_RADIANS))
 			{
-				float degreesToRotate = rotationSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-				float radiansToRotate = (degreesToRotate * MathHelper.Pi) / 180;
-				if (moveLeft)
-				{
-					rotation += radiansToRotate;
-					Console.WriteLine("rotation = " + rotation);
-				}
-				else if (moveRight)
-				{
-					rotation -= radiansToRotate;
-					Console.WriteLine("rotation = " + rotation);
-				}
+				Rotate(gameTime);
 			}
 			else if (positionVector.Y < Screen.FULL_SCREEN_HEIGHT)
 			{
-				positionVector.Y += (sinkSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+				MoveUpDown(gameTime, DOWN);
 			}
 			else
 			{
 				isDead = true;
-				Console.WriteLine("Monster is completely dead.");	
+				Console.WriteLine("Monster is completely dead.");
+			}
+		}
+
+		public override void HandleAnimation(GameTime gameTime)
+		{
+			if (isMoving)
+			{
+				currentAnimation = walkAnimation;
+			}
+			else {
+				currentAnimation = standAnimation;
+			}
+		}
+
+		public override void HandleMovement(GameTime gameTime)
+		{
+			if (moveLeft)
+			{
+				Move(gameTime, LEFT);
+				UpdateCharacterBounds();
+			}
+			else if (moveRight)
+			{
+				Move(gameTime, RIGHT);
+				UpdateCharacterBounds();
+			}
+		}
+
+		public override void Update(GameTime gameTime, bool buttonPressed = false)
+		{
+			if (!isDying && !delayMove && !isSpawning)
+			{
+				//only try to move if we're not dying, delaying or spawning
+				if (!isMoving)
+				{
+					RandomizeMovement();
+				}
+				else
+				{
+					//stop movement
+					if (distanceMoved > moveDistanceLimit)
+					{
+						distanceMoved = 0;
+						isMoving = false;
+
+						delayMove = true;
+					}
+
+					//animation is handled here only 
+					base.Update(gameTime, false);
+
+					HandleMovement(gameTime);
+				}
+			}
+			else if (delayMove && !isDying && !isSpawning)
+			{
+				//only delay if we're not dying and not spawning
+				HandleDelay(gameTime);
+			}
+			else if (isDying && !isSpawning)
+			{
+				//only die if we're not spawning
+				//TODO: I don't like that I'm setting this every frame, but I'll figure it out soon
+				currentAnimation = walkAnimation;
+				HandleDeath(gameTime);
+			}
+			else if (isSpawning)
+			{
+				//only spawn if nothing else is going on
+				HandleSpawn(gameTime);
+			}
+
+			//i think i like the way i'm handling things better above, but keeping this around for a little bit to be sure
+			//first check if monster should be dead. next check if move should be delayed. next check if we need to make a move
+			//finally, if we're moving, check to see if we need to stop moving and delay the next move
+			//if (!isDying)
+			//{
+			//	if (!delayMove)
+			//	{
+			//		if (!isMoving)
+			//		{
+			//			RandomizeMovement();
+			//		}
+			//		else 
+			//		{
+			//			//stop movement
+			//			if (distanceMoved > moveDistanceLimit)
+			//			{
+			//				distanceMoved = 0;
+			//				isMoving = false;
+
+			//				delayMove = true;
+			//			}
+
+			//			//animation is handled here only 
+			//			base.Update(gameTime, false);
+
+			//			HandleMovement(gameTime);
+			//		}
+			//	}
+			//	else 
+			//	{
+			//		HandleDelay(gameTime);
+			//	}
+			//}
+			//else 
+			//{
+			//	//TODO: I don't like that I'm setting this every frame, but I'll figure it out soon
+			//	currentAnimation = walkAnimation;
+			//	HandleDeath(gameTime);
+			//}
+		}
+
+		void Rotate(GameTime gameTime)
+		{
+			float degreesToRotate = rotationSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+			float radiansToRotate = (degreesToRotate * MathHelper.Pi) / 180;
+			if (moveLeft)
+			{
+				rotation -= radiansToRotate;
+				Console.WriteLine("rotation = " + rotation);
+			}
+			else if (moveRight)
+			{
+				rotation += radiansToRotate;
+				Console.WriteLine("rotation = " + rotation);
+			}
+		}
+
+		void MoveUpDown(GameTime gameTime, int direction)
+		{
+			if (direction == UP)
+			{
+				positionVector.Y -= (upDownSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+			}
+			else 
+			{
+				positionVector.Y += (upDownSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
 			}
 		}
 
@@ -151,30 +279,6 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public override void HandleAnimation(GameTime gameTime)
-		{
-			if (isMoving)
-			{
-				currentAnimation = walkAnimation;
-			}
-			else {
-				currentAnimation = standAnimation;
-			}
-		}
-
-		public override void HandleMovement(GameTime gameTime)
-		{
-			if (moveLeft)
-			{
-				Move(gameTime, LEFT);
-				UpdateCharacterBounds();
-			}
-			else if (moveRight) {
-				Move(gameTime, RIGHT);
-				UpdateCharacterBounds();
-			}
-		}
-
 		public override void Move(GameTime gameTime, int direction)
 		{
 			float distanceToMove = (speed * (float)gameTime.ElapsedGameTime.TotalSeconds);
@@ -194,6 +298,16 @@ namespace TheAdventuresOf
 		public override void Draw(SpriteBatch spriteBatch, Texture2D texture)
 		{
 			base.Draw(spriteBatch, texture);
+		}
+
+		public void reset()
+		{
+			isSpawning = false;
+			isDying = false;
+			isDead = false;
+			delayMove = false;
+			distanceMoved = 0;
+			timeDelayed = TimeSpan.FromSeconds(0);
 		}
 	}
 }

@@ -97,6 +97,12 @@ namespace TheAdventuresOf
 			{
 				blockMonster.Update(gameTime);
 			}
+			else 
+			{
+				Console.WriteLine("Resetting monster");
+				blockMonster.positionVector.X = level.GetRandomXLocation(blockMonster.characterWidth);
+				blockMonster.InitializeSpawn();
+			}
 
 			level.CheckCollision(player);
 

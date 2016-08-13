@@ -14,6 +14,8 @@ namespace TheAdventuresOf
 
 		public static float groundLevel = 690f;
 
+		static Random rand = new Random();
+
 		public Level()
 		{
 			levelPositionVector = new Vector2(0, 0);
@@ -38,6 +40,15 @@ namespace TheAdventuresOf
 				Console.WriteLine("Intersecting on the right");
 				character.HandleLevelBoundCollision(Character.RIGHT, AssetManager.levelTexture.Width - rightBoundWidth);
 			}
+		}
+
+		public int GetRandomXLocation(float characterWidth)
+		{
+			//character width is necessary to make sure we don't spawn a monster (x is the top left corner) on top of a boundary
+			//when generating a random number, it goes up to the second number - 1, which is why we include + 1
+			int X = rand.Next(135, AssetManager.levelTexture.Width - rightBoundWidth - (int)characterWidth + 1);
+
+			return X;
 		}
 
 		public void Draw(SpriteBatch spriteBatch)

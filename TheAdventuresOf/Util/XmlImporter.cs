@@ -50,7 +50,7 @@ namespace TheAdventuresOf
 			blockMonster.moveDistanceLimit = (int)blockMonsterElement.Element("MoveDistanceLimit");
 			blockMonster.moveDelayTime = (float)blockMonsterElement.Element("MoveDelayTime");
 			blockMonster.rotationSpeed = (float)blockMonsterElement.Element("RotationSpeed");
-			blockMonster.sinkSpeed = (float)blockMonsterElement.Element("SinkSpeed");
+			blockMonster.upDownSpeed = (float)blockMonsterElement.Element("UpDownSpeed");
 			return blockMonster;
 		}
 

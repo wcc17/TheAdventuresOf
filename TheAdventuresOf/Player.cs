@@ -74,13 +74,11 @@ namespace TheAdventuresOf
 		{
 			if (Controller.leftButtonPressed)
 			{
-				Console.WriteLine("Character: Left button pressed");
 				Move(gameTime, LEFT);
 				UpdateCharacterBounds();
 			}
 			if (Controller.rightButtonPressed)
 			{
-				Console.WriteLine("Character: Right button pressed");
 				Move(gameTime, RIGHT);
 				UpdateCharacterBounds();
 			}
@@ -126,7 +124,6 @@ namespace TheAdventuresOf
 		{
 			if (Controller.upButtonPressed)
 			{
-				Console.WriteLine("Character: Up button pressed");
 				hasJumped = true;
 			}
 

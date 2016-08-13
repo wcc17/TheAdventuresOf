@@ -31,21 +31,18 @@ namespace TheAdventuresOf
 		{
 			if (leftButton.IsPressed(point))
 			{
-				Console.WriteLine("Controller: Left button pressed");
 				isButtonPressed = true;
 				leftButtonPressed = true;
 			}
 
 			if (rightButton.IsPressed(point))
 			{
-				Console.WriteLine("Controller: Right button pressed");
 				isButtonPressed = true;
 				rightButtonPressed = true;
 			}
 
 			if (upButton.IsPressed(point))
 			{
-				Console.WriteLine("Controller: Up button pressed");
 				isButtonPressed = true;
 				upButtonPressed = true;
 			}
