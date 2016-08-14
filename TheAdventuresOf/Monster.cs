@@ -10,6 +10,7 @@ namespace TheAdventuresOf
 		public static int UP = 0;
 		public static int DOWN = 1;
 		public static float RIGHT_ANGLE_RADIANS = (90 * MathHelper.Pi) / 180;
+		public float groundLevel;
 
 		public int moveDistanceLimit;
 		public float moveDelayTime;
@@ -25,6 +26,14 @@ namespace TheAdventuresOf
 
 		//don't want to instantiate a new Random object every frame
 		Random rand = new Random();
+
+		public void InitializeMonsterAfterSpawn()
+		{
+			rotation = 0;
+			isSpawning = false;
+			currentAnimation = standAnimation;
+			UpdateCharacterBounds();
+		}
 
 		public void InitializeSpawn()
 		{
@@ -47,10 +56,16 @@ namespace TheAdventuresOf
 		public override void InitializeAnimation()
 		{
 			walkAnimation = new Animation();
-			walkAnimation.AddFrame(new Rectangle(characterWidth, 0, characterWidth, characterHeight), TimeSpan.FromSeconds(animationSpeed));
+			walkAnimation.AddFrame(new Rectangle(characterWidth, 
+			                                     0, 
+			                                     characterWidth,
+			                                     characterHeight), TimeSpan.FromSeconds(animationSpeed));
 
 			standAnimation = new Animation();
-			standAnimation.AddFrame(new Rectangle(0, 0, characterWidth, characterHeight), TimeSpan.FromSeconds(animationSpeed));
+			standAnimation.AddFrame(new Rectangle(0,
+			                                      0,
+			                                      characterWidth,
+			                                      characterHeight), TimeSpan.FromSeconds(animationSpeed));
 
 			currentAnimation = standAnimation;
 
@@ -74,24 +89,18 @@ namespace TheAdventuresOf
 
 		void HandleSpawn(GameTime gameTime)
 		{
-			if (positionVector.Y > Level.groundLevel)
+			if (positionVector.Y > groundLevel)
 			{
 				MoveUpDown(gameTime, UP);
 			}
 			else if( (moveLeft && rotation > 0) || (moveRight && rotation < 0) )
 			{
-				Console.WriteLine("Rotation: " + rotation);
 				Rotate(gameTime);
 			}
 			else
 			{
-				rotation = 0;
-				isSpawning = false;
-				currentAnimation = standAnimation;
-				UpdateCharacterBounds();
-				Console.WriteLine("Monster is done spawning");
+				InitializeMonsterAfterSpawn();
 			}
-				
 		}
 
 		void HandleDeath(GameTime gameTime)
@@ -109,7 +118,6 @@ namespace TheAdventuresOf
 			else
 			{
 				isDead = true;
-				Console.WriteLine("Monster is completely dead.");
 			}
 		}
 
@@ -181,46 +189,6 @@ namespace TheAdventuresOf
 				//only spawn if nothing else is going on
 				HandleSpawn(gameTime);
 			}
-
-			//i think i like the way i'm handling things better above, but keeping this around for a little bit to be sure
-			//first check if monster should be dead. next check if move should be delayed. next check if we need to make a move
-			//finally, if we're moving, check to see if we need to stop moving and delay the next move
-			//if (!isDying)
-			//{
-			//	if (!delayMove)
-			//	{
-			//		if (!isMoving)
-			//		{
-			//			RandomizeMovement();
-			//		}
-			//		else 
-			//		{
-			//			//stop movement
-			//			if (distanceMoved > moveDistanceLimit)
-			//			{
-			//				distanceMoved = 0;
-			//				isMoving = false;
-
-			//				delayMove = true;
-			//			}
-
-			//			//animation is handled here only 
-			//			base.Update(gameTime, false);
-
-			//			HandleMovement(gameTime);
-			//		}
-			//	}
-			//	else 
-			//	{
-			//		HandleDelay(gameTime);
-			//	}
-			//}
-			//else 
-			//{
-			//	//TODO: I don't like that I'm setting this every frame, but I'll figure it out soon
-			//	currentAnimation = walkAnimation;
-			//	HandleDeath(gameTime);
-			//}
 		}
 
 		void Rotate(GameTime gameTime)
@@ -230,12 +198,10 @@ namespace TheAdventuresOf
 			if (moveLeft)
 			{
 				rotation -= radiansToRotate;
-				Console.WriteLine("rotation = " + rotation);
 			}
 			else if (moveRight)
 			{
 				rotation += radiansToRotate;
-				Console.WriteLine("rotation = " + rotation);
 			}
 		}
 

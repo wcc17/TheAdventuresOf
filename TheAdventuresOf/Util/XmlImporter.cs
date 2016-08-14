@@ -12,6 +12,8 @@ namespace TheAdventuresOf
 		public static XDocument characterDocument;
 		public static XDocument levelDocument;
 
+		public static Monster blockMonster;
+
 		public static void GetXMLInformation()
 		{
 			Stream characterDocumentStream = TitleContainer.OpenStream("Content/XML/CharacterInformation.xml");
@@ -19,9 +21,23 @@ namespace TheAdventuresOf
 
 			characterDocument = XDocument.Load(characterDocumentStream);
 			levelDocument = XDocument.Load(levelDocumentStream);
+
+			//keep this around to use the info for new instances of monsters
+			blockMonster = new Monster();
 		}
 
-		public static Player LoadPlayerInformation(Player player)
+		public static void LoadLevelInformation(Level level)
+		{
+			XElement levelElement = levelDocument.Element("Level");
+			XElement levelOneElement = levelElement.Element("LevelOne");
+
+			level.groundLevel = (float)levelOneElement.Element("GroundLevel");
+			level.leftBoundWidth = (int)levelOneElement.Element("LeftBoundWidth");
+			level.rightBoundWidth = (int)levelOneElement.Element("RightBoundWidth");
+			level.monsterLimit = (int)levelOneElement.Element("MonsterLimit");
+		}
+
+		public static void LoadPlayerInformation(Player player)
 		{
 			XElement charactersElement = characterDocument.Element("Characters");
 			XElement playerElement = charactersElement.Element("Player");
@@ -34,11 +50,11 @@ namespace TheAdventuresOf
 			player.rightSwordOffset = (float)playerElement.Element("RightSwordOffset");
 			player.swordYOffset = (float)playerElement.Element("SwordYOffset");
 			player.frameCount = (int)playerElement.Element("FrameCount");
-
-			return player;
+			player.maxHealth = (int)playerElement.Element("InitialMaxHealth");
+			player.invincibilityTime = (double)playerElement.Element("InvincibilityTime");
 		}
 
-		public static Monster LoadBlockMonsterInformation(Monster blockMonster)
+		public static void LoadBlockMonsterInformation()
 		{
 			XElement charactersElement = characterDocument.Element("Characters");
 			XElement monstersElement = charactersElement.Element("Monsters");
@@ -51,7 +67,22 @@ namespace TheAdventuresOf
 			blockMonster.moveDelayTime = (float)blockMonsterElement.Element("MoveDelayTime");
 			blockMonster.rotationSpeed = (float)blockMonsterElement.Element("RotationSpeed");
 			blockMonster.upDownSpeed = (float)blockMonsterElement.Element("UpDownSpeed");
-			return blockMonster;
+		}
+
+		//TODO: eventually these should all be static variables in the BlockMonster class. For now,
+		//we don't have a BlockMonster class, so I'm just transferring the info manually. Can't use the
+		//monster class because these variables will be different in different types of monsters
+		public static Monster TransferBlockMonsterInformation(Monster newBlockMonster)
+		{
+			newBlockMonster.speed = blockMonster.speed;
+			newBlockMonster.animationSpeed = blockMonster.animationSpeed;
+			newBlockMonster.frameCount = blockMonster.frameCount;
+			newBlockMonster.moveDistanceLimit = blockMonster.moveDistanceLimit;
+			newBlockMonster.moveDelayTime = blockMonster.moveDelayTime;
+			newBlockMonster.rotationSpeed = blockMonster.rotationSpeed;
+			newBlockMonster.upDownSpeed = blockMonster.upDownSpeed;
+
+			return newBlockMonster;
 		}
 
 	}

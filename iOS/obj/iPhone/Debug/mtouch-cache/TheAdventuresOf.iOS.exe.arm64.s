@@ -443,7 +443,7 @@ Lme_4:
 	.align 4
 	.no_dead_strip TheAdventuresOf_TheAdventuresOf_Initialize
 TheAdventuresOf_TheAdventuresOf_Initialize:
-.word 0xa9b67bfd
+.word 0xa9b77bfd
 .word 0x910003fd
 .word 0xf9000bba
 .word 0xaa0003fa
@@ -476,34 +476,9 @@ ldr x16, [x16, #192]
 .word 0xb4000051
 .word 0xd63f0220
 bl _p_13
-.word 0xf9004fa0
-.word 0xf9400fb1
-.word 0xf9409231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9404fa1
-.word 0xaa0103e0
-.word 0xf940003e
-bl _p_14
-.word 0xf9004ba0
-.word 0xf9400fb1
-.word 0xf940b631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9404ba1
-.word 0xaa0103e0
-.word 0xf940003e
-bl _p_15
-.word 0x93407c00
-.word 0xf9003ba0
-.word 0xf9400fb1
-.word 0xf940de31
-.word 0xb4000051
-.word 0xd63f0220
-bl _p_13
 .word 0xf90047a0
 .word 0xf9400fb1
-.word 0xf940f631
+.word 0xf9409231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94047a1
@@ -512,15 +487,40 @@ bl _p_13
 bl _p_14
 .word 0xf90043a0
 .word 0xf9400fb1
-.word 0xf9411a31
+.word 0xf940b631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94043a1
 .word 0xaa0103e0
 .word 0xf940003e
+bl _p_15
+.word 0x93407c00
+.word 0xf90033a0
+.word 0xf9400fb1
+.word 0xf940de31
+.word 0xb4000051
+.word 0xd63f0220
+bl _p_13
+.word 0xf9003fa0
+.word 0xf9400fb1
+.word 0xf940f631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9403fa1
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_14
+.word 0xf9003ba0
+.word 0xf9400fb1
+.word 0xf9411a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9403ba1
+.word 0xaa0103e0
+.word 0xf940003e
 bl _p_16
 .word 0x93407c00
-.word 0xf9003fa0
+.word 0xf90037a0
 .word 0xf9400fb1
 .word 0xf9414231
 .word 0xb4000051
@@ -530,20 +530,20 @@ adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x0, [x16, #200]
 bl _p_17
-.word 0xf9403ba1
-.word 0xf9403fa2
-.word 0xf90037a0
+.word 0xf94033a1
+.word 0xf94037a2
+.word 0xf9002fa0
 bl _p_18
 .word 0xf9400fb1
 .word 0xf9417231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94037a0
-.word 0xf90033a0
+.word 0xf9402fa0
+.word 0xf9002ba0
 .word 0xf9006f40
 .word 0x91036340
 bl _p_9
-.word 0xf94033a0
+.word 0xf9402ba0
 .word 0xf9400fb1
 .word 0xf9419a31
 .word 0xb4000051
@@ -558,18 +558,18 @@ adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x0, [x16, #208]
 bl _p_17
-.word 0xf9002fa0
+.word 0xf90027a0
 bl _p_19
 .word 0xf9400fb1
 .word 0xf941d631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9402fa0
-.word 0xf9002ba0
-.word 0xf9007b40
-.word 0x9103c340
+.word 0xf94027a0
+.word 0xf90023a0
+.word 0xf9007740
+.word 0x9103a340
 bl _p_9
-.word 0xf9402ba0
+.word 0xf94023a0
 .word 0xf9400fb1
 .word 0xf941fe31
 .word 0xb4000051
@@ -584,18 +584,18 @@ adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x0, [x16, #216]
 bl _p_17
-.word 0xf90027a0
+.word 0xf9001fa0
 bl _p_20
 .word 0xf9400fb1
 .word 0xf9423a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94027a0
-.word 0xf90023a0
+.word 0xf9401fa0
+.word 0xf9001ba0
 .word 0xf9007340
 .word 0x91038340
 bl _p_9
-.word 0xf94023a0
+.word 0xf9401ba0
 .word 0xf9400fb1
 .word 0xf9426231
 .word 0xb4000051
@@ -605,45 +605,19 @@ bl _p_9
 .word 0xf9427631
 .word 0xb4000051
 .word 0xd63f0220
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #224]
-bl _p_17
-.word 0xf9001fa0
+.word 0xaa1a03e0
 bl _p_21
+.word 0xf9400fb1
+.word 0xf9428e31
+.word 0xb4000051
+.word 0xd63f0220
 .word 0xf9400fb1
 .word 0xf9429e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9401fa0
-.word 0xf9001ba0
-.word 0xf9007740
-.word 0x9103a340
-bl _p_9
-.word 0xf9401ba0
-.word 0xf9400fb1
-.word 0xf942c631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xf9400fb1
-.word 0xf942da31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-bl _p_22
-.word 0xf9400fb1
-.word 0xf942f231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf9430231
-.word 0xb4000051
-.word 0xd63f0220
 .word 0xf9400bba
 .word 0x910003bf
-.word 0xa8ca7bfd
+.word 0xa8c97bfd
 .word 0xd65f03c0
 
 Lme_5:
@@ -651,14 +625,14 @@ Lme_5:
 	.align 4
 	.no_dead_strip TheAdventuresOf_TheAdventuresOf_LoadContent
 TheAdventuresOf_TheAdventuresOf_LoadContent:
-.word 0xa9ae7bfd
+.word 0xa9b47bfd
 .word 0x910003fd
 .word 0xf9000bba
 .word 0xaa0003fa
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #232]
+ldr x16, [x16, #224]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -685,8 +659,8 @@ ldr x16, [x16, #232]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
-bl _p_23
-.word 0xf9008fa0
+bl _p_22
+.word 0xf9005fa0
 .word 0xf9400fb1
 .word 0xf9409a31
 .word 0xb4000051
@@ -694,21 +668,21 @@ bl _p_23
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #240]
+ldr x0, [x16, #232]
 bl _p_2
-.word 0xf9408fa1
-.word 0xf9008ba0
-bl _p_24
+.word 0xf9405fa1
+.word 0xf9005ba0
+bl _p_23
 .word 0xf9400fb1
 .word 0xf940c631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9408ba0
-.word 0xf90087a0
+.word 0xf9405ba0
+.word 0xf90057a0
 .word 0xf9006b40
 .word 0x91034340
 bl _p_9
-.word 0xf94087a0
+.word 0xf94057a0
 .word 0xf9400fb1
 .word 0xf940ee31
 .word 0xb4000051
@@ -719,14 +693,14 @@ bl _p_9
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
-bl _p_23
-.word 0xf90083a0
+bl _p_22
+.word 0xf90053a0
 .word 0xf9400fb1
 .word 0xf9411e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94083a0
-bl _p_25
+.word 0xf94053a0
+bl _p_24
 .word 0xf9400fb1
 .word 0xf9413631
 .word 0xb4000051
@@ -737,223 +711,99 @@ bl _p_25
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
-bl _p_23
-.word 0xf9007fa0
+bl _p_22
+.word 0xf9004fa0
 .word 0xf9400fb1
 .word 0xf9416631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9407fa0
-bl _p_26
+.word 0xf9404fa0
+bl _p_25
 .word 0xf9400fb1
 .word 0xf9417e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
-.word 0xf9407b40
-.word 0xf9007ba0
+.word 0xf9407740
+.word 0xf9004ba0
 .word 0xf9400fb1
 .word 0xf9419a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9407ba1
-.word 0xaa0103e0
-.word 0xf940003e
+.word 0xf9404ba0
+bl _p_26
+.word 0xf9400fb1
+.word 0xf941b231
+.word 0xb4000051
+.word 0xd63f0220
 bl _p_27
 .word 0xf9400fb1
-.word 0xf941ba31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1a03e0
-.word 0xf9407340
-.word 0xf90077a0
-.word 0xf9400fb1
-.word 0xf941da31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94077a0
-bl _p_28
-.word 0xf90073a0
-.word 0xf9400fb1
-.word 0xf941f631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94073a0
-.word 0xf9006fa0
-.word 0xf9007340
-.word 0x91038340
-bl _p_9
-.word 0xf9406fa0
-.word 0xf9400fb1
-.word 0xf9421e31
+.word 0xf941c631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
 .word 0xf9407340
-.word 0xf90057a0
-.word 0xd280001e
-.word 0xf2a8691e
-.word 0x9e6703c0
-.word 0xfd005ba0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #248]
-.word 0xbd400000
-.word 0xfd005fa0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #256]
-.word 0xf9400000
-.word 0xf9006ba0
-.word 0xf9400fb1
-.word 0xf9427231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9406ba1
-.word 0xaa0103e0
-.word 0xf940003e
-bl _p_29
-.word 0x93407c00
-.word 0xf90067a0
-.word 0xf9400fb1
-.word 0xf9429a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94067a0
-.word 0xaa1a03e1
-.word 0xf9407341
-.word 0xb9804c21
-.word 0x6b1f003f
-.word 0x10000011
-.word 0x54001d60
-.word 0x9280001e
-.word 0xf2bffffe
-.word 0x6b1e003f
-.word 0x9a9f17e2
-.word 0x929ffffe
-.word 0xf2b0001e
-.word 0x6b1e001f
-.word 0x9a9f17e3
-.word 0xa030042
-.word 0xd280003e
-.word 0x6b1e005f
-.word 0x10000011
-.word 0x54001b60
-.word 0xf100003f
-.word 0x10000011
-.word 0x54001b60
-.word 0x929ffff0
-.word 0xf2b00010
-.word 0xeb10001f
-.word 0x9a9f17f1
-.word 0x92800010
-.word 0xf2bffff0
-.word 0xeb10003f
-.word 0x9a9f17f0
-.word 0x8a110210
-.word 0xf100061f
-.word 0x10000011
-.word 0x54001980
-.word 0x1ac10c00
-.word 0xf9004fa0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #256]
-.word 0xf9400000
-.word 0xf90063a0
-.word 0xf9400fb1
-.word 0xf9435231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94063a1
-.word 0xaa0103e0
-.word 0xf940003e
-bl _p_30
-.word 0x93407c00
-.word 0xf90053a0
-.word 0xf9400fb1
-.word 0xf9437a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9404fa1
-.word 0xf94053a2
-.word 0xf94057a3
-.word 0xfd405ba0
-.word 0xfd405fa1
-.word 0xaa0303e0
-.word 0xf9400063
-.word 0xf9403c70
-.word 0xd63f0200
-.word 0xf9400fb1
-.word 0xf943ae31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1a03e0
-.word 0xf9407740
-.word 0xf9004ba0
-.word 0xf9400fb1
-.word 0xf943ce31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9404ba0
-bl _p_31
 .word 0xf90047a0
 .word 0xf9400fb1
-.word 0xf943ea31
+.word 0xf941e231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94047a0
-.word 0xf90043a0
-.word 0xf9007740
-.word 0x9103a340
-bl _p_9
-.word 0xf94043a0
+bl _p_28
 .word 0xf9400fb1
-.word 0xf9441231
+.word 0xf941fa31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
 .word 0xf9407740
+.word 0xf90043a0
+.word 0xf9400fb1
+.word 0xf9421631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94043a1
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_29
+.word 0xf9400fb1
+.word 0xf9423631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xf9407340
 .word 0xf9002ba0
 .word 0xd280001e
-.word 0xf2a87f5e
+.word 0xf2a8691e
 .word 0x9e6703c0
 .word 0xfd002fa0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #248]
-.word 0xbd400000
+.word 0xaa1a03e0
+.word 0xf9407740
+.word 0xbd402800
 .word 0xfd0033a0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #264]
+ldr x0, [x16, #240]
 .word 0xf9400000
 .word 0xf9003fa0
 .word 0xf9400fb1
-.word 0xf9446631
+.word 0xf9428631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9403fa1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_29
+bl _p_30
 .word 0x93407c00
 .word 0xf9003ba0
 .word 0xf9400fb1
-.word 0xf9448e31
+.word 0xf942ae31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9403ba0
 .word 0xaa1a03e1
-.word 0xf9407741
-.word 0xb9804c21
+.word 0xf9407341
+.word 0xb9805421
 .word 0x6b1f003f
 .word 0x10000011
 .word 0x54000dc0
@@ -990,21 +840,21 @@ bl _p_29
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #264]
+ldr x0, [x16, #240]
 .word 0xf9400000
 .word 0xf90037a0
 .word 0xf9400fb1
-.word 0xf9454631
+.word 0xf9436631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94037a1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_30
+bl _p_31
 .word 0x93407c00
 .word 0xf90027a0
 .word 0xf9400fb1
-.word 0xf9456e31
+.word 0xf9438e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94023a1
@@ -1017,52 +867,52 @@ bl _p_30
 .word 0xf9403c70
 .word 0xd63f0200
 .word 0xf9400fb1
-.word 0xf945a231
+.word 0xf943c231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
 .word 0xf9400fb1
-.word 0xf945b631
+.word 0xf943d631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
 bl _p_10
 .word 0xf9001fa0
 .word 0xf9400fb1
-.word 0xf945d231
+.word 0xf943f231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9401fa0
 bl _p_32
 .word 0xf9400fb1
-.word 0xf945ea31
+.word 0xf9440a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
 .word 0xf9400fb1
-.word 0xf945fe31
+.word 0xf9441e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
-bl _p_23
+bl _p_22
 .word 0xf9001ba0
 .word 0xf9400fb1
-.word 0xf9461a31
+.word 0xf9443a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9401ba0
 bl _p_33
 .word 0xf9400fb1
-.word 0xf9463231
+.word 0xf9445231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf9464231
+.word 0xf9446231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400bba
 .word 0x910003bf
-.word 0xa8d27bfd
+.word 0xa8cc7bfd
 .word 0xd65f03c0
 .word 0xd28027c0
 .word 0xaa1103e1
@@ -1076,7 +926,7 @@ Lme_6:
 	.align 4
 	.no_dead_strip TheAdventuresOf_TheAdventuresOf_Update_Microsoft_Xna_Framework_GameTime
 TheAdventuresOf_TheAdventuresOf_Update_Microsoft_Xna_Framework_GameTime:
-.word 0xa9b77bfd
+.word 0xa9b87bfd
 .word 0x910003fd
 .word 0xa9016bb9
 .word 0xaa0003f9
@@ -1084,7 +934,7 @@ TheAdventuresOf_TheAdventuresOf_Update_Microsoft_Xna_Framework_GameTime:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #272]
+ldr x16, [x16, #248]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -1106,13 +956,13 @@ ldr x16, [x16, #272]
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xf9406f20
-.word 0xf90047a0
+.word 0xf9003ba0
 .word 0xaa1a03e0
 .word 0xf94013b1
 .word 0xf9408a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94047a2
+.word 0xf9403ba2
 .word 0xaa0203e0
 .word 0xaa1a03e1
 .word 0xf940005e
@@ -1123,20 +973,20 @@ bl _p_35
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xf9407320
-.word 0xf90043a0
+.word 0xf90037a0
 .word 0xaa1a03e0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #280]
+ldr x0, [x16, #256]
 .word 0x39400000
-.word 0xf9003fa0
+.word 0xf90033a0
 .word 0xf94013b1
 .word 0xf940e231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9403fa2
-.word 0xf94043a3
+.word 0xf94033a2
+.word 0xf94037a3
 .word 0xaa0303e0
 .word 0xaa1a03e1
 .word 0xf9400063
@@ -1148,70 +998,33 @@ ldr x0, [x16, #280]
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xf9407720
-.word 0xf9003ba0
+.word 0xf9002fa0
 .word 0xaa1a03e0
-.word 0xd2800000
-.word 0xf94013b1
-.word 0xf9413231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9403ba3
-.word 0xaa0303e0
-.word 0xaa1a03e1
-.word 0xd2800002
-.word 0xf9400063
-.word 0xf9403070
-.word 0xd63f0200
-.word 0xf94013b1
-.word 0xf9415e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xf9407b20
-.word 0xf90037a0
 .word 0xaa1903e0
 .word 0xf9407320
-.word 0xf90033a0
-.word 0xf94013b1
-.word 0xf9418631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94033a1
-.word 0xf94037a2
-.word 0xaa0203e0
-.word 0xf940005e
-bl _p_36
-.word 0xf94013b1
-.word 0xf941aa31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xf9407b20
-.word 0xf9002fa0
-.word 0xaa1903e0
-.word 0xf9407720
 .word 0xf9002ba0
 .word 0xf94013b1
-.word 0xf941d231
+.word 0xf9413a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9402ba1
-.word 0xf9402fa2
-.word 0xaa0203e0
-.word 0xf940005e
+.word 0xf9402ba2
+.word 0xf9402fa3
+.word 0xaa0303e0
+.word 0xaa1a03e1
+.word 0xf940007e
 bl _p_36
 .word 0xf94013b1
-.word 0xf941f631
+.word 0xf9416231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
-.word 0xf9407320
+.word 0xf9407720
 .word 0xf90027a0
 .word 0xaa1903e0
-.word 0xf9407720
+.word 0xf9407320
 .word 0xf90023a0
 .word 0xf94013b1
-.word 0xf9421e31
+.word 0xf9418a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94023a1
@@ -1220,29 +1033,29 @@ bl _p_36
 .word 0xf940005e
 bl _p_37
 .word 0xf94013b1
-.word 0xf9424231
+.word 0xf941ae31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xaa1a03e0
 .word 0xf94013b1
-.word 0xf9425a31
+.word 0xf941c631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xaa1a03e1
 bl _p_38
 .word 0xf94013b1
-.word 0xf9427631
+.word 0xf941e231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf9428631
+.word 0xf941f231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xa9416bb9
 .word 0x910003bf
-.word 0xa8c97bfd
+.word 0xa8c87bfd
 .word 0xd65f03c0
 
 Lme_7:
@@ -1250,106 +1063,113 @@ Lme_7:
 	.align 4
 	.no_dead_strip TheAdventuresOf_TheAdventuresOf_Draw_Microsoft_Xna_Framework_GameTime
 TheAdventuresOf_TheAdventuresOf_Draw_Microsoft_Xna_Framework_GameTime:
-.word 0xd2805210
+.word 0xd2805410
 .word 0x910003f1
 .word 0xcb100231
 .word 0x9100023f
 .word 0xa9007bfd
 .word 0x910003fd
-.word 0xa9016bb9
+.word 0xa90167b8
+.word 0xf90013ba
 .word 0xaa0003f9
 .word 0xaa0103fa
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #288]
-.word 0xf90013b0
+ldr x16, [x16, #264]
+.word 0xf90017b0
 .word 0xf9400a11
-.word 0xf90017b1
-.word 0x910763a0
+.word 0xf9001bb1
+.word 0x910843a0
 .word 0xd2800001
 .word 0xd2800881
 .word 0xd2800001
 .word 0xd2800882
 bl _p_39
-.word 0xf94013b1
-.word 0xf9406231
+.word 0xd2800018
+.word 0x9107e3a0
+.word 0xd2800000
+.word 0xf900ffa0
+.word 0xf90103a0
+.word 0xf90107a0
+.word 0xf94017b1
+.word 0xf9407e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94017b1
+.word 0xf9401bb1
 .word 0xf9400231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9408231
+.word 0xf94017b1
+.word 0xf9409e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9409231
+.word 0xf94017b1
+.word 0xf940ae31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xf9406b20
-.word 0xf9013fa0
+.word 0xf90147a0
 .word 0xaa1903e0
 .word 0xf9406f20
-.word 0xf90143a0
-.word 0xf94013b1
-.word 0xf940ba31
+.word 0xf9014ba0
+.word 0xf94017b1
+.word 0xf940d631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94143a1
-.word 0x910663a0
+.word 0xf9414ba1
+.word 0x9106e3a0
 .word 0xaa0003e8
 .word 0xaa0103e0
 .word 0xf940003e
 bl _p_40
-.word 0xf94013b1
-.word 0xf940e231
+.word 0xf94017b1
+.word 0xf940fe31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0x910543a0
+.word 0x9105c3a0
 .word 0xd2800001
 .word 0xd2800881
 .word 0xd2800001
 .word 0xd2800882
 bl _p_39
-.word 0x910543a0
+.word 0x9105c3a0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #296]
-.word 0x910663a1
-.word 0x910443a1
-.word 0xf940cfa2
-.word 0xf9008ba2
-.word 0xf940d3a2
-.word 0xf9008fa2
-.word 0xf940d7a2
-.word 0xf90093a2
-.word 0xf940dba2
-.word 0xf90097a2
+ldr x15, [x16, #272]
+.word 0x9106e3a1
+.word 0x910463a1
 .word 0xf940dfa2
-.word 0xf9009ba2
+.word 0xf9008fa2
 .word 0xf940e3a2
-.word 0xf9009fa2
+.word 0xf90093a2
 .word 0xf940e7a2
-.word 0xf900a3a2
+.word 0xf90097a2
 .word 0xf940eba2
+.word 0xf9009ba2
+.word 0xf940efa2
+.word 0xf9009fa2
+.word 0xf940f3a2
+.word 0xf900a3a2
+.word 0xf940f7a2
 .word 0xf900a7a2
+.word 0xf940fba2
+.word 0xf900aba2
 .word 0xaa0103e2
 bl _p_41
-.word 0x910543a1
-.word 0x910323a0
+.word 0x9105c3a1
+.word 0x910343a0
 .word 0xd2800882
 .word 0xd2800882
 bl _p_42
-.word 0xf94013b1
-.word 0xf9417e31
+.word 0xf94017b1
+.word 0xf9419a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0x910323a1
-.word 0x910763a0
+.word 0x910343a1
+.word 0x910843a0
 .word 0xd2800882
 .word 0xd2800882
 bl _p_42
@@ -1359,16 +1179,16 @@ bl _p_42
 .word 0xd2800000
 .word 0xd2800000
 .word 0xd2800000
-.word 0x910763a1
-.word 0x910203a0
+.word 0x910843a1
+.word 0x910223a0
 .word 0xd2800882
 .word 0xd2800882
 bl _p_42
-.word 0xf94013b1
-.word 0xf941ce31
+.word 0xf94017b1
+.word 0xf941ea31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9413fa9
+.word 0xf94147a9
 .word 0xaa0903e0
 .word 0xd2800001
 .word 0xd2800002
@@ -1376,10 +1196,8 @@ bl _p_42
 .word 0xd2800004
 .word 0xd2800005
 .word 0xd2800006
-.word 0x910203a7
-.word 0x9100e3a7
-.word 0xf94043aa
-.word 0xf9001faa
+.word 0x910223a7
+.word 0x910103a7
 .word 0xf94047aa
 .word 0xf90023aa
 .word 0xf9404baa
@@ -1396,150 +1214,268 @@ bl _p_42
 .word 0xf9003baa
 .word 0xf94063aa
 .word 0xf9003faa
+.word 0xf94067aa
+.word 0xf90043aa
 .word 0xaa0703ea
 .word 0xf940013e
 bl _p_43
-.word 0xf94013b1
-.word 0xf9425a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xf9407b20
-.word 0xf9013ba0
-.word 0xaa1903e0
-.word 0xf9406b20
-.word 0xf90137a0
-.word 0xf94013b1
-.word 0xf9428231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94137a1
-.word 0xf9413ba2
-.word 0xaa0203e0
-.word 0xf940005e
-bl _p_44
-.word 0xf94013b1
-.word 0xf942a631
+.word 0xf94017b1
+.word 0xf9427631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xf9407720
-.word 0xf90133a0
+.word 0xf90143a0
 .word 0xaa1903e0
 .word 0xf9406b20
-.word 0xf9012ba0
+.word 0xf9013fa0
+.word 0xf94017b1
+.word 0xf9429e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9413fa1
+.word 0xf94143a2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_44
+.word 0xf94017b1
+.word 0xf942c231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf942d231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xf9407720
+.word 0xf9400800
+.word 0xf9013ba0
+.word 0xf94017b1
+.word 0xf942f231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9413ba1
+.word 0x910563a0
+.word 0xaa0003e8
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_45
+.word 0xf94017b1
+.word 0xf9431a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910563a0
+.word 0x9107e3a0
+.word 0xf940afa0
+.word 0xf900ffa0
+.word 0xf940b3a0
+.word 0xf90103a0
+.word 0xf940b7a0
+.word 0xf90107a0
+.word 0x1400003d
+.word 0xf9401bb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9435e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x9107e3a0
+.word 0xf9014fa0
+.word 0xf94017b1
+.word 0xf9437631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9414fa0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #264]
-.word 0xf9400000
-.word 0xf9012fa0
-.word 0xf94013b1
-.word 0xf942e231
+ldr x15, [x16, #280]
+bl _p_46
+.word 0xf9014ba0
+.word 0xf94017b1
+.word 0xf9439e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9412ba1
-.word 0xf9412fa2
-.word 0xf94133a3
+.word 0xf9414ba0
+.word 0xf90147a0
+.word 0xaa0003f8
+.word 0xf94017b1
+.word 0xf943ba31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf943ca31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94147a0
+.word 0xf90143a0
+.word 0xaa1903e0
+.word 0xf9406b20
+.word 0xf9013ba0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #288]
+.word 0xf9400000
+.word 0xf9013fa0
+.word 0xf94017b1
+.word 0xf9440231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9413ba1
+.word 0xf9413fa2
+.word 0xf94143a3
 .word 0xaa0303e0
 .word 0xf9400063
 .word 0xf9402c70
 .word 0xd63f0200
-.word 0xf94013b1
-.word 0xf9430e31
+.word 0xf94017b1
+.word 0xf9442e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x9107e3a0
+.word 0xf9013fa0
+.word 0xf94017b1
+.word 0xf9444631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9413fa0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x15, [x16, #280]
+bl _p_47
+.word 0x53001c00
+.word 0xf9013ba0
+.word 0xf94017b1
+.word 0xf9447231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9413ba0
+.word 0x35fff640
+.word 0x94000002
+.word 0x14000013
+.word 0xf90137be
+.word 0x9107e3a0
+.word 0xf9013ba0
+.word 0xf94017b1
+.word 0xf9449e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9413ba0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x15, [x16, #280]
+bl _p_48
+.word 0xf94017b1
+.word 0xf944c231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94137be
+.word 0xd61f03c0
+.word 0xf9401bb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf944ea31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xf9407320
-.word 0xf90127a0
+.word 0xf9014fa0
 .word 0xaa1903e0
 .word 0xf9406b20
-.word 0xf9011fa0
+.word 0xf90147a0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #256]
+ldr x0, [x16, #240]
 .word 0xf9400000
-.word 0xf90123a0
-.word 0xf94013b1
-.word 0xf9434a31
+.word 0xf9014ba0
+.word 0xf94017b1
+.word 0xf9452631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9411fa1
-.word 0xf94123a2
-.word 0xf94127a3
+.word 0xf94147a1
+.word 0xf9414ba2
+.word 0xf9414fa3
 .word 0xaa0303e0
 .word 0xf9400063
 .word 0xf9402c70
 .word 0xd63f0200
-.word 0xf94013b1
-.word 0xf9437631
+.word 0xf94017b1
+.word 0xf9455231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xf9406b20
-.word 0xf9011ba0
-.word 0xf94013b1
-.word 0xf9439231
+.word 0xf90143a0
+.word 0xf94017b1
+.word 0xf9456e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9411ba0
-bl _p_45
-.word 0xf94013b1
-.word 0xf943aa31
+.word 0xf94143a0
+bl _p_49
+.word 0xf94017b1
+.word 0xf9458631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xf9406b20
-.word 0xf90117a0
+.word 0xf9013fa0
 .word 0xaa1a03e0
-.word 0xf94013b1
-.word 0xf943ca31
+.word 0xf94017b1
+.word 0xf945a631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94117a0
+.word 0xf9413fa0
 .word 0xaa1a03e1
-bl _p_46
-.word 0xf94013b1
-.word 0xf943e631
+bl _p_50
+.word 0xf94017b1
+.word 0xf945c231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xf9406b20
-.word 0xf90113a0
-.word 0xf94013b1
-.word 0xf9440231
+.word 0xf9013ba0
+.word 0xf94017b1
+.word 0xf945de31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94113a1
+.word 0xf9413ba1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_47
-.word 0xf94013b1
-.word 0xf9442231
+bl _p_51
+.word 0xf94017b1
+.word 0xf945fe31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xaa1a03e0
-.word 0xf94013b1
-.word 0xf9443a31
+.word 0xf94017b1
+.word 0xf9461631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xaa1a03e1
-bl _p_48
-.word 0xf94013b1
-.word 0xf9445631
+bl _p_52
+.word 0xf94017b1
+.word 0xf9463231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9446631
+.word 0xf94017b1
+.word 0xf9464231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xa9416bb9
+.word 0xa94167b8
+.word 0xf94013ba
 .word 0x910003bf
 .word 0xa9407bfd
-.word 0xd2805210
+.word 0xd2805410
 .word 0x910003f1
 .word 0x8b100231
 .word 0x9100023f
@@ -1559,7 +1495,7 @@ TheAdventuresOf_Screen__ctor_int_int:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #304]
+ldr x16, [x16, #296]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -1587,14 +1523,14 @@ ldr x16, [x16, #304]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #312]
+ldr x0, [x16, #304]
 .word 0xf9006ba0
 .word 0xf94017b1
 .word 0xf940a231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9406ba0
-bl _p_49
+bl _p_53
 .word 0xf94017b1
 .word 0xf940ba31
 .word 0xb4000051
@@ -1614,7 +1550,7 @@ bl _p_49
 .word 0x910203a0
 .word 0xaa0003e8
 .word 0xaa1803e0
-bl _p_50
+bl _p_54
 .word 0xf94017b1
 .word 0xf9410a31
 .word 0xb4000051
@@ -1639,7 +1575,7 @@ bl _p_50
 .word 0xf9405fa2
 .word 0xf9003fa2
 .word 0xaa0103e2
-bl _p_51
+bl _p_55
 .word 0xf94017b1
 .word 0xf9416e31
 .word 0xb4000051
@@ -1665,7 +1601,7 @@ TheAdventuresOf_Screen_get_scaleMatrix:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #320]
+ldr x16, [x16, #312]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -1785,7 +1721,7 @@ TheAdventuresOf_Screen_set_scaleMatrix_Microsoft_Xna_Framework_Matrix:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #328]
+ldr x16, [x16, #320]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -1860,7 +1796,7 @@ TheAdventuresOf_Screen_CreateScaleMatrix_int_int:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #336]
+ldr x16, [x16, #328]
 .word 0xf9001bb0
 .word 0xf9400a11
 .word 0xf9001fb1
@@ -1909,14 +1845,14 @@ ldr x16, [x16, #336]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #344]
+ldr x0, [x16, #336]
 .word 0xf900d7a0
 .word 0xf9401bb1
 .word 0xf940f631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf940d7a0
-bl _p_49
+bl _p_53
 .word 0xf9401bb1
 .word 0xf9410e31
 .word 0xb4000051
@@ -1960,7 +1896,7 @@ bl _p_49
 .word 0xfd40d3a2
 .word 0x910323a0
 .word 0xaa0003e8
-bl _p_52
+bl _p_56
 .word 0xf9401bb1
 .word 0xf941be31
 .word 0xb4000051
@@ -2084,7 +2020,7 @@ TheAdventuresOf_Screen_Update_Microsoft_Xna_Framework_GameTime:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #352]
+ldr x16, [x16, #344]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -2114,7 +2050,7 @@ ldr x16, [x16, #352]
 .word 0xd63f0220
 .word 0xf94023a0
 .word 0xf94027a1
-bl _p_53
+bl _p_57
 .word 0xf94013b1
 .word 0xf940a231
 .word 0xb4000051
@@ -2140,7 +2076,7 @@ TheAdventuresOf_Screen_HandleInput_Microsoft_Xna_Framework_GameTime:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #360]
+ldr x16, [x16, #352]
 .word 0xf9001bb0
 .word 0xf9400a11
 .word 0xf9001fb1
@@ -2162,7 +2098,7 @@ ldr x16, [x16, #360]
 .word 0xf9407231
 .word 0xb4000051
 .word 0xd63f0220
-bl _p_54
+bl _p_58
 .word 0xf9401bb1
 .word 0xf9408631
 .word 0xb4000051
@@ -2174,7 +2110,7 @@ bl _p_54
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94043a0
-bl _p_55
+bl _p_59
 .word 0xf9003fa0
 .word 0xf9401bb1
 .word 0xf940ba31
@@ -2196,7 +2132,7 @@ bl _p_55
 .word 0xf94037a1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_56
+bl _p_60
 .word 0x93407c00
 .word 0xf90033a0
 .word 0xf9401bb1
@@ -2249,7 +2185,7 @@ bl _p_56
 .word 0xaa1903e0
 .word 0xaa1803e1
 .word 0xf940033e
-bl _p_57
+bl _p_61
 .word 0xf9402bbe
 .word 0xf90003c0
 .word 0xf9401bb1
@@ -2258,7 +2194,7 @@ bl _p_57
 .word 0xd63f0220
 .word 0x910123a0
 .word 0xf94027a0
-bl _p_58
+bl _p_62
 .word 0xf9401bb1
 .word 0xf9420631
 .word 0xb4000051
@@ -2294,7 +2230,7 @@ bl _p_58
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xf940033e
-bl _p_56
+bl _p_60
 .word 0x93407c00
 .word 0xf90033a0
 .word 0xf9401bb1
@@ -2342,7 +2278,7 @@ TheAdventuresOf_Screen_GetTouchInput:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #368]
+ldr x16, [x16, #360]
 .word 0xf9001bb0
 .word 0xf9400a11
 .word 0xf9001fb1
@@ -2394,10 +2330,10 @@ bl _p_39
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #376]
+ldr x0, [x16, #368]
 bl _p_17
 .word 0xf90103a0
-bl _p_59
+bl _p_63
 .word 0xf9401bb1
 .word 0xf9411631
 .word 0xb4000051
@@ -2410,7 +2346,7 @@ bl _p_59
 .word 0xd63f0220
 .word 0x910443a0
 .word 0xf900f3a0
-bl _p_60
+bl _p_64
 .word 0xf940f3be
 .word 0xf90003c0
 .word 0xf9401bb1
@@ -2432,7 +2368,7 @@ bl _p_60
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf940ffa0
-bl _p_61
+bl _p_65
 .word 0x93407c00
 .word 0xf900fba0
 .word 0xf9401bb1
@@ -2487,7 +2423,7 @@ bl _p_61
 .word 0x910303a1
 .word 0xaa0103e8
 .word 0xaa1803e1
-bl _p_62
+bl _p_66
 .word 0xf9401bb1
 .word 0xf9427e31
 .word 0xb4000051
@@ -2506,7 +2442,7 @@ bl _p_42
 .word 0xf9410fa0
 .word 0x9102e3a1
 .word 0xf900f3a1
-bl _p_63
+bl _p_67
 .word 0xf940f3be
 .word 0xbd0003c0
 .word 0xbd0007c1
@@ -2534,7 +2470,7 @@ bl _p_63
 .word 0x9101a3a1
 .word 0xaa0103e8
 .word 0xaa1803e1
-bl _p_62
+bl _p_66
 .word 0xf9401bb1
 .word 0xf9433a31
 .word 0xb4000051
@@ -2553,7 +2489,7 @@ bl _p_42
 .word 0xf94107a0
 .word 0x910183a1
 .word 0xf900f3a1
-bl _p_63
+bl _p_67
 .word 0xf940f3be
 .word 0xbd0003c0
 .word 0xbd0007c1
@@ -2577,7 +2513,7 @@ bl _p_63
 .word 0xf940fba0
 .word 0xf940ffa1
 .word 0xf94103a2
-bl _p_64
+bl _p_68
 .word 0xf9401bb1
 .word 0xf943e631
 .word 0xb4000051
@@ -2596,7 +2532,7 @@ bl _p_64
 .word 0xaa1a03e0
 .word 0x910143a1
 .word 0xf9402ba1
-bl _p_65
+bl _p_69
 .word 0xf940f3be
 .word 0xf90003c0
 .word 0xf9401bb1
@@ -2624,7 +2560,7 @@ bl _p_65
 .word 0x910123a1
 .word 0xf94027a1
 .word 0xf940033e
-bl _p_66
+bl _p_70
 .word 0xf9401bb1
 .word 0xf944a231
 .word 0xb4000051
@@ -2660,7 +2596,7 @@ bl _p_66
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf940ffa0
-bl _p_61
+bl _p_65
 .word 0x93407c00
 .word 0xf900fba0
 .word 0xf9401bb1
@@ -2720,7 +2656,7 @@ TheAdventuresOf_Screen_GetScaledTouchInput_Microsoft_Xna_Framework_Point:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #384]
+ldr x16, [x16, #376]
 .word 0xf9001fb0
 .word 0xf9400a11
 .word 0xf90023b1
@@ -2794,7 +2730,7 @@ bl _p_40
 .word 0xf940dba1
 .word 0xf9008fa1
 .word 0xaa0003e1
-bl _p_67
+bl _p_71
 .word 0xf9401fb1
 .word 0xf9416231
 .word 0xb4000051
@@ -2830,7 +2766,7 @@ bl _p_67
 .word 0xf94117a0
 .word 0x9104c3a1
 .word 0xf9010ba1
-bl _p_68
+bl _p_72
 .word 0xf9410bbe
 .word 0xbd0003c0
 .word 0xbd0007c1
@@ -2884,7 +2820,7 @@ bl _p_68
 .word 0xf9406fa1
 .word 0xf9004fa1
 .word 0xaa0003e1
-bl _p_69
+bl _p_73
 .word 0xf9410bbe
 .word 0xbd0003c0
 .word 0xbd0007c1
@@ -2905,7 +2841,7 @@ bl _p_69
 .word 0xf94113a0
 .word 0x910483a1
 .word 0xf9010ba1
-bl _p_70
+bl _p_74
 .word 0xf9410bbe
 .word 0xf90003c0
 .word 0xf9401fb1
@@ -2958,14 +2894,14 @@ Lme_10:
 	.align 4
 	.no_dead_strip TheAdventuresOf_Character__ctor
 TheAdventuresOf_Character__ctor:
-.word 0xa9bd7bfd
+.word 0xa9bc7bfd
 .word 0x910003fd
 .word 0xf9000bba
 .word 0xaa0003fa
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #392]
+ldr x16, [x16, #384]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -2992,19 +2928,37 @@ ldr x16, [x16, #392]
 .word 0xaa1a03e0
 .word 0xd2800020
 .word 0xd280003e
-.word 0x3901675e
+.word 0x3901875e
+.word 0xf9400fb1
+.word 0xf9409631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0x9100c3a0
+.word 0xf9001fa0
+bl _p_75
+.word 0xf9401fbe
+.word 0xf90003c0
+.word 0xf9400fb1
+.word 0xf940be31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x9100c3a0
+.word 0x91019340
+.word 0xb98033a1
+.word 0xb9000001
 .word 0xaa1a03e0
 .word 0xf9400fb1
-.word 0xf9409a31
+.word 0xf940e231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf940aa31
+.word 0xf940f231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400bba
 .word 0x910003bf
-.word 0xa8c37bfd
+.word 0xa8c47bfd
 .word 0xd65f03c0
 
 Lme_11:
@@ -3019,7 +2973,7 @@ TheAdventuresOf_Character_HandleMovement_Microsoft_Xna_Framework_GameTime:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #400]
+ldr x16, [x16, #392]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -3058,7 +3012,7 @@ TheAdventuresOf_Character_InitializeAnimation:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #408]
+ldr x16, [x16, #400]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -3099,7 +3053,7 @@ TheAdventuresOf_Character_Move_Microsoft_Xna_Framework_GameTime_int:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #416]
+ldr x16, [x16, #408]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -3139,7 +3093,7 @@ TheAdventuresOf_Character_HandleAnimation_Microsoft_Xna_Framework_GameTime:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #424]
+ldr x16, [x16, #416]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -3172,7 +3126,7 @@ Lme_15:
 	.align 4
 	.no_dead_strip TheAdventuresOf_Character_InitializeCharacter_single_single_int_int
 TheAdventuresOf_Character_InitializeCharacter_single_single_int_int:
-.word 0xa9b57bfd
+.word 0xa9b37bfd
 .word 0x910003fd
 .word 0xa90167b8
 .word 0xf90013ba
@@ -3184,7 +3138,7 @@ TheAdventuresOf_Character_InitializeCharacter_single_single_int_int:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #432]
+ldr x16, [x16, #424]
 .word 0xf9001fb0
 .word 0xf9400a11
 .word 0xf90023b1
@@ -3207,62 +3161,102 @@ ldr x16, [x16, #432]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #440]
-.word 0xf90053a0
+ldr x0, [x16, #432]
+.word 0xf90063a0
 .word 0xf9401fb1
 .word 0xf9409a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94053a0
-bl _p_49
+.word 0xf94063a0
+bl _p_53
 .word 0xf9401fb1
 .word 0xf940b231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
 .word 0xaa1903e0
-.word 0xb9005319
+.word 0xb9005b19
 .word 0xf9401fb1
 .word 0xf940ce31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
 .word 0xaa1a03e0
-.word 0xb900571a
+.word 0xb9005f1a
 .word 0xf9401fb1
 .word 0xf940ea31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
 .word 0xbd402ba0
-.word 0xfd004ba0
+.word 0xfd005ba0
 .word 0xbd4033a0
-.word 0xfd004fa0
+.word 0xfd005fa0
 .word 0xf9401fb1
 .word 0xf9410e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xfd404ba0
-.word 0xfd404fa1
-.word 0x9101e3a0
+.word 0xfd405ba0
+.word 0xfd405fa1
+.word 0x910223a0
 .word 0xd2800000
-.word 0xf9003fa0
-.word 0x9101e3a0
-bl _p_71
-.word 0x9101e3a0
-.word 0x910183a0
-.word 0xf9403fa0
-.word 0xf90033a0
+.word 0xf90047a0
+.word 0x910223a0
+bl _p_76
+.word 0x910223a0
+.word 0x9101a3a0
+.word 0xf94047a0
+.word 0xf90037a0
 .word 0xf9401fb1
 .word 0xf9414a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0x910183a0
+.word 0x9101a3a0
 .word 0x91011300
-.word 0xf94033a1
+.word 0xf94037a1
 .word 0xf9000001
 .word 0xf9401fb1
 .word 0xf9416a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xaa1903e0
+.word 0x531f7f20
+.word 0xb190000
+.word 0x13017c00
+.word 0x1e220000
+.word 0xfd0053a0
+.word 0xaa1a03e0
+.word 0x531f7f40
+.word 0xb1a0000
+.word 0x13017c00
+.word 0x1e220000
+.word 0xfd0057a0
+.word 0xf9401fb1
+.word 0xf941ae31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd4053a0
+.word 0xfd4057a1
+.word 0x910203a0
+.word 0xd2800000
+.word 0xf90043a0
+.word 0x910203a0
+bl _p_76
+.word 0x910203a0
+.word 0x910183a0
+.word 0xf94043a0
+.word 0xf90033a0
+.word 0xf9401fb1
+.word 0xf941ea31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910183a0
+.word 0x91013300
+.word 0xf94033a1
+.word 0xf9000001
+.word 0xf9401fb1
+.word 0xf9420a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
@@ -3274,7 +3268,7 @@ bl _p_71
 .word 0xbd404700
 .word 0x9e380000
 .word 0x93407c00
-.word 0xf90043a0
+.word 0xf9004ba0
 .word 0xaa1803e0
 .word 0xeb1f031f
 .word 0x10000011
@@ -3283,31 +3277,31 @@ bl _p_71
 .word 0xbd404b00
 .word 0x9e380000
 .word 0x93407c00
-.word 0xf90047a0
+.word 0xf9004fa0
 .word 0xaa1903e0
 .word 0xaa1a03e0
 .word 0xf9401fb1
-.word 0xf941ce31
+.word 0xf9426e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94043a1
-.word 0xf94047a2
-.word 0x9101a3a0
+.word 0xf9404ba1
+.word 0xf9404fa2
+.word 0x9101c3a0
 .word 0xd2800000
-.word 0xf90037a0
 .word 0xf9003ba0
-.word 0x9101a3a0
+.word 0xf9003fa0
+.word 0x9101c3a0
 .word 0xaa1903e3
 .word 0xaa1a03e4
-bl _p_72
-.word 0x9101a3a0
+bl _p_77
+.word 0x9101c3a0
 .word 0x910143a0
-.word 0xf94037a0
-.word 0xf9002ba0
 .word 0xf9403ba0
+.word 0xf9002ba0
+.word 0xf9403fa0
 .word 0xf9002fa0
 .word 0xf9401fb1
-.word 0xf9421e31
+.word 0xf942be31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0x910143a0
@@ -3317,12 +3311,12 @@ bl _p_72
 .word 0xf9402fa1
 .word 0xf9000401
 .word 0xf9401fb1
-.word 0xf9424631
+.word 0xf942e631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
 .word 0xf9401fb1
-.word 0xf9425a31
+.word 0xf942fa31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
@@ -3330,17 +3324,17 @@ bl _p_72
 .word 0xf9404830
 .word 0xd63f0200
 .word 0xf9401fb1
-.word 0xf9427a31
+.word 0xf9431a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9401fb1
-.word 0xf9428a31
+.word 0xf9432a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xa94167b8
 .word 0xf94013ba
 .word 0x910003bf
-.word 0xa8cb7bfd
+.word 0xa8cd7bfd
 .word 0xd65f03c0
 .word 0xd28026e0
 .word 0xaa1103e1
@@ -3358,7 +3352,7 @@ TheAdventuresOf_Character_UpdateCharacterBounds:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #448]
+ldr x16, [x16, #440]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -3441,7 +3435,7 @@ TheAdventuresOf_Character_HandleLevelBoundCollision_int_int:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #456]
+ldr x16, [x16, #448]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -3497,7 +3491,7 @@ ldr x16, [x16, #456]
 .word 0x91011300
 .word 0xaa1a03e1
 .word 0xaa1803e1
-.word 0xb9805301
+.word 0xb9805b01
 .word 0x4b010341
 .word 0x1e220020
 .word 0xbd000000
@@ -3539,7 +3533,7 @@ TheAdventuresOf_Character_Update_Microsoft_Xna_Framework_GameTime_bool:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #464]
+ldr x16, [x16, #456]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -3590,7 +3584,7 @@ Lme_19:
 	.align 4
 	.no_dead_strip TheAdventuresOf_Character_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
 TheAdventuresOf_Character_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D:
-.word 0xd2806210
+.word 0xd2807010
 .word 0x910003f1
 .word 0xcb100231
 .word 0x9100023f
@@ -3608,37 +3602,38 @@ TheAdventuresOf_Character_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Micr
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #472]
+ldr x16, [x16, #464]
 .word 0xf9001bb0
 .word 0xf9400a11
 .word 0xf9001fb1
-.word 0x910b23a0
+.word 0x910ca3a0
 .word 0xd2800000
-.word 0xf90167a0
-.word 0xf9016ba0
+.word 0xf90197a0
+.word 0xf9019ba0
 .word 0xd2800017
-.word 0x910ae3a0
+.word 0x910c63a0
 .word 0xd2800000
-.word 0xf9015fa0
-.word 0xb902c3bf
-.word 0x910a83a0
+.word 0xf9018fa0
+.word 0xb90323bf
+.word 0x910c03a0
 .word 0xd2800000
-.word 0xf90153a0
-.word 0xf90157a0
-.word 0xb902b3bf
-.word 0x910a63a0
-.word 0xd2800000
-.word 0xf9014fa0
+.word 0xf90183a0
+.word 0xf90187a0
+.word 0xb90313bf
 .word 0xd280001e
 .word 0x9e6703c0
-.word 0xbd02dba0
-.word 0x910a03a0
+.word 0xbd033ba0
+.word 0x910bc3a0
 .word 0xd2800000
-.word 0xf90143a0
-.word 0xf90147a0
-.word 0xb90293bf
+.word 0xf9017ba0
+.word 0xb902fbbf
+.word 0x910b63a0
+.word 0xd2800000
+.word 0xf9016fa0
+.word 0xf90173a0
+.word 0xb902ebbf
 .word 0xf9401bb1
-.word 0xf940c631
+.word 0xf940ca31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9401fb1
@@ -3646,144 +3641,554 @@ ldr x16, [x16, #472]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9401bb1
-.word 0xf940e631
+.word 0xf940ea31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9401bb1
-.word 0xf940f631
+.word 0xf940fa31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
 .word 0xf9401300
-.word 0xf9017ba0
+.word 0xf901aba0
 .word 0xf9401bb1
-.word 0xf9411231
+.word 0xf9411631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9417ba1
-.word 0x9109c3a0
-.word 0xf90173a0
+.word 0xf941aba1
+.word 0x910b23a0
+.word 0xf901a3a0
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_73
-.word 0xf94173be
+bl _p_78
+.word 0xf941a3be
 .word 0xf90003c0
 .word 0xf90007c1
 .word 0xf9401bb1
-.word 0xf9414631
+.word 0xf9414a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0x9109c3a0
 .word 0x910b23a0
-.word 0xf9413ba0
-.word 0xf90167a0
-.word 0xf9413fa0
-.word 0xf9016ba0
+.word 0x910ca3a0
+.word 0xf94167a0
+.word 0xf90197a0
+.word 0xf9416ba0
+.word 0xf9019ba0
 .word 0xf9401bb1
-.word 0xf9416e31
+.word 0xf9417231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
-.word 0x39416700
-.word 0x34001c80
+.word 0x39418700
+.word 0x34002360
 .word 0xf9401bb1
-.word 0xf9418a31
+.word 0xf9418e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9401bb1
-.word 0xf9419a31
+.word 0xf9419e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xaa1a03e0
 .word 0xaa1a03f7
 .word 0xaa1803e0
+.word 0xeb1f031f
+.word 0x10000011
+.word 0x54004840
 .word 0x91011300
-.word 0x9107e3a1
-.word 0xf9400000
-.word 0xf900ffa0
-.word 0x910983a0
+.word 0xbd404700
+.word 0xaa1803e0
+.word 0xeb1f031f
+.word 0x10000011
+.word 0x54004780
+.word 0x91013300
+.word 0xbd404f01
+.word 0x1e212800
+.word 0xfd01b7a0
+.word 0xaa1803e0
+.word 0xeb1f031f
+.word 0x10000011
+.word 0x54004680
+.word 0x91011300
+.word 0xbd404b00
+.word 0xaa1803e0
+.word 0xeb1f031f
+.word 0x10000011
+.word 0x540045c0
+.word 0x91013300
+.word 0xbd405301
+.word 0x1e212800
+.word 0xfd01bba0
+.word 0xf9401bb1
+.word 0xf9422a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd41b7a0
+.word 0xfd41bba1
+.word 0x910b03a0
 .word 0xd2800000
-.word 0xf90133a0
-.word 0xb9026bbf
-.word 0x910983a0
+.word 0xf90163a0
+.word 0x910b03a0
+bl _p_76
+.word 0x910b03a0
+.word 0x9108c3a0
+.word 0xf94163a0
+.word 0xf9011ba0
+.word 0xf9401bb1
+.word 0xf9426631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910ac3a0
+.word 0xd2800000
+.word 0xf9015ba0
+.word 0xb902bbbf
+.word 0x910ac3a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x15, [x16, #472]
+.word 0x9108c3a1
+.word 0xbd4233a0
+.word 0xbd4237a1
+bl _p_79
+.word 0x910ac3a0
+.word 0x910883a0
+.word 0xf9415ba0
+.word 0xf90113a0
+.word 0xb982bba0
+.word 0xb9022ba0
+.word 0xf9401bb1
+.word 0xf942be31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910883a0
+.word 0x910c63a0
+.word 0xf94113a0
+.word 0xf9018fa0
+.word 0xb9822ba0
+.word 0xb90323a0
+.word 0x910ca3a0
+.word 0x910843a0
+.word 0xf94197a0
+.word 0xf9010ba0
+.word 0xf9419ba0
+.word 0xf9010fa0
+.word 0x910a63a0
+.word 0xd2800000
+.word 0xf9014fa0
+.word 0xf90153a0
+.word 0xb902abbf
+.word 0x910a63a0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x15, [x16, #480]
-.word 0x9107e3a1
-.word 0xbd41fba0
-.word 0xbd41ffa1
-bl _p_74
-.word 0x910983a0
-.word 0x9107a3a0
-.word 0xf94133a0
-.word 0xf900f7a0
-.word 0xb9826ba0
-.word 0xb901f3a0
+.word 0x910843a1
+.word 0xf9410ba1
+.word 0xf9410fa2
+bl _p_80
+.word 0x910a63a0
+.word 0x9107e3a0
+.word 0xf9414fa0
+.word 0xf900ffa0
+.word 0xf94153a0
+.word 0xf90103a0
+.word 0xb982aba0
+.word 0xb9020ba0
 .word 0xf9401bb1
-.word 0xf9421231
+.word 0xf9435231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0x9107a3a0
-.word 0x910ae3a0
-.word 0xf940f7a0
-.word 0xf9015fa0
-.word 0xb981f3a0
-.word 0xb902c3a0
-.word 0x910b23a0
-.word 0x910763a0
-.word 0xf94167a0
-.word 0xf900efa0
-.word 0xf9416ba0
-.word 0xf900f3a0
-.word 0x910923a0
+.word 0x9107e3a0
+.word 0x910c03a0
+.word 0xf940ffa0
+.word 0xf90183a0
+.word 0xf94103a0
+.word 0xf90187a0
+.word 0xb9820ba0
+.word 0xb90313a0
+.word 0xaa1803e0
+.word 0xbd403300
+.word 0xbd033ba0
+.word 0xaa1803e0
+.word 0x91013300
+.word 0x9107c3a1
+.word 0xf9400000
+.word 0xf900fba0
+.word 0x910a23a0
 .word 0xd2800000
-.word 0xf90127a0
-.word 0xf9012ba0
-.word 0xb9025bbf
-.word 0x910923a0
+.word 0xf90147a0
+.word 0xb90293bf
+.word 0x910a23a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x15, [x16, #472]
+.word 0x9107c3a1
+.word 0xbd41f3a0
+.word 0xbd41f7a1
+bl _p_79
+.word 0x910a23a0
+.word 0x910783a0
+.word 0xf94147a0
+.word 0xf900f3a0
+.word 0xb98293a0
+.word 0xb901eba0
+.word 0xf9401bb1
+.word 0xf943ea31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910783a0
+.word 0x910bc3a0
+.word 0xf940f3a0
+.word 0xf9017ba0
+.word 0xb981eba0
+.word 0xb902fba0
+.word 0xaa1a03e0
+.word 0x910c63a0
+.word 0x910743a0
+.word 0xf9418fa0
+.word 0xf900eba0
+.word 0xb98323a0
+.word 0xb901dba0
+.word 0x910b63a0
+.word 0xd2800000
+.word 0xf9016fa0
+.word 0xf90173a0
+.word 0xb902ebbf
+.word 0x910b63a0
+.word 0x9106e3a0
+.word 0xf9416fa0
+.word 0xf900dfa0
+.word 0xf94173a0
+.word 0xf900e3a0
+.word 0xb982eba0
+.word 0xb901cba0
+.word 0x910c03a0
+.word 0x910683a0
+.word 0xf94183a0
+.word 0xf900d3a0
+.word 0xf94187a0
+.word 0xf900d7a0
+.word 0xb98313a0
+.word 0xb901b3a0
+.word 0x910bc3a0
+.word 0x910643a0
+.word 0xf9417ba0
+.word 0xf900cba0
+.word 0xb982fba0
+.word 0xb9019ba0
+.word 0xbd433ba0
+.word 0xfd01afa0
+.word 0x910bc3a0
+.word 0xd2800000
+.word 0xf9017ba0
+.word 0xb902fbbf
+.word 0x910bc3a0
+.word 0x910603a0
+.word 0xf9417ba0
+.word 0xf900c3a0
+.word 0xb982fba0
+.word 0xb9018ba0
+.word 0xaa1803e0
+.word 0x91019300
+.word 0x9105e3a1
+.word 0xb9800000
+.word 0xb9017ba0
+.word 0x910a03a0
+.word 0xd2800000
+.word 0xf90143a0
+.word 0x910a03a0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x15, [x16, #488]
-.word 0x910763a1
-.word 0xf940efa1
-.word 0xf940f3a2
-bl _p_75
-.word 0x910923a0
-.word 0x910703a0
-.word 0xf94127a0
-.word 0xf900e3a0
-.word 0xf9412ba0
-.word 0xf900e7a0
-.word 0xb9825ba0
-.word 0xb901d3a0
+.word 0x9105e3a1
+.word 0xf940bfa1
+bl _p_81
+.word 0x910a03a0
+.word 0x9105c3a0
+.word 0xf94143a0
+.word 0xf900bba0
 .word 0xf9401bb1
-.word 0xf942a631
+.word 0xf9451631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0x910703a0
-.word 0x910a83a0
-.word 0xf940e3a0
-.word 0xf90153a0
-.word 0xf940e7a0
-.word 0xf90157a0
-.word 0xb981d3a0
-.word 0xb902b3a0
+.word 0xd2800000
+.word 0xd280001e
+.word 0x9e6703c0
+.word 0xfd01b3a0
 .word 0xf9401bb1
-.word 0xf942d631
+.word 0xf9453631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0x910903a0
-.word 0xf90173a0
+.word 0xfd41afa0
+.word 0xfd41b3a1
+.word 0xaa1903e0
+.word 0xaa1a03e1
+.word 0x910743a2
+.word 0xf940eba2
+.word 0xf940efa3
+.word 0x9106e3a4
+.word 0x910563a4
+.word 0xf940dfa5
+.word 0xf900afa5
+.word 0xf940e3a5
+.word 0xf900b3a5
+.word 0xf940e7a5
+.word 0xf900b7a5
+.word 0xaa0403e5
+.word 0x910683a5
+.word 0x910503a5
+.word 0xf940d3a6
+.word 0xf900a3a6
+.word 0xf940d7a6
+.word 0xf900a7a6
+.word 0xf940dba6
+.word 0xf900aba6
+.word 0xaa0503e6
+.word 0x910643a6
+.word 0xf940cba6
+.word 0xf940cfa7
+.word 0x910603a9
+.word 0xf940c3a9
+.word 0xf90003e9
+.word 0xf940c7a9
+.word 0xf90007e9
+.word 0x9105c3a9
+.word 0xf940bba9
+.word 0xf9000be9
+.word 0xb9001bff
+.word 0xf940033e
+bl _p_82
+.word 0xf9401bb1
+.word 0xf945e231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x14000122
+.word 0xf9401bb1
+.word 0xf945f631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0x39418300
+.word 0x34002360
+.word 0xf9401bb1
+.word 0xf9461231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9462231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1a03e0
+.word 0xaa1a03f7
+.word 0xaa1803e0
+.word 0xeb1f031f
+.word 0x10000011
+.word 0x54002420
+.word 0x91011300
+.word 0xbd404700
+.word 0xaa1803e0
+.word 0xeb1f031f
+.word 0x10000011
+.word 0x54002360
+.word 0x91013300
+.word 0xbd404f01
+.word 0x1e212800
+.word 0xfd01b7a0
+.word 0xaa1803e0
+.word 0xeb1f031f
+.word 0x10000011
+.word 0x54002260
+.word 0x91011300
+.word 0xbd404b00
+.word 0xaa1803e0
+.word 0xeb1f031f
+.word 0x10000011
+.word 0x540021a0
+.word 0x91013300
+.word 0xbd405301
+.word 0x1e212800
+.word 0xfd01bba0
+.word 0xf9401bb1
+.word 0xf946ae31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd41b7a0
+.word 0xfd41bba1
+.word 0x9109e3a0
+.word 0xd2800000
+.word 0xf9013fa0
+.word 0x9109e3a0
 bl _p_76
-.word 0xf94173be
-.word 0xf90003c0
+.word 0x9109e3a0
+.word 0x9104e3a0
+.word 0xf9413fa0
+.word 0xf9009fa0
 .word 0xf9401bb1
-.word 0xf942fa31
+.word 0xf946ea31
 .word 0xb4000051
 .word 0xd63f0220
+.word 0x9109a3a0
+.word 0xd2800000
+.word 0xf90137a0
+.word 0xb90273bf
+.word 0x9109a3a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x15, [x16, #472]
+.word 0x9104e3a1
+.word 0xbd413ba0
+.word 0xbd413fa1
+bl _p_79
+.word 0x9109a3a0
+.word 0x9104a3a0
+.word 0xf94137a0
+.word 0xf90097a0
+.word 0xb98273a0
+.word 0xb90133a0
+.word 0xf9401bb1
+.word 0xf9474231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x9104a3a0
+.word 0x910bc3a0
+.word 0xf94097a0
+.word 0xf9017ba0
+.word 0xb98133a0
+.word 0xb902fba0
+.word 0x910ca3a0
+.word 0x910463a0
+.word 0xf94197a0
+.word 0xf9008fa0
+.word 0xf9419ba0
+.word 0xf90093a0
+.word 0x910943a0
+.word 0xd2800000
+.word 0xf9012ba0
+.word 0xf9012fa0
+.word 0xb90263bf
+.word 0x910943a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x15, [x16, #480]
+.word 0x910463a1
+.word 0xf9408fa1
+.word 0xf94093a2
+bl _p_80
+.word 0x910943a0
+.word 0x910403a0
+.word 0xf9412ba0
+.word 0xf90083a0
+.word 0xf9412fa0
+.word 0xf90087a0
+.word 0xb98263a0
+.word 0xb90113a0
+.word 0xf9401bb1
+.word 0xf947d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910403a0
+.word 0x910c03a0
+.word 0xf94083a0
+.word 0xf90183a0
+.word 0xf94087a0
+.word 0xf90187a0
+.word 0xb98113a0
+.word 0xb90313a0
+.word 0xaa1803e0
+.word 0xbd403300
+.word 0xbd033ba0
+.word 0xaa1803e0
+.word 0x91013300
+.word 0x9103e3a1
+.word 0xf9400000
+.word 0xf9007fa0
+.word 0x910903a0
+.word 0xd2800000
+.word 0xf90123a0
+.word 0xb9024bbf
+.word 0x910903a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x15, [x16, #472]
+.word 0x9103e3a1
+.word 0xbd40fba0
+.word 0xbd40ffa1
+bl _p_79
+.word 0x910903a0
+.word 0x9103a3a0
+.word 0xf94123a0
+.word 0xf90077a0
+.word 0xb9824ba0
+.word 0xb900f3a0
+.word 0xf9401bb1
+.word 0xf9486e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x9103a3a0
+.word 0x910c63a0
+.word 0xf94077a0
+.word 0xf9018fa0
+.word 0xb980f3a0
+.word 0xb90323a0
+.word 0xaa1a03e0
+.word 0x910bc3a0
+.word 0x910363a0
+.word 0xf9417ba0
+.word 0xf9006fa0
+.word 0xb982fba0
+.word 0xb900e3a0
+.word 0x910b63a0
+.word 0xd2800000
+.word 0xf9016fa0
+.word 0xf90173a0
+.word 0xb902ebbf
+.word 0x910b63a0
+.word 0x910303a0
+.word 0xf9416fa0
+.word 0xf90063a0
+.word 0xf94173a0
+.word 0xf90067a0
+.word 0xb982eba0
+.word 0xb900d3a0
+.word 0x910c03a0
+.word 0x9102a3a0
+.word 0xf94183a0
+.word 0xf90057a0
+.word 0xf94187a0
+.word 0xf9005ba0
+.word 0xb98313a0
+.word 0xb900bba0
+.word 0x910c63a0
+.word 0x910263a0
+.word 0xf9418fa0
+.word 0xf9004fa0
+.word 0xb98323a0
+.word 0xb900a3a0
+.word 0xbd433ba0
+.word 0xfd01afa0
+.word 0x910c63a0
+.word 0xd2800000
+.word 0xf9018fa0
+.word 0xb90323bf
+.word 0x910c63a0
+.word 0x910223a0
+.word 0xf9418fa0
+.word 0xf90047a0
+.word 0xb98323a0
+.word 0xb90093a0
+.word 0xaa1803e0
+.word 0x91019300
+.word 0x910203a1
+.word 0xb9800000
+.word 0xb90083a0
 .word 0x9108e3a0
 .word 0xd2800000
 .word 0xf9011fa0
@@ -3791,348 +4196,58 @@ bl _p_76
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #496]
-.word 0x910903a1
-.word 0xf94123a1
-bl _p_77
-.word 0x9108e3a0
-.word 0x9106e3a0
-.word 0xf9411fa0
-.word 0xf900dfa0
-.word 0xf9401bb1
-.word 0xf9434231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x9106e3a0
-.word 0x910a63a0
-.word 0xf940dfa0
-.word 0xf9014fa0
-.word 0xaa1803e0
-.word 0xbd403300
-.word 0xbd02dba0
-.word 0xaa1a03e0
-.word 0x910ae3a0
-.word 0x9106a3a0
-.word 0xf9415fa0
-.word 0xf900d7a0
-.word 0xb982c3a0
-.word 0xb901b3a0
-.word 0x910a83a0
-.word 0x910643a0
-.word 0xf94153a0
-.word 0xf900cba0
-.word 0xf94157a0
-.word 0xf900cfa0
-.word 0xb982b3a0
-.word 0xb901a3a0
-.word 0x910a83a0
-.word 0xd2800000
-.word 0xf90153a0
-.word 0xf90157a0
-.word 0xb902b3bf
-.word 0x910a83a0
-.word 0x9105e3a0
-.word 0xf94153a0
-.word 0xf900bfa0
-.word 0xf94157a0
-.word 0xf900c3a0
-.word 0xb982b3a0
-.word 0xb9018ba0
-.word 0x910ae3a0
-.word 0xd2800000
-.word 0xf9015fa0
-.word 0xb902c3bf
-.word 0x910ae3a0
-.word 0x9105a3a0
-.word 0xf9415fa0
-.word 0xf900b7a0
-.word 0xb982c3a0
-.word 0xb90173a0
-.word 0xbd42dba0
-.word 0xfd017fa0
-.word 0x910ae3a0
-.word 0xd2800000
-.word 0xf9015fa0
-.word 0xb902c3bf
-.word 0x910ae3a0
-.word 0x910563a0
-.word 0xf9415fa0
-.word 0xf900afa0
-.word 0xb982c3a0
-.word 0xb90163a0
-.word 0x910a63a0
-.word 0x910543a0
-.word 0xf9414fa0
-.word 0xf900aba0
-.word 0xd2800000
-.word 0xd280001e
-.word 0x9e6703c0
-.word 0xfd0183a0
-.word 0xf9401bb1
-.word 0xf9445631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xfd417fa0
-.word 0xfd4183a1
-.word 0xaa1903e0
-.word 0xaa1a03e1
-.word 0x9106a3a2
-.word 0xf940d7a2
-.word 0xf940dba3
-.word 0x910643a4
-.word 0x9104e3a4
-.word 0xf940cba5
-.word 0xf9009fa5
-.word 0xf940cfa5
-.word 0xf900a3a5
-.word 0xf940d3a5
-.word 0xf900a7a5
-.word 0xaa0403e5
-.word 0x9105e3a5
-.word 0x910483a5
-.word 0xf940bfa6
-.word 0xf90093a6
-.word 0xf940c3a6
-.word 0xf90097a6
-.word 0xf940c7a6
-.word 0xf9009ba6
-.word 0xaa0503e6
-.word 0x9105a3a6
-.word 0xf940b7a6
-.word 0xf940bba7
-.word 0x910563a9
-.word 0xf940afa9
-.word 0xf90003e9
-.word 0xf940b3a9
-.word 0xf90007e9
-.word 0x910543a9
-.word 0xf940aba9
-.word 0xf9000be9
-.word 0xb9001bff
-.word 0xf940033e
-bl _p_78
-.word 0xf9401bb1
-.word 0xf9450231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x140000e3
-.word 0xf9401bb1
-.word 0xf9451631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1803e0
-.word 0x39416300
-.word 0x34001b80
-.word 0xf9401bb1
-.word 0xf9453231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401bb1
-.word 0xf9454231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xaa1a03e0
-.word 0xaa1a03f7
-.word 0xaa1803e0
-.word 0x91011300
-.word 0x910463a1
-.word 0xf9400000
-.word 0xf9008fa0
-.word 0x9108a3a0
-.word 0xd2800000
-.word 0xf90117a0
-.word 0xb90233bf
-.word 0x9108a3a0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #480]
-.word 0x910463a1
-.word 0xbd411ba0
-.word 0xbd411fa1
-bl _p_74
-.word 0x9108a3a0
-.word 0x910423a0
-.word 0xf94117a0
-.word 0xf90087a0
-.word 0xb98233a0
-.word 0xb90113a0
-.word 0xf9401bb1
-.word 0xf945ba31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x910423a0
-.word 0x910ae3a0
-.word 0xf94087a0
-.word 0xf9015fa0
-.word 0xb98113a0
-.word 0xb902c3a0
-.word 0x910b23a0
-.word 0x9103e3a0
-.word 0xf94167a0
-.word 0xf9007fa0
-.word 0xf9416ba0
-.word 0xf90083a0
-.word 0x910843a0
-.word 0xd2800000
-.word 0xf9010ba0
-.word 0xf9010fa0
-.word 0xb90223bf
-.word 0x910843a0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x15, [x16, #488]
-.word 0x9103e3a1
-.word 0xf9407fa1
-.word 0xf94083a2
-bl _p_75
-.word 0x910843a0
-.word 0x910383a0
-.word 0xf9410ba0
-.word 0xf90073a0
-.word 0xf9410fa0
-.word 0xf90077a0
-.word 0xb98223a0
-.word 0xb900f3a0
-.word 0xf9401bb1
-.word 0xf9464e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x910383a0
-.word 0x910a83a0
-.word 0xf94073a0
-.word 0xf90153a0
-.word 0xf94077a0
-.word 0xf90157a0
-.word 0xb980f3a0
-.word 0xb902b3a0
-.word 0xaa1803e0
-.word 0xbd403300
-.word 0xbd02dba0
-.word 0xaa1a03e0
-.word 0x910ae3a0
-.word 0x910343a0
-.word 0xf9415fa0
-.word 0xf9006ba0
-.word 0xb982c3a0
-.word 0xb900dba0
-.word 0x910a03a0
-.word 0xd2800000
-.word 0xf90143a0
-.word 0xf90147a0
-.word 0xb90293bf
-.word 0x910a03a0
-.word 0x9102e3a0
-.word 0xf94143a0
-.word 0xf9005fa0
-.word 0xf94147a0
-.word 0xf90063a0
-.word 0xb98293a0
-.word 0xb900cba0
-.word 0x910a83a0
-.word 0x910283a0
-.word 0xf94153a0
-.word 0xf90053a0
-.word 0xf94157a0
-.word 0xf90057a0
-.word 0xb982b3a0
-.word 0xb900b3a0
-.word 0x910ae3a0
-.word 0xd2800000
-.word 0xf9015fa0
-.word 0xb902c3bf
-.word 0x910ae3a0
-.word 0x910243a0
-.word 0xf9415fa0
-.word 0xf9004ba0
-.word 0xb982c3a0
-.word 0xb9009ba0
-.word 0xbd42dba0
-.word 0xfd017fa0
-.word 0x910ae3a0
-.word 0xd2800000
-.word 0xf9015fa0
-.word 0xb902c3bf
-.word 0x910ae3a0
-.word 0x910203a0
-.word 0xf9415fa0
-.word 0xf90043a0
-.word 0xb982c3a0
-.word 0xb9008ba0
-.word 0xf9401bb1
-.word 0xf9475231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x910823a0
-.word 0xf90173a0
-bl _p_76
-.word 0xf94173be
-.word 0xf90003c0
-.word 0xf9401bb1
-.word 0xf9477631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x910803a0
-.word 0xd2800000
-.word 0xf90103a0
-.word 0x910803a0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #496]
-.word 0x910823a1
-.word 0xf94107a1
-bl _p_77
-.word 0x910803a0
+.word 0x910203a1
+.word 0xf94043a1
+bl _p_81
+.word 0x9108e3a0
 .word 0x9101e3a0
-.word 0xf94103a0
+.word 0xf9411fa0
 .word 0xf9003fa0
 .word 0xf9401bb1
-.word 0xf947be31
+.word 0xf9499a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xd2800020
 .word 0xd280001e
 .word 0x9e6703c0
-.word 0xfd0183a0
+.word 0xfd01b3a0
 .word 0xf9401bb1
-.word 0xf947de31
+.word 0xf949ba31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xfd417fa0
-.word 0xfd4183a1
+.word 0xfd41afa0
+.word 0xfd41b3a1
 .word 0xaa1903e0
 .word 0xaa1a03e1
-.word 0x910343a2
-.word 0xf9406ba2
-.word 0xf9406fa3
-.word 0x9102e3a4
+.word 0x910363a2
+.word 0xf9406fa2
+.word 0xf94073a3
+.word 0x910303a4
 .word 0x910183a4
-.word 0xf9405fa5
-.word 0xf90033a5
 .word 0xf94063a5
-.word 0xf90037a5
+.word 0xf90033a5
 .word 0xf94067a5
+.word 0xf90037a5
+.word 0xf9406ba5
 .word 0xf9003ba5
 .word 0xaa0403e5
-.word 0x910283a5
+.word 0x9102a3a5
 .word 0x910123a5
-.word 0xf94053a6
-.word 0xf90027a6
 .word 0xf94057a6
-.word 0xf9002ba6
+.word 0xf90027a6
 .word 0xf9405ba6
+.word 0xf9002ba6
+.word 0xf9405fa6
 .word 0xf9002fa6
 .word 0xaa0503e6
-.word 0x910243a6
-.word 0xf9404ba6
-.word 0xf9404fa7
-.word 0x910203a9
-.word 0xf94043a9
-.word 0xf90003e9
+.word 0x910263a6
+.word 0xf9404fa6
+.word 0xf94053a7
+.word 0x910223a9
 .word 0xf94047a9
+.word 0xf90003e9
+.word 0xf9404ba9
 .word 0xf90007e9
 .word 0x9101e3a9
 .word 0xf9403fa9
@@ -4140,9 +4255,9 @@ bl _p_77
 .word 0xd280003e
 .word 0xb9001bfe
 .word 0xf940033e
-bl _p_78
+bl _p_82
 .word 0xf9401bb1
-.word 0xf9488e31
+.word 0xf94a6a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9401fb1
@@ -4150,22 +4265,25 @@ bl _p_78
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9401bb1
-.word 0xf948ae31
+.word 0xf94a8a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9401bb1
-.word 0xf948be31
+.word 0xf94a9a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xa94163b7
 .word 0xa9426bb9
 .word 0x910003bf
 .word 0xa9407bfd
-.word 0xd2806210
+.word 0xd2807010
 .word 0x910003f1
 .word 0x8b100231
 .word 0x9100023f
 .word 0xd65f03c0
+.word 0xd28026e0
+.word 0xaa1103e1
+bl _p_34
 
 Lme_1a:
 .text
@@ -4178,7 +4296,7 @@ TheAdventuresOf_FrameRate_LoadContent_Microsoft_Xna_Framework_Content_ContentMan
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #504]
+ldr x16, [x16, #496]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -4203,7 +4321,7 @@ ldr x16, [x16, #504]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #512]
+ldr x0, [x16, #504]
 .word 0xf9001fa0
 .word 0xf9400fb1
 .word 0xf9408a31
@@ -4214,11 +4332,11 @@ ldr x0, [x16, #512]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #520]
+ldr x0, [x16, #512]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #528]
+ldr x15, [x16, #520]
 .word 0xaa0203e0
 .word 0xf9400042
 .word 0xf9405050
@@ -4232,7 +4350,7 @@ ldr x15, [x16, #528]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #536]
+ldr x0, [x16, #528]
 .word 0xf9000001
 .word 0xf9400fb1
 .word 0xf940f231
@@ -4258,7 +4376,7 @@ TheAdventuresOf_FrameRate_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Micr
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #544]
+ldr x16, [x16, #536]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -4298,7 +4416,7 @@ ldr x16, [x16, #544]
 .word 0xf90037a0
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_79
+bl _p_83
 .word 0xf94037be
 .word 0xf90003c0
 .word 0xf94013b1
@@ -4316,7 +4434,7 @@ bl _p_79
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9405ba0
-bl _p_80
+bl _p_84
 .word 0xfd0057a0
 .word 0xf94013b1
 .word 0xf9411631
@@ -4336,7 +4454,7 @@ bl _p_80
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #536]
+ldr x0, [x16, #528]
 .word 0xf9400000
 .word 0xf9003ba0
 .word 0x910183a0
@@ -4346,7 +4464,7 @@ ldr x0, [x16, #536]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9404fa0
-bl _p_81
+bl _p_85
 .word 0xf9003fa0
 .word 0xf94013b1
 .word 0xf9418a31
@@ -4368,7 +4486,7 @@ bl _p_81
 .word 0xd2800000
 .word 0xf90027a0
 .word 0x910123a0
-bl _p_71
+bl _p_76
 .word 0x910123a0
 .word 0x9100e3a0
 .word 0xf94027a0
@@ -4379,7 +4497,7 @@ bl _p_71
 .word 0xd63f0220
 .word 0x910103a0
 .word 0xf90037a0
-bl _p_76
+bl _p_75
 .word 0xf94037be
 .word 0xf90003c0
 .word 0xf94013b1
@@ -4396,7 +4514,7 @@ bl _p_76
 .word 0x910103a3
 .word 0xf94023a3
 .word 0xf940009e
-bl _p_82
+bl _p_86
 .word 0xf94013b1
 .word 0xf9424e31
 .word 0xb4000051
@@ -4420,7 +4538,7 @@ TheAdventuresOf_AnimationFrame__ctor:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #552]
+ldr x16, [x16, #544]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -4452,7 +4570,7 @@ TheAdventuresOf_AnimationFrame_get_sourceRectangle:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #560]
+ldr x16, [x16, #552]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -4520,7 +4638,7 @@ TheAdventuresOf_AnimationFrame_set_sourceRectangle_Microsoft_Xna_Framework_Recta
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #568]
+ldr x16, [x16, #560]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -4568,7 +4686,7 @@ TheAdventuresOf_AnimationFrame_get_duration:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #576]
+ldr x16, [x16, #568]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -4624,7 +4742,7 @@ TheAdventuresOf_AnimationFrame_set_duration_System_TimeSpan:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #584]
+ldr x16, [x16, #576]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -4669,7 +4787,7 @@ TheAdventuresOf_Animation__ctor:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #592]
+ldr x16, [x16, #584]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -4689,10 +4807,10 @@ ldr x16, [x16, #592]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #600]
+ldr x0, [x16, #592]
 bl _p_17
 .word 0xf9001fa0
-bl _p_83
+bl _p_87
 .word 0xf9400fb1
 .word 0xf9408231
 .word 0xb4000051
@@ -4730,7 +4848,7 @@ TheAdventuresOf_Animation_get_CurrentRectangle:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #608]
+ldr x16, [x16, #600]
 .word 0xf9001fb0
 .word 0xf9400a11
 .word 0xf90023b1
@@ -4776,7 +4894,7 @@ ldr x16, [x16, #608]
 .word 0x910343a0
 .word 0xf90087a0
 .word 0x9e6703e0
-bl _p_84
+bl _p_88
 .word 0xf94087be
 .word 0xf90003c0
 .word 0xf9401fb1
@@ -4807,7 +4925,7 @@ bl _p_84
 .word 0xaa0003e8
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_85
+bl _p_89
 .word 0xf9401fb1
 .word 0xf9416231
 .word 0xb4000051
@@ -4839,8 +4957,8 @@ bl _p_85
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #616]
-bl _p_86
+ldr x15, [x16, #608]
+bl _p_90
 .word 0xf900a7a0
 .word 0xf9401fb1
 .word 0xf941e631
@@ -4872,7 +4990,7 @@ bl _p_86
 .word 0xf90087a0
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_87
+bl _p_91
 .word 0xf94087be
 .word 0xf90003c0
 .word 0xf9401fb1
@@ -4885,7 +5003,7 @@ bl _p_87
 .word 0xf9403ba0
 .word 0x9102c3a1
 .word 0xf9405ba1
-bl _p_88
+bl _p_92
 .word 0xf94087be
 .word 0xf90003c0
 .word 0xf9401fb1
@@ -4905,7 +5023,7 @@ bl _p_88
 .word 0xf94057a0
 .word 0x9101a3a1
 .word 0xf94037a1
-bl _p_89
+bl _p_93
 .word 0x53001c00
 .word 0xf9009ba0
 .word 0xf9401fb1
@@ -4958,7 +5076,7 @@ bl _p_89
 .word 0xf90087a0
 .word 0xaa1803e0
 .word 0xf940031e
-bl _p_87
+bl _p_91
 .word 0xf94087be
 .word 0xf90003c0
 .word 0xf9401fb1
@@ -4971,7 +5089,7 @@ bl _p_87
 .word 0xf94033a0
 .word 0x910283a1
 .word 0xf94053a1
-bl _p_88
+bl _p_92
 .word 0xf94087be
 .word 0xf90003c0
 .word 0xf9401fb1
@@ -5000,8 +5118,8 @@ bl _p_88
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #616]
-bl _p_90
+ldr x15, [x16, #608]
+bl _p_94
 .word 0x53001c00
 .word 0xf9009ba0
 .word 0xf9401fb1
@@ -5023,8 +5141,8 @@ bl _p_90
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #616]
-bl _p_91
+ldr x15, [x16, #608]
+bl _p_95
 .word 0xf9401fb1
 .word 0xf944ba31
 .word 0xb4000051
@@ -5064,8 +5182,8 @@ bl _p_91
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #624]
-bl _p_92
+ldr x15, [x16, #616]
+bl _p_96
 .word 0xf9009ba0
 .word 0xf9401fb1
 .word 0xf9455e31
@@ -5108,7 +5226,7 @@ bl _p_92
 .word 0xf90087a0
 .word 0xaa1903e0
 .word 0xf940033e
-bl _p_93
+bl _p_97
 .word 0xf94087be
 .word 0xf90003c0
 .word 0xf90007c1
@@ -5137,7 +5255,7 @@ bl _p_93
 .word 0xd63f0220
 .word 0x9101e3a0
 .word 0xf90087a0
-bl _p_94
+bl _p_98
 .word 0xf94087be
 .word 0xf90003c0
 .word 0xf90007c1
@@ -5195,7 +5313,7 @@ TheAdventuresOf_Animation_CalculateAnimationDuration:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #632]
+ldr x16, [x16, #624]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -5247,7 +5365,7 @@ ldr x16, [x16, #632]
 .word 0xaa0003e8
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_85
+bl _p_89
 .word 0xf94013b1
 .word 0xf940fa31
 .word 0xb4000051
@@ -5279,8 +5397,8 @@ bl _p_85
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #616]
-bl _p_86
+ldr x15, [x16, #608]
+bl _p_90
 .word 0xf90073a0
 .word 0xf94013b1
 .word 0xf9417e31
@@ -5310,7 +5428,7 @@ bl _p_86
 .word 0xf90047a0
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_87
+bl _p_91
 .word 0xf94047be
 .word 0xf90003c0
 .word 0xf94013b1
@@ -5328,7 +5446,7 @@ bl _p_87
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94067a0
-bl _p_80
+bl _p_84
 .word 0xfd0063a0
 .word 0xf94013b1
 .word 0xf9423e31
@@ -5352,8 +5470,8 @@ bl _p_80
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #616]
-bl _p_90
+ldr x15, [x16, #608]
+bl _p_94
 .word 0x53001c00
 .word 0xf9005ba0
 .word 0xf94013b1
@@ -5375,8 +5493,8 @@ bl _p_90
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #616]
-bl _p_91
+ldr x15, [x16, #608]
+bl _p_95
 .word 0xf94013b1
 .word 0xf942f231
 .word 0xb4000051
@@ -5401,7 +5519,7 @@ bl _p_91
 .word 0xfd405fa0
 .word 0x9100e3a0
 .word 0xf90047a0
-bl _p_84
+bl _p_88
 .word 0xf94047be
 .word 0xf90003c0
 .word 0xf94013b1
@@ -5441,7 +5559,7 @@ TheAdventuresOf_Animation_AddFrame_Microsoft_Xna_Framework_Rectangle_System_Time
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #640]
+ldr x16, [x16, #632]
 .word 0xf90027b0
 .word 0xf9400a11
 .word 0xf9002bb1
@@ -5466,10 +5584,10 @@ ldr x16, [x16, #640]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #648]
+ldr x0, [x16, #640]
 bl _p_17
 .word 0xf9004ba0
-bl _p_95
+bl _p_99
 .word 0xf94027b1
 .word 0xf940a631
 .word 0xb4000051
@@ -5496,7 +5614,7 @@ bl _p_95
 .word 0xf94037a1
 .word 0xf9403ba2
 .word 0xf940031e
-bl _p_96
+bl _p_100
 .word 0xf94027b1
 .word 0xf9411231
 .word 0xb4000051
@@ -5516,7 +5634,7 @@ bl _p_96
 .word 0x910183a1
 .word 0xf94033a1
 .word 0xf940005e
-bl _p_97
+bl _p_101
 .word 0xf94027b1
 .word 0xf9416231
 .word 0xb4000051
@@ -5539,7 +5657,7 @@ bl _p_97
 .word 0xaa0203e0
 .word 0xaa1903e1
 .word 0xf940005e
-bl _p_98
+bl _p_102
 .word 0xf94027b1
 .word 0xf941be31
 .word 0xb4000051
@@ -5550,7 +5668,7 @@ bl _p_98
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
-bl _p_99
+bl _p_103
 .word 0xf94027b1
 .word 0xf941ea31
 .word 0xb4000051
@@ -5578,7 +5696,7 @@ TheAdventuresOf_Animation_Update_Microsoft_Xna_Framework_GameTime:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #656]
+ldr x16, [x16, #648]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -5615,7 +5733,7 @@ ldr x16, [x16, #656]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9405ba0
-bl _p_80
+bl _p_84
 .word 0xfd004ba0
 .word 0xf94013b1
 .word 0xf940c631
@@ -5632,7 +5750,7 @@ bl _p_80
 .word 0xf90033a0
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_79
+bl _p_83
 .word 0xf94033be
 .word 0xf90003c0
 .word 0xf94013b1
@@ -5650,7 +5768,7 @@ bl _p_79
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94053a0
-bl _p_80
+bl _p_84
 .word 0xfd004fa0
 .word 0xf94013b1
 .word 0xf9415231
@@ -5677,7 +5795,7 @@ bl _p_80
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94047a0
-bl _p_80
+bl _p_84
 .word 0xfd0043a0
 .word 0xf94013b1
 .word 0xf941be31
@@ -5685,7 +5803,7 @@ bl _p_80
 .word 0xd63f0220
 .word 0xfd403fa0
 .word 0xfd4043a1
-bl _p_100
+bl _p_104
 .word 0xfd002fa0
 .word 0xf94013b1
 .word 0xf941de31
@@ -5701,7 +5819,7 @@ bl _p_100
 .word 0xfd403ba0
 .word 0x9100e3a0
 .word 0xf90033a0
-bl _p_84
+bl _p_88
 .word 0xf94033be
 .word 0xf90003c0
 .word 0xf94013b1
@@ -5739,7 +5857,7 @@ TheAdventuresOf_Controller_InitializeController_Microsoft_Xna_Framework_Graphics
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #664]
+ldr x16, [x16, #656]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -5762,7 +5880,7 @@ ldr x16, [x16, #664]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #672]
+ldr x0, [x16, #664]
 .word 0xf9400000
 .word 0xf90093a0
 .word 0xf9400fb1
@@ -5772,7 +5890,7 @@ ldr x0, [x16, #672]
 .word 0xf94093a1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_29
+bl _p_30
 .word 0x93407c00
 .word 0xf9008fa0
 .word 0xf9400fb1
@@ -5785,7 +5903,7 @@ bl _p_29
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #672]
+ldr x0, [x16, #664]
 .word 0xf9400000
 .word 0xf9008ba0
 .word 0xf9400fb1
@@ -5795,7 +5913,7 @@ ldr x0, [x16, #672]
 .word 0xf9408ba1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_30
+bl _p_31
 .word 0x93407c00
 .word 0xf90087a0
 .word 0xf9400fb1
@@ -5820,14 +5938,14 @@ bl _p_30
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #680]
+ldr x0, [x16, #672]
 bl _p_17
 .word 0xfd4077a0
 .word 0xfd407ba1
 .word 0xfd407fa2
 .word 0xfd4083a3
 .word 0xf90073a0
-bl _p_101
+bl _p_105
 .word 0xf9400fb1
 .word 0xf9417a31
 .word 0xb4000051
@@ -5836,7 +5954,7 @@ bl _p_101
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #688]
+ldr x0, [x16, #680]
 .word 0xf9000001
 .word 0xf9400fb1
 .word 0xf9419e31
@@ -5845,7 +5963,7 @@ ldr x0, [x16, #688]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #672]
+ldr x0, [x16, #664]
 .word 0xf9400000
 .word 0xf9006fa0
 .word 0xf9400fb1
@@ -5855,7 +5973,7 @@ ldr x0, [x16, #672]
 .word 0xf9406fa1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_29
+bl _p_30
 .word 0x93407c00
 .word 0xf9006ba0
 .word 0xf9400fb1
@@ -5868,7 +5986,7 @@ bl _p_29
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #672]
+ldr x0, [x16, #664]
 .word 0xf9400000
 .word 0xf90067a0
 .word 0xf9400fb1
@@ -5878,7 +5996,7 @@ ldr x0, [x16, #672]
 .word 0xf94067a1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_30
+bl _p_31
 .word 0x93407c00
 .word 0xf90063a0
 .word 0xf9400fb1
@@ -5903,14 +6021,14 @@ bl _p_30
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #680]
+ldr x0, [x16, #672]
 bl _p_17
 .word 0xfd4053a0
 .word 0xfd4057a1
 .word 0xfd405ba2
 .word 0xfd405fa3
 .word 0xf9004fa0
-bl _p_101
+bl _p_105
 .word 0xf9400fb1
 .word 0xf942b631
 .word 0xb4000051
@@ -5919,7 +6037,7 @@ bl _p_101
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #696]
+ldr x0, [x16, #688]
 .word 0xf9000001
 .word 0xf9400fb1
 .word 0xf942da31
@@ -5928,7 +6046,7 @@ ldr x0, [x16, #696]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #672]
+ldr x0, [x16, #664]
 .word 0xf9400000
 .word 0xf9004ba0
 .word 0xf9400fb1
@@ -5938,7 +6056,7 @@ ldr x0, [x16, #672]
 .word 0xf9404ba1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_29
+bl _p_30
 .word 0x93407c00
 .word 0xf90047a0
 .word 0xf9400fb1
@@ -5951,7 +6069,7 @@ bl _p_29
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #672]
+ldr x0, [x16, #664]
 .word 0xf9400000
 .word 0xf90043a0
 .word 0xf9400fb1
@@ -5961,7 +6079,7 @@ ldr x0, [x16, #672]
 .word 0xf94043a1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_30
+bl _p_31
 .word 0x93407c00
 .word 0xf9003fa0
 .word 0xf9400fb1
@@ -5986,14 +6104,14 @@ bl _p_30
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #680]
+ldr x0, [x16, #672]
 bl _p_17
 .word 0xfd402fa0
 .word 0xfd4033a1
 .word 0xfd4037a2
 .word 0xfd403ba3
 .word 0xf9002ba0
-bl _p_101
+bl _p_105
 .word 0xf9400fb1
 .word 0xf943f231
 .word 0xb4000051
@@ -6002,7 +6120,7 @@ bl _p_101
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #704]
+ldr x0, [x16, #696]
 .word 0xf9000001
 .word 0xf9400fb1
 .word 0xf9441631
@@ -6025,7 +6143,7 @@ ldr x0, [x16, #704]
 .word 0xd2800000
 .word 0xf9001fa0
 .word 0x9100e3a0
-bl _p_71
+bl _p_76
 .word 0x9100e3a0
 .word 0x9100c3a0
 .word 0xf9401fa0
@@ -6037,7 +6155,7 @@ bl _p_71
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #712]
+ldr x0, [x16, #704]
 .word 0x9100c3a1
 .word 0xaa0003e1
 .word 0xf9401ba1
@@ -6065,7 +6183,7 @@ TheAdventuresOf_Controller_HandleInput_Microsoft_Xna_Framework_Point:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #720]
+ldr x16, [x16, #712]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -6088,7 +6206,7 @@ ldr x16, [x16, #720]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #688]
+ldr x0, [x16, #680]
 .word 0xf9400000
 .word 0xf9002fa0
 .word 0x910043a0
@@ -6104,7 +6222,7 @@ ldr x0, [x16, #688]
 .word 0x910123a1
 .word 0xf94027a1
 .word 0xf940005e
-bl _p_102
+bl _p_106
 .word 0x53001c00
 .word 0xf9002ba0
 .word 0xf94013b1
@@ -6112,7 +6230,7 @@ bl _p_102
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9402ba0
-.word 0x34000560
+.word 0x340003a0
 .word 0xf94013b1
 .word 0xf940de31
 .word 0xb4000051
@@ -6121,30 +6239,147 @@ bl _p_102
 .word 0xf940ee31
 .word 0xb4000051
 .word 0xd63f0220
+.word 0xd2800020
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #728]
-.word 0xf9002ba0
+ldr x0, [x16, #256]
+.word 0xd280003e
+.word 0x3900001e
 .word 0xf94013b1
-.word 0xf9410e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9402ba0
-bl _p_49
-.word 0xf94013b1
-.word 0xf9412631
+.word 0xf9411631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xd2800020
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #280]
+ldr x0, [x16, #720]
 .word 0xd280003e
 .word 0x3900001e
 .word 0xf94013b1
-.word 0xf9414e31
+.word 0xf9413e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9415e31
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #688]
+.word 0xf9400000
+.word 0xf9002fa0
+.word 0x910043a0
+.word 0x910103a0
+.word 0xf9400ba0
+.word 0xf90023a0
+.word 0xf94013b1
+.word 0xf9419231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402fa2
+.word 0xaa0203e0
+.word 0x910103a1
+.word 0xf94023a1
+.word 0xf940005e
+bl _p_106
+.word 0x53001c00
+.word 0xf9002ba0
+.word 0xf94013b1
+.word 0xf941c231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402ba0
+.word 0x340003a0
+.word 0xf94013b1
+.word 0xf941da31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf941ea31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd2800020
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #256]
+.word 0xd280003e
+.word 0x3900001e
+.word 0xf94013b1
+.word 0xf9421231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd2800020
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #728]
+.word 0xd280003e
+.word 0x3900001e
+.word 0xf94013b1
+.word 0xf9423a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9425a31
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #696]
+.word 0xf9400000
+.word 0xf9002fa0
+.word 0x910043a0
+.word 0x9100e3a0
+.word 0xf9400ba0
+.word 0xf9001fa0
+.word 0xf94013b1
+.word 0xf9428e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402fa2
+.word 0xaa0203e0
+.word 0x9100e3a1
+.word 0xf9401fa1
+.word 0xf940005e
+bl _p_106
+.word 0x53001c00
+.word 0xf9002ba0
+.word 0xf94013b1
+.word 0xf942be31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402ba0
+.word 0x340003a0
+.word 0xf94013b1
+.word 0xf942d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf942e631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd2800020
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #256]
+.word 0xd280003e
+.word 0x3900001e
+.word 0xf94013b1
+.word 0xf9430e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xd2800020
@@ -6155,181 +6390,19 @@ ldr x0, [x16, #736]
 .word 0xd280003e
 .word 0x3900001e
 .word 0xf94013b1
-.word 0xf9417631
+.word 0xf9433631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94017b1
 .word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9419631
-.word 0xb4000051
-.word 0xd63f0220
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #696]
-.word 0xf9400000
-.word 0xf9002fa0
-.word 0x910043a0
-.word 0x910103a0
-.word 0xf9400ba0
-.word 0xf90023a0
-.word 0xf94013b1
-.word 0xf941ca31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9402fa2
-.word 0xaa0203e0
-.word 0x910103a1
-.word 0xf94023a1
-.word 0xf940005e
-bl _p_102
-.word 0x53001c00
-.word 0xf9002ba0
-.word 0xf94013b1
-.word 0xf941fa31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9402ba0
-.word 0x34000560
-.word 0xf94013b1
-.word 0xf9421231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9422231
-.word 0xb4000051
-.word 0xd63f0220
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #744]
-.word 0xf9002ba0
-.word 0xf94013b1
-.word 0xf9424231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9402ba0
-bl _p_49
-.word 0xf94013b1
-.word 0xf9425a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd2800020
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #280]
-.word 0xd280003e
-.word 0x3900001e
-.word 0xf94013b1
-.word 0xf9428231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd2800020
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #752]
-.word 0xd280003e
-.word 0x3900001e
-.word 0xf94013b1
-.word 0xf942aa31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
-.word 0xf942ca31
-.word 0xb4000051
-.word 0xd63f0220
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #704]
-.word 0xf9400000
-.word 0xf9002fa0
-.word 0x910043a0
-.word 0x9100e3a0
-.word 0xf9400ba0
-.word 0xf9001fa0
-.word 0xf94013b1
-.word 0xf942fe31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9402fa2
-.word 0xaa0203e0
-.word 0x9100e3a1
-.word 0xf9401fa1
-.word 0xf940005e
-bl _p_102
-.word 0x53001c00
-.word 0xf9002ba0
-.word 0xf94013b1
-.word 0xf9432e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9402ba0
-.word 0x34000560
-.word 0xf94013b1
-.word 0xf9434631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
 .word 0xf9435631
 .word 0xb4000051
 .word 0xd63f0220
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #760]
-.word 0xf9002ba0
 .word 0xf94013b1
-.word 0xf9437631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9402ba0
-bl _p_49
-.word 0xf94013b1
-.word 0xf9438e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd2800020
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #280]
-.word 0xd280003e
-.word 0x3900001e
-.word 0xf94013b1
-.word 0xf943b631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd2800020
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #768]
-.word 0xd280003e
-.word 0x3900001e
-.word 0xf94013b1
-.word 0xf943de31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
-.word 0xf943fe31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9440e31
+.word 0xf9436631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0x910003bf
@@ -6346,7 +6419,7 @@ TheAdventuresOf_Controller_ResetButtonPressedValues:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #776]
+ldr x16, [x16, #744]
 .word 0xf9000bb0
 .word 0xf9400a11
 .word 0xf9000fb1
@@ -6370,7 +6443,7 @@ ldr x16, [x16, #776]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #280]
+ldr x0, [x16, #256]
 .word 0x3900001f
 .word 0xf9400bb1
 .word 0xf9408231
@@ -6380,7 +6453,7 @@ ldr x0, [x16, #280]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #736]
+ldr x0, [x16, #720]
 .word 0x3900001f
 .word 0xf9400bb1
 .word 0xf940a631
@@ -6390,7 +6463,7 @@ ldr x0, [x16, #736]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #752]
+ldr x0, [x16, #728]
 .word 0x3900001f
 .word 0xf9400bb1
 .word 0xf940ca31
@@ -6400,7 +6473,7 @@ ldr x0, [x16, #752]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #768]
+ldr x0, [x16, #736]
 .word 0x3900001f
 .word 0xf9400bb1
 .word 0xf940ee31
@@ -6430,7 +6503,7 @@ TheAdventuresOf_Controller_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #784]
+ldr x16, [x16, #752]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -6466,13 +6539,13 @@ ldr x16, [x16, #784]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #792]
+ldr x0, [x16, #760]
 .word 0xf9400000
 .word 0xf900afa0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #712]
+ldr x0, [x16, #704]
 .word 0x910323a1
 .word 0xf9400000
 .word 0xf90067a0
@@ -6484,11 +6557,11 @@ ldr x0, [x16, #712]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #480]
+ldr x15, [x16, #472]
 .word 0x910323a1
 .word 0xbd40cba0
 .word 0xbd40cfa1
-bl _p_74
+bl _p_79
 .word 0x910343a0
 .word 0x9102e3a0
 .word 0xf9406ba0
@@ -6601,7 +6674,7 @@ bl _p_74
 .word 0xf9000be9
 .word 0xb9001bff
 .word 0xf940035e
-bl _p_78
+bl _p_82
 .word 0xf9400fb1
 .word 0xf942da31
 .word 0xb4000051
@@ -6609,14 +6682,14 @@ bl _p_78
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #688]
+ldr x0, [x16, #680]
 .word 0xf9400000
 .word 0xf900a7a0
 .word 0xaa1a03e0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #672]
+ldr x0, [x16, #664]
 .word 0xf9400000
 .word 0xf900a3a0
 .word 0xd280001e
@@ -6634,7 +6707,7 @@ ldr x0, [x16, #672]
 .word 0xaa1a03e1
 .word 0xd2800003
 .word 0xf940009e
-bl _p_103
+bl _p_107
 .word 0xf9400fb1
 .word 0xf9435631
 .word 0xb4000051
@@ -6642,14 +6715,14 @@ bl _p_103
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #696]
+ldr x0, [x16, #688]
 .word 0xf9400000
 .word 0xf9009ba0
 .word 0xaa1a03e0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #672]
+ldr x0, [x16, #664]
 .word 0xf9400000
 .word 0xf90097a0
 .word 0xd281fb7e
@@ -6668,7 +6741,7 @@ ldr x0, [x16, #672]
 .word 0xaa1a03e1
 .word 0xd2800043
 .word 0xf940009e
-bl _p_103
+bl _p_107
 .word 0xf9400fb1
 .word 0xf943d631
 .word 0xb4000051
@@ -6676,14 +6749,14 @@ bl _p_103
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #704]
+ldr x0, [x16, #696]
 .word 0xf9400000
 .word 0xf9008fa0
 .word 0xaa1a03e0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #672]
+ldr x0, [x16, #664]
 .word 0xf9400000
 .word 0xf9008ba0
 .word 0xd281fb7e
@@ -6702,7 +6775,7 @@ ldr x0, [x16, #672]
 .word 0xaa1a03e1
 .word 0xd2800003
 .word 0xf940009e
-bl _p_103
+bl _p_107
 .word 0xf9400fb1
 .word 0xf9445631
 .word 0xb4000051
@@ -6732,7 +6805,7 @@ TheAdventuresOf_Button__ctor_single_single_single_single:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #800]
+ldr x16, [x16, #768]
 .word 0xf9001fb0
 .word 0xf9400a11
 .word 0xf90023b1
@@ -6791,7 +6864,7 @@ ldr x16, [x16, #800]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
-bl _p_104
+bl _p_108
 .word 0xf9401fb1
 .word 0xf9412631
 .word 0xb4000051
@@ -6817,7 +6890,7 @@ TheAdventuresOf_Button_InitializeButton:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #808]
+ldr x16, [x16, #776]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -6868,7 +6941,7 @@ ldr x16, [x16, #808]
 .word 0xd2800000
 .word 0xf90027a0
 .word 0x910123a0
-bl _p_71
+bl _p_76
 .word 0x910123a0
 .word 0x9100e3a0
 .word 0xf94027a0
@@ -6910,7 +6983,7 @@ bl _p_71
 .word 0xd2800000
 .word 0xf90023a0
 .word 0x910103a0
-bl _p_71
+bl _p_76
 .word 0x910103a0
 .word 0x9100c3a0
 .word 0xf94023a0
@@ -6933,7 +7006,7 @@ bl _p_71
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
-bl _p_105
+bl _p_109
 .word 0xf9400fb1
 .word 0xf941fa31
 .word 0xb4000051
@@ -6959,7 +7032,7 @@ TheAdventuresOf_Button_InitializeBounds:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #816]
+ldr x16, [x16, #784]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -7013,7 +7086,7 @@ ldr x16, [x16, #816]
 .word 0xf90023a0
 .word 0xf90027a0
 .word 0x910103a0
-bl _p_72
+bl _p_77
 .word 0x910103a0
 .word 0x9100c3a0
 .word 0xf94023a0
@@ -7056,7 +7129,7 @@ TheAdventuresOf_Button_IsPressed_Microsoft_Xna_Framework_Point:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #824]
+ldr x16, [x16, #792]
 .word 0xf9001bb0
 .word 0xf9400a11
 .word 0xf9001fb1
@@ -7094,7 +7167,7 @@ ldr x16, [x16, #824]
 .word 0xf9402fa0
 .word 0x910123a1
 .word 0xf94027a1
-bl _p_106
+bl _p_110
 .word 0x53001c00
 .word 0xf9002ba0
 .word 0xf9401bb1
@@ -7156,7 +7229,7 @@ TheAdventuresOf_Button_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microso
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #832]
+ldr x16, [x16, #800]
 .word 0xf9001fb0
 .word 0xf9400a11
 .word 0xf90023b1
@@ -7209,7 +7282,7 @@ ldr x16, [x16, #832]
 .word 0xd63f0220
 .word 0x910243a0
 .word 0xf9005ba0
-bl _p_76
+bl _p_75
 .word 0xf9405bbe
 .word 0xf90003c0
 .word 0xf9401fb1
@@ -7261,7 +7334,7 @@ bl _p_76
 .word 0xbd406ba3
 .word 0xbd406fa4
 .word 0xf94000be
-bl _p_107
+bl _p_111
 .word 0xf9401fb1
 .word 0xf941de31
 .word 0xb4000051
@@ -7280,18 +7353,19 @@ Lme_2f:
 	.align 4
 	.no_dead_strip TheAdventuresOf_Level__ctor
 TheAdventuresOf_Level__ctor:
-.word 0xa9bb7bfd
+.word 0xa9b97bfd
 .word 0x910003fd
-.word 0xf9000ba0
+.word 0xf9000bba
+.word 0xaa0003fa
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #840]
+ldr x16, [x16, #808]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
 .word 0xf9400fb1
-.word 0xf9403231
+.word 0xf9403631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
@@ -7299,61 +7373,114 @@ ldr x16, [x16, #840]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf9405231
+.word 0xf9405631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9400ba0
+.word 0xaa1a03e0
 .word 0xf9400fb1
-.word 0xf9406631
+.word 0xf9406a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf9407631
+.word 0xf9407a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xd280001e
 .word 0x9e6703c0
-.word 0xfd0023a0
+.word 0xfd0033a0
 .word 0xd280001e
 .word 0x9e6703c0
-.word 0xfd0027a0
+.word 0xfd0037a0
 .word 0xf9400fb1
-.word 0xf9409e31
+.word 0xf940a231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xfd4023a0
-.word 0xfd4027a1
+.word 0xfd4033a0
+.word 0xfd4037a1
 .word 0x9100e3a0
 .word 0xd2800000
 .word 0xf9001fa0
 .word 0x9100e3a0
-bl _p_71
+bl _p_76
 .word 0x9100e3a0
 .word 0x9100c3a0
 .word 0xf9401fa0
 .word 0xf9001ba0
 .word 0xf9400fb1
-.word 0xf940da31
+.word 0xf940de31
 .word 0xb4000051
 .word 0xd63f0220
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #848]
+ldr x0, [x16, #816]
 .word 0x9100c3a1
 .word 0xaa0003e1
 .word 0xf9401ba1
 .word 0xf9000001
 .word 0xf9400fb1
-.word 0xf9410631
+.word 0xf9410a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xf9400fb1
+.word 0xf9411e31
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #824]
+bl _p_17
+.word 0xf9002fa0
+bl _p_112
+.word 0xf9400fb1
+.word 0xf9414631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402fa0
+.word 0xf9002ba0
+.word 0xf9000b40
+.word 0x91004340
+bl _p_9
+.word 0xf9402ba0
+.word 0xf9400fb1
+.word 0xf9416e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xf9400fb1
+.word 0xf9418231
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #824]
+bl _p_17
+.word 0xf90027a0
+bl _p_112
+.word 0xf9400fb1
+.word 0xf941aa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94027a0
+.word 0xf90023a0
+.word 0xf9000f40
+.word 0x91006340
+bl _p_9
+.word 0xf94023a0
+.word 0xf9400fb1
+.word 0xf941d231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf9411631
+.word 0xf941e231
 .word 0xb4000051
 .word 0xd63f0220
+.word 0xf9400bba
 .word 0x910003bf
-.word 0xa8c57bfd
+.word 0xa8c77bfd
 .word 0xd65f03c0
 
 Lme_30:
@@ -7363,16 +7490,17 @@ Lme_30:
 TheAdventuresOf_Level_InitializeLevel:
 .word 0xa9b47bfd
 .word 0x910003fd
-.word 0xf9000ba0
+.word 0xf9000bba
+.word 0xaa0003fa
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #856]
+ldr x16, [x16, #832]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
 .word 0xf9400fb1
-.word 0xf9403231
+.word 0xf9403631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
@@ -7380,39 +7508,36 @@ ldr x16, [x16, #856]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf9405231
+.word 0xf9405631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf9406231
+.word 0xf9406631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xd2800000
 .word 0xd2800000
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #864]
-.word 0xb9800000
+.word 0xaa1a03e0
+.word 0xb9802340
 .word 0xf90053a0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #872]
+ldr x0, [x16, #840]
 .word 0xf9400000
 .word 0xf9005ba0
 .word 0xf9400fb1
-.word 0xf940a231
+.word 0xf9409e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9405ba1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_30
+bl _p_31
 .word 0x93407c00
 .word 0xf90057a0
 .word 0xf9400fb1
-.word 0xf940ca31
+.word 0xf940c631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94053a3
@@ -7424,7 +7549,7 @@ bl _p_30
 .word 0x910183a0
 .word 0xd2800001
 .word 0xd2800002
-bl _p_72
+bl _p_77
 .word 0x910183a0
 .word 0x910103a0
 .word 0xf94033a0
@@ -7432,13 +7557,13 @@ bl _p_72
 .word 0xf94037a0
 .word 0xf90027a0
 .word 0xf9400fb1
-.word 0xf9411a31
+.word 0xf9411631
 .word 0xb4000051
 .word 0xd63f0220
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #880]
+ldr x0, [x16, #848]
 .word 0x910103a1
 .word 0xaa0003e1
 .word 0xf94023a1
@@ -7446,62 +7571,56 @@ ldr x0, [x16, #880]
 .word 0xf94027a1
 .word 0xf9000401
 .word 0xf9400fb1
-.word 0xf9414e31
+.word 0xf9414a31
 .word 0xb4000051
 .word 0xd63f0220
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #872]
+ldr x0, [x16, #840]
 .word 0xf9400000
 .word 0xf9004fa0
 .word 0xf9400fb1
-.word 0xf9417231
+.word 0xf9416e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9404fa1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_29
+bl _p_30
 .word 0x93407c00
 .word 0xf9004ba0
 .word 0xf9400fb1
-.word 0xf9419a31
+.word 0xf9419631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9404ba0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #888]
-.word 0xb9800021
+.word 0xaa1a03e1
+.word 0xb9802741
 .word 0x4b010000
 .word 0xf9003ba0
 .word 0xd2800000
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #888]
-.word 0xb9800000
+.word 0xaa1a03e0
+.word 0xb9802740
 .word 0xf9003fa0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #872]
+ldr x0, [x16, #840]
 .word 0xf9400000
 .word 0xf90047a0
 .word 0xf9400fb1
-.word 0xf941f231
+.word 0xf941de31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94047a1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_30
+bl _p_31
 .word 0x93407c00
 .word 0xf90043a0
 .word 0xf9400fb1
-.word 0xf9421a31
+.word 0xf9420631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9403ba1
@@ -7513,7 +7632,7 @@ bl _p_30
 .word 0xf9002fa0
 .word 0x910143a0
 .word 0xd2800002
-bl _p_72
+bl _p_77
 .word 0x910143a0
 .word 0x9100c3a0
 .word 0xf9402ba0
@@ -7521,13 +7640,13 @@ bl _p_72
 .word 0xf9402fa0
 .word 0xf9001fa0
 .word 0xf9400fb1
-.word 0xf9426a31
+.word 0xf9425631
 .word 0xb4000051
 .word 0xd63f0220
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #896]
+ldr x0, [x16, #856]
 .word 0x9100c3a1
 .word 0xaa0003e1
 .word 0xf9401ba1
@@ -7535,13 +7654,14 @@ ldr x0, [x16, #896]
 .word 0xf9401fa1
 .word 0xf9000401
 .word 0xf9400fb1
-.word 0xf9429e31
+.word 0xf9428a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf942ae31
+.word 0xf9429a31
 .word 0xb4000051
 .word 0xd63f0220
+.word 0xf9400bba
 .word 0x910003bf
 .word 0xa8cc7bfd
 .word 0xd65f03c0
@@ -7553,13 +7673,13 @@ Lme_31:
 TheAdventuresOf_Level_CheckCollision_TheAdventuresOf_Character:
 .word 0xa9b87bfd
 .word 0x910003fd
-.word 0xf9000bba
-.word 0xf9000fa0
+.word 0xa9016bb9
+.word 0xaa0003f9
 .word 0xaa0103fa
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #904]
+ldr x16, [x16, #864]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -7582,7 +7702,7 @@ ldr x16, [x16, #904]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #880]
+ldr x0, [x16, #848]
 .word 0xf90037a0
 .word 0xaa1a03e0
 .word 0x9100d340
@@ -7599,7 +7719,7 @@ ldr x0, [x16, #880]
 .word 0x910123a1
 .word 0xf94027a1
 .word 0xf9402ba2
-bl _p_108
+bl _p_113
 .word 0x53001c00
 .word 0xf90033a0
 .word 0xf94013b1
@@ -7607,7 +7727,7 @@ bl _p_108
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94033a0
-.word 0x34000580
+.word 0x34000380
 .word 0xf94013b1
 .word 0xf940ea31
 .word 0xb4000051
@@ -7616,31 +7736,13 @@ bl _p_108
 .word 0xf940fa31
 .word 0xb4000051
 .word 0xd63f0220
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #912]
-.word 0xf90037a0
-.word 0xf94013b1
-.word 0xf9411a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94037a0
-bl _p_49
-.word 0xf94013b1
-.word 0xf9413231
-.word 0xb4000051
-.word 0xd63f0220
 .word 0xaa1a03e0
 .word 0xd2800000
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #864]
-.word 0xb9800000
+.word 0xaa1903e0
+.word 0xb9802320
 .word 0xf90033a0
 .word 0xf94013b1
-.word 0xf9415e31
+.word 0xf9411e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94033a2
@@ -7650,7 +7752,7 @@ ldr x0, [x16, #864]
 .word 0xf9403470
 .word 0xd63f0200
 .word 0xf94013b1
-.word 0xf9418631
+.word 0xf9414631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94017b1
@@ -7658,13 +7760,13 @@ ldr x0, [x16, #864]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf941a631
+.word 0xf9416631
 .word 0xb4000051
 .word 0xd63f0220
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #896]
+ldr x0, [x16, #856]
 .word 0xf90037a0
 .word 0xaa1a03e0
 .word 0x9100d340
@@ -7674,43 +7776,28 @@ ldr x0, [x16, #896]
 .word 0xf9400400
 .word 0xf90023a0
 .word 0xf94013b1
-.word 0xf941e231
+.word 0xf941a231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94037a0
 .word 0x9100e3a1
 .word 0xf9401fa1
 .word 0xf94023a2
-bl _p_108
+bl _p_113
 .word 0x53001c00
 .word 0xf90033a0
 .word 0xf94013b1
-.word 0xf9420e31
+.word 0xf941ce31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94033a0
-.word 0x34000820
+.word 0x34000620
 .word 0xf94013b1
-.word 0xf9422631
+.word 0xf941e631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf9423631
-.word 0xb4000051
-.word 0xd63f0220
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #920]
-.word 0xf9003fa0
-.word 0xf94013b1
-.word 0xf9425631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9403fa0
-bl _p_49
-.word 0xf94013b1
-.word 0xf9426e31
+.word 0xf941f631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
@@ -7718,33 +7805,30 @@ bl _p_49
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #872]
+ldr x0, [x16, #840]
 .word 0xf9400000
 .word 0xf9003ba0
 .word 0xf94013b1
-.word 0xf9429a31
+.word 0xf9422231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9403ba1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_29
+bl _p_30
 .word 0x93407c00
 .word 0xf90037a0
 .word 0xf94013b1
-.word 0xf942c231
+.word 0xf9424a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94037a0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #888]
-.word 0xb9800021
+.word 0xaa1903e1
+.word 0xb9802721
 .word 0x4b010000
 .word 0xf90033a0
 .word 0xf94013b1
-.word 0xf942ee31
+.word 0xf9426e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94033a2
@@ -7754,7 +7838,7 @@ ldr x1, [x16, #888]
 .word 0xf9403470
 .word 0xd63f0200
 .word 0xf94013b1
-.word 0xf9431631
+.word 0xf9429631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94017b1
@@ -7762,19 +7846,782 @@ ldr x1, [x16, #888]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf9433631
+.word 0xf942b631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf9434631
+.word 0xf942c631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9400bba
+.word 0xa9416bb9
 .word 0x910003bf
 .word 0xa8c87bfd
 .word 0xd65f03c0
 
 Lme_32:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_Level_GetRandomXLocation_single
+TheAdventuresOf_Level_GetRandomXLocation_single:
+.word 0xa9b77bfd
+.word 0x910003fd
+.word 0xa90167b8
+.word 0xf90013a0
+.word 0xbd002ba0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #872]
+.word 0xf9001bb0
+.word 0xf9400a11
+.word 0xf9001fb1
+.word 0xd2800019
+.word 0xd2800018
+.word 0xf9401bb1
+.word 0xf9404231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9406231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9407231
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #880]
+.word 0xf9400000
+.word 0xf9003ba0
+.word 0xd28010e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #840]
+.word 0xf9400000
+.word 0xf90043a0
+.word 0xf9401bb1
+.word 0xf940ae31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94043a1
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_30
+.word 0x93407c00
+.word 0xf9003fa0
+.word 0xf9401bb1
+.word 0xf940d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9403fa0
+.word 0xf94013a1
+.word 0xb9802421
+.word 0x4b010000
+.word 0xbd402ba0
+.word 0x9e380001
+.word 0x93407c21
+.word 0x4b010000
+.word 0x11000400
+.word 0xf90037a0
+.word 0xf9401bb1
+.word 0xf9410e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94037a2
+.word 0xf9403ba3
+.word 0xaa0303e0
+.word 0xd28010e1
+.word 0xf9400063
+.word 0xf9403470
+.word 0xd63f0200
+.word 0x93407c00
+.word 0xf90033a0
+.word 0xf9401bb1
+.word 0xf9414231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94033a0
+.word 0xf9002fa0
+.word 0xaa0003f9
+.word 0xf9401bb1
+.word 0xf9415e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402fa0
+.word 0xaa0003e1
+.word 0xf9002ba0
+.word 0xaa0003f8
+.word 0xf9401bb1
+.word 0xf9417e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402ba0
+.word 0xaa0003e1
+.word 0xf9401bb1
+.word 0xf9419631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xa94167b8
+.word 0x910003bf
+.word 0xa8c97bfd
+.word 0xd65f03c0
+
+Lme_33:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_Level_Update_Microsoft_Xna_Framework_GameTime_TheAdventuresOf_Player
+TheAdventuresOf_Level_Update_Microsoft_Xna_Framework_GameTime_TheAdventuresOf_Player:
+.word 0xa9ab7bfd
+.word 0x910003fd
+.word 0xa9015fb6
+.word 0xa90267b8
+.word 0xf9001bba
+.word 0xaa0003f8
+.word 0xaa0103f9
+.word 0xaa0203fa
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #888]
+.word 0xf9001fb0
+.word 0xf9400a11
+.word 0xf90023b1
+.word 0xd2800017
+.word 0xd2800016
+.word 0x9101a3a0
+.word 0xd2800000
+.word 0xf90037a0
+.word 0xf9003ba0
+.word 0xf9003fa0
+.word 0xf9401fb1
+.word 0xf9406231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94023b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9408231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9409231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xf9400b00
+.word 0xf90057a0
+.word 0xf9401fb1
+.word 0xf940ae31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94057a1
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_114
+.word 0x93407c00
+.word 0xf90053a0
+.word 0xf9401fb1
+.word 0xf940d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94053a0
+.word 0xaa1803e1
+.word 0xb9802f01
+.word 0x6b01001f
+.word 0x54001d8a
+.word 0xf94023b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9410a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9411a31
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #896]
+bl _p_17
+.word 0xf900a3a0
+bl _p_115
+.word 0xf9401fb1
+.word 0xf9414231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940a3a0
+.word 0xaa0003f7
+.word 0xf9401fb1
+.word 0xf9415a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1703e0
+.word 0xf9401fb1
+.word 0xf9416e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1703e0
+bl _p_116
+.word 0xf9009fa0
+.word 0xf9401fb1
+.word 0xf9418a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9409fa0
+.word 0xf9009ba0
+.word 0xaa0003f7
+.word 0xf9401fb1
+.word 0xf941a631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9409ba0
+.word 0xf90067a0
+.word 0xaa1803e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #288]
+.word 0xf9400000
+.word 0xf90097a0
+.word 0xf9401fb1
+.word 0xf941d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94097a1
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_30
+.word 0x93407c00
+.word 0xf90093a0
+.word 0xf9401fb1
+.word 0xf941fe31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94093a0
+.word 0x1e220000
+.word 0xfd008fa0
+.word 0xf9401fb1
+.word 0xf9421a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd408fa0
+.word 0xaa1803e0
+bl _p_117
+.word 0x93407c00
+.word 0xf9008ba0
+.word 0xf9401fb1
+.word 0xf9423e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9408ba0
+.word 0x1e220000
+.word 0xfd006ba0
+.word 0xd280001e
+.word 0xf2a890fe
+.word 0x9e6703c0
+.word 0xfd0083a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #288]
+.word 0xf9400000
+.word 0xf90087a0
+.word 0xf9401fb1
+.word 0xf9427e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94087a1
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_31
+.word 0x93407c00
+.word 0xf9007fa0
+.word 0xf9401fb1
+.word 0xf942a631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9407fa0
+.word 0xfd4083a0
+.word 0x1e220001
+.word 0x1e213800
+.word 0xfd006fa0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #288]
+.word 0xf9400000
+.word 0xf9007ba0
+.word 0xf9401fb1
+.word 0xf942de31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9407ba1
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_30
+.word 0x93407c00
+.word 0xf90077a0
+.word 0xf9401fb1
+.word 0xf9430631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94077a0
+.word 0xaa1703e1
+.word 0xb9805421
+.word 0x6b1f003f
+.word 0x10000011
+.word 0x54003560
+.word 0x9280001e
+.word 0xf2bffffe
+.word 0x6b1e003f
+.word 0x9a9f17e2
+.word 0x929ffffe
+.word 0xf2b0001e
+.word 0x6b1e001f
+.word 0x9a9f17e3
+.word 0xa030042
+.word 0xd280003e
+.word 0x6b1e005f
+.word 0x10000011
+.word 0x54003360
+.word 0xf100003f
+.word 0x10000011
+.word 0x54003360
+.word 0x929ffff0
+.word 0xf2b00010
+.word 0xeb10001f
+.word 0x9a9f17f1
+.word 0x92800010
+.word 0xf2bffff0
+.word 0xeb10003f
+.word 0x9a9f17f0
+.word 0x8a110210
+.word 0xf100061f
+.word 0x10000011
+.word 0x54003180
+.word 0x1ac10c00
+.word 0xf9005fa0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #288]
+.word 0xf9400000
+.word 0xf90073a0
+.word 0xf9401fb1
+.word 0xf943ba31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94073a1
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_31
+.word 0x93407c00
+.word 0xf90063a0
+.word 0xf9401fb1
+.word 0xf943e231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405fa1
+.word 0xf94063a2
+.word 0xf94067a3
+.word 0xfd406ba0
+.word 0xfd406fa1
+.word 0xaa0303e0
+.word 0xf9400063
+.word 0xf9403c70
+.word 0xd63f0200
+.word 0xf9401fb1
+.word 0xf9441631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1703e0
+.word 0xf9005ba0
+.word 0xf9401fb1
+.word 0xf9442e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405ba1
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_118
+.word 0xf9401fb1
+.word 0xf9444e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xf9400b00
+.word 0xf90057a0
+.word 0xaa1703e0
+.word 0xf90053a0
+.word 0xf9401fb1
+.word 0xf9447231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94053a1
+.word 0xf94057a2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_119
+.word 0xf9401fb1
+.word 0xf9449631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94023b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf944b631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf944c631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xf9400b00
+.word 0xf90053a0
+.word 0xf9401fb1
+.word 0xf944e231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94053a1
+.word 0x910143a0
+.word 0xaa0003e8
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_45
+.word 0xf9401fb1
+.word 0xf9450a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910143a0
+.word 0x9101a3a0
+.word 0xf9402ba0
+.word 0xf90037a0
+.word 0xf9402fa0
+.word 0xf9003ba0
+.word 0xf94033a0
+.word 0xf9003fa0
+.word 0x1400007c
+.word 0xf94023b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9454e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x9101a3a0
+.word 0xf90067a0
+.word 0xf9401fb1
+.word 0xf9456631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94067a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x15, [x16, #280]
+bl _p_46
+.word 0xf90063a0
+.word 0xf9401fb1
+.word 0xf9458e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94063a0
+.word 0xf9005fa0
+.word 0xaa0003f6
+.word 0xf9401fb1
+.word 0xf945aa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf945ba31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405fa0
+.word 0xaa1803e1
+.word 0xf9005ba0
+.word 0xf9401fb1
+.word 0xf945d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405ba1
+.word 0xaa1803e0
+bl _p_37
+.word 0xf9401fb1
+.word 0xf945f231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1603e0
+.word 0xf90057a0
+.word 0xf9401fb1
+.word 0xf9460e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94057a1
+.word 0xaa1a03e0
+.word 0xf940035e
+bl _p_120
+.word 0xf9401fb1
+.word 0xf9462e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1603e0
+.word 0xf90053a0
+.word 0xaa1903e0
+.word 0xd2800000
+.word 0xf9401fb1
+.word 0xf9464e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94053a3
+.word 0xaa0303e0
+.word 0xaa1903e1
+.word 0xd2800002
+.word 0xf9400063
+.word 0xf9403070
+.word 0xd63f0200
+.word 0xf9401fb1
+.word 0xf9467a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1603e0
+.word 0x39420800
+.word 0x340003c0
+.word 0xf94023b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf946a631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf946b631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xf9400f00
+.word 0xf90053a0
+.word 0xaa1603e0
+.word 0xf9401fb1
+.word 0xf946d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94053a2
+.word 0xaa0203e0
+.word 0xaa1603e1
+.word 0xf940005e
+bl _p_119
+.word 0xf9401fb1
+.word 0xf946fa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94023b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9471a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x9101a3a0
+.word 0xf90057a0
+.word 0xf9401fb1
+.word 0xf9473231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94057a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x15, [x16, #280]
+bl _p_47
+.word 0x53001c00
+.word 0xf90053a0
+.word 0xf9401fb1
+.word 0xf9475e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94053a0
+.word 0x35ffee60
+.word 0x94000002
+.word 0x14000013
+.word 0xf9004bbe
+.word 0x9101a3a0
+.word 0xf90053a0
+.word 0xf9401fb1
+.word 0xf9478a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94053a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x15, [x16, #280]
+bl _p_48
+.word 0xf9401fb1
+.word 0xf947ae31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9404bbe
+.word 0xd61f03c0
+.word 0xf94023b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf947d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xf9400f00
+.word 0xf90057a0
+.word 0xf9401fb1
+.word 0xf947f231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94057a1
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_114
+.word 0x93407c00
+.word 0xf90053a0
+.word 0xf9401fb1
+.word 0xf9481a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94053a0
+.word 0xd2800001
+.word 0x6b1f001f
+.word 0x54000a0d
+.word 0xf94023b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9484a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9485a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xf9400b00
+.word 0xf9005ba0
+.word 0xaa1803e0
+.word 0xeb1f031f
+.word 0x10000011
+.word 0x540009e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #904]
+bl _p_17
+.word 0xf9001018
+.word 0xf9005fa0
+.word 0x91008000
+bl _p_9
+.word 0xf9405fa0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x1, [x16, #912]
+.word 0xf9001401
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x1, [x16, #920]
+.word 0xf9002001
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x1, [x16, #928]
+.word 0xf9401422
+.word 0xf9000c02
+.word 0xf9401021
+.word 0xf9000801
+.word 0xd2800001
+.word 0x3901801f
+.word 0xf90057a0
+.word 0xf9401fb1
+.word 0xf948f231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94057a1
+.word 0xf9405ba2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_121
+.word 0x93407c00
+.word 0xf9401fb1
+.word 0xf9491a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9492a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xf9400f00
+.word 0xf90053a0
+.word 0xf9401fb1
+.word 0xf9494631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94053a1
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_122
+.word 0xf9401fb1
+.word 0xf9496631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94023b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9498631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9499631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xa9415fb6
+.word 0xa94267b8
+.word 0xf9401bba
+.word 0x910003bf
+.word 0xa8d57bfd
+.word 0xd65f03c0
+.word 0xd28006a0
+.word 0xaa1103e1
+bl _p_34
+.word 0xd28027c0
+.word 0xaa1103e1
+bl _p_34
+.word 0xd28016e0
+.word 0xaa1103e1
+bl _p_34
+
+Lme_34:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Level_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch
@@ -7790,7 +8637,7 @@ TheAdventuresOf_Level_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #928]
+ldr x16, [x16, #936]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -7827,13 +8674,13 @@ ldr x16, [x16, #928]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #872]
+ldr x0, [x16, #840]
 .word 0xf9400000
 .word 0xf90093a0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #848]
+ldr x0, [x16, #816]
 .word 0x910343a1
 .word 0xf9400000
 .word 0xf9006ba0
@@ -7845,11 +8692,11 @@ ldr x0, [x16, #848]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #480]
+ldr x15, [x16, #472]
 .word 0x910343a1
 .word 0xbd40d3a0
 .word 0xbd40d7a1
-bl _p_74
+bl _p_79
 .word 0x910363a0
 .word 0x910303a0
 .word 0xf9406fa0
@@ -7963,7 +8810,7 @@ bl _p_74
 .word 0xf9000bea
 .word 0xb9001bff
 .word 0xf940013e
-bl _p_78
+bl _p_82
 .word 0xf94013b1
 .word 0xf942e231
 .word 0xb4000051
@@ -7976,17 +8823,17 @@ bl _p_78
 .word 0xa8d47bfd
 .word 0xd65f03c0
 
-Lme_33:
+Lme_35:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Level__cctor
 TheAdventuresOf_Level__cctor:
-.word 0xa9bd7bfd
+.word 0xa9bc7bfd
 .word 0x910003fd
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #936]
+ldr x16, [x16, #944]
 .word 0xf9000bb0
 .word 0xf9400a11
 .word 0xf9000fb1
@@ -8002,83 +8849,159 @@ ldr x16, [x16, #936]
 .word 0xf9404e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xd28010e0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #864]
-.word 0xd28010fe
-.word 0xb900001e
+ldr x0, [x16, #952]
+bl _p_17
+.word 0xf9001ba0
+bl _p_123
 .word 0xf9400bb1
 .word 0xf9407631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xd2800fa0
+.word 0xf9401ba1
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #888]
-.word 0xd2800fbe
-.word 0xb900001e
+ldr x0, [x16, #880]
+.word 0xf9000001
 .word 0xf9400bb1
-.word 0xf9409e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd290001e
-.word 0xf2a8859e
-.word 0x9e6703c0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #248]
-.word 0xbd000000
-.word 0xf9400bb1
-.word 0xf940ca31
+.word 0xf9409a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0x910003bf
-.word 0xa8c37bfd
+.word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_34:
+Lme_36:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_Level__Updatem__0_TheAdventuresOf_Monster
+TheAdventuresOf_Level__Updatem__0_TheAdventuresOf_Monster:
+.word 0xa9ba7bfd
+.word 0x910003fd
+.word 0xf9000bb8
+.word 0xf9000fa0
+.word 0xf90013a1
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #960]
+.word 0xf90017b0
+.word 0xf9400a11
+.word 0xf9001bb1
+.word 0xd2800018
+.word 0xf94017b1
+.word 0xf9403e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9405e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fa0
+.word 0xf9400c00
+.word 0xf9002ba0
+.word 0xf94013a0
+.word 0xf90027a0
+.word 0xf94017b1
+.word 0xf9408231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94027a1
+.word 0xf9402ba2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_124
+.word 0x53001c00
+.word 0xf90023a0
+.word 0xf94017b1
+.word 0xf940ae31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94023a0
+.word 0xaa0003f8
+.word 0xaa0003e1
+.word 0xf94017b1
+.word 0xf940ca31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400bb8
+.word 0x910003bf
+.word 0xa8c67bfd
+.word 0xd65f03c0
+
+Lme_37:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Player__ctor
 TheAdventuresOf_Player__ctor:
-.word 0xa9bd7bfd
+.word 0xa9bc7bfd
 .word 0x910003fd
-.word 0xf9000ba0
+.word 0xf9000bba
+.word 0xaa0003fa
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #944]
+ldr x16, [x16, #968]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
 .word 0xf9400fb1
-.word 0xf9403231
+.word 0xf9403631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9400ba0
-bl _p_109
-.word 0xf9400fb1
-.word 0xf9404a31
+.word 0xf94013b1
+.word 0xf9400231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf9405a31
+.word 0xf9405631
 .word 0xb4000051
 .word 0xd63f0220
+.word 0xaa1a03e0
+.word 0x9e6703e0
+.word 0x9100c3a0
+.word 0xf9001fa0
+.word 0x9e6703e0
+bl _p_88
+.word 0xf9401fbe
+.word 0xf90003c0
+.word 0xf9400fb1
+.word 0xf9408631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x9100c3a0
+.word 0x9102e340
+.word 0xf9401ba1
+.word 0xf9000001
+.word 0xaa1a03e0
+.word 0xaa1a03e0
+bl _p_125
+.word 0xf9400fb1
+.word 0xf940b231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf940c231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400bba
 .word 0x910003bf
-.word 0xa8c37bfd
+.word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_35:
+Lme_38:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Player_InitializeCharacter_single_single_int_int
 TheAdventuresOf_Player_InitializeCharacter_single_single_int_int:
-.word 0xa9b27bfd
+.word 0xa9af7bfd
 .word 0x910003fd
 .word 0xa90167b8
 .word 0xaa0003f8
@@ -8089,7 +9012,7 @@ TheAdventuresOf_Player_InitializeCharacter_single_single_int_int:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #952]
+ldr x16, [x16, #976]
 .word 0xf9001fb0
 .word 0xf9400a11
 .word 0xf90023b1
@@ -8111,24 +9034,31 @@ ldr x16, [x16, #952]
 .word 0xd63f0220
 .word 0xaa1803e0
 .word 0xbd4023a0
-.word 0xfd0067a0
+.word 0xfd0083a0
 .word 0xbd402ba0
-.word 0xfd006ba0
+.word 0xfd0087a0
 .word 0xaa1903e0
 .word 0xb98033a0
-.word 0xf90063a0
+.word 0xf9007fa0
 .word 0xf9401fb1
 .word 0xf940a631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94063a2
-.word 0xfd4067a0
-.word 0xfd406ba1
+.word 0xf9407fa2
+.word 0xfd4083a0
+.word 0xfd4087a1
 .word 0xaa1803e0
 .word 0xaa1903e1
-bl _p_110
+bl _p_126
 .word 0xf9401fb1
 .word 0xf940ce31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xbd402ba0
+.word 0xbd006b00
+.word 0xf9401fb1
+.word 0xf940ea31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
@@ -8137,161 +9067,234 @@ bl _p_110
 .word 0x1e220321
 .word 0x1e212800
 .word 0xaa1803e0
-.word 0xbd407f01
+.word 0xbd408b01
 .word 0x1e213800
-.word 0xfd005ba0
+.word 0xfd0077a0
 .word 0xbd402ba0
 .word 0xaa1803e0
-.word 0xbd408301
+.word 0xbd408f01
 .word 0x1e212800
-.word 0xfd005fa0
+.word 0xfd007ba0
 .word 0xf9401fb1
-.word 0xf9411631
+.word 0xf9413231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xfd405ba0
-.word 0xfd405fa1
-.word 0x9101e3a0
+.word 0xfd4077a0
+.word 0xfd407ba1
+.word 0x910223a0
 .word 0xd2800000
-.word 0xf9003fa0
-.word 0x9101e3a0
-bl _p_71
-.word 0x9101e3a0
-.word 0x910183a0
-.word 0xf9403fa0
-.word 0xf90033a0
+.word 0xf90047a0
+.word 0x910223a0
+bl _p_76
+.word 0x910223a0
+.word 0x9101a3a0
+.word 0xf94047a0
+.word 0xf90037a0
 .word 0xf9401fb1
-.word 0xf9415231
+.word 0xf9416e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0x910183a0
-.word 0x91021300
-.word 0xf94033a1
+.word 0x9101a3a0
+.word 0x91024300
+.word 0xf94037a1
 .word 0xf9000001
 .word 0xf9401fb1
-.word 0xf9417231
+.word 0xf9418e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
 .word 0xbd402ba0
 .word 0xaa1803e0
-.word 0xbd406701
+.word 0xbd407301
 .word 0x1e213800
-.word 0xbd009300
+.word 0xbd009f00
 .word 0xf9401fb1
-.word 0xf9419a31
+.word 0xf941b631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
 .word 0xaa1803e0
-.word 0xbd406300
-.word 0xbd008f00
+.word 0xbd406f00
+.word 0xbd009b00
 .word 0xf9401fb1
-.word 0xf941ba31
+.word 0xf941d631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
 .word 0xaa1803e0
 .word 0xeb1f031f
 .word 0x10000011
-.word 0x54000b60
-.word 0x91021300
-.word 0xbd408700
+.word 0x54001460
+.word 0x91024300
+.word 0xbd409300
 .word 0x9e380000
 .word 0x93407c00
-.word 0xf90043a0
+.word 0xf9005fa0
 .word 0xaa1803e0
 .word 0xeb1f031f
 .word 0x10000011
-.word 0x54000a40
-.word 0x91021300
-.word 0xbd408b00
+.word 0x54001340
+.word 0x91024300
+.word 0xbd409700
 .word 0x9e380000
 .word 0x93407c00
-.word 0xf90047a0
+.word 0xf90063a0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #960]
+ldr x0, [x16, #984]
 .word 0xf9400000
-.word 0xf90057a0
+.word 0xf90073a0
 .word 0xf9401fb1
-.word 0xf9422a31
+.word 0xf9424631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94057a1
-.word 0xaa0103e0
-.word 0xf940003e
-bl _p_29
-.word 0x93407c00
-.word 0xf9004ba0
-.word 0xf9401fb1
-.word 0xf9425231
-.word 0xb4000051
-.word 0xd63f0220
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #960]
-.word 0xf9400000
-.word 0xf90053a0
-.word 0xf9401fb1
-.word 0xf9427631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94053a1
+.word 0xf94073a1
 .word 0xaa0103e0
 .word 0xf940003e
 bl _p_30
 .word 0x93407c00
-.word 0xf9004fa0
+.word 0xf90067a0
 .word 0xf9401fb1
-.word 0xf9429e31
+.word 0xf9426e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94043a1
-.word 0xf94047a2
-.word 0xf9404ba3
-.word 0xf9404fa4
-.word 0x9101a3a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #984]
+.word 0xf9400000
+.word 0xf9006fa0
+.word 0xf9401fb1
+.word 0xf9429231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9406fa1
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_31
+.word 0x93407c00
+.word 0xf9006ba0
+.word 0xf9401fb1
+.word 0xf942ba31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405fa1
+.word 0xf94063a2
+.word 0xf94067a3
+.word 0xf9406ba4
+.word 0x9101e3a0
 .word 0xd2800000
-.word 0xf90037a0
-.word 0xf9003ba0
-.word 0x9101a3a0
-bl _p_72
-.word 0x9101a3a0
-.word 0x910143a0
-.word 0xf94037a0
-.word 0xf9002ba0
-.word 0xf9403ba0
+.word 0xf9003fa0
+.word 0xf90043a0
+.word 0x9101e3a0
+bl _p_77
+.word 0x9101e3a0
+.word 0x910163a0
+.word 0xf9403fa0
 .word 0xf9002fa0
+.word 0xf94043a0
+.word 0xf90033a0
 .word 0xf9401fb1
-.word 0xf942ee31
+.word 0xf9430a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0x910143a0
-.word 0x9101a300
-.word 0xf9402ba1
-.word 0xf9000001
+.word 0x910163a0
+.word 0x9101d300
 .word 0xf9402fa1
+.word 0xf9000001
+.word 0xf94033a1
 .word 0xf9000401
 .word 0xf9401fb1
-.word 0xf9431631
+.word 0xf9433231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xaa1803e0
+.word 0xb980a700
+.word 0xb900ab00
+.word 0xf9401fb1
+.word 0xf9435231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xd280001e
+.word 0xf2a89e1e
+.word 0x9e6703c0
+.word 0xfd0057a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #992]
+.word 0xf9400000
+.word 0xf9005ba0
+.word 0xf9401fb1
+.word 0xf9438a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405ba1
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_30
+.word 0x93407c00
+.word 0xf90053a0
+.word 0xf9401fb1
+.word 0xf943b231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94053a0
+.word 0xfd4057a0
+.word 0x11005000
+.word 0xaa1803e1
+.word 0xb980ab01
+.word 0x1b017c00
+.word 0x1e220001
+.word 0x1e213800
+.word 0xfd004ba0
+.word 0xd280001e
+.word 0xf2a8241e
+.word 0x9e6703c0
+.word 0xfd004fa0
+.word 0xf9401fb1
+.word 0xf943f631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd404ba0
+.word 0xfd404fa1
+.word 0x9101c3a0
+.word 0xd2800000
+.word 0xf9003ba0
+.word 0x9101c3a0
+bl _p_76
+.word 0x9101c3a0
+.word 0x910143a0
+.word 0xf9403ba0
+.word 0xf9002ba0
+.word 0xf9401fb1
+.word 0xf9443231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910143a0
+.word 0x9102b300
+.word 0xf9402ba1
+.word 0xf9000001
+.word 0xf9401fb1
+.word 0xf9445231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9401fb1
-.word 0xf9432631
+.word 0xf9446231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xa94167b8
 .word 0x910003bf
-.word 0xa8ce7bfd
+.word 0xa8d17bfd
 .word 0xd65f03c0
 .word 0xd28026e0
 .word 0xaa1103e1
 bl _p_34
 
-Lme_36:
+Lme_39:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Player_InitializeAnimation
@@ -8303,7 +9306,7 @@ TheAdventuresOf_Player_InitializeAnimation:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #968]
+ldr x16, [x16, #1000]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -8331,10 +9334,10 @@ ldr x16, [x16, #968]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #976]
+ldr x0, [x16, #1008]
 bl _p_17
 .word 0xf9009fa0
-bl _p_111
+bl _p_127
 .word 0xf9400fb1
 .word 0xf940a231
 .word 0xb4000051
@@ -8355,11 +9358,11 @@ bl _p_9
 .word 0xd2800000
 .word 0xd2800000
 .word 0xaa1a03e0
-.word 0xb9805340
+.word 0xb9805b40
 .word 0x51000400
 .word 0xf90093a0
 .word 0xaa1a03e0
-.word 0xb9805740
+.word 0xb9805f40
 .word 0xf90097a0
 .word 0xf9400fb1
 .word 0xf9410a31
@@ -8374,7 +9377,7 @@ bl _p_9
 .word 0x910263a0
 .word 0xd2800001
 .word 0xd2800002
-bl _p_72
+bl _p_77
 .word 0x910263a0
 .word 0x910143a0
 .word 0xf9404fa0
@@ -8396,7 +9399,7 @@ bl _p_72
 .word 0xfd408fa0
 .word 0x910243a0
 .word 0xf90057a0
-bl _p_84
+bl _p_88
 .word 0xf94057be
 .word 0xf90003c0
 .word 0xf9400fb1
@@ -8411,7 +9414,7 @@ bl _p_84
 .word 0x910243a3
 .word 0xf9404ba3
 .word 0xf940009e
-bl _p_112
+bl _p_128
 .word 0xf9400fb1
 .word 0xf941d631
 .word 0xb4000051
@@ -8420,15 +9423,15 @@ bl _p_112
 .word 0xf9400f40
 .word 0xf90077a0
 .word 0xaa1a03e0
-.word 0xb9805340
+.word 0xb9805b40
 .word 0xf9007fa0
 .word 0xd2800000
 .word 0xaa1a03e0
-.word 0xb9805340
+.word 0xb9805b40
 .word 0x51000400
 .word 0xf90083a0
 .word 0xaa1a03e0
-.word 0xb9805740
+.word 0xb9805f40
 .word 0xf90087a0
 .word 0xf9400fb1
 .word 0xf9421e31
@@ -8443,7 +9446,7 @@ bl _p_112
 .word 0xf90047a0
 .word 0x910203a0
 .word 0xd2800002
-bl _p_72
+bl _p_77
 .word 0x910203a0
 .word 0x910103a0
 .word 0xf94043a0
@@ -8465,7 +9468,7 @@ bl _p_72
 .word 0xfd407ba0
 .word 0x9101e3a0
 .word 0xf90057a0
-bl _p_84
+bl _p_88
 .word 0xf94057be
 .word 0xf90003c0
 .word 0xf9400fb1
@@ -8480,7 +9483,7 @@ bl _p_84
 .word 0x9101e3a3
 .word 0xf9403fa3
 .word 0xf940009e
-bl _p_112
+bl _p_128
 .word 0xf9400fb1
 .word 0xf942ea31
 .word 0xb4000051
@@ -8493,10 +9496,10 @@ bl _p_112
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #976]
+ldr x0, [x16, #1008]
 bl _p_17
 .word 0xf90073a0
-bl _p_111
+bl _p_127
 .word 0xf9400fb1
 .word 0xf9432631
 .word 0xb4000051
@@ -8517,11 +9520,11 @@ bl _p_9
 .word 0xd2800000
 .word 0xd2800000
 .word 0xaa1a03e0
-.word 0xb9805340
+.word 0xb9805b40
 .word 0x51000400
 .word 0xf90067a0
 .word 0xaa1a03e0
-.word 0xb9805740
+.word 0xb9805f40
 .word 0xf9006ba0
 .word 0xf9400fb1
 .word 0xf9438e31
@@ -8536,7 +9539,7 @@ bl _p_9
 .word 0x9101a3a0
 .word 0xd2800001
 .word 0xd2800002
-bl _p_72
+bl _p_77
 .word 0x9101a3a0
 .word 0x9100c3a0
 .word 0xf94037a0
@@ -8558,7 +9561,7 @@ bl _p_72
 .word 0xfd4063a0
 .word 0x910183a0
 .word 0xf90057a0
-bl _p_84
+bl _p_88
 .word 0xf94057be
 .word 0xf90003c0
 .word 0xf9400fb1
@@ -8573,7 +9576,7 @@ bl _p_84
 .word 0x910183a3
 .word 0xf94033a3
 .word 0xf940009e
-bl _p_112
+bl _p_128
 .word 0xf9400fb1
 .word 0xf9445a31
 .word 0xb4000051
@@ -8596,7 +9599,7 @@ bl _p_9
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
-bl _p_113
+bl _p_129
 .word 0xf9400fb1
 .word 0xf944b631
 .word 0xb4000051
@@ -8610,12 +9613,12 @@ bl _p_113
 .word 0xa8d47bfd
 .word 0xd65f03c0
 
-Lme_37:
+Lme_3a:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Player_Update_Microsoft_Xna_Framework_GameTime_bool
 TheAdventuresOf_Player_Update_Microsoft_Xna_Framework_GameTime_bool:
-.word 0xa9bc7bfd
+.word 0xa9b87bfd
 .word 0x910003fd
 .word 0xa90167b8
 .word 0xf90013ba
@@ -8625,7 +9628,7 @@ TheAdventuresOf_Player_Update_Microsoft_Xna_Framework_GameTime_bool:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #984]
+ldr x16, [x16, #1016]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -8653,14 +9656,14 @@ ldr x16, [x16, #984]
 .word 0xd63f0220
 .word 0xaa1803e0
 .word 0xaa1903e1
-bl _p_114
+bl _p_130
 .word 0xf94017b1
 .word 0xf940a631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
 .word 0xd2800000
-.word 0x39016b1f
+.word 0x39018b1f
 .word 0xf94017b1
 .word 0xf940c231
 .word 0xb4000051
@@ -8699,36 +9702,146 @@ bl _p_114
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
+.word 0x3942d300
+.word 0x34000c20
+.word 0xf94017b1
+.word 0xf9416231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9417231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xaa1803e0
+.word 0xeb1f031f
+.word 0x10000011
+.word 0x54000e80
+.word 0x9102e300
+.word 0xf9003ba0
+.word 0xaa1903e0
+.word 0xf94017b1
+.word 0xf941a231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910123a0
+.word 0xf9002ba0
+.word 0xaa1903e0
+.word 0xf940033e
+bl _p_83
+.word 0xf9402bbe
+.word 0xf90003c0
+.word 0xf94017b1
+.word 0xf941ce31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9403ba0
+.word 0x910103a1
+.word 0xf9002ba1
+.word 0x910123a1
+.word 0xf94027a1
+bl _p_131
+.word 0xf9402bbe
+.word 0xf90003c0
+.word 0xf94017b1
+.word 0xf941fe31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910103a0
+.word 0x9102e300
+.word 0xf94023a1
+.word 0xf9000001
+.word 0xf94017b1
+.word 0xf9421e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xeb1f031f
+.word 0x10000011
+.word 0x54000940
+.word 0x9102e300
+.word 0xf90037a0
+.word 0xf94017b1
+.word 0xf9424631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94037a0
+bl _p_132
+.word 0x93407c00
+.word 0xf90033a0
+.word 0xf94017b1
+.word 0xf9426631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94033a0
+.word 0xd2800001
+.word 0x6b1f001f
+.word 0x5400020c
+.word 0xf94017b1
+.word 0xf9428631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9429631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xd2800000
+.word 0x3902d31f
+.word 0xf94017b1
+.word 0xf942b231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf942d231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf942f231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
 .word 0xaa1903e0
 .word 0xaa1a03e0
 .word 0xf94017b1
-.word 0xf9416231
+.word 0xf9430e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
 .word 0xaa1903e1
 .word 0xaa1a03e2
-bl _p_115
+bl _p_133
 .word 0xf94017b1
-.word 0xf9418231
+.word 0xf9432e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94017b1
-.word 0xf9419231
+.word 0xf9433e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xa94167b8
 .word 0xf94013ba
 .word 0x910003bf
-.word 0xa8c47bfd
+.word 0xa8c87bfd
 .word 0xd65f03c0
+.word 0xd28026e0
+.word 0xaa1103e1
+bl _p_34
 
-Lme_38:
+Lme_3b:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Player_HandleMovement_Microsoft_Xna_Framework_GameTime
 TheAdventuresOf_Player_HandleMovement_Microsoft_Xna_Framework_GameTime:
-.word 0xa9bb7bfd
+.word 0xa9bc7bfd
 .word 0x910003fd
 .word 0xa9016bb9
 .word 0xaa0003f9
@@ -8736,7 +9849,7 @@ TheAdventuresOf_Player_HandleMovement_Microsoft_Xna_Framework_GameTime:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #992]
+ldr x16, [x16, #1024]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -8759,9 +9872,9 @@ ldr x16, [x16, #992]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #736]
+ldr x0, [x16, #720]
 .word 0x39400000
-.word 0x340006a0
+.word 0x340004e0
 .word 0xf94013b1
 .word 0xf9408e31
 .word 0xb4000051
@@ -8770,26 +9883,11 @@ ldr x0, [x16, #736]
 .word 0xf9409e31
 .word 0xb4000051
 .word 0xd63f0220
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1000]
-.word 0xf90023a0
-.word 0xf94013b1
-.word 0xf940be31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94023a0
-bl _p_49
-.word 0xf94013b1
-.word 0xf940d631
-.word 0xb4000051
-.word 0xd63f0220
 .word 0xaa1903e0
 .word 0xaa1a03e0
 .word 0xd2800000
 .word 0xf94013b1
-.word 0xf940f231
+.word 0xf940ba31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
@@ -8799,12 +9897,12 @@ bl _p_49
 .word 0xf9404470
 .word 0xd63f0200
 .word 0xf94013b1
-.word 0xf9411a31
+.word 0xf940e231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xf94013b1
-.word 0xf9412e31
+.word 0xf940f631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
@@ -8812,7 +9910,7 @@ bl _p_49
 .word 0xf9403830
 .word 0xd63f0200
 .word 0xf94013b1
-.word 0xf9414e31
+.word 0xf9411631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94017b1
@@ -8820,43 +9918,28 @@ bl _p_49
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf9416e31
+.word 0xf9413631
 .word 0xb4000051
 .word 0xd63f0220
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #752]
+ldr x0, [x16, #728]
 .word 0x39400000
-.word 0x340006a0
+.word 0x340004e0
 .word 0xf94013b1
-.word 0xf9419231
+.word 0xf9415a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf941a231
-.word 0xb4000051
-.word 0xd63f0220
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1008]
-.word 0xf90023a0
-.word 0xf94013b1
-.word 0xf941c231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94023a0
-bl _p_49
-.word 0xf94013b1
-.word 0xf941da31
+.word 0xf9416a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xaa1a03e0
 .word 0xd2800020
 .word 0xf94013b1
-.word 0xf941f631
+.word 0xf9418631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
@@ -8866,12 +9949,12 @@ bl _p_49
 .word 0xf9404470
 .word 0xd63f0200
 .word 0xf94013b1
-.word 0xf9421e31
+.word 0xf941ae31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xf94013b1
-.word 0xf9423231
+.word 0xf941c231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
@@ -8879,7 +9962,7 @@ bl _p_49
 .word 0xf9403830
 .word 0xd63f0200
 .word 0xf94013b1
-.word 0xf9425231
+.word 0xf941e231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94017b1
@@ -8887,19 +9970,19 @@ bl _p_49
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf9427231
+.word 0xf9420231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf9428231
+.word 0xf9421231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xa9416bb9
 .word 0x910003bf
-.word 0xa8c57bfd
+.word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_39:
+Lme_3c:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Player_HandleLevelBoundCollision_int_int
@@ -8913,7 +9996,7 @@ TheAdventuresOf_Player_HandleLevelBoundCollision_int_int:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1016]
+ldr x16, [x16, #1032]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -8944,7 +10027,7 @@ ldr x16, [x16, #1016]
 .word 0xf94023a2
 .word 0xaa1803e0
 .word 0xaa1903e1
-bl _p_116
+bl _p_134
 .word 0xf94017b1
 .word 0xf940ae31
 .word 0xb4000051
@@ -8957,7 +10040,7 @@ bl _p_116
 .word 0xd63f0220
 .word 0xaa1803e0
 .word 0xaa1903e1
-bl _p_117
+bl _p_135
 .word 0xf94017b1
 .word 0xf940e231
 .word 0xb4000051
@@ -8971,179 +10054,245 @@ bl _p_117
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_3a:
+Lme_3d:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Player_CheckCollision_TheAdventuresOf_Monster
 TheAdventuresOf_Player_CheckCollision_TheAdventuresOf_Monster:
-.word 0xa9b97bfd
+.word 0xa9b77bfd
 .word 0x910003fd
-.word 0xa9016bb9
+.word 0xa90167b8
+.word 0xf90013ba
 .word 0xaa0003f9
 .word 0xaa0103fa
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1024]
-.word 0xf90013b0
+ldr x16, [x16, #1040]
+.word 0xf90017b0
 .word 0xf9400a11
-.word 0xf90017b1
-.word 0xf94013b1
-.word 0xf9403a31
+.word 0xf9001bb1
+.word 0xf94017b1
+.word 0xf9403e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94017b1
+.word 0xf9401bb1
 .word 0xf9400231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9405a31
+.word 0xf94017b1
+.word 0xf9405e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9406a31
+.word 0xf94017b1
+.word 0xf9406e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xeb1f033f
+.word 0x10000011
+.word 0x54001860
+.word 0x9101d320
+.word 0xf9003fa0
+.word 0xaa1a03e0
+.word 0x9100d340
+.word 0x910143a1
+.word 0xf9400001
+.word 0xf9002ba1
+.word 0xf9400400
+.word 0xf9002fa0
+.word 0xf94017b1
+.word 0xf940b231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9403fa0
+.word 0x910143a1
+.word 0xf9402ba1
+.word 0xf9402fa2
+bl _p_113
+.word 0x53001c00
+.word 0xf9003ba0
+.word 0xf94017b1
+.word 0xf940de31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9403ba0
+.word 0x34000400
+.word 0xf94017b1
+.word 0xf940f631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9410631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xd2800020
+.word 0xd280003e
+.word 0x3902075e
+.word 0xf94017b1
+.word 0xf9412631
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1048]
+.word 0xf9003ba0
+.word 0xf94017b1
+.word 0xf9414631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9403ba0
+bl _p_53
+.word 0xf94017b1
+.word 0xf9415e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x14000079
+.word 0xf94017b1
+.word 0xf9417231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xeb1f033f
 .word 0x10000011
 .word 0x54001040
-.word 0x9101a320
-.word 0xf90037a0
-.word 0xaa1a03e0
-.word 0x9100d340
-.word 0x910123a1
-.word 0xf9400001
-.word 0xf90027a1
-.word 0xf9400400
-.word 0xf9002ba0
-.word 0xf94013b1
-.word 0xf940ae31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94037a0
-.word 0x910123a1
-.word 0xf94027a1
-.word 0xf9402ba2
-bl _p_108
-.word 0x53001c00
-.word 0xf90033a0
-.word 0xf94013b1
-.word 0xf940da31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94033a0
-.word 0x34000400
-.word 0xf94013b1
-.word 0xf940f231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9410231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xd2800020
-.word 0xd280003e
-.word 0x3901c35e
-.word 0xf94013b1
-.word 0xf9412231
-.word 0xb4000051
-.word 0xd63f0220
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1032]
-.word 0xf90033a0
-.word 0xf94013b1
-.word 0xf9414231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94033a0
-bl _p_49
-.word 0xf94013b1
-.word 0xf9415a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x14000039
-.word 0xf94013b1
-.word 0xf9416e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xeb1f033f
-.word 0x10000011
-.word 0x54000820
 .word 0x9100d320
-.word 0xf90037a0
+.word 0xf9003fa0
 .word 0xaa1a03e0
 .word 0x9100d340
-.word 0x9100e3a1
+.word 0x910103a1
 .word 0xf9400001
-.word 0xf9001fa1
+.word 0xf90023a1
 .word 0xf9400400
-.word 0xf90023a0
-.word 0xf94013b1
-.word 0xf941b231
+.word 0xf90027a0
+.word 0xf94017b1
+.word 0xf941b631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94037a0
-.word 0x9100e3a1
-.word 0xf9401fa1
-.word 0xf94023a2
-bl _p_108
+.word 0xf9403fa0
+.word 0x910103a1
+.word 0xf94023a1
+.word 0xf94027a2
+bl _p_113
 .word 0x53001c00
-.word 0xf90033a0
-.word 0xf94013b1
-.word 0xf941de31
+.word 0xf9003ba0
+.word 0xf94017b1
+.word 0xf941e231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94033a0
-.word 0x340002e0
-.word 0xf94013b1
-.word 0xf941f631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9420631
-.word 0xb4000051
-.word 0xd63f0220
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1040]
-.word 0xf90033a0
-.word 0xf94013b1
-.word 0xf9422631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94033a0
-bl _p_49
-.word 0xf94013b1
-.word 0xf9423e31
+.word 0xf9403ba0
+.word 0x34000ae0
+.word 0xf94017b1
+.word 0xf941fa31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94017b1
-.word 0xf9400231
+.word 0xf9420a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9425e31
+.word 0xaa1903e0
+.word 0x3942d320
+.word 0x35000880
+.word 0xf94017b1
+.word 0xf9422631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94013b1
+.word 0xf94017b1
+.word 0xf9423631
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1056]
+.word 0xf9003fa0
+.word 0xf94017b1
+.word 0xf9425631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9403fa0
+bl _p_53
+.word 0xf94017b1
 .word 0xf9426e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xa9416bb9
+.word 0xaa1903e0
+.word 0xaa1903f8
+.word 0xaa1903e0
+.word 0xaa1903e0
+.word 0xb980ab20
+.word 0x51000400
+.word 0xb900ab20
+.word 0xf94017b1
+.word 0xf9429a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xd2800020
+.word 0xd280003e
+.word 0x3902d33e
+.word 0xf94017b1
+.word 0xf942ba31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1903e0
+.word 0xfd406320
+.word 0xfd0043a0
+.word 0xf94017b1
+.word 0xf942da31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd4043a0
+.word 0x910183a0
+.word 0xf90037a0
+bl _p_88
+.word 0xf94037be
+.word 0xf90003c0
+.word 0xf94017b1
+.word 0xf9430231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910183a0
+.word 0x9102e320
+.word 0xf94033a1
+.word 0xf9000001
+.word 0xf94017b1
+.word 0xf9432231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9434231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9436231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9437231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xa94167b8
+.word 0xf94013ba
 .word 0x910003bf
-.word 0xa8c77bfd
+.word 0xa8c97bfd
 .word 0xd65f03c0
 .word 0xd28026e0
 .word 0xaa1103e1
 bl _p_34
 
-Lme_3b:
+Lme_3e:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Player_HandleAnimation_Microsoft_Xna_Framework_GameTime
@@ -9156,7 +10305,7 @@ TheAdventuresOf_Player_HandleAnimation_Microsoft_Xna_Framework_GameTime:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1048]
+ldr x16, [x16, #1064]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -9177,7 +10326,7 @@ ldr x16, [x16, #1048]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
-.word 0x39425720
+.word 0x39428720
 .word 0x35000be0
 .word 0xf94013b1
 .word 0xf9408631
@@ -9188,7 +10337,7 @@ ldr x16, [x16, #1048]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
-.word 0x39416b20
+.word 0x39418b20
 .word 0x340004e0
 .word 0xf94013b1
 .word 0xf940b231
@@ -9222,7 +10371,7 @@ bl _p_9
 .word 0xaa0203e0
 .word 0xaa1a03e1
 .word 0xf940005e
-bl _p_118
+bl _p_136
 .word 0xf94013b1
 .word 0xf9413631
 .word 0xb4000051
@@ -9260,7 +10409,7 @@ bl _p_9
 .word 0xaa0203e0
 .word 0xaa1a03e1
 .word 0xf940005e
-bl _p_118
+bl _p_136
 .word 0xf94013b1
 .word 0xf941ce31
 .word 0xb4000051
@@ -9290,7 +10439,7 @@ bl _p_118
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_3c:
+Lme_3f:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Player_HandleJump_Microsoft_Xna_Framework_GameTime
@@ -9303,7 +10452,7 @@ TheAdventuresOf_Player_HandleJump_Microsoft_Xna_Framework_GameTime:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1056]
+ldr x16, [x16, #1072]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -9326,9 +10475,9 @@ ldr x16, [x16, #1056]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #768]
+ldr x0, [x16, #736]
 .word 0x39400000
-.word 0x340003e0
+.word 0x34000220
 .word 0xf94013b1
 .word 0xf9408e31
 .word 0xb4000051
@@ -9337,27 +10486,12 @@ ldr x0, [x16, #768]
 .word 0xf9409e31
 .word 0xb4000051
 .word 0xd63f0220
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1064]
-.word 0xf90023a0
-.word 0xf94013b1
-.word 0xf940be31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94023a0
-bl _p_49
-.word 0xf94013b1
-.word 0xf940d631
-.word 0xb4000051
-.word 0xd63f0220
 .word 0xaa1903e0
 .word 0xd2800020
 .word 0xd280003e
-.word 0x3902533e
+.word 0x3902833e
 .word 0xf94013b1
-.word 0xf940f631
+.word 0xf940be31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94017b1
@@ -9365,36 +10499,36 @@ bl _p_49
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
+.word 0xf940de31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0x39428320
+.word 0x34000380
+.word 0xaa1903e0
+.word 0x39428720
+.word 0x35000320
+.word 0xf94013b1
+.word 0xf9410631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
 .word 0xf9411631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
-.word 0x39425320
-.word 0x34000380
-.word 0xaa1903e0
-.word 0x39425720
-.word 0x35000320
-.word 0xf94013b1
-.word 0xf9413e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9414e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
 .word 0xd2800000
-.word 0x3902533f
+.word 0x3902833f
 .word 0xf94013b1
-.word 0xf9416a31
+.word 0xf9413231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xd2800020
 .word 0xd280003e
-.word 0x3902573e
+.word 0x3902873e
 .word 0xf94013b1
-.word 0xf9418a31
+.word 0xf9415231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0x14000014
@@ -9403,18 +10537,18 @@ bl _p_49
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf941ae31
+.word 0xf9417631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf941be31
+.word 0xf9418631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xd2800000
-.word 0x3902533f
+.word 0x3902833f
 .word 0xf94013b1
-.word 0xf941da31
+.word 0xf941a231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94017b1
@@ -9422,18 +10556,18 @@ bl _p_49
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf941fa31
+.word 0xf941c231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
-.word 0x39425720
+.word 0x39428720
 .word 0x34000460
 .word 0xf94013b1
-.word 0xf9421631
+.word 0xf941de31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf9422631
+.word 0xf941ee31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
@@ -9445,21 +10579,21 @@ bl _p_49
 bl _p_9
 .word 0xf94027a0
 .word 0xf94013b1
-.word 0xf9425631
+.word 0xf9421e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xf9400fa0
 .word 0xf90023a0
 .word 0xf94013b1
-.word 0xf9427231
+.word 0xf9423a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94023a1
 .word 0xaa1903e0
-bl _p_119
+bl _p_137
 .word 0xf94013b1
-.word 0xf9428e31
+.word 0xf9425631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94017b1
@@ -9467,11 +10601,11 @@ bl _p_119
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf942ae31
+.word 0xf9427631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf942be31
+.word 0xf9428631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400bb9
@@ -9479,7 +10613,7 @@ bl _p_119
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_3d:
+Lme_40:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Player_Move_Microsoft_Xna_Framework_GameTime_int
@@ -9495,7 +10629,7 @@ TheAdventuresOf_Player_Move_Microsoft_Xna_Framework_GameTime_int:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1072]
+ldr x16, [x16, #1080]
 .word 0xf9001fb0
 .word 0xf9400a11
 .word 0xf90023b1
@@ -9534,14 +10668,14 @@ ldr x16, [x16, #1072]
 .word 0xaa1803e0
 .word 0xd2800020
 .word 0xd280003e
-.word 0x39016b1e
+.word 0x39018b1e
 .word 0xf9401fb1
 .word 0xf940d631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
 .word 0xd2800000
-.word 0x3901671f
+.word 0x3901871f
 .word 0xf9401fb1
 .word 0xf940f231
 .word 0xb4000051
@@ -9549,7 +10683,7 @@ ldr x16, [x16, #1072]
 .word 0xaa1803e0
 .word 0xd2800020
 .word 0xd280003e
-.word 0x3901631e
+.word 0x3901831e
 .word 0xf9401fb1
 .word 0xf9411231
 .word 0xb4000051
@@ -9576,7 +10710,7 @@ ldr x16, [x16, #1072]
 .word 0xf9003ba0
 .word 0xaa1903e0
 .word 0xf940033e
-bl _p_79
+bl _p_83
 .word 0xf9403bbe
 .word 0xf90003c0
 .word 0xf9401fb1
@@ -9594,7 +10728,7 @@ bl _p_79
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9404fa0
-bl _p_80
+bl _p_84
 .word 0xfd004ba0
 .word 0xf9401fb1
 .word 0xf941ca31
@@ -9619,7 +10753,7 @@ bl _p_80
 .word 0xaa1803e0
 .word 0xd2800020
 .word 0xd280003e
-.word 0x39016b1e
+.word 0x39018b1e
 .word 0xf9401fb1
 .word 0xf9422a31
 .word 0xb4000051
@@ -9627,14 +10761,14 @@ bl _p_80
 .word 0xaa1803e0
 .word 0xd2800020
 .word 0xd280003e
-.word 0x3901671e
+.word 0x3901871e
 .word 0xf9401fb1
 .word 0xf9424a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
 .word 0xd2800000
-.word 0x3901631f
+.word 0x3901831f
 .word 0xf9401fb1
 .word 0xf9426631
 .word 0xb4000051
@@ -9661,7 +10795,7 @@ bl _p_80
 .word 0xf9003ba0
 .word 0xaa1903e0
 .word 0xf940033e
-bl _p_79
+bl _p_83
 .word 0xf9403bbe
 .word 0xf90003c0
 .word 0xf9401fb1
@@ -9679,7 +10813,7 @@ bl _p_79
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9404fa0
-bl _p_80
+bl _p_84
 .word 0xfd004ba0
 .word 0xf9401fb1
 .word 0xf9431e31
@@ -9712,7 +10846,7 @@ bl _p_80
 .word 0xd63f0220
 .word 0xaa1803e0
 .word 0xaa1a03e1
-bl _p_117
+bl _p_135
 .word 0xf9401fb1
 .word 0xf9439e31
 .word 0xb4000051
@@ -9731,74 +10865,11 @@ bl _p_117
 .word 0xaa1103e1
 bl _p_34
 
-Lme_3e:
+Lme_41:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Player_UpdateCharacterBounds
 TheAdventuresOf_Player_UpdateCharacterBounds:
-.word 0xa9bd7bfd
-.word 0x910003fd
-.word 0xf9000bba
-.word 0xaa0003fa
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1080]
-.word 0xf9000fb0
-.word 0xf9400a11
-.word 0xf90013b1
-.word 0xf9400fb1
-.word 0xf9403631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf9405631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf9406631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xf9400fb1
-.word 0xf9407a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-bl _p_120
-.word 0xf9400fb1
-.word 0xf9409231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xf9400fb1
-.word 0xf940a631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-bl _p_121
-.word 0xf9400fb1
-.word 0xf940be31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf940ce31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400bba
-.word 0x910003bf
-.word 0xa8c37bfd
-.word 0xd65f03c0
-
-Lme_3f:
-.text
-	.align 4
-	.no_dead_strip TheAdventuresOf_Player_UpdateSwordBounds
-TheAdventuresOf_Player_UpdateSwordBounds:
 .word 0xa9bd7bfd
 .word 0x910003fd
 .word 0xf9000bba
@@ -9827,16 +10898,79 @@ ldr x16, [x16, #1088]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
+.word 0xf9400fb1
+.word 0xf9407a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+bl _p_138
+.word 0xf9400fb1
+.word 0xf9409231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xf9400fb1
+.word 0xf940a631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+bl _p_139
+.word 0xf9400fb1
+.word 0xf940be31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf940ce31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400bba
+.word 0x910003bf
+.word 0xa8c37bfd
+.word 0xd65f03c0
+
+Lme_42:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_Player_UpdateSwordBounds
+TheAdventuresOf_Player_UpdateSwordBounds:
+.word 0xa9bd7bfd
+.word 0x910003fd
+.word 0xf9000bba
+.word 0xaa0003fa
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1096]
+.word 0xf9000fb0
+.word 0xf9400a11
+.word 0xf90013b1
+.word 0xf9400fb1
+.word 0xf9403631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9405631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9406631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
 .word 0xeb1f035f
 .word 0x10000011
 .word 0x54000520
-.word 0x9101a340
+.word 0x9101d340
 .word 0xaa1a03e1
 .word 0xeb1f035f
 .word 0x10000011
 .word 0x54000480
-.word 0x91021341
-.word 0xbd408740
+.word 0x91024341
+.word 0xbd409340
 .word 0x9e380001
 .word 0x93407c21
 .word 0xb9000001
@@ -9848,13 +10982,13 @@ ldr x16, [x16, #1088]
 .word 0xeb1f035f
 .word 0x10000011
 .word 0x540002e0
-.word 0x9101a340
+.word 0x9101d340
 .word 0xaa1a03e1
 .word 0xeb1f035f
 .word 0x10000011
 .word 0x54000240
-.word 0x91021341
-.word 0xbd408b40
+.word 0x91024341
+.word 0xbd409740
 .word 0x9e380001
 .word 0x93407c21
 .word 0xb9000401
@@ -9874,7 +11008,7 @@ ldr x16, [x16, #1088]
 .word 0xaa1103e1
 bl _p_34
 
-Lme_40:
+Lme_43:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Player_MoveSword_int
@@ -9887,7 +11021,7 @@ TheAdventuresOf_Player_MoveSword_int:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1096]
+ldr x16, [x16, #1104]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -9923,7 +11057,7 @@ ldr x16, [x16, #1096]
 .word 0xeb1f033f
 .word 0x10000011
 .word 0x54000800
-.word 0x91021320
+.word 0x91024320
 .word 0xaa1903e1
 .word 0xeb1f033f
 .word 0x10000011
@@ -9931,11 +11065,11 @@ ldr x16, [x16, #1096]
 .word 0x91011321
 .word 0xbd404720
 .word 0xaa1903e1
-.word 0xb9805321
+.word 0xb9805b21
 .word 0x1e220021
 .word 0x1e213800
 .word 0xaa1903e1
-.word 0xbd407b21
+.word 0xbd408721
 .word 0x1e213800
 .word 0xbd000000
 .word 0xf94013b1
@@ -9951,7 +11085,7 @@ ldr x16, [x16, #1096]
 .word 0xeb1f033f
 .word 0x10000011
 .word 0x54000480
-.word 0x91021320
+.word 0x91024320
 .word 0xaa1903e1
 .word 0xeb1f033f
 .word 0x10000011
@@ -9959,11 +11093,11 @@ ldr x16, [x16, #1096]
 .word 0x91011321
 .word 0xbd404720
 .word 0xaa1903e1
-.word 0xb9805321
+.word 0xb9805b21
 .word 0x1e220021
 .word 0x1e212800
 .word 0xaa1903e1
-.word 0xbd407f21
+.word 0xbd408b21
 .word 0x1e213800
 .word 0xbd000000
 .word 0xf94013b1
@@ -9990,7 +11124,7 @@ ldr x16, [x16, #1096]
 .word 0xaa1103e1
 bl _p_34
 
-Lme_41:
+Lme_44:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Player_Jump_Microsoft_Xna_Framework_GameTime
@@ -10004,7 +11138,7 @@ TheAdventuresOf_Player_Jump_Microsoft_Xna_Framework_GameTime:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1104]
+ldr x16, [x16, #1112]
 .word 0xf9001fb0
 .word 0xf9400a11
 .word 0xf90023b1
@@ -10029,7 +11163,7 @@ ldr x16, [x16, #1104]
 .word 0xaa1903e0
 .word 0xeb1f033f
 .word 0x10000011
-.word 0x54002b60
+.word 0x54002aa0
 .word 0x91011320
 .word 0xaa0003f8
 .word 0xaa1803e0
@@ -10037,7 +11171,7 @@ ldr x16, [x16, #1104]
 .word 0xbd400700
 .word 0xfd006ba0
 .word 0xaa1903e0
-.word 0xbd408f20
+.word 0xbd409b20
 .word 0xfd006fa0
 .word 0xf9401ba0
 .word 0xf9007ba0
@@ -10050,7 +11184,7 @@ ldr x16, [x16, #1104]
 .word 0xf90033a0
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_79
+bl _p_83
 .word 0xf94033be
 .word 0xf90003c0
 .word 0xf9401fb1
@@ -10068,7 +11202,7 @@ bl _p_79
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94077a0
-bl _p_80
+bl _p_84
 .word 0xfd0073a0
 .word 0xf9401fb1
 .word 0xf9413631
@@ -10088,16 +11222,16 @@ bl _p_80
 .word 0xaa1903e0
 .word 0xeb1f033f
 .word 0x10000011
-.word 0x54002400
-.word 0x91021320
+.word 0x54002340
+.word 0x91024320
 .word 0xaa1903e1
 .word 0xeb1f033f
 .word 0x10000011
-.word 0x54002360
+.word 0x540022a0
 .word 0x91011321
 .word 0xbd404b20
 .word 0xaa1903e1
-.word 0xbd408321
+.word 0xbd408f21
 .word 0x1e212800
 .word 0xbd000400
 .word 0xf9401fb1
@@ -10108,12 +11242,12 @@ bl _p_80
 .word 0xaa1903f7
 .word 0xaa1903e0
 .word 0xaa1903e0
-.word 0xbd408f20
+.word 0xbd409b20
 .word 0xd280001e
 .word 0xf2a8291e
 .word 0x9e6703c1
 .word 0x1e213800
-.word 0xbd008f20
+.word 0xbd009b20
 .word 0xf9401fb1
 .word 0xf941e631
 .word 0xb4000051
@@ -10121,32 +11255,32 @@ bl _p_80
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1112]
+ldr x0, [x16, #1120]
 .word 0xf90063a0
 .word 0xaa1903e0
 .word 0xeb1f033f
 .word 0x10000011
-.word 0x54001f60
+.word 0x54001ea0
 .word 0x91011320
 .word 0xbd404b20
 .word 0xfd0067a0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1120]
+ldr x0, [x16, #1128]
 bl _p_17
 .word 0xaa0003e1
 .word 0xf94063a0
 .word 0xfd4067a0
 .word 0xbd001020
-bl _p_122
+bl _p_140
 .word 0xf9005fa0
 .word 0xf9401fb1
 .word 0xf9424a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9405fa0
-bl _p_49
+bl _p_53
 .word 0xf9401fb1
 .word 0xf9426231
 .word 0xb4000051
@@ -10154,28 +11288,28 @@ bl _p_49
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1128]
+ldr x0, [x16, #1136]
 .word 0xf90057a0
 .word 0xaa1903e0
-.word 0xbd408f20
+.word 0xbd409b20
 .word 0xfd005ba0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1120]
+ldr x0, [x16, #1128]
 bl _p_17
 .word 0xaa0003e1
 .word 0xf94057a0
 .word 0xfd405ba0
 .word 0xbd001020
-bl _p_122
+bl _p_140
 .word 0xf90053a0
 .word 0xf9401fb1
 .word 0xf942b631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94053a0
-bl _p_49
+bl _p_53
 .word 0xf9401fb1
 .word 0xf942ce31
 .word 0xb4000051
@@ -10183,28 +11317,28 @@ bl _p_49
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1136]
+ldr x0, [x16, #1144]
 .word 0xf9004ba0
 .word 0xaa1903e0
-.word 0xbd409320
+.word 0xbd409f20
 .word 0xfd004fa0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1120]
+ldr x0, [x16, #1128]
 bl _p_17
 .word 0xaa0003e1
 .word 0xf9404ba0
 .word 0xfd404fa0
 .word 0xbd001020
-bl _p_122
+bl _p_140
 .word 0xf90047a0
 .word 0xf9401fb1
 .word 0xf9432231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94047a0
-bl _p_49
+bl _p_53
 .word 0xf9401fb1
 .word 0xf9433a31
 .word 0xb4000051
@@ -10212,119 +11346,48 @@ bl _p_49
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1144]
+ldr x0, [x16, #1152]
 .word 0xf9003fa0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #248]
-.word 0xbd400000
+.word 0xaa1903e0
+.word 0xbd406b20
 .word 0xfd0043a0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1120]
+ldr x0, [x16, #1128]
 bl _p_17
 .word 0xaa0003e1
 .word 0xf9403fa0
 .word 0xfd4043a0
 .word 0xbd001020
-bl _p_122
+bl _p_140
 .word 0xf9003ba0
 .word 0xf9401fb1
-.word 0xf9439631
+.word 0xf9438e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9403ba0
-bl _p_49
+bl _p_53
 .word 0xf9401fb1
-.word 0xf943ae31
+.word 0xf943a631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xeb1f033f
 .word 0x10000011
-.word 0x540011a0
+.word 0x54001120
 .word 0x91011320
 .word 0xbd404b20
 .word 0xaa1903e0
-.word 0xbd409321
+.word 0xbd409f21
 .word 0x1e212000
 .word 0x540004a8
 .word 0xf9401fb1
-.word 0xf943e631
+.word 0xf943de31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9401fb1
-.word 0xf943f631
-.word 0xb4000051
-.word 0xd63f0220
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1152]
-.word 0xf9003ba0
-.word 0xf9401fb1
-.word 0xf9441631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9403ba0
-bl _p_49
-.word 0xf9401fb1
-.word 0xf9442e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xaa1903f6
-.word 0xaa1903e0
-.word 0xaa1903e0
-.word 0xbd408f20
-.word 0xd280001e
-.word 0xf2b7f01e
-.word 0x9e6703c1
-.word 0x1e210800
-.word 0xbd008f20
-.word 0xf9401fb1
-.word 0xf9446631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94023b1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401fb1
-.word 0xf9448631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xeb1f033f
-.word 0x10000011
-.word 0x54000ae0
-.word 0x91011320
-.word 0xbd404b20
-.word 0x9e380000
-.word 0x93407c00
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #248]
-.word 0xbd400020
-.word 0x9e380001
-.word 0x93407c21
-.word 0x6b01001f
-.word 0x5400074b
-.word 0xaa1903e0
-.word 0xbd408f20
-.word 0xd280001e
-.word 0x9e6703c1
-.word 0x1e212000
-.word 0x54000682
-.word 0xf9401fb1
-.word 0xf944ee31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401fb1
-.word 0xf944fe31
+.word 0xf943ee31
 .word 0xb4000051
 .word 0xd63f0220
 
@@ -10333,43 +11396,27 @@ add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x0, [x16, #1160]
 .word 0xf9003ba0
 .word 0xf9401fb1
-.word 0xf9451e31
+.word 0xf9440e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9403ba0
-bl _p_49
+bl _p_53
 .word 0xf9401fb1
-.word 0xf9453631
+.word 0xf9442631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
-.word 0xd2800000
-.word 0x3902573f
-.word 0xf9401fb1
-.word 0xf9455231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xeb1f033f
-.word 0x10000011
-.word 0x54000480
-.word 0x91011320
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #248]
-.word 0xbd400020
-.word 0xbd000400
-.word 0xf9401fb1
-.word 0xf9458a31
-.word 0xb4000051
-.word 0xd63f0220
+.word 0xaa1903f6
 .word 0xaa1903e0
 .word 0xaa1903e0
-.word 0xbd406320
-.word 0xbd008f20
+.word 0xbd409b20
+.word 0xd280001e
+.word 0xf2b7f01e
+.word 0x9e6703c1
+.word 0x1e210800
+.word 0xbd009b20
 .word 0xf9401fb1
-.word 0xf945aa31
+.word 0xf9445e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94023b1
@@ -10377,11 +11424,89 @@ ldr x1, [x16, #248]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9401fb1
-.word 0xf945ca31
+.word 0xf9447e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xeb1f033f
+.word 0x10000011
+.word 0x54000a60
+.word 0x91011320
+.word 0xbd404b20
+.word 0x9e380000
+.word 0x93407c00
+.word 0xaa1903e1
+.word 0xbd406b20
+.word 0x9e380001
+.word 0x93407c21
+.word 0x6b01001f
+.word 0x5400070b
+.word 0xaa1903e0
+.word 0xbd409b20
+.word 0xd280001e
+.word 0x9e6703c1
+.word 0x1e212000
+.word 0x54000642
+.word 0xf9401fb1
+.word 0xf944de31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9401fb1
-.word 0xf945da31
+.word 0xf944ee31
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1168]
+.word 0xf9003ba0
+.word 0xf9401fb1
+.word 0xf9450e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9403ba0
+bl _p_53
+.word 0xf9401fb1
+.word 0xf9452631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xd2800000
+.word 0x3902873f
+.word 0xf9401fb1
+.word 0xf9454231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xeb1f033f
+.word 0x10000011
+.word 0x54000440
+.word 0x91011320
+.word 0xaa1903e1
+.word 0xbd406b20
+.word 0xbd000400
+.word 0xf9401fb1
+.word 0xf9457231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1903e0
+.word 0xbd406f20
+.word 0xbd009b20
+.word 0xf9401fb1
+.word 0xf9459231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94023b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf945b231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf945c231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xa9415fb6
@@ -10393,7 +11518,7 @@ ldr x1, [x16, #248]
 .word 0xaa1103e1
 bl _p_34
 
-Lme_42:
+Lme_45:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Player_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
@@ -10411,7 +11536,7 @@ TheAdventuresOf_Player_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microso
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1168]
+ldr x16, [x16, #1176]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -10454,14 +11579,14 @@ ldr x16, [x16, #1168]
 .word 0xf940eba2
 .word 0xaa1803e0
 .word 0xaa1903e1
-bl _p_123
+bl _p_141
 .word 0xf94017b1
 .word 0xf940ee31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
-.word 0x39416700
-.word 0x340012c0
+.word 0x39418700
+.word 0x34001460
 .word 0xf94017b1
 .word 0xf9410a31
 .word 0xb4000051
@@ -10474,11 +11599,11 @@ bl _p_123
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #960]
+ldr x0, [x16, #984]
 .word 0xf9400000
 .word 0xf900eba0
 .word 0xaa1803e0
-.word 0x91021300
+.word 0x91024300
 .word 0x9105e3a1
 .word 0xf9400000
 .word 0xf900bfa0
@@ -10490,11 +11615,11 @@ ldr x0, [x16, #960]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #480]
+ldr x15, [x16, #472]
 .word 0x9105e3a1
 .word 0xbd417ba0
 .word 0xbd417fa1
-bl _p_74
+bl _p_79
 .word 0x910643a0
 .word 0x9105a3a0
 .word 0xf940cba0
@@ -10607,36 +11732,49 @@ bl _p_74
 .word 0xf9000be9
 .word 0xb9001bff
 .word 0xf940033e
-bl _p_78
+bl _p_82
 .word 0xf94017b1
 .word 0xf9434a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0x1400009d
+.word 0xaa1803e0
+.word 0xaa1903e0
 .word 0xf94017b1
-.word 0xf9435e31
+.word 0xf9436231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1803e0
-.word 0x39416300
-.word 0x340012c0
+.word 0xaa1903e1
+bl _p_142
 .word 0xf94017b1
-.word 0xf9437a31
+.word 0xf9437e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x140000aa
+.word 0xf94017b1
+.word 0xf9439231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0x39418300
+.word 0x34001460
+.word 0xf94017b1
+.word 0xf943ae31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94017b1
-.word 0xf9438a31
+.word 0xf943be31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #960]
+ldr x0, [x16, #984]
 .word 0xf9400000
 .word 0xf900eba0
 .word 0xaa1803e0
-.word 0x91021300
+.word 0x91024300
 .word 0x910363a1
 .word 0xf9400000
 .word 0xf9006fa0
@@ -10648,11 +11786,11 @@ ldr x0, [x16, #960]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #480]
+ldr x15, [x16, #472]
 .word 0x910363a1
 .word 0xbd40dba0
 .word 0xbd40dfa1
-bl _p_74
+bl _p_79
 .word 0x910603a0
 .word 0x910323a0
 .word 0xf940c3a0
@@ -10660,7 +11798,7 @@ bl _p_74
 .word 0xb9818ba0
 .word 0xb900d3a0
 .word 0xf94017b1
-.word 0xf9440e31
+.word 0xf9444231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0x9106e3a0
@@ -10724,7 +11862,7 @@ bl _p_74
 .word 0x9e6703c0
 .word 0xfd00f3a0
 .word 0xf94017b1
-.word 0xf9450e31
+.word 0xf9454231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf940eba1
@@ -10766,9 +11904,22 @@ bl _p_74
 .word 0xd280003e
 .word 0xb9001bfe
 .word 0xf940033e
-bl _p_78
+bl _p_82
 .word 0xf94017b1
-.word 0xf945be31
+.word 0xf945f231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xaa1903e0
+.word 0xf94017b1
+.word 0xf9460a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xaa1903e1
+bl _p_142
+.word 0xf94017b1
+.word 0xf9462631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9401bb1
@@ -10776,11 +11927,11 @@ bl _p_78
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94017b1
-.word 0xf945de31
+.word 0xf9464631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94017b1
-.word 0xf945ee31
+.word 0xf9465631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xa94167b8
@@ -10788,18 +11939,558 @@ bl _p_78
 .word 0xa8df7bfd
 .word 0xd65f03c0
 
-Lme_43:
+Lme_46:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_Player_DrawHealth_Microsoft_Xna_Framework_Graphics_SpriteBatch
+TheAdventuresOf_Player_DrawHealth_Microsoft_Xna_Framework_Graphics_SpriteBatch:
+.word 0xd2804610
+.word 0x910003f1
+.word 0xcb100231
+.word 0x9100023f
+.word 0xa9007bfd
+.word 0x910003fd
+.word 0xd2800410
+.word 0x910003f1
+.word 0xcb100231
+.word 0x9100023f
+.word 0xa90163b7
+.word 0xa9026bb9
+.word 0xaa0003f9
+.word 0xaa0103fa
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1184]
+.word 0xf9001bb0
+.word 0xf9400a11
+.word 0xf9001fb1
+.word 0xd2800018
+.word 0xd2800017
+.word 0x910743a0
+.word 0xd2800000
+.word 0xf900eba0
+.word 0xf900efa0
+.word 0xb901e3bf
+.word 0x910703a0
+.word 0xd2800000
+.word 0xf900e3a0
+.word 0xb901cbbf
+.word 0x9106e3a0
+.word 0xd2800000
+.word 0xf900dfa0
+.word 0xf9401bb1
+.word 0xf9409631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf940b631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf940c631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xb980a720
+.word 0xaa1903e1
+.word 0xb980ab21
+.word 0x4b010000
+.word 0xaa0003f8
+.word 0xf9401bb1
+.word 0xf940ee31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd2800077
+.word 0x140001b1
+.word 0xf9401bb1
+.word 0xf9410631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9411631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1703e0
+.word 0xaa1803e0
+.word 0x6b1802ff
+.word 0x5400198d
+.word 0xf9401bb1
+.word 0xf9413631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9414631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #992]
+.word 0xf9400000
+.word 0xf900fba0
+.word 0xaa1903e0
+.word 0xeb1f033f
+.word 0x10000011
+.word 0x54003620
+.word 0x9102b320
+.word 0xbd40af20
+.word 0xfd0113a0
+.word 0xaa1703e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #992]
+.word 0xf9400000
+.word 0xf90117a0
+.word 0xf9401bb1
+.word 0xf941a231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94117a1
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_30
+.word 0x93407c00
+.word 0xf9010fa0
+.word 0xf9401bb1
+.word 0xf941ca31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9410fa0
+.word 0xfd4113a0
+.word 0x1b007ee0
+.word 0x1e220001
+.word 0x1e212800
+.word 0xfd0107a0
+.word 0xaa1903e0
+.word 0xeb1f033f
+.word 0x10000011
+.word 0x54003200
+.word 0x9102b320
+.word 0xbd40b320
+.word 0xfd010ba0
+.word 0xf9401bb1
+.word 0xf9420e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd4107a0
+.word 0xfd410ba1
+.word 0x9106c3a0
+.word 0xd2800000
+.word 0xf900dba0
+.word 0x9106c3a0
+bl _p_76
+.word 0x9106c3a0
+.word 0x910603a0
+.word 0xf940dba0
+.word 0xf900c3a0
+.word 0xf9401bb1
+.word 0xf9424a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910683a0
+.word 0xd2800000
+.word 0xf900d3a0
+.word 0xb901abbf
+.word 0x910683a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x15, [x16, #472]
+.word 0x910603a1
+.word 0xbd4183a0
+.word 0xbd4187a1
+bl _p_79
+.word 0x910683a0
+.word 0x9105c3a0
+.word 0xf940d3a0
+.word 0xf900bba0
+.word 0xb981aba0
+.word 0xb9017ba0
+.word 0xf9401bb1
+.word 0xf942a231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910743a0
+.word 0xd2800000
+.word 0xf900eba0
+.word 0xf900efa0
+.word 0xb901e3bf
+.word 0x910743a0
+.word 0x910563a0
+.word 0xf940eba0
+.word 0xf900afa0
+.word 0xf940efa0
+.word 0xf900b3a0
+.word 0xb981e3a0
+.word 0xb9016ba0
+.word 0x910743a0
+.word 0xd2800000
+.word 0xf900eba0
+.word 0xf900efa0
+.word 0xb901e3bf
+.word 0x910743a0
+.word 0x910503a0
+.word 0xf940eba0
+.word 0xf900a3a0
+.word 0xf940efa0
+.word 0xf900a7a0
+.word 0xb981e3a0
+.word 0xb90153a0
+.word 0x910703a0
+.word 0xd2800000
+.word 0xf900e3a0
+.word 0xb901cbbf
+.word 0x910703a0
+.word 0x9104c3a0
+.word 0xf940e3a0
+.word 0xf9009ba0
+.word 0xb981cba0
+.word 0xb9013ba0
+.word 0xd280001e
+.word 0x9e6703c0
+.word 0xfd00ffa0
+.word 0x910703a0
+.word 0xd2800000
+.word 0xf900e3a0
+.word 0xb901cbbf
+.word 0x910703a0
+.word 0x910483a0
+.word 0xf940e3a0
+.word 0xf90093a0
+.word 0xb981cba0
+.word 0xb9012ba0
+.word 0x9106e3a0
+.word 0xd2800000
+.word 0xf900dfa0
+.word 0x9106e3a0
+.word 0x910463a0
+.word 0xf940dfa0
+.word 0xf9008fa0
+.word 0xd2800000
+.word 0xd280001e
+.word 0x9e6703c0
+.word 0xfd0103a0
+.word 0xf9401bb1
+.word 0xf943a231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940fba1
+.word 0xfd40ffa0
+.word 0xfd4103a1
+.word 0xaa1a03e0
+.word 0x9105c3a2
+.word 0xf940bba2
+.word 0xf940bfa3
+.word 0x910563a4
+.word 0x910403a4
+.word 0xf940afa5
+.word 0xf90083a5
+.word 0xf940b3a5
+.word 0xf90087a5
+.word 0xf940b7a5
+.word 0xf9008ba5
+.word 0xaa0403e5
+.word 0x910503a5
+.word 0x9103a3a5
+.word 0xf940a3a6
+.word 0xf90077a6
+.word 0xf940a7a6
+.word 0xf9007ba6
+.word 0xf940aba6
+.word 0xf9007fa6
+.word 0xaa0503e6
+.word 0x9104c3a6
+.word 0xf9409ba6
+.word 0xf9409fa7
+.word 0x910483a9
+.word 0xf94093a9
+.word 0xf90003e9
+.word 0xf94097a9
+.word 0xf90007e9
+.word 0x910463a9
+.word 0xf9408fa9
+.word 0xf9000be9
+.word 0xb9001bff
+.word 0xf940035e
+bl _p_82
+.word 0xf9401bb1
+.word 0xf9444e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x140000cb
+.word 0xf9401bb1
+.word 0xf9446231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9447231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1192]
+.word 0xf9400000
+.word 0xf900fba0
+.word 0xaa1903e0
+.word 0xeb1f033f
+.word 0x10000011
+.word 0x54001cc0
+.word 0x9102b320
+.word 0xbd40af20
+.word 0xfd0113a0
+.word 0xaa1703e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1192]
+.word 0xf9400000
+.word 0xf90117a0
+.word 0xf9401bb1
+.word 0xf944ce31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94117a1
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_30
+.word 0x93407c00
+.word 0xf9010fa0
+.word 0xf9401bb1
+.word 0xf944f631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9410fa0
+.word 0xfd4113a0
+.word 0x1b007ee0
+.word 0x1e220001
+.word 0x1e212800
+.word 0xfd0107a0
+.word 0xaa1903e0
+.word 0xeb1f033f
+.word 0x10000011
+.word 0x540018a0
+.word 0x9102b320
+.word 0xbd40b320
+.word 0xfd010ba0
+.word 0xf9401bb1
+.word 0xf9453a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd4107a0
+.word 0xfd410ba1
+.word 0x910663a0
+.word 0xd2800000
+.word 0xf900cfa0
+.word 0x910663a0
+bl _p_76
+.word 0x910663a0
+.word 0x910383a0
+.word 0xf940cfa0
+.word 0xf90073a0
+.word 0xf9401bb1
+.word 0xf9457631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910623a0
+.word 0xd2800000
+.word 0xf900c7a0
+.word 0xb90193bf
+.word 0x910623a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x15, [x16, #472]
+.word 0x910383a1
+.word 0xbd40e3a0
+.word 0xbd40e7a1
+bl _p_79
+.word 0x910623a0
+.word 0x910343a0
+.word 0xf940c7a0
+.word 0xf9006ba0
+.word 0xb98193a0
+.word 0xb900dba0
+.word 0xf9401bb1
+.word 0xf945ce31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910743a0
+.word 0xd2800000
+.word 0xf900eba0
+.word 0xf900efa0
+.word 0xb901e3bf
+.word 0x910743a0
+.word 0x9102e3a0
+.word 0xf940eba0
+.word 0xf9005fa0
+.word 0xf940efa0
+.word 0xf90063a0
+.word 0xb981e3a0
+.word 0xb900cba0
+.word 0x910743a0
+.word 0xd2800000
+.word 0xf900eba0
+.word 0xf900efa0
+.word 0xb901e3bf
+.word 0x910743a0
+.word 0x910283a0
+.word 0xf940eba0
+.word 0xf90053a0
+.word 0xf940efa0
+.word 0xf90057a0
+.word 0xb981e3a0
+.word 0xb900b3a0
+.word 0x910703a0
+.word 0xd2800000
+.word 0xf900e3a0
+.word 0xb901cbbf
+.word 0x910703a0
+.word 0x910243a0
+.word 0xf940e3a0
+.word 0xf9004ba0
+.word 0xb981cba0
+.word 0xb9009ba0
+.word 0xd280001e
+.word 0x9e6703c0
+.word 0xfd00ffa0
+.word 0x910703a0
+.word 0xd2800000
+.word 0xf900e3a0
+.word 0xb901cbbf
+.word 0x910703a0
+.word 0x910203a0
+.word 0xf940e3a0
+.word 0xf90043a0
+.word 0xb981cba0
+.word 0xb9008ba0
+.word 0x9106e3a0
+.word 0xd2800000
+.word 0xf900dfa0
+.word 0x9106e3a0
+.word 0x9101e3a0
+.word 0xf940dfa0
+.word 0xf9003fa0
+.word 0xd2800000
+.word 0xd280001e
+.word 0x9e6703c0
+.word 0xfd0103a0
+.word 0xf9401bb1
+.word 0xf946ce31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940fba1
+.word 0xfd40ffa0
+.word 0xfd4103a1
+.word 0xaa1a03e0
+.word 0x910343a2
+.word 0xf9406ba2
+.word 0xf9406fa3
+.word 0x9102e3a4
+.word 0x910183a4
+.word 0xf9405fa5
+.word 0xf90033a5
+.word 0xf94063a5
+.word 0xf90037a5
+.word 0xf94067a5
+.word 0xf9003ba5
+.word 0xaa0403e5
+.word 0x910283a5
+.word 0x910123a5
+.word 0xf94053a6
+.word 0xf90027a6
+.word 0xf94057a6
+.word 0xf9002ba6
+.word 0xf9405ba6
+.word 0xf9002fa6
+.word 0xaa0503e6
+.word 0x910243a6
+.word 0xf9404ba6
+.word 0xf9404fa7
+.word 0x910203a9
+.word 0xf94043a9
+.word 0xf90003e9
+.word 0xf94047a9
+.word 0xf90007e9
+.word 0x9101e3a9
+.word 0xf9403fa9
+.word 0xf9000be9
+.word 0xb9001bff
+.word 0xf940035e
+bl _p_82
+.word 0xf9401bb1
+.word 0xf9477a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9479a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf947aa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1703e0
+.word 0x510006e0
+.word 0xaa0003f7
+.word 0xf9401fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf947d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1703e0
+.word 0xd2800020
+.word 0xd280003e
+.word 0x6b1e02ff
+.word 0x54ffc88a
+.word 0xf9401bb1
+.word 0xf947fa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9480a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xa94163b7
+.word 0xa9426bb9
+.word 0x910003bf
+.word 0xa9407bfd
+.word 0xd2804610
+.word 0x910003f1
+.word 0x8b100231
+.word 0x9100023f
+.word 0xd65f03c0
+.word 0xd28026e0
+.word 0xaa1103e1
+bl _p_34
+
+Lme_47:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_XmlImporter_GetXMLInformation
 TheAdventuresOf_XmlImporter_GetXMLInformation:
-.word 0xa9b87bfd
+.word 0xa9b77bfd
 .word 0x910003fd
 .word 0xa9016bb9
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1176]
+ldr x16, [x16, #1200]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -10824,20 +12515,20 @@ ldr x16, [x16, #1176]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1184]
-.word 0xf9003fa0
+ldr x0, [x16, #1208]
+.word 0xf90043a0
 .word 0xf94013b1
 .word 0xf9408a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9403fa0
-bl _p_124
-.word 0xf9003ba0
+.word 0xf94043a0
+bl _p_143
+.word 0xf9003fa0
 .word 0xf94013b1
 .word 0xf940a631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9403ba0
+.word 0xf9403fa0
 .word 0xaa0003fa
 .word 0xf94013b1
 .word 0xf940be31
@@ -10846,153 +12537,1059 @@ bl _p_124
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1192]
-.word 0xf90037a0
+ldr x0, [x16, #1216]
+.word 0xf9003ba0
 .word 0xf94013b1
 .word 0xf940de31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94037a0
-bl _p_124
-.word 0xf90033a0
+.word 0xf9403ba0
+bl _p_143
+.word 0xf90037a0
 .word 0xf94013b1
 .word 0xf940fa31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94033a0
+.word 0xf94037a0
 .word 0xaa0003f9
 .word 0xf94013b1
 .word 0xf9411231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
-.word 0xf9002fa0
+.word 0xf90033a0
 .word 0xf94013b1
 .word 0xf9412a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9402fa0
-bl _p_125
-.word 0xf9002ba0
+.word 0xf94033a0
+bl _p_144
+.word 0xf9002fa0
 .word 0xf94013b1
 .word 0xf9414631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9402ba1
+.word 0xf9402fa1
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1200]
+ldr x0, [x16, #1224]
 .word 0xf9000001
 .word 0xf94013b1
 .word 0xf9416a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
-.word 0xf90027a0
+.word 0xf9002ba0
 .word 0xf94013b1
 .word 0xf9418231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94027a0
-bl _p_125
-.word 0xf90023a0
+.word 0xf9402ba0
+bl _p_144
+.word 0xf90027a0
 .word 0xf94013b1
 .word 0xf9419e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94027a1
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1232]
+.word 0xf9000001
+.word 0xf94013b1
+.word 0xf941c231
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #896]
+bl _p_17
+.word 0xf90023a0
+bl _p_115
+.word 0xf94013b1
+.word 0xf941ea31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94023a1
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1208]
+ldr x0, [x16, #1240]
 .word 0xf9000001
 .word 0xf94013b1
-.word 0xf941c231
+.word 0xf9420e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf941d231
+.word 0xf9421e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xa9416bb9
 .word 0x910003bf
-.word 0xa8c87bfd
+.word 0xa8c97bfd
 .word 0xd65f03c0
 
-Lme_44:
+Lme_48:
 .text
 	.align 4
-	.no_dead_strip TheAdventuresOf_XmlImporter_LoadPlayerInformation_TheAdventuresOf_Player
-TheAdventuresOf_XmlImporter_LoadPlayerInformation_TheAdventuresOf_Player:
-.word 0xa9a27bfd
+	.no_dead_strip TheAdventuresOf_XmlImporter_LoadLevelInformation_TheAdventuresOf_Level
+TheAdventuresOf_XmlImporter_LoadLevelInformation_TheAdventuresOf_Level:
+.word 0xa9ad7bfd
 .word 0x910003fd
-.word 0xa90163b7
-.word 0xa9026bb9
+.word 0xa90167b8
+.word 0xf90013ba
 .word 0xaa0003fa
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1216]
-.word 0xf9001bb0
+ldr x16, [x16, #1248]
+.word 0xf90017b0
 .word 0xf9400a11
-.word 0xf9001fb1
+.word 0xf9001bb1
 .word 0xd2800019
 .word 0xd2800018
-.word 0xd2800017
-.word 0xf9401bb1
-.word 0xf9404631
+.word 0xf94017b1
+.word 0xf9404231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9401fb1
+.word 0xf9401bb1
 .word 0xf9400231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9401bb1
-.word 0xf9406631
+.word 0xf94017b1
+.word 0xf9406231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9401bb1
-.word 0xf9407631
+.word 0xf94017b1
+.word 0xf9407231
 .word 0xb4000051
 .word 0xd63f0220
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1200]
+ldr x0, [x16, #1232]
 .word 0xf9400000
-.word 0xf900eba0
+.word 0xf90093a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1256]
+.word 0xf90097a0
+.word 0xf94017b1
+.word 0xf940a631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94097a0
+bl _p_145
+.word 0xf9008fa0
+.word 0xf94017b1
+.word 0xf940c231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9408fa1
+.word 0xf94093a2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf9008ba0
+.word 0xf94017b1
+.word 0xf940ea31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9408ba0
+.word 0xf90087a0
+.word 0xaa0003f9
+.word 0xf94017b1
+.word 0xf9410631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94087a0
+.word 0xf9007fa0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1264]
+.word 0xf90083a0
+.word 0xf94017b1
+.word 0xf9412e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94083a0
+bl _p_145
+.word 0xf9007ba0
+.word 0xf94017b1
+.word 0xf9414a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9407ba1
+.word 0xf9407fa2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf90077a0
+.word 0xf94017b1
+.word 0xf9417231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94077a0
+.word 0xf90073a0
+.word 0xaa0003f8
+.word 0xf94017b1
+.word 0xf9418e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94073a0
+.word 0xaa1a03e1
+.word 0xf9006ba0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1272]
+.word 0xf9006fa0
+.word 0xf94017b1
+.word 0xf941ba31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9406fa0
+bl _p_145
+.word 0xf90067a0
+.word 0xf94017b1
+.word 0xf941d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94067a1
+.word 0xf9406ba2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf90063a0
+.word 0xf94017b1
+.word 0xf941fe31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94063a0
+bl _p_147
+.word 0x1e204000
+.word 0xfd005fa0
+.word 0xf94017b1
+.word 0xf9421e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd405fa0
+.word 0xbd002b40
+.word 0xf94017b1
+.word 0xf9423631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1803e0
+.word 0xf90057a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1280]
+.word 0xf9005ba0
+.word 0xf94017b1
+.word 0xf9426231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405ba0
+bl _p_145
+.word 0xf90053a0
+.word 0xf94017b1
+.word 0xf9427e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94053a1
+.word 0xf94057a2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf9004fa0
+.word 0xf94017b1
+.word 0xf942a631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9404fa0
+bl _p_148
+.word 0x93407c00
+.word 0xf9004ba0
+.word 0xf94017b1
+.word 0xf942c631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9404ba0
+.word 0xb9002340
+.word 0xf94017b1
+.word 0xf942de31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1803e0
+.word 0xf90043a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1288]
+.word 0xf90047a0
+.word 0xf94017b1
+.word 0xf9430a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94047a0
+bl _p_145
+.word 0xf9003fa0
+.word 0xf94017b1
+.word 0xf9432631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9403fa1
+.word 0xf94043a2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf9003ba0
+.word 0xf94017b1
+.word 0xf9434e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9403ba0
+bl _p_148
+.word 0x93407c00
+.word 0xf90037a0
+.word 0xf94017b1
+.word 0xf9436e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94037a0
+.word 0xb9002740
+.word 0xf94017b1
+.word 0xf9438631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1803e0
+.word 0xf9002fa0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1296]
+.word 0xf90033a0
+.word 0xf94017b1
+.word 0xf943b231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94033a0
+bl _p_145
+.word 0xf9002ba0
+.word 0xf94017b1
+.word 0xf943ce31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402ba1
+.word 0xf9402fa2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf90027a0
+.word 0xf94017b1
+.word 0xf943f631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94027a0
+bl _p_148
+.word 0x93407c00
+.word 0xf90023a0
+.word 0xf94017b1
+.word 0xf9441631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94023a0
+.word 0xb9002f40
+.word 0xf94017b1
+.word 0xf9442e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9443e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xa94167b8
+.word 0xf94013ba
+.word 0x910003bf
+.word 0xa8d37bfd
+.word 0xd65f03c0
+
+Lme_49:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_XmlImporter_LoadPlayerInformation_TheAdventuresOf_Player
+TheAdventuresOf_XmlImporter_LoadPlayerInformation_TheAdventuresOf_Player:
+.word 0xd2804410
+.word 0x910003f1
+.word 0xcb100231
+.word 0x9100023f
+.word 0xa9007bfd
+.word 0x910003fd
+.word 0xa90167b8
+.word 0xf90013ba
+.word 0xaa0003fa
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1304]
+.word 0xf90017b0
+.word 0xf9400a11
+.word 0xf9001bb1
+.word 0xd2800019
+.word 0xd2800018
+.word 0xf94017b1
+.word 0xf9405231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9407231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9408231
+.word 0xb4000051
+.word 0xd63f0220
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x0, [x16, #1224]
+.word 0xf9400000
+.word 0xf9010ba0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1312]
+.word 0xf9010fa0
+.word 0xf94017b1
+.word 0xf940b631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9410fa0
+bl _p_145
+.word 0xf90107a0
+.word 0xf94017b1
+.word 0xf940d231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94107a1
+.word 0xf9410ba2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf90103a0
+.word 0xf94017b1
+.word 0xf940fa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94103a0
+.word 0xf900ffa0
+.word 0xaa0003f9
+.word 0xf94017b1
+.word 0xf9411631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940ffa0
+.word 0xf900f7a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1320]
+.word 0xf900fba0
+.word 0xf94017b1
+.word 0xf9413e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940fba0
+bl _p_145
+.word 0xf900f3a0
+.word 0xf94017b1
+.word 0xf9415a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940f3a1
+.word 0xf940f7a2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
 .word 0xf900efa0
-.word 0xf9401bb1
-.word 0xf940aa31
+.word 0xf94017b1
+.word 0xf9418231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf940efa0
-bl _p_126
+.word 0xf900eba0
+.word 0xaa0003f8
+.word 0xf94017b1
+.word 0xf9419e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940eba0
+.word 0xaa1a03e1
+.word 0xf900e3a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1328]
 .word 0xf900e7a0
+.word 0xf94017b1
+.word 0xf941ca31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940e7a0
+bl _p_145
+.word 0xf900dfa0
+.word 0xf94017b1
+.word 0xf941e631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940dfa1
+.word 0xf940e3a2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf900dba0
+.word 0xf94017b1
+.word 0xf9420e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940dba0
+bl _p_147
+.word 0x1e204000
+.word 0xfd00d7a0
+.word 0xf94017b1
+.word 0xf9422e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd40d7a0
+.word 0xbd002b40
+.word 0xf94017b1
+.word 0xf9424631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1803e0
+.word 0xf900cfa0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1336]
+.word 0xf900d3a0
+.word 0xf94017b1
+.word 0xf9427231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940d3a0
+bl _p_145
+.word 0xf900cba0
+.word 0xf94017b1
+.word 0xf9428e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940cba1
+.word 0xf940cfa2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf900c7a0
+.word 0xf94017b1
+.word 0xf942b631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940c7a0
+bl _p_147
+.word 0x1e204000
+.word 0xfd00c3a0
+.word 0xf94017b1
+.word 0xf942d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd40c3a0
+.word 0xbd002f40
+.word 0xf94017b1
+.word 0xf942ee31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1803e0
+.word 0xf900bba0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1344]
+.word 0xf900bfa0
+.word 0xf94017b1
+.word 0xf9431a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940bfa0
+bl _p_145
+.word 0xf900b7a0
+.word 0xf94017b1
+.word 0xf9433631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940b7a1
+.word 0xf940bba2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf900b3a0
+.word 0xf94017b1
+.word 0xf9435e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940b3a0
+bl _p_147
+.word 0x1e204000
+.word 0xfd00afa0
+.word 0xf94017b1
+.word 0xf9437e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd40afa0
+.word 0xbd006f40
+.word 0xf94017b1
+.word 0xf9439631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1803e0
+.word 0xf900a7a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1352]
+.word 0xf900aba0
+.word 0xf94017b1
+.word 0xf943c231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940aba0
+bl _p_145
+.word 0xf900a3a0
+.word 0xf94017b1
+.word 0xf943de31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940a3a1
+.word 0xf940a7a2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf9009fa0
+.word 0xf94017b1
+.word 0xf9440631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9409fa0
+bl _p_147
+.word 0x1e204000
+.word 0xfd009ba0
+.word 0xf94017b1
+.word 0xf9442631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd409ba0
+.word 0xbd007340
+.word 0xf94017b1
+.word 0xf9443e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1803e0
+.word 0xf90093a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1360]
+.word 0xf90097a0
+.word 0xf94017b1
+.word 0xf9446a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94097a0
+bl _p_145
+.word 0xf9008fa0
+.word 0xf94017b1
+.word 0xf9448631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9408fa1
+.word 0xf94093a2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf9008ba0
+.word 0xf94017b1
+.word 0xf944ae31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9408ba0
+bl _p_147
+.word 0x1e204000
+.word 0xfd0087a0
+.word 0xf94017b1
+.word 0xf944ce31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd4087a0
+.word 0xbd008740
+.word 0xf94017b1
+.word 0xf944e631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1803e0
+.word 0xf9007fa0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1368]
+.word 0xf90083a0
+.word 0xf94017b1
+.word 0xf9451231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94083a0
+bl _p_145
+.word 0xf9007ba0
+.word 0xf94017b1
+.word 0xf9452e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9407ba1
+.word 0xf9407fa2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf90077a0
+.word 0xf94017b1
+.word 0xf9455631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94077a0
+bl _p_147
+.word 0x1e204000
+.word 0xfd0073a0
+.word 0xf94017b1
+.word 0xf9457631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd4073a0
+.word 0xbd008b40
+.word 0xf94017b1
+.word 0xf9458e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1803e0
+.word 0xf9006ba0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1376]
+.word 0xf9006fa0
+.word 0xf94017b1
+.word 0xf945ba31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9406fa0
+bl _p_145
+.word 0xf90067a0
+.word 0xf94017b1
+.word 0xf945d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94067a1
+.word 0xf9406ba2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf90063a0
+.word 0xf94017b1
+.word 0xf945fe31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94063a0
+bl _p_147
+.word 0x1e204000
+.word 0xfd005fa0
+.word 0xf94017b1
+.word 0xf9461e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd405fa0
+.word 0xbd008f40
+.word 0xf94017b1
+.word 0xf9463631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1803e0
+.word 0xf90057a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1384]
+.word 0xf9005ba0
+.word 0xf94017b1
+.word 0xf9466231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405ba0
+bl _p_145
+.word 0xf90053a0
+.word 0xf94017b1
+.word 0xf9467e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94053a1
+.word 0xf94057a2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf9004fa0
+.word 0xf94017b1
+.word 0xf946a631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9404fa0
+bl _p_148
+.word 0x93407c00
+.word 0xf9004ba0
+.word 0xf94017b1
+.word 0xf946c631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9404ba0
+.word 0xb9005740
+.word 0xf94017b1
+.word 0xf946de31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1803e0
+.word 0xf90043a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1392]
+.word 0xf90047a0
+.word 0xf94017b1
+.word 0xf9470a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94047a0
+bl _p_145
+.word 0xf9003fa0
+.word 0xf94017b1
+.word 0xf9472631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9403fa1
+.word 0xf94043a2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf9003ba0
+.word 0xf94017b1
+.word 0xf9474e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9403ba0
+bl _p_148
+.word 0x93407c00
+.word 0xf90037a0
+.word 0xf94017b1
+.word 0xf9476e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94037a0
+.word 0xb900a740
+.word 0xf94017b1
+.word 0xf9478631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1803e0
+.word 0xf9002fa0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1400]
+.word 0xf90033a0
+.word 0xf94017b1
+.word 0xf947b231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94033a0
+bl _p_145
+.word 0xf9002ba0
+.word 0xf94017b1
+.word 0xf947ce31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402ba1
+.word 0xf9402fa2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf90027a0
+.word 0xf94017b1
+.word 0xf947f631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94027a0
+bl _p_149
+.word 0xfd0023a0
+.word 0xf94017b1
+.word 0xf9481231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd4023a0
+.word 0xfd006340
+.word 0xf94017b1
+.word 0xf9482a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9483a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xa94167b8
+.word 0xf94013ba
+.word 0x910003bf
+.word 0xa9407bfd
+.word 0xd2804410
+.word 0x910003f1
+.word 0x8b100231
+.word 0x9100023f
+.word 0xd65f03c0
+
+Lme_4a:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation
+TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation:
+.word 0xd2804210
+.word 0x910003f1
+.word 0xcb100231
+.word 0x9100023f
+.word 0xa9007bfd
+.word 0x910003fd
+.word 0xa90167b8
+.word 0xf90013ba
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1408]
+.word 0xf90017b0
+.word 0xf9400a11
+.word 0xf9001bb1
+.word 0xd280001a
+.word 0xd2800019
+.word 0xd2800018
+.word 0xf94017b1
+.word 0xf9405231
+.word 0xb4000051
+.word 0xd63f0220
 .word 0xf9401bb1
-.word 0xf940c631
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9407231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9408231
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1224]
+.word 0xf9400000
+.word 0xf900ffa0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1312]
+.word 0xf90103a0
+.word 0xf94017b1
+.word 0xf940b631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94103a0
+bl _p_145
+.word 0xf900fba0
+.word 0xf94017b1
+.word 0xf940d231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940fba1
+.word 0xf940ffa2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf900f7a0
+.word 0xf94017b1
+.word 0xf940fa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940f7a0
+.word 0xf900f3a0
+.word 0xaa0003fa
+.word 0xf94017b1
+.word 0xf9411631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940f3a0
+.word 0xf900eba0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1416]
+.word 0xf900efa0
+.word 0xf94017b1
+.word 0xf9413e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940efa0
+bl _p_145
+.word 0xf900e7a0
+.word 0xf94017b1
+.word 0xf9415a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf940e7a1
 .word 0xf940eba2
 .word 0xaa0203e0
 .word 0xf940005e
-bl _p_127
+bl _p_146
 .word 0xf900e3a0
-.word 0xf9401bb1
-.word 0xf940ee31
+.word 0xf94017b1
+.word 0xf9418231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf940e3a0
 .word 0xf900dfa0
 .word 0xaa0003f9
-.word 0xf9401bb1
-.word 0xf9410a31
+.word 0xf94017b1
+.word 0xf9419e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf940dfa0
@@ -11000,800 +13597,550 @@ bl _p_127
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1232]
+ldr x0, [x16, #1424]
 .word 0xf900dba0
-.word 0xf9401bb1
-.word 0xf9413231
+.word 0xf94017b1
+.word 0xf941c631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf940dba0
-bl _p_126
+bl _p_145
 .word 0xf900d3a0
-.word 0xf9401bb1
-.word 0xf9414e31
+.word 0xf94017b1
+.word 0xf941e231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf940d3a1
 .word 0xf940d7a2
 .word 0xaa0203e0
 .word 0xf940005e
-bl _p_127
+bl _p_146
 .word 0xf900cfa0
-.word 0xf9401bb1
-.word 0xf9417631
+.word 0xf94017b1
+.word 0xf9420a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf940cfa0
 .word 0xf900cba0
 .word 0xaa0003f8
-.word 0xf9401bb1
-.word 0xf9419231
+.word 0xf94017b1
+.word 0xf9422631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf940cba0
-.word 0xaa1a03e1
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x1, [x16, #1240]
+.word 0xf9400021
+.word 0xf900b3a1
 .word 0xf900c3a0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1240]
-.word 0xf900c7a0
-.word 0xf9401bb1
-.word 0xf941be31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf940c7a0
-bl _p_126
-.word 0xf900bfa0
-.word 0xf9401bb1
-.word 0xf941da31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf940bfa1
-.word 0xf940c3a2
-.word 0xaa0203e0
-.word 0xf940005e
-bl _p_127
-.word 0xf900bba0
-.word 0xf9401bb1
-.word 0xf9420231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf940bba0
-bl _p_128
-.word 0x1e204000
-.word 0xfd00b7a0
-.word 0xf9401bb1
-.word 0xf9422231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xfd40b7a0
-.word 0xbd002b40
-.word 0xf9401bb1
-.word 0xf9423a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1803e0
-.word 0xf900afa0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1248]
-.word 0xf900b3a0
-.word 0xf9401bb1
-.word 0xf9426631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf940b3a0
-bl _p_126
-.word 0xf900aba0
-.word 0xf9401bb1
-.word 0xf9428231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf940aba1
-.word 0xf940afa2
-.word 0xaa0203e0
-.word 0xf940005e
-bl _p_127
-.word 0xf900a7a0
-.word 0xf9401bb1
-.word 0xf942aa31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf940a7a0
-bl _p_128
-.word 0x1e204000
-.word 0xfd00a3a0
-.word 0xf9401bb1
-.word 0xf942ca31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xfd40a3a0
-.word 0xbd002f40
-.word 0xf9401bb1
-.word 0xf942e231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1803e0
-.word 0xf9009ba0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1256]
-.word 0xf9009fa0
-.word 0xf9401bb1
-.word 0xf9430e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9409fa0
-bl _p_126
-.word 0xf90097a0
-.word 0xf9401bb1
-.word 0xf9432a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94097a1
-.word 0xf9409ba2
-.word 0xaa0203e0
-.word 0xf940005e
-bl _p_127
-.word 0xf90093a0
-.word 0xf9401bb1
-.word 0xf9435231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94093a0
-bl _p_128
-.word 0x1e204000
-.word 0xfd008fa0
-.word 0xf9401bb1
-.word 0xf9437231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xfd408fa0
-.word 0xbd006340
-.word 0xf9401bb1
-.word 0xf9438a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1803e0
-.word 0xf90087a0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1264]
-.word 0xf9008ba0
-.word 0xf9401bb1
-.word 0xf943b631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9408ba0
-bl _p_126
-.word 0xf90083a0
-.word 0xf9401bb1
-.word 0xf943d231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94083a1
-.word 0xf94087a2
-.word 0xaa0203e0
-.word 0xf940005e
-bl _p_127
-.word 0xf9007fa0
-.word 0xf9401bb1
-.word 0xf943fa31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9407fa0
-bl _p_128
-.word 0x1e204000
-.word 0xfd007ba0
-.word 0xf9401bb1
-.word 0xf9441a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xfd407ba0
-.word 0xbd006740
-.word 0xf9401bb1
-.word 0xf9443231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1803e0
-.word 0xf90073a0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1272]
-.word 0xf90077a0
-.word 0xf9401bb1
-.word 0xf9445e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94077a0
-bl _p_126
-.word 0xf9006fa0
-.word 0xf9401bb1
-.word 0xf9447a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9406fa1
-.word 0xf94073a2
-.word 0xaa0203e0
-.word 0xf940005e
-bl _p_127
-.word 0xf9006ba0
-.word 0xf9401bb1
-.word 0xf944a231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9406ba0
-bl _p_128
-.word 0x1e204000
-.word 0xfd0067a0
-.word 0xf9401bb1
-.word 0xf944c231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xfd4067a0
-.word 0xbd007b40
-.word 0xf9401bb1
-.word 0xf944da31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1803e0
-.word 0xf9005fa0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1280]
-.word 0xf90063a0
-.word 0xf9401bb1
-.word 0xf9450631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94063a0
-bl _p_126
-.word 0xf9005ba0
-.word 0xf9401bb1
-.word 0xf9452231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9405ba1
-.word 0xf9405fa2
-.word 0xaa0203e0
-.word 0xf940005e
-bl _p_127
-.word 0xf90057a0
-.word 0xf9401bb1
-.word 0xf9454a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94057a0
-bl _p_128
-.word 0x1e204000
-.word 0xfd0053a0
-.word 0xf9401bb1
-.word 0xf9456a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xfd4053a0
-.word 0xbd007f40
-.word 0xf9401bb1
-.word 0xf9458231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1803e0
-.word 0xf9004ba0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1288]
-.word 0xf9004fa0
-.word 0xf9401bb1
-.word 0xf945ae31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9404fa0
-bl _p_126
-.word 0xf90047a0
-.word 0xf9401bb1
-.word 0xf945ca31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94047a1
-.word 0xf9404ba2
-.word 0xaa0203e0
-.word 0xf940005e
-bl _p_127
-.word 0xf90043a0
-.word 0xf9401bb1
-.word 0xf945f231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94043a0
-bl _p_128
-.word 0x1e204000
-.word 0xfd003fa0
-.word 0xf9401bb1
-.word 0xf9461231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xfd403fa0
-.word 0xbd008340
-.word 0xf9401bb1
-.word 0xf9462a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1803e0
-.word 0xf90037a0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1296]
-.word 0xf9003ba0
-.word 0xf9401bb1
-.word 0xf9465631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9403ba0
-bl _p_126
-.word 0xf90033a0
-.word 0xf9401bb1
-.word 0xf9467231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94033a1
-.word 0xf94037a2
-.word 0xaa0203e0
-.word 0xf940005e
-bl _p_127
-.word 0xf9002fa0
-.word 0xf9401bb1
-.word 0xf9469a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9402fa0
-bl _p_129
-.word 0x93407c00
-.word 0xf9002ba0
-.word 0xf9401bb1
-.word 0xf946ba31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9402ba0
-.word 0xb9004f40
-.word 0xf9401bb1
-.word 0xf946d231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1a03f7
-.word 0xf9401bb1
-.word 0xf946ea31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1a03e0
-.word 0xf9401bb1
-.word 0xf9470231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xa94163b7
-.word 0xa9426bb9
-.word 0x910003bf
-.word 0xa8de7bfd
-.word 0xd65f03c0
-
-Lme_45:
-.text
-	.align 4
-	.no_dead_strip TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation_TheAdventuresOf_Monster
-TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation_TheAdventuresOf_Monster:
-.word 0xa9a77bfd
-.word 0x910003fd
-.word 0xa9015fb6
-.word 0xa90267b8
-.word 0xf9001bba
-.word 0xaa0003fa
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1304]
-.word 0xf9001fb0
-.word 0xf9400a11
-.word 0xf90023b1
-.word 0xd2800019
-.word 0xd2800018
-.word 0xd2800017
-.word 0xd2800016
-.word 0xf9401fb1
-.word 0xf9404e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94023b1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401fb1
-.word 0xf9406e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401fb1
-.word 0xf9407e31
-.word 0xb4000051
-.word 0xd63f0220
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1200]
-.word 0xf9400000
-.word 0xf900c3a0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1224]
-.word 0xf900c7a0
-.word 0xf9401fb1
-.word 0xf940b231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf940c7a0
-bl _p_126
-.word 0xf900bfa0
-.word 0xf9401fb1
-.word 0xf940ce31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf940bfa1
-.word 0xf940c3a2
-.word 0xaa0203e0
-.word 0xf940005e
-bl _p_127
-.word 0xf900bba0
-.word 0xf9401fb1
-.word 0xf940f631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf940bba0
-.word 0xf900b7a0
-.word 0xaa0003f9
-.word 0xf9401fb1
-.word 0xf9411231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf940b7a0
-.word 0xf900afa0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1312]
-.word 0xf900b3a0
-.word 0xf9401fb1
-.word 0xf9413a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf940b3a0
-bl _p_126
-.word 0xf900aba0
-.word 0xf9401fb1
-.word 0xf9415631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf940aba1
-.word 0xf940afa2
-.word 0xaa0203e0
-.word 0xf940005e
-bl _p_127
-.word 0xf900a7a0
-.word 0xf9401fb1
-.word 0xf9417e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf940a7a0
-.word 0xf900a3a0
-.word 0xaa0003f8
-.word 0xf9401fb1
-.word 0xf9419a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf940a3a0
-.word 0xf9009ba0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1320]
-.word 0xf9009fa0
-.word 0xf9401fb1
-.word 0xf941c231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9409fa0
-bl _p_126
-.word 0xf90097a0
-.word 0xf9401fb1
-.word 0xf941de31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94097a1
-.word 0xf9409ba2
-.word 0xaa0203e0
-.word 0xf940005e
-bl _p_127
-.word 0xf90093a0
-.word 0xf9401fb1
-.word 0xf9420631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94093a0
-.word 0xf9008fa0
-.word 0xaa0003f7
-.word 0xf9401fb1
-.word 0xf9422231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9408fa0
-.word 0xaa1a03e1
-.word 0xf90087a0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1240]
-.word 0xf9008ba0
-.word 0xf9401fb1
-.word 0xf9424e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9408ba0
-bl _p_126
-.word 0xf90083a0
-.word 0xf9401fb1
-.word 0xf9426a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94083a1
-.word 0xf94087a2
-.word 0xaa0203e0
-.word 0xf940005e
-bl _p_127
-.word 0xf9007fa0
-.word 0xf9401fb1
-.word 0xf9429231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9407fa0
-bl _p_128
-.word 0x1e204000
-.word 0xfd007ba0
-.word 0xf9401fb1
-.word 0xf942b231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xfd407ba0
-.word 0xbd002b40
-.word 0xf9401fb1
-.word 0xf942ca31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1703e0
-.word 0xf90073a0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1248]
-.word 0xf90077a0
-.word 0xf9401fb1
-.word 0xf942f631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94077a0
-bl _p_126
-.word 0xf9006fa0
-.word 0xf9401fb1
-.word 0xf9431231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9406fa1
-.word 0xf94073a2
-.word 0xaa0203e0
-.word 0xf940005e
-bl _p_127
-.word 0xf9006ba0
-.word 0xf9401fb1
-.word 0xf9433a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9406ba0
-bl _p_128
-.word 0x1e204000
-.word 0xfd0067a0
-.word 0xf9401fb1
-.word 0xf9435a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xfd4067a0
-.word 0xbd002f40
-.word 0xf9401fb1
-.word 0xf9437231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1703e0
-.word 0xf9005fa0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1296]
-.word 0xf90063a0
-.word 0xf9401fb1
-.word 0xf9439e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94063a0
-bl _p_126
-.word 0xf9005ba0
-.word 0xf9401fb1
-.word 0xf943ba31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9405ba1
-.word 0xf9405fa2
-.word 0xaa0203e0
-.word 0xf940005e
-bl _p_127
-.word 0xf90057a0
-.word 0xf9401fb1
-.word 0xf943e231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94057a0
-bl _p_129
-.word 0x93407c00
-.word 0xf90053a0
-.word 0xf9401fb1
-.word 0xf9440231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94053a0
-.word 0xb9004f40
-.word 0xf9401fb1
-.word 0xf9441a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1703e0
-.word 0xf9004ba0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x0, [x16, #1328]
+.word 0xf900c7a0
+.word 0xf94017b1
+.word 0xf9426231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940c7a0
+bl _p_145
+.word 0xf900bfa0
+.word 0xf94017b1
+.word 0xf9427e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940bfa1
+.word 0xf940c3a2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf900bba0
+.word 0xf94017b1
+.word 0xf942a631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940bba0
+bl _p_147
+.word 0x1e204000
+.word 0xfd00b7a0
+.word 0xf94017b1
+.word 0xf942c631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940b3a0
+.word 0xfd40b7a0
+.word 0xbd002800
+.word 0xf94017b1
+.word 0xf942e231
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1240]
+.word 0xf9400000
+.word 0xf9009ba0
+.word 0xaa1803e0
+.word 0xf900aba0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1336]
+.word 0xf900afa0
+.word 0xf94017b1
+.word 0xf9431e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940afa0
+bl _p_145
+.word 0xf900a7a0
+.word 0xf94017b1
+.word 0xf9433a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940a7a1
+.word 0xf940aba2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf900a3a0
+.word 0xf94017b1
+.word 0xf9436231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf940a3a0
+bl _p_147
+.word 0x1e204000
+.word 0xfd009fa0
+.word 0xf94017b1
+.word 0xf9438231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9409ba0
+.word 0xfd409fa0
+.word 0xbd002c00
+.word 0xf94017b1
+.word 0xf9439e31
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1240]
+.word 0xf9400000
+.word 0xf90083a0
+.word 0xaa1803e0
+.word 0xf90093a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1384]
+.word 0xf90097a0
+.word 0xf94017b1
+.word 0xf943da31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94097a0
+bl _p_145
+.word 0xf9008fa0
+.word 0xf94017b1
+.word 0xf943f631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9408fa1
+.word 0xf94093a2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf9008ba0
+.word 0xf94017b1
+.word 0xf9441e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9408ba0
+bl _p_148
+.word 0x93407c00
+.word 0xf90087a0
+.word 0xf94017b1
+.word 0xf9443e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94083a0
+.word 0xf94087a1
+.word 0xb9005401
+.word 0xf94017b1
+.word 0xf9445a31
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1240]
+.word 0xf9400000
+.word 0xf9006ba0
+.word 0xaa1803e0
+.word 0xf9007ba0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1432]
+.word 0xf9007fa0
+.word 0xf94017b1
+.word 0xf9449631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9407fa0
+bl _p_145
+.word 0xf90077a0
+.word 0xf94017b1
+.word 0xf944b231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94077a1
+.word 0xf9407ba2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf90073a0
+.word 0xf94017b1
+.word 0xf944da31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94073a0
+bl _p_148
+.word 0x93407c00
+.word 0xf9006fa0
+.word 0xf94017b1
+.word 0xf944fa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9406ba0
+.word 0xf9406fa1
+.word 0xb9007001
+.word 0xf94017b1
+.word 0xf9451631
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1240]
+.word 0xf9400000
+.word 0xf90053a0
+.word 0xaa1803e0
+.word 0xf90063a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1440]
+.word 0xf90067a0
+.word 0xf94017b1
+.word 0xf9455231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94067a0
+bl _p_145
+.word 0xf9005fa0
+.word 0xf94017b1
+.word 0xf9456e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405fa1
+.word 0xf94063a2
+.word 0xaa0203e0
+.word 0xf940005e
+bl _p_146
+.word 0xf9005ba0
+.word 0xf94017b1
+.word 0xf9459631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405ba0
+bl _p_147
+.word 0x1e204000
+.word 0xfd0057a0
+.word 0xf94017b1
+.word 0xf945b631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94053a0
+.word 0xfd4057a0
+.word 0xbd007400
+.word 0xf94017b1
+.word 0xf945d231
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1240]
+.word 0xf9400000
+.word 0xf9003ba0
+.word 0xaa1803e0
+.word 0xf9004ba0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1448]
 .word 0xf9004fa0
-.word 0xf9401fb1
-.word 0xf9444631
+.word 0xf94017b1
+.word 0xf9460e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9404fa0
-bl _p_126
+bl _p_145
 .word 0xf90047a0
-.word 0xf9401fb1
-.word 0xf9446231
+.word 0xf94017b1
+.word 0xf9462a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94047a1
 .word 0xf9404ba2
 .word 0xaa0203e0
 .word 0xf940005e
-bl _p_127
+bl _p_146
 .word 0xf90043a0
-.word 0xf9401fb1
-.word 0xf9448a31
+.word 0xf94017b1
+.word 0xf9465231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94043a0
-bl _p_129
-.word 0x93407c00
-.word 0xf9003fa0
-.word 0xf9401fb1
-.word 0xf944aa31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9403fa0
-.word 0xb9006b40
-.word 0xf9401fb1
-.word 0xf944c231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1703e0
-.word 0xf90037a0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1336]
-.word 0xf9003ba0
-.word 0xf9401fb1
-.word 0xf944ee31
+bl _p_147
+.word 0x1e204000
+.word 0xfd003fa0
+.word 0xf94017b1
+.word 0xf9467231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9403ba0
-bl _p_126
-.word 0xf90033a0
-.word 0xf9401fb1
-.word 0xf9450a31
+.word 0xfd403fa0
+.word 0xbd007800
+.word 0xf94017b1
+.word 0xf9468e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94033a1
-.word 0xf94037a2
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1240]
+.word 0xf9400000
+.word 0xf90023a0
+.word 0xaa1803e0
+.word 0xf90033a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1456]
+.word 0xf90037a0
+.word 0xf94017b1
+.word 0xf946ca31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94037a0
+bl _p_145
+.word 0xf9002fa0
+.word 0xf94017b1
+.word 0xf946e631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402fa1
+.word 0xf94033a2
 .word 0xaa0203e0
 .word 0xf940005e
-bl _p_127
-.word 0xf9002fa0
-.word 0xf9401fb1
-.word 0xf9453231
+bl _p_146
+.word 0xf9002ba0
+.word 0xf94017b1
+.word 0xf9470e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9402fa0
-bl _p_128
+.word 0xf9402ba0
+bl _p_147
 .word 0x1e204000
-.word 0xfd002ba0
-.word 0xf9401fb1
-.word 0xf9455231
+.word 0xfd0027a0
+.word 0xf94017b1
+.word 0xf9472e31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xfd402ba0
-.word 0xbd006f40
-.word 0xf9401fb1
-.word 0xf9456a31
+.word 0xf94023a0
+.word 0xfd4027a0
+.word 0xbd007c00
+.word 0xf94017b1
+.word 0xf9474a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1a03f6
-.word 0xf9401fb1
-.word 0xf9458231
+.word 0xf94017b1
+.word 0xf9475a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1a03e0
-.word 0xf9401fb1
-.word 0xf9459a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xa9415fb6
-.word 0xa94267b8
-.word 0xf9401bba
+.word 0xa94167b8
+.word 0xf94013ba
 .word 0x910003bf
-.word 0xa8d97bfd
+.word 0xa9407bfd
+.word 0xd2804210
+.word 0x910003f1
+.word 0x8b100231
+.word 0x9100023f
 .word 0xd65f03c0
 
-Lme_46:
+Lme_4b:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_XmlImporter_TransferBlockMonsterInformation_TheAdventuresOf_Monster
+TheAdventuresOf_XmlImporter_TransferBlockMonsterInformation_TheAdventuresOf_Monster:
+.word 0xa9bc7bfd
+.word 0x910003fd
+.word 0xa9016bb9
+.word 0xaa0003fa
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1464]
+.word 0xf90013b0
+.word 0xf9400a11
+.word 0xf90017b1
+.word 0xd2800019
+.word 0xf94013b1
+.word 0xf9403a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9405a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9406a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1240]
+.word 0xf9400000
+.word 0xbd402800
+.word 0xbd002b40
+.word 0xf94013b1
+.word 0xf9409631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1240]
+.word 0xf9400000
+.word 0xbd402c00
+.word 0xbd002f40
+.word 0xf94013b1
+.word 0xf940c231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1240]
+.word 0xf9400000
+.word 0xb9805400
+.word 0xb9005740
+.word 0xf94013b1
+.word 0xf940ee31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1240]
+.word 0xf9400000
+.word 0xb9807000
+.word 0xb9007340
+.word 0xf94013b1
+.word 0xf9411a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1240]
+.word 0xf9400000
+.word 0xbd407400
+.word 0xbd007740
+.word 0xf94013b1
+.word 0xf9414631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1240]
+.word 0xf9400000
+.word 0xbd407800
+.word 0xbd007b40
+.word 0xf94013b1
+.word 0xf9417231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1240]
+.word 0xf9400000
+.word 0xbd407c00
+.word 0xbd007f40
+.word 0xf94013b1
+.word 0xf9419e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1a03f9
+.word 0xf94013b1
+.word 0xf941b631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1a03e0
+.word 0xf94013b1
+.word 0xf941ce31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xa9416bb9
+.word 0x910003bf
+.word 0xa8c47bfd
+.word 0xd65f03c0
+
+Lme_4c:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_AssetManager_LoadGameAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
 TheAdventuresOf_AssetManager_LoadGameAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice:
-.word 0xa9b77bfd
+.word 0xa9b47bfd
 .word 0x910003fd
 .word 0xf9000bba
 .word 0xaa0003fa
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1344]
+ldr x16, [x16, #1472]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
 .word 0xf9001bbf
 .word 0xf9001fbf
 .word 0xf90023bf
+.word 0xf90027bf
+.word 0xf9002bbf
 .word 0xf9400fb1
-.word 0xf9404231
+.word 0xf9404a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
@@ -11801,183 +14148,92 @@ ldr x16, [x16, #1344]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf9406231
+.word 0xf9406a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf9407231
+.word 0xf9407a31
 .word 0xb4000051
 .word 0xd63f0220
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1352]
-.word 0xf90047a0
+ldr x0, [x16, #1480]
+.word 0xf9005fa0
 .word 0xf9400fb1
-.word 0xf9409231
+.word 0xf9409a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94047a0
-bl _p_124
-.word 0xf90043a0
+.word 0xf9405fa0
+bl _p_143
+.word 0xf9005ba0
 .word 0xf9400fb1
-.word 0xf940ae31
+.word 0xf940b631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94043a0
+.word 0xf9405ba0
 .word 0xf9001ba0
 .word 0xf94013b1
 .word 0xf9400231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf940d631
+.word 0xf940de31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf940e631
+.word 0xf940ee31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
 .word 0xf9401ba0
-.word 0xf90047a0
+.word 0xf9005fa0
 .word 0xf9400fb1
-.word 0xf9410231
+.word 0xf9410a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94047a1
+.word 0xf9405fa1
 .word 0xaa1a03e0
-bl _p_130
-.word 0xf90043a0
+bl _p_150
+.word 0xf9005ba0
 .word 0xf9400fb1
-.word 0xf9412231
+.word 0xf9412a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94043a1
+.word 0xf9405ba1
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #672]
+ldr x0, [x16, #664]
 .word 0xf9000001
 .word 0xf9400fb1
-.word 0xf9414631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x94000002
-.word 0x1400001a
-.word 0xf9002fbe
-.word 0xf9401ba0
-.word 0xb40002a0
-.word 0xf9401ba0
-.word 0xf90043a0
-.word 0xf9400fb1
-.word 0xf9417231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94043a1
-.word 0xaa0103e0
-.word 0xf9400021
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #1360]
-.word 0x928004f0
-.word 0xf2bffff0
-.word 0xf8706830
-.word 0xd63f0200
-.word 0xf9400fb1
-.word 0xf941aa31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9402fbe
-.word 0xd61f03c0
-.word 0xf94013b1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf941d231
-.word 0xb4000051
-.word 0xd63f0220
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1368]
-.word 0xf90047a0
-.word 0xf9400fb1
-.word 0xf941f231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94047a0
-bl _p_124
-.word 0xf90043a0
-.word 0xf9400fb1
-.word 0xf9420e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94043a0
-.word 0xf9001fa0
-.word 0xf94013b1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf9423631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf9424631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xf9401fa0
-.word 0xf90047a0
-.word 0xf9400fb1
-.word 0xf9426231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94047a1
-.word 0xaa1a03e0
-bl _p_130
-.word 0xf90043a0
-.word 0xf9400fb1
-.word 0xf9428231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94043a1
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #792]
-.word 0xf9000001
-.word 0xf9400fb1
-.word 0xf942a631
+.word 0xf9414e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0x94000002
 .word 0x1400001a
 .word 0xf90037be
-.word 0xf9401fa0
+.word 0xf9401ba0
 .word 0xb40002a0
-.word 0xf9401fa0
-.word 0xf90043a0
+.word 0xf9401ba0
+.word 0xf9005ba0
 .word 0xf9400fb1
-.word 0xf942d231
+.word 0xf9417a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94043a1
+.word 0xf9405ba1
 .word 0xaa0103e0
 .word 0xf9400021
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #1360]
+ldr x15, [x16, #1488]
 .word 0x928004f0
 .word 0xf2bffff0
 .word 0xf8706830
 .word 0xd63f0200
 .word 0xf9400fb1
-.word 0xf9430a31
+.word 0xf941b231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94037be
@@ -11987,88 +14243,88 @@ ldr x15, [x16, #1360]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf9433231
+.word 0xf941da31
 .word 0xb4000051
 .word 0xd63f0220
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1376]
-.word 0xf90047a0
+ldr x0, [x16, #1496]
+.word 0xf9005fa0
 .word 0xf9400fb1
-.word 0xf9435231
+.word 0xf941fa31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94047a0
-bl _p_124
-.word 0xf90043a0
+.word 0xf9405fa0
+bl _p_143
+.word 0xf9005ba0
 .word 0xf9400fb1
-.word 0xf9436e31
+.word 0xf9421631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94043a0
-.word 0xf90023a0
+.word 0xf9405ba0
+.word 0xf9001fa0
 .word 0xf94013b1
 .word 0xf9400231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf9439631
+.word 0xf9423e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf943a631
+.word 0xf9424e31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
-.word 0xf94023a0
-.word 0xf90047a0
+.word 0xf9401fa0
+.word 0xf9005fa0
 .word 0xf9400fb1
-.word 0xf943c231
+.word 0xf9426a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94047a1
+.word 0xf9405fa1
 .word 0xaa1a03e0
-bl _p_130
-.word 0xf90043a0
+bl _p_150
+.word 0xf9005ba0
 .word 0xf9400fb1
-.word 0xf943e231
+.word 0xf9428a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94043a1
+.word 0xf9405ba1
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #960]
+ldr x0, [x16, #760]
 .word 0xf9000001
 .word 0xf9400fb1
-.word 0xf9440631
+.word 0xf942ae31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0x94000002
 .word 0x1400001a
 .word 0xf9003fbe
-.word 0xf94023a0
+.word 0xf9401fa0
 .word 0xb40002a0
-.word 0xf94023a0
-.word 0xf90043a0
+.word 0xf9401fa0
+.word 0xf9005ba0
 .word 0xf9400fb1
-.word 0xf9443231
+.word 0xf942da31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94043a1
+.word 0xf9405ba1
 .word 0xaa0103e0
 .word 0xf9400021
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #1360]
+ldr x15, [x16, #1488]
 .word 0x928004f0
 .word 0xf2bffff0
 .word 0xf8706830
 .word 0xd63f0200
 .word 0xf9400fb1
-.word 0xf9446a31
+.word 0xf9431231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9403fbe
@@ -12078,19 +14334,292 @@ ldr x15, [x16, #1360]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf9449231
+.word 0xf9433a31
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1504]
+.word 0xf9005fa0
+.word 0xf9400fb1
+.word 0xf9435a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405fa0
+bl _p_143
+.word 0xf9005ba0
+.word 0xf9400fb1
+.word 0xf9437631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405ba0
+.word 0xf90023a0
+.word 0xf94013b1
+.word 0xf9400231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400fb1
-.word 0xf944a231
+.word 0xf9439e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf943ae31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xf94023a0
+.word 0xf9005fa0
+.word 0xf9400fb1
+.word 0xf943ca31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405fa1
+.word 0xaa1a03e0
+bl _p_150
+.word 0xf9005ba0
+.word 0xf9400fb1
+.word 0xf943ea31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405ba1
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #984]
+.word 0xf9000001
+.word 0xf9400fb1
+.word 0xf9440e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x94000002
+.word 0x1400001a
+.word 0xf90047be
+.word 0xf94023a0
+.word 0xb40002a0
+.word 0xf94023a0
+.word 0xf9005ba0
+.word 0xf9400fb1
+.word 0xf9443a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405ba1
+.word 0xaa0103e0
+.word 0xf9400021
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x15, [x16, #1488]
+.word 0x928004f0
+.word 0xf2bffff0
+.word 0xf8706830
+.word 0xd63f0200
+.word 0xf9400fb1
+.word 0xf9447231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94047be
+.word 0xd61f03c0
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9449a31
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1512]
+.word 0xf9005fa0
+.word 0xf9400fb1
+.word 0xf944ba31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405fa0
+bl _p_143
+.word 0xf9005ba0
+.word 0xf9400fb1
+.word 0xf944d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405ba0
+.word 0xf90027a0
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf944fe31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9450e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xf94027a0
+.word 0xf9005fa0
+.word 0xf9400fb1
+.word 0xf9452a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405fa1
+.word 0xaa1a03e0
+bl _p_150
+.word 0xf9005ba0
+.word 0xf9400fb1
+.word 0xf9454a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405ba1
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #992]
+.word 0xf9000001
+.word 0xf9400fb1
+.word 0xf9456e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x94000002
+.word 0x1400001a
+.word 0xf9004fbe
+.word 0xf94027a0
+.word 0xb40002a0
+.word 0xf94027a0
+.word 0xf9005ba0
+.word 0xf9400fb1
+.word 0xf9459a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405ba1
+.word 0xaa0103e0
+.word 0xf9400021
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x15, [x16, #1488]
+.word 0x928004f0
+.word 0xf2bffff0
+.word 0xf8706830
+.word 0xd63f0200
+.word 0xf9400fb1
+.word 0xf945d231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9404fbe
+.word 0xd61f03c0
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf945fa31
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1520]
+.word 0xf9005fa0
+.word 0xf9400fb1
+.word 0xf9461a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405fa0
+bl _p_143
+.word 0xf9005ba0
+.word 0xf9400fb1
+.word 0xf9463631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405ba0
+.word 0xf9002ba0
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9465e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9466e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xf9402ba0
+.word 0xf9005fa0
+.word 0xf9400fb1
+.word 0xf9468a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405fa1
+.word 0xaa1a03e0
+bl _p_150
+.word 0xf9005ba0
+.word 0xf9400fb1
+.word 0xf946aa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405ba1
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1192]
+.word 0xf9000001
+.word 0xf9400fb1
+.word 0xf946ce31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x94000002
+.word 0x1400001a
+.word 0xf90057be
+.word 0xf9402ba0
+.word 0xb40002a0
+.word 0xf9402ba0
+.word 0xf9005ba0
+.word 0xf9400fb1
+.word 0xf946fa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9405ba1
+.word 0xaa0103e0
+.word 0xf9400021
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x15, [x16, #1488]
+.word 0x928004f0
+.word 0xf2bffff0
+.word 0xf8706830
+.word 0xd63f0200
+.word 0xf9400fb1
+.word 0xf9473231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94057be
+.word 0xd61f03c0
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9475a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9476a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400bba
 .word 0x910003bf
-.word 0xa8c97bfd
+.word 0xa8cc7bfd
 .word 0xd65f03c0
 
-Lme_47:
+Lme_4d:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_AssetManager_LoadLevelAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
@@ -12102,7 +14631,7 @@ TheAdventuresOf_AssetManager_LoadLevelAssets_Microsoft_Xna_Framework_Graphics_Gr
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1384]
+ldr x16, [x16, #1528]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -12128,14 +14657,14 @@ ldr x16, [x16, #1384]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1392]
+ldr x0, [x16, #1536]
 .word 0xf90047a0
 .word 0xf9400fb1
 .word 0xf9409231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94047a0
-bl _p_124
+bl _p_143
 .word 0xf90043a0
 .word 0xf9400fb1
 .word 0xf940ae31
@@ -12164,7 +14693,7 @@ bl _p_124
 .word 0xd63f0220
 .word 0xf94047a1
 .word 0xaa1a03e0
-bl _p_130
+bl _p_150
 .word 0xf90043a0
 .word 0xf9400fb1
 .word 0xf9412231
@@ -12174,7 +14703,7 @@ bl _p_130
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #256]
+ldr x0, [x16, #240]
 .word 0xf9000001
 .word 0xf9400fb1
 .word 0xf9414631
@@ -12197,7 +14726,7 @@ ldr x0, [x16, #256]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #1360]
+ldr x15, [x16, #1488]
 .word 0x928004f0
 .word 0xf2bffff0
 .word 0xf8706830
@@ -12219,14 +14748,14 @@ ldr x15, [x16, #1360]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1400]
+ldr x0, [x16, #1544]
 .word 0xf90047a0
 .word 0xf9400fb1
 .word 0xf941f231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94047a0
-bl _p_124
+bl _p_143
 .word 0xf90043a0
 .word 0xf9400fb1
 .word 0xf9420e31
@@ -12255,7 +14784,7 @@ bl _p_124
 .word 0xd63f0220
 .word 0xf94047a1
 .word 0xaa1a03e0
-bl _p_130
+bl _p_150
 .word 0xf90043a0
 .word 0xf9400fb1
 .word 0xf9428231
@@ -12265,7 +14794,7 @@ bl _p_130
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #872]
+ldr x0, [x16, #840]
 .word 0xf9000001
 .word 0xf9400fb1
 .word 0xf942a631
@@ -12288,7 +14817,7 @@ ldr x0, [x16, #872]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #1360]
+ldr x15, [x16, #1488]
 .word 0x928004f0
 .word 0xf2bffff0
 .word 0xf8706830
@@ -12310,14 +14839,14 @@ ldr x15, [x16, #1360]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1408]
+ldr x0, [x16, #1552]
 .word 0xf90047a0
 .word 0xf9400fb1
 .word 0xf9435231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94047a0
-bl _p_124
+bl _p_143
 .word 0xf90043a0
 .word 0xf9400fb1
 .word 0xf9436e31
@@ -12346,7 +14875,7 @@ bl _p_124
 .word 0xd63f0220
 .word 0xf94047a1
 .word 0xaa1a03e0
-bl _p_130
+bl _p_150
 .word 0xf90043a0
 .word 0xf9400fb1
 .word 0xf943e231
@@ -12356,7 +14885,7 @@ bl _p_130
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #264]
+ldr x0, [x16, #288]
 .word 0xf9000001
 .word 0xf9400fb1
 .word 0xf9440631
@@ -12379,7 +14908,7 @@ ldr x0, [x16, #264]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #1360]
+ldr x15, [x16, #1488]
 .word 0x928004f0
 .word 0xf2bffff0
 .word 0xf8706830
@@ -12407,7 +14936,7 @@ ldr x15, [x16, #1360]
 .word 0xa8c97bfd
 .word 0xd65f03c0
 
-Lme_48:
+Lme_4e:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_AssetManager_DisposeLevelAssets
@@ -12417,7 +14946,7 @@ TheAdventuresOf_AssetManager_DisposeLevelAssets:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1416]
+ldr x16, [x16, #1560]
 .word 0xf9000bb0
 .word 0xf9400a11
 .word 0xf9000fb1
@@ -12440,7 +14969,7 @@ ldr x16, [x16, #1416]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #256]
+ldr x0, [x16, #240]
 .word 0xf9400000
 .word 0xf90023a0
 .word 0xf9400bb1
@@ -12450,7 +14979,7 @@ ldr x0, [x16, #256]
 .word 0xf94023a1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_131
+bl _p_151
 .word 0xf9400bb1
 .word 0xf940a231
 .word 0xb4000051
@@ -12458,7 +14987,7 @@ bl _p_131
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #872]
+ldr x0, [x16, #840]
 .word 0xf9400000
 .word 0xf9001fa0
 .word 0xf9400bb1
@@ -12468,7 +14997,7 @@ ldr x0, [x16, #872]
 .word 0xf9401fa1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_131
+bl _p_151
 .word 0xf9400bb1
 .word 0xf940e631
 .word 0xb4000051
@@ -12476,7 +15005,7 @@ bl _p_131
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #264]
+ldr x0, [x16, #288]
 .word 0xf9400000
 .word 0xf9001ba0
 .word 0xf9400bb1
@@ -12486,7 +15015,7 @@ ldr x0, [x16, #264]
 .word 0xf9401ba1
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_131
+bl _p_151
 .word 0xf9400bb1
 .word 0xf9412a31
 .word 0xb4000051
@@ -12499,7 +15028,7 @@ bl _p_131
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_49:
+Lme_4f:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Monster__ctor
@@ -12511,7 +15040,7 @@ TheAdventuresOf_Monster__ctor:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1424]
+ldr x16, [x16, #1568]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -12528,54 +15057,217 @@ ldr x16, [x16, #1424]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
-.word 0xd280001e
-.word 0x9e6703c0
-.word 0xbd007740
-.word 0xf9400fb1
-.word 0xf9407631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
 .word 0x9e6703e0
 .word 0x9100c3a0
 .word 0xf9001fa0
 .word 0x9e6703e0
-bl _p_84
+bl _p_88
 .word 0xf9401fbe
 .word 0xf90003c0
 .word 0xf9400fb1
-.word 0xf940a631
+.word 0xf9408631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0x9100c3a0
-.word 0x9101e340
+.word 0x91022340
 .word 0xf9401ba1
 .word 0xf9000001
 .word 0xf9400fb1
-.word 0xf940c631
+.word 0xf940a631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1432]
+ldr x0, [x16, #952]
 bl _p_17
 .word 0xf90027a0
-bl _p_132
+bl _p_123
 .word 0xf9400fb1
-.word 0xf940f231
+.word 0xf940d231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94027a0
 .word 0xf90023a0
-.word 0xf9003340
-.word 0x91018340
+.word 0xf9003740
+.word 0x9101a340
 bl _p_9
 .word 0xf94023a0
 .word 0xaa1a03e0
 .word 0xaa1a03e0
-bl _p_109
+bl _p_125
+.word 0xf9400fb1
+.word 0xf9410631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9411631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400bba
+.word 0x910003bf
+.word 0xa8c57bfd
+.word 0xd65f03c0
+
+Lme_50:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_Monster_InitializeMonsterAfterSpawn
+TheAdventuresOf_Monster_InitializeMonsterAfterSpawn:
+.word 0xa9bc7bfd
+.word 0x910003fd
+.word 0xf9000bba
+.word 0xaa0003fa
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1576]
+.word 0xf9000fb0
+.word 0xf9400a11
+.word 0xf90013b1
+.word 0xf9400fb1
+.word 0xf9403631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9405631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9406631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xd280001e
+.word 0x9e6703c0
+.word 0xbd003340
+.word 0xf9400fb1
+.word 0xf9408631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xd2800000
+.word 0x3902035f
+.word 0xf9400fb1
+.word 0xf940a231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1a03e0
+.word 0xf9400b40
+.word 0xf9001ba0
+.word 0xf9001340
+.word 0x91008340
+bl _p_9
+.word 0xf9401ba0
+.word 0xf9400fb1
+.word 0xf940d231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xf9400fb1
+.word 0xf940e631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xf9400341
+.word 0xf9403830
+.word 0xd63f0200
+.word 0xf9400fb1
+.word 0xf9410631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9411631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400bba
+.word 0x910003bf
+.word 0xa8c47bfd
+.word 0xd65f03c0
+
+Lme_51:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_Monster_InitializeSpawn
+TheAdventuresOf_Monster_InitializeSpawn:
+.word 0xa9bd7bfd
+.word 0x910003fd
+.word 0xf9000bba
+.word 0xaa0003fa
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1584]
+.word 0xf9000fb0
+.word 0xf9400a11
+.word 0xf90013b1
+.word 0xf9400fb1
+.word 0xf9403631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9405631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9406631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xf9400fb1
+.word 0xf9407a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+bl _p_152
+.word 0xf9400fb1
+.word 0xf9409231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xf9400fb1
+.word 0xf940a631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+bl _p_153
+.word 0xf9400fb1
+.word 0xf940be31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0x39418340
+.word 0x34000280
+.word 0xf9400fb1
+.word 0xf940da31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf940ea31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1592]
+.word 0xbd400000
+.word 0xbd003340
+.word 0xf9400fb1
+.word 0xf9411231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x14000014
 .word 0xf9400fb1
 .word 0xf9412631
 .word 0xb4000051
@@ -12584,12 +15276,44 @@ bl _p_109
 .word 0xf9413631
 .word 0xb4000051
 .word 0xd63f0220
+.word 0xaa1a03e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1592]
+.word 0xbd400000
+.word 0x1e214000
+.word 0xbd003340
+.word 0xf9400fb1
+.word 0xf9416231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9418231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xd2800020
+.word 0xd280003e
+.word 0x3902035e
+.word 0xf9400fb1
+.word 0xf941a231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf941b231
+.word 0xb4000051
+.word 0xd63f0220
 .word 0xf9400bba
 .word 0x910003bf
-.word 0xa8c57bfd
+.word 0xa8c37bfd
 .word 0xd65f03c0
 
-Lme_4a:
+Lme_52:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Monster_InitializeAnimation
@@ -12601,7 +15325,7 @@ TheAdventuresOf_Monster_InitializeAnimation:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1440]
+ldr x16, [x16, #1600]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -12629,10 +15353,10 @@ ldr x16, [x16, #1440]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #976]
+ldr x0, [x16, #1008]
 bl _p_17
 .word 0xf9007fa0
-bl _p_111
+bl _p_127
 .word 0xf9400fb1
 .word 0xf940a231
 .word 0xb4000051
@@ -12651,14 +15375,14 @@ bl _p_9
 .word 0xf9400f40
 .word 0xf90067a0
 .word 0xaa1a03e0
-.word 0xb9805340
+.word 0xb9805b40
 .word 0xf9006fa0
 .word 0xd2800000
 .word 0xaa1a03e0
-.word 0xb9805340
+.word 0xb9805b40
 .word 0xf90073a0
 .word 0xaa1a03e0
-.word 0xb9805740
+.word 0xb9805f40
 .word 0xf90077a0
 .word 0xf9400fb1
 .word 0xf9410e31
@@ -12673,7 +15397,7 @@ bl _p_9
 .word 0xf9003fa0
 .word 0x9101c3a0
 .word 0xd2800002
-bl _p_72
+bl _p_77
 .word 0x9101c3a0
 .word 0x910103a0
 .word 0xf9403ba0
@@ -12695,7 +15419,7 @@ bl _p_72
 .word 0xfd406ba0
 .word 0x9101a3a0
 .word 0xf90043a0
-bl _p_84
+bl _p_88
 .word 0xf94043be
 .word 0xf90003c0
 .word 0xf9400fb1
@@ -12710,7 +15434,7 @@ bl _p_84
 .word 0x9101a3a3
 .word 0xf94037a3
 .word 0xf940009e
-bl _p_112
+bl _p_128
 .word 0xf9400fb1
 .word 0xf941da31
 .word 0xb4000051
@@ -12723,10 +15447,10 @@ bl _p_112
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #976]
+ldr x0, [x16, #1008]
 bl _p_17
 .word 0xf90063a0
-bl _p_111
+bl _p_127
 .word 0xf9400fb1
 .word 0xf9421631
 .word 0xb4000051
@@ -12747,10 +15471,10 @@ bl _p_9
 .word 0xd2800000
 .word 0xd2800000
 .word 0xaa1a03e0
-.word 0xb9805340
+.word 0xb9805b40
 .word 0xf90057a0
 .word 0xaa1a03e0
-.word 0xb9805740
+.word 0xb9805f40
 .word 0xf9005ba0
 .word 0xf9400fb1
 .word 0xf9427a31
@@ -12765,7 +15489,7 @@ bl _p_9
 .word 0x910163a0
 .word 0xd2800001
 .word 0xd2800002
-bl _p_72
+bl _p_77
 .word 0x910163a0
 .word 0x9100c3a0
 .word 0xf9402fa0
@@ -12787,7 +15511,7 @@ bl _p_72
 .word 0xfd4053a0
 .word 0x910143a0
 .word 0xf90043a0
-bl _p_84
+bl _p_88
 .word 0xf94043be
 .word 0xf90003c0
 .word 0xf9400fb1
@@ -12802,7 +15526,7 @@ bl _p_84
 .word 0x910143a3
 .word 0xf9402ba3
 .word 0xf940009e
-bl _p_112
+bl _p_128
 .word 0xf9400fb1
 .word 0xf9434631
 .word 0xb4000051
@@ -12825,7 +15549,7 @@ bl _p_9
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
-bl _p_113
+bl _p_129
 .word 0xf9400fb1
 .word 0xf943a231
 .word 0xb4000051
@@ -12839,7 +15563,7 @@ bl _p_113
 .word 0xa8d07bfd
 .word 0xd65f03c0
 
-Lme_4b:
+Lme_53:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Monster_HandleLevelBoundCollision_int_int
@@ -12852,7 +15576,7 @@ TheAdventuresOf_Monster_HandleLevelBoundCollision_int_int:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1448]
+ldr x16, [x16, #1608]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -12885,7 +15609,7 @@ ldr x16, [x16, #1448]
 .word 0xf94023a0
 .word 0xf94027a1
 .word 0xf9402ba2
-bl _p_116
+bl _p_134
 .word 0xf94017b1
 .word 0xf940b231
 .word 0xb4000051
@@ -12898,248 +15622,7 @@ bl _p_116
 .word 0xa8c67bfd
 .word 0xd65f03c0
 
-Lme_4c:
-.text
-	.align 4
-	.no_dead_strip TheAdventuresOf_Monster_Update_Microsoft_Xna_Framework_GameTime_bool
-TheAdventuresOf_Monster_Update_Microsoft_Xna_Framework_GameTime_bool:
-.word 0xa9bc7bfd
-.word 0x910003fd
-.word 0xa9016bb9
-.word 0xaa0003f9
-.word 0xaa0103fa
-.word 0xf90013a2
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1456]
-.word 0xf90017b0
-.word 0xf9400a11
-.word 0xf9001bb1
-.word 0xf94017b1
-.word 0xf9403e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401bb1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf9405e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf9406e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0x3941c320
-.word 0x350014e0
-.word 0xf94017b1
-.word 0xf9408a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf9409a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0x39420320
-.word 0x35000fc0
-.word 0xf94017b1
-.word 0xf940b631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf940c631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0x39416b20
-.word 0x350002a0
-.word 0xf94017b1
-.word 0xf940e231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf940f231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xf94017b1
-.word 0xf9410631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-bl _p_133
-.word 0xf94017b1
-.word 0xf9411e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x14000056
-.word 0xf94017b1
-.word 0xf9413231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf9414231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xbd407720
-.word 0xaa1903e0
-.word 0xb9806b20
-.word 0x1e220001
-.word 0x1e212000
-.word 0x54000420
-.word 0x5400040b
-.word 0xf94017b1
-.word 0xf9417231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf9418231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xd280001e
-.word 0x9e6703c0
-.word 0xbd007720
-.word 0xf94017b1
-.word 0xf941a231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xd2800000
-.word 0x39016b3f
-.word 0xf94017b1
-.word 0xf941be31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xd2800020
-.word 0xd280003e
-.word 0x3902033e
-.word 0xf94017b1
-.word 0xf941de31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401bb1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf941fe31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xaa1a03e0
-.word 0xd2800000
-.word 0xf94017b1
-.word 0xf9421a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xaa1a03e1
-.word 0xd2800002
-bl _p_115
-.word 0xf94017b1
-.word 0xf9423a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xaa1a03e0
-.word 0xf94017b1
-.word 0xf9425231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xaa1a03e1
-.word 0xf9400322
-.word 0xf9404c50
-.word 0xd63f0200
-.word 0xf94017b1
-.word 0xf9427631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401bb1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf9429631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x14000016
-.word 0xf94017b1
-.word 0xf942aa31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf942ba31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xaa1a03e0
-.word 0xf94017b1
-.word 0xf942d231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xaa1a03e1
-bl _p_134
-.word 0xf94017b1
-.word 0xf942ee31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401bb1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf9430e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x14000016
-.word 0xf94017b1
-.word 0xf9432231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf9433231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xaa1a03e0
-.word 0xf94017b1
-.word 0xf9434a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xaa1a03e1
-bl _p_135
-.word 0xf94017b1
-.word 0xf9436631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401bb1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf9438631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf9439631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xa9416bb9
-.word 0x910003bf
-.word 0xa8c47bfd
-.word 0xd65f03c0
-
-Lme_4d:
+Lme_54:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Monster_HandleDelay_Microsoft_Xna_Framework_GameTime
@@ -13152,7 +15635,7 @@ TheAdventuresOf_Monster_HandleDelay_Microsoft_Xna_Framework_GameTime:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1464]
+ldr x16, [x16, #1616]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -13177,7 +15660,7 @@ ldr x16, [x16, #1464]
 .word 0xeb1f033f
 .word 0x10000011
 .word 0x54000f00
-.word 0x9101e320
+.word 0x91022320
 .word 0xf9003ba0
 .word 0xf9400fa0
 .word 0xf9003fa0
@@ -13190,7 +15673,7 @@ ldr x16, [x16, #1464]
 .word 0xf9002ba0
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_79
+bl _p_83
 .word 0xf9402bbe
 .word 0xf90003c0
 .word 0xf94013b1
@@ -13202,7 +15685,7 @@ bl _p_79
 .word 0xf9002ba1
 .word 0x910123a1
 .word 0xf94027a1
-bl _p_136
+bl _p_154
 .word 0xf9402bbe
 .word 0xf90003c0
 .word 0xf94013b1
@@ -13210,7 +15693,7 @@ bl _p_136
 .word 0xb4000051
 .word 0xd63f0220
 .word 0x910103a0
-.word 0x9101e320
+.word 0x91022320
 .word 0xf94023a1
 .word 0xf9000001
 .word 0xf94013b1
@@ -13221,14 +15704,14 @@ bl _p_136
 .word 0xeb1f033f
 .word 0x10000011
 .word 0x54000980
-.word 0x9101e320
+.word 0x91022320
 .word 0xf90037a0
 .word 0xf94013b1
 .word 0xf9414631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94037a0
-bl _p_80
+bl _p_84
 .word 0xfd0033a0
 .word 0xf94013b1
 .word 0xf9416231
@@ -13236,7 +15719,7 @@ bl _p_80
 .word 0xd63f0220
 .word 0xfd4033a0
 .word 0xaa1903e0
-.word 0xbd406f21
+.word 0xbd407721
 .word 0x1e22c021
 .word 0x1e612000
 .word 0x54000520
@@ -13251,7 +15734,7 @@ bl _p_80
 .word 0xd63f0220
 .word 0xaa1903e0
 .word 0xd2800000
-.word 0x3902033f
+.word 0x3902533f
 .word 0xf94013b1
 .word 0xf941ba31
 .word 0xb4000051
@@ -13265,7 +15748,7 @@ bl _p_80
 .word 0x9100e3a0
 .word 0xf9002ba0
 .word 0x9e6703e0
-bl _p_84
+bl _p_88
 .word 0xf9402bbe
 .word 0xf90003c0
 .word 0xf94013b1
@@ -13273,7 +15756,7 @@ bl _p_84
 .word 0xb4000051
 .word 0xd63f0220
 .word 0x9100e3a0
-.word 0x9101e320
+.word 0x91022320
 .word 0xf9401fa1
 .word 0xf9000001
 .word 0xf94013b1
@@ -13300,24 +15783,25 @@ bl _p_84
 .word 0xaa1103e1
 bl _p_34
 
-Lme_4e:
+Lme_55:
 .text
 	.align 4
-	.no_dead_strip TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime
-TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime:
-.word 0xa9bc7bfd
+	.no_dead_strip TheAdventuresOf_Monster_HandleSpawn_Microsoft_Xna_Framework_GameTime
+TheAdventuresOf_Monster_HandleSpawn_Microsoft_Xna_Framework_GameTime:
+.word 0xa9ba7bfd
 .word 0x910003fd
-.word 0xf9000ba0
-.word 0xf9000fa1
+.word 0xa9016bb9
+.word 0xaa0003f9
+.word 0xaa0103fa
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1472]
+ldr x16, [x16, #1624]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
 .word 0xf94013b1
-.word 0xf9403631
+.word 0xf9403a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94017b1
@@ -13325,259 +15809,360 @@ ldr x16, [x16, #1472]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf9405631
+.word 0xf9405a31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf9406631
+.word 0xf9406a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9407631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x910003bf
-.word 0xa8c47bfd
-.word 0xd65f03c0
-
-Lme_4f:
-.text
-	.align 4
-	.no_dead_strip TheAdventuresOf_Monster_RandomizeMovement
-TheAdventuresOf_Monster_RandomizeMovement:
-.word 0xa9bc7bfd
-.word 0x910003fd
-.word 0xf9000bba
-.word 0xaa0003fa
+.word 0xaa1903e0
+.word 0xeb1f033f
+.word 0x10000011
+.word 0x54001300
+.word 0x91011320
+.word 0xbd404b20
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1480]
-.word 0xf9000fb0
-.word 0xf9400a11
-.word 0xf90013b1
-.word 0xf9400fb1
-.word 0xf9403631
+ldr x0, [x16, #1632]
+.word 0xbd400001
+.word 0x1e212000
+.word 0x540003c0
+.word 0x540003ab
+.word 0xf94013b1
+.word 0xf940ae31
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf94013b1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf9405631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf9406631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xf9403340
-.word 0xf9001fa0
-.word 0xd2800000
-.word 0xd2800040
-.word 0xf9400fb1
-.word 0xf9408a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401fa3
-.word 0xaa0303e0
-.word 0xd2800001
-.word 0xd2800042
-.word 0xf9400063
-.word 0xf9403470
-.word 0xd63f0200
-.word 0x93407c00
-.word 0xf9001ba0
-.word 0xf9400fb1
 .word 0xf940be31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9401ba0
-.word 0x350003a0
-.word 0xf9400fb1
-.word 0xf940d631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf940e631
-.word 0xb4000051
-.word 0xd63f0220
+.word 0xaa1903e0
 .word 0xaa1a03e0
-.word 0xd2800020
-.word 0xd280003e
-.word 0x39016b5e
-.word 0xf9400fb1
-.word 0xf9410631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xf9400fb1
-.word 0xf9411a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-bl _p_137
-.word 0xf9400fb1
-.word 0xf9413231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x14000011
-.word 0xf9400fb1
-.word 0xf9414631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf9415631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xd2800020
-.word 0xd280003e
-.word 0x3902035e
-.word 0xf9400fb1
-.word 0xf9417631
-.word 0xb4000051
-.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1640]
+.word 0xb9800000
+.word 0xf90023a0
 .word 0xf94013b1
+.word 0xf940ea31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94023a2
+.word 0xaa1903e0
+.word 0xaa1a03e1
+bl _p_155
+.word 0xf94013b1
+.word 0xf9410a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x14000063
+.word 0xf94013b1
+.word 0xf9411e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0x39418320
+.word 0x340000e0
+.word 0xaa1903e0
+.word 0xbd403320
+.word 0xd280001e
+.word 0x9e6703c1
+.word 0x1e212000
+.word 0x5400014c
+.word 0xaa1903e0
+.word 0x39418720
+.word 0x34000780
+.word 0xaa1903e0
+.word 0xbd403320
+.word 0xd280001e
+.word 0x9e6703c1
+.word 0x1e212000
+.word 0x540006c2
+.word 0xf94017b1
 .word 0xf9400231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9400fb1
+.word 0xf94013b1
+.word 0xf9418631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
 .word 0xf9419631
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf941a631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400bba
-.word 0x910003bf
-.word 0xa8c47bfd
-.word 0xd65f03c0
-
-Lme_50:
-.text
-	.align 4
-	.no_dead_strip TheAdventuresOf_Monster_ChooseRandomDirection
-TheAdventuresOf_Monster_ChooseRandomDirection:
-.word 0xa9bc7bfd
-.word 0x910003fd
-.word 0xf9000bba
-.word 0xaa0003fa
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1488]
-.word 0xf9000fb0
-.word 0xf9400a11
-.word 0xf90013b1
-.word 0xf9400fb1
-.word 0xf9403631
-.word 0xb4000051
-.word 0xd63f0220
+ldr x0, [x16, #1648]
+.word 0xf90027a0
+.word 0xaa1903e0
+.word 0xbd403320
+.word 0xfd002ba0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1128]
+bl _p_17
+.word 0xaa0003e1
+.word 0xf94027a0
+.word 0xfd402ba0
+.word 0xbd001020
+bl _p_140
+.word 0xf90023a0
 .word 0xf94013b1
-.word 0xf9400231
+.word 0xf941ea31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf9405631
+.word 0xf94023a0
+bl _p_53
+.word 0xf94013b1
+.word 0xf9420231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf9406631
-.word 0xb4000051
-.word 0xd63f0220
+.word 0xaa1903e0
 .word 0xaa1a03e0
-.word 0xf9403340
-.word 0xf9001fa0
-.word 0xd2800000
-.word 0xd2800040
-.word 0xf9400fb1
-.word 0xf9408a31
+.word 0xf94013b1
+.word 0xf9421a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9401fa3
-.word 0xaa0303e0
-.word 0xd2800001
-.word 0xd2800042
-.word 0xf9400063
-.word 0xf9403470
-.word 0xd63f0200
-.word 0x93407c00
-.word 0xf9001ba0
-.word 0xf9400fb1
-.word 0xf940be31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401ba0
-.word 0x35000320
-.word 0xf9400fb1
-.word 0xf940d631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf940e631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xd2800000
-.word 0x3901675f
-.word 0xf9400fb1
-.word 0xf9410231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xd2800020
-.word 0xd280003e
-.word 0x3901635e
-.word 0xf9400fb1
-.word 0xf9412231
+.word 0xaa1903e0
+.word 0xaa1a03e1
+bl _p_156
+.word 0xf94013b1
+.word 0xf9423631
 .word 0xb4000051
 .word 0xd63f0220
 .word 0x14000018
-.word 0xf9400fb1
-.word 0xf9413631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf9414631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xd2800000
-.word 0x3901635f
-.word 0xf9400fb1
-.word 0xf9416231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xd2800020
-.word 0xd280003e
-.word 0x3901675e
-.word 0xf9400fb1
-.word 0xf9418231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
+.word 0xf94017b1
 .word 0xf9400231
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf941a231
+.word 0xf94013b1
+.word 0xf9425a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf941b231
+.word 0xf94013b1
+.word 0xf9426a31
 .word 0xb4000051
 .word 0xd63f0220
-.word 0xf9400bba
+.word 0xaa1903e0
+.word 0xf94013b1
+.word 0xf9427e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+bl _p_157
+.word 0xf94013b1
+.word 0xf9429631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf942b631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf942c631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xa9416bb9
 .word 0x910003bf
-.word 0xa8c47bfd
+.word 0xa8c67bfd
 .word 0xd65f03c0
+.word 0xd28026e0
+.word 0xaa1103e1
+bl _p_34
 
-Lme_51:
+Lme_56:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime
+TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime:
+.word 0xa9bb7bfd
+.word 0x910003fd
+.word 0xa9016bb9
+.word 0xaa0003f9
+.word 0xaa0103fa
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1656]
+.word 0xf90013b0
+.word 0xf9400a11
+.word 0xf90017b1
+.word 0xf94013b1
+.word 0xf9403a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9405a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9406a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0x39418320
+.word 0x34000140
+.word 0xaa1903e0
+.word 0xbd403320
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1592]
+.word 0xbd400001
+.word 0x1e214021
+.word 0x1e212000
+.word 0x5400018c
+.word 0xaa1903e0
+.word 0x39418720
+.word 0x34000460
+.word 0xaa1903e0
+.word 0xbd403320
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1592]
+.word 0xbd400001
+.word 0x1e212000
+.word 0x54000362
+.word 0xf94017b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf940e631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf940f631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1a03e0
+.word 0xf94013b1
+.word 0xf9410e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1a03e1
+bl _p_156
+.word 0xf94013b1
+.word 0xf9412a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x1400004e
+.word 0xf94017b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9414e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xeb1f033f
+.word 0x10000011
+.word 0x54000a40
+.word 0x91011320
+.word 0xbd404b20
+.word 0xd280001e
+.word 0xf2a890fe
+.word 0x9e6703c1
+.word 0x1e212000
+.word 0x540003a2
+.word 0xf94013b1
+.word 0xf9418a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9419a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1a03e0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1664]
+.word 0xb9800000
+.word 0xf90023a0
+.word 0xf94013b1
+.word 0xf941c631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94023a2
+.word 0xaa1903e0
+.word 0xaa1a03e1
+bl _p_155
+.word 0xf94013b1
+.word 0xf941e631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x1400001f
+.word 0xf94013b1
+.word 0xf941fa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9420a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xd2800020
+.word 0xd280003e
+.word 0x39020b3e
+.word 0xf94013b1
+.word 0xf9422a31
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1672]
+.word 0xf90023a0
+.word 0xf94013b1
+.word 0xf9424a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94023a0
+bl _p_53
+.word 0xf94013b1
+.word 0xf9426231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9428231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9429231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xa9416bb9
+.word 0x910003bf
+.word 0xa8c57bfd
+.word 0xd65f03c0
+.word 0xd28026e0
+.word 0xaa1103e1
+bl _p_34
+
+Lme_57:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Monster_HandleAnimation_Microsoft_Xna_Framework_GameTime
@@ -13590,7 +16175,7 @@ TheAdventuresOf_Monster_HandleAnimation_Microsoft_Xna_Framework_GameTime:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1496]
+ldr x16, [x16, #1680]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -13611,7 +16196,7 @@ ldr x16, [x16, #1496]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1a03e0
-.word 0x39416b40
+.word 0x39418b40
 .word 0x340002c0
 .word 0xf94013b1
 .word 0xf9408631
@@ -13671,7 +16256,7 @@ bl _p_9
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_52:
+Lme_58:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Monster_HandleMovement_Microsoft_Xna_Framework_GameTime
@@ -13684,7 +16269,7 @@ TheAdventuresOf_Monster_HandleMovement_Microsoft_Xna_Framework_GameTime:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1504]
+ldr x16, [x16, #1688]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -13705,7 +16290,7 @@ ldr x16, [x16, #1504]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
-.word 0x39416320
+.word 0x39418320
 .word 0x34000500
 .word 0xf94013b1
 .word 0xf9408631
@@ -13751,7 +16336,7 @@ ldr x16, [x16, #1504]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xaa1903e0
-.word 0x39416720
+.word 0x39418720
 .word 0x340004e0
 .word 0xf94013b1
 .word 0xf9413e31
@@ -13808,7 +16393,977 @@ ldr x16, [x16, #1504]
 .word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_53:
+Lme_59:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_Monster_Update_Microsoft_Xna_Framework_GameTime_bool
+TheAdventuresOf_Monster_Update_Microsoft_Xna_Framework_GameTime_bool:
+.word 0xa9bb7bfd
+.word 0x910003fd
+.word 0xa9016bb9
+.word 0xaa0003f9
+.word 0xaa0103fa
+.word 0xf90013a2
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1696]
+.word 0xf90017b0
+.word 0xf9400a11
+.word 0xf9001bb1
+.word 0xf94017b1
+.word 0xf9403e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9405e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9406e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0x39420720
+.word 0x35001080
+.word 0xaa1903e0
+.word 0x39425320
+.word 0x35001020
+.word 0xaa1903e0
+.word 0x39420320
+.word 0x35000fc0
+.word 0xf94017b1
+.word 0xf940a231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf940b231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0x39418b20
+.word 0x350002a0
+.word 0xf94017b1
+.word 0xf940ce31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf940de31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xf94017b1
+.word 0xf940f231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+bl _p_158
+.word 0xf94017b1
+.word 0xf9410a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x14000056
+.word 0xf94017b1
+.word 0xf9411e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9412e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xbd409320
+.word 0xaa1903e0
+.word 0xb9807320
+.word 0x1e220001
+.word 0x1e212000
+.word 0x54000420
+.word 0x5400040b
+.word 0xf94017b1
+.word 0xf9415e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9416e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xd280001e
+.word 0x9e6703c0
+.word 0xbd009320
+.word 0xf94017b1
+.word 0xf9418e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xd2800000
+.word 0x39018b3f
+.word 0xf94017b1
+.word 0xf941aa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xd2800020
+.word 0xd280003e
+.word 0x3902533e
+.word 0xf94017b1
+.word 0xf941ca31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf941ea31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1a03e0
+.word 0xd2800000
+.word 0xf94017b1
+.word 0xf9420631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1a03e1
+.word 0xd2800002
+bl _p_133
+.word 0xf94017b1
+.word 0xf9422631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1a03e0
+.word 0xf94017b1
+.word 0xf9423e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1a03e1
+.word 0xf9400322
+.word 0xf9404c50
+.word 0xd63f0200
+.word 0xf94017b1
+.word 0xf9426231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9428231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x14000078
+.word 0xf9401bb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf942a631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0x39425320
+.word 0x340003a0
+.word 0xaa1903e0
+.word 0x39420720
+.word 0x35000340
+.word 0xaa1903e0
+.word 0x39420320
+.word 0x350002e0
+.word 0xf94017b1
+.word 0xf942da31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf942ea31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1a03e0
+.word 0xf94017b1
+.word 0xf9430231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1a03e1
+bl _p_159
+.word 0xf94017b1
+.word 0xf9431e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x14000051
+.word 0xf9401bb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9434231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0x39420720
+.word 0x340004c0
+.word 0xaa1903e0
+.word 0x39420320
+.word 0x35000460
+.word 0xf94017b1
+.word 0xf9436a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9437a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1903e0
+.word 0xf9400f20
+.word 0xf90023a0
+.word 0xf9001320
+.word 0x91008320
+bl _p_9
+.word 0xf94023a0
+.word 0xf94017b1
+.word 0xf943aa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1a03e0
+.word 0xf94017b1
+.word 0xf943c231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1a03e1
+bl _p_160
+.word 0xf94017b1
+.word 0xf943de31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x14000021
+.word 0xf9401bb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9440231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0x39420320
+.word 0x340002c0
+.word 0xf94017b1
+.word 0xf9441e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9442e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1a03e0
+.word 0xf94017b1
+.word 0xf9444631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1a03e1
+bl _p_161
+.word 0xf94017b1
+.word 0xf9446231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9448231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9449231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xa9416bb9
+.word 0x910003bf
+.word 0xa8c57bfd
+.word 0xd65f03c0
+
+Lme_5a:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_Monster_Rotate_Microsoft_Xna_Framework_GameTime
+TheAdventuresOf_Monster_Rotate_Microsoft_Xna_Framework_GameTime:
+.word 0xa9b57bfd
+.word 0x910003fd
+.word 0xa90163b7
+.word 0xf90013b9
+.word 0xaa0003f9
+.word 0xf90017a1
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1704]
+.word 0xf9001bb0
+.word 0xf9400a11
+.word 0xf9001fb1
+.word 0xd280001e
+.word 0x9e6703c0
+.word 0xbd005ba0
+.word 0x910143a0
+.word 0xf9002bbf
+.word 0xd280001e
+.word 0x9e6703c0
+.word 0xbd005fa0
+.word 0xf9401bb1
+.word 0xf9405e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9407e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9408e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xbd407b20
+.word 0xfd003ba0
+.word 0xf94017a0
+.word 0xf90047a0
+.word 0xf9401bb1
+.word 0xf940b231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94047a1
+.word 0x910123a0
+.word 0xf90033a0
+.word 0xaa0103e0
+.word 0xf940003e
+bl _p_83
+.word 0xf94033be
+.word 0xf90003c0
+.word 0xf9401bb1
+.word 0xf940e231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910123a0
+.word 0x910143a0
+.word 0xf94027a0
+.word 0xf9002ba0
+.word 0x910143a0
+.word 0xf90043a0
+.word 0xf9401bb1
+.word 0xf9410a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94043a0
+bl _p_84
+.word 0xfd003fa0
+.word 0xf9401bb1
+.word 0xf9412631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd403ba0
+.word 0xfd403fa1
+.word 0x1e624021
+.word 0x1e210800
+.word 0xbd005ba0
+.word 0xf9401bb1
+.word 0xf9414a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xbd405ba0
+.word 0xd281fb7e
+.word 0xf2a8093e
+.word 0x9e6703c1
+.word 0x1e210800
+.word 0xd280001e
+.word 0xf2a8669e
+.word 0x9e6703c1
+.word 0x1e211800
+.word 0xbd005fa0
+.word 0xf9401bb1
+.word 0xf9418231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0x39418320
+.word 0x34000620
+.word 0xf9401bb1
+.word 0xf9419e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf941ae31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1903f7
+.word 0xaa1903e0
+.word 0xaa1903e0
+.word 0xbd403320
+.word 0xbd405fa1
+.word 0x1e213800
+.word 0xbd003320
+.word 0xf9401bb1
+.word 0xf941de31
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1712]
+.word 0xf9004fa0
+.word 0xaa1903e0
+.word 0xbd403320
+.word 0xfd0053a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1128]
+bl _p_17
+.word 0xaa0003e1
+.word 0xf9404fa0
+.word 0xfd4053a0
+.word 0xbd001020
+bl _p_140
+.word 0xf9004ba0
+.word 0xf9401bb1
+.word 0xf9423231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9404ba0
+bl _p_53
+.word 0xf9401bb1
+.word 0xf9424a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x14000037
+.word 0xf9401bb1
+.word 0xf9425e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0x39418720
+.word 0x34000600
+.word 0xf9401bb1
+.word 0xf9427a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9428a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1903f8
+.word 0xaa1903e0
+.word 0xaa1903e0
+.word 0xbd403320
+.word 0xbd405fa1
+.word 0x1e212800
+.word 0xbd003320
+.word 0xf9401bb1
+.word 0xf942ba31
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1712]
+.word 0xf9004fa0
+.word 0xaa1903e0
+.word 0xbd403320
+.word 0xfd0053a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1128]
+bl _p_17
+.word 0xaa0003e1
+.word 0xf9404fa0
+.word 0xfd4053a0
+.word 0xbd001020
+bl _p_140
+.word 0xf9004ba0
+.word 0xf9401bb1
+.word 0xf9430e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9404ba0
+bl _p_53
+.word 0xf9401bb1
+.word 0xf9432631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9434631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9435631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xa94163b7
+.word 0xf94013b9
+.word 0x910003bf
+.word 0xa8cb7bfd
+.word 0xd65f03c0
+
+Lme_5b:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_Monster_MoveUpDown_Microsoft_Xna_Framework_GameTime_int
+TheAdventuresOf_Monster_MoveUpDown_Microsoft_Xna_Framework_GameTime_int:
+.word 0xa9b67bfd
+.word 0x910003fd
+.word 0xa9015fb6
+.word 0xa90267b8
+.word 0xaa0003f8
+.word 0xaa0103f9
+.word 0xf9001ba2
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1720]
+.word 0xf9001fb0
+.word 0xf9400a11
+.word 0xf90023b1
+.word 0x9101a3a0
+.word 0xf90037bf
+.word 0x910183a0
+.word 0xf90033bf
+.word 0xf9401fb1
+.word 0xf9405231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94023b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9407231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9408231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xb98033a0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x1, [x16, #1640]
+.word 0xb9800021
+.word 0x6b01001f
+.word 0x54000861
+.word 0xf9401fb1
+.word 0xf940ae31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf940be31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xeb1f031f
+.word 0x10000011
+.word 0x54001120
+.word 0x91011300
+.word 0xaa0003f6
+.word 0xaa1603e0
+.word 0xaa1603e0
+.word 0xbd4006c0
+.word 0xfd0043a0
+.word 0xaa1803e0
+.word 0xbd407f00
+.word 0xfd0047a0
+.word 0xaa1903e0
+.word 0xf9401fb1
+.word 0xf9410631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910163a0
+.word 0xf9003ba0
+.word 0xaa1903e0
+.word 0xf940033e
+bl _p_83
+.word 0xf9403bbe
+.word 0xf90003c0
+.word 0xf9401fb1
+.word 0xf9413231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910163a0
+.word 0x9101a3a0
+.word 0xf9402fa0
+.word 0xf90037a0
+.word 0x9101a3a0
+.word 0xf9004fa0
+.word 0xf9401fb1
+.word 0xf9415a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9404fa0
+bl _p_84
+.word 0xfd004ba0
+.word 0xf9401fb1
+.word 0xf9417631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd4043a0
+.word 0xfd4047a1
+.word 0xfd404ba2
+.word 0x1e624042
+.word 0x1e220821
+.word 0x1e213800
+.word 0xbd0006c0
+.word 0xf9401fb1
+.word 0xf941a231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x14000042
+.word 0xf9401fb1
+.word 0xf941b631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf941c631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xeb1f031f
+.word 0x10000011
+.word 0x540008e0
+.word 0x91011300
+.word 0xaa0003f7
+.word 0xaa1703e0
+.word 0xaa1703e0
+.word 0xbd4006e0
+.word 0xfd0043a0
+.word 0xaa1803e0
+.word 0xbd407f00
+.word 0xfd0047a0
+.word 0xaa1903e0
+.word 0xf9401fb1
+.word 0xf9420e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910143a0
+.word 0xf9003ba0
+.word 0xaa1903e0
+.word 0xf940033e
+bl _p_83
+.word 0xf9403bbe
+.word 0xf90003c0
+.word 0xf9401fb1
+.word 0xf9423a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910143a0
+.word 0x910183a0
+.word 0xf9402ba0
+.word 0xf90033a0
+.word 0x910183a0
+.word 0xf9004fa0
+.word 0xf9401fb1
+.word 0xf9426231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9404fa0
+bl _p_84
+.word 0xfd004ba0
+.word 0xf9401fb1
+.word 0xf9427e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xfd4043a0
+.word 0xfd4047a1
+.word 0xfd404ba2
+.word 0x1e624042
+.word 0x1e220821
+.word 0x1e212800
+.word 0xbd0006e0
+.word 0xf9401fb1
+.word 0xf942aa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94023b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf942ca31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf942da31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xa9415fb6
+.word 0xa94267b8
+.word 0x910003bf
+.word 0xa8ca7bfd
+.word 0xd65f03c0
+.word 0xd28026e0
+.word 0xaa1103e1
+bl _p_34
+
+Lme_5c:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_Monster_RandomizeMovement
+TheAdventuresOf_Monster_RandomizeMovement:
+.word 0xa9bc7bfd
+.word 0x910003fd
+.word 0xf9000bba
+.word 0xaa0003fa
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1728]
+.word 0xf9000fb0
+.word 0xf9400a11
+.word 0xf90013b1
+.word 0xf9400fb1
+.word 0xf9403631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9405631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9406631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xf9403740
+.word 0xf9001fa0
+.word 0xd2800000
+.word 0xd2800040
+.word 0xf9400fb1
+.word 0xf9408a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fa3
+.word 0xaa0303e0
+.word 0xd2800001
+.word 0xd2800042
+.word 0xf9400063
+.word 0xf9403470
+.word 0xd63f0200
+.word 0x93407c00
+.word 0xf9001ba0
+.word 0xf9400fb1
+.word 0xf940be31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401ba0
+.word 0x350003a0
+.word 0xf9400fb1
+.word 0xf940d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf940e631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xd2800020
+.word 0xd280003e
+.word 0x39018b5e
+.word 0xf9400fb1
+.word 0xf9410631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xf9400fb1
+.word 0xf9411a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+bl _p_153
+.word 0xf9400fb1
+.word 0xf9413231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x14000011
+.word 0xf9400fb1
+.word 0xf9414631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9415631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xd2800020
+.word 0xd280003e
+.word 0x3902535e
+.word 0xf9400fb1
+.word 0xf9417631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9419631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf941a631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400bba
+.word 0x910003bf
+.word 0xa8c47bfd
+.word 0xd65f03c0
+
+Lme_5d:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_Monster_ChooseRandomDirection
+TheAdventuresOf_Monster_ChooseRandomDirection:
+.word 0xa9bc7bfd
+.word 0x910003fd
+.word 0xf9000bba
+.word 0xaa0003fa
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1736]
+.word 0xf9000fb0
+.word 0xf9400a11
+.word 0xf90013b1
+.word 0xf9400fb1
+.word 0xf9403631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9405631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9406631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xf9403740
+.word 0xf9001fa0
+.word 0xd2800000
+.word 0xd2800040
+.word 0xf9400fb1
+.word 0xf9408a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fa3
+.word 0xaa0303e0
+.word 0xd2800001
+.word 0xd2800042
+.word 0xf9400063
+.word 0xf9403470
+.word 0xd63f0200
+.word 0x93407c00
+.word 0xf9001ba0
+.word 0xf9400fb1
+.word 0xf940be31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401ba0
+.word 0x35000320
+.word 0xf9400fb1
+.word 0xf940d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf940e631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xd2800000
+.word 0x3901875f
+.word 0xf9400fb1
+.word 0xf9410231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xd2800020
+.word 0xd280003e
+.word 0x3901835e
+.word 0xf9400fb1
+.word 0xf9412231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x14000018
+.word 0xf9400fb1
+.word 0xf9413631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9414631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xd2800000
+.word 0x3901835f
+.word 0xf9400fb1
+.word 0xf9416231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xd2800020
+.word 0xd280003e
+.word 0x3901875e
+.word 0xf9400fb1
+.word 0xf9418231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf941a231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf941b231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400bba
+.word 0x910003bf
+.word 0xa8c47bfd
+.word 0xd65f03c0
+
+Lme_5e:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Monster_Move_Microsoft_Xna_Framework_GameTime_int
@@ -13825,7 +17380,7 @@ TheAdventuresOf_Monster_Move_Microsoft_Xna_Framework_GameTime_int:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1512]
+ldr x16, [x16, #1744]
 .word 0xf90027b0
 .word 0xf9400a11
 .word 0xf9002bb1
@@ -13864,7 +17419,7 @@ ldr x16, [x16, #1512]
 .word 0xf9003fa0
 .word 0xaa0103e0
 .word 0xf940003e
-bl _p_79
+bl _p_83
 .word 0xf9403fbe
 .word 0xf90003c0
 .word 0xf94027b1
@@ -13882,7 +17437,7 @@ bl _p_79
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9404ba0
-bl _p_80
+bl _p_84
 .word 0xfd0047a0
 .word 0xf94027b1
 .word 0xf9412631
@@ -13929,10 +17484,10 @@ bl _p_80
 .word 0xaa1803f6
 .word 0xaa1803e0
 .word 0xaa1803e0
-.word 0xbd407700
+.word 0xbd409300
 .word 0xbd4073a1
 .word 0x1e212800
-.word 0xbd007700
+.word 0xbd009300
 .word 0xf94027b1
 .word 0xf941ea31
 .word 0xb4000051
@@ -13962,10 +17517,10 @@ bl _p_80
 .word 0xaa1803f4
 .word 0xaa1803e0
 .word 0xaa1803e0
-.word 0xbd407700
+.word 0xbd409300
 .word 0xbd4073a1
 .word 0x1e212800
-.word 0xbd007700
+.word 0xbd009300
 .word 0xf94027b1
 .word 0xf9426e31
 .word 0xb4000051
@@ -13993,7 +17548,7 @@ bl _p_80
 .word 0xaa1103e1
 bl _p_34
 
-Lme_54:
+Lme_5f:
 .text
 	.align 4
 	.no_dead_strip TheAdventuresOf_Monster_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
@@ -14006,7 +17561,7 @@ TheAdventuresOf_Monster_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Micros
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1520]
+ldr x16, [x16, #1752]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -14039,7 +17594,7 @@ ldr x16, [x16, #1520]
 .word 0xf94023a0
 .word 0xf94027a1
 .word 0xf9402ba2
-bl _p_123
+bl _p_141
 .word 0xf94017b1
 .word 0xf940b231
 .word 0xb4000051
@@ -14052,9 +17607,173 @@ bl _p_123
 .word 0xa8c67bfd
 .word 0xd65f03c0
 
-Lme_55:
+Lme_60:
 .text
-ut_87:
+	.align 4
+	.no_dead_strip TheAdventuresOf_Monster_reset
+TheAdventuresOf_Monster_reset:
+.word 0xa9bc7bfd
+.word 0x910003fd
+.word 0xf9000bba
+.word 0xaa0003fa
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1760]
+.word 0xf9000fb0
+.word 0xf9400a11
+.word 0xf90013b1
+.word 0xf9400fb1
+.word 0xf9403631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9405631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9406631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xd2800000
+.word 0x3902035f
+.word 0xf9400fb1
+.word 0xf9408231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xd2800000
+.word 0x3902075f
+.word 0xf9400fb1
+.word 0xf9409e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xd2800000
+.word 0x39020b5f
+.word 0xf9400fb1
+.word 0xf940ba31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xd2800000
+.word 0x3902535f
+.word 0xf9400fb1
+.word 0xf940d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xd280001e
+.word 0x9e6703c0
+.word 0xbd009340
+.word 0xf9400fb1
+.word 0xf940f631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0x9e6703e0
+.word 0xf9400fb1
+.word 0xf9410e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x9100c3a0
+.word 0xf9001fa0
+.word 0x9e6703e0
+bl _p_88
+.word 0xf9401fbe
+.word 0xf90003c0
+.word 0xf9400fb1
+.word 0xf9413631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x9100c3a0
+.word 0x91022340
+.word 0xf9401ba1
+.word 0xf9000001
+.word 0xf9400fb1
+.word 0xf9415631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9416631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400bba
+.word 0x910003bf
+.word 0xa8c47bfd
+.word 0xd65f03c0
+
+Lme_61:
+.text
+	.align 4
+	.no_dead_strip TheAdventuresOf_Monster__cctor
+TheAdventuresOf_Monster__cctor:
+.word 0xa9bd7bfd
+.word 0x910003fd
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1768]
+.word 0xf9000bb0
+.word 0xf9400a11
+.word 0xf9000fb1
+.word 0xf9400bb1
+.word 0xf9402e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400bb1
+.word 0xf9404e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd2800000
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1640]
+.word 0xb900001f
+.word 0xf9400bb1
+.word 0xf9407231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd2800020
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1664]
+.word 0xd280003e
+.word 0xb900001e
+.word 0xf9400bb1
+.word 0xf9409a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd281fb7e
+.word 0xf2a7f93e
+.word 0x9e6703c0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1592]
+.word 0xbd000000
+.word 0xf9400bb1
+.word 0xf940c631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910003bf
+.word 0xa8c37bfd
+.word 0xd65f03c0
+
+Lme_62:
+.text
+ut_100:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Matrix__ctor_Microsoft_Xna_Framework_Matrix
 ut_end:
@@ -14062,7 +17781,7 @@ ut_end:
 _unbox_trampoline_p:
 
 	.long 0
-LDIFF_SYM3=ut_end - ut_87
+LDIFF_SYM3=ut_end - ut_100
 	.long LDIFF_SYM3
 .text
 	.align 4
@@ -14076,7 +17795,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Matrix__ctor_Microsoft_Xna_Framework_M
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1528]
+ldr x16, [x16, #1776]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -14146,9 +17865,9 @@ ldr x16, [x16, #1528]
 .word 0xa8c87bfd
 .word 0xd65f03c0
 
-Lme_57:
+Lme_64:
 .text
-ut_88:
+ut_101:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Matrix_get_HasValue
 .text
@@ -14161,7 +17880,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Matrix_get_HasValue:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1536]
+ldr x16, [x16, #1784]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -14187,9 +17906,9 @@ ldr x16, [x16, #1536]
 .word 0xa8c37bfd
 .word 0xd65f03c0
 
-Lme_58:
+Lme_65:
 .text
-ut_89:
+ut_102:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Matrix_get_Value
 .text
@@ -14204,7 +17923,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Matrix_get_Value:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1544]
+ldr x16, [x16, #1792]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -14231,14 +17950,14 @@ ldr x16, [x16, #1544]
 .word 0xf2a00020
 .word 0xd283c9a0
 .word 0xf2a00020
-bl _p_138
+bl _p_162
 .word 0xaa0003e1
 .word 0xd28021c0
 .word 0xf2a04000
 .word 0xd28021c0
 .word 0xf2a04000
 bl _mono_create_corlib_exception_1
-bl _p_139
+bl _p_163
 .word 0xf94013b1
 .word 0xf940b631
 .word 0xb4000051
@@ -14290,9 +18009,9 @@ bl _p_139
 .word 0xa8c87bfd
 .word 0xd65f03c0
 
-Lme_59:
+Lme_66:
 .text
-ut_90:
+ut_103:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Matrix_Equals_object
 .text
@@ -14308,7 +18027,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Matrix_Equals_object:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1552]
+ldr x16, [x16, #1800]
 .word 0xf9001bb0
 .word 0xf9400a11
 .word 0xf9001fb1
@@ -14351,7 +18070,7 @@ ldr x16, [x16, #1552]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1560]
+ldr x1, [x16, #1808]
 .word 0xeb01001f
 .word 0x54000040
 .word 0xd2800017
@@ -14372,15 +18091,15 @@ ldr x1, [x16, #1560]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #296]
+ldr x15, [x16, #272]
 .word 0x910243a0
 .word 0xaa0003e8
 .word 0xaa1a03e0
-bl _p_140
+bl _p_164
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #296]
+ldr x15, [x16, #272]
 .word 0xaa1903e0
 .word 0x910243a1
 .word 0x910123a1
@@ -14403,7 +18122,7 @@ ldr x15, [x16, #296]
 .word 0xf9406ba2
 .word 0xf90047a2
 .word 0xaa0103e2
-bl _p_141
+bl _p_165
 .word 0x53001c00
 .word 0xf90073a0
 .word 0xf9401bb1
@@ -14421,9 +18140,9 @@ bl _p_141
 .word 0xa8cf7bfd
 .word 0xd65f03c0
 
-Lme_5a:
+Lme_67:
 .text
-ut_91:
+ut_104:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Matrix_Equals_System_Nullable_1_Microsoft_Xna_Framework_Matrix
 .text
@@ -14438,7 +18157,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Matrix_Equals_System_Nullable_1_Micros
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1568]
+ldr x16, [x16, #1816]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -14509,7 +18228,7 @@ ldr x16, [x16, #1568]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1576]
+ldr x0, [x16, #1824]
 bl _p_17
 .word 0xaa0003e1
 .word 0xf94047a0
@@ -14531,7 +18250,7 @@ bl _p_17
 .word 0xf9001843
 .word 0xf9403ba3
 .word 0xf9001c43
-bl _p_142
+bl _p_166
 .word 0x53001c00
 .word 0xf90043a0
 .word 0xf94013b1
@@ -14548,9 +18267,9 @@ bl _p_142
 .word 0xa8c97bfd
 .word 0xd65f03c0
 
-Lme_5b:
+Lme_68:
 .text
-ut_92:
+ut_105:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetHashCode
 .text
@@ -14564,7 +18283,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetHashCode:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1584]
+ldr x16, [x16, #1832]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -14597,7 +18316,7 @@ ldr x16, [x16, #1584]
 .word 0xaa1a03e0
 .word 0xaa1a03e0
 .word 0xaa1a03e0
-bl _p_143
+bl _p_167
 .word 0x93407c00
 .word 0xf9001ba0
 .word 0xf9400fb1
@@ -14614,9 +18333,9 @@ bl _p_143
 .word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_5c:
+Lme_69:
 .text
-ut_93:
+ut_106:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetValueOrDefault
 .text
@@ -14630,7 +18349,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetValueOrDefault:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1592]
+ldr x16, [x16, #1840]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -14691,9 +18410,9 @@ ldr x16, [x16, #1592]
 .word 0xa8c87bfd
 .word 0xd65f03c0
 
-Lme_5d:
+Lme_6a:
 .text
-ut_94:
+ut_107:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetValueOrDefault_Microsoft_Xna_Framework_Matrix
 .text
@@ -14709,7 +18428,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetValueOrDefault_Microsoft_Xna
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1600]
+ldr x16, [x16, #1848]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -14848,9 +18567,9 @@ ldr x16, [x16, #1600]
 .word 0xa8d47bfd
 .word 0xd65f03c0
 
-Lme_5e:
+Lme_6b:
 .text
-ut_95:
+ut_108:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Matrix_ToString
 .text
@@ -14864,7 +18583,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Matrix_ToString:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1608]
+ldr x16, [x16, #1856]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -14890,7 +18609,7 @@ ldr x16, [x16, #1608]
 .word 0xaa1a03e0
 .word 0xaa1a03e0
 .word 0xaa1a03e0
-bl _p_144
+bl _p_168
 .word 0xf9001ba0
 .word 0xf9400fb1
 .word 0xf9409631
@@ -14905,7 +18624,7 @@ bl _p_144
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1616]
+ldr x0, [x16, #1864]
 .word 0xf9400000
 .word 0xf9400fb1
 .word 0xf940ce31
@@ -14916,9 +18635,9 @@ ldr x0, [x16, #1616]
 .word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_5f:
+Lme_6c:
 .text
-ut_96:
+ut_109:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Matrix_Box_System_Nullable_1_Microsoft_Xna_Framework_Matrix
 .text
@@ -14931,7 +18650,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Matrix_Box_System_Nullable_1_Microsoft
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1624]
+ldr x16, [x16, #1872]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -14982,7 +18701,7 @@ ldr x16, [x16, #1624]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1576]
+ldr x0, [x16, #1824]
 bl _p_17
 .word 0x9100c3a1
 .word 0x91004001
@@ -15010,9 +18729,9 @@ bl _p_17
 .word 0xa8c77bfd
 .word 0xd65f03c0
 
-Lme_60:
+Lme_6d:
 .text
-ut_97:
+ut_110:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Matrix_Unbox_object
 .text
@@ -15027,7 +18746,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Matrix_Unbox_object:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1632]
+ldr x16, [x16, #1880]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -15088,7 +18807,7 @@ bl _p_42
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1560]
+ldr x1, [x16, #1808]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x54000901
@@ -15120,7 +18839,7 @@ bl _p_39
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #296]
+ldr x15, [x16, #272]
 .word 0x910303a1
 .word 0x910203a1
 .word 0xf94063a2
@@ -15168,9 +18887,1313 @@ bl _p_42
 .word 0xaa1103e1
 bl _p_34
 
-Lme_61:
+Lme_6e:
 .text
-ut_99:
+	.align 4
+	.no_dead_strip System_Array_InternalArray__IEnumerable_GetEnumerator_T_REF
+System_Array_InternalArray__IEnumerable_GetEnumerator_T_REF:
+.word 0xa9b77bfd
+.word 0x910003fd
+.word 0xf9002baf
+.word 0xf9000ba0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1888]
+.word 0xf9000fb0
+.word 0xf9400a11
+.word 0xf90013b1
+.word 0xf9400fb1
+.word 0xf9403631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9405631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400ba0
+.word 0xf90043a0
+.word 0x910103a0
+.word 0xd2800000
+.word 0xf90023a0
+.word 0xf90027a0
+.word 0x910103a0
+.word 0xf9003fa0
+.word 0xf9402ba0
+bl _p_169
+.word 0xaa0003ef
+.word 0xf9403fa0
+.word 0xf94043a1
+bl _p_170
+.word 0x910103a0
+.word 0x9100c3a0
+.word 0xf94023a0
+.word 0xf9001ba0
+.word 0xf94027a0
+.word 0xf9001fa0
+.word 0xf9400fb1
+.word 0xf940b631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402ba0
+bl _p_169
+bl _p_2
+.word 0x9100c3a1
+.word 0xf90033a0
+.word 0x91004001
+.word 0xaa0103e0
+.word 0xf9401ba2
+.word 0xf9003ba2
+.word 0xf9000022
+.word 0xf90037a0
+bl _p_9
+.word 0xf94033a0
+.word 0xf94037a1
+.word 0xf9403ba2
+.word 0x91002021
+.word 0xf9401fa2
+.word 0xf9000022
+.word 0xf9400fb1
+.word 0xf9410e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910003bf
+.word 0xa8c97bfd
+.word 0xd65f03c0
+
+Lme_6f:
+.text
+	.align 4
+	.no_dead_strip System_Array_InternalArray__ICollection_get_Count
+System_Array_InternalArray__ICollection_get_Count:
+.word 0xa9bc7bfd
+.word 0x910003fd
+.word 0xf9000ba0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1896]
+.word 0xf9000fb0
+.word 0xf9400a11
+.word 0xf90013b1
+.word 0xf9400fb1
+.word 0xf9403231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9405231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400ba0
+.word 0xb9801800
+.word 0xf9001ba0
+.word 0xf9400fb1
+.word 0xf9406e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401ba0
+.word 0xf9400fb1
+.word 0xf9408231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910003bf
+.word 0xa8c47bfd
+.word 0xd65f03c0
+
+Lme_70:
+.text
+	.align 4
+	.no_dead_strip System_Array_InternalArray__ICollection_get_IsReadOnly
+System_Array_InternalArray__ICollection_get_IsReadOnly:
+.word 0xa9bd7bfd
+.word 0x910003fd
+.word 0xf9000ba0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1904]
+.word 0xf9000fb0
+.word 0xf9400a11
+.word 0xf90013b1
+.word 0xf9400fb1
+.word 0xf9403231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9405231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd2800020
+.word 0xd2800020
+.word 0xf9400fb1
+.word 0xf9406a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910003bf
+.word 0xa8c37bfd
+.word 0xd65f03c0
+
+Lme_71:
+.text
+	.align 4
+	.no_dead_strip System_Array_InternalArray__ICollection_Clear
+System_Array_InternalArray__ICollection_Clear:
+.word 0xa9bd7bfd
+.word 0x910003fd
+.word 0xf9000ba0
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1912]
+.word 0xf9000fb0
+.word 0xf9400a11
+.word 0xf90013b1
+.word 0xf9400fb1
+.word 0xf9403231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400fb1
+.word 0xf9405231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd297d140
+.word 0xf2a00020
+.word 0xd297d140
+.word 0xf2a00020
+bl _p_162
+.word 0xaa0003e1
+.word 0xd2800100
+.word 0xf2a04000
+.word 0xd2800100
+.word 0xf2a04000
+bl _mono_create_corlib_exception_1
+bl _p_163
+.word 0xf9400fb1
+.word 0xf9409231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910003bf
+.word 0xa8c37bfd
+.word 0xd65f03c0
+
+Lme_72:
+.text
+	.align 4
+	.no_dead_strip System_Array_InternalArray__ICollection_Add_T_REF_T_REF
+System_Array_InternalArray__ICollection_Add_T_REF_T_REF:
+.word 0xa9bc7bfd
+.word 0x910003fd
+.word 0xf9001faf
+.word 0xf9000ba0
+.word 0xf9000fa1
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1920]
+.word 0xf90013b0
+.word 0xf9400a11
+.word 0xf90017b1
+.word 0xf94013b1
+.word 0xf9403a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9405a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd297d740
+.word 0xf2a00020
+.word 0xd297d740
+.word 0xf2a00020
+bl _p_162
+.word 0xaa0003e1
+.word 0xd2800100
+.word 0xf2a04000
+.word 0xd2800100
+.word 0xf2a04000
+bl _mono_create_corlib_exception_1
+bl _p_163
+.word 0xf94013b1
+.word 0xf9409a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910003bf
+.word 0xa8c47bfd
+.word 0xd65f03c0
+
+Lme_73:
+.text
+	.align 4
+	.no_dead_strip System_Array_InternalArray__ICollection_Remove_T_REF_T_REF
+System_Array_InternalArray__ICollection_Remove_T_REF_T_REF:
+.word 0xa9bc7bfd
+.word 0x910003fd
+.word 0xf9001faf
+.word 0xf9000ba0
+.word 0xf9000fa1
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1928]
+.word 0xf90013b0
+.word 0xf9400a11
+.word 0xf90017b1
+.word 0xf94013b1
+.word 0xf9403a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9405a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd297d740
+.word 0xf2a00020
+.word 0xd297d740
+.word 0xf2a00020
+bl _p_162
+.word 0xaa0003e1
+.word 0xd2800100
+.word 0xf2a04000
+.word 0xd2800100
+.word 0xf2a04000
+bl _mono_create_corlib_exception_1
+bl _p_163
+.word 0xf94013b1
+.word 0xf9409a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x910003bf
+.word 0xa8c47bfd
+.word 0xd65f03c0
+
+Lme_74:
+.text
+	.align 4
+	.no_dead_strip System_Array_InternalArray__ICollection_Contains_T_REF_T_REF
+System_Array_InternalArray__ICollection_Contains_T_REF_T_REF:
+.word 0xa9b97bfd
+.word 0x910003fd
+.word 0xa90167b8
+.word 0xf90013ba
+.word 0xf90027af
+.word 0xaa0003fa
+.word 0xf90017a1
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1936]
+.word 0xf9001bb0
+.word 0xf9400a11
+.word 0xf9001fb1
+.word 0xd2800019
+.word 0xd2800018
+.word 0xf9002bbf
+.word 0xf9401bb1
+.word 0xf9404e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9406e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xf9400340
+.word 0x3940a800
+.word 0xf90033a0
+.word 0xf9401bb1
+.word 0xf9408e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94033a0
+.word 0xd2800021
+.word 0xd280003e
+.word 0x6b1e001f
+.word 0x540002ed
+.word 0xf9401bb1
+.word 0xf940b231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd297dec0
+.word 0xf2a00020
+.word 0xd297dec0
+.word 0xf2a00020
+bl _p_162
+bl _p_171
+.word 0xf90033a0
+.word 0xf9401bb1
+.word 0xf940de31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94033a1
+.word 0xd2802860
+.word 0xf2a04000
+.word 0xd2802860
+.word 0xf2a04000
+bl _mono_create_corlib_exception_1
+bl _p_163
+.word 0xf9401bb1
+.word 0xf9410a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xb9801b40
+.word 0xf90033a0
+.word 0xf9401bb1
+.word 0xf9412631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94033a0
+.word 0xaa0003f9
+.word 0xf9401bb1
+.word 0xf9413e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd2800018
+.word 0x1400004d
+.word 0xf9401bb1
+.word 0xf9415631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1803e0
+.word 0x910143a0
+.word 0xf94027a0
+bl _p_172
+.word 0x93407f00
+.word 0xd37df000
+.word 0x8b000340
+.word 0x91008000
+.word 0xf9400000
+.word 0xf9002ba0
+.word 0xf9401bb1
+.word 0xf9419231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017a0
+.word 0xb5000260
+.word 0xf9401bb1
+.word 0xf941aa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402ba0
+.word 0xb5000100
+.word 0xf9401bb1
+.word 0xf941c231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd2800020
+.word 0xd2800020
+.word 0x1400003d
+.word 0xf9401bb1
+.word 0xf941de31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x1400001b
+.word 0xf9401bb1
+.word 0xf941f231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0x9100a3a0
+.word 0xf9402ba1
+.word 0xf94017a2
+.word 0xaa0203e0
+.word 0xf9400042
+.word 0xf9402850
+.word 0xd63f0200
+.word 0x53001c00
+.word 0xf90033a0
+.word 0xf9401bb1
+.word 0xf9422631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94033a0
+.word 0x34000100
+.word 0xf9401bb1
+.word 0xf9423e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd2800020
+.word 0xd2800020
+.word 0x1400001e
+.word 0xf9401fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9426a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0x11000700
+.word 0xaa0003f8
+.word 0xf9401fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9401bb1
+.word 0xf9429631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xaa1903e0
+.word 0x6b19031f
+.word 0x54fff52b
+.word 0xf9401bb1
+.word 0xf942b631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd2800000
+.word 0xd2800000
+.word 0xf9401bb1
+.word 0xf942ce31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xa94167b8
+.word 0xf94013ba
+.word 0x910003bf
+.word 0xa8c77bfd
+.word 0xd65f03c0
+
+Lme_75:
+.text
+	.align 4
+	.no_dead_strip System_Array_InternalArray__ICollection_CopyTo_T_REF_T_REF___int
+System_Array_InternalArray__ICollection_CopyTo_T_REF_T_REF___int:
+.word 0xa9b17bfd
+.word 0x910003fd
+.word 0xa90157b4
+.word 0xf90013b6
+.word 0xa902e7b8
+.word 0xf9001fba
+.word 0xf9006baf
+.word 0xaa0003f8
+.word 0xaa0103f9
+.word 0xf90023a2
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1944]
+.word 0xf90027b0
+.word 0xf9400a11
+.word 0xf9002bb1
+.word 0xf94027b1
+.word 0xf9404e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402bb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94027b1
+.word 0xf9406e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xb50001f9
+.word 0xf94027b1
+.word 0xf9408631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd282ac40
+.word 0xd282ac40
+bl _p_162
+.word 0xaa0003e1
+.word 0xd28006c0
+.word 0xf2a04000
+.word 0xd28006c0
+.word 0xf2a04000
+bl _mono_create_corlib_exception_1
+bl _p_163
+.word 0xf94027b1
+.word 0xf940be31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xf9400300
+.word 0x3940a800
+.word 0xf90073a0
+.word 0xf94027b1
+.word 0xf940de31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94073a0
+.word 0xd2800021
+.word 0xd280003e
+.word 0x6b1e001f
+.word 0x540002ed
+.word 0xf94027b1
+.word 0xf9410231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd297dec0
+.word 0xf2a00020
+.word 0xd297dec0
+.word 0xf2a00020
+bl _p_162
+bl _p_171
+.word 0xf90073a0
+.word 0xf94027b1
+.word 0xf9412e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94073a1
+.word 0xd2802860
+.word 0xf2a04000
+.word 0xd2802860
+.word 0xf2a04000
+bl _mono_create_corlib_exception_1
+bl _p_163
+.word 0xf94027b1
+.word 0xf9415a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xb98043a0
+.word 0xf90033a0
+.word 0xaa1803f6
+.word 0xd2800000
+.word 0xf9400b15
+.word 0xeb1f02bf
+.word 0x54000060
+.word 0xb98002b4
+.word 0x14000002
+.word 0xb9801ad4
+.word 0xf94027b1
+.word 0xf9419231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94033a0
+.word 0xb140000
+.word 0xf90037a0
+.word 0xaa1903e0
+.word 0xd2800000
+.word 0xf9400b20
+.word 0xf9003ba0
+.word 0xeb1f001f
+.word 0x54000080
+.word 0xf9403ba0
+.word 0xb980041a
+.word 0x14000002
+.word 0xd280001a
+.word 0xf94027b1
+.word 0xf941d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9003fb9
+.word 0xd2800000
+.word 0xf9403fa0
+.word 0xf9400800
+.word 0xf90043a0
+.word 0xeb1f001f
+.word 0x540000a0
+.word 0xf94043a0
+.word 0xb9800000
+.word 0xf90047a0
+.word 0x14000004
+.word 0xf9403fa0
+.word 0xb9801800
+.word 0xf90047a0
+.word 0xf94047a0
+.word 0xf90047a0
+.word 0xf94027b1
+.word 0xf9422631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94047a0
+.word 0xb000341
+.word 0xf94037a0
+.word 0x6b01001f
+.word 0x5400022d
+.word 0xf94027b1
+.word 0xf9424a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd297e9c0
+.word 0xf2a00020
+.word 0xd297e9c0
+.word 0xf2a00020
+bl _p_162
+.word 0xaa0003e1
+.word 0xd28006a0
+.word 0xf2a04000
+.word 0xd28006a0
+.word 0xf2a04000
+bl _mono_create_corlib_exception_1
+bl _p_163
+.word 0xf94027b1
+.word 0xf9428a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xf9400320
+.word 0x3940a800
+.word 0xf90073a0
+.word 0xf94027b1
+.word 0xf942aa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94073a0
+.word 0xd2800021
+.word 0xd280003e
+.word 0x6b1e001f
+.word 0x540002ed
+.word 0xf94027b1
+.word 0xf942ce31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd297dec0
+.word 0xf2a00020
+.word 0xd297dec0
+.word 0xf2a00020
+bl _p_162
+bl _p_171
+.word 0xf90073a0
+.word 0xf94027b1
+.word 0xf942fa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94073a1
+.word 0xd2802860
+.word 0xf2a04000
+.word 0xd2802860
+.word 0xf2a04000
+bl _mono_create_corlib_exception_1
+bl _p_163
+.word 0xf94027b1
+.word 0xf9432631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xb98043a0
+.word 0xd2800001
+.word 0x6b1f001f
+.word 0x5400038a
+.word 0xf94027b1
+.word 0xf9434631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd281dba0
+.word 0xd281dba0
+bl _p_162
+.word 0xf90073a0
+.word 0xd2980220
+.word 0xf2a00020
+.word 0xd2980220
+.word 0xf2a00020
+bl _p_162
+bl _p_171
+.word 0xf90077a0
+.word 0xf94027b1
+.word 0xf9438231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94073a1
+.word 0xf94077a2
+.word 0xd28006e0
+.word 0xf2a04000
+.word 0xd28006e0
+.word 0xf2a04000
+bl _mono_create_corlib_exception_2
+bl _p_163
+.word 0xf94027b1
+.word 0xf943b231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9004bb8
+.word 0xaa1803e0
+.word 0xd2800000
+.word 0xf9400b00
+.word 0xf9004fa0
+.word 0xeb1f001f
+.word 0x540000a0
+.word 0xf9404fa0
+.word 0xb9800400
+.word 0xf90053a0
+.word 0x14000002
+.word 0xf90053bf
+.word 0xf94053a0
+.word 0xf90053a0
+.word 0xf94027b1
+.word 0xf943fa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf90057b9
+.word 0xb98043a0
+.word 0xf9005ba0
+.word 0xf9005fb8
+.word 0xd2800000
+.word 0xf9405fa0
+.word 0xf9400800
+.word 0xf90063a0
+.word 0xeb1f001f
+.word 0x540000a0
+.word 0xf94063a0
+.word 0xb9800000
+.word 0xf90067a0
+.word 0x14000004
+.word 0xf9405fa0
+.word 0xb9801800
+.word 0xf90067a0
+.word 0xf94067a0
+.word 0xf90067a0
+.word 0xf94027b1
+.word 0xf9445631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9404ba0
+.word 0xf94053a1
+.word 0xf94057a2
+.word 0xf9405ba3
+.word 0xf94067a4
+bl _p_173
+.word 0xf94027b1
+.word 0xf9447e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94027b1
+.word 0xf9448e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xa94157b4
+.word 0xf94013b6
+.word 0xa942e7b8
+.word 0xf9401fba
+.word 0x910003bf
+.word 0xa8cf7bfd
+.word 0xd65f03c0
+
+Lme_76:
+.text
+	.align 4
+	.no_dead_strip wrapper_delegate_invoke_System_Predicate_1_TheAdventuresOf_Monster_invoke_bool_T_TheAdventuresOf_Monster
+wrapper_delegate_invoke_System_Predicate_1_TheAdventuresOf_Monster_invoke_bool_T_TheAdventuresOf_Monster:
+.word 0xa9b77bfd
+.word 0x910003fd
+.word 0xa90153b3
+.word 0xa9025bb5
+.word 0xa90363b7
+.word 0xa9046bb9
+.word 0xaa0003f9
+.word 0xaa0103fa
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1952]
+.word 0xf9002bb0
+.word 0xf9400a11
+.word 0xf9002fb1
+.word 0xd2800018
+.word 0xd2800017
+.word 0xd2800016
+.word 0xd2800015
+.word 0xd2800014
+.word 0xd2800013
+.word 0xf9402bb1
+.word 0xf9405e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402bb1
+.word 0xf9407e31
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1960]
+.word 0xb9400000
+.word 0x34000240
+.word 0xf9402bb1
+.word 0xf940a231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402bb1
+.word 0xf940b231
+.word 0xb4000051
+.word 0xd63f0220
+bl _p_174
+.word 0xf90037a0
+.word 0xf94037a1
+.word 0xf94037a0
+.word 0xf9003ba1
+.word 0xb4000060
+.word 0xf9403ba0
+bl _p_163
+.word 0xf9403ba0
+.word 0xf9402fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402bb1
+.word 0xf940f631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1903e0
+.word 0x9101a320
+.word 0xf9403720
+.word 0xaa0003f6
+.word 0xf9402bb1
+.word 0xf9411a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1603e0
+.word 0xb5000916
+.word 0xf9402bb1
+.word 0xf9413231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1903e0
+.word 0x91008320
+.word 0xf9401320
+.word 0xaa0003f4
+.word 0xf9402bb1
+.word 0xf9415631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1403e0
+.word 0xb40003d4
+.word 0xf9402bb1
+.word 0xf9416e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1403e0
+.word 0xaa1a03e0
+.word 0xaa1903e0
+.word 0xaa1903e0
+.word 0x9100e320
+.word 0xf9401f20
+.word 0xaa1903e0
+.word 0xaa1903e0
+.word 0x91004320
+.word 0xf9400b22
+.word 0xaa1403e0
+.word 0xaa1a03e1
+.word 0xd63f0040
+.word 0x53001c00
+.word 0xf90043a0
+.word 0xf9402fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402bb1
+.word 0xf941ca31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94043a0
+.word 0x1400006d
+.word 0xf9402bb1
+.word 0xf941e231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1a03e0
+.word 0xaa1903e0
+.word 0xaa1903e0
+.word 0x9100e320
+.word 0xf9401f20
+.word 0xaa1903e0
+.word 0xaa1903e0
+.word 0x91004320
+.word 0xf9400b21
+.word 0xaa1a03e0
+.word 0xd63f0020
+.word 0x53001c00
+.word 0xf90043a0
+.word 0xf9402fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402bb1
+.word 0xf9423631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94043a0
+.word 0x14000052
+.word 0xf9402bb1
+.word 0xf9424e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1603e0
+.word 0xb9801ac0
+.word 0xaa0003f7
+.word 0xf9402bb1
+.word 0xf9426a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd2800018
+.word 0xf9402fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402bb1
+.word 0xf9428e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1603e0
+.word 0xaa1803e0
+.word 0x93407f00
+.word 0xb9801ac1
+.word 0xeb00003f
+.word 0x10000011
+.word 0x54000849
+.word 0xd37df000
+.word 0x8b0002c0
+.word 0x91008000
+.word 0xf9400000
+.word 0xaa0003f5
+.word 0xf9402bb1
+.word 0xf942ce31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1503e0
+.word 0xf90047a0
+.word 0xaa1a03e0
+.word 0xaa1503e0
+.word 0xaa1a03e1
+.word 0xf9400eb0
+.word 0xd63f0200
+.word 0xf94047a1
+.word 0x53001c00
+.word 0xf90043a0
+.word 0xf9402bb1
+.word 0xf9430631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94043a0
+.word 0xaa0003f3
+.word 0xf9402bb1
+.word 0xf9431e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0x11000700
+.word 0xaa0003f8
+.word 0xf9402bb1
+.word 0xf9433a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xaa1703e0
+.word 0x6b17031f
+.word 0x54fff94b
+.word 0xf9402bb1
+.word 0xf9435a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1303e0
+.word 0xf9402fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402bb1
+.word 0xf9437e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1303e0
+.word 0xf9402bb1
+.word 0xf9439231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xa94153b3
+.word 0xa9425bb5
+.word 0xa94363b7
+.word 0xa9446bb9
+.word 0x910003bf
+.word 0xa8c97bfd
+.word 0xd65f03c0
+.word 0xd2802120
+.word 0xaa1103e1
+bl _p_34
+
+Lme_77:
+.text
+	.align 4
+	.no_dead_strip wrapper_delegate_invoke_System_Comparison_1_TheAdventuresOf_Monster_invoke_int_T_T_TheAdventuresOf_Monster_TheAdventuresOf_Monster
+wrapper_delegate_invoke_System_Comparison_1_TheAdventuresOf_Monster_invoke_int_T_T_TheAdventuresOf_Monster_TheAdventuresOf_Monster:
+.word 0xa9b77bfd
+.word 0x910003fd
+.word 0xa90153b3
+.word 0xa9025bb5
+.word 0xa90363b7
+.word 0xa9046bb9
+.word 0xaa0003f8
+.word 0xaa0103f9
+.word 0xaa0203fa
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #1968]
+.word 0xf9002bb0
+.word 0xf9400a11
+.word 0xf9002fb1
+.word 0xd2800017
+.word 0xd2800016
+.word 0xd2800015
+.word 0xd2800014
+.word 0xd2800013
+.word 0xb9006bbf
+.word 0xf9402bb1
+.word 0xf9406231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402bb1
+.word 0xf9408231
+.word 0xb4000051
+.word 0xd63f0220
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x0, [x16, #1960]
+.word 0xb9400000
+.word 0x34000240
+.word 0xf9402bb1
+.word 0xf940a631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402bb1
+.word 0xf940b631
+.word 0xb4000051
+.word 0xd63f0220
+bl _p_174
+.word 0xf9003ba0
+.word 0xf9403ba1
+.word 0xf9403ba0
+.word 0xf9003fa1
+.word 0xb4000060
+.word 0xf9403fa0
+bl _p_163
+.word 0xf9403fa0
+.word 0xf9402fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402bb1
+.word 0xf940fa31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xaa1803e0
+.word 0x9101a300
+.word 0xf9403700
+.word 0xaa0003f5
+.word 0xf9402bb1
+.word 0xf9411e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1503e0
+.word 0xb5000995
+.word 0xf9402bb1
+.word 0xf9413631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1803e0
+.word 0xaa1803e0
+.word 0x91008300
+.word 0xf9401300
+.word 0xaa0003f3
+.word 0xf9402bb1
+.word 0xf9415a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1303e0
+.word 0xb4000413
+.word 0xf9402bb1
+.word 0xf9417231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1303e0
+.word 0xaa1903e0
+.word 0xaa1a03e0
+.word 0xaa1803e0
+.word 0xaa1803e0
+.word 0x9100e300
+.word 0xf9401f00
+.word 0xaa1803e0
+.word 0xaa1803e0
+.word 0x91004300
+.word 0xf9400b03
+.word 0xaa1303e0
+.word 0xaa1903e1
+.word 0xaa1a03e2
+.word 0xd63f0060
+.word 0x93407c00
+.word 0xf90043a0
+.word 0xf9402fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402bb1
+.word 0xf941d631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94043a0
+.word 0x14000073
+.word 0xf9402bb1
+.word 0xf941ee31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xaa1a03e0
+.word 0xaa1803e0
+.word 0xaa1803e0
+.word 0x9100e300
+.word 0xf9401f00
+.word 0xaa1803e0
+.word 0xaa1803e0
+.word 0x91004300
+.word 0xf9400b02
+.word 0xaa1903e0
+.word 0xaa1a03e1
+.word 0xd63f0040
+.word 0x93407c00
+.word 0xf90043a0
+.word 0xf9402fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402bb1
+.word 0xf9424a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94043a0
+.word 0x14000056
+.word 0xf9402bb1
+.word 0xf9426231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1503e0
+.word 0xb9801aa0
+.word 0xaa0003f6
+.word 0xf9402bb1
+.word 0xf9427e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xd2800017
+.word 0xf9402fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402bb1
+.word 0xf942a231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1503e0
+.word 0xaa1703e0
+.word 0x93407ee0
+.word 0xb9801aa1
+.word 0xeb00003f
+.word 0x10000011
+.word 0x540008c9
+.word 0xd37df000
+.word 0x8b0002a0
+.word 0x91008000
+.word 0xf9400000
+.word 0xaa0003f4
+.word 0xf9402bb1
+.word 0xf942e231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1403e0
+.word 0xf90047a0
+.word 0xaa1903e0
+.word 0xaa1a03e0
+.word 0xaa1403e0
+.word 0xaa1903e1
+.word 0xaa1a03e2
+.word 0xf9400e90
+.word 0xd63f0200
+.word 0x93407c00
+.word 0xaa0003e1
+.word 0xf94047a0
+.word 0xf90043a1
+.word 0xf9402bb1
+.word 0xf9432631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94043a0
+.word 0xb9006ba0
+.word 0xf9402bb1
+.word 0xf9433e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1703e0
+.word 0x110006e0
+.word 0xaa0003f7
+.word 0xf9402bb1
+.word 0xf9435a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1703e0
+.word 0xaa1603e0
+.word 0x6b1602ff
+.word 0x54fff8eb
+.word 0xf9402bb1
+.word 0xf9437a31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xb9806ba0
+.word 0xf90043a0
+.word 0xf9402fb1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9402bb1
+.word 0xf943a231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94043a0
+.word 0xf9402bb1
+.word 0xf943b631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xa94153b3
+.word 0xa9425bb5
+.word 0xa94363b7
+.word 0xa9446bb9
+.word 0x910003bf
+.word 0xa8c97bfd
+.word 0xd65f03c0
+.word 0xd2802120
+.word 0xaa1103e1
+bl _p_34
+
+Lme_78:
+.text
+ut_122:
 add x0, x0, 16
 b System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point__ctor_System_Array
 .text
@@ -15185,7 +20208,7 @@ System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point__ctor_System_Arr
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1640]
+ldr x16, [x16, #1976]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -15228,9 +20251,9 @@ bl _p_9
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_63:
+Lme_7a:
 .text
-ut_100:
+ut_123:
 add x0, x0, 16
 b System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_Dispose
 .text
@@ -15243,7 +20266,7 @@ System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_Dispose:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1648]
+ldr x16, [x16, #1984]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -15273,9 +20296,9 @@ ldr x16, [x16, #1648]
 .word 0xa8c37bfd
 .word 0xd65f03c0
 
-Lme_64:
+Lme_7b:
 .text
-ut_101:
+ut_124:
 add x0, x0, 16
 b System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_MoveNext
 .text
@@ -15291,7 +20314,7 @@ System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_MoveNext:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1656]
+ldr x16, [x16, #1992]
 .word 0xf9001fb0
 .word 0xf9400a11
 .word 0xf90023b1
@@ -15385,9 +20408,9 @@ ldr x16, [x16, #1656]
 .word 0xa8c67bfd
 .word 0xd65f03c0
 
-Lme_65:
+Lme_7c:
 .text
-ut_102:
+ut_125:
 add x0, x0, 16
 b System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_get_Current
 .text
@@ -15401,7 +20424,7 @@ System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_get_Current:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1664]
+ldr x16, [x16, #2000]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -15433,14 +20456,14 @@ ldr x16, [x16, #1664]
 .word 0xf2a00020
 .word 0xd29920c0
 .word 0xf2a00020
-bl _p_138
+bl _p_162
 .word 0xaa0003e1
 .word 0xd28021c0
 .word 0xf2a04000
 .word 0xd28021c0
 .word 0xf2a04000
 bl _mono_create_corlib_exception_1
-bl _p_139
+bl _p_163
 .word 0xf94017b1
 .word 0xf940c631
 .word 0xb4000051
@@ -15461,14 +20484,14 @@ bl _p_139
 .word 0xf2a00020
 .word 0xd2992b80
 .word 0xf2a00020
-bl _p_138
+bl _p_162
 .word 0xaa0003e1
 .word 0xd28021c0
 .word 0xf2a04000
 .word 0xd28021c0
 .word 0xf2a04000
 bl _mono_create_corlib_exception_1
-bl _p_139
+bl _p_163
 .word 0xf94017b1
 .word 0xf9413631
 .word 0xb4000051
@@ -15493,11 +20516,11 @@ bl _p_139
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #1672]
+ldr x15, [x16, #2008]
 .word 0xf940001e
 .word 0x910103a2
 .word 0xf90027a2
-bl _p_145
+bl _p_175
 .word 0xf94027be
 .word 0xf90003c0
 .word 0xf94017b1
@@ -15518,9 +20541,9 @@ bl _p_145
 .word 0xa8c67bfd
 .word 0xd65f03c0
 
-Lme_66:
+Lme_7d:
 .text
-ut_103:
+ut_126:
 add x0, x0, 16
 b System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_Reset
 .text
@@ -15533,7 +20556,7 @@ System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collectio
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1680]
+ldr x16, [x16, #2016]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -15563,9 +20586,9 @@ ldr x16, [x16, #1680]
 .word 0xa8c37bfd
 .word 0xd65f03c0
 
-Lme_67:
+Lme_7e:
 .text
-ut_104:
+ut_127:
 add x0, x0, 16
 b System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_get_Current
 .text
@@ -15578,7 +20601,7 @@ System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collectio
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1688]
+ldr x16, [x16, #2024]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -15598,10 +20621,10 @@ ldr x16, [x16, #1688]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #1696]
+ldr x15, [x16, #2032]
 .word 0x9100c3a1
 .word 0xf9001fa1
-bl _p_146
+bl _p_176
 .word 0xf9401fbe
 .word 0xf90003c0
 .word 0xf9400fb1
@@ -15611,7 +20634,7 @@ bl _p_146
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1704]
+ldr x0, [x16, #2040]
 bl _p_17
 .word 0x9100c3a1
 .word 0x91004001
@@ -15625,7 +20648,7 @@ bl _p_17
 .word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_68:
+Lme_7f:
 .text
 	.align 4
 	.no_dead_strip System_Array_InternalArray__IEnumerable_GetEnumerator_Microsoft_Xna_Framework_Point
@@ -15636,7 +20659,7 @@ System_Array_InternalArray__IEnumerable_GetEnumerator_Microsoft_Xna_Framework_Po
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1712]
+ldr x16, [x16, #2048]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -15661,8 +20684,8 @@ ldr x16, [x16, #1712]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #1696]
-bl _p_147
+ldr x15, [x16, #2032]
+bl _p_177
 .word 0x910103a0
 .word 0x9100c3a0
 .word 0xf94023a0
@@ -15676,7 +20699,7 @@ bl _p_147
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1696]
+ldr x0, [x16, #2032]
 bl _p_17
 .word 0x9100c3a1
 .word 0xf9002ba0
@@ -15701,134 +20724,7 @@ bl _p_9
 .word 0xa8c77bfd
 .word 0xd65f03c0
 
-Lme_69:
-.text
-	.align 4
-	.no_dead_strip System_Array_InternalArray__ICollection_get_Count
-System_Array_InternalArray__ICollection_get_Count:
-.word 0xa9bc7bfd
-.word 0x910003fd
-.word 0xf9000ba0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1720]
-.word 0xf9000fb0
-.word 0xf9400a11
-.word 0xf90013b1
-.word 0xf9400fb1
-.word 0xf9403231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf9405231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400ba0
-.word 0xb9801800
-.word 0xf9001ba0
-.word 0xf9400fb1
-.word 0xf9406e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401ba0
-.word 0xf9400fb1
-.word 0xf9408231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x910003bf
-.word 0xa8c47bfd
-.word 0xd65f03c0
-
-Lme_71:
-.text
-	.align 4
-	.no_dead_strip System_Array_InternalArray__ICollection_get_IsReadOnly
-System_Array_InternalArray__ICollection_get_IsReadOnly:
-.word 0xa9bd7bfd
-.word 0x910003fd
-.word 0xf9000ba0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1728]
-.word 0xf9000fb0
-.word 0xf9400a11
-.word 0xf90013b1
-.word 0xf9400fb1
-.word 0xf9403231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf9405231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd2800020
-.word 0xd2800020
-.word 0xf9400fb1
-.word 0xf9406a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x910003bf
-.word 0xa8c37bfd
-.word 0xd65f03c0
-
-Lme_72:
-.text
-	.align 4
-	.no_dead_strip System_Array_InternalArray__ICollection_Clear
-System_Array_InternalArray__ICollection_Clear:
-.word 0xa9bd7bfd
-.word 0x910003fd
-.word 0xf9000ba0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1736]
-.word 0xf9000fb0
-.word 0xf9400a11
-.word 0xf90013b1
-.word 0xf9400fb1
-.word 0xf9403231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf9405231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd297d140
-.word 0xf2a00020
-.word 0xd297d140
-.word 0xf2a00020
-bl _p_138
-.word 0xaa0003e1
-.word 0xd2800100
-.word 0xf2a04000
-.word 0xd2800100
-.word 0xf2a04000
-bl _mono_create_corlib_exception_1
-bl _p_139
-.word 0xf9400fb1
-.word 0xf9409231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x910003bf
-.word 0xa8c37bfd
-.word 0xd65f03c0
-
-Lme_73:
+Lme_80:
 .text
 	.align 4
 	.no_dead_strip System_Array_InternalArray__ICollection_Add_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
@@ -15840,7 +20736,7 @@ System_Array_InternalArray__ICollection_Add_Microsoft_Xna_Framework_Point_Micros
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1744]
+ldr x16, [x16, #2056]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -15860,14 +20756,14 @@ ldr x16, [x16, #1744]
 .word 0xf2a00020
 .word 0xd297d740
 .word 0xf2a00020
-bl _p_138
+bl _p_162
 .word 0xaa0003e1
 .word 0xd2800100
 .word 0xf2a04000
 .word 0xd2800100
 .word 0xf2a04000
 bl _mono_create_corlib_exception_1
-bl _p_139
+bl _p_163
 .word 0xf94017b1
 .word 0xf9409631
 .word 0xb4000051
@@ -15876,7 +20772,7 @@ bl _p_139
 .word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_74:
+Lme_88:
 .text
 	.align 4
 	.no_dead_strip System_Array_InternalArray__ICollection_Remove_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
@@ -15888,7 +20784,7 @@ System_Array_InternalArray__ICollection_Remove_Microsoft_Xna_Framework_Point_Mic
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1752]
+ldr x16, [x16, #2064]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -15908,14 +20804,14 @@ ldr x16, [x16, #1752]
 .word 0xf2a00020
 .word 0xd297d740
 .word 0xf2a00020
-bl _p_138
+bl _p_162
 .word 0xaa0003e1
 .word 0xd2800100
 .word 0xf2a04000
 .word 0xd2800100
 .word 0xf2a04000
 bl _mono_create_corlib_exception_1
-bl _p_139
+bl _p_163
 .word 0xf94017b1
 .word 0xf9409631
 .word 0xb4000051
@@ -15924,7 +20820,7 @@ bl _p_139
 .word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_75:
+Lme_89:
 .text
 	.align 4
 	.no_dead_strip System_Array_InternalArray__ICollection_Contains_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
@@ -15938,7 +20834,7 @@ System_Array_InternalArray__ICollection_Contains_Microsoft_Xna_Framework_Point_M
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1760]
+ldr x16, [x16, #2072]
 .word 0xf9001fb0
 .word 0xf9400a11
 .word 0xf90023b1
@@ -15980,8 +20876,8 @@ ldr x16, [x16, #1760]
 .word 0xf2a00020
 .word 0xd297dec0
 .word 0xf2a00020
-bl _p_138
-bl _p_148
+bl _p_162
+bl _p_171
 .word 0xf90043a0
 .word 0xf9401fb1
 .word 0xf940e231
@@ -15993,7 +20889,7 @@ bl _p_148
 .word 0xd2802860
 .word 0xf2a04000
 bl _mono_create_corlib_exception_1
-bl _p_139
+bl _p_163
 .word 0xf9401fb1
 .word 0xf9410e31
 .word 0xb4000051
@@ -16023,7 +20919,7 @@ bl _p_139
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1768]
+ldr x0, [x16, #2080]
 .word 0x93407f00
 .word 0xd37df000
 .word 0x8b000340
@@ -16078,7 +20974,7 @@ ldr x0, [x16, #1768]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1704]
+ldr x0, [x16, #2040]
 bl _p_17
 .word 0xaa0003e1
 .word 0xf94047a0
@@ -16086,7 +20982,7 @@ bl _p_17
 .word 0x91004022
 .word 0xf9402ba3
 .word 0xf9000043
-bl _p_149
+bl _p_178
 .word 0x53001c00
 .word 0xf90043a0
 .word 0xf9401fb1
@@ -16141,7 +21037,7 @@ bl _p_149
 .word 0xa8c97bfd
 .word 0xd65f03c0
 
-Lme_76:
+Lme_8a:
 .text
 	.align 4
 	.no_dead_strip System_Array_InternalArray__ICollection_CopyTo_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point___int
@@ -16158,7 +21054,7 @@ System_Array_InternalArray__ICollection_CopyTo_Microsoft_Xna_Framework_Point_Mic
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1776]
+ldr x16, [x16, #2088]
 .word 0xf90027b0
 .word 0xf9400a11
 .word 0xf9002bb1
@@ -16182,14 +21078,14 @@ ldr x16, [x16, #1776]
 .word 0xd63f0220
 .word 0xd282ac40
 .word 0xd282ac40
-bl _p_138
+bl _p_162
 .word 0xaa0003e1
 .word 0xd28006c0
 .word 0xf2a04000
 .word 0xd28006c0
 .word 0xf2a04000
 bl _mono_create_corlib_exception_1
-bl _p_139
+bl _p_163
 .word 0xf94027b1
 .word 0xf940ba31
 .word 0xb4000051
@@ -16215,8 +21111,8 @@ bl _p_139
 .word 0xf2a00020
 .word 0xd297dec0
 .word 0xf2a00020
-bl _p_138
-bl _p_148
+bl _p_162
+bl _p_171
 .word 0xf9006ba0
 .word 0xf94027b1
 .word 0xf9412a31
@@ -16228,7 +21124,7 @@ bl _p_148
 .word 0xd2802860
 .word 0xf2a04000
 bl _mono_create_corlib_exception_1
-bl _p_139
+bl _p_163
 .word 0xf94027b1
 .word 0xf9415631
 .word 0xb4000051
@@ -16297,14 +21193,14 @@ bl _p_139
 .word 0xf2a00020
 .word 0xd297e9c0
 .word 0xf2a00020
-bl _p_138
+bl _p_162
 .word 0xaa0003e1
 .word 0xd28006a0
 .word 0xf2a04000
 .word 0xd28006a0
 .word 0xf2a04000
 bl _mono_create_corlib_exception_1
-bl _p_139
+bl _p_163
 .word 0xf94027b1
 .word 0xf9428631
 .word 0xb4000051
@@ -16330,8 +21226,8 @@ bl _p_139
 .word 0xf2a00020
 .word 0xd297dec0
 .word 0xf2a00020
-bl _p_138
-bl _p_148
+bl _p_162
+bl _p_171
 .word 0xf9006ba0
 .word 0xf94027b1
 .word 0xf942f631
@@ -16343,7 +21239,7 @@ bl _p_148
 .word 0xd2802860
 .word 0xf2a04000
 bl _mono_create_corlib_exception_1
-bl _p_139
+bl _p_163
 .word 0xf94027b1
 .word 0xf9432231
 .word 0xb4000051
@@ -16358,14 +21254,14 @@ bl _p_139
 .word 0xd63f0220
 .word 0xd281dba0
 .word 0xd281dba0
-bl _p_138
+bl _p_162
 .word 0xf9006ba0
 .word 0xd2980220
 .word 0xf2a00020
 .word 0xd2980220
 .word 0xf2a00020
-bl _p_138
-bl _p_148
+bl _p_162
+bl _p_171
 .word 0xf9006fa0
 .word 0xf94027b1
 .word 0xf9437e31
@@ -16378,7 +21274,7 @@ bl _p_148
 .word 0xd28006e0
 .word 0xf2a04000
 bl _mono_create_corlib_exception_2
-bl _p_139
+bl _p_163
 .word 0xf94027b1
 .word 0xf943ae31
 .word 0xb4000051
@@ -16429,7 +21325,7 @@ bl _p_139
 .word 0xf94057a2
 .word 0xf9405ba3
 .word 0xf94067a4
-bl _p_150
+bl _p_173
 .word 0xf94027b1
 .word 0xf9447a31
 .word 0xb4000051
@@ -16446,7 +21342,7 @@ bl _p_150
 .word 0xa8ce7bfd
 .word 0xd65f03c0
 
-Lme_77:
+Lme_8b:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
@@ -16457,7 +21353,7 @@ System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point__cto
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1784]
+ldr x16, [x16, #2096]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -16478,7 +21374,7 @@ ldr x16, [x16, #1784]
 .word 0xa8c37bfd
 .word 0xd65f03c0
 
-Lme_79:
+Lme_8d:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_get_Default
@@ -16489,7 +21385,7 @@ System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_get_
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1792]
+ldr x16, [x16, #2104]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -16509,7 +21405,7 @@ ldr x16, [x16, #1792]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1800]
+ldr x0, [x16, #2112]
 .word 0xf9400000
 .word 0xaa0003fa
 .word 0xf9400fb1
@@ -16525,8 +21421,8 @@ ldr x0, [x16, #1800]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #1808]
-bl _p_151
+ldr x15, [x16, #2120]
+bl _p_179
 .word 0xf90023a0
 .word 0xf9400fb1
 .word 0xf940b631
@@ -16544,7 +21440,7 @@ bl _p_151
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1800]
+ldr x0, [x16, #2112]
 .word 0xf9001ba0
 .word 0xd50330bf
 .word 0xf9401ba0
@@ -16568,7 +21464,7 @@ ldr x0, [x16, #1800]
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_7a:
+Lme_8e:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_CreateComparer
@@ -16582,7 +21478,7 @@ System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_Crea
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1816]
+ldr x16, [x16, #2128]
 .word 0xf9002bb0
 .word 0xf9400a11
 .word 0xf9002fb1
@@ -16604,7 +21500,7 @@ ldr x16, [x16, #1816]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1824]
+ldr x0, [x16, #2136]
 .word 0xf90037a0
 .word 0xb4000180
 .word 0xf94037a0
@@ -16615,7 +21511,7 @@ ldr x0, [x16, #1824]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1832]
+ldr x1, [x16, #2144]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x54003f81
@@ -16628,9 +21524,9 @@ ldr x1, [x16, #1832]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1840]
+ldr x1, [x16, #2152]
 .word 0xaa1a03e0
-bl _p_152
+bl _p_180
 .word 0x53001c00
 .word 0xf90053a0
 .word 0xf9402bb1
@@ -16646,11 +21542,11 @@ bl _p_152
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1848]
+ldr x0, [x16, #2160]
 bl _p_17
 .word 0xf9004fa0
 .word 0xf9404fa0
-bl _p_153
+bl _p_181
 .word 0xf9402bb1
 .word 0xf9413231
 .word 0xb4000051
@@ -16665,7 +21561,7 @@ bl _p_153
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1856]
+ldr x1, [x16, #2168]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x540039a1
@@ -16679,9 +21575,9 @@ ldr x1, [x16, #1856]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1864]
+ldr x1, [x16, #2176]
 .word 0xaa1a03e0
-bl _p_152
+bl _p_180
 .word 0x53001c00
 .word 0xf90053a0
 .word 0xf9402bb1
@@ -16697,11 +21593,11 @@ bl _p_152
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1872]
+ldr x0, [x16, #2184]
 bl _p_17
 .word 0xaa0003f7
 .word 0xaa1703e0
-bl _p_154
+bl _p_182
 .word 0xf9402bb1
 .word 0xf941f231
 .word 0xb4000051
@@ -16714,7 +21610,7 @@ bl _p_154
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1856]
+ldr x1, [x16, #2168]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x540033e1
@@ -16727,7 +21623,7 @@ ldr x1, [x16, #1856]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x2, [x16, #1880]
+ldr x2, [x16, #2192]
 .word 0xaa1a03e0
 .word 0xaa0203e0
 .word 0xaa1a03e1
@@ -16749,10 +21645,10 @@ ldr x2, [x16, #1880]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1888]
+ldr x0, [x16, #2200]
 .word 0xaa1a03e1
 .word 0xaa1a03e1
-bl _p_155
+bl _p_183
 .word 0xf9004ba0
 .word 0xf9402bb1
 .word 0xf942b631
@@ -16768,7 +21664,7 @@ bl _p_155
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1856]
+ldr x1, [x16, #2168]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x54002d81
@@ -16805,8 +21701,8 @@ ldr x1, [x16, #1856]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1896]
-bl _p_152
+ldr x1, [x16, #2208]
+bl _p_180
 .word 0x53001c00
 .word 0xf90053a0
 .word 0xf9402bb1
@@ -16846,7 +21742,7 @@ bl _p_152
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1832]
+ldr x1, [x16, #2144]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x54002401
@@ -16858,15 +21754,15 @@ ldr x1, [x16, #1832]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1904]
+ldr x0, [x16, #2216]
 .word 0xf9005fa0
 .word 0xd2800020
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1912]
+ldr x0, [x16, #2224]
 .word 0xd2800021
-bl _p_156
+bl _p_184
 .word 0xf90043a0
 .word 0xf94043a0
 .word 0xf9005ba0
@@ -16910,10 +21806,10 @@ bl _p_156
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1920]
+ldr x0, [x16, #2232]
 .word 0xaa1903e1
 .word 0xaa1903e1
-bl _p_155
+bl _p_183
 .word 0xf90047a0
 .word 0xf9402bb1
 .word 0xf9452231
@@ -16929,7 +21825,7 @@ bl _p_155
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1856]
+ldr x1, [x16, #2168]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x54001a21
@@ -16962,14 +21858,14 @@ ldr x1, [x16, #1856]
 .word 0xd63f0220
 .word 0xaa1a03e0
 .word 0xaa1a03e0
-bl _p_157
+bl _p_185
 .word 0xf9005ba0
 .word 0xf9402bb1
 .word 0xf945e231
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9405ba0
-bl _p_158
+bl _p_186
 .word 0x93407c00
 .word 0xf90057a0
 .word 0xf9402bb1
@@ -16994,7 +21890,7 @@ bl _p_158
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1928]
+ldr x0, [x16, #2240]
 .word 0x8b010000
 .word 0xf9400000
 .word 0xd61f0000
@@ -17005,10 +21901,10 @@ ldr x0, [x16, #1928]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1936]
+ldr x0, [x16, #2248]
 .word 0xaa1a03e1
 .word 0xaa1a03e1
-bl _p_155
+bl _p_183
 .word 0xaa0003f3
 .word 0xf9402bb1
 .word 0xf9469231
@@ -17022,7 +21918,7 @@ bl _p_155
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1856]
+ldr x1, [x16, #2168]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x54000ee1
@@ -17035,10 +21931,10 @@ ldr x1, [x16, #1856]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1944]
+ldr x0, [x16, #2256]
 .word 0xaa1a03e1
 .word 0xaa1a03e1
-bl _p_155
+bl _p_183
 .word 0xaa0003f5
 .word 0xf9402bb1
 .word 0xf9470231
@@ -17052,7 +21948,7 @@ bl _p_155
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1856]
+ldr x1, [x16, #2168]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x54000b61
@@ -17065,10 +21961,10 @@ ldr x1, [x16, #1856]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1952]
+ldr x0, [x16, #2264]
 .word 0xaa1a03e1
 .word 0xaa1a03e1
-bl _p_155
+bl _p_183
 .word 0xaa0003f4
 .word 0xf9402bb1
 .word 0xf9477231
@@ -17082,7 +21978,7 @@ bl _p_155
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1856]
+ldr x1, [x16, #2168]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x540007e1
@@ -17095,10 +21991,10 @@ ldr x1, [x16, #1856]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1960]
+ldr x0, [x16, #2272]
 .word 0xaa1a03e1
 .word 0xaa1a03e1
-bl _p_155
+bl _p_183
 .word 0xf9003ba0
 .word 0xf9402bb1
 .word 0xf947e231
@@ -17114,7 +22010,7 @@ bl _p_155
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1856]
+ldr x1, [x16, #2168]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x54000421
@@ -17131,10 +22027,10 @@ ldr x1, [x16, #1856]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1968]
+ldr x0, [x16, #2280]
 bl _p_17
 .word 0xf90053a0
-bl _p_159
+bl _p_187
 .word 0xf9402bb1
 .word 0xf9486631
 .word 0xb4000051
@@ -17158,7 +22054,7 @@ bl _p_34
 .word 0xaa1103e1
 bl _p_34
 
-Lme_7b:
+Lme_8f:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_IndexOf_Microsoft_Xna_Framework_Point___Microsoft_Xna_Framework_Point_int_int
@@ -17176,7 +22072,7 @@ System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_Inde
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1976]
+ldr x16, [x16, #2288]
 .word 0xf9002bb0
 .word 0xf9400a11
 .word 0xf9002fb1
@@ -17291,7 +22187,7 @@ ldr x16, [x16, #1976]
 .word 0xaa1103e1
 bl _p_34
 
-Lme_7e:
+Lme_92:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_System_Collections_IEqualityComparer_GetHashCode_object
@@ -17305,7 +22201,7 @@ System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_Syst
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #1984]
+ldr x16, [x16, #2296]
 .word 0xf9001bb0
 .word 0xf9400a11
 .word 0xf9001fb1
@@ -17345,7 +22241,7 @@ ldr x16, [x16, #1984]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1992]
+ldr x1, [x16, #2304]
 .word 0xeb01001f
 .word 0x54000040
 .word 0xd2800017
@@ -17366,7 +22262,7 @@ ldr x1, [x16, #1992]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1992]
+ldr x1, [x16, #2304]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x54000521
@@ -17394,7 +22290,7 @@ ldr x1, [x16, #1992]
 .word 0xd63f0220
 .word 0xd2800040
 .word 0xd2800040
-bl _p_160
+bl _p_188
 .word 0xf9401bb1
 .word 0xf9418e31
 .word 0xb4000051
@@ -17414,7 +22310,7 @@ bl _p_160
 .word 0xaa1103e1
 bl _p_34
 
-Lme_7f:
+Lme_93:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_System_Collections_IEqualityComparer_Equals_object_object
@@ -17430,7 +22326,7 @@ System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_Syst
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2000]
+ldr x16, [x16, #2312]
 .word 0xf90027b0
 .word 0xf9400a11
 .word 0xf9002bb1
@@ -17491,7 +22387,7 @@ ldr x16, [x16, #2000]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1992]
+ldr x1, [x16, #2304]
 .word 0xeb01001f
 .word 0x54000040
 .word 0xd2800016
@@ -17507,7 +22403,7 @@ ldr x1, [x16, #1992]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1992]
+ldr x1, [x16, #2304]
 .word 0xeb01001f
 .word 0x54000040
 .word 0xd2800014
@@ -17528,7 +22424,7 @@ ldr x1, [x16, #1992]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1992]
+ldr x1, [x16, #2304]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x54000841
@@ -17547,7 +22443,7 @@ ldr x1, [x16, #1992]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #1992]
+ldr x1, [x16, #2304]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x54000601
@@ -17581,7 +22477,7 @@ ldr x1, [x16, #1992]
 .word 0xd63f0220
 .word 0xd2800040
 .word 0xd2800040
-bl _p_160
+bl _p_188
 .word 0xf94027b1
 .word 0xf9428631
 .word 0xb4000051
@@ -17602,7 +22498,7 @@ bl _p_160
 .word 0xaa1103e1
 bl _p_34
 
-Lme_80:
+Lme_94:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
@@ -17613,7 +22509,7 @@ System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Poi
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2008]
+ldr x16, [x16, #2320]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -17622,7 +22518,7 @@ ldr x16, [x16, #2008]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400ba0
-bl _p_161
+bl _p_189
 .word 0xf9400fb1
 .word 0xf9404a31
 .word 0xb4000051
@@ -17635,7 +22531,7 @@ bl _p_161
 .word 0xa8c37bfd
 .word 0xd65f03c0
 
-Lme_81:
+Lme_95:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
@@ -17648,7 +22544,7 @@ System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Poi
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2016]
+ldr x16, [x16, #2328]
 .word 0xf9001fb0
 .word 0xf9400a11
 .word 0xf90023b1
@@ -17689,7 +22585,7 @@ ldr x16, [x16, #2016]
 .word 0xf9002fa1
 .word 0x910163a1
 .word 0xf9402fa1
-bl _p_162
+bl _p_190
 .word 0x53001c00
 .word 0xf9003ba0
 .word 0xf9401fb1
@@ -17735,7 +22631,7 @@ bl _p_162
 .word 0xa8c87bfd
 .word 0xd65f03c0
 
-Lme_82:
+Lme_96:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode_Microsoft_Xna_Framework_Point
@@ -17747,7 +22643,7 @@ System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Poi
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2024]
+ldr x16, [x16, #2336]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -17780,7 +22676,7 @@ ldr x16, [x16, #2024]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0x910063a0
-bl _p_163
+bl _p_191
 .word 0x93407c00
 .word 0xf9002ba0
 .word 0xf94017b1
@@ -17796,7 +22692,7 @@ bl _p_163
 .word 0xa8c67bfd
 .word 0xd65f03c0
 
-Lme_83:
+Lme_97:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_IndexOf_Microsoft_Xna_Framework_Point___Microsoft_Xna_Framework_Point_int_int
@@ -17814,7 +22710,7 @@ System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Poi
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2032]
+ldr x16, [x16, #2344]
 .word 0xf9002fb0
 .word 0xf9400a11
 .word 0xf90033b1
@@ -17939,7 +22835,7 @@ ldr x16, [x16, #2032]
 .word 0xf9003ba1
 .word 0x9101c3a1
 .word 0xf9403ba1
-bl _p_162
+bl _p_190
 .word 0x53001c00
 .word 0xf9004ba0
 .word 0xf9402fb1
@@ -18004,7 +22900,7 @@ bl _p_162
 .word 0xaa1103e1
 bl _p_34
 
-Lme_84:
+Lme_98:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_object
@@ -18018,7 +22914,7 @@ System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Poi
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2040]
+ldr x16, [x16, #2352]
 .word 0xf9001fb0
 .word 0xf9400a11
 .word 0xf90023b1
@@ -18046,7 +22942,7 @@ ldr x16, [x16, #2040]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #2048]
+ldr x1, [x16, #2360]
 .word 0xeb01001f
 .word 0x54000040
 .word 0xd2800017
@@ -18072,7 +22968,7 @@ ldr x1, [x16, #2048]
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_85:
+Lme_99:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode
@@ -18083,7 +22979,7 @@ System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Poi
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2056]
+ldr x16, [x16, #2368]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -18137,7 +23033,7 @@ ldr x16, [x16, #2056]
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_86:
+Lme_9a:
 .text
 	.align 4
 	.no_dead_strip wrapper_delegate_invoke_System_Predicate_1_Microsoft_Xna_Framework_Point_invoke_bool_T_Microsoft_Xna_Framework_Point
@@ -18153,7 +23049,7 @@ wrapper_delegate_invoke_System_Predicate_1_Microsoft_Xna_Framework_Point_invoke_
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2064]
+ldr x16, [x16, #2376]
 .word 0xf90033b0
 .word 0xf9400a11
 .word 0xf90037b1
@@ -18178,7 +23074,7 @@ ldr x16, [x16, #2064]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #2072]
+ldr x0, [x16, #1960]
 .word 0xb9400000
 .word 0x34000240
 .word 0xf94033b1
@@ -18189,14 +23085,14 @@ ldr x0, [x16, #2072]
 .word 0xf940b231
 .word 0xb4000051
 .word 0xd63f0220
-bl _p_164
+bl _p_174
 .word 0xaa0003f3
 .word 0xaa1303e0
 .word 0xaa1303e1
 .word 0xf9004ba0
 .word 0xb4000073
 .word 0xf9404ba0
-bl _p_139
+bl _p_163
 .word 0xf9404ba0
 .word 0xf94037b1
 .word 0xf9400231
@@ -18396,7 +23292,7 @@ bl _p_139
 .word 0xaa1103e1
 bl _p_34
 
-Lme_8b:
+Lme_9f:
 .text
 	.align 4
 	.no_dead_strip wrapper_delegate_invoke_System_Comparison_1_Microsoft_Xna_Framework_Point_invoke_int_T_T_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
@@ -18413,7 +23309,7 @@ wrapper_delegate_invoke_System_Comparison_1_Microsoft_Xna_Framework_Point_invoke
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2080]
+ldr x16, [x16, #2384]
 .word 0xf9003bb0
 .word 0xf9400a11
 .word 0xf9003fb1
@@ -18438,7 +23334,7 @@ ldr x16, [x16, #2080]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #2072]
+ldr x0, [x16, #1960]
 .word 0xb9400000
 .word 0x34000240
 .word 0xf9403bb1
@@ -18449,14 +23345,14 @@ ldr x0, [x16, #2072]
 .word 0xf940b631
 .word 0xb4000051
 .word 0xd63f0220
-bl _p_164
+bl _p_174
 .word 0xaa0003f3
 .word 0xaa1303e0
 .word 0xaa1303e1
 .word 0xf9005fa0
 .word 0xb4000073
 .word 0xf9405fa0
-bl _p_139
+bl _p_163
 .word 0xf9405fa0
 .word 0xf9403fb1
 .word 0xf9400231
@@ -18675,9 +23571,9 @@ bl _p_139
 .word 0xaa1103e1
 bl _p_34
 
-Lme_91:
+Lme_a5:
 .text
-ut_146:
+ut_166:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Vector2__ctor_Microsoft_Xna_Framework_Vector2
 .text
@@ -18693,7 +23589,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Vector2__ctor_Microsoft_Xna_Framework_
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2088]
+ldr x16, [x16, #2392]
 .word 0xf9002fb0
 .word 0xf9400a11
 .word 0xf90033b1
@@ -18735,9 +23631,9 @@ ldr x16, [x16, #2088]
 .word 0xa8c87bfd
 .word 0xd65f03c0
 
-Lme_92:
+Lme_a6:
 .text
-ut_147:
+ut_167:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Vector2_get_HasValue
 .text
@@ -18750,7 +23646,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Vector2_get_HasValue:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2096]
+ldr x16, [x16, #2400]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -18776,9 +23672,9 @@ ldr x16, [x16, #2096]
 .word 0xa8c37bfd
 .word 0xd65f03c0
 
-Lme_93:
+Lme_a7:
 .text
-ut_148:
+ut_168:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Vector2_get_Value
 .text
@@ -18792,7 +23688,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Vector2_get_Value:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2104]
+ldr x16, [x16, #2408]
 .word 0xf9002fb0
 .word 0xf9400a11
 .word 0xf90033b1
@@ -18819,14 +23715,14 @@ ldr x16, [x16, #2104]
 .word 0xf2a00020
 .word 0xd283c9a0
 .word 0xf2a00020
-bl _p_138
+bl _p_162
 .word 0xaa0003e1
 .word 0xd28021c0
 .word 0xf2a04000
 .word 0xd28021c0
 .word 0xf2a04000
 bl _mono_create_corlib_exception_1
-bl _p_139
+bl _p_163
 .word 0xf9402fb1
 .word 0xf940b231
 .word 0xb4000051
@@ -18851,9 +23747,9 @@ bl _p_139
 .word 0xa8c87bfd
 .word 0xd65f03c0
 
-Lme_94:
+Lme_a8:
 .text
-ut_149:
+ut_169:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Vector2_Equals_object
 .text
@@ -18869,7 +23765,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Vector2_Equals_object:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2112]
+ldr x16, [x16, #2416]
 .word 0xf9001bb0
 .word 0xf9400a11
 .word 0xf9001fb1
@@ -18912,7 +23808,7 @@ ldr x16, [x16, #2112]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #2120]
+ldr x1, [x16, #2424]
 .word 0xeb01001f
 .word 0x54000040
 .word 0xd2800017
@@ -18933,23 +23829,23 @@ ldr x1, [x16, #2120]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #480]
+ldr x15, [x16, #472]
 .word 0x910123a0
 .word 0xf9002fa0
 .word 0xaa1a03e0
-bl _p_165
+bl _p_192
 .word 0xf9402fbe
 .word 0xf90003c0
 .word 0xf90007c1
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #480]
+ldr x15, [x16, #472]
 .word 0xaa1903e0
 .word 0x910123a1
 .word 0xf94027a1
 .word 0xf9402ba2
-bl _p_166
+bl _p_193
 .word 0x53001c00
 .word 0xf90033a0
 .word 0xf9401bb1
@@ -18967,9 +23863,9 @@ bl _p_166
 .word 0xa8c77bfd
 .word 0xd65f03c0
 
-Lme_95:
+Lme_a9:
 .text
-ut_150:
+ut_170:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Vector2_Equals_System_Nullable_1_Microsoft_Xna_Framework_Vector2
 .text
@@ -18985,7 +23881,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Vector2_Equals_System_Nullable_1_Micro
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2128]
+ldr x16, [x16, #2432]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -19042,7 +23938,7 @@ ldr x16, [x16, #2128]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #2136]
+ldr x0, [x16, #2440]
 bl _p_17
 .word 0xaa0003e1
 .word 0xf9402fa0
@@ -19050,7 +23946,7 @@ bl _p_17
 .word 0x91004022
 .word 0xf94023a3
 .word 0xf9000043
-bl _p_167
+bl _p_194
 .word 0x53001c00
 .word 0xf9002ba0
 .word 0xf94017b1
@@ -19067,9 +23963,9 @@ bl _p_167
 .word 0xa8c67bfd
 .word 0xd65f03c0
 
-Lme_96:
+Lme_aa:
 .text
-ut_151:
+ut_171:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetHashCode
 .text
@@ -19083,7 +23979,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetHashCode:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2144]
+ldr x16, [x16, #2448]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -19116,7 +24012,7 @@ ldr x16, [x16, #2144]
 .word 0xaa1a03e0
 .word 0xaa1a03e0
 .word 0xaa1a03e0
-bl _p_168
+bl _p_195
 .word 0x93407c00
 .word 0xf9001ba0
 .word 0xf9400fb1
@@ -19133,9 +24029,9 @@ bl _p_168
 .word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_97:
+Lme_ab:
 .text
-ut_152:
+ut_172:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetValueOrDefault
 .text
@@ -19148,7 +24044,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetValueOrDefault:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2152]
+ldr x16, [x16, #2456]
 .word 0xf9002fb0
 .word 0xf9400a11
 .word 0xf90033b1
@@ -19182,9 +24078,9 @@ ldr x16, [x16, #2152]
 .word 0xa8c87bfd
 .word 0xd65f03c0
 
-Lme_98:
+Lme_ac:
 .text
-ut_153:
+ut_173:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetValueOrDefault_Microsoft_Xna_Framework_Vector2
 .text
@@ -19200,7 +24096,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetValueOrDefault_Microsoft_Xn
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2160]
+ldr x16, [x16, #2464]
 .word 0xf9004fb0
 .word 0xf9400a11
 .word 0xf90053b1
@@ -19256,9 +24152,9 @@ ldr x16, [x16, #2160]
 .word 0xa8cd7bfd
 .word 0xd65f03c0
 
-Lme_99:
+Lme_ad:
 .text
-ut_154:
+ut_174:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Vector2_ToString
 .text
@@ -19272,7 +24168,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Vector2_ToString:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2168]
+ldr x16, [x16, #2472]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -19298,7 +24194,7 @@ ldr x16, [x16, #2168]
 .word 0xaa1a03e0
 .word 0xaa1a03e0
 .word 0xaa1a03e0
-bl _p_169
+bl _p_196
 .word 0xf9001ba0
 .word 0xf9400fb1
 .word 0xf9409631
@@ -19313,7 +24209,7 @@ bl _p_169
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1616]
+ldr x0, [x16, #1864]
 .word 0xf9400000
 .word 0xf9400fb1
 .word 0xf940ce31
@@ -19324,9 +24220,9 @@ ldr x0, [x16, #1616]
 .word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_9a:
+Lme_ae:
 .text
-ut_155:
+ut_175:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Vector2_Box_System_Nullable_1_Microsoft_Xna_Framework_Vector2
 .text
@@ -19340,7 +24236,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Vector2_Box_System_Nullable_1_Microsof
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2176]
+ldr x16, [x16, #2480]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -19377,7 +24273,7 @@ ldr x16, [x16, #2176]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #2136]
+ldr x0, [x16, #2440]
 bl _p_17
 .word 0x9100e3a1
 .word 0x91004001
@@ -19391,9 +24287,9 @@ bl _p_17
 .word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_9b:
+Lme_af:
 .text
-ut_156:
+ut_176:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Vector2_Unbox_object
 .text
@@ -19407,7 +24303,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Vector2_Unbox_object:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2184]
+ldr x16, [x16, #2488]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -19465,7 +24361,7 @@ ldr x16, [x16, #2184]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #2120]
+ldr x1, [x16, #2424]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x54000561
@@ -19481,11 +24377,11 @@ ldr x1, [x16, #2120]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #480]
+ldr x15, [x16, #472]
 .word 0x910143a1
 .word 0xbd4053a0
 .word 0xbd4057a1
-bl _p_74
+bl _p_79
 .word 0x9101a3a0
 .word 0x910103a0
 .word 0xf94037a0
@@ -19516,9 +24412,9 @@ bl _p_74
 .word 0xaa1103e1
 bl _p_34
 
-Lme_9c:
+Lme_b0:
 .text
-ut_157:
+ut_177:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Rectangle__ctor_Microsoft_Xna_Framework_Rectangle
 .text
@@ -19534,7 +24430,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Rectangle__ctor_Microsoft_Xna_Framewor
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2192]
+ldr x16, [x16, #2496]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -19580,9 +24476,9 @@ ldr x16, [x16, #2192]
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_9d:
+Lme_b1:
 .text
-ut_158:
+ut_178:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Rectangle_get_HasValue
 .text
@@ -19595,7 +24491,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Rectangle_get_HasValue:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2200]
+ldr x16, [x16, #2504]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -19621,9 +24517,9 @@ ldr x16, [x16, #2200]
 .word 0xa8c37bfd
 .word 0xd65f03c0
 
-Lme_9e:
+Lme_b2:
 .text
-ut_159:
+ut_179:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Rectangle_get_Value
 .text
@@ -19637,7 +24533,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Rectangle_get_Value:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2208]
+ldr x16, [x16, #2512]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -19664,14 +24560,14 @@ ldr x16, [x16, #2208]
 .word 0xf2a00020
 .word 0xd283c9a0
 .word 0xf2a00020
-bl _p_138
+bl _p_162
 .word 0xaa0003e1
 .word 0xd28021c0
 .word 0xf2a04000
 .word 0xd28021c0
 .word 0xf2a04000
 bl _mono_create_corlib_exception_1
-bl _p_139
+bl _p_163
 .word 0xf94017b1
 .word 0xf940b231
 .word 0xb4000051
@@ -19700,9 +24596,9 @@ bl _p_139
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_9f:
+Lme_b3:
 .text
-ut_160:
+ut_180:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Equals_object
 .text
@@ -19718,7 +24614,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Equals_object:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2216]
+ldr x16, [x16, #2520]
 .word 0xf9001bb0
 .word 0xf9400a11
 .word 0xf9001fb1
@@ -19761,7 +24657,7 @@ ldr x16, [x16, #2216]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #2224]
+ldr x1, [x16, #2528]
 .word 0xeb01001f
 .word 0x54000040
 .word 0xd2800017
@@ -19782,15 +24678,15 @@ ldr x1, [x16, #2224]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #488]
+ldr x15, [x16, #480]
 .word 0x910183a0
 .word 0xaa0003e8
 .word 0xaa1a03e0
-bl _p_170
+bl _p_197
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #488]
+ldr x15, [x16, #480]
 .word 0xaa1903e0
 .word 0x910183a1
 .word 0x910123a1
@@ -19801,7 +24697,7 @@ ldr x15, [x16, #488]
 .word 0xf9403ba2
 .word 0xf9002fa2
 .word 0xaa0103e2
-bl _p_171
+bl _p_198
 .word 0x53001c00
 .word 0xf90043a0
 .word 0xf9401bb1
@@ -19819,9 +24715,9 @@ bl _p_171
 .word 0xa8c97bfd
 .word 0xd65f03c0
 
-Lme_a0:
+Lme_b4:
 .text
-ut_161:
+ut_181:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Equals_System_Nullable_1_Microsoft_Xna_Framework_Rectangle
 .text
@@ -19836,7 +24732,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Equals_System_Nullable_1_Mic
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2232]
+ldr x16, [x16, #2536]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -19895,7 +24791,7 @@ ldr x16, [x16, #2232]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #2240]
+ldr x0, [x16, #2544]
 bl _p_17
 .word 0xaa0003e1
 .word 0xf9402fa0
@@ -19905,7 +24801,7 @@ bl _p_17
 .word 0xf9000043
 .word 0xf94023a3
 .word 0xf9000443
-bl _p_172
+bl _p_199
 .word 0x53001c00
 .word 0xf9002ba0
 .word 0xf94013b1
@@ -19922,9 +24818,9 @@ bl _p_172
 .word 0xa8c67bfd
 .word 0xd65f03c0
 
-Lme_a1:
+Lme_b5:
 .text
-ut_162:
+ut_182:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetHashCode
 .text
@@ -19938,7 +24834,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetHashCode:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2248]
+ldr x16, [x16, #2552]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -19971,7 +24867,7 @@ ldr x16, [x16, #2248]
 .word 0xaa1a03e0
 .word 0xaa1a03e0
 .word 0xaa1a03e0
-bl _p_173
+bl _p_200
 .word 0x93407c00
 .word 0xf9001ba0
 .word 0xf9400fb1
@@ -19988,9 +24884,9 @@ bl _p_173
 .word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_a2:
+Lme_b6:
 .text
-ut_163:
+ut_183:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetValueOrDefault
 .text
@@ -20003,7 +24899,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetValueOrDefault:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2256]
+ldr x16, [x16, #2560]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -20041,9 +24937,9 @@ ldr x16, [x16, #2256]
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_a3:
+Lme_b7:
 .text
-ut_164:
+ut_184:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetValueOrDefault_Microsoft_Xna_Framework_Rectangle
 .text
@@ -20059,7 +24955,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetValueOrDefault_Microsoft_
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2264]
+ldr x16, [x16, #2568]
 .word 0xf9001fb0
 .word 0xf9400a11
 .word 0xf90023b1
@@ -20127,9 +25023,9 @@ ldr x16, [x16, #2264]
 .word 0xa8c97bfd
 .word 0xd65f03c0
 
-Lme_a4:
+Lme_b8:
 .text
-ut_165:
+ut_185:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Rectangle_ToString
 .text
@@ -20143,7 +25039,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Rectangle_ToString:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2272]
+ldr x16, [x16, #2576]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -20169,7 +25065,7 @@ ldr x16, [x16, #2272]
 .word 0xaa1a03e0
 .word 0xaa1a03e0
 .word 0xaa1a03e0
-bl _p_174
+bl _p_201
 .word 0xf9001ba0
 .word 0xf9400fb1
 .word 0xf9409631
@@ -20184,7 +25080,7 @@ bl _p_174
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1616]
+ldr x0, [x16, #1864]
 .word 0xf9400000
 .word 0xf9400fb1
 .word 0xf940ce31
@@ -20195,9 +25091,9 @@ ldr x0, [x16, #1616]
 .word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_a5:
+Lme_b9:
 .text
-ut_166:
+ut_186:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Box_System_Nullable_1_Microsoft_Xna_Framework_Rectangle
 .text
@@ -20210,7 +25106,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Box_System_Nullable_1_Micros
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2280]
+ldr x16, [x16, #2584]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -20249,7 +25145,7 @@ ldr x16, [x16, #2280]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #2240]
+ldr x0, [x16, #2544]
 bl _p_17
 .word 0x9100c3a1
 .word 0x91004001
@@ -20265,9 +25161,9 @@ bl _p_17
 .word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_a6:
+Lme_ba:
 .text
-ut_167:
+ut_187:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Unbox_object
 .text
@@ -20282,7 +25178,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Unbox_object:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2288]
+ldr x16, [x16, #2592]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -20347,7 +25243,7 @@ ldr x16, [x16, #2288]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #2224]
+ldr x1, [x16, #2528]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x54000621
@@ -20366,11 +25262,11 @@ ldr x1, [x16, #2224]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #488]
+ldr x15, [x16, #480]
 .word 0x910143a1
 .word 0xf9402ba1
 .word 0xf9402fa2
-bl _p_75
+bl _p_80
 .word 0x9101e3a0
 .word 0x9100e3a0
 .word 0xf9403fa0
@@ -20404,9 +25300,9 @@ bl _p_75
 .word 0xaa1103e1
 bl _p_34
 
-Lme_a7:
+Lme_bb:
 .text
-ut_168:
+ut_188:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Color__ctor_Microsoft_Xna_Framework_Color
 .text
@@ -20421,7 +25317,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Color__ctor_Microsoft_Xna_Framework_Co
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2296]
+ldr x16, [x16, #2600]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -20463,9 +25359,9 @@ ldr x16, [x16, #2296]
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_a8:
+Lme_bc:
 .text
-ut_169:
+ut_189:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Color_get_HasValue
 .text
@@ -20478,7 +25374,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Color_get_HasValue:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2304]
+ldr x16, [x16, #2608]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -20504,9 +25400,9 @@ ldr x16, [x16, #2304]
 .word 0xa8c37bfd
 .word 0xd65f03c0
 
-Lme_a9:
+Lme_bd:
 .text
-ut_170:
+ut_190:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Color_get_Value
 .text
@@ -20520,7 +25416,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Color_get_Value:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2312]
+ldr x16, [x16, #2616]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -20547,14 +25443,14 @@ ldr x16, [x16, #2312]
 .word 0xf2a00020
 .word 0xd283c9a0
 .word 0xf2a00020
-bl _p_138
+bl _p_162
 .word 0xaa0003e1
 .word 0xd28021c0
 .word 0xf2a04000
 .word 0xd28021c0
 .word 0xf2a04000
 bl _mono_create_corlib_exception_1
-bl _p_139
+bl _p_163
 .word 0xf94017b1
 .word 0xf940b231
 .word 0xb4000051
@@ -20578,9 +25474,9 @@ bl _p_139
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_aa:
+Lme_be:
 .text
-ut_171:
+ut_191:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Color_Equals_object
 .text
@@ -20596,7 +25492,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Color_Equals_object:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2320]
+ldr x16, [x16, #2624]
 .word 0xf9001bb0
 .word 0xf9400a11
 .word 0xf9001fb1
@@ -20639,7 +25535,7 @@ ldr x16, [x16, #2320]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #2328]
+ldr x1, [x16, #2632]
 .word 0xeb01001f
 .word 0x54000040
 .word 0xd2800017
@@ -20660,21 +25556,21 @@ ldr x1, [x16, #2328]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #496]
+ldr x15, [x16, #488]
 .word 0x910123a0
 .word 0xf9002ba0
 .word 0xaa1a03e0
-bl _p_175
+bl _p_202
 .word 0xf9402bbe
 .word 0xf90003c0
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #496]
+ldr x15, [x16, #488]
 .word 0xaa1903e0
 .word 0x910123a1
 .word 0xf94027a1
-bl _p_176
+bl _p_203
 .word 0x53001c00
 .word 0xf90033a0
 .word 0xf9401bb1
@@ -20692,9 +25588,9 @@ bl _p_176
 .word 0xa8c77bfd
 .word 0xd65f03c0
 
-Lme_ab:
+Lme_bf:
 .text
-ut_172:
+ut_192:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Color_Equals_System_Nullable_1_Microsoft_Xna_Framework_Color
 .text
@@ -20709,7 +25605,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Color_Equals_System_Nullable_1_Microso
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2336]
+ldr x16, [x16, #2640]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -20766,7 +25662,7 @@ ldr x16, [x16, #2336]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #2344]
+ldr x0, [x16, #2648]
 bl _p_17
 .word 0xaa0003e1
 .word 0xf9402fa0
@@ -20774,7 +25670,7 @@ bl _p_17
 .word 0x91004022
 .word 0xb98043a3
 .word 0xb9000043
-bl _p_177
+bl _p_204
 .word 0x53001c00
 .word 0xf9002ba0
 .word 0xf94017b1
@@ -20791,9 +25687,9 @@ bl _p_177
 .word 0xa8c67bfd
 .word 0xd65f03c0
 
-Lme_ac:
+Lme_c0:
 .text
-ut_173:
+ut_193:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Color_GetHashCode
 .text
@@ -20807,7 +25703,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Color_GetHashCode:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2352]
+ldr x16, [x16, #2656]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -20840,7 +25736,7 @@ ldr x16, [x16, #2352]
 .word 0xaa1a03e0
 .word 0xaa1a03e0
 .word 0xaa1a03e0
-bl _p_178
+bl _p_205
 .word 0x93407c00
 .word 0xf9001ba0
 .word 0xf9400fb1
@@ -20857,9 +25753,9 @@ bl _p_178
 .word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_ad:
+Lme_c1:
 .text
-ut_174:
+ut_194:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Color_GetValueOrDefault
 .text
@@ -20872,7 +25768,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Color_GetValueOrDefault:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2360]
+ldr x16, [x16, #2664]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -20905,9 +25801,9 @@ ldr x16, [x16, #2360]
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_ae:
+Lme_c2:
 .text
-ut_175:
+ut_195:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Color_GetValueOrDefault_Microsoft_Xna_Framework_Color
 .text
@@ -20922,7 +25818,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Color_GetValueOrDefault_Microsoft_Xna_
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2368]
+ldr x16, [x16, #2672]
 .word 0xf9001fb0
 .word 0xf9400a11
 .word 0xf90023b1
@@ -20977,9 +25873,9 @@ ldr x16, [x16, #2368]
 .word 0xa8c77bfd
 .word 0xd65f03c0
 
-Lme_af:
+Lme_c3:
 .text
-ut_176:
+ut_196:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Color_ToString
 .text
@@ -20993,7 +25889,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Color_ToString:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2376]
+ldr x16, [x16, #2680]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -21019,7 +25915,7 @@ ldr x16, [x16, #2376]
 .word 0xaa1a03e0
 .word 0xaa1a03e0
 .word 0xaa1a03e0
-bl _p_179
+bl _p_206
 .word 0xf9001ba0
 .word 0xf9400fb1
 .word 0xf9409631
@@ -21034,7 +25930,7 @@ bl _p_179
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1616]
+ldr x0, [x16, #1864]
 .word 0xf9400000
 .word 0xf9400fb1
 .word 0xf940ce31
@@ -21045,9 +25941,9 @@ ldr x0, [x16, #1616]
 .word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_b0:
+Lme_c4:
 .text
-ut_177:
+ut_197:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Color_Box_System_Nullable_1_Microsoft_Xna_Framework_Color
 .text
@@ -21060,7 +25956,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Color_Box_System_Nullable_1_Microsoft_
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2384]
+ldr x16, [x16, #2688]
 .word 0xf90013b0
 .word 0xf9400a11
 .word 0xf90017b1
@@ -21097,7 +25993,7 @@ ldr x16, [x16, #2384]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #2344]
+ldr x0, [x16, #2648]
 bl _p_17
 .word 0x9100e3a1
 .word 0x91004001
@@ -21111,9 +26007,9 @@ bl _p_17
 .word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_b1:
+Lme_c5:
 .text
-ut_178:
+ut_198:
 add x0, x0, 16
 b System_Nullable_1_Microsoft_Xna_Framework_Color_Unbox_object
 .text
@@ -21127,7 +26023,7 @@ System_Nullable_1_Microsoft_Xna_Framework_Color_Unbox_object:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2392]
+ldr x16, [x16, #2696]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -21179,7 +26075,7 @@ ldr x16, [x16, #2392]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #2328]
+ldr x1, [x16, #2632]
 .word 0xeb01001f
 .word 0x10000011
 .word 0x54000481
@@ -21194,10 +26090,10 @@ ldr x1, [x16, #2328]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x15, [x16, #496]
+ldr x15, [x16, #488]
 .word 0x910123a1
 .word 0xf94027a1
-bl _p_77
+bl _p_81
 .word 0x910163a0
 .word 0x910103a0
 .word 0xf9402fa0
@@ -21223,681 +26119,7 @@ bl _p_77
 .word 0xaa1103e1
 bl _p_34
 
-Lme_b2:
-.text
-	.align 4
-	.no_dead_strip System_Array_InternalArray__IEnumerable_GetEnumerator_T_REF
-System_Array_InternalArray__IEnumerable_GetEnumerator_T_REF:
-.word 0xa9b77bfd
-.word 0x910003fd
-.word 0xf9002baf
-.word 0xf9000ba0
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2400]
-.word 0xf9000fb0
-.word 0xf9400a11
-.word 0xf90013b1
-.word 0xf9400fb1
-.word 0xf9403631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400fb1
-.word 0xf9405631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400ba0
-.word 0xf90043a0
-.word 0x910103a0
-.word 0xd2800000
-.word 0xf90023a0
-.word 0xf90027a0
-.word 0x910103a0
-.word 0xf9003fa0
-.word 0xf9402ba0
-bl _p_180
-.word 0xaa0003ef
-.word 0xf9403fa0
-.word 0xf94043a1
-bl _p_181
-.word 0x910103a0
-.word 0x9100c3a0
-.word 0xf94023a0
-.word 0xf9001ba0
-.word 0xf94027a0
-.word 0xf9001fa0
-.word 0xf9400fb1
-.word 0xf940b631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9402ba0
-bl _p_180
-bl _p_2
-.word 0x9100c3a1
-.word 0xf90033a0
-.word 0x91004001
-.word 0xaa0103e0
-.word 0xf9401ba2
-.word 0xf9003ba2
-.word 0xf9000022
-.word 0xf90037a0
-bl _p_9
-.word 0xf94033a0
-.word 0xf94037a1
-.word 0xf9403ba2
-.word 0x91002021
-.word 0xf9401fa2
-.word 0xf9000022
-.word 0xf9400fb1
-.word 0xf9410e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x910003bf
-.word 0xa8c97bfd
-.word 0xd65f03c0
-
-Lme_b3:
-.text
-	.align 4
-	.no_dead_strip System_Array_InternalArray__ICollection_Add_T_REF_T_REF
-System_Array_InternalArray__ICollection_Add_T_REF_T_REF:
-.word 0xa9bc7bfd
-.word 0x910003fd
-.word 0xf9001faf
-.word 0xf9000ba0
-.word 0xf9000fa1
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2408]
-.word 0xf90013b0
-.word 0xf9400a11
-.word 0xf90017b1
-.word 0xf94013b1
-.word 0xf9403a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9405a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd297d740
-.word 0xf2a00020
-.word 0xd297d740
-.word 0xf2a00020
-bl _p_138
-.word 0xaa0003e1
-.word 0xd2800100
-.word 0xf2a04000
-.word 0xd2800100
-.word 0xf2a04000
-bl _mono_create_corlib_exception_1
-bl _p_139
-.word 0xf94013b1
-.word 0xf9409a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x910003bf
-.word 0xa8c47bfd
-.word 0xd65f03c0
-
-Lme_b4:
-.text
-	.align 4
-	.no_dead_strip System_Array_InternalArray__ICollection_Remove_T_REF_T_REF
-System_Array_InternalArray__ICollection_Remove_T_REF_T_REF:
-.word 0xa9bc7bfd
-.word 0x910003fd
-.word 0xf9001faf
-.word 0xf9000ba0
-.word 0xf9000fa1
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2416]
-.word 0xf90013b0
-.word 0xf9400a11
-.word 0xf90017b1
-.word 0xf94013b1
-.word 0xf9403a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9405a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd297d740
-.word 0xf2a00020
-.word 0xd297d740
-.word 0xf2a00020
-bl _p_138
-.word 0xaa0003e1
-.word 0xd2800100
-.word 0xf2a04000
-.word 0xd2800100
-.word 0xf2a04000
-bl _mono_create_corlib_exception_1
-bl _p_139
-.word 0xf94013b1
-.word 0xf9409a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x910003bf
-.word 0xa8c47bfd
-.word 0xd65f03c0
-
-Lme_b5:
-.text
-	.align 4
-	.no_dead_strip System_Array_InternalArray__ICollection_Contains_T_REF_T_REF
-System_Array_InternalArray__ICollection_Contains_T_REF_T_REF:
-.word 0xa9b97bfd
-.word 0x910003fd
-.word 0xa90167b8
-.word 0xf90013ba
-.word 0xf90027af
-.word 0xaa0003fa
-.word 0xf90017a1
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2424]
-.word 0xf9001bb0
-.word 0xf9400a11
-.word 0xf9001fb1
-.word 0xd2800019
-.word 0xd2800018
-.word 0xf9002bbf
-.word 0xf9401bb1
-.word 0xf9404e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401fb1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401bb1
-.word 0xf9406e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xf9400340
-.word 0x3940a800
-.word 0xf90033a0
-.word 0xf9401bb1
-.word 0xf9408e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94033a0
-.word 0xd2800021
-.word 0xd280003e
-.word 0x6b1e001f
-.word 0x540002ed
-.word 0xf9401bb1
-.word 0xf940b231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd297dec0
-.word 0xf2a00020
-.word 0xd297dec0
-.word 0xf2a00020
-bl _p_138
-bl _p_148
-.word 0xf90033a0
-.word 0xf9401bb1
-.word 0xf940de31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94033a1
-.word 0xd2802860
-.word 0xf2a04000
-.word 0xd2802860
-.word 0xf2a04000
-bl _mono_create_corlib_exception_1
-bl _p_139
-.word 0xf9401bb1
-.word 0xf9410a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xb9801b40
-.word 0xf90033a0
-.word 0xf9401bb1
-.word 0xf9412631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94033a0
-.word 0xaa0003f9
-.word 0xf9401bb1
-.word 0xf9413e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd2800018
-.word 0x1400004d
-.word 0xf9401bb1
-.word 0xf9415631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1a03e0
-.word 0xaa1803e0
-.word 0x910143a0
-.word 0xf94027a0
-bl _p_182
-.word 0x93407f00
-.word 0xd37df000
-.word 0x8b000340
-.word 0x91008000
-.word 0xf9400000
-.word 0xf9002ba0
-.word 0xf9401bb1
-.word 0xf9419231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017a0
-.word 0xb5000260
-.word 0xf9401bb1
-.word 0xf941aa31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9402ba0
-.word 0xb5000100
-.word 0xf9401bb1
-.word 0xf941c231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd2800020
-.word 0xd2800020
-.word 0x1400003d
-.word 0xf9401bb1
-.word 0xf941de31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x1400001b
-.word 0xf9401bb1
-.word 0xf941f231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0x9100a3a0
-.word 0xf9402ba1
-.word 0xf94017a2
-.word 0xaa0203e0
-.word 0xf9400042
-.word 0xf9402850
-.word 0xd63f0200
-.word 0x53001c00
-.word 0xf90033a0
-.word 0xf9401bb1
-.word 0xf9422631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94033a0
-.word 0x34000100
-.word 0xf9401bb1
-.word 0xf9423e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd2800020
-.word 0xd2800020
-.word 0x1400001e
-.word 0xf9401fb1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401bb1
-.word 0xf9426a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1803e0
-.word 0x11000700
-.word 0xaa0003f8
-.word 0xf9401fb1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9401bb1
-.word 0xf9429631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1803e0
-.word 0xaa1903e0
-.word 0x6b19031f
-.word 0x54fff52b
-.word 0xf9401bb1
-.word 0xf942b631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd2800000
-.word 0xd2800000
-.word 0xf9401bb1
-.word 0xf942ce31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xa94167b8
-.word 0xf94013ba
-.word 0x910003bf
-.word 0xa8c77bfd
-.word 0xd65f03c0
-
-Lme_b6:
-.text
-	.align 4
-	.no_dead_strip System_Array_InternalArray__ICollection_CopyTo_T_REF_T_REF___int
-System_Array_InternalArray__ICollection_CopyTo_T_REF_T_REF___int:
-.word 0xa9b17bfd
-.word 0x910003fd
-.word 0xa90157b4
-.word 0xf90013b6
-.word 0xa902e7b8
-.word 0xf9001fba
-.word 0xf9006baf
-.word 0xaa0003f8
-.word 0xaa0103f9
-.word 0xf90023a2
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2432]
-.word 0xf90027b0
-.word 0xf9400a11
-.word 0xf9002bb1
-.word 0xf94027b1
-.word 0xf9404e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9402bb1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94027b1
-.word 0xf9406e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xb50001f9
-.word 0xf94027b1
-.word 0xf9408631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd282ac40
-.word 0xd282ac40
-bl _p_138
-.word 0xaa0003e1
-.word 0xd28006c0
-.word 0xf2a04000
-.word 0xd28006c0
-.word 0xf2a04000
-bl _mono_create_corlib_exception_1
-bl _p_139
-.word 0xf94027b1
-.word 0xf940be31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1803e0
-.word 0xf9400300
-.word 0x3940a800
-.word 0xf90073a0
-.word 0xf94027b1
-.word 0xf940de31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94073a0
-.word 0xd2800021
-.word 0xd280003e
-.word 0x6b1e001f
-.word 0x540002ed
-.word 0xf94027b1
-.word 0xf9410231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd297dec0
-.word 0xf2a00020
-.word 0xd297dec0
-.word 0xf2a00020
-bl _p_138
-bl _p_148
-.word 0xf90073a0
-.word 0xf94027b1
-.word 0xf9412e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94073a1
-.word 0xd2802860
-.word 0xf2a04000
-.word 0xd2802860
-.word 0xf2a04000
-bl _mono_create_corlib_exception_1
-bl _p_139
-.word 0xf94027b1
-.word 0xf9415a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xb98043a0
-.word 0xf90033a0
-.word 0xaa1803f6
-.word 0xd2800000
-.word 0xf9400b15
-.word 0xeb1f02bf
-.word 0x54000060
-.word 0xb98002b4
-.word 0x14000002
-.word 0xb9801ad4
-.word 0xf94027b1
-.word 0xf9419231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94033a0
-.word 0xb140000
-.word 0xf90037a0
-.word 0xaa1903e0
-.word 0xd2800000
-.word 0xf9400b20
-.word 0xf9003ba0
-.word 0xeb1f001f
-.word 0x54000080
-.word 0xf9403ba0
-.word 0xb980041a
-.word 0x14000002
-.word 0xd280001a
-.word 0xf94027b1
-.word 0xf941d631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9003fb9
-.word 0xd2800000
-.word 0xf9403fa0
-.word 0xf9400800
-.word 0xf90043a0
-.word 0xeb1f001f
-.word 0x540000a0
-.word 0xf94043a0
-.word 0xb9800000
-.word 0xf90047a0
-.word 0x14000004
-.word 0xf9403fa0
-.word 0xb9801800
-.word 0xf90047a0
-.word 0xf94047a0
-.word 0xf90047a0
-.word 0xf94027b1
-.word 0xf9422631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94047a0
-.word 0xb000341
-.word 0xf94037a0
-.word 0x6b01001f
-.word 0x5400022d
-.word 0xf94027b1
-.word 0xf9424a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd297e9c0
-.word 0xf2a00020
-.word 0xd297e9c0
-.word 0xf2a00020
-bl _p_138
-.word 0xaa0003e1
-.word 0xd28006a0
-.word 0xf2a04000
-.word 0xd28006a0
-.word 0xf2a04000
-bl _mono_create_corlib_exception_1
-bl _p_139
-.word 0xf94027b1
-.word 0xf9428a31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xf9400320
-.word 0x3940a800
-.word 0xf90073a0
-.word 0xf94027b1
-.word 0xf942aa31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94073a0
-.word 0xd2800021
-.word 0xd280003e
-.word 0x6b1e001f
-.word 0x540002ed
-.word 0xf94027b1
-.word 0xf942ce31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd297dec0
-.word 0xf2a00020
-.word 0xd297dec0
-.word 0xf2a00020
-bl _p_138
-bl _p_148
-.word 0xf90073a0
-.word 0xf94027b1
-.word 0xf942fa31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94073a1
-.word 0xd2802860
-.word 0xf2a04000
-.word 0xd2802860
-.word 0xf2a04000
-bl _mono_create_corlib_exception_1
-bl _p_139
-.word 0xf94027b1
-.word 0xf9432631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xb98043a0
-.word 0xd2800001
-.word 0x6b1f001f
-.word 0x5400038a
-.word 0xf94027b1
-.word 0xf9434631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xd281dba0
-.word 0xd281dba0
-bl _p_138
-.word 0xf90073a0
-.word 0xd2980220
-.word 0xf2a00020
-.word 0xd2980220
-.word 0xf2a00020
-bl _p_138
-bl _p_148
-.word 0xf90077a0
-.word 0xf94027b1
-.word 0xf9438231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94073a1
-.word 0xf94077a2
-.word 0xd28006e0
-.word 0xf2a04000
-.word 0xd28006e0
-.word 0xf2a04000
-bl _mono_create_corlib_exception_2
-bl _p_139
-.word 0xf94027b1
-.word 0xf943b231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9004bb8
-.word 0xaa1803e0
-.word 0xd2800000
-.word 0xf9400b00
-.word 0xf9004fa0
-.word 0xeb1f001f
-.word 0x540000a0
-.word 0xf9404fa0
-.word 0xb9800400
-.word 0xf90053a0
-.word 0x14000002
-.word 0xf90053bf
-.word 0xf94053a0
-.word 0xf90053a0
-.word 0xf94027b1
-.word 0xf943fa31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf90057b9
-.word 0xb98043a0
-.word 0xf9005ba0
-.word 0xf9005fb8
-.word 0xd2800000
-.word 0xf9405fa0
-.word 0xf9400800
-.word 0xf90063a0
-.word 0xeb1f001f
-.word 0x540000a0
-.word 0xf94063a0
-.word 0xb9800000
-.word 0xf90067a0
-.word 0x14000004
-.word 0xf9405fa0
-.word 0xb9801800
-.word 0xf90067a0
-.word 0xf94067a0
-.word 0xf90067a0
-.word 0xf94027b1
-.word 0xf9445631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9404ba0
-.word 0xf94053a1
-.word 0xf94057a2
-.word 0xf9405ba3
-.word 0xf94067a4
-bl _p_150
-.word 0xf94027b1
-.word 0xf9447e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94027b1
-.word 0xf9448e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xa94157b4
-.word 0xf94013b6
-.word 0xa942e7b8
-.word 0xf9401fba
-.word 0x910003bf
-.word 0xa8cf7bfd
-.word 0xd65f03c0
-
-Lme_b7:
+Lme_c6:
 .text
 	.align 4
 	.no_dead_strip wrapper_delegate_invoke_System_Predicate_1_TheAdventuresOf_AnimationFrame_invoke_bool_T_TheAdventuresOf_AnimationFrame
@@ -21913,7 +26135,7 @@ wrapper_delegate_invoke_System_Predicate_1_TheAdventuresOf_AnimationFrame_invoke
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2440]
+ldr x16, [x16, #2704]
 .word 0xf9002bb0
 .word 0xf9400a11
 .word 0xf9002fb1
@@ -21938,7 +26160,7 @@ ldr x16, [x16, #2440]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #2072]
+ldr x0, [x16, #1960]
 .word 0xb9400000
 .word 0x34000240
 .word 0xf9402bb1
@@ -21949,14 +26171,14 @@ ldr x0, [x16, #2072]
 .word 0xf940b231
 .word 0xb4000051
 .word 0xd63f0220
-bl _p_164
+bl _p_174
 .word 0xf90037a0
 .word 0xf94037a1
 .word 0xf94037a0
 .word 0xf9003ba1
 .word 0xb4000060
 .word 0xf9403ba0
-bl _p_139
+bl _p_163
 .word 0xf9403ba0
 .word 0xf9402fb1
 .word 0xf9400231
@@ -22144,7 +26366,7 @@ bl _p_139
 .word 0xaa1103e1
 bl _p_34
 
-Lme_b8:
+Lme_c7:
 .text
 	.align 4
 	.no_dead_strip wrapper_delegate_invoke_System_Comparison_1_TheAdventuresOf_AnimationFrame_invoke_int_T_T_TheAdventuresOf_AnimationFrame_TheAdventuresOf_AnimationFrame
@@ -22161,7 +26383,7 @@ wrapper_delegate_invoke_System_Comparison_1_TheAdventuresOf_AnimationFrame_invok
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2448]
+ldr x16, [x16, #2712]
 .word 0xf9002bb0
 .word 0xf9400a11
 .word 0xf9002fb1
@@ -22186,7 +26408,7 @@ ldr x16, [x16, #2448]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #2072]
+ldr x0, [x16, #1960]
 .word 0xb9400000
 .word 0x34000240
 .word 0xf9402bb1
@@ -22197,14 +26419,14 @@ ldr x0, [x16, #2072]
 .word 0xf940b631
 .word 0xb4000051
 .word 0xd63f0220
-bl _p_164
+bl _p_174
 .word 0xf9003ba0
 .word 0xf9403ba1
 .word 0xf9403ba0
 .word 0xf9003fa1
 .word 0xb4000060
 .word 0xf9403fa0
-bl _p_139
+bl _p_163
 .word 0xf9403fa0
 .word 0xf9402fb1
 .word 0xf9400231
@@ -22400,7 +26622,7 @@ bl _p_139
 .word 0xaa1103e1
 bl _p_34
 
-Lme_b9:
+Lme_c8:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Count
@@ -22411,7 +26633,7 @@ System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Count:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2456]
+ldr x16, [x16, #2720]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -22437,7 +26659,7 @@ ldr x16, [x16, #2456]
 .word 0xa8c37bfd
 .word 0xd65f03c0
 
-Lme_ba:
+Lme_c9:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Item_int
@@ -22450,7 +26672,7 @@ System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Item_int:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2464]
+ldr x16, [x16, #2728]
 .word 0xf9001bb0
 .word 0xf9400a11
 .word 0xf9001fb1
@@ -22475,7 +26697,7 @@ ldr x16, [x16, #2464]
 .word 0xf9407e31
 .word 0xb4000051
 .word 0xd63f0220
-bl _p_183
+bl _p_207
 .word 0xf9401fb1
 .word 0xf9400231
 .word 0xb4000051
@@ -22512,7 +26734,7 @@ bl _p_183
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_bb:
+Lme_ca:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_Add_Microsoft_Xna_Framework_Point
@@ -22527,7 +26749,7 @@ System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_Add_Microsoft_Xn
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2472]
+ldr x16, [x16, #2736]
 .word 0xf90027b0
 .word 0xf9400a11
 .word 0xf9002bb1
@@ -22560,7 +26782,7 @@ ldr x16, [x16, #2472]
 .word 0xb9801b40
 .word 0x11000401
 .word 0xaa1a03e0
-bl _p_184
+bl _p_208
 .word 0xf9402bb1
 .word 0xf9400231
 .word 0xb4000051
@@ -22624,7 +26846,7 @@ bl _p_184
 .word 0xaa1103e1
 bl _p_34
 
-Lme_bc:
+Lme_cb:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__ctor
@@ -22636,7 +26858,7 @@ System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__ctor:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2480]
+ldr x16, [x16, #2744]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -22661,7 +26883,7 @@ ldr x16, [x16, #2480]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #2488]
+ldr x0, [x16, #2752]
 .word 0xf9400000
 .word 0xf9001ba0
 .word 0xf9000b40
@@ -22677,7 +26899,68 @@ bl _p_9
 .word 0xa8c47bfd
 .word 0xd65f03c0
 
-Lme_bd:
+Lme_cc:
+.text
+ut_205:
+add x0, x0, 16
+b System_Array_InternalEnumerator_1_T_REF__ctor_System_Array
+.text
+	.align 4
+	.no_dead_strip System_Array_InternalEnumerator_1_T_REF__ctor_System_Array
+System_Array_InternalEnumerator_1_T_REF__ctor_System_Array:
+.word 0xa9bb7bfd
+.word 0x910003fd
+.word 0xf9000bb9
+.word 0xf9001faf
+.word 0xaa0003f9
+.word 0xf9000fa1
+
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #2760]
+.word 0xf90013b0
+.word 0xf9400a11
+.word 0xf90017b1
+.word 0xf94013b1
+.word 0xf9403e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94017b1
+.word 0xf9400231
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf94013b1
+.word 0xf9405e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0xf9400fa0
+.word 0xf90023a0
+.word 0xf9000320
+.word 0xaa1903e0
+.word 0xaa1903e0
+bl _p_9
+.word 0xf94023a0
+.word 0xf94013b1
+.word 0xf9408e31
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xaa1903e0
+.word 0x92800020
+.word 0xf2bfffe0
+.word 0x9280003e
+.word 0xf2bffffe
+.word 0xb9000b3e
+.word 0xf94013b1
+.word 0xf940b631
+.word 0xb4000051
+.word 0xd63f0220
+.word 0xf9400bb9
+.word 0x910003bf
+.word 0xa8c57bfd
+.word 0xd65f03c0
+
+Lme_cd:
 .text
 	.align 4
 	.no_dead_strip System_Array_InternalArray__get_Item_Microsoft_Xna_Framework_Point_int
@@ -22690,7 +26973,7 @@ System_Array_InternalArray__get_Item_Microsoft_Xna_Framework_Point_int:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2496]
+ldr x16, [x16, #2768]
 .word 0xf9001bb0
 .word 0xf9400a11
 .word 0xf9001fb1
@@ -22726,14 +27009,14 @@ ldr x16, [x16, #2496]
 .word 0xd63f0220
 .word 0xd281dba0
 .word 0xd281dba0
-bl _p_138
+bl _p_162
 .word 0xaa0003e1
 .word 0xd28006e0
 .word 0xf2a04000
 .word 0xd28006e0
 .word 0xf2a04000
 bl _mono_create_corlib_exception_1
-bl _p_139
+bl _p_163
 .word 0xf9401bb1
 .word 0xf940da31
 .word 0xb4000051
@@ -22744,7 +27027,7 @@ bl _p_139
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1768]
+ldr x0, [x16, #2080]
 .word 0x93407f40
 .word 0xd37df000
 .word 0x8b000320
@@ -22778,7 +27061,7 @@ ldr x0, [x16, #1768]
 .word 0xa8c77bfd
 .word 0xd65f03c0
 
-Lme_be:
+Lme_ce:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
@@ -22789,7 +27072,7 @@ System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Poin
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2504]
+ldr x16, [x16, #2776]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -22798,7 +27081,7 @@ ldr x16, [x16, #2504]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0xf9400ba0
-bl _p_161
+bl _p_189
 .word 0xf9400fb1
 .word 0xf9404a31
 .word 0xb4000051
@@ -22811,7 +27094,7 @@ bl _p_161
 .word 0xa8c37bfd
 .word 0xd65f03c0
 
-Lme_bf:
+Lme_cf:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
@@ -22824,7 +27107,7 @@ System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Poin
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2512]
+ldr x16, [x16, #2784]
 .word 0xf9001fb0
 .word 0xf9400a11
 .word 0xf90023b1
@@ -22867,7 +27150,7 @@ ldr x16, [x16, #2512]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1704]
+ldr x0, [x16, #2040]
 bl _p_17
 .word 0xaa0003e1
 .word 0xf9403fa0
@@ -22875,7 +27158,7 @@ bl _p_17
 .word 0x91004022
 .word 0xf9402fa3
 .word 0xf9000043
-bl _p_149
+bl _p_178
 .word 0x53001c00
 .word 0xf9003ba0
 .word 0xf9401fb1
@@ -22921,7 +27204,7 @@ bl _p_149
 .word 0xa8c87bfd
 .word 0xd65f03c0
 
-Lme_c0:
+Lme_d0:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode_Microsoft_Xna_Framework_Point
@@ -22933,7 +27216,7 @@ System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Poin
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2520]
+ldr x16, [x16, #2792]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -22966,7 +27249,7 @@ ldr x16, [x16, #2520]
 .word 0xb4000051
 .word 0xd63f0220
 .word 0x910063a0
-bl _p_163
+bl _p_191
 .word 0x93407c00
 .word 0xf9002ba0
 .word 0xf94017b1
@@ -22982,7 +27265,7 @@ bl _p_163
 .word 0xa8c67bfd
 .word 0xd65f03c0
 
-Lme_c1:
+Lme_d1:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_IndexOf_Microsoft_Xna_Framework_Point___Microsoft_Xna_Framework_Point_int_int
@@ -23000,7 +27283,7 @@ System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Poin
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2528]
+ldr x16, [x16, #2800]
 .word 0xf9002fb0
 .word 0xf9400a11
 .word 0xf90033b1
@@ -23127,7 +27410,7 @@ ldr x16, [x16, #2528]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #1704]
+ldr x0, [x16, #2040]
 bl _p_17
 .word 0xaa0003e1
 .word 0xf9404fa0
@@ -23135,7 +27418,7 @@ bl _p_17
 .word 0x91004022
 .word 0xf9403ba3
 .word 0xf9000043
-bl _p_149
+bl _p_178
 .word 0x53001c00
 .word 0xf9004ba0
 .word 0xf9402fb1
@@ -23200,7 +27483,7 @@ bl _p_149
 .word 0xaa1103e1
 bl _p_34
 
-Lme_c2:
+Lme_d2:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_object
@@ -23214,7 +27497,7 @@ System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Poin
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2536]
+ldr x16, [x16, #2808]
 .word 0xf9001fb0
 .word 0xf9400a11
 .word 0xf90023b1
@@ -23242,7 +27525,7 @@ ldr x16, [x16, #2536]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x1, [x16, #2544]
+ldr x1, [x16, #2816]
 .word 0xeb01001f
 .word 0x54000040
 .word 0xd2800017
@@ -23268,7 +27551,7 @@ ldr x1, [x16, #2544]
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_c3:
+Lme_d3:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode
@@ -23279,7 +27562,7 @@ System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Poin
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2552]
+ldr x16, [x16, #2824]
 .word 0xf9000fb0
 .word 0xf9400a11
 .word 0xf90013b1
@@ -23333,68 +27616,7 @@ ldr x16, [x16, #2552]
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_c4:
-.text
-ut_197:
-add x0, x0, 16
-b System_Array_InternalEnumerator_1_T_REF__ctor_System_Array
-.text
-	.align 4
-	.no_dead_strip System_Array_InternalEnumerator_1_T_REF__ctor_System_Array
-System_Array_InternalEnumerator_1_T_REF__ctor_System_Array:
-.word 0xa9bb7bfd
-.word 0x910003fd
-.word 0xf9000bb9
-.word 0xf9001faf
-.word 0xaa0003f9
-.word 0xf9000fa1
-
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2560]
-.word 0xf90013b0
-.word 0xf9400a11
-.word 0xf90017b1
-.word 0xf94013b1
-.word 0xf9403e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94017b1
-.word 0xf9400231
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf94013b1
-.word 0xf9405e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0xf9400fa0
-.word 0xf90023a0
-.word 0xf9000320
-.word 0xaa1903e0
-.word 0xaa1903e0
-bl _p_9
-.word 0xf94023a0
-.word 0xf94013b1
-.word 0xf9408e31
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xaa1903e0
-.word 0x92800020
-.word 0xf2bfffe0
-.word 0x9280003e
-.word 0xf2bffffe
-.word 0xb9000b3e
-.word 0xf94013b1
-.word 0xf940b631
-.word 0xb4000051
-.word 0xd63f0220
-.word 0xf9400bb9
-.word 0x910003bf
-.word 0xa8c57bfd
-.word 0xd65f03c0
-
-Lme_c5:
+Lme_d4:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_EnsureCapacity_int
@@ -23408,7 +27630,7 @@ System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_EnsureCapacity_i
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2568]
+ldr x16, [x16, #2832]
 .word 0xf9001bb0
 .word 0xf9400a11
 .word 0xf9001fb1
@@ -23496,7 +27718,7 @@ ldr x16, [x16, #2568]
 .word 0xaa1803e0
 .word 0xaa1903e0
 .word 0xaa1803e1
-bl _p_185
+bl _p_209
 .word 0xf9401bb1
 .word 0xf9419231
 .word 0xb4000051
@@ -23511,7 +27733,7 @@ bl _p_185
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_c6:
+Lme_d5:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__cctor
@@ -23521,7 +27743,7 @@ System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__cctor:
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2576]
+ldr x16, [x16, #2840]
 .word 0xf9000bb0
 .word 0xf9400a11
 .word 0xf9000fb1
@@ -23541,14 +27763,14 @@ ldr x16, [x16, #2576]
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #2584]
+ldr x0, [x16, #2848]
 .word 0xd2800001
-bl _p_156
+bl _p_184
 .word 0xaa0003e1
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #2488]
+ldr x0, [x16, #2752]
 .word 0xf9000001
 .word 0xf9400bb1
 .word 0xf9408a31
@@ -23558,7 +27780,7 @@ ldr x0, [x16, #2488]
 .word 0xa8c37bfd
 .word 0xd65f03c0
 
-Lme_c7:
+Lme_d6:
 .text
 	.align 4
 	.no_dead_strip System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_set_Capacity_int
@@ -23572,7 +27794,7 @@ System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_set_Capacity_int
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2592]
+ldr x16, [x16, #2856]
 .word 0xf90017b0
 .word 0xf9400a11
 .word 0xf9001bb1
@@ -23602,7 +27824,7 @@ ldr x16, [x16, #2592]
 .word 0xd28002a0
 .word 0xd28001e0
 .word 0xd28002a1
-bl _p_186
+bl _p_210
 .word 0xf9401bb1
 .word 0xf9400231
 .word 0xb4000051
@@ -23633,9 +27855,9 @@ bl _p_186
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #2584]
+ldr x0, [x16, #2848]
 .word 0xaa1a03e1
-bl _p_156
+bl _p_184
 .word 0xaa0003f8
 .word 0xf94017b1
 .word 0xf9412e31
@@ -23660,7 +27882,7 @@ bl _p_156
 .word 0xd2800001
 .word 0xaa1803e2
 .word 0xd2800003
-bl _p_150
+bl _p_173
 .word 0xf9401bb1
 .word 0xf9400231
 .word 0xb4000051
@@ -23683,7 +27905,7 @@ bl _p_9
 
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x0, [x16, #2488]
+ldr x0, [x16, #2752]
 .word 0xf9400000
 .word 0xf90023a0
 .word 0xf9000b20
@@ -23700,7 +27922,7 @@ bl _p_9
 .word 0xa8c57bfd
 .word 0xd65f03c0
 
-Lme_c8:
+Lme_d7:
 .text
 	.align 3
 jit_code_end:
@@ -23761,8 +27983,11 @@ bl TheAdventuresOf_Button_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Micr
 bl TheAdventuresOf_Level__ctor
 bl TheAdventuresOf_Level_InitializeLevel
 bl TheAdventuresOf_Level_CheckCollision_TheAdventuresOf_Character
+bl TheAdventuresOf_Level_GetRandomXLocation_single
+bl TheAdventuresOf_Level_Update_Microsoft_Xna_Framework_GameTime_TheAdventuresOf_Player
 bl TheAdventuresOf_Level_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch
 bl TheAdventuresOf_Level__cctor
+bl TheAdventuresOf_Level__Updatem__0_TheAdventuresOf_Monster
 bl TheAdventuresOf_Player__ctor
 bl TheAdventuresOf_Player_InitializeCharacter_single_single_int_int
 bl TheAdventuresOf_Player_InitializeAnimation
@@ -23778,24 +28003,34 @@ bl TheAdventuresOf_Player_UpdateSwordBounds
 bl TheAdventuresOf_Player_MoveSword_int
 bl TheAdventuresOf_Player_Jump_Microsoft_Xna_Framework_GameTime
 bl TheAdventuresOf_Player_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
+bl TheAdventuresOf_Player_DrawHealth_Microsoft_Xna_Framework_Graphics_SpriteBatch
 bl TheAdventuresOf_XmlImporter_GetXMLInformation
+bl TheAdventuresOf_XmlImporter_LoadLevelInformation_TheAdventuresOf_Level
 bl TheAdventuresOf_XmlImporter_LoadPlayerInformation_TheAdventuresOf_Player
-bl TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation_TheAdventuresOf_Monster
+bl TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation
+bl TheAdventuresOf_XmlImporter_TransferBlockMonsterInformation_TheAdventuresOf_Monster
 bl TheAdventuresOf_AssetManager_LoadGameAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
 bl TheAdventuresOf_AssetManager_LoadLevelAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
 bl TheAdventuresOf_AssetManager_DisposeLevelAssets
 bl TheAdventuresOf_Monster__ctor
+bl TheAdventuresOf_Monster_InitializeMonsterAfterSpawn
+bl TheAdventuresOf_Monster_InitializeSpawn
 bl TheAdventuresOf_Monster_InitializeAnimation
 bl TheAdventuresOf_Monster_HandleLevelBoundCollision_int_int
-bl TheAdventuresOf_Monster_Update_Microsoft_Xna_Framework_GameTime_bool
 bl TheAdventuresOf_Monster_HandleDelay_Microsoft_Xna_Framework_GameTime
+bl TheAdventuresOf_Monster_HandleSpawn_Microsoft_Xna_Framework_GameTime
 bl TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime
-bl TheAdventuresOf_Monster_RandomizeMovement
-bl TheAdventuresOf_Monster_ChooseRandomDirection
 bl TheAdventuresOf_Monster_HandleAnimation_Microsoft_Xna_Framework_GameTime
 bl TheAdventuresOf_Monster_HandleMovement_Microsoft_Xna_Framework_GameTime
+bl TheAdventuresOf_Monster_Update_Microsoft_Xna_Framework_GameTime_bool
+bl TheAdventuresOf_Monster_Rotate_Microsoft_Xna_Framework_GameTime
+bl TheAdventuresOf_Monster_MoveUpDown_Microsoft_Xna_Framework_GameTime_int
+bl TheAdventuresOf_Monster_RandomizeMovement
+bl TheAdventuresOf_Monster_ChooseRandomDirection
 bl TheAdventuresOf_Monster_Move_Microsoft_Xna_Framework_GameTime_int
 bl TheAdventuresOf_Monster_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
+bl TheAdventuresOf_Monster_reset
+bl TheAdventuresOf_Monster__cctor
 bl method_addresses
 bl System_Nullable_1_Microsoft_Xna_Framework_Matrix__ctor_Microsoft_Xna_Framework_Matrix
 bl System_Nullable_1_Microsoft_Xna_Framework_Matrix_get_HasValue
@@ -23808,6 +28043,16 @@ bl System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetValueOrDefault_Microsoft_
 bl System_Nullable_1_Microsoft_Xna_Framework_Matrix_ToString
 bl System_Nullable_1_Microsoft_Xna_Framework_Matrix_Box_System_Nullable_1_Microsoft_Xna_Framework_Matrix
 bl System_Nullable_1_Microsoft_Xna_Framework_Matrix_Unbox_object
+bl System_Array_InternalArray__IEnumerable_GetEnumerator_T_REF
+bl System_Array_InternalArray__ICollection_get_Count
+bl System_Array_InternalArray__ICollection_get_IsReadOnly
+bl System_Array_InternalArray__ICollection_Clear
+bl System_Array_InternalArray__ICollection_Add_T_REF_T_REF
+bl System_Array_InternalArray__ICollection_Remove_T_REF_T_REF
+bl System_Array_InternalArray__ICollection_Contains_T_REF_T_REF
+bl System_Array_InternalArray__ICollection_CopyTo_T_REF_T_REF___int
+bl wrapper_delegate_invoke_System_Predicate_1_TheAdventuresOf_Monster_invoke_bool_T_TheAdventuresOf_Monster
+bl wrapper_delegate_invoke_System_Comparison_1_TheAdventuresOf_Monster_invoke_int_T_T_TheAdventuresOf_Monster_TheAdventuresOf_Monster
 bl method_addresses
 bl System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point__ctor_System_Array
 bl System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_Dispose
@@ -23823,9 +28068,6 @@ bl method_addresses
 bl method_addresses
 bl method_addresses
 bl method_addresses
-bl System_Array_InternalArray__ICollection_get_Count
-bl System_Array_InternalArray__ICollection_get_IsReadOnly
-bl System_Array_InternalArray__ICollection_Clear
 bl System_Array_InternalArray__ICollection_Add_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
 bl System_Array_InternalArray__ICollection_Remove_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
 bl System_Array_InternalArray__ICollection_Contains_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
@@ -23889,17 +28131,13 @@ bl System_Nullable_1_Microsoft_Xna_Framework_Color_GetValueOrDefault_Microsoft_X
 bl System_Nullable_1_Microsoft_Xna_Framework_Color_ToString
 bl System_Nullable_1_Microsoft_Xna_Framework_Color_Box_System_Nullable_1_Microsoft_Xna_Framework_Color
 bl System_Nullable_1_Microsoft_Xna_Framework_Color_Unbox_object
-bl System_Array_InternalArray__IEnumerable_GetEnumerator_T_REF
-bl System_Array_InternalArray__ICollection_Add_T_REF_T_REF
-bl System_Array_InternalArray__ICollection_Remove_T_REF_T_REF
-bl System_Array_InternalArray__ICollection_Contains_T_REF_T_REF
-bl System_Array_InternalArray__ICollection_CopyTo_T_REF_T_REF___int
 bl wrapper_delegate_invoke_System_Predicate_1_TheAdventuresOf_AnimationFrame_invoke_bool_T_TheAdventuresOf_AnimationFrame
 bl wrapper_delegate_invoke_System_Comparison_1_TheAdventuresOf_AnimationFrame_invoke_int_T_T_TheAdventuresOf_AnimationFrame_TheAdventuresOf_AnimationFrame
 bl System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Count
 bl System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Item_int
 bl System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_Add_Microsoft_Xna_Framework_Point
 bl System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__ctor
+bl System_Array_InternalEnumerator_1_T_REF__ctor_System_Array
 bl System_Array_InternalArray__get_Item_Microsoft_Xna_Framework_Point_int
 bl System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
 bl System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
@@ -23907,7 +28145,6 @@ bl System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_P
 bl System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_IndexOf_Microsoft_Xna_Framework_Point___Microsoft_Xna_Framework_Point_int_int
 bl System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_object
 bl System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode
-bl System_Array_InternalEnumerator_1_T_REF__ctor_System_Array
 bl System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_EnsureCapacity_int
 bl System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__cctor
 bl System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_set_Capacity_int
@@ -23917,56 +28154,36 @@ method_addresses_end:
 	.align 3
 unbox_trampolines:
 
-	.long 87,88,89,90,91,92,93,94
-	.long 95,96,97,99,100,101,102,103
-	.long 104,146,147,148,149,150,151,152
-	.long 153,154,155,156,157,158,159,160
-	.long 161,162,163,164,165,166,167,168
-	.long 169,170,171,172,173,174,175,176
-	.long 177,178,197
+	.long 100,101,102,103,104,105,106,107
+	.long 108,109,110,122,123,124,125,126
+	.long 127,166,167,168,169,170,171,172
+	.long 173,174,175,176,177,178,179,180
+	.long 181,182,183,184,185,186,187,188
+	.long 189,190,191,192,193,194,195,196
+	.long 197,198,205
 unbox_trampolines_end:
 
 	.long 0
 .text
 	.align 3
 unbox_trampoline_addresses:
-bl ut_87
-bl ut_88
-bl ut_89
-bl ut_90
-bl ut_91
-bl ut_92
-bl ut_93
-bl ut_94
-bl ut_95
-bl ut_96
-bl ut_97
-bl ut_99
 bl ut_100
 bl ut_101
 bl ut_102
 bl ut_103
 bl ut_104
-bl ut_146
-bl ut_147
-bl ut_148
-bl ut_149
-bl ut_150
-bl ut_151
-bl ut_152
-bl ut_153
-bl ut_154
-bl ut_155
-bl ut_156
-bl ut_157
-bl ut_158
-bl ut_159
-bl ut_160
-bl ut_161
-bl ut_162
-bl ut_163
-bl ut_164
-bl ut_165
+bl ut_105
+bl ut_106
+bl ut_107
+bl ut_108
+bl ut_109
+bl ut_110
+bl ut_122
+bl ut_123
+bl ut_124
+bl ut_125
+bl ut_126
+bl ut_127
 bl ut_166
 bl ut_167
 bl ut_168
@@ -23980,7 +28197,27 @@ bl ut_175
 bl ut_176
 bl ut_177
 bl ut_178
+bl ut_179
+bl ut_180
+bl ut_181
+bl ut_182
+bl ut_183
+bl ut_184
+bl ut_185
+bl ut_186
+bl ut_187
+bl ut_188
+bl ut_189
+bl ut_190
+bl ut_191
+bl ut_192
+bl ut_193
+bl ut_194
+bl ut_195
+bl ut_196
 bl ut_197
+bl ut_198
+bl ut_205
 
 	.long 0
 .section __TEXT, __const
@@ -23988,56 +28225,61 @@ bl ut_197
 unwind_info:
 
 	.byte 0,13,12,31,0,68,14,48,157,6,158,5,68,13,29,13,12,31,0,68,14,64,157,8,158,7,68,13,29,16,12,31
-	.byte 0,68,14,80,157,10,158,9,68,13,29,68,154,8,17,12,31,0,68,14,160,1,157,20,158,19,68,13,29,68,154,18
-	.byte 17,12,31,0,68,14,160,2,157,36,158,35,68,13,29,68,154,34,19,12,31,0,68,14,144,1,157,18,158,17,68,13
-	.byte 29,68,153,16,154,15,19,12,31,0,84,14,144,5,157,82,158,81,68,13,29,68,153,80,154,79,17,12,31,0,68,14
-	.byte 224,1,157,28,158,27,68,13,29,68,152,26,14,12,31,0,68,14,128,2,157,32,158,31,68,13,29,14,12,31,0,68
-	.byte 14,128,1,157,16,158,15,68,13,29,14,12,31,0,68,14,176,3,157,54,158,53,68,13,29,13,12,31,0,68,14,80
-	.byte 157,10,158,9,68,13,29,19,12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,152,16,153,15,24,12,31,0,84
-	.byte 14,176,4,157,70,158,69,68,13,29,68,151,68,152,67,68,153,66,154,65,14,12,31,0,84,14,192,4,157,72,158,71
-	.byte 68,13,29,16,12,31,0,68,14,48,157,6,158,5,68,13,29,68,154,4,22,12,31,0,68,14,176,1,157,22,158,21
-	.byte 68,13,29,68,152,20,153,19,68,154,18,21,12,31,0,68,14,64,157,8,158,7,68,13,29,68,152,6,153,5,68,154
-	.byte 4,24,12,31,0,84,14,144,6,157,98,158,97,68,13,29,84,151,96,152,95,68,153,94,154,93,14,12,31,0,68,14
-	.byte 192,1,157,24,158,23,68,13,29,13,12,31,0,68,14,112,157,14,158,13,68,13,29,13,12,31,0,68,14,96,157,12
-	.byte 158,11,68,13,29,16,12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6,22,12,31,0,68,14,224,2,157,44
-	.byte 158,43,68,13,29,68,152,42,153,41,68,154,40,19,12,31,0,68,14,128,2,157,32,158,31,68,13,29,68,153,30,154
-	.byte 29,22,12,31,0,68,14,160,1,157,20,158,19,68,13,29,68,152,18,153,17,68,154,16,17,12,31,0,68,14,192,1
-	.byte 157,24,158,23,68,13,29,68,153,22,14,12,31,0,68,14,176,2,157,38,158,37,68,13,29,17,12,31,0,68,14,240
-	.byte 2,157,46,158,45,68,13,29,84,154,44,16,12,31,0,68,14,112,157,14,158,13,68,13,29,68,154,12,16,12,31,0
-	.byte 68,14,96,157,12,158,11,68,13,29,68,153,10,17,12,31,0,68,14,240,1,157,30,158,29,68,13,29,68,151,28,17
-	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,154,14,14,12,31,0,68,14,192,2,157,40,158,39,68,13,29
-	.byte 19,12,31,0,68,14,224,1,157,28,158,27,68,13,29,68,152,26,153,25,17,12,31,0,68,14,192,2,157,40,158,39
-	.byte 68,13,29,68,154,38,18,12,31,0,68,14,80,157,10,158,9,68,13,29,68,153,8,154,7,18,12,31,0,68,14,80
-	.byte 157,10,158,9,68,13,29,68,152,8,153,7,18,12,31,0,68,14,112,157,14,158,13,68,13,29,68,153,12,154,11,16
-	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,153,8,27,12,31,0,68,14,160,1,157,20,158,19,68,13,29,68
-	.byte 150,18,151,17,68,152,16,153,15,68,154,14,18,12,31,0,68,14,64,157,8,158,7,68,13,29,68,153,6,154,5,24
-	.byte 12,31,0,68,14,128,2,157,32,158,31,68,13,29,68,150,30,151,29,68,152,28,153,27,19,12,31,0,68,14,240,3
-	.byte 157,62,158,61,68,13,29,84,152,60,153,59,19,12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,153,14,154,13
-	.byte 24,12,31,0,68,14,224,3,157,60,158,59,68,13,29,68,151,58,152,57,68,153,56,154,55,27,12,31,0,68,14,144
-	.byte 3,157,50,158,49,68,13,29,68,150,48,151,47,68,152,46,153,45,68,154,44,17,12,31,0,68,14,144,1,157,18,158
-	.byte 17,68,13,29,68,154,16,17,12,31,0,68,14,128,2,157,32,158,31,68,13,29,68,154,30,17,12,31,0,68,14,128
-	.byte 1,157,16,158,15,68,13,29,68,153,14,30,12,31,0,68,14,160,1,157,20,158,19,68,13,29,68,148,18,149,17,68
-	.byte 150,16,151,15,68,152,14,68,154,13,24,12,31,0,68,14,240,1,157,30,158,29,68,13,29,68,151,28,152,27,68,153
-	.byte 26,154,25,17,12,31,0,68,14,224,3,157,60,158,59,68,13,29,68,154,58,26,12,31,0,68,14,96,157,12,158,11
-	.byte 68,13,29,68,150,10,151,9,68,152,8,153,7,68,154,6,16,12,31,0,68,14,96,157,12,158,11,68,13,29,68,154
-	.byte 10,22,12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,152,16,153,15,68,154,14,30,12,31,0,68,14,224,1
-	.byte 157,28,158,27,68,13,29,68,148,26,149,25,68,150,24,68,152,23,153,22,68,154,21,34,12,31,0,68,14,192,1,157
-	.byte 24,158,23,68,13,29,68,147,22,148,21,68,149,20,150,19,68,151,18,152,17,68,153,16,154,15,27,12,31,0,68,14
-	.byte 144,1,157,18,158,17,68,13,29,68,149,16,150,15,68,151,14,152,13,68,153,12,21,12,31,0,68,14,96,157,12,158
-	.byte 11,68,13,29,68,151,10,152,9,68,154,8,29,12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,148,14,149,13
-	.byte 68,150,12,151,11,68,153,10,154,9,27,12,31,0,68,14,160,1,157,20,158,19,68,13,29,68,149,18,150,17,68,151
-	.byte 16,152,15,68,153,14,21,12,31,0,68,14,80,157,10,158,9,68,13,29,68,151,8,152,7,68,153,6,34,12,31,0
-	.byte 68,14,176,1,157,22,158,21,68,13,29,68,147,20,148,19,68,149,18,150,17,68,151,16,152,15,68,153,14,154,13,34
-	.byte 12,31,0,68,14,208,1,157,26,158,25,68,13,29,68,147,24,148,23,68,149,22,150,21,68,151,20,152,19,68,153,18
-	.byte 154,17,23,12,31,0,68,14,112,157,14,158,13,68,13,29,68,151,12,152,11,68,153,10,154,9,17,12,31,0,68,14
-	.byte 208,1,157,26,158,25,68,13,29,68,154,24,24,12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,151,16,152,15
-	.byte 68,153,14,154,13,17,12,31,0,68,14,176,1,157,22,158,21,68,13,29,68,154,20,14,12,31,0,68,14,144,1,157
-	.byte 18,158,17,68,13,29,21,12,31,0,68,14,112,157,14,158,13,68,13,29,68,152,12,153,11,68,154,10,30,12,31,0
-	.byte 68,14,240,1,157,30,158,29,68,13,29,68,148,28,149,27,68,150,26,68,152,25,153,24,68,154,23,34,12,31,0,68
-	.byte 14,144,1,157,18,158,17,68,13,29,68,147,16,148,15,68,149,14,150,13,68,151,12,152,11,68,153,10,154,9,26,12
-	.byte 31,0,68,14,112,157,14,158,13,68,13,29,68,150,12,151,11,68,152,10,153,9,68,154,8,23,12,31,0,68,14,80
-	.byte 157,10,158,9,68,13,29,68,151,8,152,7,68,153,6,154,5,21,12,31,0,68,14,80,157,10,158,9,68,13,29,68
-	.byte 152,8,153,7,68,154,6
+	.byte 0,68,14,80,157,10,158,9,68,13,29,68,154,8,17,12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,154,16
+	.byte 17,12,31,0,68,14,192,1,157,24,158,23,68,13,29,68,154,22,19,12,31,0,68,14,128,1,157,16,158,15,68,13
+	.byte 29,68,153,14,154,13,22,12,31,0,84,14,160,5,157,84,158,83,68,13,29,68,152,82,153,81,68,154,80,17,12,31
+	.byte 0,68,14,224,1,157,28,158,27,68,13,29,68,152,26,14,12,31,0,68,14,128,2,157,32,158,31,68,13,29,14,12
+	.byte 31,0,68,14,128,1,157,16,158,15,68,13,29,14,12,31,0,68,14,176,3,157,54,158,53,68,13,29,13,12,31,0
+	.byte 68,14,80,157,10,158,9,68,13,29,19,12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,152,16,153,15,24,12
+	.byte 31,0,84,14,176,4,157,70,158,69,68,13,29,68,151,68,152,67,68,153,66,154,65,14,12,31,0,84,14,192,4,157
+	.byte 72,158,71,68,13,29,16,12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6,22,12,31,0,68,14,208,1,157
+	.byte 26,158,25,68,13,29,68,152,24,153,23,68,154,22,16,12,31,0,68,14,48,157,6,158,5,68,13,29,68,154,4,21
+	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,152,6,153,5,68,154,4,24,12,31,0,84,14,128,7,157,112,158
+	.byte 111,68,13,29,84,151,110,152,109,68,153,108,154,107,14,12,31,0,68,14,192,1,157,24,158,23,68,13,29,13,12,31
+	.byte 0,68,14,112,157,14,158,13,68,13,29,13,12,31,0,68,14,96,157,12,158,11,68,13,29,22,12,31,0,68,14,224
+	.byte 2,157,44,158,43,68,13,29,68,152,42,153,41,68,154,40,19,12,31,0,68,14,128,2,157,32,158,31,68,13,29,68
+	.byte 153,30,154,29,22,12,31,0,68,14,160,1,157,20,158,19,68,13,29,68,152,18,153,17,68,154,16,17,12,31,0,68
+	.byte 14,192,1,157,24,158,23,68,13,29,68,153,22,14,12,31,0,68,14,176,2,157,38,158,37,68,13,29,17,12,31,0
+	.byte 68,14,240,2,157,46,158,45,68,13,29,84,154,44,16,12,31,0,68,14,112,157,14,158,13,68,13,29,68,154,12,16
+	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29,68,153,10,17,12,31,0,68,14,240,1,157,30,158,29,68,13,29,68
+	.byte 151,28,27,12,31,0,68,14,208,2,157,42,158,41,68,13,29,68,150,40,151,39,68,152,38,153,37,68,154,36,14,12
+	.byte 31,0,68,14,192,2,157,40,158,39,68,13,29,16,12,31,0,68,14,96,157,12,158,11,68,13,29,68,152,10,19,12
+	.byte 31,0,68,14,144,2,157,34,158,33,68,13,29,68,152,32,153,31,17,12,31,0,68,14,192,2,157,40,158,39,68,13
+	.byte 29,68,154,38,22,12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,152,14,153,13,68,154,12,18,12,31,0,68
+	.byte 14,64,157,8,158,7,68,13,29,68,153,6,154,5,18,12,31,0,68,14,80,157,10,158,9,68,13,29,68,152,8,153
+	.byte 7,22,12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,152,16,153,15,68,154,14,18,12,31,0,68,14,80,157
+	.byte 10,158,9,68,13,29,68,153,8,154,7,16,12,31,0,68,14,80,157,10,158,9,68,13,29,68,153,8,27,12,31,0
+	.byte 68,14,160,1,157,20,158,19,68,13,29,68,150,18,151,17,68,152,16,153,15,68,154,14,24,12,31,0,68,14,128,2
+	.byte 157,32,158,31,68,13,29,68,150,30,151,29,68,152,28,153,27,19,12,31,0,68,14,240,3,157,62,158,61,68,13,29
+	.byte 84,152,60,153,59,24,12,31,0,84,14,176,4,157,70,158,69,68,13,29,84,151,68,152,67,68,153,66,154,65,19,12
+	.byte 31,0,68,14,144,1,157,18,158,17,68,13,29,68,153,16,154,15,22,12,31,0,68,14,176,2,157,38,158,37,68,13
+	.byte 29,68,152,36,153,35,68,154,34,22,12,31,0,84,14,160,4,157,68,158,67,68,13,29,68,152,66,153,65,68,154,64
+	.byte 22,12,31,0,84,14,144,4,157,66,158,65,68,13,29,68,152,64,153,63,68,154,62,17,12,31,0,68,14,128,2,157
+	.byte 32,158,31,68,13,29,68,154,30,17,12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,153,14,18,12,31,0,68
+	.byte 14,96,157,12,158,11,68,13,29,68,153,10,154,9,22,12,31,0,68,14,176,1,157,22,158,21,68,13,29,68,151,20
+	.byte 152,19,68,153,18,24,12,31,0,68,14,160,1,157,20,158,19,68,13,29,68,150,18,151,17,68,152,16,153,15,30,12
+	.byte 31,0,68,14,160,1,157,20,158,19,68,13,29,68,148,18,149,17,68,150,16,151,15,68,152,14,68,154,13,17,12,31
+	.byte 0,68,14,128,1,157,16,158,15,68,13,29,68,154,14,24,12,31,0,68,14,240,1,157,30,158,29,68,13,29,68,151
+	.byte 28,152,27,68,153,26,154,25,17,12,31,0,68,14,224,3,157,60,158,59,68,13,29,68,154,58,14,12,31,0,68,14
+	.byte 144,1,157,18,158,17,68,13,29,21,12,31,0,68,14,112,157,14,158,13,68,13,29,68,152,12,153,11,68,154,10,30
+	.byte 12,31,0,68,14,240,1,157,30,158,29,68,13,29,68,148,28,149,27,68,150,26,68,152,25,153,24,68,154,23,34,12
+	.byte 31,0,68,14,144,1,157,18,158,17,68,13,29,68,147,16,148,15,68,149,14,150,13,68,151,12,152,11,68,153,10,154
+	.byte 9,26,12,31,0,68,14,96,157,12,158,11,68,13,29,68,150,10,151,9,68,152,8,153,7,68,154,6,16,12,31,0
+	.byte 68,14,96,157,12,158,11,68,13,29,68,154,10,30,12,31,0,68,14,224,1,157,28,158,27,68,13,29,68,148,26,149
+	.byte 25,68,150,24,68,152,23,153,22,68,154,21,34,12,31,0,68,14,192,1,157,24,158,23,68,13,29,68,147,22,148,21
+	.byte 68,149,20,150,19,68,151,18,152,17,68,153,16,154,15,27,12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,149
+	.byte 16,150,15,68,151,14,152,13,68,153,12,21,12,31,0,68,14,96,157,12,158,11,68,13,29,68,151,10,152,9,68,154
+	.byte 8,29,12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,148,14,149,13,68,150,12,151,11,68,153,10,154,9,27
+	.byte 12,31,0,68,14,160,1,157,20,158,19,68,13,29,68,149,18,150,17,68,151,16,152,15,68,153,14,21,12,31,0,68
+	.byte 14,80,157,10,158,9,68,13,29,68,151,8,152,7,68,153,6,34,12,31,0,68,14,176,1,157,22,158,21,68,13,29
+	.byte 68,147,20,148,19,68,149,18,150,17,68,151,16,152,15,68,153,14,154,13,34,12,31,0,68,14,208,1,157,26,158,25
+	.byte 68,13,29,68,147,24,148,23,68,149,22,150,21,68,151,20,152,19,68,153,18,154,17,23,12,31,0,68,14,112,157,14
+	.byte 158,13,68,13,29,68,151,12,152,11,68,153,10,154,9,17,12,31,0,68,14,208,1,157,26,158,25,68,13,29,68,154
+	.byte 24,24,12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,151,16,152,15,68,153,14,154,13,17,12,31,0,68,14
+	.byte 176,1,157,22,158,21,68,13,29,68,154,20,26,12,31,0,68,14,112,157,14,158,13,68,13,29,68,150,12,151,11,68
+	.byte 152,10,153,9,68,154,8,18,12,31,0,68,14,112,157,14,158,13,68,13,29,68,153,12,154,11,23,12,31,0,68,14
+	.byte 80,157,10,158,9,68,13,29,68,151,8,152,7,68,153,6,154,5,21,12,31,0,68,14,80,157,10,158,9,68,13,29
+	.byte 68,152,8,153,7,68,154,6
 
 .text
 	.align 4
@@ -24048,1493 +28290,1685 @@ plt_UIKit_UIApplicationDelegate__ctor:
 _p_1:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2608]
+ldr x16, [x16, #2872]
 br x16
-.word 4057
+.word 4371
 	.no_dead_strip plt__jit_icall_mono_object_new_specific
 plt__jit_icall_mono_object_new_specific:
 _p_2:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2616]
+ldr x16, [x16, #2880]
 br x16
-.word 4062
+.word 4376
 	.no_dead_strip plt_TheAdventuresOf_TheAdventuresOf__ctor
 plt_TheAdventuresOf_TheAdventuresOf__ctor:
 _p_3:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2624]
+ldr x16, [x16, #2888]
 br x16
-.word 4089
+.word 4403
 	.no_dead_strip plt_Microsoft_Xna_Framework_Game_Run
 plt_Microsoft_Xna_Framework_Game_Run:
 _p_4:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2632]
+ldr x16, [x16, #2896]
 br x16
-.word 4091
+.word 4405
 	.no_dead_strip plt_UIKit_UIApplication_Main_string___string_string
 plt_UIKit_UIApplication_Main_string___string_string:
 _p_5:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2640]
+ldr x16, [x16, #2904]
 br x16
-.word 4096
+.word 4410
 	.no_dead_strip plt_TheAdventuresOf_iOS_Program_RunGame
 plt_TheAdventuresOf_iOS_Program_RunGame:
 _p_6:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2648]
+ldr x16, [x16, #2912]
 br x16
-.word 4101
+.word 4415
 	.no_dead_strip plt_Microsoft_Xna_Framework_Game__ctor
 plt_Microsoft_Xna_Framework_Game__ctor:
 _p_7:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2656]
+ldr x16, [x16, #2920]
 br x16
-.word 4103
+.word 4417
 	.no_dead_strip plt_Microsoft_Xna_Framework_GraphicsDeviceManager__ctor_Microsoft_Xna_Framework_Game
 plt_Microsoft_Xna_Framework_GraphicsDeviceManager__ctor_Microsoft_Xna_Framework_Game:
 _p_8:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2664]
+ldr x16, [x16, #2928]
 br x16
-.word 4108
+.word 4422
 	.no_dead_strip plt_wrapper_write_barrier_object_wbarrier_noconc_intptr
 plt_wrapper_write_barrier_object_wbarrier_noconc_intptr:
 _p_9:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2672]
+ldr x16, [x16, #2936]
 br x16
-.word 4113
+.word 4427
 	.no_dead_strip plt_Microsoft_Xna_Framework_Game_get_Content
 plt_Microsoft_Xna_Framework_Game_get_Content:
 _p_10:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2680]
+ldr x16, [x16, #2944]
 br x16
-.word 4120
+.word 4434
 	.no_dead_strip plt_Microsoft_Xna_Framework_Content_ContentManager_set_RootDirectory_string
 plt_Microsoft_Xna_Framework_Content_ContentManager_set_RootDirectory_string:
 _p_11:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2688]
+ldr x16, [x16, #2952]
 br x16
-.word 4125
+.word 4439
 	.no_dead_strip plt_TheAdventuresOf_XmlImporter_GetXMLInformation
 plt_TheAdventuresOf_XmlImporter_GetXMLInformation:
 _p_12:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2696]
+ldr x16, [x16, #2960]
 br x16
-.word 4130
+.word 4444
 	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_GraphicsAdapter_get_DefaultAdapter
 plt_Microsoft_Xna_Framework_Graphics_GraphicsAdapter_get_DefaultAdapter:
 _p_13:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2704]
+ldr x16, [x16, #2968]
 br x16
-.word 4132
+.word 4446
 	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_GraphicsAdapter_get_CurrentDisplayMode
 plt_Microsoft_Xna_Framework_Graphics_GraphicsAdapter_get_CurrentDisplayMode:
 _p_14:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2712]
+ldr x16, [x16, #2976]
 br x16
-.word 4137
+.word 4451
 	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_DisplayMode_get_Width
 plt_Microsoft_Xna_Framework_Graphics_DisplayMode_get_Width:
 _p_15:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2720]
+ldr x16, [x16, #2984]
 br x16
-.word 4142
+.word 4456
 	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_DisplayMode_get_Height
 plt_Microsoft_Xna_Framework_Graphics_DisplayMode_get_Height:
 _p_16:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2728]
+ldr x16, [x16, #2992]
 br x16
-.word 4147
+.word 4461
 	.no_dead_strip plt__jit_icall_mono_object_new_fast
 plt__jit_icall_mono_object_new_fast:
 _p_17:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2736]
+ldr x16, [x16, #3000]
 br x16
-.word 4152
+.word 4466
 	.no_dead_strip plt_TheAdventuresOf_Screen__ctor_int_int
 plt_TheAdventuresOf_Screen__ctor_int_int:
 _p_18:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2744]
+ldr x16, [x16, #3008]
 br x16
-.word 4175
+.word 4489
 	.no_dead_strip plt_TheAdventuresOf_Level__ctor
 plt_TheAdventuresOf_Level__ctor:
 _p_19:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2752]
+ldr x16, [x16, #3016]
 br x16
-.word 4177
+.word 4491
 	.no_dead_strip plt_TheAdventuresOf_Player__ctor
 plt_TheAdventuresOf_Player__ctor:
 _p_20:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2760]
+ldr x16, [x16, #3024]
 br x16
-.word 4179
-	.no_dead_strip plt_TheAdventuresOf_Monster__ctor
-plt_TheAdventuresOf_Monster__ctor:
+.word 4493
+	.no_dead_strip plt_Microsoft_Xna_Framework_Game_Initialize
+plt_Microsoft_Xna_Framework_Game_Initialize:
 _p_21:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2768]
+ldr x16, [x16, #3032]
 br x16
-.word 4181
-	.no_dead_strip plt_Microsoft_Xna_Framework_Game_Initialize
-plt_Microsoft_Xna_Framework_Game_Initialize:
+.word 4495
+	.no_dead_strip plt_Microsoft_Xna_Framework_Game_get_GraphicsDevice
+plt_Microsoft_Xna_Framework_Game_get_GraphicsDevice:
 _p_22:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2776]
+ldr x16, [x16, #3040]
 br x16
-.word 4183
-	.no_dead_strip plt_Microsoft_Xna_Framework_Game_get_GraphicsDevice
-plt_Microsoft_Xna_Framework_Game_get_GraphicsDevice:
+.word 4500
+	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_SpriteBatch__ctor_Microsoft_Xna_Framework_Graphics_GraphicsDevice
+plt_Microsoft_Xna_Framework_Graphics_SpriteBatch__ctor_Microsoft_Xna_Framework_Graphics_GraphicsDevice:
 _p_23:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2784]
+ldr x16, [x16, #3048]
 br x16
-.word 4188
-	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_SpriteBatch__ctor_Microsoft_Xna_Framework_Graphics_GraphicsDevice
-plt_Microsoft_Xna_Framework_Graphics_SpriteBatch__ctor_Microsoft_Xna_Framework_Graphics_GraphicsDevice:
+.word 4505
+	.no_dead_strip plt_TheAdventuresOf_AssetManager_LoadGameAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
+plt_TheAdventuresOf_AssetManager_LoadGameAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice:
 _p_24:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2792]
+ldr x16, [x16, #3056]
 br x16
-.word 4193
-	.no_dead_strip plt_TheAdventuresOf_AssetManager_LoadGameAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
-plt_TheAdventuresOf_AssetManager_LoadGameAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice:
+.word 4510
+	.no_dead_strip plt_TheAdventuresOf_AssetManager_LoadLevelAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
+plt_TheAdventuresOf_AssetManager_LoadLevelAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice:
 _p_25:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2800]
+ldr x16, [x16, #3064]
 br x16
-.word 4198
-	.no_dead_strip plt_TheAdventuresOf_AssetManager_LoadLevelAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
-plt_TheAdventuresOf_AssetManager_LoadLevelAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice:
+.word 4512
+	.no_dead_strip plt_TheAdventuresOf_XmlImporter_LoadLevelInformation_TheAdventuresOf_Level
+plt_TheAdventuresOf_XmlImporter_LoadLevelInformation_TheAdventuresOf_Level:
 _p_26:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2808]
+ldr x16, [x16, #3072]
 br x16
-.word 4200
-	.no_dead_strip plt_TheAdventuresOf_Level_InitializeLevel
-plt_TheAdventuresOf_Level_InitializeLevel:
+.word 4514
+	.no_dead_strip plt_TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation
+plt_TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation:
 _p_27:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2816]
+ldr x16, [x16, #3080]
 br x16
-.word 4202
+.word 4516
 	.no_dead_strip plt_TheAdventuresOf_XmlImporter_LoadPlayerInformation_TheAdventuresOf_Player
 plt_TheAdventuresOf_XmlImporter_LoadPlayerInformation_TheAdventuresOf_Player:
 _p_28:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2824]
+ldr x16, [x16, #3088]
 br x16
-.word 4204
-	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_Texture2D_get_Width
-plt_Microsoft_Xna_Framework_Graphics_Texture2D_get_Width:
+.word 4518
+	.no_dead_strip plt_TheAdventuresOf_Level_InitializeLevel
+plt_TheAdventuresOf_Level_InitializeLevel:
 _p_29:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2832]
+ldr x16, [x16, #3096]
 br x16
-.word 4206
-	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_Texture2D_get_Height
-plt_Microsoft_Xna_Framework_Graphics_Texture2D_get_Height:
+.word 4520
+	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_Texture2D_get_Width
+plt_Microsoft_Xna_Framework_Graphics_Texture2D_get_Width:
 _p_30:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2840]
+ldr x16, [x16, #3104]
 br x16
-.word 4211
-	.no_dead_strip plt_TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation_TheAdventuresOf_Monster
-plt_TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation_TheAdventuresOf_Monster:
+.word 4522
+	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_Texture2D_get_Height
+plt_Microsoft_Xna_Framework_Graphics_Texture2D_get_Height:
 _p_31:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2848]
+ldr x16, [x16, #3112]
 br x16
-.word 4216
+.word 4527
 	.no_dead_strip plt_TheAdventuresOf_FrameRate_LoadContent_Microsoft_Xna_Framework_Content_ContentManager
 plt_TheAdventuresOf_FrameRate_LoadContent_Microsoft_Xna_Framework_Content_ContentManager:
 _p_32:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2856]
+ldr x16, [x16, #3120]
 br x16
-.word 4218
+.word 4532
 	.no_dead_strip plt_TheAdventuresOf_Controller_InitializeController_Microsoft_Xna_Framework_Graphics_GraphicsDevice
 plt_TheAdventuresOf_Controller_InitializeController_Microsoft_Xna_Framework_Graphics_GraphicsDevice:
 _p_33:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2864]
+ldr x16, [x16, #3128]
 br x16
-.word 4220
+.word 4534
 	.no_dead_strip plt__jit_icall_mono_arch_throw_corlib_exception
 plt__jit_icall_mono_arch_throw_corlib_exception:
 _p_34:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2872]
+ldr x16, [x16, #3136]
 br x16
-.word 4222
+.word 4536
 	.no_dead_strip plt_TheAdventuresOf_Screen_Update_Microsoft_Xna_Framework_GameTime
 plt_TheAdventuresOf_Screen_Update_Microsoft_Xna_Framework_GameTime:
 _p_35:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2880]
+ldr x16, [x16, #3144]
 br x16
-.word 4257
-	.no_dead_strip plt_TheAdventuresOf_Level_CheckCollision_TheAdventuresOf_Character
-plt_TheAdventuresOf_Level_CheckCollision_TheAdventuresOf_Character:
+.word 4571
+	.no_dead_strip plt_TheAdventuresOf_Level_Update_Microsoft_Xna_Framework_GameTime_TheAdventuresOf_Player
+plt_TheAdventuresOf_Level_Update_Microsoft_Xna_Framework_GameTime_TheAdventuresOf_Player:
 _p_36:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2888]
+ldr x16, [x16, #3152]
 br x16
-.word 4259
-	.no_dead_strip plt_TheAdventuresOf_Player_CheckCollision_TheAdventuresOf_Monster
-plt_TheAdventuresOf_Player_CheckCollision_TheAdventuresOf_Monster:
+.word 4573
+	.no_dead_strip plt_TheAdventuresOf_Level_CheckCollision_TheAdventuresOf_Character
+plt_TheAdventuresOf_Level_CheckCollision_TheAdventuresOf_Character:
 _p_37:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2896]
+ldr x16, [x16, #3160]
 br x16
-.word 4261
+.word 4575
 	.no_dead_strip plt_Microsoft_Xna_Framework_Game_Update_Microsoft_Xna_Framework_GameTime
 plt_Microsoft_Xna_Framework_Game_Update_Microsoft_Xna_Framework_GameTime:
 _p_38:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2904]
+ldr x16, [x16, #3168]
 br x16
-.word 4263
+.word 4577
 	.no_dead_strip plt_string_memset_byte__int_int
 plt_string_memset_byte__int_int:
 _p_39:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2912]
+ldr x16, [x16, #3176]
 br x16
-.word 4268
+.word 4582
 	.no_dead_strip plt_TheAdventuresOf_Screen_get_scaleMatrix
 plt_TheAdventuresOf_Screen_get_scaleMatrix:
 _p_40:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2920]
+ldr x16, [x16, #3184]
 br x16
-.word 4273
+.word 4587
 	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Matrix__ctor_Microsoft_Xna_Framework_Matrix
 plt_System_Nullable_1_Microsoft_Xna_Framework_Matrix__ctor_Microsoft_Xna_Framework_Matrix:
 _p_41:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2928]
+ldr x16, [x16, #3192]
 br x16
-.word 4275
+.word 4589
 	.no_dead_strip plt_string_memcpy_byte__byte__int
 plt_string_memcpy_byte__byte__int:
 _p_42:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2936]
+ldr x16, [x16, #3200]
 br x16
-.word 4286
+.word 4600
 	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_Begin_Microsoft_Xna_Framework_Graphics_SpriteSortMode_Microsoft_Xna_Framework_Graphics_BlendState_Microsoft_Xna_Framework_Graphics_SamplerState_Microsoft_Xna_Framework_Graphics_DepthStencilState_Microsoft_Xna_Framework_Graphics_RasterizerState_Microsoft_Xna_Framework_Graphics_Effect_System_Nullable_1_Microsoft_Xna_Framework_Matrix
 plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_Begin_Microsoft_Xna_Framework_Graphics_SpriteSortMode_Microsoft_Xna_Framework_Graphics_BlendState_Microsoft_Xna_Framework_Graphics_SamplerState_Microsoft_Xna_Framework_Graphics_DepthStencilState_Microsoft_Xna_Framework_Graphics_RasterizerState_Microsoft_Xna_Framework_Graphics_Effect_System_Nullable_1_Microsoft_Xna_Framework_Matrix:
 _p_43:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2944]
+ldr x16, [x16, #3208]
 br x16
-.word 4291
+.word 4605
 	.no_dead_strip plt_TheAdventuresOf_Level_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch
 plt_TheAdventuresOf_Level_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch:
 _p_44:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2952]
-br x16
-.word 4296
-	.no_dead_strip plt_TheAdventuresOf_Controller_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch
-plt_TheAdventuresOf_Controller_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch:
-_p_45:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2960]
-br x16
-.word 4298
-	.no_dead_strip plt_TheAdventuresOf_FrameRate_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_GameTime
-plt_TheAdventuresOf_FrameRate_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_GameTime:
-_p_46:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2968]
-br x16
-.word 4300
-	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_End
-plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_End:
-_p_47:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2976]
-br x16
-.word 4302
-	.no_dead_strip plt_Microsoft_Xna_Framework_Game_Draw_Microsoft_Xna_Framework_GameTime
-plt_Microsoft_Xna_Framework_Game_Draw_Microsoft_Xna_Framework_GameTime:
-_p_48:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2984]
-br x16
-.word 4307
-	.no_dead_strip plt_System_Console_WriteLine_string
-plt_System_Console_WriteLine_string:
-_p_49:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #2992]
-br x16
-.word 4312
-	.no_dead_strip plt_TheAdventuresOf_Screen_CreateScaleMatrix_int_int
-plt_TheAdventuresOf_Screen_CreateScaleMatrix_int_int:
-_p_50:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3000]
-br x16
-.word 4317
-	.no_dead_strip plt_TheAdventuresOf_Screen_set_scaleMatrix_Microsoft_Xna_Framework_Matrix
-plt_TheAdventuresOf_Screen_set_scaleMatrix_Microsoft_Xna_Framework_Matrix:
-_p_51:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3008]
-br x16
-.word 4319
-	.no_dead_strip plt_Microsoft_Xna_Framework_Matrix_CreateScale_single_single_single
-plt_Microsoft_Xna_Framework_Matrix_CreateScale_single_single_single:
-_p_52:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3016]
-br x16
-.word 4321
-	.no_dead_strip plt_TheAdventuresOf_Screen_HandleInput_Microsoft_Xna_Framework_GameTime
-plt_TheAdventuresOf_Screen_HandleInput_Microsoft_Xna_Framework_GameTime:
-_p_53:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3024]
-br x16
-.word 4326
-	.no_dead_strip plt_TheAdventuresOf_Controller_ResetButtonPressedValues
-plt_TheAdventuresOf_Controller_ResetButtonPressedValues:
-_p_54:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3032]
-br x16
-.word 4328
-	.no_dead_strip plt_TheAdventuresOf_Screen_GetTouchInput
-plt_TheAdventuresOf_Screen_GetTouchInput:
-_p_55:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3040]
-br x16
-.word 4330
-	.no_dead_strip plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Count
-plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Count:
-_p_56:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3048]
-br x16
-.word 4332
-	.no_dead_strip plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Item_int
-plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Item_int:
-_p_57:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3056]
-br x16
-.word 4343
-	.no_dead_strip plt_TheAdventuresOf_Controller_HandleInput_Microsoft_Xna_Framework_Point
-plt_TheAdventuresOf_Controller_HandleInput_Microsoft_Xna_Framework_Point:
-_p_58:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3064]
-br x16
-.word 4354
-	.no_dead_strip plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__ctor
-plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__ctor:
-_p_59:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3072]
-br x16
-.word 4356
-	.no_dead_strip plt_Microsoft_Xna_Framework_Input_Touch_TouchPanel_GetState
-plt_Microsoft_Xna_Framework_Input_Touch_TouchPanel_GetState:
-_p_60:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3080]
-br x16
-.word 4367
-	.no_dead_strip plt_Microsoft_Xna_Framework_Input_Touch_TouchCollection_get_Count
-plt_Microsoft_Xna_Framework_Input_Touch_TouchCollection_get_Count:
-_p_61:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3088]
-br x16
-.word 4372
-	.no_dead_strip plt_Microsoft_Xna_Framework_Input_Touch_TouchCollection_get_Item_int
-plt_Microsoft_Xna_Framework_Input_Touch_TouchCollection_get_Item_int:
-_p_62:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3096]
-br x16
-.word 4377
-	.no_dead_strip plt_Microsoft_Xna_Framework_Input_Touch_TouchLocation_get_Position
-plt_Microsoft_Xna_Framework_Input_Touch_TouchLocation_get_Position:
-_p_63:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3104]
-br x16
-.word 4382
-	.no_dead_strip plt_Microsoft_Xna_Framework_Point__ctor_int_int
-plt_Microsoft_Xna_Framework_Point__ctor_int_int:
-_p_64:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3112]
-br x16
-.word 4387
-	.no_dead_strip plt_TheAdventuresOf_Screen_GetScaledTouchInput_Microsoft_Xna_Framework_Point
-plt_TheAdventuresOf_Screen_GetScaledTouchInput_Microsoft_Xna_Framework_Point:
-_p_65:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3120]
-br x16
-.word 4392
-	.no_dead_strip plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_Add_Microsoft_Xna_Framework_Point
-plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_Add_Microsoft_Xna_Framework_Point:
-_p_66:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3128]
-br x16
-.word 4394
-	.no_dead_strip plt_Microsoft_Xna_Framework_Matrix_Invert_Microsoft_Xna_Framework_Matrix
-plt_Microsoft_Xna_Framework_Matrix_Invert_Microsoft_Xna_Framework_Matrix:
-_p_67:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3136]
-br x16
-.word 4405
-	.no_dead_strip plt_Microsoft_Xna_Framework_Point_ToVector2
-plt_Microsoft_Xna_Framework_Point_ToVector2:
-_p_68:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3144]
-br x16
-.word 4410
-	.no_dead_strip plt_Microsoft_Xna_Framework_Vector2_Transform_Microsoft_Xna_Framework_Vector2_Microsoft_Xna_Framework_Matrix
-plt_Microsoft_Xna_Framework_Vector2_Transform_Microsoft_Xna_Framework_Vector2_Microsoft_Xna_Framework_Matrix:
-_p_69:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3152]
-br x16
-.word 4415
-	.no_dead_strip plt_Microsoft_Xna_Framework_Vector2_ToPoint
-plt_Microsoft_Xna_Framework_Vector2_ToPoint:
-_p_70:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3160]
-br x16
-.word 4420
-	.no_dead_strip plt_Microsoft_Xna_Framework_Vector2__ctor_single_single
-plt_Microsoft_Xna_Framework_Vector2__ctor_single_single:
-_p_71:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3168]
-br x16
-.word 4425
-	.no_dead_strip plt_Microsoft_Xna_Framework_Rectangle__ctor_int_int_int_int
-plt_Microsoft_Xna_Framework_Rectangle__ctor_int_int_int_int:
-_p_72:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3176]
-br x16
-.word 4430
-	.no_dead_strip plt_TheAdventuresOf_Animation_get_CurrentRectangle
-plt_TheAdventuresOf_Animation_get_CurrentRectangle:
-_p_73:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3184]
-br x16
-.word 4435
-	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Vector2__ctor_Microsoft_Xna_Framework_Vector2
-plt_System_Nullable_1_Microsoft_Xna_Framework_Vector2__ctor_Microsoft_Xna_Framework_Vector2:
-_p_74:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3192]
-br x16
-.word 4437
-	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Rectangle__ctor_Microsoft_Xna_Framework_Rectangle
-plt_System_Nullable_1_Microsoft_Xna_Framework_Rectangle__ctor_Microsoft_Xna_Framework_Rectangle:
-_p_75:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3200]
-br x16
-.word 4448
-	.no_dead_strip plt_Microsoft_Xna_Framework_Color_get_White
-plt_Microsoft_Xna_Framework_Color_get_White:
-_p_76:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
-ldr x16, [x16, #3208]
-br x16
-.word 4459
-	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Color__ctor_Microsoft_Xna_Framework_Color
-plt_System_Nullable_1_Microsoft_Xna_Framework_Color__ctor_Microsoft_Xna_Framework_Color:
-_p_77:
-adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
-add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3216]
 br x16
-.word 4464
-	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_Draw_Microsoft_Xna_Framework_Graphics_Texture2D_System_Nullable_1_Microsoft_Xna_Framework_Vector2_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_System_Nullable_1_Microsoft_Xna_Framework_Vector2_single_System_Nullable_1_Microsoft_Xna_Framework_Vector2_System_Nullable_1_Microsoft_Xna_Framework_Color_Microsoft_Xna_Framework_Graphics_SpriteEffects_single
-plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_Draw_Microsoft_Xna_Framework_Graphics_Texture2D_System_Nullable_1_Microsoft_Xna_Framework_Vector2_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_System_Nullable_1_Microsoft_Xna_Framework_Vector2_single_System_Nullable_1_Microsoft_Xna_Framework_Vector2_System_Nullable_1_Microsoft_Xna_Framework_Color_Microsoft_Xna_Framework_Graphics_SpriteEffects_single:
-_p_78:
+.word 4610
+	.no_dead_strip plt_System_Collections_Generic_List_1_TheAdventuresOf_Monster_GetEnumerator
+plt_System_Collections_Generic_List_1_TheAdventuresOf_Monster_GetEnumerator:
+_p_45:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3224]
 br x16
-.word 4475
-	.no_dead_strip plt_Microsoft_Xna_Framework_GameTime_get_ElapsedGameTime
-plt_Microsoft_Xna_Framework_GameTime_get_ElapsedGameTime:
-_p_79:
+.word 4612
+	.no_dead_strip plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_Monster_get_Current
+plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_Monster_get_Current:
+_p_46:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3232]
 br x16
-.word 4480
-	.no_dead_strip plt_System_TimeSpan_get_TotalSeconds
-plt_System_TimeSpan_get_TotalSeconds:
-_p_80:
+.word 4623
+	.no_dead_strip plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_Monster_MoveNext
+plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_Monster_MoveNext:
+_p_47:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3240]
 br x16
-.word 4485
-	.no_dead_strip plt_single_ToString
-plt_single_ToString:
-_p_81:
+.word 4634
+	.no_dead_strip plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_Monster_Dispose
+plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_Monster_Dispose:
+_p_48:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3248]
 br x16
-.word 4490
-	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_DrawString_Microsoft_Xna_Framework_Graphics_SpriteFont_string_Microsoft_Xna_Framework_Vector2_Microsoft_Xna_Framework_Color
-plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_DrawString_Microsoft_Xna_Framework_Graphics_SpriteFont_string_Microsoft_Xna_Framework_Vector2_Microsoft_Xna_Framework_Color:
-_p_82:
+.word 4645
+	.no_dead_strip plt_TheAdventuresOf_Controller_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch
+plt_TheAdventuresOf_Controller_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch:
+_p_49:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3256]
 br x16
-.word 4495
-	.no_dead_strip plt_System_Collections_Generic_List_1_TheAdventuresOf_AnimationFrame__ctor
-plt_System_Collections_Generic_List_1_TheAdventuresOf_AnimationFrame__ctor:
-_p_83:
+.word 4665
+	.no_dead_strip plt_TheAdventuresOf_FrameRate_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_GameTime
+plt_TheAdventuresOf_FrameRate_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_GameTime:
+_p_50:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3264]
 br x16
-.word 4500
-	.no_dead_strip plt_System_TimeSpan_FromSeconds_double
-plt_System_TimeSpan_FromSeconds_double:
-_p_84:
+.word 4667
+	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_End
+plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_End:
+_p_51:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3272]
 br x16
-.word 4511
-	.no_dead_strip plt_System_Collections_Generic_List_1_TheAdventuresOf_AnimationFrame_GetEnumerator
-plt_System_Collections_Generic_List_1_TheAdventuresOf_AnimationFrame_GetEnumerator:
-_p_85:
+.word 4669
+	.no_dead_strip plt_Microsoft_Xna_Framework_Game_Draw_Microsoft_Xna_Framework_GameTime
+plt_Microsoft_Xna_Framework_Game_Draw_Microsoft_Xna_Framework_GameTime:
+_p_52:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3280]
 br x16
-.word 4516
-	.no_dead_strip plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_AnimationFrame_get_Current
-plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_AnimationFrame_get_Current:
-_p_86:
+.word 4674
+	.no_dead_strip plt_System_Console_WriteLine_string
+plt_System_Console_WriteLine_string:
+_p_53:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3288]
 br x16
-.word 4527
-	.no_dead_strip plt_TheAdventuresOf_AnimationFrame_get_duration
-plt_TheAdventuresOf_AnimationFrame_get_duration:
-_p_87:
+.word 4679
+	.no_dead_strip plt_TheAdventuresOf_Screen_CreateScaleMatrix_int_int
+plt_TheAdventuresOf_Screen_CreateScaleMatrix_int_int:
+_p_54:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3296]
 br x16
-.word 4538
-	.no_dead_strip plt_System_TimeSpan_op_Addition_System_TimeSpan_System_TimeSpan
-plt_System_TimeSpan_op_Addition_System_TimeSpan_System_TimeSpan:
-_p_88:
+.word 4684
+	.no_dead_strip plt_TheAdventuresOf_Screen_set_scaleMatrix_Microsoft_Xna_Framework_Matrix
+plt_TheAdventuresOf_Screen_set_scaleMatrix_Microsoft_Xna_Framework_Matrix:
+_p_55:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3304]
 br x16
-.word 4540
-	.no_dead_strip plt_System_TimeSpan_op_GreaterThanOrEqual_System_TimeSpan_System_TimeSpan
-plt_System_TimeSpan_op_GreaterThanOrEqual_System_TimeSpan_System_TimeSpan:
-_p_89:
+.word 4686
+	.no_dead_strip plt_Microsoft_Xna_Framework_Matrix_CreateScale_single_single_single
+plt_Microsoft_Xna_Framework_Matrix_CreateScale_single_single_single:
+_p_56:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3312]
 br x16
-.word 4545
-	.no_dead_strip plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_AnimationFrame_MoveNext
-plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_AnimationFrame_MoveNext:
-_p_90:
+.word 4688
+	.no_dead_strip plt_TheAdventuresOf_Screen_HandleInput_Microsoft_Xna_Framework_GameTime
+plt_TheAdventuresOf_Screen_HandleInput_Microsoft_Xna_Framework_GameTime:
+_p_57:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3320]
 br x16
-.word 4550
-	.no_dead_strip plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_AnimationFrame_Dispose
-plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_AnimationFrame_Dispose:
-_p_91:
+.word 4693
+	.no_dead_strip plt_TheAdventuresOf_Controller_ResetButtonPressedValues
+plt_TheAdventuresOf_Controller_ResetButtonPressedValues:
+_p_58:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3328]
 br x16
-.word 4561
-	.no_dead_strip plt_System_Linq_Enumerable_LastOrDefault_TheAdventuresOf_AnimationFrame_System_Collections_Generic_IEnumerable_1_TheAdventuresOf_AnimationFrame
-plt_System_Linq_Enumerable_LastOrDefault_TheAdventuresOf_AnimationFrame_System_Collections_Generic_IEnumerable_1_TheAdventuresOf_AnimationFrame:
-_p_92:
+.word 4695
+	.no_dead_strip plt_TheAdventuresOf_Screen_GetTouchInput
+plt_TheAdventuresOf_Screen_GetTouchInput:
+_p_59:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3336]
 br x16
-.word 4581
-	.no_dead_strip plt_TheAdventuresOf_AnimationFrame_get_sourceRectangle
-plt_TheAdventuresOf_AnimationFrame_get_sourceRectangle:
-_p_93:
+.word 4697
+	.no_dead_strip plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Count
+plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Count:
+_p_60:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3344]
 br x16
-.word 4593
-	.no_dead_strip plt_Microsoft_Xna_Framework_Rectangle_get_Empty
-plt_Microsoft_Xna_Framework_Rectangle_get_Empty:
-_p_94:
+.word 4699
+	.no_dead_strip plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Item_int
+plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Item_int:
+_p_61:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3352]
 br x16
-.word 4595
-	.no_dead_strip plt_TheAdventuresOf_AnimationFrame__ctor
-plt_TheAdventuresOf_AnimationFrame__ctor:
-_p_95:
+.word 4710
+	.no_dead_strip plt_TheAdventuresOf_Controller_HandleInput_Microsoft_Xna_Framework_Point
+plt_TheAdventuresOf_Controller_HandleInput_Microsoft_Xna_Framework_Point:
+_p_62:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3360]
 br x16
-.word 4600
-	.no_dead_strip plt_TheAdventuresOf_AnimationFrame_set_sourceRectangle_Microsoft_Xna_Framework_Rectangle
-plt_TheAdventuresOf_AnimationFrame_set_sourceRectangle_Microsoft_Xna_Framework_Rectangle:
-_p_96:
+.word 4721
+	.no_dead_strip plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__ctor
+plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__ctor:
+_p_63:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3368]
 br x16
-.word 4602
-	.no_dead_strip plt_TheAdventuresOf_AnimationFrame_set_duration_System_TimeSpan
-plt_TheAdventuresOf_AnimationFrame_set_duration_System_TimeSpan:
-_p_97:
+.word 4723
+	.no_dead_strip plt_Microsoft_Xna_Framework_Input_Touch_TouchPanel_GetState
+plt_Microsoft_Xna_Framework_Input_Touch_TouchPanel_GetState:
+_p_64:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3376]
 br x16
-.word 4604
-	.no_dead_strip plt_System_Collections_Generic_List_1_TheAdventuresOf_AnimationFrame_Add_TheAdventuresOf_AnimationFrame
-plt_System_Collections_Generic_List_1_TheAdventuresOf_AnimationFrame_Add_TheAdventuresOf_AnimationFrame:
-_p_98:
+.word 4734
+	.no_dead_strip plt_Microsoft_Xna_Framework_Input_Touch_TouchCollection_get_Count
+plt_Microsoft_Xna_Framework_Input_Touch_TouchCollection_get_Count:
+_p_65:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3384]
 br x16
-.word 4606
-	.no_dead_strip plt_TheAdventuresOf_Animation_CalculateAnimationDuration
-plt_TheAdventuresOf_Animation_CalculateAnimationDuration:
-_p_99:
+.word 4739
+	.no_dead_strip plt_Microsoft_Xna_Framework_Input_Touch_TouchCollection_get_Item_int
+plt_Microsoft_Xna_Framework_Input_Touch_TouchCollection_get_Item_int:
+_p_66:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3392]
 br x16
-.word 4617
-	.no_dead_strip plt__jit_icall___emul_frem
-plt__jit_icall___emul_frem:
-_p_100:
+.word 4744
+	.no_dead_strip plt_Microsoft_Xna_Framework_Input_Touch_TouchLocation_get_Position
+plt_Microsoft_Xna_Framework_Input_Touch_TouchLocation_get_Position:
+_p_67:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3400]
 br x16
-.word 4619
-	.no_dead_strip plt_TheAdventuresOf_Button__ctor_single_single_single_single
-plt_TheAdventuresOf_Button__ctor_single_single_single_single:
-_p_101:
+.word 4749
+	.no_dead_strip plt_Microsoft_Xna_Framework_Point__ctor_int_int
+plt_Microsoft_Xna_Framework_Point__ctor_int_int:
+_p_68:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3408]
 br x16
-.word 4633
-	.no_dead_strip plt_TheAdventuresOf_Button_IsPressed_Microsoft_Xna_Framework_Point
-plt_TheAdventuresOf_Button_IsPressed_Microsoft_Xna_Framework_Point:
-_p_102:
+.word 4754
+	.no_dead_strip plt_TheAdventuresOf_Screen_GetScaledTouchInput_Microsoft_Xna_Framework_Point
+plt_TheAdventuresOf_Screen_GetScaledTouchInput_Microsoft_Xna_Framework_Point:
+_p_69:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3416]
 br x16
-.word 4635
-	.no_dead_strip plt_TheAdventuresOf_Button_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D_single_Microsoft_Xna_Framework_Graphics_SpriteEffects
-plt_TheAdventuresOf_Button_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D_single_Microsoft_Xna_Framework_Graphics_SpriteEffects:
-_p_103:
+.word 4759
+	.no_dead_strip plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_Add_Microsoft_Xna_Framework_Point
+plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_Add_Microsoft_Xna_Framework_Point:
+_p_70:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3424]
 br x16
-.word 4637
-	.no_dead_strip plt_TheAdventuresOf_Button_InitializeButton
-plt_TheAdventuresOf_Button_InitializeButton:
-_p_104:
+.word 4761
+	.no_dead_strip plt_Microsoft_Xna_Framework_Matrix_Invert_Microsoft_Xna_Framework_Matrix
+plt_Microsoft_Xna_Framework_Matrix_Invert_Microsoft_Xna_Framework_Matrix:
+_p_71:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3432]
 br x16
-.word 4639
-	.no_dead_strip plt_TheAdventuresOf_Button_InitializeBounds
-plt_TheAdventuresOf_Button_InitializeBounds:
-_p_105:
+.word 4772
+	.no_dead_strip plt_Microsoft_Xna_Framework_Point_ToVector2
+plt_Microsoft_Xna_Framework_Point_ToVector2:
+_p_72:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3440]
 br x16
-.word 4641
-	.no_dead_strip plt_Microsoft_Xna_Framework_Rectangle_Contains_Microsoft_Xna_Framework_Point
-plt_Microsoft_Xna_Framework_Rectangle_Contains_Microsoft_Xna_Framework_Point:
-_p_106:
+.word 4777
+	.no_dead_strip plt_Microsoft_Xna_Framework_Vector2_Transform_Microsoft_Xna_Framework_Vector2_Microsoft_Xna_Framework_Matrix
+plt_Microsoft_Xna_Framework_Vector2_Transform_Microsoft_Xna_Framework_Vector2_Microsoft_Xna_Framework_Matrix:
+_p_73:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3448]
 br x16
-.word 4643
-	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_Draw_Microsoft_Xna_Framework_Graphics_Texture2D_Microsoft_Xna_Framework_Vector2_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Microsoft_Xna_Framework_Color_single_Microsoft_Xna_Framework_Vector2_single_Microsoft_Xna_Framework_Graphics_SpriteEffects_single
-plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_Draw_Microsoft_Xna_Framework_Graphics_Texture2D_Microsoft_Xna_Framework_Vector2_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Microsoft_Xna_Framework_Color_single_Microsoft_Xna_Framework_Vector2_single_Microsoft_Xna_Framework_Graphics_SpriteEffects_single:
-_p_107:
+.word 4782
+	.no_dead_strip plt_Microsoft_Xna_Framework_Vector2_ToPoint
+plt_Microsoft_Xna_Framework_Vector2_ToPoint:
+_p_74:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3456]
 br x16
-.word 4648
-	.no_dead_strip plt_Microsoft_Xna_Framework_Rectangle_Intersects_Microsoft_Xna_Framework_Rectangle
-plt_Microsoft_Xna_Framework_Rectangle_Intersects_Microsoft_Xna_Framework_Rectangle:
-_p_108:
+.word 4787
+	.no_dead_strip plt_Microsoft_Xna_Framework_Color_get_White
+plt_Microsoft_Xna_Framework_Color_get_White:
+_p_75:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3464]
 br x16
-.word 4653
-	.no_dead_strip plt_TheAdventuresOf_Character__ctor
-plt_TheAdventuresOf_Character__ctor:
-_p_109:
+.word 4792
+	.no_dead_strip plt_Microsoft_Xna_Framework_Vector2__ctor_single_single
+plt_Microsoft_Xna_Framework_Vector2__ctor_single_single:
+_p_76:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3472]
 br x16
-.word 4658
-	.no_dead_strip plt_TheAdventuresOf_Character_InitializeCharacter_single_single_int_int
-plt_TheAdventuresOf_Character_InitializeCharacter_single_single_int_int:
-_p_110:
+.word 4797
+	.no_dead_strip plt_Microsoft_Xna_Framework_Rectangle__ctor_int_int_int_int
+plt_Microsoft_Xna_Framework_Rectangle__ctor_int_int_int_int:
+_p_77:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3480]
 br x16
-.word 4660
-	.no_dead_strip plt_TheAdventuresOf_Animation__ctor
-plt_TheAdventuresOf_Animation__ctor:
-_p_111:
+.word 4802
+	.no_dead_strip plt_TheAdventuresOf_Animation_get_CurrentRectangle
+plt_TheAdventuresOf_Animation_get_CurrentRectangle:
+_p_78:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3488]
 br x16
-.word 4662
-	.no_dead_strip plt_TheAdventuresOf_Animation_AddFrame_Microsoft_Xna_Framework_Rectangle_System_TimeSpan
-plt_TheAdventuresOf_Animation_AddFrame_Microsoft_Xna_Framework_Rectangle_System_TimeSpan:
-_p_112:
+.word 4807
+	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Vector2__ctor_Microsoft_Xna_Framework_Vector2
+plt_System_Nullable_1_Microsoft_Xna_Framework_Vector2__ctor_Microsoft_Xna_Framework_Vector2:
+_p_79:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3496]
 br x16
-.word 4664
-	.no_dead_strip plt_TheAdventuresOf_Character_InitializeAnimation
-plt_TheAdventuresOf_Character_InitializeAnimation:
-_p_113:
+.word 4809
+	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Rectangle__ctor_Microsoft_Xna_Framework_Rectangle
+plt_System_Nullable_1_Microsoft_Xna_Framework_Rectangle__ctor_Microsoft_Xna_Framework_Rectangle:
+_p_80:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3504]
 br x16
-.word 4666
-	.no_dead_strip plt_TheAdventuresOf_Player_HandleJump_Microsoft_Xna_Framework_GameTime
-plt_TheAdventuresOf_Player_HandleJump_Microsoft_Xna_Framework_GameTime:
-_p_114:
+.word 4820
+	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Color__ctor_Microsoft_Xna_Framework_Color
+plt_System_Nullable_1_Microsoft_Xna_Framework_Color__ctor_Microsoft_Xna_Framework_Color:
+_p_81:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3512]
 br x16
-.word 4668
-	.no_dead_strip plt_TheAdventuresOf_Character_Update_Microsoft_Xna_Framework_GameTime_bool
-plt_TheAdventuresOf_Character_Update_Microsoft_Xna_Framework_GameTime_bool:
-_p_115:
+.word 4831
+	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_Draw_Microsoft_Xna_Framework_Graphics_Texture2D_System_Nullable_1_Microsoft_Xna_Framework_Vector2_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_System_Nullable_1_Microsoft_Xna_Framework_Vector2_single_System_Nullable_1_Microsoft_Xna_Framework_Vector2_System_Nullable_1_Microsoft_Xna_Framework_Color_Microsoft_Xna_Framework_Graphics_SpriteEffects_single
+plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_Draw_Microsoft_Xna_Framework_Graphics_Texture2D_System_Nullable_1_Microsoft_Xna_Framework_Vector2_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_System_Nullable_1_Microsoft_Xna_Framework_Vector2_single_System_Nullable_1_Microsoft_Xna_Framework_Vector2_System_Nullable_1_Microsoft_Xna_Framework_Color_Microsoft_Xna_Framework_Graphics_SpriteEffects_single:
+_p_82:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3520]
 br x16
-.word 4670
-	.no_dead_strip plt_TheAdventuresOf_Character_HandleLevelBoundCollision_int_int
-plt_TheAdventuresOf_Character_HandleLevelBoundCollision_int_int:
-_p_116:
+.word 4842
+	.no_dead_strip plt_Microsoft_Xna_Framework_GameTime_get_ElapsedGameTime
+plt_Microsoft_Xna_Framework_GameTime_get_ElapsedGameTime:
+_p_83:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3528]
 br x16
-.word 4672
-	.no_dead_strip plt_TheAdventuresOf_Player_MoveSword_int
-plt_TheAdventuresOf_Player_MoveSword_int:
-_p_117:
+.word 4847
+	.no_dead_strip plt_System_TimeSpan_get_TotalSeconds
+plt_System_TimeSpan_get_TotalSeconds:
+_p_84:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3536]
 br x16
-.word 4674
-	.no_dead_strip plt_TheAdventuresOf_Animation_Update_Microsoft_Xna_Framework_GameTime
-plt_TheAdventuresOf_Animation_Update_Microsoft_Xna_Framework_GameTime:
-_p_118:
+.word 4852
+	.no_dead_strip plt_single_ToString
+plt_single_ToString:
+_p_85:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3544]
 br x16
-.word 4676
-	.no_dead_strip plt_TheAdventuresOf_Player_Jump_Microsoft_Xna_Framework_GameTime
-plt_TheAdventuresOf_Player_Jump_Microsoft_Xna_Framework_GameTime:
-_p_119:
+.word 4857
+	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_DrawString_Microsoft_Xna_Framework_Graphics_SpriteFont_string_Microsoft_Xna_Framework_Vector2_Microsoft_Xna_Framework_Color
+plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_DrawString_Microsoft_Xna_Framework_Graphics_SpriteFont_string_Microsoft_Xna_Framework_Vector2_Microsoft_Xna_Framework_Color:
+_p_86:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3552]
 br x16
-.word 4678
-	.no_dead_strip plt_TheAdventuresOf_Character_UpdateCharacterBounds
-plt_TheAdventuresOf_Character_UpdateCharacterBounds:
-_p_120:
+.word 4862
+	.no_dead_strip plt_System_Collections_Generic_List_1_TheAdventuresOf_AnimationFrame__ctor
+plt_System_Collections_Generic_List_1_TheAdventuresOf_AnimationFrame__ctor:
+_p_87:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3560]
 br x16
-.word 4680
-	.no_dead_strip plt_TheAdventuresOf_Player_UpdateSwordBounds
-plt_TheAdventuresOf_Player_UpdateSwordBounds:
-_p_121:
+.word 4867
+	.no_dead_strip plt_System_TimeSpan_FromSeconds_double
+plt_System_TimeSpan_FromSeconds_double:
+_p_88:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3568]
 br x16
-.word 4682
-	.no_dead_strip plt_string_Concat_object_object
-plt_string_Concat_object_object:
-_p_122:
+.word 4878
+	.no_dead_strip plt_System_Collections_Generic_List_1_TheAdventuresOf_AnimationFrame_GetEnumerator
+plt_System_Collections_Generic_List_1_TheAdventuresOf_AnimationFrame_GetEnumerator:
+_p_89:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3576]
 br x16
-.word 4684
-	.no_dead_strip plt_TheAdventuresOf_Character_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
-plt_TheAdventuresOf_Character_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D:
-_p_123:
+.word 4883
+	.no_dead_strip plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_AnimationFrame_get_Current
+plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_AnimationFrame_get_Current:
+_p_90:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3584]
 br x16
-.word 4689
-	.no_dead_strip plt_Microsoft_Xna_Framework_TitleContainer_OpenStream_string
-plt_Microsoft_Xna_Framework_TitleContainer_OpenStream_string:
-_p_124:
+.word 4894
+	.no_dead_strip plt_TheAdventuresOf_AnimationFrame_get_duration
+plt_TheAdventuresOf_AnimationFrame_get_duration:
+_p_91:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3592]
 br x16
-.word 4691
-	.no_dead_strip plt_System_Xml_Linq_XDocument_Load_System_IO_Stream
-plt_System_Xml_Linq_XDocument_Load_System_IO_Stream:
-_p_125:
+.word 4905
+	.no_dead_strip plt_System_TimeSpan_op_Addition_System_TimeSpan_System_TimeSpan
+plt_System_TimeSpan_op_Addition_System_TimeSpan_System_TimeSpan:
+_p_92:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3600]
 br x16
-.word 4696
-	.no_dead_strip plt_System_Xml_Linq_XName_op_Implicit_string
-plt_System_Xml_Linq_XName_op_Implicit_string:
-_p_126:
+.word 4907
+	.no_dead_strip plt_System_TimeSpan_op_GreaterThanOrEqual_System_TimeSpan_System_TimeSpan
+plt_System_TimeSpan_op_GreaterThanOrEqual_System_TimeSpan_System_TimeSpan:
+_p_93:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3608]
 br x16
-.word 4701
-	.no_dead_strip plt_System_Xml_Linq_XContainer_Element_System_Xml_Linq_XName
-plt_System_Xml_Linq_XContainer_Element_System_Xml_Linq_XName:
-_p_127:
+.word 4912
+	.no_dead_strip plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_AnimationFrame_MoveNext
+plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_AnimationFrame_MoveNext:
+_p_94:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3616]
 br x16
-.word 4706
-	.no_dead_strip plt_System_Xml_Linq_XElement_op_Explicit_System_Xml_Linq_XElement
-plt_System_Xml_Linq_XElement_op_Explicit_System_Xml_Linq_XElement:
-_p_128:
+.word 4917
+	.no_dead_strip plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_AnimationFrame_Dispose
+plt_System_Collections_Generic_List_1_Enumerator_TheAdventuresOf_AnimationFrame_Dispose:
+_p_95:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3624]
 br x16
-.word 4711
-	.no_dead_strip plt_System_Xml_Linq_XElement_op_Explicit_System_Xml_Linq_XElement_0
-plt_System_Xml_Linq_XElement_op_Explicit_System_Xml_Linq_XElement_0:
-_p_129:
+.word 4928
+	.no_dead_strip plt_System_Linq_Enumerable_LastOrDefault_TheAdventuresOf_AnimationFrame_System_Collections_Generic_IEnumerable_1_TheAdventuresOf_AnimationFrame
+plt_System_Linq_Enumerable_LastOrDefault_TheAdventuresOf_AnimationFrame_System_Collections_Generic_IEnumerable_1_TheAdventuresOf_AnimationFrame:
+_p_96:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3632]
 br x16
-.word 4716
-	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_Texture2D_FromStream_Microsoft_Xna_Framework_Graphics_GraphicsDevice_System_IO_Stream
-plt_Microsoft_Xna_Framework_Graphics_Texture2D_FromStream_Microsoft_Xna_Framework_Graphics_GraphicsDevice_System_IO_Stream:
-_p_130:
+.word 4948
+	.no_dead_strip plt_TheAdventuresOf_AnimationFrame_get_sourceRectangle
+plt_TheAdventuresOf_AnimationFrame_get_sourceRectangle:
+_p_97:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3640]
 br x16
-.word 4721
-	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_GraphicsResource_Dispose
-plt_Microsoft_Xna_Framework_Graphics_GraphicsResource_Dispose:
-_p_131:
+.word 4960
+	.no_dead_strip plt_Microsoft_Xna_Framework_Rectangle_get_Empty
+plt_Microsoft_Xna_Framework_Rectangle_get_Empty:
+_p_98:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3648]
 br x16
-.word 4726
-	.no_dead_strip plt_System_Random__ctor
-plt_System_Random__ctor:
-_p_132:
+.word 4962
+	.no_dead_strip plt_TheAdventuresOf_AnimationFrame__ctor
+plt_TheAdventuresOf_AnimationFrame__ctor:
+_p_99:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3656]
 br x16
-.word 4731
-	.no_dead_strip plt_TheAdventuresOf_Monster_RandomizeMovement
-plt_TheAdventuresOf_Monster_RandomizeMovement:
-_p_133:
+.word 4967
+	.no_dead_strip plt_TheAdventuresOf_AnimationFrame_set_sourceRectangle_Microsoft_Xna_Framework_Rectangle
+plt_TheAdventuresOf_AnimationFrame_set_sourceRectangle_Microsoft_Xna_Framework_Rectangle:
+_p_100:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3664]
 br x16
-.word 4736
-	.no_dead_strip plt_TheAdventuresOf_Monster_HandleDelay_Microsoft_Xna_Framework_GameTime
-plt_TheAdventuresOf_Monster_HandleDelay_Microsoft_Xna_Framework_GameTime:
-_p_134:
+.word 4969
+	.no_dead_strip plt_TheAdventuresOf_AnimationFrame_set_duration_System_TimeSpan
+plt_TheAdventuresOf_AnimationFrame_set_duration_System_TimeSpan:
+_p_101:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3672]
 br x16
-.word 4738
-	.no_dead_strip plt_TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime
-plt_TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime:
-_p_135:
+.word 4971
+	.no_dead_strip plt_System_Collections_Generic_List_1_TheAdventuresOf_AnimationFrame_Add_TheAdventuresOf_AnimationFrame
+plt_System_Collections_Generic_List_1_TheAdventuresOf_AnimationFrame_Add_TheAdventuresOf_AnimationFrame:
+_p_102:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3680]
 br x16
-.word 4740
-	.no_dead_strip plt_System_TimeSpan_Add_System_TimeSpan
-plt_System_TimeSpan_Add_System_TimeSpan:
-_p_136:
+.word 4973
+	.no_dead_strip plt_TheAdventuresOf_Animation_CalculateAnimationDuration
+plt_TheAdventuresOf_Animation_CalculateAnimationDuration:
+_p_103:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3688]
 br x16
-.word 4742
-	.no_dead_strip plt_TheAdventuresOf_Monster_ChooseRandomDirection
-plt_TheAdventuresOf_Monster_ChooseRandomDirection:
-_p_137:
+.word 4984
+	.no_dead_strip plt__jit_icall___emul_frem
+plt__jit_icall___emul_frem:
+_p_104:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3696]
 br x16
-.word 4747
-	.no_dead_strip plt__jit_icall_mono_helper_ldstr_mscorlib
-plt__jit_icall_mono_helper_ldstr_mscorlib:
-_p_138:
+.word 4986
+	.no_dead_strip plt_TheAdventuresOf_Button__ctor_single_single_single_single
+plt_TheAdventuresOf_Button__ctor_single_single_single_single:
+_p_105:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3704]
 br x16
-.word 4749
-	.no_dead_strip plt__jit_icall_mono_arch_throw_exception
-plt__jit_icall_mono_arch_throw_exception:
-_p_139:
+.word 5000
+	.no_dead_strip plt_TheAdventuresOf_Button_IsPressed_Microsoft_Xna_Framework_Point
+plt_TheAdventuresOf_Button_IsPressed_Microsoft_Xna_Framework_Point:
+_p_106:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3712]
 br x16
-.word 4778
-	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Matrix_Unbox_object
-plt_System_Nullable_1_Microsoft_Xna_Framework_Matrix_Unbox_object:
-_p_140:
+.word 5002
+	.no_dead_strip plt_TheAdventuresOf_Button_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D_single_Microsoft_Xna_Framework_Graphics_SpriteEffects
+plt_TheAdventuresOf_Button_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D_single_Microsoft_Xna_Framework_Graphics_SpriteEffects:
+_p_107:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3720]
 br x16
-.word 4806
-	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Matrix_Equals_System_Nullable_1_Microsoft_Xna_Framework_Matrix
-plt_System_Nullable_1_Microsoft_Xna_Framework_Matrix_Equals_System_Nullable_1_Microsoft_Xna_Framework_Matrix:
-_p_141:
+.word 5004
+	.no_dead_strip plt_TheAdventuresOf_Button_InitializeButton
+plt_TheAdventuresOf_Button_InitializeButton:
+_p_108:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3728]
 br x16
-.word 4827
-	.no_dead_strip plt_Microsoft_Xna_Framework_Matrix_Equals_object
-plt_Microsoft_Xna_Framework_Matrix_Equals_object:
-_p_142:
+.word 5006
+	.no_dead_strip plt_TheAdventuresOf_Button_InitializeBounds
+plt_TheAdventuresOf_Button_InitializeBounds:
+_p_109:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3736]
 br x16
-.word 4848
-	.no_dead_strip plt_Microsoft_Xna_Framework_Matrix_GetHashCode
-plt_Microsoft_Xna_Framework_Matrix_GetHashCode:
-_p_143:
+.word 5008
+	.no_dead_strip plt_Microsoft_Xna_Framework_Rectangle_Contains_Microsoft_Xna_Framework_Point
+plt_Microsoft_Xna_Framework_Rectangle_Contains_Microsoft_Xna_Framework_Point:
+_p_110:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3744]
 br x16
-.word 4853
-	.no_dead_strip plt_Microsoft_Xna_Framework_Matrix_ToString
-plt_Microsoft_Xna_Framework_Matrix_ToString:
-_p_144:
+.word 5010
+	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_Draw_Microsoft_Xna_Framework_Graphics_Texture2D_Microsoft_Xna_Framework_Vector2_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Microsoft_Xna_Framework_Color_single_Microsoft_Xna_Framework_Vector2_single_Microsoft_Xna_Framework_Graphics_SpriteEffects_single
+plt_Microsoft_Xna_Framework_Graphics_SpriteBatch_Draw_Microsoft_Xna_Framework_Graphics_Texture2D_Microsoft_Xna_Framework_Vector2_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Microsoft_Xna_Framework_Color_single_Microsoft_Xna_Framework_Vector2_single_Microsoft_Xna_Framework_Graphics_SpriteEffects_single:
+_p_111:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3752]
 br x16
-.word 4858
-	.no_dead_strip plt_System_Array_InternalArray__get_Item_Microsoft_Xna_Framework_Point_int
-plt_System_Array_InternalArray__get_Item_Microsoft_Xna_Framework_Point_int:
-_p_145:
+.word 5015
+	.no_dead_strip plt_System_Collections_Generic_List_1_TheAdventuresOf_Monster__ctor
+plt_System_Collections_Generic_List_1_TheAdventuresOf_Monster__ctor:
+_p_112:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3760]
 br x16
-.word 4863
-	.no_dead_strip plt_System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_get_Current
-plt_System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_get_Current:
-_p_146:
+.word 5020
+	.no_dead_strip plt_Microsoft_Xna_Framework_Rectangle_Intersects_Microsoft_Xna_Framework_Rectangle
+plt_Microsoft_Xna_Framework_Rectangle_Intersects_Microsoft_Xna_Framework_Rectangle:
+_p_113:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3768]
 br x16
-.word 4883
-	.no_dead_strip plt_System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point__ctor_System_Array
-plt_System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point__ctor_System_Array:
-_p_147:
+.word 5031
+	.no_dead_strip plt_System_Collections_Generic_List_1_TheAdventuresOf_Monster_get_Count
+plt_System_Collections_Generic_List_1_TheAdventuresOf_Monster_get_Count:
+_p_114:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3776]
 br x16
-.word 4902
-	.no_dead_strip plt_Locale_GetText_string
-plt_Locale_GetText_string:
-_p_148:
+.word 5036
+	.no_dead_strip plt_TheAdventuresOf_Monster__ctor
+plt_TheAdventuresOf_Monster__ctor:
+_p_115:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3784]
 br x16
-.word 4921
-	.no_dead_strip plt_Microsoft_Xna_Framework_Point_Equals_object
-plt_Microsoft_Xna_Framework_Point_Equals_object:
-_p_149:
+.word 5047
+	.no_dead_strip plt_TheAdventuresOf_XmlImporter_TransferBlockMonsterInformation_TheAdventuresOf_Monster
+plt_TheAdventuresOf_XmlImporter_TransferBlockMonsterInformation_TheAdventuresOf_Monster:
+_p_116:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3792]
 br x16
-.word 4926
-	.no_dead_strip plt_System_Array_Copy_System_Array_int_System_Array_int_int
-plt_System_Array_Copy_System_Array_int_System_Array_int_int:
-_p_150:
+.word 5049
+	.no_dead_strip plt_TheAdventuresOf_Level_GetRandomXLocation_single
+plt_TheAdventuresOf_Level_GetRandomXLocation_single:
+_p_117:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3800]
 br x16
-.word 4931
-	.no_dead_strip plt_System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_CreateComparer
-plt_System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_CreateComparer:
-_p_151:
+.word 5051
+	.no_dead_strip plt_TheAdventuresOf_Monster_InitializeSpawn
+plt_TheAdventuresOf_Monster_InitializeSpawn:
+_p_118:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3808]
 br x16
-.word 4936
-	.no_dead_strip plt_System_Type_op_Equality_System_Type_System_Type
-plt_System_Type_op_Equality_System_Type_System_Type:
-_p_152:
+.word 5053
+	.no_dead_strip plt_System_Collections_Generic_List_1_TheAdventuresOf_Monster_Add_TheAdventuresOf_Monster
+plt_System_Collections_Generic_List_1_TheAdventuresOf_Monster_Add_TheAdventuresOf_Monster:
+_p_119:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3816]
 br x16
-.word 4955
-	.no_dead_strip plt_System_Collections_Generic_ByteEqualityComparer__ctor
-plt_System_Collections_Generic_ByteEqualityComparer__ctor:
-_p_153:
+.word 5055
+	.no_dead_strip plt_TheAdventuresOf_Player_CheckCollision_TheAdventuresOf_Monster
+plt_TheAdventuresOf_Player_CheckCollision_TheAdventuresOf_Monster:
+_p_120:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3824]
 br x16
-.word 4960
-	.no_dead_strip plt_System_Collections_Generic_InternalStringComparer__ctor
-plt_System_Collections_Generic_InternalStringComparer__ctor:
-_p_154:
+.word 5066
+	.no_dead_strip plt_System_Collections_Generic_List_1_TheAdventuresOf_Monster_RemoveAll_System_Predicate_1_TheAdventuresOf_Monster
+plt_System_Collections_Generic_List_1_TheAdventuresOf_Monster_RemoveAll_System_Predicate_1_TheAdventuresOf_Monster:
+_p_121:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3832]
 br x16
-.word 4965
-	.no_dead_strip plt_System_RuntimeType_CreateInstanceForAnotherGenericParameter_System_Type_System_RuntimeType
-plt_System_RuntimeType_CreateInstanceForAnotherGenericParameter_System_Type_System_RuntimeType:
-_p_155:
+.word 5068
+	.no_dead_strip plt_System_Collections_Generic_List_1_TheAdventuresOf_Monster_Clear
+plt_System_Collections_Generic_List_1_TheAdventuresOf_Monster_Clear:
+_p_122:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3840]
 br x16
-.word 4970
-	.no_dead_strip plt__jit_icall_mono_array_new_specific
-plt__jit_icall_mono_array_new_specific:
-_p_156:
+.word 5079
+	.no_dead_strip plt_System_Random__ctor
+plt_System_Random__ctor:
+_p_123:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3848]
 br x16
-.word 4975
-	.no_dead_strip plt_System_Enum_GetUnderlyingType_System_Type
-plt_System_Enum_GetUnderlyingType_System_Type:
-_p_157:
+.word 5090
+	.no_dead_strip plt_System_Collections_Generic_List_1_TheAdventuresOf_Monster_Contains_TheAdventuresOf_Monster
+plt_System_Collections_Generic_List_1_TheAdventuresOf_Monster_Contains_TheAdventuresOf_Monster:
+_p_124:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3856]
 br x16
-.word 5001
-	.no_dead_strip plt_System_Type_GetTypeCode_System_Type
-plt_System_Type_GetTypeCode_System_Type:
-_p_158:
+.word 5095
+	.no_dead_strip plt_TheAdventuresOf_Character__ctor
+plt_TheAdventuresOf_Character__ctor:
+_p_125:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3864]
 br x16
-.word 5006
-	.no_dead_strip plt_System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
-plt_System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor:
-_p_159:
+.word 5106
+	.no_dead_strip plt_TheAdventuresOf_Character_InitializeCharacter_single_single_int_int
+plt_TheAdventuresOf_Character_InitializeCharacter_single_single_int_int:
+_p_126:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3872]
 br x16
-.word 5011
-	.no_dead_strip plt_System_ThrowHelper_ThrowArgumentException_System_ExceptionResource
-plt_System_ThrowHelper_ThrowArgumentException_System_ExceptionResource:
-_p_160:
+.word 5108
+	.no_dead_strip plt_TheAdventuresOf_Animation__ctor
+plt_TheAdventuresOf_Animation__ctor:
+_p_127:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3880]
 br x16
-.word 5030
-	.no_dead_strip plt_System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
-plt_System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point__ctor:
-_p_161:
+.word 5110
+	.no_dead_strip plt_TheAdventuresOf_Animation_AddFrame_Microsoft_Xna_Framework_Rectangle_System_TimeSpan
+plt_TheAdventuresOf_Animation_AddFrame_Microsoft_Xna_Framework_Rectangle_System_TimeSpan:
+_p_128:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3888]
 br x16
-.word 5035
-	.no_dead_strip plt_Microsoft_Xna_Framework_Point_Equals_Microsoft_Xna_Framework_Point
-plt_Microsoft_Xna_Framework_Point_Equals_Microsoft_Xna_Framework_Point:
-_p_162:
+.word 5112
+	.no_dead_strip plt_TheAdventuresOf_Character_InitializeAnimation
+plt_TheAdventuresOf_Character_InitializeAnimation:
+_p_129:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3896]
 br x16
-.word 5054
-	.no_dead_strip plt_Microsoft_Xna_Framework_Point_GetHashCode
-plt_Microsoft_Xna_Framework_Point_GetHashCode:
-_p_163:
+.word 5114
+	.no_dead_strip plt_TheAdventuresOf_Player_HandleJump_Microsoft_Xna_Framework_GameTime
+plt_TheAdventuresOf_Player_HandleJump_Microsoft_Xna_Framework_GameTime:
+_p_130:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3904]
 br x16
-.word 5059
-	.no_dead_strip plt__jit_icall_mono_thread_interruption_checkpoint
-plt__jit_icall_mono_thread_interruption_checkpoint:
-_p_164:
+.word 5116
+	.no_dead_strip plt_System_TimeSpan_Subtract_System_TimeSpan
+plt_System_TimeSpan_Subtract_System_TimeSpan:
+_p_131:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3912]
 br x16
-.word 5064
-	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Vector2_Unbox_object
-plt_System_Nullable_1_Microsoft_Xna_Framework_Vector2_Unbox_object:
-_p_165:
+.word 5118
+	.no_dead_strip plt_System_TimeSpan_get_Seconds
+plt_System_TimeSpan_get_Seconds:
+_p_132:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3920]
 br x16
-.word 5102
-	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Vector2_Equals_System_Nullable_1_Microsoft_Xna_Framework_Vector2
-plt_System_Nullable_1_Microsoft_Xna_Framework_Vector2_Equals_System_Nullable_1_Microsoft_Xna_Framework_Vector2:
-_p_166:
+.word 5123
+	.no_dead_strip plt_TheAdventuresOf_Character_Update_Microsoft_Xna_Framework_GameTime_bool
+plt_TheAdventuresOf_Character_Update_Microsoft_Xna_Framework_GameTime_bool:
+_p_133:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3928]
 br x16
-.word 5123
-	.no_dead_strip plt_Microsoft_Xna_Framework_Vector2_Equals_object
-plt_Microsoft_Xna_Framework_Vector2_Equals_object:
-_p_167:
+.word 5128
+	.no_dead_strip plt_TheAdventuresOf_Character_HandleLevelBoundCollision_int_int
+plt_TheAdventuresOf_Character_HandleLevelBoundCollision_int_int:
+_p_134:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3936]
 br x16
-.word 5144
-	.no_dead_strip plt_Microsoft_Xna_Framework_Vector2_GetHashCode
-plt_Microsoft_Xna_Framework_Vector2_GetHashCode:
-_p_168:
+.word 5130
+	.no_dead_strip plt_TheAdventuresOf_Player_MoveSword_int
+plt_TheAdventuresOf_Player_MoveSword_int:
+_p_135:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3944]
 br x16
-.word 5149
-	.no_dead_strip plt_Microsoft_Xna_Framework_Vector2_ToString
-plt_Microsoft_Xna_Framework_Vector2_ToString:
-_p_169:
+.word 5132
+	.no_dead_strip plt_TheAdventuresOf_Animation_Update_Microsoft_Xna_Framework_GameTime
+plt_TheAdventuresOf_Animation_Update_Microsoft_Xna_Framework_GameTime:
+_p_136:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3952]
 br x16
-.word 5154
-	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Unbox_object
-plt_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Unbox_object:
-_p_170:
+.word 5134
+	.no_dead_strip plt_TheAdventuresOf_Player_Jump_Microsoft_Xna_Framework_GameTime
+plt_TheAdventuresOf_Player_Jump_Microsoft_Xna_Framework_GameTime:
+_p_137:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3960]
 br x16
-.word 5159
-	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Equals_System_Nullable_1_Microsoft_Xna_Framework_Rectangle
-plt_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Equals_System_Nullable_1_Microsoft_Xna_Framework_Rectangle:
-_p_171:
+.word 5136
+	.no_dead_strip plt_TheAdventuresOf_Character_UpdateCharacterBounds
+plt_TheAdventuresOf_Character_UpdateCharacterBounds:
+_p_138:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3968]
 br x16
-.word 5180
-	.no_dead_strip plt_Microsoft_Xna_Framework_Rectangle_Equals_object
-plt_Microsoft_Xna_Framework_Rectangle_Equals_object:
-_p_172:
+.word 5138
+	.no_dead_strip plt_TheAdventuresOf_Player_UpdateSwordBounds
+plt_TheAdventuresOf_Player_UpdateSwordBounds:
+_p_139:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3976]
 br x16
-.word 5201
-	.no_dead_strip plt_Microsoft_Xna_Framework_Rectangle_GetHashCode
-plt_Microsoft_Xna_Framework_Rectangle_GetHashCode:
-_p_173:
+.word 5140
+	.no_dead_strip plt_string_Concat_object_object
+plt_string_Concat_object_object:
+_p_140:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3984]
 br x16
-.word 5206
-	.no_dead_strip plt_Microsoft_Xna_Framework_Rectangle_ToString
-plt_Microsoft_Xna_Framework_Rectangle_ToString:
-_p_174:
+.word 5142
+	.no_dead_strip plt_TheAdventuresOf_Character_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
+plt_TheAdventuresOf_Character_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D:
+_p_141:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #3992]
 br x16
-.word 5211
-	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Color_Unbox_object
-plt_System_Nullable_1_Microsoft_Xna_Framework_Color_Unbox_object:
-_p_175:
+.word 5147
+	.no_dead_strip plt_TheAdventuresOf_Player_DrawHealth_Microsoft_Xna_Framework_Graphics_SpriteBatch
+plt_TheAdventuresOf_Player_DrawHealth_Microsoft_Xna_Framework_Graphics_SpriteBatch:
+_p_142:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #4000]
 br x16
-.word 5216
-	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Color_Equals_System_Nullable_1_Microsoft_Xna_Framework_Color
-plt_System_Nullable_1_Microsoft_Xna_Framework_Color_Equals_System_Nullable_1_Microsoft_Xna_Framework_Color:
-_p_176:
+.word 5149
+	.no_dead_strip plt_Microsoft_Xna_Framework_TitleContainer_OpenStream_string
+plt_Microsoft_Xna_Framework_TitleContainer_OpenStream_string:
+_p_143:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #4008]
 br x16
-.word 5237
-	.no_dead_strip plt_Microsoft_Xna_Framework_Color_Equals_object
-plt_Microsoft_Xna_Framework_Color_Equals_object:
-_p_177:
+.word 5151
+	.no_dead_strip plt_System_Xml_Linq_XDocument_Load_System_IO_Stream
+plt_System_Xml_Linq_XDocument_Load_System_IO_Stream:
+_p_144:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #4016]
 br x16
-.word 5258
-	.no_dead_strip plt_Microsoft_Xna_Framework_Color_GetHashCode
-plt_Microsoft_Xna_Framework_Color_GetHashCode:
-_p_178:
+.word 5156
+	.no_dead_strip plt_System_Xml_Linq_XName_op_Implicit_string
+plt_System_Xml_Linq_XName_op_Implicit_string:
+_p_145:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #4024]
 br x16
-.word 5263
-	.no_dead_strip plt_Microsoft_Xna_Framework_Color_ToString
-plt_Microsoft_Xna_Framework_Color_ToString:
-_p_179:
+.word 5161
+	.no_dead_strip plt_System_Xml_Linq_XContainer_Element_System_Xml_Linq_XName
+plt_System_Xml_Linq_XContainer_Element_System_Xml_Linq_XName:
+_p_146:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #4032]
 br x16
-.word 5268
-	.no_dead_strip plt__rgctx_fetch_0
-plt__rgctx_fetch_0:
-_p_180:
+.word 5166
+	.no_dead_strip plt_System_Xml_Linq_XElement_op_Explicit_System_Xml_Linq_XElement
+plt_System_Xml_Linq_XElement_op_Explicit_System_Xml_Linq_XElement:
+_p_147:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #4040]
 br x16
-.word 5301
-	.no_dead_strip plt_System_Array_InternalEnumerator_1_T_REF__ctor_System_Array
-plt_System_Array_InternalEnumerator_1_T_REF__ctor_System_Array:
-_p_181:
+.word 5171
+	.no_dead_strip plt_System_Xml_Linq_XElement_op_Explicit_System_Xml_Linq_XElement_0
+plt_System_Xml_Linq_XElement_op_Explicit_System_Xml_Linq_XElement_0:
+_p_148:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #4048]
 br x16
-.word 5309
-	.no_dead_strip plt__rgctx_fetch_1
-plt__rgctx_fetch_1:
-_p_182:
+.word 5176
+	.no_dead_strip plt_System_Xml_Linq_XElement_op_Explicit_System_Xml_Linq_XElement_1
+plt_System_Xml_Linq_XElement_op_Explicit_System_Xml_Linq_XElement_1:
+_p_149:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #4056]
 br x16
-.word 5347
-	.no_dead_strip plt_System_ThrowHelper_ThrowArgumentOutOfRangeException
-plt_System_ThrowHelper_ThrowArgumentOutOfRangeException:
-_p_183:
+.word 5181
+	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_Texture2D_FromStream_Microsoft_Xna_Framework_Graphics_GraphicsDevice_System_IO_Stream
+plt_Microsoft_Xna_Framework_Graphics_Texture2D_FromStream_Microsoft_Xna_Framework_Graphics_GraphicsDevice_System_IO_Stream:
+_p_150:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #4064]
 br x16
-.word 5371
-	.no_dead_strip plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_EnsureCapacity_int
-plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_EnsureCapacity_int:
-_p_184:
+.word 5186
+	.no_dead_strip plt_Microsoft_Xna_Framework_Graphics_GraphicsResource_Dispose
+plt_Microsoft_Xna_Framework_Graphics_GraphicsResource_Dispose:
+_p_151:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #4072]
 br x16
-.word 5376
-	.no_dead_strip plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_set_Capacity_int
-plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_set_Capacity_int:
-_p_185:
+.word 5191
+	.no_dead_strip plt_TheAdventuresOf_Monster_reset
+plt_TheAdventuresOf_Monster_reset:
+_p_152:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #4080]
 br x16
-.word 5397
-	.no_dead_strip plt_System_ThrowHelper_ThrowArgumentOutOfRangeException_System_ExceptionArgument_System_ExceptionResource
-plt_System_ThrowHelper_ThrowArgumentOutOfRangeException_System_ExceptionArgument_System_ExceptionResource:
-_p_186:
+.word 5196
+	.no_dead_strip plt_TheAdventuresOf_Monster_ChooseRandomDirection
+plt_TheAdventuresOf_Monster_ChooseRandomDirection:
+_p_153:
 adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+0
 add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
 ldr x16, [x16, #4088]
 br x16
-.word 5418
+.word 5198
+	.no_dead_strip plt_System_TimeSpan_Add_System_TimeSpan
+plt_System_TimeSpan_Add_System_TimeSpan:
+_p_154:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #0]
+br x16
+.word 5200
+	.no_dead_strip plt_TheAdventuresOf_Monster_MoveUpDown_Microsoft_Xna_Framework_GameTime_int
+plt_TheAdventuresOf_Monster_MoveUpDown_Microsoft_Xna_Framework_GameTime_int:
+_p_155:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #8]
+br x16
+.word 5205
+	.no_dead_strip plt_TheAdventuresOf_Monster_Rotate_Microsoft_Xna_Framework_GameTime
+plt_TheAdventuresOf_Monster_Rotate_Microsoft_Xna_Framework_GameTime:
+_p_156:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #16]
+br x16
+.word 5207
+	.no_dead_strip plt_TheAdventuresOf_Monster_InitializeMonsterAfterSpawn
+plt_TheAdventuresOf_Monster_InitializeMonsterAfterSpawn:
+_p_157:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #24]
+br x16
+.word 5209
+	.no_dead_strip plt_TheAdventuresOf_Monster_RandomizeMovement
+plt_TheAdventuresOf_Monster_RandomizeMovement:
+_p_158:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #32]
+br x16
+.word 5211
+	.no_dead_strip plt_TheAdventuresOf_Monster_HandleDelay_Microsoft_Xna_Framework_GameTime
+plt_TheAdventuresOf_Monster_HandleDelay_Microsoft_Xna_Framework_GameTime:
+_p_159:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #40]
+br x16
+.word 5213
+	.no_dead_strip plt_TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime
+plt_TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime:
+_p_160:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #48]
+br x16
+.word 5215
+	.no_dead_strip plt_TheAdventuresOf_Monster_HandleSpawn_Microsoft_Xna_Framework_GameTime
+plt_TheAdventuresOf_Monster_HandleSpawn_Microsoft_Xna_Framework_GameTime:
+_p_161:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #56]
+br x16
+.word 5217
+	.no_dead_strip plt__jit_icall_mono_helper_ldstr_mscorlib
+plt__jit_icall_mono_helper_ldstr_mscorlib:
+_p_162:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #64]
+br x16
+.word 5219
+	.no_dead_strip plt__jit_icall_mono_arch_throw_exception
+plt__jit_icall_mono_arch_throw_exception:
+_p_163:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #72]
+br x16
+.word 5248
+	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Matrix_Unbox_object
+plt_System_Nullable_1_Microsoft_Xna_Framework_Matrix_Unbox_object:
+_p_164:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #80]
+br x16
+.word 5276
+	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Matrix_Equals_System_Nullable_1_Microsoft_Xna_Framework_Matrix
+plt_System_Nullable_1_Microsoft_Xna_Framework_Matrix_Equals_System_Nullable_1_Microsoft_Xna_Framework_Matrix:
+_p_165:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #88]
+br x16
+.word 5297
+	.no_dead_strip plt_Microsoft_Xna_Framework_Matrix_Equals_object
+plt_Microsoft_Xna_Framework_Matrix_Equals_object:
+_p_166:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #96]
+br x16
+.word 5318
+	.no_dead_strip plt_Microsoft_Xna_Framework_Matrix_GetHashCode
+plt_Microsoft_Xna_Framework_Matrix_GetHashCode:
+_p_167:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #104]
+br x16
+.word 5323
+	.no_dead_strip plt_Microsoft_Xna_Framework_Matrix_ToString
+plt_Microsoft_Xna_Framework_Matrix_ToString:
+_p_168:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #112]
+br x16
+.word 5328
+	.no_dead_strip plt__rgctx_fetch_0
+plt__rgctx_fetch_0:
+_p_169:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #120]
+br x16
+.word 5361
+	.no_dead_strip plt_System_Array_InternalEnumerator_1_T_REF__ctor_System_Array
+plt_System_Array_InternalEnumerator_1_T_REF__ctor_System_Array:
+_p_170:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #128]
+br x16
+.word 5369
+	.no_dead_strip plt_Locale_GetText_string
+plt_Locale_GetText_string:
+_p_171:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #136]
+br x16
+.word 5388
+	.no_dead_strip plt__rgctx_fetch_1
+plt__rgctx_fetch_1:
+_p_172:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #144]
+br x16
+.word 5412
+	.no_dead_strip plt_System_Array_Copy_System_Array_int_System_Array_int_int
+plt_System_Array_Copy_System_Array_int_System_Array_int_int:
+_p_173:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #152]
+br x16
+.word 5436
+	.no_dead_strip plt__jit_icall_mono_thread_interruption_checkpoint
+plt__jit_icall_mono_thread_interruption_checkpoint:
+_p_174:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #160]
+br x16
+.word 5441
+	.no_dead_strip plt_System_Array_InternalArray__get_Item_Microsoft_Xna_Framework_Point_int
+plt_System_Array_InternalArray__get_Item_Microsoft_Xna_Framework_Point_int:
+_p_175:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #168]
+br x16
+.word 5479
+	.no_dead_strip plt_System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_get_Current
+plt_System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_get_Current:
+_p_176:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #176]
+br x16
+.word 5499
+	.no_dead_strip plt_System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point__ctor_System_Array
+plt_System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point__ctor_System_Array:
+_p_177:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #184]
+br x16
+.word 5518
+	.no_dead_strip plt_Microsoft_Xna_Framework_Point_Equals_object
+plt_Microsoft_Xna_Framework_Point_Equals_object:
+_p_178:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #192]
+br x16
+.word 5537
+	.no_dead_strip plt_System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_CreateComparer
+plt_System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_CreateComparer:
+_p_179:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #200]
+br x16
+.word 5542
+	.no_dead_strip plt_System_Type_op_Equality_System_Type_System_Type
+plt_System_Type_op_Equality_System_Type_System_Type:
+_p_180:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #208]
+br x16
+.word 5561
+	.no_dead_strip plt_System_Collections_Generic_ByteEqualityComparer__ctor
+plt_System_Collections_Generic_ByteEqualityComparer__ctor:
+_p_181:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #216]
+br x16
+.word 5566
+	.no_dead_strip plt_System_Collections_Generic_InternalStringComparer__ctor
+plt_System_Collections_Generic_InternalStringComparer__ctor:
+_p_182:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #224]
+br x16
+.word 5571
+	.no_dead_strip plt_System_RuntimeType_CreateInstanceForAnotherGenericParameter_System_Type_System_RuntimeType
+plt_System_RuntimeType_CreateInstanceForAnotherGenericParameter_System_Type_System_RuntimeType:
+_p_183:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #232]
+br x16
+.word 5576
+	.no_dead_strip plt__jit_icall_mono_array_new_specific
+plt__jit_icall_mono_array_new_specific:
+_p_184:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #240]
+br x16
+.word 5581
+	.no_dead_strip plt_System_Enum_GetUnderlyingType_System_Type
+plt_System_Enum_GetUnderlyingType_System_Type:
+_p_185:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #248]
+br x16
+.word 5607
+	.no_dead_strip plt_System_Type_GetTypeCode_System_Type
+plt_System_Type_GetTypeCode_System_Type:
+_p_186:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #256]
+br x16
+.word 5612
+	.no_dead_strip plt_System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
+plt_System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor:
+_p_187:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #264]
+br x16
+.word 5617
+	.no_dead_strip plt_System_ThrowHelper_ThrowArgumentException_System_ExceptionResource
+plt_System_ThrowHelper_ThrowArgumentException_System_ExceptionResource:
+_p_188:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #272]
+br x16
+.word 5636
+	.no_dead_strip plt_System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
+plt_System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point__ctor:
+_p_189:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #280]
+br x16
+.word 5641
+	.no_dead_strip plt_Microsoft_Xna_Framework_Point_Equals_Microsoft_Xna_Framework_Point
+plt_Microsoft_Xna_Framework_Point_Equals_Microsoft_Xna_Framework_Point:
+_p_190:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #288]
+br x16
+.word 5660
+	.no_dead_strip plt_Microsoft_Xna_Framework_Point_GetHashCode
+plt_Microsoft_Xna_Framework_Point_GetHashCode:
+_p_191:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #296]
+br x16
+.word 5665
+	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Vector2_Unbox_object
+plt_System_Nullable_1_Microsoft_Xna_Framework_Vector2_Unbox_object:
+_p_192:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #304]
+br x16
+.word 5670
+	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Vector2_Equals_System_Nullable_1_Microsoft_Xna_Framework_Vector2
+plt_System_Nullable_1_Microsoft_Xna_Framework_Vector2_Equals_System_Nullable_1_Microsoft_Xna_Framework_Vector2:
+_p_193:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #312]
+br x16
+.word 5691
+	.no_dead_strip plt_Microsoft_Xna_Framework_Vector2_Equals_object
+plt_Microsoft_Xna_Framework_Vector2_Equals_object:
+_p_194:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #320]
+br x16
+.word 5712
+	.no_dead_strip plt_Microsoft_Xna_Framework_Vector2_GetHashCode
+plt_Microsoft_Xna_Framework_Vector2_GetHashCode:
+_p_195:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #328]
+br x16
+.word 5717
+	.no_dead_strip plt_Microsoft_Xna_Framework_Vector2_ToString
+plt_Microsoft_Xna_Framework_Vector2_ToString:
+_p_196:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #336]
+br x16
+.word 5722
+	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Unbox_object
+plt_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Unbox_object:
+_p_197:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #344]
+br x16
+.word 5727
+	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Equals_System_Nullable_1_Microsoft_Xna_Framework_Rectangle
+plt_System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Equals_System_Nullable_1_Microsoft_Xna_Framework_Rectangle:
+_p_198:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #352]
+br x16
+.word 5748
+	.no_dead_strip plt_Microsoft_Xna_Framework_Rectangle_Equals_object
+plt_Microsoft_Xna_Framework_Rectangle_Equals_object:
+_p_199:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #360]
+br x16
+.word 5769
+	.no_dead_strip plt_Microsoft_Xna_Framework_Rectangle_GetHashCode
+plt_Microsoft_Xna_Framework_Rectangle_GetHashCode:
+_p_200:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #368]
+br x16
+.word 5774
+	.no_dead_strip plt_Microsoft_Xna_Framework_Rectangle_ToString
+plt_Microsoft_Xna_Framework_Rectangle_ToString:
+_p_201:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #376]
+br x16
+.word 5779
+	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Color_Unbox_object
+plt_System_Nullable_1_Microsoft_Xna_Framework_Color_Unbox_object:
+_p_202:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #384]
+br x16
+.word 5784
+	.no_dead_strip plt_System_Nullable_1_Microsoft_Xna_Framework_Color_Equals_System_Nullable_1_Microsoft_Xna_Framework_Color
+plt_System_Nullable_1_Microsoft_Xna_Framework_Color_Equals_System_Nullable_1_Microsoft_Xna_Framework_Color:
+_p_203:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #392]
+br x16
+.word 5805
+	.no_dead_strip plt_Microsoft_Xna_Framework_Color_Equals_object
+plt_Microsoft_Xna_Framework_Color_Equals_object:
+_p_204:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #400]
+br x16
+.word 5826
+	.no_dead_strip plt_Microsoft_Xna_Framework_Color_GetHashCode
+plt_Microsoft_Xna_Framework_Color_GetHashCode:
+_p_205:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #408]
+br x16
+.word 5831
+	.no_dead_strip plt_Microsoft_Xna_Framework_Color_ToString
+plt_Microsoft_Xna_Framework_Color_ToString:
+_p_206:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #416]
+br x16
+.word 5836
+	.no_dead_strip plt_System_ThrowHelper_ThrowArgumentOutOfRangeException
+plt_System_ThrowHelper_ThrowArgumentOutOfRangeException:
+_p_207:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #424]
+br x16
+.word 5841
+	.no_dead_strip plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_EnsureCapacity_int
+plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_EnsureCapacity_int:
+_p_208:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #432]
+br x16
+.word 5846
+	.no_dead_strip plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_set_Capacity_int
+plt_System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_set_Capacity_int:
+_p_209:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #440]
+br x16
+.word 5867
+	.no_dead_strip plt_System_ThrowHelper_ThrowArgumentOutOfRangeException_System_ExceptionArgument_System_ExceptionResource
+plt_System_ThrowHelper_ThrowArgumentOutOfRangeException_System_ExceptionArgument_System_ExceptionResource:
+_p_210:
+adrp x16, mono_aot_TheAdventuresOf_iOS_got@PAGE+4096
+add x16, x16, mono_aot_TheAdventuresOf_iOS_got@PAGEOFF
+ldr x16, [x16, #448]
+br x16
+.word 5888
 plt_end:
 .section __DATA, __bss
 	.align 3
-.lcomm mono_aot_TheAdventuresOf_iOS_got, 4096
+.lcomm mono_aot_TheAdventuresOf_iOS_got, 4552
 got_end:
 .section __TEXT, __const
 	.align 3
@@ -25565,7 +29999,7 @@ runtime_version:
 .section __TEXT, __const
 	.align 2
 assembly_guid:
-	.asciz "99E7E52E-1C33-4ED3-856A-F3A9910EECD8"
+	.asciz "8944429D-8E88-42CB-9F5E-CAFAB55A5FC7"
 .section __TEXT, __const
 	.align 2
 assembly_name:
@@ -25642,10 +30076,10 @@ _mono_aot_file_info:
 	.align 3
 	.quad unbox_trampoline_addresses
 
-	.long 325,4096,187,201,70,923871743,0,33866
-	.long 128,8,8,10,0,14,38928,5056
-	.long 4528,3456,0,4072,4480,3624,0,2536
-	.long 304,0,0,0,0,0,0,0
+	.long 358,4552,211,216,70,923871743,0,39839
+	.long 128,8,8,10,0,14,45008,5160
+	.long 4632,3488,0,4144,4584,3656,0,2552
+	.long 320,0,0,0,0,0,0,0
 	.long 0,0,0,0,0,0,0,0
 	.long 0
 	.globl _mono_aot_module_TheAdventuresOf_iOS_info
@@ -33685,7 +38119,7 @@ LTDIE_150:
 	.byte 5
 	.asciz "TheAdventuresOf_Character"
 
-	.byte 96,16
+	.byte 104,16
 LDIFF_SYM1142=LTDIE_3 - Ldebug_info_start
 	.long LDIFF_SYM1142
 	.byte 2,35,0,6
@@ -33714,342 +38148,382 @@ LDIFF_SYM1146=LDIE_I4 - Ldebug_info_start
 LDIFF_SYM1147=LDIE_I4 - Ldebug_info_start
 	.long LDIFF_SYM1147
 	.byte 2,35,68,6
-	.asciz "frameCount"
+	.asciz "originVector"
 
 LDIFF_SYM1148=LDIE_I4 - Ldebug_info_start
 	.long LDIFF_SYM1148
 	.byte 2,35,76,6
-	.asciz "standAnimation"
+	.asciz "frameCount"
 
-LDIFF_SYM1149=LTDIE_151_REFERENCE - Ldebug_info_start
+LDIFF_SYM1149=LDIE_I4 - Ldebug_info_start
 	.long LDIFF_SYM1149
-	.byte 2,35,16,6
-	.asciz "walkAnimation"
+	.byte 2,35,84,6
+	.asciz "standAnimation"
 
 LDIFF_SYM1150=LTDIE_151_REFERENCE - Ldebug_info_start
 	.long LDIFF_SYM1150
-	.byte 2,35,24,6
-	.asciz "currentAnimation"
+	.byte 2,35,16,6
+	.asciz "walkAnimation"
 
 LDIFF_SYM1151=LTDIE_151_REFERENCE - Ldebug_info_start
 	.long LDIFF_SYM1151
+	.byte 2,35,24,6
+	.asciz "currentAnimation"
+
+LDIFF_SYM1152=LTDIE_151_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1152
 	.byte 2,35,32,6
 	.asciz "characterWidth"
 
-LDIFF_SYM1152=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1152
-	.byte 2,35,80,6
-	.asciz "characterHeight"
-
 LDIFF_SYM1153=LDIE_I4 - Ldebug_info_start
 	.long LDIFF_SYM1153
-	.byte 2,35,84,6
-	.asciz "moveLeft"
-
-LDIFF_SYM1154=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM1154
 	.byte 2,35,88,6
-	.asciz "moveRight"
+	.asciz "characterHeight"
+
+LDIFF_SYM1154=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1154
+	.byte 2,35,92,6
+	.asciz "moveLeft"
 
 LDIFF_SYM1155=LDIE_BOOLEAN - Ldebug_info_start
 	.long LDIFF_SYM1155
-	.byte 2,35,89,6
-	.asciz "isMoving"
+	.byte 2,35,96,6
+	.asciz "moveRight"
 
 LDIFF_SYM1156=LDIE_BOOLEAN - Ldebug_info_start
 	.long LDIFF_SYM1156
-	.byte 2,35,90,0,7
+	.byte 2,35,97,6
+	.asciz "isMoving"
+
+LDIFF_SYM1157=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1157
+	.byte 2,35,98,6
+	.asciz "tintColor"
+
+LDIFF_SYM1158=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1158
+	.byte 2,35,100,0,7
 	.asciz "TheAdventuresOf_Character"
 
-LDIFF_SYM1157=LTDIE_150 - Ldebug_info_start
-	.long LDIFF_SYM1157
+LDIFF_SYM1159=LTDIE_150 - Ldebug_info_start
+	.long LDIFF_SYM1159
 LTDIE_150_POINTER:
 
 	.byte 13
-LDIFF_SYM1158=LTDIE_150 - Ldebug_info_start
-	.long LDIFF_SYM1158
+LDIFF_SYM1160=LTDIE_150 - Ldebug_info_start
+	.long LDIFF_SYM1160
 LTDIE_150_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1159=LTDIE_150 - Ldebug_info_start
-	.long LDIFF_SYM1159
+LDIFF_SYM1161=LTDIE_150 - Ldebug_info_start
+	.long LDIFF_SYM1161
+LTDIE_153:
+
+	.byte 5
+	.asciz "System_Double"
+
+	.byte 24,16
+LDIFF_SYM1162=LTDIE_21 - Ldebug_info_start
+	.long LDIFF_SYM1162
+	.byte 2,35,0,6
+	.asciz "m_value"
+
+LDIFF_SYM1163=LDIE_R8 - Ldebug_info_start
+	.long LDIFF_SYM1163
+	.byte 2,35,16,0,7
+	.asciz "System_Double"
+
+LDIFF_SYM1164=LTDIE_153 - Ldebug_info_start
+	.long LDIFF_SYM1164
+LTDIE_153_POINTER:
+
+	.byte 13
+LDIFF_SYM1165=LTDIE_153 - Ldebug_info_start
+	.long LDIFF_SYM1165
+LTDIE_153_REFERENCE:
+
+	.byte 14
+LDIFF_SYM1166=LTDIE_153 - Ldebug_info_start
+	.long LDIFF_SYM1166
 LTDIE_149:
 
 	.byte 5
 	.asciz "TheAdventuresOf_Player"
 
-	.byte 152,1,16
-LDIFF_SYM1160=LTDIE_150 - Ldebug_info_start
-	.long LDIFF_SYM1160
-	.byte 2,35,0,6
-	.asciz "jumpSpeed"
-
-LDIFF_SYM1161=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1161
-	.byte 2,35,96,6
-	.asciz "jumpHeight"
-
-LDIFF_SYM1162=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1162
-	.byte 2,35,100,6
-	.asciz "swordBounds"
-
-LDIFF_SYM1163=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1163
-	.byte 2,35,104,6
-	.asciz "leftSwordOffset"
-
-LDIFF_SYM1164=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1164
-	.byte 2,35,120,6
-	.asciz "rightSwordOffset"
-
-LDIFF_SYM1165=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1165
-	.byte 2,35,124,6
-	.asciz "swordYOffset"
-
-LDIFF_SYM1166=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1166
-	.byte 3,35,128,1,6
-	.asciz "swordPositionVector"
-
-LDIFF_SYM1167=LDIE_I4 - Ldebug_info_start
+	.byte 200,1,16
+LDIFF_SYM1167=LTDIE_150 - Ldebug_info_start
 	.long LDIFF_SYM1167
-	.byte 3,35,132,1,6
-	.asciz "variableJumpSpeed"
+	.byte 2,35,0,6
+	.asciz "groundLevel"
 
 LDIFF_SYM1168=LDIE_R4 - Ldebug_info_start
 	.long LDIFF_SYM1168
-	.byte 3,35,140,1,6
-	.asciz "jumpHeightLimit"
+	.byte 2,35,104,6
+	.asciz "jumpSpeed"
 
 LDIFF_SYM1169=LDIE_R4 - Ldebug_info_start
 	.long LDIFF_SYM1169
+	.byte 2,35,108,6
+	.asciz "jumpHeight"
+
+LDIFF_SYM1170=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1170
+	.byte 2,35,112,6
+	.asciz "swordBounds"
+
+LDIFF_SYM1171=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1171
+	.byte 2,35,116,6
+	.asciz "leftSwordOffset"
+
+LDIFF_SYM1172=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1172
+	.byte 3,35,132,1,6
+	.asciz "rightSwordOffset"
+
+LDIFF_SYM1173=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1173
+	.byte 3,35,136,1,6
+	.asciz "swordYOffset"
+
+LDIFF_SYM1174=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1174
+	.byte 3,35,140,1,6
+	.asciz "swordPositionVector"
+
+LDIFF_SYM1175=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1175
 	.byte 3,35,144,1,6
+	.asciz "variableJumpSpeed"
+
+LDIFF_SYM1176=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1176
+	.byte 3,35,152,1,6
+	.asciz "jumpHeightLimit"
+
+LDIFF_SYM1177=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1177
+	.byte 3,35,156,1,6
 	.asciz "hasJumped"
 
-LDIFF_SYM1170=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM1170
-	.byte 3,35,148,1,6
+LDIFF_SYM1178=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1178
+	.byte 3,35,160,1,6
 	.asciz "isJumping"
 
-LDIFF_SYM1171=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM1171
-	.byte 3,35,149,1,0,7
+LDIFF_SYM1179=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1179
+	.byte 3,35,161,1,6
+	.asciz "maxHealth"
+
+LDIFF_SYM1180=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1180
+	.byte 3,35,164,1,6
+	.asciz "health"
+
+LDIFF_SYM1181=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1181
+	.byte 3,35,168,1,6
+	.asciz "heartPositionVector"
+
+LDIFF_SYM1182=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1182
+	.byte 3,35,172,1,6
+	.asciz "isInvincible"
+
+LDIFF_SYM1183=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1183
+	.byte 3,35,180,1,6
+	.asciz "invincibilityTimer"
+
+LDIFF_SYM1184=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1184
+	.byte 3,35,184,1,6
+	.asciz "invincibilityTime"
+
+LDIFF_SYM1185=LDIE_R8 - Ldebug_info_start
+	.long LDIFF_SYM1185
+	.byte 3,35,192,1,0,7
 	.asciz "TheAdventuresOf_Player"
 
-LDIFF_SYM1172=LTDIE_149 - Ldebug_info_start
-	.long LDIFF_SYM1172
+LDIFF_SYM1186=LTDIE_149 - Ldebug_info_start
+	.long LDIFF_SYM1186
 LTDIE_149_POINTER:
 
 	.byte 13
-LDIFF_SYM1173=LTDIE_149 - Ldebug_info_start
-	.long LDIFF_SYM1173
+LDIFF_SYM1187=LTDIE_149 - Ldebug_info_start
+	.long LDIFF_SYM1187
 LTDIE_149_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1174=LTDIE_149 - Ldebug_info_start
-	.long LDIFF_SYM1174
-LTDIE_154:
-
-	.byte 5
-	.asciz "System_Random"
-
-	.byte 32,16
-LDIFF_SYM1175=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1175
-	.byte 2,35,0,6
-	.asciz "inext"
-
-LDIFF_SYM1176=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1176
-	.byte 2,35,24,6
-	.asciz "inextp"
-
-LDIFF_SYM1177=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1177
-	.byte 2,35,28,6
-	.asciz "SeedArray"
-
-LDIFF_SYM1178=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM1178
-	.byte 2,35,16,0,7
-	.asciz "System_Random"
-
-LDIFF_SYM1179=LTDIE_154 - Ldebug_info_start
-	.long LDIFF_SYM1179
-LTDIE_154_POINTER:
-
-	.byte 13
-LDIFF_SYM1180=LTDIE_154 - Ldebug_info_start
-	.long LDIFF_SYM1180
-LTDIE_154_REFERENCE:
-
-	.byte 14
-LDIFF_SYM1181=LTDIE_154 - Ldebug_info_start
-	.long LDIFF_SYM1181
-LTDIE_153:
-
-	.byte 5
-	.asciz "TheAdventuresOf_Monster"
-
-	.byte 136,1,16
-LDIFF_SYM1182=LTDIE_150 - Ldebug_info_start
-	.long LDIFF_SYM1182
-	.byte 2,35,0,6
-	.asciz "moveDistanceLimit"
-
-LDIFF_SYM1183=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1183
-	.byte 2,35,104,6
-	.asciz "moveDelayTime"
-
-LDIFF_SYM1184=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1184
-	.byte 2,35,108,6
-	.asciz "isDead"
-
-LDIFF_SYM1185=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM1185
-	.byte 2,35,112,6
-	.asciz "distanceMoved"
-
-LDIFF_SYM1186=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1186
-	.byte 2,35,116,6
-	.asciz "timeDelayed"
-
-LDIFF_SYM1187=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1187
-	.byte 2,35,120,6
-	.asciz "delayMove"
-
-LDIFF_SYM1188=LDIE_BOOLEAN - Ldebug_info_start
+LDIFF_SYM1188=LTDIE_149 - Ldebug_info_start
 	.long LDIFF_SYM1188
-	.byte 3,35,128,1,6
-	.asciz "rand"
-
-LDIFF_SYM1189=LTDIE_154_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1189
-	.byte 2,35,96,0,7
-	.asciz "TheAdventuresOf_Monster"
-
-LDIFF_SYM1190=LTDIE_153 - Ldebug_info_start
-	.long LDIFF_SYM1190
-LTDIE_153_POINTER:
-
-	.byte 13
-LDIFF_SYM1191=LTDIE_153 - Ldebug_info_start
-	.long LDIFF_SYM1191
-LTDIE_153_REFERENCE:
-
-	.byte 14
-LDIFF_SYM1192=LTDIE_153 - Ldebug_info_start
-	.long LDIFF_SYM1192
 LTDIE_155:
 
 	.byte 5
-	.asciz "TheAdventuresOf_Level"
+	.asciz "System_Collections_Generic_List`1"
 
-	.byte 16,16
-LDIFF_SYM1193=LTDIE_3 - Ldebug_info_start
+	.byte 32,16
+LDIFF_SYM1189=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1189
+	.byte 2,35,0,6
+	.asciz "_items"
+
+LDIFF_SYM1190=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM1190
+	.byte 2,35,16,6
+	.asciz "_size"
+
+LDIFF_SYM1191=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1191
+	.byte 2,35,24,6
+	.asciz "_version"
+
+LDIFF_SYM1192=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1192
+	.byte 2,35,28,0,7
+	.asciz "System_Collections_Generic_List`1"
+
+LDIFF_SYM1193=LTDIE_155 - Ldebug_info_start
 	.long LDIFF_SYM1193
-	.byte 2,35,0,0,7
-	.asciz "TheAdventuresOf_Level"
-
-LDIFF_SYM1194=LTDIE_155 - Ldebug_info_start
-	.long LDIFF_SYM1194
 LTDIE_155_POINTER:
 
 	.byte 13
-LDIFF_SYM1195=LTDIE_155 - Ldebug_info_start
-	.long LDIFF_SYM1195
+LDIFF_SYM1194=LTDIE_155 - Ldebug_info_start
+	.long LDIFF_SYM1194
 LTDIE_155_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1196=LTDIE_155 - Ldebug_info_start
+LDIFF_SYM1195=LTDIE_155 - Ldebug_info_start
+	.long LDIFF_SYM1195
+LTDIE_154:
+
+	.byte 5
+	.asciz "TheAdventuresOf_Level"
+
+	.byte 48,16
+LDIFF_SYM1196=LTDIE_3 - Ldebug_info_start
 	.long LDIFF_SYM1196
+	.byte 2,35,0,6
+	.asciz "leftBoundWidth"
+
+LDIFF_SYM1197=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1197
+	.byte 2,35,32,6
+	.asciz "rightBoundWidth"
+
+LDIFF_SYM1198=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1198
+	.byte 2,35,36,6
+	.asciz "groundLevel"
+
+LDIFF_SYM1199=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1199
+	.byte 2,35,40,6
+	.asciz "monsterLimit"
+
+LDIFF_SYM1200=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1200
+	.byte 2,35,44,6
+	.asciz "monsters"
+
+LDIFF_SYM1201=LTDIE_155_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1201
+	.byte 2,35,16,6
+	.asciz "monstersToRemove"
+
+LDIFF_SYM1202=LTDIE_155_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1202
+	.byte 2,35,24,0,7
+	.asciz "TheAdventuresOf_Level"
+
+LDIFF_SYM1203=LTDIE_154 - Ldebug_info_start
+	.long LDIFF_SYM1203
+LTDIE_154_POINTER:
+
+	.byte 13
+LDIFF_SYM1204=LTDIE_154 - Ldebug_info_start
+	.long LDIFF_SYM1204
+LTDIE_154_REFERENCE:
+
+	.byte 14
+LDIFF_SYM1205=LTDIE_154 - Ldebug_info_start
+	.long LDIFF_SYM1205
 LTDIE_7:
 
 	.byte 5
 	.asciz "TheAdventuresOf_TheAdventuresOf"
 
-	.byte 248,1,16
-LDIFF_SYM1197=LTDIE_8 - Ldebug_info_start
-	.long LDIFF_SYM1197
+	.byte 240,1,16
+LDIFF_SYM1206=LTDIE_8 - Ldebug_info_start
+	.long LDIFF_SYM1206
 	.byte 2,35,0,6
 	.asciz "graphics"
 
-LDIFF_SYM1198=LTDIE_71_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1198
+LDIFF_SYM1207=LTDIE_71_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1207
 	.byte 3,35,200,1,6
 	.asciz "spriteBatch"
 
-LDIFF_SYM1199=LTDIE_134_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1199
+LDIFF_SYM1208=LTDIE_134_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1208
 	.byte 3,35,208,1,6
 	.asciz "screen"
 
-LDIFF_SYM1200=LTDIE_148_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1200
+LDIFF_SYM1209=LTDIE_148_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1209
 	.byte 3,35,216,1,6
 	.asciz "player"
 
-LDIFF_SYM1201=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1201
+LDIFF_SYM1210=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1210
 	.byte 3,35,224,1,6
-	.asciz "blockMonster"
-
-LDIFF_SYM1202=LTDIE_153_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1202
-	.byte 3,35,232,1,6
 	.asciz "level"
 
-LDIFF_SYM1203=LTDIE_155_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1203
-	.byte 3,35,240,1,0,7
+LDIFF_SYM1211=LTDIE_154_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1211
+	.byte 3,35,232,1,0,7
 	.asciz "TheAdventuresOf_TheAdventuresOf"
 
-LDIFF_SYM1204=LTDIE_7 - Ldebug_info_start
-	.long LDIFF_SYM1204
+LDIFF_SYM1212=LTDIE_7 - Ldebug_info_start
+	.long LDIFF_SYM1212
 LTDIE_7_POINTER:
 
 	.byte 13
-LDIFF_SYM1205=LTDIE_7 - Ldebug_info_start
-	.long LDIFF_SYM1205
+LDIFF_SYM1213=LTDIE_7 - Ldebug_info_start
+	.long LDIFF_SYM1213
 LTDIE_7_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1206=LTDIE_7 - Ldebug_info_start
-	.long LDIFF_SYM1206
+LDIFF_SYM1214=LTDIE_7 - Ldebug_info_start
+	.long LDIFF_SYM1214
 	.byte 2
 	.asciz "TheAdventuresOf.TheAdventuresOf:.ctor"
 	.asciz "TheAdventuresOf_TheAdventuresOf__ctor"
 
-	.byte 2,22
+	.byte 2,21
 	.quad TheAdventuresOf_TheAdventuresOf__ctor
 	.quad Lme_4
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1207=LTDIE_7_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1207
+LDIFF_SYM1215=LTDIE_7_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1215
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1208=Lfde4_end - Lfde4_start
-	.long LDIFF_SYM1208
+LDIFF_SYM1216=Lfde4_end - Lfde4_start
+	.long LDIFF_SYM1216
 Lfde4_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_TheAdventuresOf__ctor
 
-LDIFF_SYM1209=Lme_4 - TheAdventuresOf_TheAdventuresOf__ctor
-	.long LDIFF_SYM1209
+LDIFF_SYM1217=Lme_4 - TheAdventuresOf_TheAdventuresOf__ctor
+	.long LDIFF_SYM1217
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,154,8
 	.align 3
@@ -34061,31 +38535,31 @@ Lfde4_end:
 	.asciz "TheAdventuresOf.TheAdventuresOf:Initialize"
 	.asciz "TheAdventuresOf_TheAdventuresOf_Initialize"
 
-	.byte 2,38
+	.byte 2,37
 	.quad TheAdventuresOf_TheAdventuresOf_Initialize
 	.quad Lme_5
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1210=LTDIE_7_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1210
+LDIFF_SYM1218=LTDIE_7_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1218
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1211=Lfde5_end - Lfde5_start
-	.long LDIFF_SYM1211
+LDIFF_SYM1219=Lfde5_end - Lfde5_start
+	.long LDIFF_SYM1219
 Lfde5_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_TheAdventuresOf_Initialize
 
-LDIFF_SYM1212=Lme_5 - TheAdventuresOf_TheAdventuresOf_Initialize
-	.long LDIFF_SYM1212
+LDIFF_SYM1220=Lme_5 - TheAdventuresOf_TheAdventuresOf_Initialize
+	.long LDIFF_SYM1220
 	.long 0
-	.byte 12,31,0,68,14,160,1,157,20,158,19,68,13,29,68,154,18
+	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,154,16
 	.align 3
 Lfde5_end:
 
@@ -34095,31 +38569,31 @@ Lfde5_end:
 	.asciz "TheAdventuresOf.TheAdventuresOf:LoadContent"
 	.asciz "TheAdventuresOf_TheAdventuresOf_LoadContent"
 
-	.byte 2,51
+	.byte 2,49
 	.quad TheAdventuresOf_TheAdventuresOf_LoadContent
 	.quad Lme_6
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1213=LTDIE_7_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1213
+LDIFF_SYM1221=LTDIE_7_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1221
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1214=Lfde6_end - Lfde6_start
-	.long LDIFF_SYM1214
+LDIFF_SYM1222=Lfde6_end - Lfde6_start
+	.long LDIFF_SYM1222
 Lfde6_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_TheAdventuresOf_LoadContent
 
-LDIFF_SYM1215=Lme_6 - TheAdventuresOf_TheAdventuresOf_LoadContent
-	.long LDIFF_SYM1215
+LDIFF_SYM1223=Lme_6 - TheAdventuresOf_TheAdventuresOf_LoadContent
+	.long LDIFF_SYM1223
 	.long 0
-	.byte 12,31,0,68,14,160,2,157,36,158,35,68,13,29,68,154,34
+	.byte 12,31,0,68,14,192,1,157,24,158,23,68,13,29,68,154,22
 	.align 3
 Lfde6_end:
 
@@ -34129,80 +38603,205 @@ Lfde6_end:
 	.asciz "TheAdventuresOf.TheAdventuresOf:Update"
 	.asciz "TheAdventuresOf_TheAdventuresOf_Update_Microsoft_Xna_Framework_GameTime"
 
-	.byte 2,83
+	.byte 2,76
 	.quad TheAdventuresOf_TheAdventuresOf_Update_Microsoft_Xna_Framework_GameTime
 	.quad Lme_7
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1216=LTDIE_7_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1216
+LDIFF_SYM1224=LTDIE_7_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1224
 	.byte 1,105,3
 	.asciz "gameTime"
 
-LDIFF_SYM1217=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1217
+LDIFF_SYM1225=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1225
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1218=Lfde7_end - Lfde7_start
-	.long LDIFF_SYM1218
+LDIFF_SYM1226=Lfde7_end - Lfde7_start
+	.long LDIFF_SYM1226
 Lfde7_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_TheAdventuresOf_Update_Microsoft_Xna_Framework_GameTime
 
-LDIFF_SYM1219=Lme_7 - TheAdventuresOf_TheAdventuresOf_Update_Microsoft_Xna_Framework_GameTime
-	.long LDIFF_SYM1219
+LDIFF_SYM1227=Lme_7 - TheAdventuresOf_TheAdventuresOf_Update_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM1227
 	.long 0
-	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,153,16,154,15
+	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,153,14,154,13
 	.align 3
 Lfde7_end:
 
 .section __DWARF, __debug_info,regular,debug
+LTDIE_157:
 
+	.byte 5
+	.asciz "System_Random"
+
+	.byte 32,16
+LDIFF_SYM1228=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1228
+	.byte 2,35,0,6
+	.asciz "inext"
+
+LDIFF_SYM1229=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1229
+	.byte 2,35,24,6
+	.asciz "inextp"
+
+LDIFF_SYM1230=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1230
+	.byte 2,35,28,6
+	.asciz "SeedArray"
+
+LDIFF_SYM1231=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM1231
+	.byte 2,35,16,0,7
+	.asciz "System_Random"
+
+LDIFF_SYM1232=LTDIE_157 - Ldebug_info_start
+	.long LDIFF_SYM1232
+LTDIE_157_POINTER:
+
+	.byte 13
+LDIFF_SYM1233=LTDIE_157 - Ldebug_info_start
+	.long LDIFF_SYM1233
+LTDIE_157_REFERENCE:
+
+	.byte 14
+LDIFF_SYM1234=LTDIE_157 - Ldebug_info_start
+	.long LDIFF_SYM1234
+LTDIE_156:
+
+	.byte 5
+	.asciz "TheAdventuresOf_Monster"
+
+	.byte 152,1,16
+LDIFF_SYM1235=LTDIE_150 - Ldebug_info_start
+	.long LDIFF_SYM1235
+	.byte 2,35,0,6
+	.asciz "moveDistanceLimit"
+
+LDIFF_SYM1236=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1236
+	.byte 2,35,112,6
+	.asciz "moveDelayTime"
+
+LDIFF_SYM1237=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1237
+	.byte 2,35,116,6
+	.asciz "rotationSpeed"
+
+LDIFF_SYM1238=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1238
+	.byte 2,35,120,6
+	.asciz "upDownSpeed"
+
+LDIFF_SYM1239=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1239
+	.byte 2,35,124,6
+	.asciz "isSpawning"
+
+LDIFF_SYM1240=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1240
+	.byte 3,35,128,1,6
+	.asciz "isDying"
+
+LDIFF_SYM1241=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1241
+	.byte 3,35,129,1,6
+	.asciz "isDead"
+
+LDIFF_SYM1242=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1242
+	.byte 3,35,130,1,6
+	.asciz "timeDelayed"
+
+LDIFF_SYM1243=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1243
+	.byte 3,35,136,1,6
+	.asciz "distanceMoved"
+
+LDIFF_SYM1244=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1244
+	.byte 3,35,144,1,6
+	.asciz "delayMove"
+
+LDIFF_SYM1245=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1245
+	.byte 3,35,148,1,6
+	.asciz "rand"
+
+LDIFF_SYM1246=LTDIE_157_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1246
+	.byte 2,35,104,0,7
+	.asciz "TheAdventuresOf_Monster"
+
+LDIFF_SYM1247=LTDIE_156 - Ldebug_info_start
+	.long LDIFF_SYM1247
+LTDIE_156_POINTER:
+
+	.byte 13
+LDIFF_SYM1248=LTDIE_156 - Ldebug_info_start
+	.long LDIFF_SYM1248
+LTDIE_156_REFERENCE:
+
+	.byte 14
+LDIFF_SYM1249=LTDIE_156 - Ldebug_info_start
+	.long LDIFF_SYM1249
 	.byte 2
 	.asciz "TheAdventuresOf.TheAdventuresOf:Draw"
 	.asciz "TheAdventuresOf_TheAdventuresOf_Draw_Microsoft_Xna_Framework_GameTime"
 
-	.byte 2,107
+	.byte 2,97
 	.quad TheAdventuresOf_TheAdventuresOf_Draw_Microsoft_Xna_Framework_GameTime
 	.quad Lme_8
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1220=LTDIE_7_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1220
+LDIFF_SYM1250=LTDIE_7_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1250
 	.byte 1,105,3
 	.asciz "gameTime"
 
-LDIFF_SYM1221=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1221
+LDIFF_SYM1251=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1251
 	.byte 1,106,11
 	.asciz "V_0"
 
-LDIFF_SYM1222=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1222
-	.byte 3,141,216,3,0
+LDIFF_SYM1252=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1252
+	.byte 3,141,144,4,11
+	.asciz "monster"
+
+LDIFF_SYM1253=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1253
+	.byte 1,104,11
+	.asciz "V_2"
+
+LDIFF_SYM1254=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1254
+	.byte 3,141,248,3,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1223=Lfde8_end - Lfde8_start
-	.long LDIFF_SYM1223
+LDIFF_SYM1255=Lfde8_end - Lfde8_start
+	.long LDIFF_SYM1255
 Lfde8_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_TheAdventuresOf_Draw_Microsoft_Xna_Framework_GameTime
 
-LDIFF_SYM1224=Lme_8 - TheAdventuresOf_TheAdventuresOf_Draw_Microsoft_Xna_Framework_GameTime
-	.long LDIFF_SYM1224
+LDIFF_SYM1256=Lme_8 - TheAdventuresOf_TheAdventuresOf_Draw_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM1256
 	.long 0
-	.byte 12,31,0,84,14,144,5,157,82,158,81,68,13,29,68,153,80,154,79
+	.byte 12,31,0,84,14,160,5,157,84,158,83,68,13,29,68,152,82,153,81,68,154,80
 	.align 3
 Lfde8_end:
 
@@ -34219,32 +38818,32 @@ Lfde8_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1225=LTDIE_148_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1225
+LDIFF_SYM1257=LTDIE_148_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1257
 	.byte 1,104,3
 	.asciz "actualWidth"
 
-LDIFF_SYM1226=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1226
+LDIFF_SYM1258=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1258
 	.byte 2,141,24,3
 	.asciz "actualHeight"
 
-LDIFF_SYM1227=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1227
+LDIFF_SYM1259=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1259
 	.byte 2,141,32,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1228=Lfde9_end - Lfde9_start
-	.long LDIFF_SYM1228
+LDIFF_SYM1260=Lfde9_end - Lfde9_start
+	.long LDIFF_SYM1260
 Lfde9_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Screen__ctor_int_int
 
-LDIFF_SYM1229=Lme_9 - TheAdventuresOf_Screen__ctor_int_int
-	.long LDIFF_SYM1229
+LDIFF_SYM1261=Lme_9 - TheAdventuresOf_Screen__ctor_int_int
+	.long LDIFF_SYM1261
 	.long 0
 	.byte 12,31,0,68,14,224,1,157,28,158,27,68,13,29,68,152,26
 	.align 3
@@ -34263,27 +38862,27 @@ Lfde9_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1230=LTDIE_148_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1230
+LDIFF_SYM1262=LTDIE_148_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1262
 	.byte 2,141,24,11
 	.asciz "V_0"
 
-LDIFF_SYM1231=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1231
+LDIFF_SYM1263=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1263
 	.byte 3,141,184,1,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1232=Lfde10_end - Lfde10_start
-	.long LDIFF_SYM1232
+LDIFF_SYM1264=Lfde10_end - Lfde10_start
+	.long LDIFF_SYM1264
 Lfde10_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Screen_get_scaleMatrix
 
-LDIFF_SYM1233=Lme_a - TheAdventuresOf_Screen_get_scaleMatrix
-	.long LDIFF_SYM1233
+LDIFF_SYM1265=Lme_a - TheAdventuresOf_Screen_get_scaleMatrix
+	.long LDIFF_SYM1265
 	.long 0
 	.byte 12,31,0,68,14,128,2,157,32,158,31,68,13,29
 	.align 3
@@ -34302,27 +38901,27 @@ Lfde10_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1234=LTDIE_148_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1234
+LDIFF_SYM1266=LTDIE_148_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1266
 	.byte 2,141,16,3
 	.asciz "value"
 
-LDIFF_SYM1235=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1235
+LDIFF_SYM1267=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1267
 	.byte 1,80,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1236=Lfde11_end - Lfde11_start
-	.long LDIFF_SYM1236
+LDIFF_SYM1268=Lfde11_end - Lfde11_start
+	.long LDIFF_SYM1268
 Lfde11_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Screen_set_scaleMatrix_Microsoft_Xna_Framework_Matrix
 
-LDIFF_SYM1237=Lme_b - TheAdventuresOf_Screen_set_scaleMatrix_Microsoft_Xna_Framework_Matrix
-	.long LDIFF_SYM1237
+LDIFF_SYM1269=Lme_b - TheAdventuresOf_Screen_set_scaleMatrix_Microsoft_Xna_Framework_Matrix
+	.long LDIFF_SYM1269
 	.long 0
 	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29
 	.align 3
@@ -34341,52 +38940,52 @@ Lfde11_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1238=LTDIE_148_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1238
+LDIFF_SYM1270=LTDIE_148_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1270
 	.byte 2,141,24,3
 	.asciz "actualWidth"
 
-LDIFF_SYM1239=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1239
+LDIFF_SYM1271=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1271
 	.byte 2,141,32,3
 	.asciz "actualHeight"
 
-LDIFF_SYM1240=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1240
+LDIFF_SYM1272=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1272
 	.byte 2,141,40,11
 	.asciz "scaleX"
 
-LDIFF_SYM1241=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1241
+LDIFF_SYM1273=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1273
 	.byte 3,141,136,3,11
 	.asciz "scaleY"
 
-LDIFF_SYM1242=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1242
+LDIFF_SYM1274=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1274
 	.byte 3,141,140,3,11
 	.asciz "matrix"
 
-LDIFF_SYM1243=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1243
+LDIFF_SYM1275=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1275
 	.byte 3,141,200,2,11
 	.asciz "V_3"
 
-LDIFF_SYM1244=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1244
+LDIFF_SYM1276=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1276
 	.byte 3,141,136,2,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1245=Lfde12_end - Lfde12_start
-	.long LDIFF_SYM1245
+LDIFF_SYM1277=Lfde12_end - Lfde12_start
+	.long LDIFF_SYM1277
 Lfde12_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Screen_CreateScaleMatrix_int_int
 
-LDIFF_SYM1246=Lme_c - TheAdventuresOf_Screen_CreateScaleMatrix_int_int
-	.long LDIFF_SYM1246
+LDIFF_SYM1278=Lme_c - TheAdventuresOf_Screen_CreateScaleMatrix_int_int
+	.long LDIFF_SYM1278
 	.long 0
 	.byte 12,31,0,68,14,176,3,157,54,158,53,68,13,29
 	.align 3
@@ -34405,71 +39004,71 @@ Lfde12_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1247=LTDIE_148_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1247
+LDIFF_SYM1279=LTDIE_148_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1279
 	.byte 2,141,16,3
 	.asciz "gameTime"
 
-LDIFF_SYM1248=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1248
+LDIFF_SYM1280=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1280
 	.byte 2,141,24,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1249=Lfde13_end - Lfde13_start
-	.long LDIFF_SYM1249
+LDIFF_SYM1281=Lfde13_end - Lfde13_start
+	.long LDIFF_SYM1281
 Lfde13_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Screen_Update_Microsoft_Xna_Framework_GameTime
 
-LDIFF_SYM1250=Lme_d - TheAdventuresOf_Screen_Update_Microsoft_Xna_Framework_GameTime
-	.long LDIFF_SYM1250
+LDIFF_SYM1282=Lme_d - TheAdventuresOf_Screen_Update_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM1282
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29
 	.align 3
 Lfde13_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_156:
+LTDIE_158:
 
 	.byte 5
 	.asciz "System_Collections_Generic_List`1"
 
 	.byte 32,16
-LDIFF_SYM1251=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1251
+LDIFF_SYM1283=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1283
 	.byte 2,35,0,6
 	.asciz "_items"
 
-LDIFF_SYM1252=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM1252
+LDIFF_SYM1284=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM1284
 	.byte 2,35,16,6
 	.asciz "_size"
 
-LDIFF_SYM1253=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1253
+LDIFF_SYM1285=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1285
 	.byte 2,35,24,6
 	.asciz "_version"
 
-LDIFF_SYM1254=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1254
+LDIFF_SYM1286=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1286
 	.byte 2,35,28,0,7
 	.asciz "System_Collections_Generic_List`1"
 
-LDIFF_SYM1255=LTDIE_156 - Ldebug_info_start
-	.long LDIFF_SYM1255
-LTDIE_156_POINTER:
+LDIFF_SYM1287=LTDIE_158 - Ldebug_info_start
+	.long LDIFF_SYM1287
+LTDIE_158_POINTER:
 
 	.byte 13
-LDIFF_SYM1256=LTDIE_156 - Ldebug_info_start
-	.long LDIFF_SYM1256
-LTDIE_156_REFERENCE:
+LDIFF_SYM1288=LTDIE_158 - Ldebug_info_start
+	.long LDIFF_SYM1288
+LTDIE_158_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1257=LTDIE_156 - Ldebug_info_start
-	.long LDIFF_SYM1257
+LDIFF_SYM1289=LTDIE_158 - Ldebug_info_start
+	.long LDIFF_SYM1289
 	.byte 2
 	.asciz "TheAdventuresOf.Screen:HandleInput"
 	.asciz "TheAdventuresOf_Screen_HandleInput_Microsoft_Xna_Framework_GameTime"
@@ -34481,37 +39080,37 @@ LDIFF_SYM1257=LTDIE_156 - Ldebug_info_start
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1258=LTDIE_148_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1258
+LDIFF_SYM1290=LTDIE_148_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1290
 	.byte 2,141,32,3
 	.asciz "gameTime"
 
-LDIFF_SYM1259=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1259
+LDIFF_SYM1291=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1291
 	.byte 2,141,40,11
 	.asciz "touchPoints"
 
-LDIFF_SYM1260=LTDIE_156_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1260
+LDIFF_SYM1292=LTDIE_158_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1292
 	.byte 1,105,11
 	.asciz "i"
 
-LDIFF_SYM1261=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1261
+LDIFF_SYM1293=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1293
 	.byte 1,104,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1262=Lfde14_end - Lfde14_start
-	.long LDIFF_SYM1262
+LDIFF_SYM1294=Lfde14_end - Lfde14_start
+	.long LDIFF_SYM1294
 Lfde14_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Screen_HandleInput_Microsoft_Xna_Framework_GameTime
 
-LDIFF_SYM1263=Lme_e - TheAdventuresOf_Screen_HandleInput_Microsoft_Xna_Framework_GameTime
-	.long LDIFF_SYM1263
+LDIFF_SYM1295=Lme_e - TheAdventuresOf_Screen_HandleInput_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM1295
 	.long 0
 	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,152,16,153,15
 	.align 3
@@ -34530,72 +39129,72 @@ Lfde14_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1264=LTDIE_148_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1264
+LDIFF_SYM1296=LTDIE_148_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1296
 	.byte 1,106,11
 	.asciz "touchPoints"
 
-LDIFF_SYM1265=LTDIE_156_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1265
+LDIFF_SYM1297=LTDIE_158_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1297
 	.byte 1,105,11
 	.asciz "touchCollection"
 
-LDIFF_SYM1266=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1266
+LDIFF_SYM1298=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1298
 	.byte 3,141,216,3,11
 	.asciz "i"
 
-LDIFF_SYM1267=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1267
+LDIFF_SYM1299=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1299
 	.byte 1,104,11
 	.asciz "originalPoint"
 
-LDIFF_SYM1268=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1268
+LDIFF_SYM1300=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1300
 	.byte 3,141,208,3,11
 	.asciz "V_4"
 
-LDIFF_SYM1269=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1269
+LDIFF_SYM1301=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1301
 	.byte 3,141,128,3,11
 	.asciz "V_5"
 
-LDIFF_SYM1270=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1270
+LDIFF_SYM1302=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1302
 	.byte 3,141,248,2,11
 	.asciz "V_6"
 
-LDIFF_SYM1271=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1271
+LDIFF_SYM1303=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1303
 	.byte 3,141,168,2,11
 	.asciz "V_7"
 
-LDIFF_SYM1272=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1272
+LDIFF_SYM1304=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1304
 	.byte 3,141,160,2,11
 	.asciz "scaledPoint"
 
-LDIFF_SYM1273=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1273
+LDIFF_SYM1305=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1305
 	.byte 3,141,152,2,11
 	.asciz "V_9"
 
-LDIFF_SYM1274=LTDIE_156_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1274
+LDIFF_SYM1306=LTDIE_158_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1306
 	.byte 1,103,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1275=Lfde15_end - Lfde15_start
-	.long LDIFF_SYM1275
+LDIFF_SYM1307=Lfde15_end - Lfde15_start
+	.long LDIFF_SYM1307
 Lfde15_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Screen_GetTouchInput
 
-LDIFF_SYM1276=Lme_f - TheAdventuresOf_Screen_GetTouchInput
-	.long LDIFF_SYM1276
+LDIFF_SYM1308=Lme_f - TheAdventuresOf_Screen_GetTouchInput
+	.long LDIFF_SYM1308
 	.long 0
 	.byte 12,31,0,84,14,176,4,157,70,158,69,68,13,29,68,151,68,152,67,68,153,66,154,65
 	.align 3
@@ -34614,47 +39213,47 @@ Lfde15_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1277=LTDIE_148_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1277
+LDIFF_SYM1309=LTDIE_148_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1309
 	.byte 2,141,32,3
 	.asciz "originalPoint"
 
-LDIFF_SYM1278=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1278
+LDIFF_SYM1310=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1310
 	.byte 2,141,40,11
 	.asciz "matrix"
 
-LDIFF_SYM1279=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1279
+LDIFF_SYM1311=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1311
 	.byte 3,141,208,3,11
 	.asciz "scaledPoint"
 
-LDIFF_SYM1280=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1280
+LDIFF_SYM1312=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1312
 	.byte 3,141,200,3,11
 	.asciz "V_2"
 
-LDIFF_SYM1281=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1281
+LDIFF_SYM1313=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1313
 	.byte 3,141,192,3,11
 	.asciz "V_3"
 
-LDIFF_SYM1282=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1282
+LDIFF_SYM1314=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1314
 	.byte 3,141,184,3,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1283=Lfde16_end - Lfde16_start
-	.long LDIFF_SYM1283
+LDIFF_SYM1315=Lfde16_end - Lfde16_start
+	.long LDIFF_SYM1315
 Lfde16_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Screen_GetScaledTouchInput_Microsoft_Xna_Framework_Point
 
-LDIFF_SYM1284=Lme_10 - TheAdventuresOf_Screen_GetScaledTouchInput_Microsoft_Xna_Framework_Point
-	.long LDIFF_SYM1284
+LDIFF_SYM1316=Lme_10 - TheAdventuresOf_Screen_GetScaledTouchInput_Microsoft_Xna_Framework_Point
+	.long LDIFF_SYM1316
 	.long 0
 	.byte 12,31,0,84,14,192,4,157,72,158,71,68,13,29
 	.align 3
@@ -34673,24 +39272,24 @@ Lfde16_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1285=LTDIE_150_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1285
+LDIFF_SYM1317=LTDIE_150_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1317
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1286=Lfde17_end - Lfde17_start
-	.long LDIFF_SYM1286
+LDIFF_SYM1318=Lfde17_end - Lfde17_start
+	.long LDIFF_SYM1318
 Lfde17_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Character__ctor
 
-LDIFF_SYM1287=Lme_11 - TheAdventuresOf_Character__ctor
-	.long LDIFF_SYM1287
+LDIFF_SYM1319=Lme_11 - TheAdventuresOf_Character__ctor
+	.long LDIFF_SYM1319
 	.long 0
-	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29,68,154,4
+	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
 	.align 3
 Lfde17_end:
 
@@ -34700,34 +39299,34 @@ Lfde17_end:
 	.asciz "TheAdventuresOf.Character:HandleMovement"
 	.asciz "TheAdventuresOf_Character_HandleMovement_Microsoft_Xna_Framework_GameTime"
 
-	.byte 4,32
+	.byte 4,35
 	.quad TheAdventuresOf_Character_HandleMovement_Microsoft_Xna_Framework_GameTime
 	.quad Lme_12
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1288=LTDIE_150_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1288
+LDIFF_SYM1320=LTDIE_150_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1320
 	.byte 2,141,16,3
 	.asciz "gameTime"
 
-LDIFF_SYM1289=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1289
+LDIFF_SYM1321=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1321
 	.byte 2,141,24,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1290=Lfde18_end - Lfde18_start
-	.long LDIFF_SYM1290
+LDIFF_SYM1322=Lfde18_end - Lfde18_start
+	.long LDIFF_SYM1322
 Lfde18_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Character_HandleMovement_Microsoft_Xna_Framework_GameTime
 
-LDIFF_SYM1291=Lme_12 - TheAdventuresOf_Character_HandleMovement_Microsoft_Xna_Framework_GameTime
-	.long LDIFF_SYM1291
+LDIFF_SYM1323=Lme_12 - TheAdventuresOf_Character_HandleMovement_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM1323
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
 	.align 3
@@ -34739,29 +39338,29 @@ Lfde18_end:
 	.asciz "TheAdventuresOf.Character:InitializeAnimation"
 	.asciz "TheAdventuresOf_Character_InitializeAnimation"
 
-	.byte 4,33
+	.byte 4,36
 	.quad TheAdventuresOf_Character_InitializeAnimation
 	.quad Lme_13
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1292=LTDIE_150_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1292
+LDIFF_SYM1324=LTDIE_150_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1324
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1293=Lfde19_end - Lfde19_start
-	.long LDIFF_SYM1293
+LDIFF_SYM1325=Lfde19_end - Lfde19_start
+	.long LDIFF_SYM1325
 Lfde19_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Character_InitializeAnimation
 
-LDIFF_SYM1294=Lme_13 - TheAdventuresOf_Character_InitializeAnimation
-	.long LDIFF_SYM1294
+LDIFF_SYM1326=Lme_13 - TheAdventuresOf_Character_InitializeAnimation
+	.long LDIFF_SYM1326
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
 	.align 3
@@ -34773,39 +39372,39 @@ Lfde19_end:
 	.asciz "TheAdventuresOf.Character:Move"
 	.asciz "TheAdventuresOf_Character_Move_Microsoft_Xna_Framework_GameTime_int"
 
-	.byte 4,34
+	.byte 4,37
 	.quad TheAdventuresOf_Character_Move_Microsoft_Xna_Framework_GameTime_int
 	.quad Lme_14
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1295=LTDIE_150_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1295
+LDIFF_SYM1327=LTDIE_150_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1327
 	.byte 2,141,16,3
 	.asciz "gameTime"
 
-LDIFF_SYM1296=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1296
+LDIFF_SYM1328=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1328
 	.byte 2,141,24,3
 	.asciz "direction"
 
-LDIFF_SYM1297=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1297
+LDIFF_SYM1329=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1329
 	.byte 2,141,32,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1298=Lfde20_end - Lfde20_start
-	.long LDIFF_SYM1298
+LDIFF_SYM1330=Lfde20_end - Lfde20_start
+	.long LDIFF_SYM1330
 Lfde20_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Character_Move_Microsoft_Xna_Framework_GameTime_int
 
-LDIFF_SYM1299=Lme_14 - TheAdventuresOf_Character_Move_Microsoft_Xna_Framework_GameTime_int
-	.long LDIFF_SYM1299
+LDIFF_SYM1331=Lme_14 - TheAdventuresOf_Character_Move_Microsoft_Xna_Framework_GameTime_int
+	.long LDIFF_SYM1331
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
 	.align 3
@@ -34817,34 +39416,34 @@ Lfde20_end:
 	.asciz "TheAdventuresOf.Character:HandleAnimation"
 	.asciz "TheAdventuresOf_Character_HandleAnimation_Microsoft_Xna_Framework_GameTime"
 
-	.byte 4,35
+	.byte 4,38
 	.quad TheAdventuresOf_Character_HandleAnimation_Microsoft_Xna_Framework_GameTime
 	.quad Lme_15
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1300=LTDIE_150_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1300
+LDIFF_SYM1332=LTDIE_150_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1332
 	.byte 2,141,16,3
 	.asciz "gameTime"
 
-LDIFF_SYM1301=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1301
+LDIFF_SYM1333=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1333
 	.byte 2,141,24,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1302=Lfde21_end - Lfde21_start
-	.long LDIFF_SYM1302
+LDIFF_SYM1334=Lfde21_end - Lfde21_start
+	.long LDIFF_SYM1334
 Lfde21_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Character_HandleAnimation_Microsoft_Xna_Framework_GameTime
 
-LDIFF_SYM1303=Lme_15 - TheAdventuresOf_Character_HandleAnimation_Microsoft_Xna_Framework_GameTime
-	.long LDIFF_SYM1303
+LDIFF_SYM1335=Lme_15 - TheAdventuresOf_Character_HandleAnimation_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM1335
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
 	.align 3
@@ -34856,51 +39455,51 @@ Lfde21_end:
 	.asciz "TheAdventuresOf.Character:InitializeCharacter"
 	.asciz "TheAdventuresOf_Character_InitializeCharacter_single_single_int_int"
 
-	.byte 4,38
+	.byte 4,41
 	.quad TheAdventuresOf_Character_InitializeCharacter_single_single_int_int
 	.quad Lme_16
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1304=LTDIE_150_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1304
+LDIFF_SYM1336=LTDIE_150_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1336
 	.byte 1,104,3
 	.asciz "startX"
 
-LDIFF_SYM1305=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1305
+LDIFF_SYM1337=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1337
 	.byte 2,141,40,3
 	.asciz "startY"
 
-LDIFF_SYM1306=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1306
+LDIFF_SYM1338=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1338
 	.byte 2,141,48,3
 	.asciz "characterWidth"
 
-LDIFF_SYM1307=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1307
+LDIFF_SYM1339=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1339
 	.byte 1,105,3
 	.asciz "characterHeight"
 
-LDIFF_SYM1308=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1308
+LDIFF_SYM1340=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1340
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1309=Lfde22_end - Lfde22_start
-	.long LDIFF_SYM1309
+LDIFF_SYM1341=Lfde22_end - Lfde22_start
+	.long LDIFF_SYM1341
 Lfde22_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Character_InitializeCharacter_single_single_int_int
 
-LDIFF_SYM1310=Lme_16 - TheAdventuresOf_Character_InitializeCharacter_single_single_int_int
-	.long LDIFF_SYM1310
+LDIFF_SYM1342=Lme_16 - TheAdventuresOf_Character_InitializeCharacter_single_single_int_int
+	.long LDIFF_SYM1342
 	.long 0
-	.byte 12,31,0,68,14,176,1,157,22,158,21,68,13,29,68,152,20,153,19,68,154,18
+	.byte 12,31,0,68,14,208,1,157,26,158,25,68,13,29,68,152,24,153,23,68,154,22
 	.align 3
 Lfde22_end:
 
@@ -34910,29 +39509,29 @@ Lfde22_end:
 	.asciz "TheAdventuresOf.Character:UpdateCharacterBounds"
 	.asciz "TheAdventuresOf_Character_UpdateCharacterBounds"
 
-	.byte 4,50
+	.byte 4,58
 	.quad TheAdventuresOf_Character_UpdateCharacterBounds
 	.quad Lme_17
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1311=LTDIE_150_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1311
+LDIFF_SYM1343=LTDIE_150_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1343
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1312=Lfde23_end - Lfde23_start
-	.long LDIFF_SYM1312
+LDIFF_SYM1344=Lfde23_end - Lfde23_start
+	.long LDIFF_SYM1344
 Lfde23_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Character_UpdateCharacterBounds
 
-LDIFF_SYM1313=Lme_17 - TheAdventuresOf_Character_UpdateCharacterBounds
-	.long LDIFF_SYM1313
+LDIFF_SYM1345=Lme_17 - TheAdventuresOf_Character_UpdateCharacterBounds
+	.long LDIFF_SYM1345
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29,68,154,4
 	.align 3
@@ -34944,39 +39543,39 @@ Lfde23_end:
 	.asciz "TheAdventuresOf.Character:HandleLevelBoundCollision"
 	.asciz "TheAdventuresOf_Character_HandleLevelBoundCollision_int_int"
 
-	.byte 4,56
+	.byte 4,64
 	.quad TheAdventuresOf_Character_HandleLevelBoundCollision_int_int
 	.quad Lme_18
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1314=LTDIE_150_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1314
+LDIFF_SYM1346=LTDIE_150_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1346
 	.byte 1,104,3
 	.asciz "direction"
 
-LDIFF_SYM1315=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1315
+LDIFF_SYM1347=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1347
 	.byte 1,105,3
 	.asciz "boundX"
 
-LDIFF_SYM1316=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1316
+LDIFF_SYM1348=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1348
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1317=Lfde24_end - Lfde24_start
-	.long LDIFF_SYM1317
+LDIFF_SYM1349=Lfde24_end - Lfde24_start
+	.long LDIFF_SYM1349
 Lfde24_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Character_HandleLevelBoundCollision_int_int
 
-LDIFF_SYM1318=Lme_18 - TheAdventuresOf_Character_HandleLevelBoundCollision_int_int
-	.long LDIFF_SYM1318
+LDIFF_SYM1350=Lme_18 - TheAdventuresOf_Character_HandleLevelBoundCollision_int_int
+	.long LDIFF_SYM1350
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,152,6,153,5,68,154,4
 	.align 3
@@ -34988,53 +39587,53 @@ Lfde24_end:
 	.asciz "TheAdventuresOf.Character:Update"
 	.asciz "TheAdventuresOf_Character_Update_Microsoft_Xna_Framework_GameTime_bool"
 
-	.byte 4,70
+	.byte 4,78
 	.quad TheAdventuresOf_Character_Update_Microsoft_Xna_Framework_GameTime_bool
 	.quad Lme_19
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1319=LTDIE_150_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1319
+LDIFF_SYM1351=LTDIE_150_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1351
 	.byte 2,141,16,3
 	.asciz "gameTime"
 
-LDIFF_SYM1320=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1320
+LDIFF_SYM1352=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1352
 	.byte 2,141,24,3
 	.asciz "buttonPressed"
 
-LDIFF_SYM1321=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM1321
+LDIFF_SYM1353=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1353
 	.byte 2,141,32,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1322=Lfde25_end - Lfde25_start
-	.long LDIFF_SYM1322
+LDIFF_SYM1354=Lfde25_end - Lfde25_start
+	.long LDIFF_SYM1354
 Lfde25_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Character_Update_Microsoft_Xna_Framework_GameTime_bool
 
-LDIFF_SYM1323=Lme_19 - TheAdventuresOf_Character_Update_Microsoft_Xna_Framework_GameTime_bool
-	.long LDIFF_SYM1323
+LDIFF_SYM1355=Lme_19 - TheAdventuresOf_Character_Update_Microsoft_Xna_Framework_GameTime_bool
+	.long LDIFF_SYM1355
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29
 	.align 3
 Lfde25_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_159:
+LTDIE_161:
 
 	.byte 8
 	.asciz "OpenTK_Graphics_ES20_TextureTarget"
 
 	.byte 4
-LDIFF_SYM1324=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1324
+LDIFF_SYM1356=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1356
 	.byte 9
 	.asciz "Texture2D"
 
@@ -35071,26 +39670,26 @@ LDIFF_SYM1324=LDIE_I4 - Ldebug_info_start
 	.byte 156,138,2,0,7
 	.asciz "OpenTK_Graphics_ES20_TextureTarget"
 
-LDIFF_SYM1325=LTDIE_159 - Ldebug_info_start
-	.long LDIFF_SYM1325
-LTDIE_159_POINTER:
+LDIFF_SYM1357=LTDIE_161 - Ldebug_info_start
+	.long LDIFF_SYM1357
+LTDIE_161_POINTER:
 
 	.byte 13
-LDIFF_SYM1326=LTDIE_159 - Ldebug_info_start
-	.long LDIFF_SYM1326
-LTDIE_159_REFERENCE:
+LDIFF_SYM1358=LTDIE_161 - Ldebug_info_start
+	.long LDIFF_SYM1358
+LTDIE_161_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1327=LTDIE_159 - Ldebug_info_start
-	.long LDIFF_SYM1327
-LTDIE_160:
+LDIFF_SYM1359=LTDIE_161 - Ldebug_info_start
+	.long LDIFF_SYM1359
+LTDIE_162:
 
 	.byte 8
 	.asciz "OpenTK_Graphics_ES20_TextureUnit"
 
 	.byte 4
-LDIFF_SYM1328=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1328
+LDIFF_SYM1360=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1360
 	.byte 9
 	.asciz "Texture0"
 
@@ -35193,26 +39792,26 @@ LDIFF_SYM1328=LDIE_I4 - Ldebug_info_start
 	.byte 224,137,2,0,7
 	.asciz "OpenTK_Graphics_ES20_TextureUnit"
 
-LDIFF_SYM1329=LTDIE_160 - Ldebug_info_start
-	.long LDIFF_SYM1329
-LTDIE_160_POINTER:
+LDIFF_SYM1361=LTDIE_162 - Ldebug_info_start
+	.long LDIFF_SYM1361
+LTDIE_162_POINTER:
 
 	.byte 13
-LDIFF_SYM1330=LTDIE_160 - Ldebug_info_start
-	.long LDIFF_SYM1330
-LTDIE_160_REFERENCE:
+LDIFF_SYM1362=LTDIE_162 - Ldebug_info_start
+	.long LDIFF_SYM1362
+LTDIE_162_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1331=LTDIE_160 - Ldebug_info_start
-	.long LDIFF_SYM1331
-LTDIE_161:
+LDIFF_SYM1363=LTDIE_162 - Ldebug_info_start
+	.long LDIFF_SYM1363
+LTDIE_163:
 
 	.byte 8
 	.asciz "OpenTK_Graphics_ES20_PixelInternalFormat"
 
 	.byte 4
-LDIFF_SYM1332=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1332
+LDIFF_SYM1364=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1364
 	.byte 9
 	.asciz "Alpha"
 
@@ -35231,26 +39830,26 @@ LDIFF_SYM1332=LDIE_I4 - Ldebug_info_start
 	.byte 138,50,0,7
 	.asciz "OpenTK_Graphics_ES20_PixelInternalFormat"
 
-LDIFF_SYM1333=LTDIE_161 - Ldebug_info_start
-	.long LDIFF_SYM1333
-LTDIE_161_POINTER:
+LDIFF_SYM1365=LTDIE_163 - Ldebug_info_start
+	.long LDIFF_SYM1365
+LTDIE_163_POINTER:
 
 	.byte 13
-LDIFF_SYM1334=LTDIE_161 - Ldebug_info_start
-	.long LDIFF_SYM1334
-LTDIE_161_REFERENCE:
+LDIFF_SYM1366=LTDIE_163 - Ldebug_info_start
+	.long LDIFF_SYM1366
+LTDIE_163_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1335=LTDIE_161 - Ldebug_info_start
-	.long LDIFF_SYM1335
-LTDIE_162:
+LDIFF_SYM1367=LTDIE_163 - Ldebug_info_start
+	.long LDIFF_SYM1367
+LTDIE_164:
 
 	.byte 8
 	.asciz "OpenTK_Graphics_ES20_PixelFormat"
 
 	.byte 4
-LDIFF_SYM1336=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1336
+LDIFF_SYM1368=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1368
 	.byte 9
 	.asciz "DepthComponent"
 
@@ -35272,26 +39871,26 @@ LDIFF_SYM1336=LDIE_I4 - Ldebug_info_start
 	.byte 138,50,0,7
 	.asciz "OpenTK_Graphics_ES20_PixelFormat"
 
-LDIFF_SYM1337=LTDIE_162 - Ldebug_info_start
-	.long LDIFF_SYM1337
-LTDIE_162_POINTER:
+LDIFF_SYM1369=LTDIE_164 - Ldebug_info_start
+	.long LDIFF_SYM1369
+LTDIE_164_POINTER:
 
 	.byte 13
-LDIFF_SYM1338=LTDIE_162 - Ldebug_info_start
-	.long LDIFF_SYM1338
-LTDIE_162_REFERENCE:
+LDIFF_SYM1370=LTDIE_164 - Ldebug_info_start
+	.long LDIFF_SYM1370
+LTDIE_164_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1339=LTDIE_162 - Ldebug_info_start
-	.long LDIFF_SYM1339
-LTDIE_163:
+LDIFF_SYM1371=LTDIE_164 - Ldebug_info_start
+	.long LDIFF_SYM1371
+LTDIE_165:
 
 	.byte 8
 	.asciz "OpenTK_Graphics_ES20_PixelType"
 
 	.byte 4
-LDIFF_SYM1340=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1340
+LDIFF_SYM1372=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1372
 	.byte 9
 	.asciz "UnsignedByte"
 
@@ -35307,203 +39906,203 @@ LDIFF_SYM1340=LDIE_I4 - Ldebug_info_start
 	.byte 227,134,2,0,7
 	.asciz "OpenTK_Graphics_ES20_PixelType"
 
-LDIFF_SYM1341=LTDIE_163 - Ldebug_info_start
-	.long LDIFF_SYM1341
-LTDIE_163_POINTER:
+LDIFF_SYM1373=LTDIE_165 - Ldebug_info_start
+	.long LDIFF_SYM1373
+LTDIE_165_POINTER:
 
 	.byte 13
-LDIFF_SYM1342=LTDIE_163 - Ldebug_info_start
-	.long LDIFF_SYM1342
-LTDIE_163_REFERENCE:
+LDIFF_SYM1374=LTDIE_165 - Ldebug_info_start
+	.long LDIFF_SYM1374
+LTDIE_165_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1343=LTDIE_163 - Ldebug_info_start
-	.long LDIFF_SYM1343
-LTDIE_158:
+LDIFF_SYM1375=LTDIE_165 - Ldebug_info_start
+	.long LDIFF_SYM1375
+LTDIE_160:
 
 	.byte 5
 	.asciz "Microsoft_Xna_Framework_Graphics_Texture"
 
 	.byte 112,16
-LDIFF_SYM1344=LTDIE_75 - Ldebug_info_start
-	.long LDIFF_SYM1344
+LDIFF_SYM1376=LTDIE_75 - Ldebug_info_start
+	.long LDIFF_SYM1376
 	.byte 2,35,0,6
 	.asciz "_format"
 
-LDIFF_SYM1345=LTDIE_111 - Ldebug_info_start
-	.long LDIFF_SYM1345
+LDIFF_SYM1377=LTDIE_111 - Ldebug_info_start
+	.long LDIFF_SYM1377
 	.byte 2,35,72,6
 	.asciz "_levelCount"
 
-LDIFF_SYM1346=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1346
+LDIFF_SYM1378=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1378
 	.byte 2,35,76,6
 	.asciz "_sortingKey"
 
-LDIFF_SYM1347=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1347
+LDIFF_SYM1379=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1379
 	.byte 2,35,80,6
 	.asciz "glTexture"
 
-LDIFF_SYM1348=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1348
+LDIFF_SYM1380=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1380
 	.byte 2,35,84,6
 	.asciz "glTarget"
 
-LDIFF_SYM1349=LTDIE_159 - Ldebug_info_start
-	.long LDIFF_SYM1349
+LDIFF_SYM1381=LTDIE_161 - Ldebug_info_start
+	.long LDIFF_SYM1381
 	.byte 2,35,88,6
 	.asciz "glTextureUnit"
 
-LDIFF_SYM1350=LTDIE_160 - Ldebug_info_start
-	.long LDIFF_SYM1350
+LDIFF_SYM1382=LTDIE_162 - Ldebug_info_start
+	.long LDIFF_SYM1382
 	.byte 2,35,92,6
 	.asciz "glInternalFormat"
 
-LDIFF_SYM1351=LTDIE_161 - Ldebug_info_start
-	.long LDIFF_SYM1351
+LDIFF_SYM1383=LTDIE_163 - Ldebug_info_start
+	.long LDIFF_SYM1383
 	.byte 2,35,96,6
 	.asciz "glFormat"
 
-LDIFF_SYM1352=LTDIE_162 - Ldebug_info_start
-	.long LDIFF_SYM1352
+LDIFF_SYM1384=LTDIE_164 - Ldebug_info_start
+	.long LDIFF_SYM1384
 	.byte 2,35,100,6
 	.asciz "glType"
 
-LDIFF_SYM1353=LTDIE_163 - Ldebug_info_start
-	.long LDIFF_SYM1353
+LDIFF_SYM1385=LTDIE_165 - Ldebug_info_start
+	.long LDIFF_SYM1385
 	.byte 2,35,104,6
 	.asciz "glLastSamplerState"
 
-LDIFF_SYM1354=LTDIE_93_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1354
+LDIFF_SYM1386=LTDIE_93_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1386
 	.byte 2,35,64,0,7
 	.asciz "Microsoft_Xna_Framework_Graphics_Texture"
 
-LDIFF_SYM1355=LTDIE_158 - Ldebug_info_start
-	.long LDIFF_SYM1355
-LTDIE_158_POINTER:
+LDIFF_SYM1387=LTDIE_160 - Ldebug_info_start
+	.long LDIFF_SYM1387
+LTDIE_160_POINTER:
 
 	.byte 13
-LDIFF_SYM1356=LTDIE_158 - Ldebug_info_start
-	.long LDIFF_SYM1356
-LTDIE_158_REFERENCE:
+LDIFF_SYM1388=LTDIE_160 - Ldebug_info_start
+	.long LDIFF_SYM1388
+LTDIE_160_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1357=LTDIE_158 - Ldebug_info_start
-	.long LDIFF_SYM1357
-LTDIE_157:
+LDIFF_SYM1389=LTDIE_160 - Ldebug_info_start
+	.long LDIFF_SYM1389
+LTDIE_159:
 
 	.byte 5
 	.asciz "Microsoft_Xna_Framework_Graphics_Texture2D"
 
 	.byte 128,1,16
-LDIFF_SYM1358=LTDIE_158 - Ldebug_info_start
-	.long LDIFF_SYM1358
+LDIFF_SYM1390=LTDIE_160 - Ldebug_info_start
+	.long LDIFF_SYM1390
 	.byte 2,35,0,6
 	.asciz "width"
 
-LDIFF_SYM1359=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1359
+LDIFF_SYM1391=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1391
 	.byte 2,35,112,6
 	.asciz "height"
 
-LDIFF_SYM1360=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1360
+LDIFF_SYM1392=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1392
 	.byte 2,35,116,6
 	.asciz "ArraySize"
 
-LDIFF_SYM1361=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1361
+LDIFF_SYM1393=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1393
 	.byte 2,35,120,0,7
 	.asciz "Microsoft_Xna_Framework_Graphics_Texture2D"
 
-LDIFF_SYM1362=LTDIE_157 - Ldebug_info_start
-	.long LDIFF_SYM1362
-LTDIE_157_POINTER:
+LDIFF_SYM1394=LTDIE_159 - Ldebug_info_start
+	.long LDIFF_SYM1394
+LTDIE_159_POINTER:
 
 	.byte 13
-LDIFF_SYM1363=LTDIE_157 - Ldebug_info_start
-	.long LDIFF_SYM1363
-LTDIE_157_REFERENCE:
+LDIFF_SYM1395=LTDIE_159 - Ldebug_info_start
+	.long LDIFF_SYM1395
+LTDIE_159_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1364=LTDIE_157 - Ldebug_info_start
-	.long LDIFF_SYM1364
+LDIFF_SYM1396=LTDIE_159 - Ldebug_info_start
+	.long LDIFF_SYM1396
 	.byte 2
 	.asciz "TheAdventuresOf.Character:Draw"
 	.asciz "TheAdventuresOf_Character_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D"
 
-	.byte 4,75
+	.byte 4,83
 	.quad TheAdventuresOf_Character_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
 	.quad Lme_1a
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1365=LTDIE_150_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1365
+LDIFF_SYM1397=LTDIE_150_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1397
 	.byte 1,104,3
 	.asciz "spriteBatch"
 
-LDIFF_SYM1366=LTDIE_134_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1366
+LDIFF_SYM1398=LTDIE_134_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1398
 	.byte 1,105,3
 	.asciz "texture"
 
-LDIFF_SYM1367=LTDIE_157_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1367
+LDIFF_SYM1399=LTDIE_159_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1399
 	.byte 1,106,11
 	.asciz "sourceRectangle"
 
-LDIFF_SYM1368=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1368
-	.byte 3,141,200,5,11
+LDIFF_SYM1400=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1400
+	.byte 3,141,168,6,11
 	.asciz "V_1"
 
-LDIFF_SYM1369=LTDIE_157_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1369
+LDIFF_SYM1401=LTDIE_159_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1401
 	.byte 1,103,11
 	.asciz "V_2"
 
-LDIFF_SYM1370=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1370
-	.byte 3,141,184,5,11
+LDIFF_SYM1402=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1402
+	.byte 3,141,152,6,11
 	.asciz "V_3"
 
-LDIFF_SYM1371=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1371
-	.byte 3,141,160,5,11
+LDIFF_SYM1403=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1403
+	.byte 3,141,128,6,11
 	.asciz "V_4"
 
-LDIFF_SYM1372=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1372
-	.byte 3,141,152,5,11
+LDIFF_SYM1404=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1404
+	.byte 3,141,184,6,11
 	.asciz "V_5"
 
-LDIFF_SYM1373=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1373
-	.byte 3,141,216,5,11
+LDIFF_SYM1405=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1405
+	.byte 3,141,240,5,11
 	.asciz "V_6"
 
-LDIFF_SYM1374=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1374
-	.byte 3,141,128,5,0
+LDIFF_SYM1406=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1406
+	.byte 3,141,216,5,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1375=Lfde26_end - Lfde26_start
-	.long LDIFF_SYM1375
+LDIFF_SYM1407=Lfde26_end - Lfde26_start
+	.long LDIFF_SYM1407
 Lfde26_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Character_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
 
-LDIFF_SYM1376=Lme_1a - TheAdventuresOf_Character_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
-	.long LDIFF_SYM1376
+LDIFF_SYM1408=Lme_1a - TheAdventuresOf_Character_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
+	.long LDIFF_SYM1408
 	.long 0
-	.byte 12,31,0,84,14,144,6,157,98,158,97,68,13,29,84,151,96,152,95,68,153,94,154,93
+	.byte 12,31,0,84,14,128,7,157,112,158,111,68,13,29,84,151,110,152,109,68,153,108,154,107
 	.align 3
 Lfde26_end:
 
@@ -35520,22 +40119,22 @@ Lfde26_end:
 	.byte 2,118,16,3
 	.asciz "contentManager"
 
-LDIFF_SYM1377=LTDIE_28_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1377
+LDIFF_SYM1409=LTDIE_28_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1409
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1378=Lfde27_end - Lfde27_start
-	.long LDIFF_SYM1378
+LDIFF_SYM1410=Lfde27_end - Lfde27_start
+	.long LDIFF_SYM1410
 Lfde27_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_FrameRate_LoadContent_Microsoft_Xna_Framework_Content_ContentManager
 
-LDIFF_SYM1379=Lme_1b - TheAdventuresOf_FrameRate_LoadContent_Microsoft_Xna_Framework_Content_ContentManager
-	.long LDIFF_SYM1379
+LDIFF_SYM1411=Lme_1b - TheAdventuresOf_FrameRate_LoadContent_Microsoft_Xna_Framework_Content_ContentManager
+	.long LDIFF_SYM1411
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29
 	.align 3
@@ -35554,76 +40153,76 @@ Lfde27_end:
 	.byte 2,118,16,3
 	.asciz "spriteBatch"
 
-LDIFF_SYM1380=LTDIE_134_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1380
+LDIFF_SYM1412=LTDIE_134_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1412
 	.byte 2,141,16,3
 	.asciz "gameTime"
 
-LDIFF_SYM1381=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1381
+LDIFF_SYM1413=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1413
 	.byte 2,141,24,11
 	.asciz "frameRate"
 
-LDIFF_SYM1382=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1382
+LDIFF_SYM1414=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1414
 	.byte 3,141,224,0,11
 	.asciz "V_1"
 
-LDIFF_SYM1383=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1383
+LDIFF_SYM1415=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1415
 	.byte 3,141,216,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1384=Lfde28_end - Lfde28_start
-	.long LDIFF_SYM1384
+LDIFF_SYM1416=Lfde28_end - Lfde28_start
+	.long LDIFF_SYM1416
 Lfde28_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_FrameRate_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_GameTime
 
-LDIFF_SYM1385=Lme_1c - TheAdventuresOf_FrameRate_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_GameTime
-	.long LDIFF_SYM1385
+LDIFF_SYM1417=Lme_1c - TheAdventuresOf_FrameRate_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM1417
 	.long 0
 	.byte 12,31,0,68,14,192,1,157,24,158,23,68,13,29
 	.align 3
 Lfde28_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_164:
+LTDIE_166:
 
 	.byte 5
 	.asciz "TheAdventuresOf_AnimationFrame"
 
 	.byte 40,16
-LDIFF_SYM1386=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1386
+LDIFF_SYM1418=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1418
 	.byte 2,35,0,6
 	.asciz "<sourceRectangle>k__BackingField"
 
-LDIFF_SYM1387=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1387
+LDIFF_SYM1419=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1419
 	.byte 2,35,16,6
 	.asciz "<duration>k__BackingField"
 
-LDIFF_SYM1388=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1388
+LDIFF_SYM1420=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1420
 	.byte 2,35,32,0,7
 	.asciz "TheAdventuresOf_AnimationFrame"
 
-LDIFF_SYM1389=LTDIE_164 - Ldebug_info_start
-	.long LDIFF_SYM1389
-LTDIE_164_POINTER:
+LDIFF_SYM1421=LTDIE_166 - Ldebug_info_start
+	.long LDIFF_SYM1421
+LTDIE_166_POINTER:
 
 	.byte 13
-LDIFF_SYM1390=LTDIE_164 - Ldebug_info_start
-	.long LDIFF_SYM1390
-LTDIE_164_REFERENCE:
+LDIFF_SYM1422=LTDIE_166 - Ldebug_info_start
+	.long LDIFF_SYM1422
+LTDIE_166_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1391=LTDIE_164 - Ldebug_info_start
-	.long LDIFF_SYM1391
+LDIFF_SYM1423=LTDIE_166 - Ldebug_info_start
+	.long LDIFF_SYM1423
 	.byte 2
 	.asciz "TheAdventuresOf.AnimationFrame:.ctor"
 	.asciz "TheAdventuresOf_AnimationFrame__ctor"
@@ -35635,22 +40234,22 @@ LDIFF_SYM1391=LTDIE_164 - Ldebug_info_start
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1392=LTDIE_164_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1392
+LDIFF_SYM1424=LTDIE_166_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1424
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1393=Lfde29_end - Lfde29_start
-	.long LDIFF_SYM1393
+LDIFF_SYM1425=Lfde29_end - Lfde29_start
+	.long LDIFF_SYM1425
 Lfde29_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_AnimationFrame__ctor
 
-LDIFF_SYM1394=Lme_1d - TheAdventuresOf_AnimationFrame__ctor
-	.long LDIFF_SYM1394
+LDIFF_SYM1426=Lme_1d - TheAdventuresOf_AnimationFrame__ctor
+	.long LDIFF_SYM1426
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
 	.align 3
@@ -35669,27 +40268,27 @@ Lfde29_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1395=LTDIE_164_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1395
+LDIFF_SYM1427=LTDIE_166_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1427
 	.byte 2,141,32,11
 	.asciz "V_0"
 
-LDIFF_SYM1396=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1396
+LDIFF_SYM1428=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1428
 	.byte 3,141,224,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1397=Lfde30_end - Lfde30_start
-	.long LDIFF_SYM1397
+LDIFF_SYM1429=Lfde30_end - Lfde30_start
+	.long LDIFF_SYM1429
 Lfde30_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_AnimationFrame_get_sourceRectangle
 
-LDIFF_SYM1398=Lme_1e - TheAdventuresOf_AnimationFrame_get_sourceRectangle
-	.long LDIFF_SYM1398
+LDIFF_SYM1430=Lme_1e - TheAdventuresOf_AnimationFrame_get_sourceRectangle
+	.long LDIFF_SYM1430
 	.long 0
 	.byte 12,31,0,68,14,112,157,14,158,13,68,13,29
 	.align 3
@@ -35708,27 +40307,27 @@ Lfde30_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1399=LTDIE_164_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1399
+LDIFF_SYM1431=LTDIE_166_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1431
 	.byte 2,141,16,3
 	.asciz "value"
 
-LDIFF_SYM1400=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1400
+LDIFF_SYM1432=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1432
 	.byte 2,141,24,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1401=Lfde31_end - Lfde31_start
-	.long LDIFF_SYM1401
+LDIFF_SYM1433=Lfde31_end - Lfde31_start
+	.long LDIFF_SYM1433
 Lfde31_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_AnimationFrame_set_sourceRectangle_Microsoft_Xna_Framework_Rectangle
 
-LDIFF_SYM1402=Lme_1f - TheAdventuresOf_AnimationFrame_set_sourceRectangle_Microsoft_Xna_Framework_Rectangle
-	.long LDIFF_SYM1402
+LDIFF_SYM1434=Lme_1f - TheAdventuresOf_AnimationFrame_set_sourceRectangle_Microsoft_Xna_Framework_Rectangle
+	.long LDIFF_SYM1434
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29
 	.align 3
@@ -35747,27 +40346,27 @@ Lfde31_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1403=LTDIE_164_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1403
+LDIFF_SYM1435=LTDIE_166_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1435
 	.byte 2,141,32,11
 	.asciz "V_0"
 
-LDIFF_SYM1404=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1404
+LDIFF_SYM1436=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1436
 	.byte 3,141,208,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1405=Lfde32_end - Lfde32_start
-	.long LDIFF_SYM1405
+LDIFF_SYM1437=Lfde32_end - Lfde32_start
+	.long LDIFF_SYM1437
 Lfde32_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_AnimationFrame_get_duration
 
-LDIFF_SYM1406=Lme_20 - TheAdventuresOf_AnimationFrame_get_duration
-	.long LDIFF_SYM1406
+LDIFF_SYM1438=Lme_20 - TheAdventuresOf_AnimationFrame_get_duration
+	.long LDIFF_SYM1438
 	.long 0
 	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29
 	.align 3
@@ -35786,27 +40385,27 @@ Lfde32_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1407=LTDIE_164_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1407
+LDIFF_SYM1439=LTDIE_166_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1439
 	.byte 2,141,16,3
 	.asciz "value"
 
-LDIFF_SYM1408=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1408
+LDIFF_SYM1440=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1440
 	.byte 2,141,24,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1409=Lfde33_end - Lfde33_start
-	.long LDIFF_SYM1409
+LDIFF_SYM1441=Lfde33_end - Lfde33_start
+	.long LDIFF_SYM1441
 Lfde33_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_AnimationFrame_set_duration_System_TimeSpan
 
-LDIFF_SYM1410=Lme_21 - TheAdventuresOf_AnimationFrame_set_duration_System_TimeSpan
-	.long LDIFF_SYM1410
+LDIFF_SYM1442=Lme_21 - TheAdventuresOf_AnimationFrame_set_duration_System_TimeSpan
+	.long LDIFF_SYM1442
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29
 	.align 3
@@ -35825,22 +40424,22 @@ Lfde33_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1411=LTDIE_151_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1411
+LDIFF_SYM1443=LTDIE_151_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1443
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1412=Lfde34_end - Lfde34_start
-	.long LDIFF_SYM1412
+LDIFF_SYM1444=Lfde34_end - Lfde34_start
+	.long LDIFF_SYM1444
 Lfde34_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Animation__ctor
 
-LDIFF_SYM1413=Lme_22 - TheAdventuresOf_Animation__ctor
-	.long LDIFF_SYM1413
+LDIFF_SYM1445=Lme_22 - TheAdventuresOf_Animation__ctor
+	.long LDIFF_SYM1445
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
 	.align 3
@@ -35859,81 +40458,54 @@ Lfde34_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1414=LTDIE_151_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1414
+LDIFF_SYM1446=LTDIE_151_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1446
 	.byte 1,106,11
 	.asciz "currentFrame"
 
-LDIFF_SYM1415=LTDIE_164_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1415
+LDIFF_SYM1447=LTDIE_166_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1447
 	.byte 1,105,11
 	.asciz "accumulatedTime"
 
-LDIFF_SYM1416=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1416
+LDIFF_SYM1448=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1448
 	.byte 3,141,128,2,11
 	.asciz "frame"
 
-LDIFF_SYM1417=LTDIE_164_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1417
+LDIFF_SYM1449=LTDIE_166_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1449
 	.byte 1,104,11
 	.asciz "V_3"
 
-LDIFF_SYM1418=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1418
+LDIFF_SYM1450=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1450
 	.byte 3,141,232,1,11
 	.asciz "V_4"
 
-LDIFF_SYM1419=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1419
+LDIFF_SYM1451=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1451
 	.byte 3,141,216,1,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1420=Lfde35_end - Lfde35_start
-	.long LDIFF_SYM1420
+LDIFF_SYM1452=Lfde35_end - Lfde35_start
+	.long LDIFF_SYM1452
 Lfde35_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Animation_get_CurrentRectangle
 
-LDIFF_SYM1421=Lme_23 - TheAdventuresOf_Animation_get_CurrentRectangle
-	.long LDIFF_SYM1421
+LDIFF_SYM1453=Lme_23 - TheAdventuresOf_Animation_get_CurrentRectangle
+	.long LDIFF_SYM1453
 	.long 0
 	.byte 12,31,0,68,14,224,2,157,44,158,43,68,13,29,68,152,42,153,41,68,154,40
 	.align 3
 Lfde35_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_165:
 
-	.byte 5
-	.asciz "System_Double"
-
-	.byte 24,16
-LDIFF_SYM1422=LTDIE_21 - Ldebug_info_start
-	.long LDIFF_SYM1422
-	.byte 2,35,0,6
-	.asciz "m_value"
-
-LDIFF_SYM1423=LDIE_R8 - Ldebug_info_start
-	.long LDIFF_SYM1423
-	.byte 2,35,16,0,7
-	.asciz "System_Double"
-
-LDIFF_SYM1424=LTDIE_165 - Ldebug_info_start
-	.long LDIFF_SYM1424
-LTDIE_165_POINTER:
-
-	.byte 13
-LDIFF_SYM1425=LTDIE_165 - Ldebug_info_start
-	.long LDIFF_SYM1425
-LTDIE_165_REFERENCE:
-
-	.byte 14
-LDIFF_SYM1426=LTDIE_165 - Ldebug_info_start
-	.long LDIFF_SYM1426
 	.byte 2
 	.asciz "TheAdventuresOf.Animation:CalculateAnimationDuration"
 	.asciz "TheAdventuresOf_Animation_CalculateAnimationDuration"
@@ -35945,42 +40517,42 @@ LDIFF_SYM1426=LTDIE_165 - Ldebug_info_start
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1427=LTDIE_151_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1427
+LDIFF_SYM1454=LTDIE_151_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1454
 	.byte 1,106,11
 	.asciz "totalSeconds"
 
-LDIFF_SYM1428=LDIE_R8 - Ldebug_info_start
-	.long LDIFF_SYM1428
+LDIFF_SYM1455=LDIE_R8 - Ldebug_info_start
+	.long LDIFF_SYM1455
 	.byte 3,141,128,1,11
 	.asciz "frame"
 
-LDIFF_SYM1429=LTDIE_164_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1429
+LDIFF_SYM1456=LTDIE_166_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1456
 	.byte 1,105,11
 	.asciz "V_2"
 
-LDIFF_SYM1430=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1430
+LDIFF_SYM1457=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1457
 	.byte 3,141,232,0,11
 	.asciz "V_3"
 
-LDIFF_SYM1431=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1431
+LDIFF_SYM1458=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1458
 	.byte 3,141,224,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1432=Lfde36_end - Lfde36_start
-	.long LDIFF_SYM1432
+LDIFF_SYM1459=Lfde36_end - Lfde36_start
+	.long LDIFF_SYM1459
 Lfde36_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Animation_CalculateAnimationDuration
 
-LDIFF_SYM1433=Lme_24 - TheAdventuresOf_Animation_CalculateAnimationDuration
-	.long LDIFF_SYM1433
+LDIFF_SYM1460=Lme_24 - TheAdventuresOf_Animation_CalculateAnimationDuration
+	.long LDIFF_SYM1460
 	.long 0
 	.byte 12,31,0,68,14,128,2,157,32,158,31,68,13,29,68,153,30,154,29
 	.align 3
@@ -35999,42 +40571,42 @@ Lfde36_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1434=LTDIE_151_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1434
+LDIFF_SYM1461=LTDIE_151_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1461
 	.byte 1,106,3
 	.asciz "rectangle"
 
-LDIFF_SYM1435=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1435
+LDIFF_SYM1462=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1462
 	.byte 2,141,40,3
 	.asciz "dur"
 
-LDIFF_SYM1436=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1436
+LDIFF_SYM1463=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1463
 	.byte 2,141,56,11
 	.asciz "newFrame"
 
-LDIFF_SYM1437=LTDIE_164_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1437
+LDIFF_SYM1464=LTDIE_166_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1464
 	.byte 1,105,11
 	.asciz "V_1"
 
-LDIFF_SYM1438=LTDIE_164_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1438
+LDIFF_SYM1465=LTDIE_166_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1465
 	.byte 1,104,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1439=Lfde37_end - Lfde37_start
-	.long LDIFF_SYM1439
+LDIFF_SYM1466=Lfde37_end - Lfde37_start
+	.long LDIFF_SYM1466
 Lfde37_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Animation_AddFrame_Microsoft_Xna_Framework_Rectangle_System_TimeSpan
 
-LDIFF_SYM1440=Lme_25 - TheAdventuresOf_Animation_AddFrame_Microsoft_Xna_Framework_Rectangle_System_TimeSpan
-	.long LDIFF_SYM1440
+LDIFF_SYM1467=Lme_25 - TheAdventuresOf_Animation_AddFrame_Microsoft_Xna_Framework_Rectangle_System_TimeSpan
+	.long LDIFF_SYM1467
 	.long 0
 	.byte 12,31,0,68,14,160,1,157,20,158,19,68,13,29,68,152,18,153,17,68,154,16
 	.align 3
@@ -36053,42 +40625,42 @@ Lfde37_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1441=LTDIE_151_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1441
+LDIFF_SYM1468=LTDIE_151_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1468
 	.byte 1,105,3
 	.asciz "gameTime"
 
-LDIFF_SYM1442=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1442
+LDIFF_SYM1469=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1469
 	.byte 2,141,24,11
 	.asciz "secondsIntoAnimation"
 
-LDIFF_SYM1443=LDIE_R8 - Ldebug_info_start
-	.long LDIFF_SYM1443
+LDIFF_SYM1470=LDIE_R8 - Ldebug_info_start
+	.long LDIFF_SYM1470
 	.byte 3,141,208,0,11
 	.asciz "V_1"
 
-LDIFF_SYM1444=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1444
+LDIFF_SYM1471=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1471
 	.byte 3,141,200,0,11
 	.asciz "remainder"
 
-LDIFF_SYM1445=LDIE_R8 - Ldebug_info_start
-	.long LDIFF_SYM1445
+LDIFF_SYM1472=LDIE_R8 - Ldebug_info_start
+	.long LDIFF_SYM1472
 	.byte 3,141,216,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1446=Lfde38_end - Lfde38_start
-	.long LDIFF_SYM1446
+LDIFF_SYM1473=Lfde38_end - Lfde38_start
+	.long LDIFF_SYM1473
 Lfde38_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Animation_Update_Microsoft_Xna_Framework_GameTime
 
-LDIFF_SYM1447=Lme_26 - TheAdventuresOf_Animation_Update_Microsoft_Xna_Framework_GameTime
-	.long LDIFF_SYM1447
+LDIFF_SYM1474=Lme_26 - TheAdventuresOf_Animation_Update_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM1474
 	.long 0
 	.byte 12,31,0,68,14,192,1,157,24,158,23,68,13,29,68,153,22
 	.align 3
@@ -36107,22 +40679,22 @@ Lfde38_end:
 	.byte 2,118,16,3
 	.asciz "graphicsDevice"
 
-LDIFF_SYM1448=LTDIE_72_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1448
+LDIFF_SYM1475=LTDIE_72_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1475
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1449=Lfde39_end - Lfde39_start
-	.long LDIFF_SYM1449
+LDIFF_SYM1476=Lfde39_end - Lfde39_start
+	.long LDIFF_SYM1476
 Lfde39_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Controller_InitializeController_Microsoft_Xna_Framework_Graphics_GraphicsDevice
 
-LDIFF_SYM1450=Lme_27 - TheAdventuresOf_Controller_InitializeController_Microsoft_Xna_Framework_Graphics_GraphicsDevice
-	.long LDIFF_SYM1450
+LDIFF_SYM1477=Lme_27 - TheAdventuresOf_Controller_InitializeController_Microsoft_Xna_Framework_Graphics_GraphicsDevice
+	.long LDIFF_SYM1477
 	.long 0
 	.byte 12,31,0,68,14,176,2,157,38,158,37,68,13,29
 	.align 3
@@ -36141,22 +40713,22 @@ Lfde39_end:
 	.byte 2,118,16,3
 	.asciz "point"
 
-LDIFF_SYM1451=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1451
+LDIFF_SYM1478=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1478
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1452=Lfde40_end - Lfde40_start
-	.long LDIFF_SYM1452
+LDIFF_SYM1479=Lfde40_end - Lfde40_start
+	.long LDIFF_SYM1479
 Lfde40_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Controller_HandleInput_Microsoft_Xna_Framework_Point
 
-LDIFF_SYM1453=Lme_28 - TheAdventuresOf_Controller_HandleInput_Microsoft_Xna_Framework_Point
-	.long LDIFF_SYM1453
+LDIFF_SYM1480=Lme_28 - TheAdventuresOf_Controller_HandleInput_Microsoft_Xna_Framework_Point
+	.long LDIFF_SYM1480
 	.long 0
 	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29
 	.align 3
@@ -36168,7 +40740,7 @@ Lfde40_end:
 	.asciz "TheAdventuresOf.Controller:ResetButtonPressedValues"
 	.asciz "TheAdventuresOf_Controller_ResetButtonPressedValues"
 
-	.byte 8,56
+	.byte 8,53
 	.quad TheAdventuresOf_Controller_ResetButtonPressedValues
 	.quad Lme_29
 
@@ -36176,16 +40748,16 @@ Lfde40_end:
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1454=Lfde41_end - Lfde41_start
-	.long LDIFF_SYM1454
+LDIFF_SYM1481=Lfde41_end - Lfde41_start
+	.long LDIFF_SYM1481
 Lfde41_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Controller_ResetButtonPressedValues
 
-LDIFF_SYM1455=Lme_29 - TheAdventuresOf_Controller_ResetButtonPressedValues
-	.long LDIFF_SYM1455
+LDIFF_SYM1482=Lme_29 - TheAdventuresOf_Controller_ResetButtonPressedValues
+	.long LDIFF_SYM1482
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
 	.align 3
@@ -36197,108 +40769,108 @@ Lfde41_end:
 	.asciz "TheAdventuresOf.Controller:Draw"
 	.asciz "TheAdventuresOf_Controller_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch"
 
-	.byte 8,64
+	.byte 8,61
 	.quad TheAdventuresOf_Controller_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch
 	.quad Lme_2a
 
 	.byte 2,118,16,3
 	.asciz "spriteBatch"
 
-LDIFF_SYM1456=LTDIE_134_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1456
+LDIFF_SYM1483=LTDIE_134_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1483
 	.byte 1,106,11
 	.asciz "V_0"
 
-LDIFF_SYM1457=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1457
+LDIFF_SYM1484=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1484
 	.byte 3,141,248,1,11
 	.asciz "V_1"
 
-LDIFF_SYM1458=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1458
+LDIFF_SYM1485=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1485
 	.byte 3,141,232,1,11
 	.asciz "V_2"
 
-LDIFF_SYM1459=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1459
+LDIFF_SYM1486=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1486
 	.byte 3,141,224,1,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1460=Lfde42_end - Lfde42_start
-	.long LDIFF_SYM1460
+LDIFF_SYM1487=Lfde42_end - Lfde42_start
+	.long LDIFF_SYM1487
 Lfde42_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Controller_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch
 
-LDIFF_SYM1461=Lme_2a - TheAdventuresOf_Controller_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch
-	.long LDIFF_SYM1461
+LDIFF_SYM1488=Lme_2a - TheAdventuresOf_Controller_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch
+	.long LDIFF_SYM1488
 	.long 0
 	.byte 12,31,0,68,14,240,2,157,46,158,45,68,13,29,84,154,44
 	.align 3
 Lfde42_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_166:
+LTDIE_167:
 
 	.byte 5
 	.asciz "TheAdventuresOf_Button"
 
 	.byte 64,16
-LDIFF_SYM1462=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1462
+LDIFF_SYM1489=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1489
 	.byte 2,35,0,6
 	.asciz "buttonBounds"
 
-LDIFF_SYM1463=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1463
+LDIFF_SYM1490=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1490
 	.byte 2,35,16,6
 	.asciz "posX"
 
-LDIFF_SYM1464=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1464
+LDIFF_SYM1491=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1491
 	.byte 2,35,32,6
 	.asciz "posY"
 
-LDIFF_SYM1465=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1465
+LDIFF_SYM1492=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1492
 	.byte 2,35,36,6
 	.asciz "width"
 
-LDIFF_SYM1466=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1466
+LDIFF_SYM1493=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1493
 	.byte 2,35,40,6
 	.asciz "height"
 
-LDIFF_SYM1467=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1467
+LDIFF_SYM1494=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1494
 	.byte 2,35,44,6
 	.asciz "buttonPositionVector"
 
-LDIFF_SYM1468=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1468
+LDIFF_SYM1495=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1495
 	.byte 2,35,48,6
 	.asciz "originVector"
 
-LDIFF_SYM1469=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1469
+LDIFF_SYM1496=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1496
 	.byte 2,35,56,0,7
 	.asciz "TheAdventuresOf_Button"
 
-LDIFF_SYM1470=LTDIE_166 - Ldebug_info_start
-	.long LDIFF_SYM1470
-LTDIE_166_POINTER:
+LDIFF_SYM1497=LTDIE_167 - Ldebug_info_start
+	.long LDIFF_SYM1497
+LTDIE_167_POINTER:
 
 	.byte 13
-LDIFF_SYM1471=LTDIE_166 - Ldebug_info_start
-	.long LDIFF_SYM1471
-LTDIE_166_REFERENCE:
+LDIFF_SYM1498=LTDIE_167 - Ldebug_info_start
+	.long LDIFF_SYM1498
+LTDIE_167_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1472=LTDIE_166 - Ldebug_info_start
-	.long LDIFF_SYM1472
+LDIFF_SYM1499=LTDIE_167 - Ldebug_info_start
+	.long LDIFF_SYM1499
 	.byte 2
 	.asciz "TheAdventuresOf.Button:.ctor"
 	.asciz "TheAdventuresOf_Button__ctor_single_single_single_single"
@@ -36310,42 +40882,42 @@ LDIFF_SYM1472=LTDIE_166 - Ldebug_info_start
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1473=LTDIE_166_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1473
+LDIFF_SYM1500=LTDIE_167_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1500
 	.byte 1,106,3
 	.asciz "textureWidth"
 
-LDIFF_SYM1474=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1474
+LDIFF_SYM1501=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1501
 	.byte 2,141,24,3
 	.asciz "textureHeight"
 
-LDIFF_SYM1475=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1475
+LDIFF_SYM1502=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1502
 	.byte 2,141,32,3
 	.asciz "posX"
 
-LDIFF_SYM1476=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1476
+LDIFF_SYM1503=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1503
 	.byte 2,141,40,3
 	.asciz "posY"
 
-LDIFF_SYM1477=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1477
+LDIFF_SYM1504=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1504
 	.byte 2,141,48,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1478=Lfde43_end - Lfde43_start
-	.long LDIFF_SYM1478
+LDIFF_SYM1505=Lfde43_end - Lfde43_start
+	.long LDIFF_SYM1505
 Lfde43_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Button__ctor_single_single_single_single
 
-LDIFF_SYM1479=Lme_2b - TheAdventuresOf_Button__ctor_single_single_single_single
-	.long LDIFF_SYM1479
+LDIFF_SYM1506=Lme_2b - TheAdventuresOf_Button__ctor_single_single_single_single
+	.long LDIFF_SYM1506
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,154,8
 	.align 3
@@ -36364,22 +40936,22 @@ Lfde43_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1480=LTDIE_166_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1480
+LDIFF_SYM1507=LTDIE_167_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1507
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1481=Lfde44_end - Lfde44_start
-	.long LDIFF_SYM1481
+LDIFF_SYM1508=Lfde44_end - Lfde44_start
+	.long LDIFF_SYM1508
 Lfde44_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Button_InitializeButton
 
-LDIFF_SYM1482=Lme_2c - TheAdventuresOf_Button_InitializeButton
-	.long LDIFF_SYM1482
+LDIFF_SYM1509=Lme_2c - TheAdventuresOf_Button_InitializeButton
+	.long LDIFF_SYM1509
 	.long 0
 	.byte 12,31,0,68,14,112,157,14,158,13,68,13,29,68,154,12
 	.align 3
@@ -36398,22 +40970,22 @@ Lfde44_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1483=LTDIE_166_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1483
+LDIFF_SYM1510=LTDIE_167_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1510
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1484=Lfde45_end - Lfde45_start
-	.long LDIFF_SYM1484
+LDIFF_SYM1511=Lfde45_end - Lfde45_start
+	.long LDIFF_SYM1511
 Lfde45_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Button_InitializeBounds
 
-LDIFF_SYM1485=Lme_2d - TheAdventuresOf_Button_InitializeBounds
-	.long LDIFF_SYM1485
+LDIFF_SYM1512=Lme_2d - TheAdventuresOf_Button_InitializeBounds
+	.long LDIFF_SYM1512
 	.long 0
 	.byte 12,31,0,68,14,112,157,14,158,13,68,13,29,68,154,12
 	.align 3
@@ -36432,46 +41004,46 @@ Lfde45_end:
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1486=LTDIE_166_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1486
+LDIFF_SYM1513=LTDIE_167_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1513
 	.byte 2,141,24,3
 	.asciz "point"
 
-LDIFF_SYM1487=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1487
+LDIFF_SYM1514=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1514
 	.byte 2,141,32,11
 	.asciz "V_0"
 
-LDIFF_SYM1488=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM1488
+LDIFF_SYM1515=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1515
 	.byte 1,105,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1489=Lfde46_end - Lfde46_start
-	.long LDIFF_SYM1489
+LDIFF_SYM1516=Lfde46_end - Lfde46_start
+	.long LDIFF_SYM1516
 Lfde46_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Button_IsPressed_Microsoft_Xna_Framework_Point
 
-LDIFF_SYM1490=Lme_2e - TheAdventuresOf_Button_IsPressed_Microsoft_Xna_Framework_Point
-	.long LDIFF_SYM1490
+LDIFF_SYM1517=Lme_2e - TheAdventuresOf_Button_IsPressed_Microsoft_Xna_Framework_Point
+	.long LDIFF_SYM1517
 	.long 0
 	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29,68,153,10
 	.align 3
 Lfde46_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_167:
+LTDIE_168:
 
 	.byte 8
 	.asciz "Microsoft_Xna_Framework_Graphics_SpriteEffects"
 
 	.byte 4
-LDIFF_SYM1491=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1491
+LDIFF_SYM1518=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1518
 	.byte 9
 	.asciz "None"
 
@@ -36484,18 +41056,18 @@ LDIFF_SYM1491=LDIE_I4 - Ldebug_info_start
 	.byte 2,0,7
 	.asciz "Microsoft_Xna_Framework_Graphics_SpriteEffects"
 
-LDIFF_SYM1492=LTDIE_167 - Ldebug_info_start
-	.long LDIFF_SYM1492
-LTDIE_167_POINTER:
+LDIFF_SYM1519=LTDIE_168 - Ldebug_info_start
+	.long LDIFF_SYM1519
+LTDIE_168_POINTER:
 
 	.byte 13
-LDIFF_SYM1493=LTDIE_167 - Ldebug_info_start
-	.long LDIFF_SYM1493
-LTDIE_167_REFERENCE:
+LDIFF_SYM1520=LTDIE_168 - Ldebug_info_start
+	.long LDIFF_SYM1520
+LTDIE_168_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1494=LTDIE_167 - Ldebug_info_start
-	.long LDIFF_SYM1494
+LDIFF_SYM1521=LTDIE_168 - Ldebug_info_start
+	.long LDIFF_SYM1521
 	.byte 2
 	.asciz "TheAdventuresOf.Button:Draw"
 	.asciz "TheAdventuresOf_Button_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D_single_Microsoft_Xna_Framework_Graphics_SpriteEffects"
@@ -36507,47 +41079,47 @@ LDIFF_SYM1494=LTDIE_167 - Ldebug_info_start
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1495=LTDIE_166_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1495
+LDIFF_SYM1522=LTDIE_167_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1522
 	.byte 1,103,3
 	.asciz "spriteBatch"
 
-LDIFF_SYM1496=LTDIE_134_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1496
+LDIFF_SYM1523=LTDIE_134_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1523
 	.byte 2,141,24,3
 	.asciz "buttonTexture"
 
-LDIFF_SYM1497=LTDIE_157_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1497
+LDIFF_SYM1524=LTDIE_159_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1524
 	.byte 2,141,32,3
 	.asciz "rotation"
 
-LDIFF_SYM1498=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1498
+LDIFF_SYM1525=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1525
 	.byte 2,141,40,3
 	.asciz "spriteEffects"
 
-LDIFF_SYM1499=LTDIE_167 - Ldebug_info_start
-	.long LDIFF_SYM1499
+LDIFF_SYM1526=LTDIE_168 - Ldebug_info_start
+	.long LDIFF_SYM1526
 	.byte 2,141,48,11
 	.asciz "V_0"
 
-LDIFF_SYM1500=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1500
+LDIFF_SYM1527=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1527
 	.byte 3,141,152,1,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1501=Lfde47_end - Lfde47_start
-	.long LDIFF_SYM1501
+LDIFF_SYM1528=Lfde47_end - Lfde47_start
+	.long LDIFF_SYM1528
 Lfde47_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Button_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D_single_Microsoft_Xna_Framework_Graphics_SpriteEffects
 
-LDIFF_SYM1502=Lme_2f - TheAdventuresOf_Button_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D_single_Microsoft_Xna_Framework_Graphics_SpriteEffects
-	.long LDIFF_SYM1502
+LDIFF_SYM1529=Lme_2f - TheAdventuresOf_Button_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D_single_Microsoft_Xna_Framework_Graphics_SpriteEffects
+	.long LDIFF_SYM1529
 	.long 0
 	.byte 12,31,0,68,14,240,1,157,30,158,29,68,13,29,68,151,28
 	.align 3
@@ -36559,31 +41131,31 @@ Lfde47_end:
 	.asciz "TheAdventuresOf.Level:.ctor"
 	.asciz "TheAdventuresOf_Level__ctor"
 
-	.byte 10,17
+	.byte 10,24
 	.quad TheAdventuresOf_Level__ctor
 	.quad Lme_30
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1503=LTDIE_155_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1503
-	.byte 2,141,16,0
+LDIFF_SYM1530=LTDIE_154_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1530
+	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1504=Lfde48_end - Lfde48_start
-	.long LDIFF_SYM1504
+LDIFF_SYM1531=Lfde48_end - Lfde48_start
+	.long LDIFF_SYM1531
 Lfde48_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Level__ctor
 
-LDIFF_SYM1505=Lme_30 - TheAdventuresOf_Level__ctor
-	.long LDIFF_SYM1505
+LDIFF_SYM1532=Lme_30 - TheAdventuresOf_Level__ctor
+	.long LDIFF_SYM1532
 	.long 0
-	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29
+	.byte 12,31,0,68,14,112,157,14,158,13,68,13,29,68,154,12
 	.align 3
 Lfde48_end:
 
@@ -36593,31 +41165,31 @@ Lfde48_end:
 	.asciz "TheAdventuresOf.Level:InitializeLevel"
 	.asciz "TheAdventuresOf_Level_InitializeLevel"
 
-	.byte 10,23
+	.byte 10,32
 	.quad TheAdventuresOf_Level_InitializeLevel
 	.quad Lme_31
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1506=LTDIE_155_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1506
-	.byte 2,141,16,0
+LDIFF_SYM1533=LTDIE_154_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1533
+	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1507=Lfde49_end - Lfde49_start
-	.long LDIFF_SYM1507
+LDIFF_SYM1534=Lfde49_end - Lfde49_start
+	.long LDIFF_SYM1534
 Lfde49_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Level_InitializeLevel
 
-LDIFF_SYM1508=Lme_31 - TheAdventuresOf_Level_InitializeLevel
-	.long LDIFF_SYM1508
+LDIFF_SYM1535=Lme_31 - TheAdventuresOf_Level_InitializeLevel
+	.long LDIFF_SYM1535
 	.long 0
-	.byte 12,31,0,68,14,192,1,157,24,158,23,68,13,29
+	.byte 12,31,0,68,14,192,1,157,24,158,23,68,13,29,68,154,22
 	.align 3
 Lfde49_end:
 
@@ -36627,38 +41199,146 @@ Lfde49_end:
 	.asciz "TheAdventuresOf.Level:CheckCollision"
 	.asciz "TheAdventuresOf_Level_CheckCollision_TheAdventuresOf_Character"
 
-	.byte 10,29
+	.byte 10,38
 	.quad TheAdventuresOf_Level_CheckCollision_TheAdventuresOf_Character
 	.quad Lme_32
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1509=LTDIE_155_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1509
-	.byte 2,141,24,3
+LDIFF_SYM1536=LTDIE_154_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1536
+	.byte 1,105,3
 	.asciz "character"
 
-LDIFF_SYM1510=LTDIE_150_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1510
+LDIFF_SYM1537=LTDIE_150_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1537
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1511=Lfde50_end - Lfde50_start
-	.long LDIFF_SYM1511
+LDIFF_SYM1538=Lfde50_end - Lfde50_start
+	.long LDIFF_SYM1538
 Lfde50_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Level_CheckCollision_TheAdventuresOf_Character
 
-LDIFF_SYM1512=Lme_32 - TheAdventuresOf_Level_CheckCollision_TheAdventuresOf_Character
-	.long LDIFF_SYM1512
+LDIFF_SYM1539=Lme_32 - TheAdventuresOf_Level_CheckCollision_TheAdventuresOf_Character
+	.long LDIFF_SYM1539
 	.long 0
-	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,154,14
+	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,153,14,154,13
 	.align 3
 Lfde50_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Level:GetRandomXLocation"
+	.asciz "TheAdventuresOf_Level_GetRandomXLocation_single"
+
+	.byte 10,51
+	.quad TheAdventuresOf_Level_GetRandomXLocation_single
+	.quad Lme_33
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM1540=LTDIE_154_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1540
+	.byte 2,141,32,3
+	.asciz "characterWidth"
+
+LDIFF_SYM1541=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1541
+	.byte 2,141,40,11
+	.asciz "X"
+
+LDIFF_SYM1542=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1542
+	.byte 1,105,11
+	.asciz "V_1"
+
+LDIFF_SYM1543=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1543
+	.byte 1,104,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM1544=Lfde51_end - Lfde51_start
+	.long LDIFF_SYM1544
+Lfde51_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Level_GetRandomXLocation_single
+
+LDIFF_SYM1545=Lme_33 - TheAdventuresOf_Level_GetRandomXLocation_single
+	.long LDIFF_SYM1545
+	.long 0
+	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,152,16,153,15
+	.align 3
+Lfde51_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Level:Update"
+	.asciz "TheAdventuresOf_Level_Update_Microsoft_Xna_Framework_GameTime_TheAdventuresOf_Player"
+
+	.byte 10,60
+	.quad TheAdventuresOf_Level_Update_Microsoft_Xna_Framework_GameTime_TheAdventuresOf_Player
+	.quad Lme_34
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM1546=LTDIE_154_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1546
+	.byte 1,104,3
+	.asciz "gameTime"
+
+LDIFF_SYM1547=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1547
+	.byte 1,105,3
+	.asciz "player"
+
+LDIFF_SYM1548=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1548
+	.byte 1,106,11
+	.asciz "blockMonster"
+
+LDIFF_SYM1549=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1549
+	.byte 1,103,11
+	.asciz "monster"
+
+LDIFF_SYM1550=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1550
+	.byte 1,102,11
+	.asciz "V_2"
+
+LDIFF_SYM1551=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1551
+	.byte 3,141,232,0,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM1552=Lfde52_end - Lfde52_start
+	.long LDIFF_SYM1552
+Lfde52_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Level_Update_Microsoft_Xna_Framework_GameTime_TheAdventuresOf_Player
+
+LDIFF_SYM1553=Lme_34 - TheAdventuresOf_Level_Update_Microsoft_Xna_Framework_GameTime_TheAdventuresOf_Player
+	.long LDIFF_SYM1553
+	.long 0
+	.byte 12,31,0,68,14,208,2,157,42,158,41,68,13,29,68,150,40,151,39,68,152,38,153,37,68,154,36
+	.align 3
+Lfde52_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -36666,53 +41346,53 @@ Lfde50_end:
 	.asciz "TheAdventuresOf.Level:Draw"
 	.asciz "TheAdventuresOf_Level_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch"
 
-	.byte 10,44
+	.byte 10,103
 	.quad TheAdventuresOf_Level_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch
-	.quad Lme_33
+	.quad Lme_35
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1513=LTDIE_155_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1513
+LDIFF_SYM1554=LTDIE_154_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1554
 	.byte 2,141,16,3
 	.asciz "spriteBatch"
 
-LDIFF_SYM1514=LTDIE_134_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1514
+LDIFF_SYM1555=LTDIE_134_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1555
 	.byte 2,141,24,11
 	.asciz "V_0"
 
-LDIFF_SYM1515=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1515
+LDIFF_SYM1556=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1556
 	.byte 3,141,128,2,11
 	.asciz "V_1"
 
-LDIFF_SYM1516=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1516
+LDIFF_SYM1557=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1557
 	.byte 3,141,240,1,11
 	.asciz "V_2"
 
-LDIFF_SYM1517=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1517
+LDIFF_SYM1558=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1558
 	.byte 3,141,232,1,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1518=Lfde51_end - Lfde51_start
-	.long LDIFF_SYM1518
-Lfde51_start:
+LDIFF_SYM1559=Lfde53_end - Lfde53_start
+	.long LDIFF_SYM1559
+Lfde53_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Level_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch
 
-LDIFF_SYM1519=Lme_33 - TheAdventuresOf_Level_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch
-	.long LDIFF_SYM1519
+LDIFF_SYM1560=Lme_35 - TheAdventuresOf_Level_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch
+	.long LDIFF_SYM1560
 	.long 0
 	.byte 12,31,0,68,14,192,2,157,40,158,39,68,13,29
 	.align 3
-Lfde51_end:
+Lfde53_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -36720,28 +41400,72 @@ Lfde51_end:
 	.asciz "TheAdventuresOf.Level:.cctor"
 	.asciz "TheAdventuresOf_Level__cctor"
 
-	.byte 10,12
+	.byte 10,19
 	.quad TheAdventuresOf_Level__cctor
-	.quad Lme_34
+	.quad Lme_36
 
 	.byte 2,118,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1520=Lfde52_end - Lfde52_start
-	.long LDIFF_SYM1520
-Lfde52_start:
+LDIFF_SYM1561=Lfde54_end - Lfde54_start
+	.long LDIFF_SYM1561
+Lfde54_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Level__cctor
 
-LDIFF_SYM1521=Lme_34 - TheAdventuresOf_Level__cctor
-	.long LDIFF_SYM1521
+LDIFF_SYM1562=Lme_36 - TheAdventuresOf_Level__cctor
+	.long LDIFF_SYM1562
 	.long 0
-	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
+	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
 	.align 3
-Lfde52_end:
+Lfde54_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Level:<Update>m__0"
+	.asciz "TheAdventuresOf_Level__Updatem__0_TheAdventuresOf_Monster"
+
+	.byte 10,97
+	.quad TheAdventuresOf_Level__Updatem__0_TheAdventuresOf_Monster
+	.quad Lme_37
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM1563=LTDIE_154_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1563
+	.byte 2,141,24,3
+	.asciz "m"
+
+LDIFF_SYM1564=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1564
+	.byte 2,141,32,11
+	.asciz "V_0"
+
+LDIFF_SYM1565=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1565
+	.byte 1,104,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM1566=Lfde55_end - Lfde55_start
+	.long LDIFF_SYM1566
+Lfde55_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Level__Updatem__0_TheAdventuresOf_Monster
+
+LDIFF_SYM1567=Lme_37 - TheAdventuresOf_Level__Updatem__0_TheAdventuresOf_Monster
+	.long LDIFF_SYM1567
+	.long 0
+	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29,68,152,10
+	.align 3
+Lfde55_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -36749,429 +41473,9 @@ Lfde52_end:
 	.asciz "TheAdventuresOf.Player:.ctor"
 	.asciz "TheAdventuresOf_Player__ctor"
 
-	.byte 0,0
+	.byte 11,33
 	.quad TheAdventuresOf_Player__ctor
-	.quad Lme_35
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM1522=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1522
-	.byte 2,141,16,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM1523=Lfde53_end - Lfde53_start
-	.long LDIFF_SYM1523
-Lfde53_start:
-
-	.long 0
-	.align 3
-	.quad TheAdventuresOf_Player__ctor
-
-LDIFF_SYM1524=Lme_35 - TheAdventuresOf_Player__ctor
-	.long LDIFF_SYM1524
-	.long 0
-	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
-	.align 3
-Lfde53_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "TheAdventuresOf.Player:InitializeCharacter"
-	.asciz "TheAdventuresOf_Player_InitializeCharacter_single_single_int_int"
-
-	.byte 11,27
-	.quad TheAdventuresOf_Player_InitializeCharacter_single_single_int_int
-	.quad Lme_36
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM1525=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1525
-	.byte 1,104,3
-	.asciz "startX"
-
-LDIFF_SYM1526=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1526
-	.byte 2,141,32,3
-	.asciz "startY"
-
-LDIFF_SYM1527=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1527
-	.byte 2,141,40,3
-	.asciz "characterWidth"
-
-LDIFF_SYM1528=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1528
-	.byte 1,105,3
-	.asciz "characterHeight"
-
-LDIFF_SYM1529=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1529
-	.byte 2,141,48,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM1530=Lfde54_end - Lfde54_start
-	.long LDIFF_SYM1530
-Lfde54_start:
-
-	.long 0
-	.align 3
-	.quad TheAdventuresOf_Player_InitializeCharacter_single_single_int_int
-
-LDIFF_SYM1531=Lme_36 - TheAdventuresOf_Player_InitializeCharacter_single_single_int_int
-	.long LDIFF_SYM1531
-	.long 0
-	.byte 12,31,0,68,14,224,1,157,28,158,27,68,13,29,68,152,26,153,25
-	.align 3
-Lfde54_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "TheAdventuresOf.Player:InitializeAnimation"
-	.asciz "TheAdventuresOf_Player_InitializeAnimation"
-
-	.byte 11,41
-	.quad TheAdventuresOf_Player_InitializeAnimation
-	.quad Lme_37
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM1532=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1532
-	.byte 1,106,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM1533=Lfde55_end - Lfde55_start
-	.long LDIFF_SYM1533
-Lfde55_start:
-
-	.long 0
-	.align 3
-	.quad TheAdventuresOf_Player_InitializeAnimation
-
-LDIFF_SYM1534=Lme_37 - TheAdventuresOf_Player_InitializeAnimation
-	.long LDIFF_SYM1534
-	.long 0
-	.byte 12,31,0,68,14,192,2,157,40,158,39,68,13,29,68,154,38
-	.align 3
-Lfde55_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "TheAdventuresOf.Player:Update"
-	.asciz "TheAdventuresOf_Player_Update_Microsoft_Xna_Framework_GameTime_bool"
-
-	.byte 11,59
-	.quad TheAdventuresOf_Player_Update_Microsoft_Xna_Framework_GameTime_bool
 	.quad Lme_38
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM1535=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1535
-	.byte 1,104,3
-	.asciz "gameTime"
-
-LDIFF_SYM1536=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1536
-	.byte 1,105,3
-	.asciz "buttonPressed"
-
-LDIFF_SYM1537=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM1537
-	.byte 1,106,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM1538=Lfde56_end - Lfde56_start
-	.long LDIFF_SYM1538
-Lfde56_start:
-
-	.long 0
-	.align 3
-	.quad TheAdventuresOf_Player_Update_Microsoft_Xna_Framework_GameTime_bool
-
-LDIFF_SYM1539=Lme_38 - TheAdventuresOf_Player_Update_Microsoft_Xna_Framework_GameTime_bool
-	.long LDIFF_SYM1539
-	.long 0
-	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,152,6,153,5,68,154,4
-	.align 3
-Lfde56_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "TheAdventuresOf.Player:HandleMovement"
-	.asciz "TheAdventuresOf_Player_HandleMovement_Microsoft_Xna_Framework_GameTime"
-
-	.byte 11,74
-	.quad TheAdventuresOf_Player_HandleMovement_Microsoft_Xna_Framework_GameTime
-	.quad Lme_39
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM1540=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1540
-	.byte 1,105,3
-	.asciz "gameTime"
-
-LDIFF_SYM1541=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1541
-	.byte 1,106,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM1542=Lfde57_end - Lfde57_start
-	.long LDIFF_SYM1542
-Lfde57_start:
-
-	.long 0
-	.align 3
-	.quad TheAdventuresOf_Player_HandleMovement_Microsoft_Xna_Framework_GameTime
-
-LDIFF_SYM1543=Lme_39 - TheAdventuresOf_Player_HandleMovement_Microsoft_Xna_Framework_GameTime
-	.long LDIFF_SYM1543
-	.long 0
-	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,153,8,154,7
-	.align 3
-Lfde57_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "TheAdventuresOf.Player:HandleLevelBoundCollision"
-	.asciz "TheAdventuresOf_Player_HandleLevelBoundCollision_int_int"
-
-	.byte 11,90
-	.quad TheAdventuresOf_Player_HandleLevelBoundCollision_int_int
-	.quad Lme_3a
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM1544=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1544
-	.byte 1,104,3
-	.asciz "direction"
-
-LDIFF_SYM1545=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1545
-	.byte 1,105,3
-	.asciz "boundX"
-
-LDIFF_SYM1546=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1546
-	.byte 2,141,32,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM1547=Lfde58_end - Lfde58_start
-	.long LDIFF_SYM1547
-Lfde58_start:
-
-	.long 0
-	.align 3
-	.quad TheAdventuresOf_Player_HandleLevelBoundCollision_int_int
-
-LDIFF_SYM1548=Lme_3a - TheAdventuresOf_Player_HandleLevelBoundCollision_int_int
-	.long LDIFF_SYM1548
-	.long 0
-	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,152,8,153,7
-	.align 3
-Lfde58_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "TheAdventuresOf.Player:CheckCollision"
-	.asciz "TheAdventuresOf_Player_CheckCollision_TheAdventuresOf_Monster"
-
-	.byte 11,96
-	.quad TheAdventuresOf_Player_CheckCollision_TheAdventuresOf_Monster
-	.quad Lme_3b
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM1549=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1549
-	.byte 1,105,3
-	.asciz "monster"
-
-LDIFF_SYM1550=LTDIE_153_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1550
-	.byte 1,106,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM1551=Lfde59_end - Lfde59_start
-	.long LDIFF_SYM1551
-Lfde59_start:
-
-	.long 0
-	.align 3
-	.quad TheAdventuresOf_Player_CheckCollision_TheAdventuresOf_Monster
-
-LDIFF_SYM1552=Lme_3b - TheAdventuresOf_Player_CheckCollision_TheAdventuresOf_Monster
-	.long LDIFF_SYM1552
-	.long 0
-	.byte 12,31,0,68,14,112,157,14,158,13,68,13,29,68,153,12,154,11
-	.align 3
-Lfde59_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "TheAdventuresOf.Player:HandleAnimation"
-	.asciz "TheAdventuresOf_Player_HandleAnimation_Microsoft_Xna_Framework_GameTime"
-
-	.byte 11,109
-	.quad TheAdventuresOf_Player_HandleAnimation_Microsoft_Xna_Framework_GameTime
-	.quad Lme_3c
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM1553=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1553
-	.byte 1,105,3
-	.asciz "gameTime"
-
-LDIFF_SYM1554=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1554
-	.byte 1,106,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM1555=Lfde60_end - Lfde60_start
-	.long LDIFF_SYM1555
-Lfde60_start:
-
-	.long 0
-	.align 3
-	.quad TheAdventuresOf_Player_HandleAnimation_Microsoft_Xna_Framework_GameTime
-
-LDIFF_SYM1556=Lme_3c - TheAdventuresOf_Player_HandleAnimation_Microsoft_Xna_Framework_GameTime
-	.long LDIFF_SYM1556
-	.long 0
-	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,153,8,154,7
-	.align 3
-Lfde60_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "TheAdventuresOf.Player:HandleJump"
-	.asciz "TheAdventuresOf_Player_HandleJump_Microsoft_Xna_Framework_GameTime"
-
-	.byte 11,126
-	.quad TheAdventuresOf_Player_HandleJump_Microsoft_Xna_Framework_GameTime
-	.quad Lme_3d
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM1557=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1557
-	.byte 1,105,3
-	.asciz "gameTime"
-
-LDIFF_SYM1558=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1558
-	.byte 2,141,24,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM1559=Lfde61_end - Lfde61_start
-	.long LDIFF_SYM1559
-Lfde61_start:
-
-	.long 0
-	.align 3
-	.quad TheAdventuresOf_Player_HandleJump_Microsoft_Xna_Framework_GameTime
-
-LDIFF_SYM1560=Lme_3d - TheAdventuresOf_Player_HandleJump_Microsoft_Xna_Framework_GameTime
-	.long LDIFF_SYM1560
-	.long 0
-	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,153,8
-	.align 3
-Lfde61_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "TheAdventuresOf.Player:Move"
-	.asciz "TheAdventuresOf_Player_Move_Microsoft_Xna_Framework_GameTime_int"
-
-	.byte 11,155,1
-	.quad TheAdventuresOf_Player_Move_Microsoft_Xna_Framework_GameTime_int
-	.quad Lme_3e
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM1561=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1561
-	.byte 1,104,3
-	.asciz "gameTime"
-
-LDIFF_SYM1562=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1562
-	.byte 1,105,3
-	.asciz "direction"
-
-LDIFF_SYM1563=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1563
-	.byte 1,106,11
-	.asciz "V_0"
-
-LDIFF_SYM1564=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1564
-	.byte 3,141,232,0,11
-	.asciz "V_1"
-
-LDIFF_SYM1565=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1565
-	.byte 3,141,224,0,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM1566=Lfde62_end - Lfde62_start
-	.long LDIFF_SYM1566
-Lfde62_start:
-
-	.long 0
-	.align 3
-	.quad TheAdventuresOf_Player_Move_Microsoft_Xna_Framework_GameTime_int
-
-LDIFF_SYM1567=Lme_3e - TheAdventuresOf_Player_Move_Microsoft_Xna_Framework_GameTime_int
-	.long LDIFF_SYM1567
-	.long 0
-	.byte 12,31,0,68,14,160,1,157,20,158,19,68,13,29,68,150,18,151,17,68,152,16,153,15,68,154,14
-	.align 3
-Lfde62_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "TheAdventuresOf.Player:UpdateCharacterBounds"
-	.asciz "TheAdventuresOf_Player_UpdateCharacterBounds"
-
-	.byte 11,178,1
-	.quad TheAdventuresOf_Player_UpdateCharacterBounds
-	.quad Lme_3f
 
 	.byte 2,118,16,3
 	.asciz "this"
@@ -37182,20 +41486,440 @@ LDIFF_SYM1568=LTDIE_149_REFERENCE - Ldebug_info_start
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1569=Lfde63_end - Lfde63_start
+LDIFF_SYM1569=Lfde56_end - Lfde56_start
 	.long LDIFF_SYM1569
+Lfde56_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Player__ctor
+
+LDIFF_SYM1570=Lme_38 - TheAdventuresOf_Player__ctor
+	.long LDIFF_SYM1570
+	.long 0
+	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
+	.align 3
+Lfde56_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Player:InitializeCharacter"
+	.asciz "TheAdventuresOf_Player_InitializeCharacter_single_single_int_int"
+
+	.byte 11,37
+	.quad TheAdventuresOf_Player_InitializeCharacter_single_single_int_int
+	.quad Lme_39
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM1571=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1571
+	.byte 1,104,3
+	.asciz "startX"
+
+LDIFF_SYM1572=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1572
+	.byte 2,141,32,3
+	.asciz "startY"
+
+LDIFF_SYM1573=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1573
+	.byte 2,141,40,3
+	.asciz "characterWidth"
+
+LDIFF_SYM1574=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1574
+	.byte 1,105,3
+	.asciz "characterHeight"
+
+LDIFF_SYM1575=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1575
+	.byte 2,141,48,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM1576=Lfde57_end - Lfde57_start
+	.long LDIFF_SYM1576
+Lfde57_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Player_InitializeCharacter_single_single_int_int
+
+LDIFF_SYM1577=Lme_39 - TheAdventuresOf_Player_InitializeCharacter_single_single_int_int
+	.long LDIFF_SYM1577
+	.long 0
+	.byte 12,31,0,68,14,144,2,157,34,158,33,68,13,29,68,152,32,153,31
+	.align 3
+Lfde57_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Player:InitializeAnimation"
+	.asciz "TheAdventuresOf_Player_InitializeAnimation"
+
+	.byte 11,56
+	.quad TheAdventuresOf_Player_InitializeAnimation
+	.quad Lme_3a
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM1578=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1578
+	.byte 1,106,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM1579=Lfde58_end - Lfde58_start
+	.long LDIFF_SYM1579
+Lfde58_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Player_InitializeAnimation
+
+LDIFF_SYM1580=Lme_3a - TheAdventuresOf_Player_InitializeAnimation
+	.long LDIFF_SYM1580
+	.long 0
+	.byte 12,31,0,68,14,192,2,157,40,158,39,68,13,29,68,154,38
+	.align 3
+Lfde58_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Player:Update"
+	.asciz "TheAdventuresOf_Player_Update_Microsoft_Xna_Framework_GameTime_bool"
+
+	.byte 11,77
+	.quad TheAdventuresOf_Player_Update_Microsoft_Xna_Framework_GameTime_bool
+	.quad Lme_3b
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM1581=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1581
+	.byte 1,104,3
+	.asciz "gameTime"
+
+LDIFF_SYM1582=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1582
+	.byte 1,105,3
+	.asciz "buttonPressed"
+
+LDIFF_SYM1583=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1583
+	.byte 1,106,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM1584=Lfde59_end - Lfde59_start
+	.long LDIFF_SYM1584
+Lfde59_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Player_Update_Microsoft_Xna_Framework_GameTime_bool
+
+LDIFF_SYM1585=Lme_3b - TheAdventuresOf_Player_Update_Microsoft_Xna_Framework_GameTime_bool
+	.long LDIFF_SYM1585
+	.long 0
+	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,152,14,153,13,68,154,12
+	.align 3
+Lfde59_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Player:HandleMovement"
+	.asciz "TheAdventuresOf_Player_HandleMovement_Microsoft_Xna_Framework_GameTime"
+
+	.byte 11,101
+	.quad TheAdventuresOf_Player_HandleMovement_Microsoft_Xna_Framework_GameTime
+	.quad Lme_3c
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM1586=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1586
+	.byte 1,105,3
+	.asciz "gameTime"
+
+LDIFF_SYM1587=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1587
+	.byte 1,106,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM1588=Lfde60_end - Lfde60_start
+	.long LDIFF_SYM1588
+Lfde60_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Player_HandleMovement_Microsoft_Xna_Framework_GameTime
+
+LDIFF_SYM1589=Lme_3c - TheAdventuresOf_Player_HandleMovement_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM1589
+	.long 0
+	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,153,6,154,5
+	.align 3
+Lfde60_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Player:HandleLevelBoundCollision"
+	.asciz "TheAdventuresOf_Player_HandleLevelBoundCollision_int_int"
+
+	.byte 11,115
+	.quad TheAdventuresOf_Player_HandleLevelBoundCollision_int_int
+	.quad Lme_3d
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM1590=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1590
+	.byte 1,104,3
+	.asciz "direction"
+
+LDIFF_SYM1591=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1591
+	.byte 1,105,3
+	.asciz "boundX"
+
+LDIFF_SYM1592=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1592
+	.byte 2,141,32,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM1593=Lfde61_end - Lfde61_start
+	.long LDIFF_SYM1593
+Lfde61_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Player_HandleLevelBoundCollision_int_int
+
+LDIFF_SYM1594=Lme_3d - TheAdventuresOf_Player_HandleLevelBoundCollision_int_int
+	.long LDIFF_SYM1594
+	.long 0
+	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,152,8,153,7
+	.align 3
+Lfde61_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Player:CheckCollision"
+	.asciz "TheAdventuresOf_Player_CheckCollision_TheAdventuresOf_Monster"
+
+	.byte 11,121
+	.quad TheAdventuresOf_Player_CheckCollision_TheAdventuresOf_Monster
+	.quad Lme_3e
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM1595=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1595
+	.byte 1,105,3
+	.asciz "monster"
+
+LDIFF_SYM1596=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1596
+	.byte 1,106,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM1597=Lfde62_end - Lfde62_start
+	.long LDIFF_SYM1597
+Lfde62_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Player_CheckCollision_TheAdventuresOf_Monster
+
+LDIFF_SYM1598=Lme_3e - TheAdventuresOf_Player_CheckCollision_TheAdventuresOf_Monster
+	.long LDIFF_SYM1598
+	.long 0
+	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,152,16,153,15,68,154,14
+	.align 3
+Lfde62_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Player:HandleAnimation"
+	.asciz "TheAdventuresOf_Player_HandleAnimation_Microsoft_Xna_Framework_GameTime"
+
+	.byte 11,141,1
+	.quad TheAdventuresOf_Player_HandleAnimation_Microsoft_Xna_Framework_GameTime
+	.quad Lme_3f
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM1599=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1599
+	.byte 1,105,3
+	.asciz "gameTime"
+
+LDIFF_SYM1600=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1600
+	.byte 1,106,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM1601=Lfde63_end - Lfde63_start
+	.long LDIFF_SYM1601
 Lfde63_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Player_HandleAnimation_Microsoft_Xna_Framework_GameTime
+
+LDIFF_SYM1602=Lme_3f - TheAdventuresOf_Player_HandleAnimation_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM1602
+	.long 0
+	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,153,8,154,7
+	.align 3
+Lfde63_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Player:HandleJump"
+	.asciz "TheAdventuresOf_Player_HandleJump_Microsoft_Xna_Framework_GameTime"
+
+	.byte 11,158,1
+	.quad TheAdventuresOf_Player_HandleJump_Microsoft_Xna_Framework_GameTime
+	.quad Lme_40
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM1603=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1603
+	.byte 1,105,3
+	.asciz "gameTime"
+
+LDIFF_SYM1604=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1604
+	.byte 2,141,24,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM1605=Lfde64_end - Lfde64_start
+	.long LDIFF_SYM1605
+Lfde64_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Player_HandleJump_Microsoft_Xna_Framework_GameTime
+
+LDIFF_SYM1606=Lme_40 - TheAdventuresOf_Player_HandleJump_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM1606
+	.long 0
+	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,153,8
+	.align 3
+Lfde64_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Player:Move"
+	.asciz "TheAdventuresOf_Player_Move_Microsoft_Xna_Framework_GameTime_int"
+
+	.byte 11,186,1
+	.quad TheAdventuresOf_Player_Move_Microsoft_Xna_Framework_GameTime_int
+	.quad Lme_41
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM1607=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1607
+	.byte 1,104,3
+	.asciz "gameTime"
+
+LDIFF_SYM1608=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1608
+	.byte 1,105,3
+	.asciz "direction"
+
+LDIFF_SYM1609=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1609
+	.byte 1,106,11
+	.asciz "V_0"
+
+LDIFF_SYM1610=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1610
+	.byte 3,141,232,0,11
+	.asciz "V_1"
+
+LDIFF_SYM1611=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1611
+	.byte 3,141,224,0,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM1612=Lfde65_end - Lfde65_start
+	.long LDIFF_SYM1612
+Lfde65_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Player_Move_Microsoft_Xna_Framework_GameTime_int
+
+LDIFF_SYM1613=Lme_41 - TheAdventuresOf_Player_Move_Microsoft_Xna_Framework_GameTime_int
+	.long LDIFF_SYM1613
+	.long 0
+	.byte 12,31,0,68,14,160,1,157,20,158,19,68,13,29,68,150,18,151,17,68,152,16,153,15,68,154,14
+	.align 3
+Lfde65_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Player:UpdateCharacterBounds"
+	.asciz "TheAdventuresOf_Player_UpdateCharacterBounds"
+
+	.byte 11,209,1
+	.quad TheAdventuresOf_Player_UpdateCharacterBounds
+	.quad Lme_42
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM1614=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1614
+	.byte 1,106,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM1615=Lfde66_end - Lfde66_start
+	.long LDIFF_SYM1615
+Lfde66_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Player_UpdateCharacterBounds
 
-LDIFF_SYM1570=Lme_3f - TheAdventuresOf_Player_UpdateCharacterBounds
-	.long LDIFF_SYM1570
+LDIFF_SYM1616=Lme_42 - TheAdventuresOf_Player_UpdateCharacterBounds
+	.long LDIFF_SYM1616
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29,68,154,4
 	.align 3
-Lfde63_end:
+Lfde66_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -37203,33 +41927,33 @@ Lfde63_end:
 	.asciz "TheAdventuresOf.Player:UpdateSwordBounds"
 	.asciz "TheAdventuresOf_Player_UpdateSwordBounds"
 
-	.byte 11,184,1
+	.byte 11,215,1
 	.quad TheAdventuresOf_Player_UpdateSwordBounds
-	.quad Lme_40
+	.quad Lme_43
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1571=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1571
+LDIFF_SYM1617=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1617
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1572=Lfde64_end - Lfde64_start
-	.long LDIFF_SYM1572
-Lfde64_start:
+LDIFF_SYM1618=Lfde67_end - Lfde67_start
+	.long LDIFF_SYM1618
+Lfde67_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Player_UpdateSwordBounds
 
-LDIFF_SYM1573=Lme_40 - TheAdventuresOf_Player_UpdateSwordBounds
-	.long LDIFF_SYM1573
+LDIFF_SYM1619=Lme_43 - TheAdventuresOf_Player_UpdateSwordBounds
+	.long LDIFF_SYM1619
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29,68,154,4
 	.align 3
-Lfde64_end:
+Lfde67_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -37237,38 +41961,38 @@ Lfde64_end:
 	.asciz "TheAdventuresOf.Player:MoveSword"
 	.asciz "TheAdventuresOf_Player_MoveSword_int"
 
-	.byte 11,190,1
+	.byte 11,221,1
 	.quad TheAdventuresOf_Player_MoveSword_int
-	.quad Lme_41
+	.quad Lme_44
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1574=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1574
+LDIFF_SYM1620=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1620
 	.byte 1,105,3
 	.asciz "direction"
 
-LDIFF_SYM1575=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1575
+LDIFF_SYM1621=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1621
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1576=Lfde65_end - Lfde65_start
-	.long LDIFF_SYM1576
-Lfde65_start:
+LDIFF_SYM1622=Lfde68_end - Lfde68_start
+	.long LDIFF_SYM1622
+Lfde68_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Player_MoveSword_int
 
-LDIFF_SYM1577=Lme_41 - TheAdventuresOf_Player_MoveSword_int
-	.long LDIFF_SYM1577
+LDIFF_SYM1623=Lme_44 - TheAdventuresOf_Player_MoveSword_int
+	.long LDIFF_SYM1623
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,153,6,154,5
 	.align 3
-Lfde65_end:
+Lfde68_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -37276,43 +42000,43 @@ Lfde65_end:
 	.asciz "TheAdventuresOf.Player:Jump"
 	.asciz "TheAdventuresOf_Player_Jump_Microsoft_Xna_Framework_GameTime"
 
-	.byte 11,203,1
+	.byte 11,234,1
 	.quad TheAdventuresOf_Player_Jump_Microsoft_Xna_Framework_GameTime
-	.quad Lme_42
+	.quad Lme_45
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1578=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1578
+LDIFF_SYM1624=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1624
 	.byte 1,105,3
 	.asciz "gameTime"
 
-LDIFF_SYM1579=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1579
+LDIFF_SYM1625=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1625
 	.byte 2,141,48,11
 	.asciz "V_0"
 
-LDIFF_SYM1580=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1580
+LDIFF_SYM1626=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1626
 	.byte 3,141,216,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1581=Lfde66_end - Lfde66_start
-	.long LDIFF_SYM1581
-Lfde66_start:
+LDIFF_SYM1627=Lfde69_end - Lfde69_start
+	.long LDIFF_SYM1627
+Lfde69_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Player_Jump_Microsoft_Xna_Framework_GameTime
 
-LDIFF_SYM1582=Lme_42 - TheAdventuresOf_Player_Jump_Microsoft_Xna_Framework_GameTime
-	.long LDIFF_SYM1582
+LDIFF_SYM1628=Lme_45 - TheAdventuresOf_Player_Jump_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM1628
 	.long 0
 	.byte 12,31,0,68,14,128,2,157,32,158,31,68,13,29,68,150,30,151,29,68,152,28,153,27
 	.align 3
-Lfde66_end:
+Lfde69_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -37320,354 +42044,418 @@ Lfde66_end:
 	.asciz "TheAdventuresOf.Player:Draw"
 	.asciz "TheAdventuresOf_Player_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D"
 
-	.byte 11,234,1
+	.byte 11,137,2
 	.quad TheAdventuresOf_Player_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
-	.quad Lme_43
+	.quad Lme_46
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1583=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1583
+LDIFF_SYM1629=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1629
 	.byte 1,104,3
 	.asciz "spriteBatch"
 
-LDIFF_SYM1584=LTDIE_134_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1584
+LDIFF_SYM1630=LTDIE_134_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1630
 	.byte 1,105,3
 	.asciz "texture"
 
-LDIFF_SYM1585=LTDIE_157_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1585
+LDIFF_SYM1631=LTDIE_159_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1631
 	.byte 2,141,32,11
 	.asciz "V_0"
 
-LDIFF_SYM1586=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1586
+LDIFF_SYM1632=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1632
 	.byte 3,141,184,3,11
 	.asciz "V_1"
 
-LDIFF_SYM1587=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1587
+LDIFF_SYM1633=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1633
 	.byte 3,141,168,3,11
 	.asciz "V_2"
 
-LDIFF_SYM1588=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1588
+LDIFF_SYM1634=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1634
 	.byte 3,141,160,3,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1589=Lfde67_end - Lfde67_start
-	.long LDIFF_SYM1589
-Lfde67_start:
+LDIFF_SYM1635=Lfde70_end - Lfde70_start
+	.long LDIFF_SYM1635
+Lfde70_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Player_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
 
-LDIFF_SYM1590=Lme_43 - TheAdventuresOf_Player_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
-	.long LDIFF_SYM1590
+LDIFF_SYM1636=Lme_46 - TheAdventuresOf_Player_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
+	.long LDIFF_SYM1636
 	.long 0
 	.byte 12,31,0,68,14,240,3,157,62,158,61,68,13,29,84,152,60,153,59
 	.align 3
-Lfde67_end:
+Lfde70_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_172:
+
+	.byte 2
+	.asciz "TheAdventuresOf.Player:DrawHealth"
+	.asciz "TheAdventuresOf_Player_DrawHealth_Microsoft_Xna_Framework_Graphics_SpriteBatch"
+
+	.byte 11,153,2
+	.quad TheAdventuresOf_Player_DrawHealth_Microsoft_Xna_Framework_Graphics_SpriteBatch
+	.quad Lme_47
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM1637=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1637
+	.byte 1,105,3
+	.asciz "spriteBatch"
+
+LDIFF_SYM1638=LTDIE_134_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1638
+	.byte 1,106,11
+	.asciz "emptyHearts"
+
+LDIFF_SYM1639=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1639
+	.byte 1,104,11
+	.asciz "i"
+
+LDIFF_SYM1640=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1640
+	.byte 1,103,11
+	.asciz "V_2"
+
+LDIFF_SYM1641=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1641
+	.byte 3,141,208,3,11
+	.asciz "V_3"
+
+LDIFF_SYM1642=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1642
+	.byte 3,141,192,3,11
+	.asciz "V_4"
+
+LDIFF_SYM1643=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1643
+	.byte 3,141,184,3,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM1644=Lfde71_end - Lfde71_start
+	.long LDIFF_SYM1644
+Lfde71_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Player_DrawHealth_Microsoft_Xna_Framework_Graphics_SpriteBatch
+
+LDIFF_SYM1645=Lme_47 - TheAdventuresOf_Player_DrawHealth_Microsoft_Xna_Framework_Graphics_SpriteBatch
+	.long LDIFF_SYM1645
+	.long 0
+	.byte 12,31,0,84,14,176,4,157,70,158,69,68,13,29,84,151,68,152,67,68,153,66,154,65
+	.align 3
+Lfde71_end:
+
+.section __DWARF, __debug_info,regular,debug
+LTDIE_173:
 
 	.byte 5
 	.asciz "System_Threading_Tasks_TaskScheduler"
 
 	.byte 20,16
-LDIFF_SYM1591=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1591
+LDIFF_SYM1646=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1646
 	.byte 2,35,0,6
 	.asciz "m_taskSchedulerId"
 
-LDIFF_SYM1592=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1592
+LDIFF_SYM1647=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1647
 	.byte 2,35,16,0,7
 	.asciz "System_Threading_Tasks_TaskScheduler"
 
-LDIFF_SYM1593=LTDIE_172 - Ldebug_info_start
-	.long LDIFF_SYM1593
-LTDIE_172_POINTER:
+LDIFF_SYM1648=LTDIE_173 - Ldebug_info_start
+	.long LDIFF_SYM1648
+LTDIE_173_POINTER:
 
 	.byte 13
-LDIFF_SYM1594=LTDIE_172 - Ldebug_info_start
-	.long LDIFF_SYM1594
-LTDIE_172_REFERENCE:
+LDIFF_SYM1649=LTDIE_173 - Ldebug_info_start
+	.long LDIFF_SYM1649
+LTDIE_173_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1595=LTDIE_172 - Ldebug_info_start
-	.long LDIFF_SYM1595
-LTDIE_175:
+LDIFF_SYM1650=LTDIE_173 - Ldebug_info_start
+	.long LDIFF_SYM1650
+LTDIE_176:
 
 	.byte 5
 	.asciz "System_Threading_SynchronizationContext"
 
 	.byte 16,16
-LDIFF_SYM1596=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1596
+LDIFF_SYM1651=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1651
 	.byte 2,35,0,0,7
 	.asciz "System_Threading_SynchronizationContext"
 
-LDIFF_SYM1597=LTDIE_175 - Ldebug_info_start
-	.long LDIFF_SYM1597
-LTDIE_175_POINTER:
+LDIFF_SYM1652=LTDIE_176 - Ldebug_info_start
+	.long LDIFF_SYM1652
+LTDIE_176_POINTER:
 
 	.byte 13
-LDIFF_SYM1598=LTDIE_175 - Ldebug_info_start
-	.long LDIFF_SYM1598
-LTDIE_175_REFERENCE:
+LDIFF_SYM1653=LTDIE_176 - Ldebug_info_start
+	.long LDIFF_SYM1653
+LTDIE_176_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1599=LTDIE_175 - Ldebug_info_start
-	.long LDIFF_SYM1599
-LTDIE_178:
-
-	.byte 17
-	.asciz "System_Collections_ICollection"
-
-	.byte 16,7
-	.asciz "System_Collections_ICollection"
-
-LDIFF_SYM1600=LTDIE_178 - Ldebug_info_start
-	.long LDIFF_SYM1600
-LTDIE_178_POINTER:
-
-	.byte 13
-LDIFF_SYM1601=LTDIE_178 - Ldebug_info_start
-	.long LDIFF_SYM1601
-LTDIE_178_REFERENCE:
-
-	.byte 14
-LDIFF_SYM1602=LTDIE_178 - Ldebug_info_start
-	.long LDIFF_SYM1602
+LDIFF_SYM1654=LTDIE_176 - Ldebug_info_start
+	.long LDIFF_SYM1654
 LTDIE_179:
 
 	.byte 17
+	.asciz "System_Collections_ICollection"
+
+	.byte 16,7
+	.asciz "System_Collections_ICollection"
+
+LDIFF_SYM1655=LTDIE_179 - Ldebug_info_start
+	.long LDIFF_SYM1655
+LTDIE_179_POINTER:
+
+	.byte 13
+LDIFF_SYM1656=LTDIE_179 - Ldebug_info_start
+	.long LDIFF_SYM1656
+LTDIE_179_REFERENCE:
+
+	.byte 14
+LDIFF_SYM1657=LTDIE_179 - Ldebug_info_start
+	.long LDIFF_SYM1657
+LTDIE_180:
+
+	.byte 17
 	.asciz "System_Collections_IEqualityComparer"
 
 	.byte 16,7
 	.asciz "System_Collections_IEqualityComparer"
 
-LDIFF_SYM1603=LTDIE_179 - Ldebug_info_start
-	.long LDIFF_SYM1603
-LTDIE_179_POINTER:
+LDIFF_SYM1658=LTDIE_180 - Ldebug_info_start
+	.long LDIFF_SYM1658
+LTDIE_180_POINTER:
 
 	.byte 13
-LDIFF_SYM1604=LTDIE_179 - Ldebug_info_start
-	.long LDIFF_SYM1604
-LTDIE_179_REFERENCE:
+LDIFF_SYM1659=LTDIE_180 - Ldebug_info_start
+	.long LDIFF_SYM1659
+LTDIE_180_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1605=LTDIE_179 - Ldebug_info_start
-	.long LDIFF_SYM1605
-LTDIE_177:
+LDIFF_SYM1660=LTDIE_180 - Ldebug_info_start
+	.long LDIFF_SYM1660
+LTDIE_178:
 
 	.byte 5
 	.asciz "System_Collections_Hashtable"
 
 	.byte 80,16
-LDIFF_SYM1606=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1606
+LDIFF_SYM1661=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1661
 	.byte 2,35,0,6
 	.asciz "buckets"
 
-LDIFF_SYM1607=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM1607
+LDIFF_SYM1662=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM1662
 	.byte 2,35,16,6
 	.asciz "count"
 
-LDIFF_SYM1608=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1608
+LDIFF_SYM1663=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1663
 	.byte 2,35,56,6
 	.asciz "occupancy"
 
-LDIFF_SYM1609=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1609
+LDIFF_SYM1664=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1664
 	.byte 2,35,60,6
 	.asciz "loadsize"
 
-LDIFF_SYM1610=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1610
+LDIFF_SYM1665=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1665
 	.byte 2,35,64,6
 	.asciz "loadFactor"
 
-LDIFF_SYM1611=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1611
+LDIFF_SYM1666=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM1666
 	.byte 2,35,68,6
 	.asciz "version"
 
-LDIFF_SYM1612=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1612
+LDIFF_SYM1667=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1667
 	.byte 2,35,72,6
 	.asciz "isWriterInProgress"
 
-LDIFF_SYM1613=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM1613
+LDIFF_SYM1668=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1668
 	.byte 2,35,76,6
 	.asciz "keys"
 
-LDIFF_SYM1614=LTDIE_178_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1614
+LDIFF_SYM1669=LTDIE_179_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1669
 	.byte 2,35,24,6
 	.asciz "values"
 
-LDIFF_SYM1615=LTDIE_178_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1615
+LDIFF_SYM1670=LTDIE_179_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1670
 	.byte 2,35,32,6
 	.asciz "_keycomparer"
 
-LDIFF_SYM1616=LTDIE_179_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1616
+LDIFF_SYM1671=LTDIE_180_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1671
 	.byte 2,35,40,6
 	.asciz "_syncRoot"
 
-LDIFF_SYM1617=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM1617
+LDIFF_SYM1672=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM1672
 	.byte 2,35,48,0,7
 	.asciz "System_Collections_Hashtable"
 
-LDIFF_SYM1618=LTDIE_177 - Ldebug_info_start
-	.long LDIFF_SYM1618
-LTDIE_177_POINTER:
+LDIFF_SYM1673=LTDIE_178 - Ldebug_info_start
+	.long LDIFF_SYM1673
+LTDIE_178_POINTER:
 
 	.byte 13
-LDIFF_SYM1619=LTDIE_177 - Ldebug_info_start
-	.long LDIFF_SYM1619
-LTDIE_177_REFERENCE:
+LDIFF_SYM1674=LTDIE_178 - Ldebug_info_start
+	.long LDIFF_SYM1674
+LTDIE_178_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1620=LTDIE_177 - Ldebug_info_start
-	.long LDIFF_SYM1620
-LTDIE_180:
-
-	.byte 5
-	.asciz "System_Runtime_Remoting_Messaging_CallContextRemotingData"
-
-	.byte 16,16
-LDIFF_SYM1621=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1621
-	.byte 2,35,0,0,7
-	.asciz "System_Runtime_Remoting_Messaging_CallContextRemotingData"
-
-LDIFF_SYM1622=LTDIE_180 - Ldebug_info_start
-	.long LDIFF_SYM1622
-LTDIE_180_POINTER:
-
-	.byte 13
-LDIFF_SYM1623=LTDIE_180 - Ldebug_info_start
-	.long LDIFF_SYM1623
-LTDIE_180_REFERENCE:
-
-	.byte 14
-LDIFF_SYM1624=LTDIE_180 - Ldebug_info_start
-	.long LDIFF_SYM1624
+LDIFF_SYM1675=LTDIE_178 - Ldebug_info_start
+	.long LDIFF_SYM1675
 LTDIE_181:
 
 	.byte 5
-	.asciz "System_Runtime_Remoting_Messaging_CallContextSecurityData"
+	.asciz "System_Runtime_Remoting_Messaging_CallContextRemotingData"
 
 	.byte 16,16
-LDIFF_SYM1625=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1625
+LDIFF_SYM1676=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1676
 	.byte 2,35,0,0,7
-	.asciz "System_Runtime_Remoting_Messaging_CallContextSecurityData"
+	.asciz "System_Runtime_Remoting_Messaging_CallContextRemotingData"
 
-LDIFF_SYM1626=LTDIE_181 - Ldebug_info_start
-	.long LDIFF_SYM1626
+LDIFF_SYM1677=LTDIE_181 - Ldebug_info_start
+	.long LDIFF_SYM1677
 LTDIE_181_POINTER:
 
 	.byte 13
-LDIFF_SYM1627=LTDIE_181 - Ldebug_info_start
-	.long LDIFF_SYM1627
+LDIFF_SYM1678=LTDIE_181 - Ldebug_info_start
+	.long LDIFF_SYM1678
 LTDIE_181_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1628=LTDIE_181 - Ldebug_info_start
-	.long LDIFF_SYM1628
-LTDIE_176:
+LDIFF_SYM1679=LTDIE_181 - Ldebug_info_start
+	.long LDIFF_SYM1679
+LTDIE_182:
+
+	.byte 5
+	.asciz "System_Runtime_Remoting_Messaging_CallContextSecurityData"
+
+	.byte 16,16
+LDIFF_SYM1680=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1680
+	.byte 2,35,0,0,7
+	.asciz "System_Runtime_Remoting_Messaging_CallContextSecurityData"
+
+LDIFF_SYM1681=LTDIE_182 - Ldebug_info_start
+	.long LDIFF_SYM1681
+LTDIE_182_POINTER:
+
+	.byte 13
+LDIFF_SYM1682=LTDIE_182 - Ldebug_info_start
+	.long LDIFF_SYM1682
+LTDIE_182_REFERENCE:
+
+	.byte 14
+LDIFF_SYM1683=LTDIE_182 - Ldebug_info_start
+	.long LDIFF_SYM1683
+LTDIE_177:
 
 	.byte 5
 	.asciz "System_Runtime_Remoting_Messaging_LogicalCallContext"
 
 	.byte 56,16
-LDIFF_SYM1629=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1629
+LDIFF_SYM1684=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1684
 	.byte 2,35,0,6
 	.asciz "m_Datastore"
 
-LDIFF_SYM1630=LTDIE_177_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1630
+LDIFF_SYM1685=LTDIE_178_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1685
 	.byte 2,35,16,6
 	.asciz "m_RemotingData"
 
-LDIFF_SYM1631=LTDIE_180_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1631
+LDIFF_SYM1686=LTDIE_181_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1686
 	.byte 2,35,24,6
 	.asciz "m_SecurityData"
 
-LDIFF_SYM1632=LTDIE_181_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1632
+LDIFF_SYM1687=LTDIE_182_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1687
 	.byte 2,35,32,6
 	.asciz "m_HostContext"
 
-LDIFF_SYM1633=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM1633
+LDIFF_SYM1688=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM1688
 	.byte 2,35,40,6
 	.asciz "m_IsCorrelationMgr"
 
-LDIFF_SYM1634=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM1634
+LDIFF_SYM1689=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1689
 	.byte 2,35,48,0,7
 	.asciz "System_Runtime_Remoting_Messaging_LogicalCallContext"
 
-LDIFF_SYM1635=LTDIE_176 - Ldebug_info_start
-	.long LDIFF_SYM1635
-LTDIE_176_POINTER:
+LDIFF_SYM1690=LTDIE_177 - Ldebug_info_start
+	.long LDIFF_SYM1690
+LTDIE_177_POINTER:
 
 	.byte 13
-LDIFF_SYM1636=LTDIE_176 - Ldebug_info_start
-	.long LDIFF_SYM1636
-LTDIE_176_REFERENCE:
+LDIFF_SYM1691=LTDIE_177 - Ldebug_info_start
+	.long LDIFF_SYM1691
+LTDIE_177_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1637=LTDIE_176 - Ldebug_info_start
-	.long LDIFF_SYM1637
-LTDIE_182:
+LDIFF_SYM1692=LTDIE_177 - Ldebug_info_start
+	.long LDIFF_SYM1692
+LTDIE_183:
 
 	.byte 5
 	.asciz "System_Runtime_Remoting_Messaging_IllogicalCallContext"
 
 	.byte 16,16
-LDIFF_SYM1638=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1638
+LDIFF_SYM1693=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1693
 	.byte 2,35,0,0,7
 	.asciz "System_Runtime_Remoting_Messaging_IllogicalCallContext"
 
-LDIFF_SYM1639=LTDIE_182 - Ldebug_info_start
-	.long LDIFF_SYM1639
-LTDIE_182_POINTER:
+LDIFF_SYM1694=LTDIE_183 - Ldebug_info_start
+	.long LDIFF_SYM1694
+LTDIE_183_POINTER:
 
 	.byte 13
-LDIFF_SYM1640=LTDIE_182 - Ldebug_info_start
-	.long LDIFF_SYM1640
-LTDIE_182_REFERENCE:
+LDIFF_SYM1695=LTDIE_183 - Ldebug_info_start
+	.long LDIFF_SYM1695
+LTDIE_183_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1641=LTDIE_182 - Ldebug_info_start
-	.long LDIFF_SYM1641
-LTDIE_183:
+LDIFF_SYM1696=LTDIE_183 - Ldebug_info_start
+	.long LDIFF_SYM1696
+LTDIE_184:
 
 	.byte 8
 	.asciz "_Flags"
 
 	.byte 4
-LDIFF_SYM1642=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1642
+LDIFF_SYM1697=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1697
 	.byte 9
 	.asciz "None"
 
@@ -37683,19 +42471,19 @@ LDIFF_SYM1642=LDIE_I4 - Ldebug_info_start
 	.byte 4,0,7
 	.asciz "_Flags"
 
-LDIFF_SYM1643=LTDIE_183 - Ldebug_info_start
-	.long LDIFF_SYM1643
-LTDIE_183_POINTER:
+LDIFF_SYM1698=LTDIE_184 - Ldebug_info_start
+	.long LDIFF_SYM1698
+LTDIE_184_POINTER:
 
 	.byte 13
-LDIFF_SYM1644=LTDIE_183 - Ldebug_info_start
-	.long LDIFF_SYM1644
-LTDIE_183_REFERENCE:
+LDIFF_SYM1699=LTDIE_184 - Ldebug_info_start
+	.long LDIFF_SYM1699
+LTDIE_184_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1645=LTDIE_183 - Ldebug_info_start
-	.long LDIFF_SYM1645
-LTDIE_185:
+LDIFF_SYM1700=LTDIE_184 - Ldebug_info_start
+	.long LDIFF_SYM1700
+LTDIE_186:
 
 	.byte 17
 	.asciz "System_Collections_Generic_IEqualityComparer`1"
@@ -37703,534 +42491,534 @@ LTDIE_185:
 	.byte 16,7
 	.asciz "System_Collections_Generic_IEqualityComparer`1"
 
-LDIFF_SYM1646=LTDIE_185 - Ldebug_info_start
-	.long LDIFF_SYM1646
-LTDIE_185_POINTER:
-
-	.byte 13
-LDIFF_SYM1647=LTDIE_185 - Ldebug_info_start
-	.long LDIFF_SYM1647
-LTDIE_185_REFERENCE:
-
-	.byte 14
-LDIFF_SYM1648=LTDIE_185 - Ldebug_info_start
-	.long LDIFF_SYM1648
-LTDIE_186:
-
-	.byte 5
-	.asciz "_KeyCollection"
-
-	.byte 24,16
-LDIFF_SYM1649=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1649
-	.byte 2,35,0,6
-	.asciz "dictionary"
-
-LDIFF_SYM1650=LTDIE_184_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1650
-	.byte 2,35,16,0,7
-	.asciz "_KeyCollection"
-
-LDIFF_SYM1651=LTDIE_186 - Ldebug_info_start
-	.long LDIFF_SYM1651
+LDIFF_SYM1701=LTDIE_186 - Ldebug_info_start
+	.long LDIFF_SYM1701
 LTDIE_186_POINTER:
 
 	.byte 13
-LDIFF_SYM1652=LTDIE_186 - Ldebug_info_start
-	.long LDIFF_SYM1652
+LDIFF_SYM1702=LTDIE_186 - Ldebug_info_start
+	.long LDIFF_SYM1702
 LTDIE_186_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1653=LTDIE_186 - Ldebug_info_start
-	.long LDIFF_SYM1653
+LDIFF_SYM1703=LTDIE_186 - Ldebug_info_start
+	.long LDIFF_SYM1703
 LTDIE_187:
+
+	.byte 5
+	.asciz "_KeyCollection"
+
+	.byte 24,16
+LDIFF_SYM1704=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1704
+	.byte 2,35,0,6
+	.asciz "dictionary"
+
+LDIFF_SYM1705=LTDIE_185_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1705
+	.byte 2,35,16,0,7
+	.asciz "_KeyCollection"
+
+LDIFF_SYM1706=LTDIE_187 - Ldebug_info_start
+	.long LDIFF_SYM1706
+LTDIE_187_POINTER:
+
+	.byte 13
+LDIFF_SYM1707=LTDIE_187 - Ldebug_info_start
+	.long LDIFF_SYM1707
+LTDIE_187_REFERENCE:
+
+	.byte 14
+LDIFF_SYM1708=LTDIE_187 - Ldebug_info_start
+	.long LDIFF_SYM1708
+LTDIE_188:
 
 	.byte 5
 	.asciz "_ValueCollection"
 
 	.byte 24,16
-LDIFF_SYM1654=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1654
+LDIFF_SYM1709=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1709
 	.byte 2,35,0,6
 	.asciz "dictionary"
 
-LDIFF_SYM1655=LTDIE_184_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1655
+LDIFF_SYM1710=LTDIE_185_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1710
 	.byte 2,35,16,0,7
 	.asciz "_ValueCollection"
 
-LDIFF_SYM1656=LTDIE_187 - Ldebug_info_start
-	.long LDIFF_SYM1656
-LTDIE_187_POINTER:
+LDIFF_SYM1711=LTDIE_188 - Ldebug_info_start
+	.long LDIFF_SYM1711
+LTDIE_188_POINTER:
 
 	.byte 13
-LDIFF_SYM1657=LTDIE_187 - Ldebug_info_start
-	.long LDIFF_SYM1657
-LTDIE_187_REFERENCE:
+LDIFF_SYM1712=LTDIE_188 - Ldebug_info_start
+	.long LDIFF_SYM1712
+LTDIE_188_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1658=LTDIE_187 - Ldebug_info_start
-	.long LDIFF_SYM1658
-LTDIE_184:
+LDIFF_SYM1713=LTDIE_188 - Ldebug_info_start
+	.long LDIFF_SYM1713
+LTDIE_185:
 
 	.byte 5
 	.asciz "System_Collections_Generic_Dictionary`2"
 
 	.byte 72,16
-LDIFF_SYM1659=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1659
+LDIFF_SYM1714=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1714
 	.byte 2,35,0,6
 	.asciz "buckets"
 
-LDIFF_SYM1660=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM1660
+LDIFF_SYM1715=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM1715
 	.byte 2,35,16,6
 	.asciz "entries"
 
-LDIFF_SYM1661=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM1661
+LDIFF_SYM1716=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM1716
 	.byte 2,35,24,6
 	.asciz "count"
 
-LDIFF_SYM1662=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1662
+LDIFF_SYM1717=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1717
 	.byte 2,35,56,6
 	.asciz "version"
 
-LDIFF_SYM1663=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1663
+LDIFF_SYM1718=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1718
 	.byte 2,35,60,6
 	.asciz "freeList"
 
-LDIFF_SYM1664=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1664
+LDIFF_SYM1719=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1719
 	.byte 2,35,64,6
 	.asciz "freeCount"
 
-LDIFF_SYM1665=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1665
+LDIFF_SYM1720=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1720
 	.byte 2,35,68,6
 	.asciz "comparer"
 
-LDIFF_SYM1666=LTDIE_185_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1666
+LDIFF_SYM1721=LTDIE_186_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1721
 	.byte 2,35,32,6
 	.asciz "keys"
 
-LDIFF_SYM1667=LTDIE_186_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1667
+LDIFF_SYM1722=LTDIE_187_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1722
 	.byte 2,35,40,6
 	.asciz "values"
 
-LDIFF_SYM1668=LTDIE_187_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1668
+LDIFF_SYM1723=LTDIE_188_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1723
 	.byte 2,35,48,0,7
 	.asciz "System_Collections_Generic_Dictionary`2"
 
-LDIFF_SYM1669=LTDIE_184 - Ldebug_info_start
-	.long LDIFF_SYM1669
-LTDIE_184_POINTER:
+LDIFF_SYM1724=LTDIE_185 - Ldebug_info_start
+	.long LDIFF_SYM1724
+LTDIE_185_POINTER:
 
 	.byte 13
-LDIFF_SYM1670=LTDIE_184 - Ldebug_info_start
-	.long LDIFF_SYM1670
-LTDIE_184_REFERENCE:
+LDIFF_SYM1725=LTDIE_185 - Ldebug_info_start
+	.long LDIFF_SYM1725
+LTDIE_185_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1671=LTDIE_184 - Ldebug_info_start
-	.long LDIFF_SYM1671
-LTDIE_188:
+LDIFF_SYM1726=LTDIE_185 - Ldebug_info_start
+	.long LDIFF_SYM1726
+LTDIE_189:
 
 	.byte 5
 	.asciz "System_Collections_Generic_List`1"
 
 	.byte 32,16
-LDIFF_SYM1672=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1672
+LDIFF_SYM1727=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1727
 	.byte 2,35,0,6
 	.asciz "_items"
 
-LDIFF_SYM1673=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM1673
+LDIFF_SYM1728=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM1728
 	.byte 2,35,16,6
 	.asciz "_size"
 
-LDIFF_SYM1674=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1674
+LDIFF_SYM1729=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1729
 	.byte 2,35,24,6
 	.asciz "_version"
 
-LDIFF_SYM1675=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1675
+LDIFF_SYM1730=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1730
 	.byte 2,35,28,0,7
 	.asciz "System_Collections_Generic_List`1"
 
-LDIFF_SYM1676=LTDIE_188 - Ldebug_info_start
-	.long LDIFF_SYM1676
-LTDIE_188_POINTER:
+LDIFF_SYM1731=LTDIE_189 - Ldebug_info_start
+	.long LDIFF_SYM1731
+LTDIE_189_POINTER:
 
 	.byte 13
-LDIFF_SYM1677=LTDIE_188 - Ldebug_info_start
-	.long LDIFF_SYM1677
-LTDIE_188_REFERENCE:
+LDIFF_SYM1732=LTDIE_189 - Ldebug_info_start
+	.long LDIFF_SYM1732
+LTDIE_189_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1678=LTDIE_188 - Ldebug_info_start
-	.long LDIFF_SYM1678
-LTDIE_174:
+LDIFF_SYM1733=LTDIE_189 - Ldebug_info_start
+	.long LDIFF_SYM1733
+LTDIE_175:
 
 	.byte 5
 	.asciz "System_Threading_ExecutionContext"
 
 	.byte 72,16
-LDIFF_SYM1679=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1679
+LDIFF_SYM1734=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1734
 	.byte 2,35,0,6
 	.asciz "_syncContext"
 
-LDIFF_SYM1680=LTDIE_175_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1680
+LDIFF_SYM1735=LTDIE_176_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1735
 	.byte 2,35,16,6
 	.asciz "_syncContextNoFlow"
 
-LDIFF_SYM1681=LTDIE_175_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1681
+LDIFF_SYM1736=LTDIE_176_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1736
 	.byte 2,35,24,6
 	.asciz "_logicalCallContext"
 
-LDIFF_SYM1682=LTDIE_176_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1682
+LDIFF_SYM1737=LTDIE_177_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1737
 	.byte 2,35,32,6
 	.asciz "_illogicalCallContext"
 
-LDIFF_SYM1683=LTDIE_182_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1683
+LDIFF_SYM1738=LTDIE_183_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1738
 	.byte 2,35,40,6
 	.asciz "_flags"
 
-LDIFF_SYM1684=LTDIE_183 - Ldebug_info_start
-	.long LDIFF_SYM1684
+LDIFF_SYM1739=LTDIE_184 - Ldebug_info_start
+	.long LDIFF_SYM1739
 	.byte 2,35,64,6
 	.asciz "_localValues"
 
-LDIFF_SYM1685=LTDIE_184_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1685
+LDIFF_SYM1740=LTDIE_185_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1740
 	.byte 2,35,48,6
 	.asciz "_localChangeNotifications"
 
-LDIFF_SYM1686=LTDIE_188_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1686
+LDIFF_SYM1741=LTDIE_189_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1741
 	.byte 2,35,56,0,7
 	.asciz "System_Threading_ExecutionContext"
 
-LDIFF_SYM1687=LTDIE_174 - Ldebug_info_start
-	.long LDIFF_SYM1687
-LTDIE_174_POINTER:
+LDIFF_SYM1742=LTDIE_175 - Ldebug_info_start
+	.long LDIFF_SYM1742
+LTDIE_175_POINTER:
 
 	.byte 13
-LDIFF_SYM1688=LTDIE_174 - Ldebug_info_start
-	.long LDIFF_SYM1688
-LTDIE_174_REFERENCE:
+LDIFF_SYM1743=LTDIE_175 - Ldebug_info_start
+	.long LDIFF_SYM1743
+LTDIE_175_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1689=LTDIE_174 - Ldebug_info_start
-	.long LDIFF_SYM1689
-LTDIE_193:
+LDIFF_SYM1744=LTDIE_175 - Ldebug_info_start
+	.long LDIFF_SYM1744
+LTDIE_194:
 
 	.byte 5
 	.asciz "System_MarshalByRefObject"
 
 	.byte 24,16
-LDIFF_SYM1690=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1690
+LDIFF_SYM1745=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1745
 	.byte 2,35,0,6
 	.asciz "_identity"
 
-LDIFF_SYM1691=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM1691
+LDIFF_SYM1746=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM1746
 	.byte 2,35,16,0,7
 	.asciz "System_MarshalByRefObject"
 
-LDIFF_SYM1692=LTDIE_193 - Ldebug_info_start
-	.long LDIFF_SYM1692
-LTDIE_193_POINTER:
+LDIFF_SYM1747=LTDIE_194 - Ldebug_info_start
+	.long LDIFF_SYM1747
+LTDIE_194_POINTER:
 
 	.byte 13
-LDIFF_SYM1693=LTDIE_193 - Ldebug_info_start
-	.long LDIFF_SYM1693
-LTDIE_193_REFERENCE:
+LDIFF_SYM1748=LTDIE_194 - Ldebug_info_start
+	.long LDIFF_SYM1748
+LTDIE_194_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1694=LTDIE_193 - Ldebug_info_start
-	.long LDIFF_SYM1694
-LTDIE_197:
+LDIFF_SYM1749=LTDIE_194 - Ldebug_info_start
+	.long LDIFF_SYM1749
+LTDIE_198:
 
 	.byte 5
 	.asciz "System_Runtime_ConstrainedExecution_CriticalFinalizerObject"
 
 	.byte 16,16
-LDIFF_SYM1695=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1695
+LDIFF_SYM1750=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1750
 	.byte 2,35,0,0,7
 	.asciz "System_Runtime_ConstrainedExecution_CriticalFinalizerObject"
 
-LDIFF_SYM1696=LTDIE_197 - Ldebug_info_start
-	.long LDIFF_SYM1696
-LTDIE_197_POINTER:
+LDIFF_SYM1751=LTDIE_198 - Ldebug_info_start
+	.long LDIFF_SYM1751
+LTDIE_198_POINTER:
 
 	.byte 13
-LDIFF_SYM1697=LTDIE_197 - Ldebug_info_start
-	.long LDIFF_SYM1697
-LTDIE_197_REFERENCE:
+LDIFF_SYM1752=LTDIE_198 - Ldebug_info_start
+	.long LDIFF_SYM1752
+LTDIE_198_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1698=LTDIE_197 - Ldebug_info_start
-	.long LDIFF_SYM1698
-LTDIE_196:
+LDIFF_SYM1753=LTDIE_198 - Ldebug_info_start
+	.long LDIFF_SYM1753
+LTDIE_197:
 
 	.byte 5
 	.asciz "System_Runtime_InteropServices_SafeHandle"
 
 	.byte 32,16
-LDIFF_SYM1699=LTDIE_197 - Ldebug_info_start
-	.long LDIFF_SYM1699
+LDIFF_SYM1754=LTDIE_198 - Ldebug_info_start
+	.long LDIFF_SYM1754
 	.byte 2,35,0,6
 	.asciz "handle"
 
-LDIFF_SYM1700=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM1700
+LDIFF_SYM1755=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM1755
 	.byte 2,35,16,6
 	.asciz "_state"
 
-LDIFF_SYM1701=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1701
+LDIFF_SYM1756=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1756
 	.byte 2,35,24,6
 	.asciz "_ownsHandle"
 
-LDIFF_SYM1702=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM1702
+LDIFF_SYM1757=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1757
 	.byte 2,35,28,6
 	.asciz "_fullyInitialized"
 
-LDIFF_SYM1703=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM1703
+LDIFF_SYM1758=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1758
 	.byte 2,35,29,0,7
 	.asciz "System_Runtime_InteropServices_SafeHandle"
 
-LDIFF_SYM1704=LTDIE_196 - Ldebug_info_start
-	.long LDIFF_SYM1704
+LDIFF_SYM1759=LTDIE_197 - Ldebug_info_start
+	.long LDIFF_SYM1759
+LTDIE_197_POINTER:
+
+	.byte 13
+LDIFF_SYM1760=LTDIE_197 - Ldebug_info_start
+	.long LDIFF_SYM1760
+LTDIE_197_REFERENCE:
+
+	.byte 14
+LDIFF_SYM1761=LTDIE_197 - Ldebug_info_start
+	.long LDIFF_SYM1761
+LTDIE_196:
+
+	.byte 5
+	.asciz "Microsoft_Win32_SafeHandles_SafeHandleZeroOrMinusOneIsInvalid"
+
+	.byte 32,16
+LDIFF_SYM1762=LTDIE_197 - Ldebug_info_start
+	.long LDIFF_SYM1762
+	.byte 2,35,0,0,7
+	.asciz "Microsoft_Win32_SafeHandles_SafeHandleZeroOrMinusOneIsInvalid"
+
+LDIFF_SYM1763=LTDIE_196 - Ldebug_info_start
+	.long LDIFF_SYM1763
 LTDIE_196_POINTER:
 
 	.byte 13
-LDIFF_SYM1705=LTDIE_196 - Ldebug_info_start
-	.long LDIFF_SYM1705
+LDIFF_SYM1764=LTDIE_196 - Ldebug_info_start
+	.long LDIFF_SYM1764
 LTDIE_196_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1706=LTDIE_196 - Ldebug_info_start
-	.long LDIFF_SYM1706
+LDIFF_SYM1765=LTDIE_196 - Ldebug_info_start
+	.long LDIFF_SYM1765
 LTDIE_195:
 
 	.byte 5
-	.asciz "Microsoft_Win32_SafeHandles_SafeHandleZeroOrMinusOneIsInvalid"
+	.asciz "Microsoft_Win32_SafeHandles_SafeWaitHandle"
 
 	.byte 32,16
-LDIFF_SYM1707=LTDIE_196 - Ldebug_info_start
-	.long LDIFF_SYM1707
+LDIFF_SYM1766=LTDIE_196 - Ldebug_info_start
+	.long LDIFF_SYM1766
 	.byte 2,35,0,0,7
-	.asciz "Microsoft_Win32_SafeHandles_SafeHandleZeroOrMinusOneIsInvalid"
+	.asciz "Microsoft_Win32_SafeHandles_SafeWaitHandle"
 
-LDIFF_SYM1708=LTDIE_195 - Ldebug_info_start
-	.long LDIFF_SYM1708
+LDIFF_SYM1767=LTDIE_195 - Ldebug_info_start
+	.long LDIFF_SYM1767
 LTDIE_195_POINTER:
 
 	.byte 13
-LDIFF_SYM1709=LTDIE_195 - Ldebug_info_start
-	.long LDIFF_SYM1709
+LDIFF_SYM1768=LTDIE_195 - Ldebug_info_start
+	.long LDIFF_SYM1768
 LTDIE_195_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1710=LTDIE_195 - Ldebug_info_start
-	.long LDIFF_SYM1710
-LTDIE_194:
-
-	.byte 5
-	.asciz "Microsoft_Win32_SafeHandles_SafeWaitHandle"
-
-	.byte 32,16
-LDIFF_SYM1711=LTDIE_195 - Ldebug_info_start
-	.long LDIFF_SYM1711
-	.byte 2,35,0,0,7
-	.asciz "Microsoft_Win32_SafeHandles_SafeWaitHandle"
-
-LDIFF_SYM1712=LTDIE_194 - Ldebug_info_start
-	.long LDIFF_SYM1712
-LTDIE_194_POINTER:
-
-	.byte 13
-LDIFF_SYM1713=LTDIE_194 - Ldebug_info_start
-	.long LDIFF_SYM1713
-LTDIE_194_REFERENCE:
-
-	.byte 14
-LDIFF_SYM1714=LTDIE_194 - Ldebug_info_start
-	.long LDIFF_SYM1714
-LTDIE_192:
+LDIFF_SYM1769=LTDIE_195 - Ldebug_info_start
+	.long LDIFF_SYM1769
+LTDIE_193:
 
 	.byte 5
 	.asciz "System_Threading_WaitHandle"
 
 	.byte 40,16
-LDIFF_SYM1715=LTDIE_193 - Ldebug_info_start
-	.long LDIFF_SYM1715
+LDIFF_SYM1770=LTDIE_194 - Ldebug_info_start
+	.long LDIFF_SYM1770
 	.byte 2,35,0,6
 	.asciz "safe_wait_handle"
 
-LDIFF_SYM1716=LTDIE_194_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1716
+LDIFF_SYM1771=LTDIE_195_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1771
 	.byte 2,35,24,6
 	.asciz "disposed"
 
-LDIFF_SYM1717=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM1717
+LDIFF_SYM1772=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1772
 	.byte 2,35,32,0,7
 	.asciz "System_Threading_WaitHandle"
 
-LDIFF_SYM1718=LTDIE_192 - Ldebug_info_start
-	.long LDIFF_SYM1718
+LDIFF_SYM1773=LTDIE_193 - Ldebug_info_start
+	.long LDIFF_SYM1773
+LTDIE_193_POINTER:
+
+	.byte 13
+LDIFF_SYM1774=LTDIE_193 - Ldebug_info_start
+	.long LDIFF_SYM1774
+LTDIE_193_REFERENCE:
+
+	.byte 14
+LDIFF_SYM1775=LTDIE_193 - Ldebug_info_start
+	.long LDIFF_SYM1775
+LTDIE_192:
+
+	.byte 5
+	.asciz "System_Threading_EventWaitHandle"
+
+	.byte 40,16
+LDIFF_SYM1776=LTDIE_193 - Ldebug_info_start
+	.long LDIFF_SYM1776
+	.byte 2,35,0,0,7
+	.asciz "System_Threading_EventWaitHandle"
+
+LDIFF_SYM1777=LTDIE_192 - Ldebug_info_start
+	.long LDIFF_SYM1777
 LTDIE_192_POINTER:
 
 	.byte 13
-LDIFF_SYM1719=LTDIE_192 - Ldebug_info_start
-	.long LDIFF_SYM1719
+LDIFF_SYM1778=LTDIE_192 - Ldebug_info_start
+	.long LDIFF_SYM1778
 LTDIE_192_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1720=LTDIE_192 - Ldebug_info_start
-	.long LDIFF_SYM1720
+LDIFF_SYM1779=LTDIE_192 - Ldebug_info_start
+	.long LDIFF_SYM1779
 LTDIE_191:
 
 	.byte 5
-	.asciz "System_Threading_EventWaitHandle"
+	.asciz "System_Threading_ManualResetEvent"
 
 	.byte 40,16
-LDIFF_SYM1721=LTDIE_192 - Ldebug_info_start
-	.long LDIFF_SYM1721
+LDIFF_SYM1780=LTDIE_192 - Ldebug_info_start
+	.long LDIFF_SYM1780
 	.byte 2,35,0,0,7
-	.asciz "System_Threading_EventWaitHandle"
+	.asciz "System_Threading_ManualResetEvent"
 
-LDIFF_SYM1722=LTDIE_191 - Ldebug_info_start
-	.long LDIFF_SYM1722
+LDIFF_SYM1781=LTDIE_191 - Ldebug_info_start
+	.long LDIFF_SYM1781
 LTDIE_191_POINTER:
 
 	.byte 13
-LDIFF_SYM1723=LTDIE_191 - Ldebug_info_start
-	.long LDIFF_SYM1723
+LDIFF_SYM1782=LTDIE_191 - Ldebug_info_start
+	.long LDIFF_SYM1782
 LTDIE_191_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1724=LTDIE_191 - Ldebug_info_start
-	.long LDIFF_SYM1724
+LDIFF_SYM1783=LTDIE_191 - Ldebug_info_start
+	.long LDIFF_SYM1783
 LTDIE_190:
 
 	.byte 5
-	.asciz "System_Threading_ManualResetEvent"
-
-	.byte 40,16
-LDIFF_SYM1725=LTDIE_191 - Ldebug_info_start
-	.long LDIFF_SYM1725
-	.byte 2,35,0,0,7
-	.asciz "System_Threading_ManualResetEvent"
-
-LDIFF_SYM1726=LTDIE_190 - Ldebug_info_start
-	.long LDIFF_SYM1726
-LTDIE_190_POINTER:
-
-	.byte 13
-LDIFF_SYM1727=LTDIE_190 - Ldebug_info_start
-	.long LDIFF_SYM1727
-LTDIE_190_REFERENCE:
-
-	.byte 14
-LDIFF_SYM1728=LTDIE_190 - Ldebug_info_start
-	.long LDIFF_SYM1728
-LTDIE_189:
-
-	.byte 5
 	.asciz "System_Threading_ManualResetEventSlim"
 
 	.byte 40,16
-LDIFF_SYM1729=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1729
+LDIFF_SYM1784=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1784
 	.byte 2,35,0,6
 	.asciz "m_lock"
 
-LDIFF_SYM1730=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM1730
+LDIFF_SYM1785=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM1785
 	.byte 2,35,16,6
 	.asciz "m_eventObj"
 
-LDIFF_SYM1731=LTDIE_190_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1731
+LDIFF_SYM1786=LTDIE_191_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1786
 	.byte 2,35,24,6
 	.asciz "m_combinedState"
 
-LDIFF_SYM1732=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1732
+LDIFF_SYM1787=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1787
 	.byte 2,35,32,0,7
 	.asciz "System_Threading_ManualResetEventSlim"
 
-LDIFF_SYM1733=LTDIE_189 - Ldebug_info_start
-	.long LDIFF_SYM1733
-LTDIE_189_POINTER:
+LDIFF_SYM1788=LTDIE_190 - Ldebug_info_start
+	.long LDIFF_SYM1788
+LTDIE_190_POINTER:
 
 	.byte 13
-LDIFF_SYM1734=LTDIE_189 - Ldebug_info_start
-	.long LDIFF_SYM1734
-LTDIE_189_REFERENCE:
+LDIFF_SYM1789=LTDIE_190 - Ldebug_info_start
+	.long LDIFF_SYM1789
+LTDIE_190_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1735=LTDIE_189 - Ldebug_info_start
-	.long LDIFF_SYM1735
-LTDIE_199:
+LDIFF_SYM1790=LTDIE_190 - Ldebug_info_start
+	.long LDIFF_SYM1790
+LTDIE_200:
 
 	.byte 5
 	.asciz "System_Collections_Generic_List`1"
 
 	.byte 32,16
-LDIFF_SYM1736=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1736
+LDIFF_SYM1791=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1791
 	.byte 2,35,0,6
 	.asciz "_items"
 
-LDIFF_SYM1737=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM1737
+LDIFF_SYM1792=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM1792
 	.byte 2,35,16,6
 	.asciz "_size"
 
-LDIFF_SYM1738=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1738
+LDIFF_SYM1793=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1793
 	.byte 2,35,24,6
 	.asciz "_version"
 
-LDIFF_SYM1739=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1739
+LDIFF_SYM1794=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1794
 	.byte 2,35,28,0,7
 	.asciz "System_Collections_Generic_List`1"
 
-LDIFF_SYM1740=LTDIE_199 - Ldebug_info_start
-	.long LDIFF_SYM1740
-LTDIE_199_POINTER:
+LDIFF_SYM1795=LTDIE_200 - Ldebug_info_start
+	.long LDIFF_SYM1795
+LTDIE_200_POINTER:
 
 	.byte 13
-LDIFF_SYM1741=LTDIE_199 - Ldebug_info_start
-	.long LDIFF_SYM1741
-LTDIE_199_REFERENCE:
+LDIFF_SYM1796=LTDIE_200 - Ldebug_info_start
+	.long LDIFF_SYM1796
+LTDIE_200_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1742=LTDIE_199 - Ldebug_info_start
-	.long LDIFF_SYM1742
-LTDIE_202:
+LDIFF_SYM1797=LTDIE_200 - Ldebug_info_start
+	.long LDIFF_SYM1797
+LTDIE_203:
 
 	.byte 17
 	.asciz "System_Collections_IDictionary"
@@ -38238,1108 +43026,1176 @@ LTDIE_202:
 	.byte 16,7
 	.asciz "System_Collections_IDictionary"
 
-LDIFF_SYM1743=LTDIE_202 - Ldebug_info_start
-	.long LDIFF_SYM1743
-LTDIE_202_POINTER:
+LDIFF_SYM1798=LTDIE_203 - Ldebug_info_start
+	.long LDIFF_SYM1798
+LTDIE_203_POINTER:
 
 	.byte 13
-LDIFF_SYM1744=LTDIE_202 - Ldebug_info_start
-	.long LDIFF_SYM1744
-LTDIE_202_REFERENCE:
+LDIFF_SYM1799=LTDIE_203 - Ldebug_info_start
+	.long LDIFF_SYM1799
+LTDIE_203_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1745=LTDIE_202 - Ldebug_info_start
-	.long LDIFF_SYM1745
-LTDIE_201:
+LDIFF_SYM1800=LTDIE_203 - Ldebug_info_start
+	.long LDIFF_SYM1800
+LTDIE_202:
 
 	.byte 5
 	.asciz "System_Exception"
 
 	.byte 120,16
-LDIFF_SYM1746=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1746
+LDIFF_SYM1801=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1801
 	.byte 2,35,0,6
 	.asciz "trace_ips"
 
-LDIFF_SYM1747=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM1747
+LDIFF_SYM1802=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM1802
 	.byte 2,35,16,6
 	.asciz "inner_exception"
 
-LDIFF_SYM1748=LTDIE_201_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1748
+LDIFF_SYM1803=LTDIE_202_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1803
 	.byte 2,35,24,6
 	.asciz "_message"
 
-LDIFF_SYM1749=LDIE_STRING - Ldebug_info_start
-	.long LDIFF_SYM1749
+LDIFF_SYM1804=LDIE_STRING - Ldebug_info_start
+	.long LDIFF_SYM1804
 	.byte 2,35,32,6
 	.asciz "help_link"
 
-LDIFF_SYM1750=LDIE_STRING - Ldebug_info_start
-	.long LDIFF_SYM1750
+LDIFF_SYM1805=LDIE_STRING - Ldebug_info_start
+	.long LDIFF_SYM1805
 	.byte 2,35,40,6
 	.asciz "class_name"
 
-LDIFF_SYM1751=LDIE_STRING - Ldebug_info_start
-	.long LDIFF_SYM1751
+LDIFF_SYM1806=LDIE_STRING - Ldebug_info_start
+	.long LDIFF_SYM1806
 	.byte 2,35,48,6
 	.asciz "stack_trace"
 
-LDIFF_SYM1752=LDIE_STRING - Ldebug_info_start
-	.long LDIFF_SYM1752
+LDIFF_SYM1807=LDIE_STRING - Ldebug_info_start
+	.long LDIFF_SYM1807
 	.byte 2,35,56,6
 	.asciz "_remoteStackTraceString"
 
-LDIFF_SYM1753=LDIE_STRING - Ldebug_info_start
-	.long LDIFF_SYM1753
+LDIFF_SYM1808=LDIE_STRING - Ldebug_info_start
+	.long LDIFF_SYM1808
 	.byte 2,35,64,6
 	.asciz "remote_stack_index"
 
-LDIFF_SYM1754=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1754
+LDIFF_SYM1809=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1809
 	.byte 2,35,72,6
 	.asciz "hresult"
 
-LDIFF_SYM1755=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1755
+LDIFF_SYM1810=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1810
 	.byte 2,35,76,6
 	.asciz "source"
 
-LDIFF_SYM1756=LDIE_STRING - Ldebug_info_start
-	.long LDIFF_SYM1756
+LDIFF_SYM1811=LDIE_STRING - Ldebug_info_start
+	.long LDIFF_SYM1811
 	.byte 2,35,80,6
 	.asciz "_data"
 
-LDIFF_SYM1757=LTDIE_202_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1757
+LDIFF_SYM1812=LTDIE_203_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1812
 	.byte 2,35,88,6
 	.asciz "captured_traces"
 
-LDIFF_SYM1758=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM1758
+LDIFF_SYM1813=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM1813
 	.byte 2,35,96,6
 	.asciz "native_trace_ips"
 
-LDIFF_SYM1759=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM1759
+LDIFF_SYM1814=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM1814
 	.byte 2,35,104,6
 	.asciz "dynamic_methods"
 
-LDIFF_SYM1760=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM1760
+LDIFF_SYM1815=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM1815
 	.byte 2,35,112,0,7
 	.asciz "System_Exception"
 
-LDIFF_SYM1761=LTDIE_201 - Ldebug_info_start
-	.long LDIFF_SYM1761
-LTDIE_201_POINTER:
+LDIFF_SYM1816=LTDIE_202 - Ldebug_info_start
+	.long LDIFF_SYM1816
+LTDIE_202_POINTER:
 
 	.byte 13
-LDIFF_SYM1762=LTDIE_201 - Ldebug_info_start
-	.long LDIFF_SYM1762
-LTDIE_201_REFERENCE:
+LDIFF_SYM1817=LTDIE_202 - Ldebug_info_start
+	.long LDIFF_SYM1817
+LTDIE_202_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1763=LTDIE_201 - Ldebug_info_start
-	.long LDIFF_SYM1763
-LTDIE_200:
+LDIFF_SYM1818=LTDIE_202 - Ldebug_info_start
+	.long LDIFF_SYM1818
+LTDIE_201:
 
 	.byte 5
 	.asciz "System_Runtime_ExceptionServices_ExceptionDispatchInfo"
 
 	.byte 32,16
-LDIFF_SYM1764=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1764
+LDIFF_SYM1819=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1819
 	.byte 2,35,0,6
 	.asciz "m_Exception"
 
-LDIFF_SYM1765=LTDIE_201_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1765
+LDIFF_SYM1820=LTDIE_202_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1820
 	.byte 2,35,16,6
 	.asciz "m_stackTrace"
 
-LDIFF_SYM1766=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM1766
+LDIFF_SYM1821=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM1821
 	.byte 2,35,24,0,7
 	.asciz "System_Runtime_ExceptionServices_ExceptionDispatchInfo"
 
-LDIFF_SYM1767=LTDIE_200 - Ldebug_info_start
-	.long LDIFF_SYM1767
-LTDIE_200_POINTER:
+LDIFF_SYM1822=LTDIE_201 - Ldebug_info_start
+	.long LDIFF_SYM1822
+LTDIE_201_POINTER:
 
 	.byte 13
-LDIFF_SYM1768=LTDIE_200 - Ldebug_info_start
-	.long LDIFF_SYM1768
-LTDIE_200_REFERENCE:
+LDIFF_SYM1823=LTDIE_201 - Ldebug_info_start
+	.long LDIFF_SYM1823
+LTDIE_201_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1769=LTDIE_200 - Ldebug_info_start
-	.long LDIFF_SYM1769
-LTDIE_198:
+LDIFF_SYM1824=LTDIE_201 - Ldebug_info_start
+	.long LDIFF_SYM1824
+LTDIE_199:
 
 	.byte 5
 	.asciz "System_Threading_Tasks_TaskExceptionHolder"
 
 	.byte 48,16
-LDIFF_SYM1770=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1770
+LDIFF_SYM1825=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1825
 	.byte 2,35,0,6
 	.asciz "m_task"
 
-LDIFF_SYM1771=LTDIE_171_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1771
+LDIFF_SYM1826=LTDIE_172_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1826
 	.byte 2,35,16,6
 	.asciz "m_faultExceptions"
 
-LDIFF_SYM1772=LTDIE_199_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1772
+LDIFF_SYM1827=LTDIE_200_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1827
 	.byte 2,35,24,6
 	.asciz "m_cancellationException"
 
-LDIFF_SYM1773=LTDIE_200_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1773
+LDIFF_SYM1828=LTDIE_201_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1828
 	.byte 2,35,32,6
 	.asciz "m_isHandled"
 
-LDIFF_SYM1774=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM1774
+LDIFF_SYM1829=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1829
 	.byte 2,35,40,0,7
 	.asciz "System_Threading_Tasks_TaskExceptionHolder"
 
-LDIFF_SYM1775=LTDIE_198 - Ldebug_info_start
-	.long LDIFF_SYM1775
-LTDIE_198_POINTER:
+LDIFF_SYM1830=LTDIE_199 - Ldebug_info_start
+	.long LDIFF_SYM1830
+LTDIE_199_POINTER:
 
 	.byte 13
-LDIFF_SYM1776=LTDIE_198 - Ldebug_info_start
-	.long LDIFF_SYM1776
-LTDIE_198_REFERENCE:
+LDIFF_SYM1831=LTDIE_199 - Ldebug_info_start
+	.long LDIFF_SYM1831
+LTDIE_199_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1777=LTDIE_198 - Ldebug_info_start
-	.long LDIFF_SYM1777
-LTDIE_203:
+LDIFF_SYM1832=LTDIE_199 - Ldebug_info_start
+	.long LDIFF_SYM1832
+LTDIE_204:
 
 	.byte 5
 	.asciz "System_Threading_Tasks_Shared`1"
 
 	.byte 40,16
-LDIFF_SYM1778=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1778
+LDIFF_SYM1833=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1833
 	.byte 2,35,0,6
 	.asciz "Value"
 
-LDIFF_SYM1779=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1779
+LDIFF_SYM1834=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1834
 	.byte 2,35,16,0,7
 	.asciz "System_Threading_Tasks_Shared`1"
 
-LDIFF_SYM1780=LTDIE_203 - Ldebug_info_start
-	.long LDIFF_SYM1780
-LTDIE_203_POINTER:
+LDIFF_SYM1835=LTDIE_204 - Ldebug_info_start
+	.long LDIFF_SYM1835
+LTDIE_204_POINTER:
 
 	.byte 13
-LDIFF_SYM1781=LTDIE_203 - Ldebug_info_start
-	.long LDIFF_SYM1781
-LTDIE_203_REFERENCE:
+LDIFF_SYM1836=LTDIE_204 - Ldebug_info_start
+	.long LDIFF_SYM1836
+LTDIE_204_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1782=LTDIE_203 - Ldebug_info_start
-	.long LDIFF_SYM1782
-LTDIE_204:
+LDIFF_SYM1837=LTDIE_204 - Ldebug_info_start
+	.long LDIFF_SYM1837
+LTDIE_205:
 
 	.byte 5
 	.asciz "System_Collections_Generic_List`1"
 
 	.byte 32,16
-LDIFF_SYM1783=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1783
+LDIFF_SYM1838=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1838
 	.byte 2,35,0,6
 	.asciz "_items"
 
-LDIFF_SYM1784=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM1784
+LDIFF_SYM1839=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM1839
 	.byte 2,35,16,6
 	.asciz "_size"
 
-LDIFF_SYM1785=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1785
+LDIFF_SYM1840=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1840
 	.byte 2,35,24,6
 	.asciz "_version"
 
-LDIFF_SYM1786=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1786
+LDIFF_SYM1841=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1841
 	.byte 2,35,28,0,7
 	.asciz "System_Collections_Generic_List`1"
 
-LDIFF_SYM1787=LTDIE_204 - Ldebug_info_start
-	.long LDIFF_SYM1787
-LTDIE_204_POINTER:
+LDIFF_SYM1842=LTDIE_205 - Ldebug_info_start
+	.long LDIFF_SYM1842
+LTDIE_205_POINTER:
 
 	.byte 13
-LDIFF_SYM1788=LTDIE_204 - Ldebug_info_start
-	.long LDIFF_SYM1788
-LTDIE_204_REFERENCE:
+LDIFF_SYM1843=LTDIE_205 - Ldebug_info_start
+	.long LDIFF_SYM1843
+LTDIE_205_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1789=LTDIE_204 - Ldebug_info_start
-	.long LDIFF_SYM1789
-LTDIE_173:
+LDIFF_SYM1844=LTDIE_205 - Ldebug_info_start
+	.long LDIFF_SYM1844
+LTDIE_174:
 
 	.byte 5
 	.asciz "_ContingentProperties"
 
 	.byte 72,16
-LDIFF_SYM1790=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1790
+LDIFF_SYM1845=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1845
 	.byte 2,35,0,6
 	.asciz "m_capturedContext"
 
-LDIFF_SYM1791=LTDIE_174_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1791
+LDIFF_SYM1846=LTDIE_175_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1846
 	.byte 2,35,16,6
 	.asciz "m_completionEvent"
 
-LDIFF_SYM1792=LTDIE_189_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1792
+LDIFF_SYM1847=LTDIE_190_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1847
 	.byte 2,35,24,6
 	.asciz "m_exceptionsHolder"
 
-LDIFF_SYM1793=LTDIE_198_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1793
+LDIFF_SYM1848=LTDIE_199_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1848
 	.byte 2,35,32,6
 	.asciz "m_cancellationToken"
 
-LDIFF_SYM1794=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1794
+LDIFF_SYM1849=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1849
 	.byte 2,35,40,6
 	.asciz "m_cancellationRegistration"
 
-LDIFF_SYM1795=LTDIE_203_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1795
+LDIFF_SYM1850=LTDIE_204_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1850
 	.byte 2,35,48,6
 	.asciz "m_internalCancellationRequested"
 
-LDIFF_SYM1796=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1796
+LDIFF_SYM1851=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1851
 	.byte 2,35,64,6
 	.asciz "m_completionCountdown"
 
-LDIFF_SYM1797=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1797
+LDIFF_SYM1852=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1852
 	.byte 2,35,68,6
 	.asciz "m_exceptionalChildren"
 
-LDIFF_SYM1798=LTDIE_204_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1798
+LDIFF_SYM1853=LTDIE_205_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1853
 	.byte 2,35,56,0,7
 	.asciz "_ContingentProperties"
 
-LDIFF_SYM1799=LTDIE_173 - Ldebug_info_start
-	.long LDIFF_SYM1799
-LTDIE_173_POINTER:
+LDIFF_SYM1854=LTDIE_174 - Ldebug_info_start
+	.long LDIFF_SYM1854
+LTDIE_174_POINTER:
 
 	.byte 13
-LDIFF_SYM1800=LTDIE_173 - Ldebug_info_start
-	.long LDIFF_SYM1800
-LTDIE_173_REFERENCE:
+LDIFF_SYM1855=LTDIE_174 - Ldebug_info_start
+	.long LDIFF_SYM1855
+LTDIE_174_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1801=LTDIE_173 - Ldebug_info_start
-	.long LDIFF_SYM1801
-LTDIE_171:
+LDIFF_SYM1856=LTDIE_174 - Ldebug_info_start
+	.long LDIFF_SYM1856
+LTDIE_172:
 
 	.byte 5
 	.asciz "System_Threading_Tasks_Task"
 
 	.byte 72,16
-LDIFF_SYM1802=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1802
+LDIFF_SYM1857=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1857
 	.byte 2,35,0,6
 	.asciz "m_taskId"
 
-LDIFF_SYM1803=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1803
+LDIFF_SYM1858=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1858
 	.byte 2,35,64,6
 	.asciz "m_action"
 
-LDIFF_SYM1804=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM1804
+LDIFF_SYM1859=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM1859
 	.byte 2,35,16,6
 	.asciz "m_stateObject"
 
-LDIFF_SYM1805=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM1805
+LDIFF_SYM1860=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM1860
 	.byte 2,35,24,6
 	.asciz "m_taskScheduler"
 
-LDIFF_SYM1806=LTDIE_172_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1806
+LDIFF_SYM1861=LTDIE_173_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1861
 	.byte 2,35,32,6
 	.asciz "m_parent"
 
-LDIFF_SYM1807=LTDIE_171_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1807
+LDIFF_SYM1862=LTDIE_172_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1862
 	.byte 2,35,40,6
 	.asciz "m_stateFlags"
 
-LDIFF_SYM1808=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1808
+LDIFF_SYM1863=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1863
 	.byte 2,35,68,6
 	.asciz "m_continuationObject"
 
-LDIFF_SYM1809=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM1809
+LDIFF_SYM1864=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM1864
 	.byte 2,35,48,6
 	.asciz "m_contingentProperties"
 
-LDIFF_SYM1810=LTDIE_173_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1810
+LDIFF_SYM1865=LTDIE_174_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1865
 	.byte 2,35,56,0,7
 	.asciz "System_Threading_Tasks_Task"
 
-LDIFF_SYM1811=LTDIE_171 - Ldebug_info_start
-	.long LDIFF_SYM1811
-LTDIE_171_POINTER:
+LDIFF_SYM1866=LTDIE_172 - Ldebug_info_start
+	.long LDIFF_SYM1866
+LTDIE_172_POINTER:
 
 	.byte 13
-LDIFF_SYM1812=LTDIE_171 - Ldebug_info_start
-	.long LDIFF_SYM1812
-LTDIE_171_REFERENCE:
+LDIFF_SYM1867=LTDIE_172 - Ldebug_info_start
+	.long LDIFF_SYM1867
+LTDIE_172_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1813=LTDIE_171 - Ldebug_info_start
-	.long LDIFF_SYM1813
-LTDIE_170:
+LDIFF_SYM1868=LTDIE_172 - Ldebug_info_start
+	.long LDIFF_SYM1868
+LTDIE_171:
 
 	.byte 5
 	.asciz "System_Threading_Tasks_Task`1"
 
 	.byte 80,16
-LDIFF_SYM1814=LTDIE_171 - Ldebug_info_start
-	.long LDIFF_SYM1814
+LDIFF_SYM1869=LTDIE_172 - Ldebug_info_start
+	.long LDIFF_SYM1869
 	.byte 2,35,0,6
 	.asciz "m_result"
 
-LDIFF_SYM1815=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1815
+LDIFF_SYM1870=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1870
 	.byte 2,35,72,0,7
 	.asciz "System_Threading_Tasks_Task`1"
 
-LDIFF_SYM1816=LTDIE_170 - Ldebug_info_start
-	.long LDIFF_SYM1816
-LTDIE_170_POINTER:
+LDIFF_SYM1871=LTDIE_171 - Ldebug_info_start
+	.long LDIFF_SYM1871
+LTDIE_171_POINTER:
 
 	.byte 13
-LDIFF_SYM1817=LTDIE_170 - Ldebug_info_start
-	.long LDIFF_SYM1817
-LTDIE_170_REFERENCE:
+LDIFF_SYM1872=LTDIE_171 - Ldebug_info_start
+	.long LDIFF_SYM1872
+LTDIE_171_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1818=LTDIE_170 - Ldebug_info_start
-	.long LDIFF_SYM1818
-LTDIE_205:
+LDIFF_SYM1873=LTDIE_171 - Ldebug_info_start
+	.long LDIFF_SYM1873
+LTDIE_206:
 
 	.byte 5
 	.asciz "System_AsyncCallback"
 
 	.byte 112,16
-LDIFF_SYM1819=LTDIE_13 - Ldebug_info_start
-	.long LDIFF_SYM1819
+LDIFF_SYM1874=LTDIE_13 - Ldebug_info_start
+	.long LDIFF_SYM1874
 	.byte 2,35,0,0,7
 	.asciz "System_AsyncCallback"
 
-LDIFF_SYM1820=LTDIE_205 - Ldebug_info_start
-	.long LDIFF_SYM1820
-LTDIE_205_POINTER:
+LDIFF_SYM1875=LTDIE_206 - Ldebug_info_start
+	.long LDIFF_SYM1875
+LTDIE_206_POINTER:
 
 	.byte 13
-LDIFF_SYM1821=LTDIE_205 - Ldebug_info_start
-	.long LDIFF_SYM1821
-LTDIE_205_REFERENCE:
+LDIFF_SYM1876=LTDIE_206 - Ldebug_info_start
+	.long LDIFF_SYM1876
+LTDIE_206_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1822=LTDIE_205 - Ldebug_info_start
-	.long LDIFF_SYM1822
-LTDIE_169:
+LDIFF_SYM1877=LTDIE_206 - Ldebug_info_start
+	.long LDIFF_SYM1877
+LTDIE_170:
 
 	.byte 5
 	.asciz "_ReadWriteTask"
 
 	.byte 128,1,16
-LDIFF_SYM1823=LTDIE_170 - Ldebug_info_start
-	.long LDIFF_SYM1823
+LDIFF_SYM1878=LTDIE_171 - Ldebug_info_start
+	.long LDIFF_SYM1878
 	.byte 2,35,0,6
 	.asciz "_isRead"
 
-LDIFF_SYM1824=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM1824
+LDIFF_SYM1879=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1879
 	.byte 2,35,112,6
 	.asciz "_stream"
 
-LDIFF_SYM1825=LTDIE_168_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1825
+LDIFF_SYM1880=LTDIE_169_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1880
 	.byte 2,35,80,6
 	.asciz "_buffer"
 
-LDIFF_SYM1826=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM1826
+LDIFF_SYM1881=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM1881
 	.byte 2,35,88,6
 	.asciz "_offset"
 
-LDIFF_SYM1827=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1827
+LDIFF_SYM1882=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1882
 	.byte 2,35,116,6
 	.asciz "_count"
 
-LDIFF_SYM1828=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1828
+LDIFF_SYM1883=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1883
 	.byte 2,35,120,6
 	.asciz "_callback"
 
-LDIFF_SYM1829=LTDIE_205_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1829
+LDIFF_SYM1884=LTDIE_206_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1884
 	.byte 2,35,96,6
 	.asciz "_context"
 
-LDIFF_SYM1830=LTDIE_174_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1830
+LDIFF_SYM1885=LTDIE_175_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1885
 	.byte 2,35,104,0,7
 	.asciz "_ReadWriteTask"
 
-LDIFF_SYM1831=LTDIE_169 - Ldebug_info_start
-	.long LDIFF_SYM1831
-LTDIE_169_POINTER:
+LDIFF_SYM1886=LTDIE_170 - Ldebug_info_start
+	.long LDIFF_SYM1886
+LTDIE_170_POINTER:
 
 	.byte 13
-LDIFF_SYM1832=LTDIE_169 - Ldebug_info_start
-	.long LDIFF_SYM1832
-LTDIE_169_REFERENCE:
+LDIFF_SYM1887=LTDIE_170 - Ldebug_info_start
+	.long LDIFF_SYM1887
+LTDIE_170_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1833=LTDIE_169 - Ldebug_info_start
-	.long LDIFF_SYM1833
-LTDIE_208:
+LDIFF_SYM1888=LTDIE_170 - Ldebug_info_start
+	.long LDIFF_SYM1888
+LTDIE_209:
 
 	.byte 5
 	.asciz "System_Threading_Tasks_Task`1"
 
 	.byte 80,16
-LDIFF_SYM1834=LTDIE_171 - Ldebug_info_start
-	.long LDIFF_SYM1834
+LDIFF_SYM1889=LTDIE_172 - Ldebug_info_start
+	.long LDIFF_SYM1889
 	.byte 2,35,0,6
 	.asciz "m_result"
 
-LDIFF_SYM1835=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM1835
+LDIFF_SYM1890=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM1890
 	.byte 2,35,72,0,7
 	.asciz "System_Threading_Tasks_Task`1"
 
-LDIFF_SYM1836=LTDIE_208 - Ldebug_info_start
-	.long LDIFF_SYM1836
-LTDIE_208_POINTER:
+LDIFF_SYM1891=LTDIE_209 - Ldebug_info_start
+	.long LDIFF_SYM1891
+LTDIE_209_POINTER:
 
 	.byte 13
-LDIFF_SYM1837=LTDIE_208 - Ldebug_info_start
-	.long LDIFF_SYM1837
-LTDIE_208_REFERENCE:
+LDIFF_SYM1892=LTDIE_209 - Ldebug_info_start
+	.long LDIFF_SYM1892
+LTDIE_209_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1838=LTDIE_208 - Ldebug_info_start
-	.long LDIFF_SYM1838
-LTDIE_207:
+LDIFF_SYM1893=LTDIE_209 - Ldebug_info_start
+	.long LDIFF_SYM1893
+LTDIE_208:
 
 	.byte 5
 	.asciz "_TaskNode"
 
 	.byte 96,16
-LDIFF_SYM1839=LTDIE_208 - Ldebug_info_start
-	.long LDIFF_SYM1839
+LDIFF_SYM1894=LTDIE_209 - Ldebug_info_start
+	.long LDIFF_SYM1894
 	.byte 2,35,0,6
 	.asciz "Prev"
 
-LDIFF_SYM1840=LTDIE_207_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1840
+LDIFF_SYM1895=LTDIE_208_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1895
 	.byte 2,35,80,6
 	.asciz "Next"
 
-LDIFF_SYM1841=LTDIE_207_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1841
+LDIFF_SYM1896=LTDIE_208_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1896
 	.byte 2,35,88,0,7
 	.asciz "_TaskNode"
 
-LDIFF_SYM1842=LTDIE_207 - Ldebug_info_start
-	.long LDIFF_SYM1842
-LTDIE_207_POINTER:
+LDIFF_SYM1897=LTDIE_208 - Ldebug_info_start
+	.long LDIFF_SYM1897
+LTDIE_208_POINTER:
 
 	.byte 13
-LDIFF_SYM1843=LTDIE_207 - Ldebug_info_start
-	.long LDIFF_SYM1843
-LTDIE_207_REFERENCE:
+LDIFF_SYM1898=LTDIE_208 - Ldebug_info_start
+	.long LDIFF_SYM1898
+LTDIE_208_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1844=LTDIE_207 - Ldebug_info_start
-	.long LDIFF_SYM1844
-LTDIE_206:
+LDIFF_SYM1899=LTDIE_208 - Ldebug_info_start
+	.long LDIFF_SYM1899
+LTDIE_207:
 
 	.byte 5
 	.asciz "System_Threading_SemaphoreSlim"
 
 	.byte 64,16
-LDIFF_SYM1845=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1845
+LDIFF_SYM1900=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1900
 	.byte 2,35,0,6
 	.asciz "m_currentCount"
 
-LDIFF_SYM1846=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1846
+LDIFF_SYM1901=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1901
 	.byte 2,35,48,6
 	.asciz "m_maxCount"
 
-LDIFF_SYM1847=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1847
+LDIFF_SYM1902=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1902
 	.byte 2,35,52,6
 	.asciz "m_waitCount"
 
-LDIFF_SYM1848=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1848
+LDIFF_SYM1903=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1903
 	.byte 2,35,56,6
 	.asciz "m_lockObj"
 
-LDIFF_SYM1849=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM1849
+LDIFF_SYM1904=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM1904
 	.byte 2,35,16,6
 	.asciz "m_waitHandle"
 
-LDIFF_SYM1850=LTDIE_190_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1850
+LDIFF_SYM1905=LTDIE_191_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1905
 	.byte 2,35,24,6
 	.asciz "m_asyncHead"
 
-LDIFF_SYM1851=LTDIE_207_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1851
+LDIFF_SYM1906=LTDIE_208_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1906
 	.byte 2,35,32,6
 	.asciz "m_asyncTail"
 
-LDIFF_SYM1852=LTDIE_207_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1852
+LDIFF_SYM1907=LTDIE_208_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1907
 	.byte 2,35,40,0,7
 	.asciz "System_Threading_SemaphoreSlim"
 
-LDIFF_SYM1853=LTDIE_206 - Ldebug_info_start
-	.long LDIFF_SYM1853
-LTDIE_206_POINTER:
+LDIFF_SYM1908=LTDIE_207 - Ldebug_info_start
+	.long LDIFF_SYM1908
+LTDIE_207_POINTER:
 
 	.byte 13
-LDIFF_SYM1854=LTDIE_206 - Ldebug_info_start
-	.long LDIFF_SYM1854
-LTDIE_206_REFERENCE:
+LDIFF_SYM1909=LTDIE_207 - Ldebug_info_start
+	.long LDIFF_SYM1909
+LTDIE_207_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1855=LTDIE_206 - Ldebug_info_start
-	.long LDIFF_SYM1855
-LTDIE_168:
+LDIFF_SYM1910=LTDIE_207 - Ldebug_info_start
+	.long LDIFF_SYM1910
+LTDIE_169:
 
 	.byte 5
 	.asciz "System_IO_Stream"
 
 	.byte 32,16
-LDIFF_SYM1856=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1856
+LDIFF_SYM1911=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1911
 	.byte 2,35,0,6
 	.asciz "_activeReadWriteTask"
 
-LDIFF_SYM1857=LTDIE_169_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1857
+LDIFF_SYM1912=LTDIE_170_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1912
 	.byte 2,35,16,6
 	.asciz "_asyncActiveSemaphore"
 
-LDIFF_SYM1858=LTDIE_206_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1858
+LDIFF_SYM1913=LTDIE_207_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1913
 	.byte 2,35,24,0,7
 	.asciz "System_IO_Stream"
 
-LDIFF_SYM1859=LTDIE_168 - Ldebug_info_start
-	.long LDIFF_SYM1859
-LTDIE_168_POINTER:
+LDIFF_SYM1914=LTDIE_169 - Ldebug_info_start
+	.long LDIFF_SYM1914
+LTDIE_169_POINTER:
 
 	.byte 13
-LDIFF_SYM1860=LTDIE_168 - Ldebug_info_start
-	.long LDIFF_SYM1860
-LTDIE_168_REFERENCE:
+LDIFF_SYM1915=LTDIE_169 - Ldebug_info_start
+	.long LDIFF_SYM1915
+LTDIE_169_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1861=LTDIE_168 - Ldebug_info_start
-	.long LDIFF_SYM1861
+LDIFF_SYM1916=LTDIE_169 - Ldebug_info_start
+	.long LDIFF_SYM1916
 	.byte 2
 	.asciz "TheAdventuresOf.XmlImporter:GetXMLInformation"
 	.asciz "TheAdventuresOf_XmlImporter_GetXMLInformation"
 
-	.byte 12,16
+	.byte 12,18
 	.quad TheAdventuresOf_XmlImporter_GetXMLInformation
-	.quad Lme_44
+	.quad Lme_48
 
 	.byte 2,118,16,11
 	.asciz "characterDocumentStream"
 
-LDIFF_SYM1862=LTDIE_168_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1862
+LDIFF_SYM1917=LTDIE_169_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1917
 	.byte 1,106,11
 	.asciz "levelDocumentStream"
 
-LDIFF_SYM1863=LTDIE_168_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1863
+LDIFF_SYM1918=LTDIE_169_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1918
 	.byte 1,105,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1864=Lfde68_end - Lfde68_start
-	.long LDIFF_SYM1864
-Lfde68_start:
+LDIFF_SYM1919=Lfde72_end - Lfde72_start
+	.long LDIFF_SYM1919
+Lfde72_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_XmlImporter_GetXMLInformation
 
-LDIFF_SYM1865=Lme_44 - TheAdventuresOf_XmlImporter_GetXMLInformation
-	.long LDIFF_SYM1865
+LDIFF_SYM1920=Lme_48 - TheAdventuresOf_XmlImporter_GetXMLInformation
+	.long LDIFF_SYM1920
 	.long 0
-	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,153,14,154,13
+	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,153,16,154,15
 	.align 3
-Lfde68_end:
+Lfde72_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_212:
+LTDIE_213:
 
 	.byte 5
 	.asciz "System_Xml_Linq_XObject"
 
 	.byte 32,16
-LDIFF_SYM1866=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1866
+LDIFF_SYM1921=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1921
 	.byte 2,35,0,6
 	.asciz "parent"
 
-LDIFF_SYM1867=LTDIE_210_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1867
+LDIFF_SYM1922=LTDIE_211_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1922
 	.byte 2,35,16,6
 	.asciz "annotations"
 
-LDIFF_SYM1868=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM1868
+LDIFF_SYM1923=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM1923
 	.byte 2,35,24,0,7
 	.asciz "System_Xml_Linq_XObject"
 
-LDIFF_SYM1869=LTDIE_212 - Ldebug_info_start
-	.long LDIFF_SYM1869
-LTDIE_212_POINTER:
+LDIFF_SYM1924=LTDIE_213 - Ldebug_info_start
+	.long LDIFF_SYM1924
+LTDIE_213_POINTER:
 
 	.byte 13
-LDIFF_SYM1870=LTDIE_212 - Ldebug_info_start
-	.long LDIFF_SYM1870
-LTDIE_212_REFERENCE:
+LDIFF_SYM1925=LTDIE_213 - Ldebug_info_start
+	.long LDIFF_SYM1925
+LTDIE_213_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1871=LTDIE_212 - Ldebug_info_start
-	.long LDIFF_SYM1871
-LTDIE_211:
+LDIFF_SYM1926=LTDIE_213 - Ldebug_info_start
+	.long LDIFF_SYM1926
+LTDIE_212:
 
 	.byte 5
 	.asciz "System_Xml_Linq_XNode"
 
 	.byte 40,16
-LDIFF_SYM1872=LTDIE_212 - Ldebug_info_start
-	.long LDIFF_SYM1872
+LDIFF_SYM1927=LTDIE_213 - Ldebug_info_start
+	.long LDIFF_SYM1927
 	.byte 2,35,0,6
 	.asciz "next"
 
-LDIFF_SYM1873=LTDIE_211_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1873
+LDIFF_SYM1928=LTDIE_212_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1928
 	.byte 2,35,32,0,7
 	.asciz "System_Xml_Linq_XNode"
 
-LDIFF_SYM1874=LTDIE_211 - Ldebug_info_start
-	.long LDIFF_SYM1874
-LTDIE_211_POINTER:
+LDIFF_SYM1929=LTDIE_212 - Ldebug_info_start
+	.long LDIFF_SYM1929
+LTDIE_212_POINTER:
 
 	.byte 13
-LDIFF_SYM1875=LTDIE_211 - Ldebug_info_start
-	.long LDIFF_SYM1875
-LTDIE_211_REFERENCE:
+LDIFF_SYM1930=LTDIE_212 - Ldebug_info_start
+	.long LDIFF_SYM1930
+LTDIE_212_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1876=LTDIE_211 - Ldebug_info_start
-	.long LDIFF_SYM1876
-LTDIE_210:
+LDIFF_SYM1931=LTDIE_212 - Ldebug_info_start
+	.long LDIFF_SYM1931
+LTDIE_211:
 
 	.byte 5
 	.asciz "System_Xml_Linq_XContainer"
 
 	.byte 48,16
-LDIFF_SYM1877=LTDIE_211 - Ldebug_info_start
-	.long LDIFF_SYM1877
+LDIFF_SYM1932=LTDIE_212 - Ldebug_info_start
+	.long LDIFF_SYM1932
 	.byte 2,35,0,6
 	.asciz "content"
 
-LDIFF_SYM1878=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM1878
+LDIFF_SYM1933=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM1933
 	.byte 2,35,40,0,7
 	.asciz "System_Xml_Linq_XContainer"
 
-LDIFF_SYM1879=LTDIE_210 - Ldebug_info_start
-	.long LDIFF_SYM1879
-LTDIE_210_POINTER:
+LDIFF_SYM1934=LTDIE_211 - Ldebug_info_start
+	.long LDIFF_SYM1934
+LTDIE_211_POINTER:
 
 	.byte 13
-LDIFF_SYM1880=LTDIE_210 - Ldebug_info_start
-	.long LDIFF_SYM1880
-LTDIE_210_REFERENCE:
+LDIFF_SYM1935=LTDIE_211 - Ldebug_info_start
+	.long LDIFF_SYM1935
+LTDIE_211_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1881=LTDIE_210 - Ldebug_info_start
-	.long LDIFF_SYM1881
-LTDIE_217:
+LDIFF_SYM1936=LTDIE_211 - Ldebug_info_start
+	.long LDIFF_SYM1936
+LTDIE_218:
 
 	.byte 5
 	.asciz "_ExtractKeyDelegate"
 
 	.byte 112,16
-LDIFF_SYM1882=LTDIE_13 - Ldebug_info_start
-	.long LDIFF_SYM1882
+LDIFF_SYM1937=LTDIE_13 - Ldebug_info_start
+	.long LDIFF_SYM1937
 	.byte 2,35,0,0,7
 	.asciz "_ExtractKeyDelegate"
 
-LDIFF_SYM1883=LTDIE_217 - Ldebug_info_start
-	.long LDIFF_SYM1883
-LTDIE_217_POINTER:
+LDIFF_SYM1938=LTDIE_218 - Ldebug_info_start
+	.long LDIFF_SYM1938
+LTDIE_218_POINTER:
 
 	.byte 13
-LDIFF_SYM1884=LTDIE_217 - Ldebug_info_start
-	.long LDIFF_SYM1884
-LTDIE_217_REFERENCE:
+LDIFF_SYM1939=LTDIE_218 - Ldebug_info_start
+	.long LDIFF_SYM1939
+LTDIE_218_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1885=LTDIE_217 - Ldebug_info_start
-	.long LDIFF_SYM1885
-LTDIE_216:
+LDIFF_SYM1940=LTDIE_218 - Ldebug_info_start
+	.long LDIFF_SYM1940
+LTDIE_217:
 
 	.byte 5
 	.asciz "_XHashtableState"
 
 	.byte 48,16
-LDIFF_SYM1886=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1886
+LDIFF_SYM1941=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1941
 	.byte 2,35,0,6
 	.asciz "buckets"
 
-LDIFF_SYM1887=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM1887
+LDIFF_SYM1942=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM1942
 	.byte 2,35,16,6
 	.asciz "entries"
 
-LDIFF_SYM1888=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM1888
+LDIFF_SYM1943=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM1943
 	.byte 2,35,24,6
 	.asciz "numEntries"
 
-LDIFF_SYM1889=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1889
+LDIFF_SYM1944=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1944
 	.byte 2,35,40,6
 	.asciz "extractKey"
 
-LDIFF_SYM1890=LTDIE_217_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1890
+LDIFF_SYM1945=LTDIE_218_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1945
 	.byte 2,35,32,0,7
 	.asciz "_XHashtableState"
 
-LDIFF_SYM1891=LTDIE_216 - Ldebug_info_start
-	.long LDIFF_SYM1891
-LTDIE_216_POINTER:
+LDIFF_SYM1946=LTDIE_217 - Ldebug_info_start
+	.long LDIFF_SYM1946
+LTDIE_217_POINTER:
 
 	.byte 13
-LDIFF_SYM1892=LTDIE_216 - Ldebug_info_start
-	.long LDIFF_SYM1892
-LTDIE_216_REFERENCE:
+LDIFF_SYM1947=LTDIE_217 - Ldebug_info_start
+	.long LDIFF_SYM1947
+LTDIE_217_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1893=LTDIE_216 - Ldebug_info_start
-	.long LDIFF_SYM1893
-LTDIE_215:
+LDIFF_SYM1948=LTDIE_217 - Ldebug_info_start
+	.long LDIFF_SYM1948
+LTDIE_216:
 
 	.byte 5
 	.asciz "System_Xml_Linq_XHashtable`1"
 
 	.byte 24,16
-LDIFF_SYM1894=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1894
+LDIFF_SYM1949=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1949
 	.byte 2,35,0,6
 	.asciz "state"
 
-LDIFF_SYM1895=LTDIE_216_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1895
+LDIFF_SYM1950=LTDIE_217_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1950
 	.byte 2,35,16,0,7
 	.asciz "System_Xml_Linq_XHashtable`1"
 
-LDIFF_SYM1896=LTDIE_215 - Ldebug_info_start
-	.long LDIFF_SYM1896
-LTDIE_215_POINTER:
+LDIFF_SYM1951=LTDIE_216 - Ldebug_info_start
+	.long LDIFF_SYM1951
+LTDIE_216_POINTER:
 
 	.byte 13
-LDIFF_SYM1897=LTDIE_215 - Ldebug_info_start
-	.long LDIFF_SYM1897
-LTDIE_215_REFERENCE:
+LDIFF_SYM1952=LTDIE_216 - Ldebug_info_start
+	.long LDIFF_SYM1952
+LTDIE_216_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1898=LTDIE_215 - Ldebug_info_start
-	.long LDIFF_SYM1898
-LTDIE_214:
+LDIFF_SYM1953=LTDIE_216 - Ldebug_info_start
+	.long LDIFF_SYM1953
+LTDIE_215:
 
 	.byte 5
 	.asciz "System_Xml_Linq_XNamespace"
 
 	.byte 40,16
-LDIFF_SYM1899=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1899
+LDIFF_SYM1954=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1954
 	.byte 2,35,0,6
 	.asciz "namespaceName"
 
-LDIFF_SYM1900=LDIE_STRING - Ldebug_info_start
-	.long LDIFF_SYM1900
+LDIFF_SYM1955=LDIE_STRING - Ldebug_info_start
+	.long LDIFF_SYM1955
 	.byte 2,35,16,6
 	.asciz "hashCode"
 
-LDIFF_SYM1901=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1901
+LDIFF_SYM1956=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1956
 	.byte 2,35,32,6
 	.asciz "names"
 
-LDIFF_SYM1902=LTDIE_215_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1902
+LDIFF_SYM1957=LTDIE_216_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1957
 	.byte 2,35,24,0,7
 	.asciz "System_Xml_Linq_XNamespace"
 
-LDIFF_SYM1903=LTDIE_214 - Ldebug_info_start
-	.long LDIFF_SYM1903
-LTDIE_214_POINTER:
+LDIFF_SYM1958=LTDIE_215 - Ldebug_info_start
+	.long LDIFF_SYM1958
+LTDIE_215_POINTER:
 
 	.byte 13
-LDIFF_SYM1904=LTDIE_214 - Ldebug_info_start
-	.long LDIFF_SYM1904
-LTDIE_214_REFERENCE:
+LDIFF_SYM1959=LTDIE_215 - Ldebug_info_start
+	.long LDIFF_SYM1959
+LTDIE_215_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1905=LTDIE_214 - Ldebug_info_start
-	.long LDIFF_SYM1905
-LTDIE_213:
+LDIFF_SYM1960=LTDIE_215 - Ldebug_info_start
+	.long LDIFF_SYM1960
+LTDIE_214:
 
 	.byte 5
 	.asciz "System_Xml_Linq_XName"
 
 	.byte 40,16
-LDIFF_SYM1906=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM1906
+LDIFF_SYM1961=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM1961
 	.byte 2,35,0,6
 	.asciz "ns"
 
-LDIFF_SYM1907=LTDIE_214_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1907
+LDIFF_SYM1962=LTDIE_215_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1962
 	.byte 2,35,16,6
 	.asciz "localName"
 
-LDIFF_SYM1908=LDIE_STRING - Ldebug_info_start
-	.long LDIFF_SYM1908
+LDIFF_SYM1963=LDIE_STRING - Ldebug_info_start
+	.long LDIFF_SYM1963
 	.byte 2,35,24,6
 	.asciz "hashCode"
 
-LDIFF_SYM1909=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1909
+LDIFF_SYM1964=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM1964
 	.byte 2,35,32,0,7
 	.asciz "System_Xml_Linq_XName"
 
-LDIFF_SYM1910=LTDIE_213 - Ldebug_info_start
-	.long LDIFF_SYM1910
-LTDIE_213_POINTER:
+LDIFF_SYM1965=LTDIE_214 - Ldebug_info_start
+	.long LDIFF_SYM1965
+LTDIE_214_POINTER:
 
 	.byte 13
-LDIFF_SYM1911=LTDIE_213 - Ldebug_info_start
-	.long LDIFF_SYM1911
-LTDIE_213_REFERENCE:
+LDIFF_SYM1966=LTDIE_214 - Ldebug_info_start
+	.long LDIFF_SYM1966
+LTDIE_214_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1912=LTDIE_213 - Ldebug_info_start
-	.long LDIFF_SYM1912
-LTDIE_218:
+LDIFF_SYM1967=LTDIE_214 - Ldebug_info_start
+	.long LDIFF_SYM1967
+LTDIE_219:
 
 	.byte 5
 	.asciz "System_Xml_Linq_XAttribute"
 
 	.byte 56,16
-LDIFF_SYM1913=LTDIE_212 - Ldebug_info_start
-	.long LDIFF_SYM1913
+LDIFF_SYM1968=LTDIE_213 - Ldebug_info_start
+	.long LDIFF_SYM1968
 	.byte 2,35,0,6
 	.asciz "next"
 
-LDIFF_SYM1914=LTDIE_218_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1914
+LDIFF_SYM1969=LTDIE_219_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1969
 	.byte 2,35,32,6
 	.asciz "name"
 
-LDIFF_SYM1915=LTDIE_213_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1915
+LDIFF_SYM1970=LTDIE_214_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1970
 	.byte 2,35,40,6
 	.asciz "value"
 
-LDIFF_SYM1916=LDIE_STRING - Ldebug_info_start
-	.long LDIFF_SYM1916
+LDIFF_SYM1971=LDIE_STRING - Ldebug_info_start
+	.long LDIFF_SYM1971
 	.byte 2,35,48,0,7
 	.asciz "System_Xml_Linq_XAttribute"
 
-LDIFF_SYM1917=LTDIE_218 - Ldebug_info_start
-	.long LDIFF_SYM1917
-LTDIE_218_POINTER:
+LDIFF_SYM1972=LTDIE_219 - Ldebug_info_start
+	.long LDIFF_SYM1972
+LTDIE_219_POINTER:
 
 	.byte 13
-LDIFF_SYM1918=LTDIE_218 - Ldebug_info_start
-	.long LDIFF_SYM1918
-LTDIE_218_REFERENCE:
+LDIFF_SYM1973=LTDIE_219 - Ldebug_info_start
+	.long LDIFF_SYM1973
+LTDIE_219_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1919=LTDIE_218 - Ldebug_info_start
-	.long LDIFF_SYM1919
-LTDIE_209:
+LDIFF_SYM1974=LTDIE_219 - Ldebug_info_start
+	.long LDIFF_SYM1974
+LTDIE_210:
 
 	.byte 5
 	.asciz "System_Xml_Linq_XElement"
 
 	.byte 64,16
-LDIFF_SYM1920=LTDIE_210 - Ldebug_info_start
-	.long LDIFF_SYM1920
+LDIFF_SYM1975=LTDIE_211 - Ldebug_info_start
+	.long LDIFF_SYM1975
 	.byte 2,35,0,6
 	.asciz "name"
 
-LDIFF_SYM1921=LTDIE_213_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1921
+LDIFF_SYM1976=LTDIE_214_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1976
 	.byte 2,35,48,6
 	.asciz "lastAttr"
 
-LDIFF_SYM1922=LTDIE_218_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1922
+LDIFF_SYM1977=LTDIE_219_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1977
 	.byte 2,35,56,0,7
 	.asciz "System_Xml_Linq_XElement"
 
-LDIFF_SYM1923=LTDIE_209 - Ldebug_info_start
-	.long LDIFF_SYM1923
-LTDIE_209_POINTER:
+LDIFF_SYM1978=LTDIE_210 - Ldebug_info_start
+	.long LDIFF_SYM1978
+LTDIE_210_POINTER:
 
 	.byte 13
-LDIFF_SYM1924=LTDIE_209 - Ldebug_info_start
-	.long LDIFF_SYM1924
-LTDIE_209_REFERENCE:
+LDIFF_SYM1979=LTDIE_210 - Ldebug_info_start
+	.long LDIFF_SYM1979
+LTDIE_210_REFERENCE:
 
 	.byte 14
-LDIFF_SYM1925=LTDIE_209 - Ldebug_info_start
-	.long LDIFF_SYM1925
+LDIFF_SYM1980=LTDIE_210 - Ldebug_info_start
+	.long LDIFF_SYM1980
+	.byte 2
+	.asciz "TheAdventuresOf.XmlImporter:LoadLevelInformation"
+	.asciz "TheAdventuresOf_XmlImporter_LoadLevelInformation_TheAdventuresOf_Level"
+
+	.byte 12,30
+	.quad TheAdventuresOf_XmlImporter_LoadLevelInformation_TheAdventuresOf_Level
+	.quad Lme_49
+
+	.byte 2,118,16,3
+	.asciz "level"
+
+LDIFF_SYM1981=LTDIE_154_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1981
+	.byte 1,106,11
+	.asciz "levelElement"
+
+LDIFF_SYM1982=LTDIE_210_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1982
+	.byte 1,105,11
+	.asciz "levelOneElement"
+
+LDIFF_SYM1983=LTDIE_210_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1983
+	.byte 1,104,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM1984=Lfde73_end - Lfde73_start
+	.long LDIFF_SYM1984
+Lfde73_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_XmlImporter_LoadLevelInformation_TheAdventuresOf_Level
+
+LDIFF_SYM1985=Lme_49 - TheAdventuresOf_XmlImporter_LoadLevelInformation_TheAdventuresOf_Level
+	.long LDIFF_SYM1985
+	.long 0
+	.byte 12,31,0,68,14,176,2,157,38,158,37,68,13,29,68,152,36,153,35,68,154,34
+	.align 3
+Lfde73_end:
+
+.section __DWARF, __debug_info,regular,debug
+
 	.byte 2
 	.asciz "TheAdventuresOf.XmlImporter:LoadPlayerInformation"
 	.asciz "TheAdventuresOf_XmlImporter_LoadPlayerInformation_TheAdventuresOf_Player"
 
-	.byte 12,25
+	.byte 12,41
 	.quad TheAdventuresOf_XmlImporter_LoadPlayerInformation_TheAdventuresOf_Player
-	.quad Lme_45
+	.quad Lme_4a
 
 	.byte 2,118,16,3
 	.asciz "player"
 
-LDIFF_SYM1926=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1926
+LDIFF_SYM1986=LTDIE_149_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1986
 	.byte 1,106,11
 	.asciz "charactersElement"
 
-LDIFF_SYM1927=LTDIE_209_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1927
+LDIFF_SYM1987=LTDIE_210_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1987
 	.byte 1,105,11
 	.asciz "playerElement"
 
-LDIFF_SYM1928=LTDIE_209_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1928
-	.byte 1,104,11
-	.asciz "V_2"
-
-LDIFF_SYM1929=LTDIE_149_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1929
-	.byte 1,103,0
+LDIFF_SYM1988=LTDIE_210_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1988
+	.byte 1,104,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1930=Lfde69_end - Lfde69_start
-	.long LDIFF_SYM1930
-Lfde69_start:
+LDIFF_SYM1989=Lfde74_end - Lfde74_start
+	.long LDIFF_SYM1989
+Lfde74_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_XmlImporter_LoadPlayerInformation_TheAdventuresOf_Player
 
-LDIFF_SYM1931=Lme_45 - TheAdventuresOf_XmlImporter_LoadPlayerInformation_TheAdventuresOf_Player
-	.long LDIFF_SYM1931
+LDIFF_SYM1990=Lme_4a - TheAdventuresOf_XmlImporter_LoadPlayerInformation_TheAdventuresOf_Player
+	.long LDIFF_SYM1990
 	.long 0
-	.byte 12,31,0,68,14,224,3,157,60,158,59,68,13,29,68,151,58,152,57,68,153,56,154,55
+	.byte 12,31,0,84,14,160,4,157,68,158,67,68,13,29,68,152,66,153,65,68,154,64
 	.align 3
-Lfde69_end:
+Lfde74_end:
 
 .section __DWARF, __debug_info,regular,debug
 
 	.byte 2
 	.asciz "TheAdventuresOf.XmlImporter:LoadBlockMonsterInformation"
-	.asciz "TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation_TheAdventuresOf_Monster"
+	.asciz "TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation"
 
-	.byte 12,42
-	.quad TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation_TheAdventuresOf_Monster
-	.quad Lme_46
+	.byte 12,58
+	.quad TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation
+	.quad Lme_4b
 
-	.byte 2,118,16,3
-	.asciz "blockMonster"
-
-LDIFF_SYM1932=LTDIE_153_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1932
-	.byte 1,106,11
+	.byte 2,118,16,11
 	.asciz "charactersElement"
 
-LDIFF_SYM1933=LTDIE_209_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1933
-	.byte 1,105,11
+LDIFF_SYM1991=LTDIE_210_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1991
+	.byte 1,106,11
 	.asciz "monstersElement"
 
-LDIFF_SYM1934=LTDIE_209_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1934
-	.byte 1,104,11
+LDIFF_SYM1992=LTDIE_210_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1992
+	.byte 1,105,11
 	.asciz "blockMonsterElement"
 
-LDIFF_SYM1935=LTDIE_209_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1935
-	.byte 1,103,11
-	.asciz "V_3"
-
-LDIFF_SYM1936=LTDIE_153_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1936
-	.byte 1,102,0
+LDIFF_SYM1993=LTDIE_210_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1993
+	.byte 1,104,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1937=Lfde70_end - Lfde70_start
-	.long LDIFF_SYM1937
-Lfde70_start:
+LDIFF_SYM1994=Lfde75_end - Lfde75_start
+	.long LDIFF_SYM1994
+Lfde75_start:
 
 	.long 0
 	.align 3
-	.quad TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation_TheAdventuresOf_Monster
+	.quad TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation
 
-LDIFF_SYM1938=Lme_46 - TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation_TheAdventuresOf_Monster
-	.long LDIFF_SYM1938
+LDIFF_SYM1995=Lme_4b - TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation
+	.long LDIFF_SYM1995
 	.long 0
-	.byte 12,31,0,68,14,144,3,157,50,158,49,68,13,29,68,150,48,151,47,68,152,46,153,45,68,154,44
+	.byte 12,31,0,84,14,144,4,157,66,158,65,68,13,29,68,152,64,153,63,68,154,62
 	.align 3
-Lfde70_end:
+Lfde75_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.XmlImporter:TransferBlockMonsterInformation"
+	.asciz "TheAdventuresOf_XmlImporter_TransferBlockMonsterInformation_TheAdventuresOf_Monster"
+
+	.byte 12,76
+	.quad TheAdventuresOf_XmlImporter_TransferBlockMonsterInformation_TheAdventuresOf_Monster
+	.quad Lme_4c
+
+	.byte 2,118,16,3
+	.asciz "newBlockMonster"
+
+LDIFF_SYM1996=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1996
+	.byte 1,106,11
+	.asciz "V_0"
+
+LDIFF_SYM1997=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM1997
+	.byte 1,105,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM1998=Lfde76_end - Lfde76_start
+	.long LDIFF_SYM1998
+Lfde76_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_XmlImporter_TransferBlockMonsterInformation_TheAdventuresOf_Monster
+
+LDIFF_SYM1999=Lme_4c - TheAdventuresOf_XmlImporter_TransferBlockMonsterInformation_TheAdventuresOf_Monster
+	.long LDIFF_SYM1999
+	.long 0
+	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,153,6,154,5
+	.align 3
+Lfde76_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -39347,48 +44203,58 @@ Lfde70_end:
 	.asciz "TheAdventuresOf.AssetManager:LoadGameAssets"
 	.asciz "TheAdventuresOf_AssetManager_LoadGameAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice"
 
-	.byte 13,21
+	.byte 13,23
 	.quad TheAdventuresOf_AssetManager_LoadGameAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
-	.quad Lme_47
+	.quad Lme_4d
 
 	.byte 2,118,16,3
 	.asciz "graphicsDevice"
 
-LDIFF_SYM1939=LTDIE_72_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1939
+LDIFF_SYM2000=LTDIE_72_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2000
 	.byte 1,106,11
 	.asciz "stream"
 
-LDIFF_SYM1940=LTDIE_168_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1940
+LDIFF_SYM2001=LTDIE_169_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2001
 	.byte 2,141,48,11
 	.asciz "stream"
 
-LDIFF_SYM1941=LTDIE_168_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1941
+LDIFF_SYM2002=LTDIE_169_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2002
 	.byte 2,141,56,11
 	.asciz "stream"
 
-LDIFF_SYM1942=LTDIE_168_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1942
-	.byte 3,141,192,0,0
+LDIFF_SYM2003=LTDIE_169_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2003
+	.byte 3,141,192,0,11
+	.asciz "stream"
+
+LDIFF_SYM2004=LTDIE_169_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2004
+	.byte 3,141,200,0,11
+	.asciz "stream"
+
+LDIFF_SYM2005=LTDIE_169_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2005
+	.byte 3,141,208,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1943=Lfde71_end - Lfde71_start
-	.long LDIFF_SYM1943
-Lfde71_start:
+LDIFF_SYM2006=Lfde77_end - Lfde77_start
+	.long LDIFF_SYM2006
+Lfde77_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_AssetManager_LoadGameAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
 
-LDIFF_SYM1944=Lme_47 - TheAdventuresOf_AssetManager_LoadGameAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
-	.long LDIFF_SYM1944
+LDIFF_SYM2007=Lme_4d - TheAdventuresOf_AssetManager_LoadGameAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
+	.long LDIFF_SYM2007
 	.long 0
-	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,154,16
+	.byte 12,31,0,68,14,192,1,157,24,158,23,68,13,29,68,154,22
 	.align 3
-Lfde71_end:
+Lfde77_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -39396,48 +44262,48 @@ Lfde71_end:
 	.asciz "TheAdventuresOf.AssetManager:LoadLevelAssets"
 	.asciz "TheAdventuresOf_AssetManager_LoadLevelAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice"
 
-	.byte 13,38
+	.byte 13,48
 	.quad TheAdventuresOf_AssetManager_LoadLevelAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
-	.quad Lme_48
+	.quad Lme_4e
 
 	.byte 2,118,16,3
 	.asciz "graphicsDevice"
 
-LDIFF_SYM1945=LTDIE_72_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1945
+LDIFF_SYM2008=LTDIE_72_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2008
 	.byte 1,106,11
 	.asciz "stream"
 
-LDIFF_SYM1946=LTDIE_168_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1946
+LDIFF_SYM2009=LTDIE_169_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2009
 	.byte 2,141,48,11
 	.asciz "stream"
 
-LDIFF_SYM1947=LTDIE_168_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1947
+LDIFF_SYM2010=LTDIE_169_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2010
 	.byte 2,141,56,11
 	.asciz "stream"
 
-LDIFF_SYM1948=LTDIE_168_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1948
+LDIFF_SYM2011=LTDIE_169_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2011
 	.byte 3,141,192,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1949=Lfde72_end - Lfde72_start
-	.long LDIFF_SYM1949
-Lfde72_start:
+LDIFF_SYM2012=Lfde78_end - Lfde78_start
+	.long LDIFF_SYM2012
+Lfde78_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_AssetManager_LoadLevelAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
 
-LDIFF_SYM1950=Lme_48 - TheAdventuresOf_AssetManager_LoadLevelAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
-	.long LDIFF_SYM1950
+LDIFF_SYM2013=Lme_4e - TheAdventuresOf_AssetManager_LoadLevelAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
+	.long LDIFF_SYM2013
 	.long 0
 	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,154,16
 	.align 3
-Lfde72_end:
+Lfde78_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -39445,28 +44311,28 @@ Lfde72_end:
 	.asciz "TheAdventuresOf.AssetManager:DisposeLevelAssets"
 	.asciz "TheAdventuresOf_AssetManager_DisposeLevelAssets"
 
-	.byte 13,54
+	.byte 13,64
 	.quad TheAdventuresOf_AssetManager_DisposeLevelAssets
-	.quad Lme_49
+	.quad Lme_4f
 
 	.byte 2,118,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1951=Lfde73_end - Lfde73_start
-	.long LDIFF_SYM1951
-Lfde73_start:
+LDIFF_SYM2014=Lfde79_end - Lfde79_start
+	.long LDIFF_SYM2014
+Lfde79_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_AssetManager_DisposeLevelAssets
 
-LDIFF_SYM1952=Lme_49 - TheAdventuresOf_AssetManager_DisposeLevelAssets
-	.long LDIFF_SYM1952
+LDIFF_SYM2015=Lme_4f - TheAdventuresOf_AssetManager_DisposeLevelAssets
+	.long LDIFF_SYM2015
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29
 	.align 3
-Lfde73_end:
+Lfde79_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -39474,297 +44340,63 @@ Lfde73_end:
 	.asciz "TheAdventuresOf.Monster:.ctor"
 	.asciz "TheAdventuresOf_Monster__ctor"
 
-	.byte 14,14
+	.byte 14,23
 	.quad TheAdventuresOf_Monster__ctor
-	.quad Lme_4a
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM1953=LTDIE_153_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1953
-	.byte 1,106,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM1954=Lfde74_end - Lfde74_start
-	.long LDIFF_SYM1954
-Lfde74_start:
-
-	.long 0
-	.align 3
-	.quad TheAdventuresOf_Monster__ctor
-
-LDIFF_SYM1955=Lme_4a - TheAdventuresOf_Monster__ctor
-	.long LDIFF_SYM1955
-	.long 0
-	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,154,8
-	.align 3
-Lfde74_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "TheAdventuresOf.Monster:InitializeAnimation"
-	.asciz "TheAdventuresOf_Monster_InitializeAnimation"
-
-	.byte 14,22
-	.quad TheAdventuresOf_Monster_InitializeAnimation
-	.quad Lme_4b
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM1956=LTDIE_153_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1956
-	.byte 1,106,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM1957=Lfde75_end - Lfde75_start
-	.long LDIFF_SYM1957
-Lfde75_start:
-
-	.long 0
-	.align 3
-	.quad TheAdventuresOf_Monster_InitializeAnimation
-
-LDIFF_SYM1958=Lme_4b - TheAdventuresOf_Monster_InitializeAnimation
-	.long LDIFF_SYM1958
-	.long 0
-	.byte 12,31,0,68,14,128,2,157,32,158,31,68,13,29,68,154,30
-	.align 3
-Lfde75_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "TheAdventuresOf.Monster:HandleLevelBoundCollision"
-	.asciz "TheAdventuresOf_Monster_HandleLevelBoundCollision_int_int"
-
-	.byte 14,35
-	.quad TheAdventuresOf_Monster_HandleLevelBoundCollision_int_int
-	.quad Lme_4c
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM1959=LTDIE_153_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1959
-	.byte 2,141,16,3
-	.asciz "direction"
-
-LDIFF_SYM1960=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1960
-	.byte 2,141,24,3
-	.asciz "boundX"
-
-LDIFF_SYM1961=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1961
-	.byte 2,141,32,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM1962=Lfde76_end - Lfde76_start
-	.long LDIFF_SYM1962
-Lfde76_start:
-
-	.long 0
-	.align 3
-	.quad TheAdventuresOf_Monster_HandleLevelBoundCollision_int_int
-
-LDIFF_SYM1963=Lme_4c - TheAdventuresOf_Monster_HandleLevelBoundCollision_int_int
-	.long LDIFF_SYM1963
-	.long 0
-	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29
-	.align 3
-Lfde76_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "TheAdventuresOf.Monster:Update"
-	.asciz "TheAdventuresOf_Monster_Update_Microsoft_Xna_Framework_GameTime_bool"
-
-	.byte 14,40
-	.quad TheAdventuresOf_Monster_Update_Microsoft_Xna_Framework_GameTime_bool
-	.quad Lme_4d
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM1964=LTDIE_153_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1964
-	.byte 1,105,3
-	.asciz "gameTime"
-
-LDIFF_SYM1965=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1965
-	.byte 1,106,3
-	.asciz "buttonPressed"
-
-LDIFF_SYM1966=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM1966
-	.byte 2,141,32,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM1967=Lfde77_end - Lfde77_start
-	.long LDIFF_SYM1967
-Lfde77_start:
-
-	.long 0
-	.align 3
-	.quad TheAdventuresOf_Monster_Update_Microsoft_Xna_Framework_GameTime_bool
-
-LDIFF_SYM1968=Lme_4d - TheAdventuresOf_Monster_Update_Microsoft_Xna_Framework_GameTime_bool
-	.long LDIFF_SYM1968
-	.long 0
-	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,153,6,154,5
-	.align 3
-Lfde77_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "TheAdventuresOf.Monster:HandleDelay"
-	.asciz "TheAdventuresOf_Monster_HandleDelay_Microsoft_Xna_Framework_GameTime"
-
-	.byte 14,80
-	.quad TheAdventuresOf_Monster_HandleDelay_Microsoft_Xna_Framework_GameTime
-	.quad Lme_4e
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM1969=LTDIE_153_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1969
-	.byte 1,105,3
-	.asciz "gameTime"
-
-LDIFF_SYM1970=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1970
-	.byte 2,141,24,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM1971=Lfde78_end - Lfde78_start
-	.long LDIFF_SYM1971
-Lfde78_start:
-
-	.long 0
-	.align 3
-	.quad TheAdventuresOf_Monster_HandleDelay_Microsoft_Xna_Framework_GameTime
-
-LDIFF_SYM1972=Lme_4e - TheAdventuresOf_Monster_HandleDelay_Microsoft_Xna_Framework_GameTime
-	.long LDIFF_SYM1972
-	.long 0
-	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,153,14
-	.align 3
-Lfde78_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "TheAdventuresOf.Monster:HandleDeath"
-	.asciz "TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime"
-
-	.byte 14,90
-	.quad TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime
-	.quad Lme_4f
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM1973=LTDIE_153_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1973
-	.byte 2,141,16,3
-	.asciz "gameTime"
-
-LDIFF_SYM1974=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1974
-	.byte 2,141,24,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM1975=Lfde79_end - Lfde79_start
-	.long LDIFF_SYM1975
-Lfde79_start:
-
-	.long 0
-	.align 3
-	.quad TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime
-
-LDIFF_SYM1976=Lme_4f - TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime
-	.long LDIFF_SYM1976
-	.long 0
-	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
-	.align 3
-Lfde79_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "TheAdventuresOf.Monster:RandomizeMovement"
-	.asciz "TheAdventuresOf_Monster_RandomizeMovement"
-
-	.byte 14,98
-	.quad TheAdventuresOf_Monster_RandomizeMovement
 	.quad Lme_50
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1977=LTDIE_153_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1977
+LDIFF_SYM2016=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2016
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1978=Lfde80_end - Lfde80_start
-	.long LDIFF_SYM1978
+LDIFF_SYM2017=Lfde80_end - Lfde80_start
+	.long LDIFF_SYM2017
 Lfde80_start:
 
 	.long 0
 	.align 3
-	.quad TheAdventuresOf_Monster_RandomizeMovement
+	.quad TheAdventuresOf_Monster__ctor
 
-LDIFF_SYM1979=Lme_50 - TheAdventuresOf_Monster_RandomizeMovement
-	.long LDIFF_SYM1979
+LDIFF_SYM2018=Lme_50 - TheAdventuresOf_Monster__ctor
+	.long LDIFF_SYM2018
 	.long 0
-	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
+	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,154,8
 	.align 3
 Lfde80_end:
 
 .section __DWARF, __debug_info,regular,debug
 
 	.byte 2
-	.asciz "TheAdventuresOf.Monster:ChooseRandomDirection"
-	.asciz "TheAdventuresOf_Monster_ChooseRandomDirection"
+	.asciz "TheAdventuresOf.Monster:InitializeMonsterAfterSpawn"
+	.asciz "TheAdventuresOf_Monster_InitializeMonsterAfterSpawn"
 
-	.byte 14,112
-	.quad TheAdventuresOf_Monster_ChooseRandomDirection
+	.byte 14,31
+	.quad TheAdventuresOf_Monster_InitializeMonsterAfterSpawn
 	.quad Lme_51
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1980=LTDIE_153_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1980
+LDIFF_SYM2019=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2019
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1981=Lfde81_end - Lfde81_start
-	.long LDIFF_SYM1981
+LDIFF_SYM2020=Lfde81_end - Lfde81_start
+	.long LDIFF_SYM2020
 Lfde81_start:
 
 	.long 0
 	.align 3
-	.quad TheAdventuresOf_Monster_ChooseRandomDirection
+	.quad TheAdventuresOf_Monster_InitializeMonsterAfterSpawn
 
-LDIFF_SYM1982=Lme_51 - TheAdventuresOf_Monster_ChooseRandomDirection
-	.long LDIFF_SYM1982
+LDIFF_SYM2021=Lme_51 - TheAdventuresOf_Monster_InitializeMonsterAfterSpawn
+	.long LDIFF_SYM2021
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
 	.align 3
@@ -39773,41 +44405,270 @@ Lfde81_end:
 .section __DWARF, __debug_info,regular,debug
 
 	.byte 2
-	.asciz "TheAdventuresOf.Monster:HandleAnimation"
-	.asciz "TheAdventuresOf_Monster_HandleAnimation_Microsoft_Xna_Framework_GameTime"
+	.asciz "TheAdventuresOf.Monster:InitializeSpawn"
+	.asciz "TheAdventuresOf_Monster_InitializeSpawn"
 
-	.byte 14,126
-	.quad TheAdventuresOf_Monster_HandleAnimation_Microsoft_Xna_Framework_GameTime
+	.byte 14,39
+	.quad TheAdventuresOf_Monster_InitializeSpawn
 	.quad Lme_52
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1983=LTDIE_153_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1983
-	.byte 1,106,3
+LDIFF_SYM2022=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2022
+	.byte 1,106,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2023=Lfde82_end - Lfde82_start
+	.long LDIFF_SYM2023
+Lfde82_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Monster_InitializeSpawn
+
+LDIFF_SYM2024=Lme_52 - TheAdventuresOf_Monster_InitializeSpawn
+	.long LDIFF_SYM2024
+	.long 0
+	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29,68,154,4
+	.align 3
+Lfde82_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Monster:InitializeAnimation"
+	.asciz "TheAdventuresOf_Monster_InitializeAnimation"
+
+	.byte 14,57
+	.quad TheAdventuresOf_Monster_InitializeAnimation
+	.quad Lme_53
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2025=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2025
+	.byte 1,106,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2026=Lfde83_end - Lfde83_start
+	.long LDIFF_SYM2026
+Lfde83_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Monster_InitializeAnimation
+
+LDIFF_SYM2027=Lme_53 - TheAdventuresOf_Monster_InitializeAnimation
+	.long LDIFF_SYM2027
+	.long 0
+	.byte 12,31,0,68,14,128,2,157,32,158,31,68,13,29,68,154,30
+	.align 3
+Lfde83_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Monster:HandleLevelBoundCollision"
+	.asciz "TheAdventuresOf_Monster_HandleLevelBoundCollision_int_int"
+
+	.byte 14,76
+	.quad TheAdventuresOf_Monster_HandleLevelBoundCollision_int_int
+	.quad Lme_54
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2028=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2028
+	.byte 2,141,16,3
+	.asciz "direction"
+
+LDIFF_SYM2029=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2029
+	.byte 2,141,24,3
+	.asciz "boundX"
+
+LDIFF_SYM2030=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2030
+	.byte 2,141,32,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2031=Lfde84_end - Lfde84_start
+	.long LDIFF_SYM2031
+Lfde84_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Monster_HandleLevelBoundCollision_int_int
+
+LDIFF_SYM2032=Lme_54 - TheAdventuresOf_Monster_HandleLevelBoundCollision_int_int
+	.long LDIFF_SYM2032
+	.long 0
+	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29
+	.align 3
+Lfde84_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Monster:HandleDelay"
+	.asciz "TheAdventuresOf_Monster_HandleDelay_Microsoft_Xna_Framework_GameTime"
+
+	.byte 14,81
+	.quad TheAdventuresOf_Monster_HandleDelay_Microsoft_Xna_Framework_GameTime
+	.quad Lme_55
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2033=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2033
+	.byte 1,105,3
 	.asciz "gameTime"
 
-LDIFF_SYM1984=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1984
+LDIFF_SYM2034=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2034
 	.byte 2,141,24,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1985=Lfde82_end - Lfde82_start
-	.long LDIFF_SYM1985
-Lfde82_start:
+LDIFF_SYM2035=Lfde85_end - Lfde85_start
+	.long LDIFF_SYM2035
+Lfde85_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Monster_HandleDelay_Microsoft_Xna_Framework_GameTime
+
+LDIFF_SYM2036=Lme_55 - TheAdventuresOf_Monster_HandleDelay_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM2036
+	.long 0
+	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,153,14
+	.align 3
+Lfde85_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Monster:HandleSpawn"
+	.asciz "TheAdventuresOf_Monster_HandleSpawn_Microsoft_Xna_Framework_GameTime"
+
+	.byte 14,91
+	.quad TheAdventuresOf_Monster_HandleSpawn_Microsoft_Xna_Framework_GameTime
+	.quad Lme_56
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2037=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2037
+	.byte 1,105,3
+	.asciz "gameTime"
+
+LDIFF_SYM2038=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2038
+	.byte 1,106,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2039=Lfde86_end - Lfde86_start
+	.long LDIFF_SYM2039
+Lfde86_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Monster_HandleSpawn_Microsoft_Xna_Framework_GameTime
+
+LDIFF_SYM2040=Lme_56 - TheAdventuresOf_Monster_HandleSpawn_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM2040
+	.long 0
+	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29,68,153,10,154,9
+	.align 3
+Lfde86_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Monster:HandleDeath"
+	.asciz "TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime"
+
+	.byte 14,108
+	.quad TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime
+	.quad Lme_57
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2041=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2041
+	.byte 1,105,3
+	.asciz "gameTime"
+
+LDIFF_SYM2042=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2042
+	.byte 1,106,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2043=Lfde87_end - Lfde87_start
+	.long LDIFF_SYM2043
+Lfde87_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime
+
+LDIFF_SYM2044=Lme_57 - TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM2044
+	.long 0
+	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,153,8,154,7
+	.align 3
+Lfde87_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Monster:HandleAnimation"
+	.asciz "TheAdventuresOf_Monster_HandleAnimation_Microsoft_Xna_Framework_GameTime"
+
+	.byte 14,127
+	.quad TheAdventuresOf_Monster_HandleAnimation_Microsoft_Xna_Framework_GameTime
+	.quad Lme_58
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2045=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2045
+	.byte 1,106,3
+	.asciz "gameTime"
+
+LDIFF_SYM2046=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2046
+	.byte 2,141,24,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2047=Lfde88_end - Lfde88_start
+	.long LDIFF_SYM2047
+Lfde88_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Monster_HandleAnimation_Microsoft_Xna_Framework_GameTime
 
-LDIFF_SYM1986=Lme_52 - TheAdventuresOf_Monster_HandleAnimation_Microsoft_Xna_Framework_GameTime
-	.long LDIFF_SYM1986
+LDIFF_SYM2048=Lme_58 - TheAdventuresOf_Monster_HandleAnimation_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM2048
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,154,8
 	.align 3
-Lfde82_end:
+Lfde88_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -39815,38 +44676,258 @@ Lfde82_end:
 	.asciz "TheAdventuresOf.Monster:HandleMovement"
 	.asciz "TheAdventuresOf_Monster_HandleMovement_Microsoft_Xna_Framework_GameTime"
 
-	.byte 14,137,1
+	.byte 14,138,1
 	.quad TheAdventuresOf_Monster_HandleMovement_Microsoft_Xna_Framework_GameTime
-	.quad Lme_53
+	.quad Lme_59
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1987=LTDIE_153_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1987
+LDIFF_SYM2049=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2049
 	.byte 1,105,3
 	.asciz "gameTime"
 
-LDIFF_SYM1988=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1988
+LDIFF_SYM2050=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2050
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1989=Lfde83_end - Lfde83_start
-	.long LDIFF_SYM1989
-Lfde83_start:
+LDIFF_SYM2051=Lfde89_end - Lfde89_start
+	.long LDIFF_SYM2051
+Lfde89_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Monster_HandleMovement_Microsoft_Xna_Framework_GameTime
 
-LDIFF_SYM1990=Lme_53 - TheAdventuresOf_Monster_HandleMovement_Microsoft_Xna_Framework_GameTime
-	.long LDIFF_SYM1990
+LDIFF_SYM2052=Lme_59 - TheAdventuresOf_Monster_HandleMovement_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM2052
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,153,6,154,5
 	.align 3
-Lfde83_end:
+Lfde89_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Monster:Update"
+	.asciz "TheAdventuresOf_Monster_Update_Microsoft_Xna_Framework_GameTime_bool"
+
+	.byte 14,152,1
+	.quad TheAdventuresOf_Monster_Update_Microsoft_Xna_Framework_GameTime_bool
+	.quad Lme_5a
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2053=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2053
+	.byte 1,105,3
+	.asciz "gameTime"
+
+LDIFF_SYM2054=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2054
+	.byte 1,106,3
+	.asciz "buttonPressed"
+
+LDIFF_SYM2055=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM2055
+	.byte 2,141,32,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2056=Lfde90_end - Lfde90_start
+	.long LDIFF_SYM2056
+Lfde90_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Monster_Update_Microsoft_Xna_Framework_GameTime_bool
+
+LDIFF_SYM2057=Lme_5a - TheAdventuresOf_Monster_Update_Microsoft_Xna_Framework_GameTime_bool
+	.long LDIFF_SYM2057
+	.long 0
+	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,153,8,154,7
+	.align 3
+Lfde90_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Monster:Rotate"
+	.asciz "TheAdventuresOf_Monster_Rotate_Microsoft_Xna_Framework_GameTime"
+
+	.byte 14,237,1
+	.quad TheAdventuresOf_Monster_Rotate_Microsoft_Xna_Framework_GameTime
+	.quad Lme_5b
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2058=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2058
+	.byte 1,105,3
+	.asciz "gameTime"
+
+LDIFF_SYM2059=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2059
+	.byte 2,141,40,11
+	.asciz "degreesToRotate"
+
+LDIFF_SYM2060=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM2060
+	.byte 3,141,216,0,11
+	.asciz "V_1"
+
+LDIFF_SYM2061=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2061
+	.byte 3,141,208,0,11
+	.asciz "radiansToRotate"
+
+LDIFF_SYM2062=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM2062
+	.byte 3,141,220,0,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2063=Lfde91_end - Lfde91_start
+	.long LDIFF_SYM2063
+Lfde91_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Monster_Rotate_Microsoft_Xna_Framework_GameTime
+
+LDIFF_SYM2064=Lme_5b - TheAdventuresOf_Monster_Rotate_Microsoft_Xna_Framework_GameTime
+	.long LDIFF_SYM2064
+	.long 0
+	.byte 12,31,0,68,14,176,1,157,22,158,21,68,13,29,68,151,20,152,19,68,153,18
+	.align 3
+Lfde91_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Monster:MoveUpDown"
+	.asciz "TheAdventuresOf_Monster_MoveUpDown_Microsoft_Xna_Framework_GameTime_int"
+
+	.byte 14,253,1
+	.quad TheAdventuresOf_Monster_MoveUpDown_Microsoft_Xna_Framework_GameTime_int
+	.quad Lme_5c
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2065=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2065
+	.byte 1,104,3
+	.asciz "gameTime"
+
+LDIFF_SYM2066=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2066
+	.byte 1,105,3
+	.asciz "direction"
+
+LDIFF_SYM2067=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2067
+	.byte 2,141,48,11
+	.asciz "V_0"
+
+LDIFF_SYM2068=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2068
+	.byte 3,141,232,0,11
+	.asciz "V_1"
+
+LDIFF_SYM2069=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2069
+	.byte 3,141,224,0,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2070=Lfde92_end - Lfde92_start
+	.long LDIFF_SYM2070
+Lfde92_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Monster_MoveUpDown_Microsoft_Xna_Framework_GameTime_int
+
+LDIFF_SYM2071=Lme_5c - TheAdventuresOf_Monster_MoveUpDown_Microsoft_Xna_Framework_GameTime_int
+	.long LDIFF_SYM2071
+	.long 0
+	.byte 12,31,0,68,14,160,1,157,20,158,19,68,13,29,68,150,18,151,17,68,152,16,153,15
+	.align 3
+Lfde92_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Monster:RandomizeMovement"
+	.asciz "TheAdventuresOf_Monster_RandomizeMovement"
+
+	.byte 14,137,2
+	.quad TheAdventuresOf_Monster_RandomizeMovement
+	.quad Lme_5d
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2072=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2072
+	.byte 1,106,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2073=Lfde93_end - Lfde93_start
+	.long LDIFF_SYM2073
+Lfde93_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Monster_RandomizeMovement
+
+LDIFF_SYM2074=Lme_5d - TheAdventuresOf_Monster_RandomizeMovement
+	.long LDIFF_SYM2074
+	.long 0
+	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
+	.align 3
+Lfde93_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Monster:ChooseRandomDirection"
+	.asciz "TheAdventuresOf_Monster_ChooseRandomDirection"
+
+	.byte 14,151,2
+	.quad TheAdventuresOf_Monster_ChooseRandomDirection
+	.quad Lme_5e
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2075=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2075
+	.byte 1,106,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2076=Lfde94_end - Lfde94_start
+	.long LDIFF_SYM2076
+Lfde94_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Monster_ChooseRandomDirection
+
+LDIFF_SYM2077=Lme_5e - TheAdventuresOf_Monster_ChooseRandomDirection
+	.long LDIFF_SYM2077
+	.long 0
+	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
+	.align 3
+Lfde94_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -39854,53 +44935,53 @@ Lfde83_end:
 	.asciz "TheAdventuresOf.Monster:Move"
 	.asciz "TheAdventuresOf_Monster_Move_Microsoft_Xna_Framework_GameTime_int"
 
-	.byte 14,150,1
+	.byte 14,165,2
 	.quad TheAdventuresOf_Monster_Move_Microsoft_Xna_Framework_GameTime_int
-	.quad Lme_54
+	.quad Lme_5f
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1991=LTDIE_153_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1991
+LDIFF_SYM2078=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2078
 	.byte 1,104,3
 	.asciz "gameTime"
 
-LDIFF_SYM1992=LTDIE_68_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1992
+LDIFF_SYM2079=LTDIE_68_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2079
 	.byte 3,141,192,0,3
 	.asciz "direction"
 
-LDIFF_SYM1993=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1993
+LDIFF_SYM2080=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2080
 	.byte 1,106,11
 	.asciz "distanceToMove"
 
-LDIFF_SYM1994=LDIE_R4 - Ldebug_info_start
-	.long LDIFF_SYM1994
+LDIFF_SYM2081=LDIE_R4 - Ldebug_info_start
+	.long LDIFF_SYM2081
 	.byte 3,141,240,0,11
 	.asciz "V_1"
 
-LDIFF_SYM1995=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM1995
+LDIFF_SYM2082=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2082
 	.byte 3,141,232,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM1996=Lfde84_end - Lfde84_start
-	.long LDIFF_SYM1996
-Lfde84_start:
+LDIFF_SYM2083=Lfde95_end - Lfde95_start
+	.long LDIFF_SYM2083
+Lfde95_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Monster_Move_Microsoft_Xna_Framework_GameTime_int
 
-LDIFF_SYM1997=Lme_54 - TheAdventuresOf_Monster_Move_Microsoft_Xna_Framework_GameTime_int
-	.long LDIFF_SYM1997
+LDIFF_SYM2084=Lme_5f - TheAdventuresOf_Monster_Move_Microsoft_Xna_Framework_GameTime_int
+	.long LDIFF_SYM2084
 	.long 0
 	.byte 12,31,0,68,14,160,1,157,20,158,19,68,13,29,68,148,18,149,17,68,150,16,151,15,68,152,14,68,154,13
 	.align 3
-Lfde84_end:
+Lfde95_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -39908,114 +44989,177 @@ Lfde84_end:
 	.asciz "TheAdventuresOf.Monster:Draw"
 	.asciz "TheAdventuresOf_Monster_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D"
 
-	.byte 14,166,1
+	.byte 14,181,2
 	.quad TheAdventuresOf_Monster_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
-	.quad Lme_55
+	.quad Lme_60
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM1998=LTDIE_153_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1998
+LDIFF_SYM2085=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2085
 	.byte 2,141,16,3
 	.asciz "spriteBatch"
 
-LDIFF_SYM1999=LTDIE_134_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM1999
+LDIFF_SYM2086=LTDIE_134_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2086
 	.byte 2,141,24,3
 	.asciz "texture"
 
-LDIFF_SYM2000=LTDIE_157_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2000
+LDIFF_SYM2087=LTDIE_159_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2087
 	.byte 2,141,32,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2001=Lfde85_end - Lfde85_start
-	.long LDIFF_SYM2001
-Lfde85_start:
+LDIFF_SYM2088=Lfde96_end - Lfde96_start
+	.long LDIFF_SYM2088
+Lfde96_start:
 
 	.long 0
 	.align 3
 	.quad TheAdventuresOf_Monster_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
 
-LDIFF_SYM2002=Lme_55 - TheAdventuresOf_Monster_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
-	.long LDIFF_SYM2002
+LDIFF_SYM2089=Lme_60 - TheAdventuresOf_Monster_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
+	.long LDIFF_SYM2089
 	.long 0
 	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29
 	.align 3
-Lfde85_end:
+Lfde96_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_219:
+
+	.byte 2
+	.asciz "TheAdventuresOf.Monster:reset"
+	.asciz "TheAdventuresOf_Monster_reset"
+
+	.byte 14,186,2
+	.quad TheAdventuresOf_Monster_reset
+	.quad Lme_61
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2090=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2090
+	.byte 1,106,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2091=Lfde97_end - Lfde97_start
+	.long LDIFF_SYM2091
+Lfde97_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Monster_reset
+
+LDIFF_SYM2092=Lme_61 - TheAdventuresOf_Monster_reset
+	.long LDIFF_SYM2092
+	.long 0
+	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
+	.align 3
+Lfde97_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "TheAdventuresOf.Monster:.cctor"
+	.asciz "TheAdventuresOf_Monster__cctor"
+
+	.byte 14,10
+	.quad TheAdventuresOf_Monster__cctor
+	.quad Lme_62
+
+	.byte 2,118,16,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2093=Lfde98_end - Lfde98_start
+	.long LDIFF_SYM2093
+Lfde98_start:
+
+	.long 0
+	.align 3
+	.quad TheAdventuresOf_Monster__cctor
+
+LDIFF_SYM2094=Lme_62 - TheAdventuresOf_Monster__cctor
+	.long LDIFF_SYM2094
+	.long 0
+	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
+	.align 3
+Lfde98_end:
+
+.section __DWARF, __debug_info,regular,debug
+LTDIE_220:
 
 	.byte 5
 	.asciz "System_Nullable`1"
 
 	.byte 84,16
-LDIFF_SYM2003=LTDIE_21 - Ldebug_info_start
-	.long LDIFF_SYM2003
+LDIFF_SYM2095=LTDIE_21 - Ldebug_info_start
+	.long LDIFF_SYM2095
 	.byte 2,35,0,6
 	.asciz "value"
 
-LDIFF_SYM2004=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2004
+LDIFF_SYM2096=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2096
 	.byte 2,35,16,6
 	.asciz "has_value"
 
-LDIFF_SYM2005=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM2005
+LDIFF_SYM2097=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM2097
 	.byte 2,35,80,0,7
 	.asciz "System_Nullable`1"
 
-LDIFF_SYM2006=LTDIE_219 - Ldebug_info_start
-	.long LDIFF_SYM2006
-LTDIE_219_POINTER:
+LDIFF_SYM2098=LTDIE_220 - Ldebug_info_start
+	.long LDIFF_SYM2098
+LTDIE_220_POINTER:
 
 	.byte 13
-LDIFF_SYM2007=LTDIE_219 - Ldebug_info_start
-	.long LDIFF_SYM2007
-LTDIE_219_REFERENCE:
+LDIFF_SYM2099=LTDIE_220 - Ldebug_info_start
+	.long LDIFF_SYM2099
+LTDIE_220_REFERENCE:
 
 	.byte 14
-LDIFF_SYM2008=LTDIE_219 - Ldebug_info_start
-	.long LDIFF_SYM2008
+LDIFF_SYM2100=LTDIE_220 - Ldebug_info_start
+	.long LDIFF_SYM2100
 	.byte 2
 	.asciz "System.Nullable`1<Microsoft.Xna.Framework.Matrix>:.ctor"
 	.asciz "System_Nullable_1_Microsoft_Xna_Framework_Matrix__ctor_Microsoft_Xna_Framework_Matrix"
 
 	.byte 15,94
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix__ctor_Microsoft_Xna_Framework_Matrix
-	.quad Lme_57
+	.quad Lme_64
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2009=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2009
+LDIFF_SYM2101=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2101
 	.byte 1,106,3
 	.asciz "value"
 
-LDIFF_SYM2010=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2010
+LDIFF_SYM2102=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2102
 	.byte 1,80,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2011=Lfde86_end - Lfde86_start
-	.long LDIFF_SYM2011
-Lfde86_start:
+LDIFF_SYM2103=Lfde99_end - Lfde99_start
+	.long LDIFF_SYM2103
+Lfde99_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix__ctor_Microsoft_Xna_Framework_Matrix
 
-LDIFF_SYM2012=Lme_57 - System_Nullable_1_Microsoft_Xna_Framework_Matrix__ctor_Microsoft_Xna_Framework_Matrix
-	.long LDIFF_SYM2012
+LDIFF_SYM2104=Lme_64 - System_Nullable_1_Microsoft_Xna_Framework_Matrix__ctor_Microsoft_Xna_Framework_Matrix
+	.long LDIFF_SYM2104
 	.long 0
 	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,154,14
 	.align 3
-Lfde86_end:
+Lfde99_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40025,31 +45169,31 @@ Lfde86_end:
 
 	.byte 15,99
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_get_HasValue
-	.quad Lme_58
+	.quad Lme_65
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2013=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2013
+LDIFF_SYM2105=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2105
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2014=Lfde87_end - Lfde87_start
-	.long LDIFF_SYM2014
-Lfde87_start:
+LDIFF_SYM2106=Lfde100_end - Lfde100_start
+	.long LDIFF_SYM2106
+Lfde100_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_get_HasValue
 
-LDIFF_SYM2015=Lme_58 - System_Nullable_1_Microsoft_Xna_Framework_Matrix_get_HasValue
-	.long LDIFF_SYM2015
+LDIFF_SYM2107=Lme_65 - System_Nullable_1_Microsoft_Xna_Framework_Matrix_get_HasValue
+	.long LDIFF_SYM2107
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
 	.align 3
-Lfde87_end:
+Lfde100_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40059,31 +45203,31 @@ Lfde87_end:
 
 	.byte 15,104
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_get_Value
-	.quad Lme_59
+	.quad Lme_66
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2016=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2016
+LDIFF_SYM2108=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2108
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2017=Lfde88_end - Lfde88_start
-	.long LDIFF_SYM2017
-Lfde88_start:
+LDIFF_SYM2109=Lfde101_end - Lfde101_start
+	.long LDIFF_SYM2109
+Lfde101_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_get_Value
 
-LDIFF_SYM2018=Lme_59 - System_Nullable_1_Microsoft_Xna_Framework_Matrix_get_Value
-	.long LDIFF_SYM2018
+LDIFF_SYM2110=Lme_66 - System_Nullable_1_Microsoft_Xna_Framework_Matrix_get_Value
+	.long LDIFF_SYM2110
 	.long 0
 	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,154,14
 	.align 3
-Lfde88_end:
+Lfde101_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40093,36 +45237,36 @@ Lfde88_end:
 
 	.byte 15,113
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_Equals_object
-	.quad Lme_5a
+	.quad Lme_67
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2019=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2019
+LDIFF_SYM2111=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2111
 	.byte 1,105,3
 	.asciz "other"
 
-LDIFF_SYM2020=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2020
+LDIFF_SYM2112=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2112
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2021=Lfde89_end - Lfde89_start
-	.long LDIFF_SYM2021
-Lfde89_start:
+LDIFF_SYM2113=Lfde102_end - Lfde102_start
+	.long LDIFF_SYM2113
+Lfde102_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_Equals_object
 
-LDIFF_SYM2022=Lme_5a - System_Nullable_1_Microsoft_Xna_Framework_Matrix_Equals_object
-	.long LDIFF_SYM2022
+LDIFF_SYM2114=Lme_67 - System_Nullable_1_Microsoft_Xna_Framework_Matrix_Equals_object
+	.long LDIFF_SYM2114
 	.long 0
 	.byte 12,31,0,68,14,240,1,157,30,158,29,68,13,29,68,151,28,152,27,68,153,26,154,25
 	.align 3
-Lfde89_end:
+Lfde102_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40132,36 +45276,36 @@ Lfde89_end:
 
 	.byte 15,123
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_Equals_System_Nullable_1_Microsoft_Xna_Framework_Matrix
-	.quad Lme_5b
+	.quad Lme_68
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2023=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2023
+LDIFF_SYM2115=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2115
 	.byte 1,106,3
 	.asciz "other"
 
-LDIFF_SYM2024=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2024
+LDIFF_SYM2116=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2116
 	.byte 1,80,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2025=Lfde90_end - Lfde90_start
-	.long LDIFF_SYM2025
-Lfde90_start:
+LDIFF_SYM2117=Lfde103_end - Lfde103_start
+	.long LDIFF_SYM2117
+Lfde103_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_Equals_System_Nullable_1_Microsoft_Xna_Framework_Matrix
 
-LDIFF_SYM2026=Lme_5b - System_Nullable_1_Microsoft_Xna_Framework_Matrix_Equals_System_Nullable_1_Microsoft_Xna_Framework_Matrix
-	.long LDIFF_SYM2026
+LDIFF_SYM2118=Lme_68 - System_Nullable_1_Microsoft_Xna_Framework_Matrix_Equals_System_Nullable_1_Microsoft_Xna_Framework_Matrix
+	.long LDIFF_SYM2118
 	.long 0
 	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,154,16
 	.align 3
-Lfde90_end:
+Lfde103_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40171,31 +45315,31 @@ Lfde90_end:
 
 	.byte 15,134,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetHashCode
-	.quad Lme_5c
+	.quad Lme_69
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2027=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2027
+LDIFF_SYM2119=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2119
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2028=Lfde91_end - Lfde91_start
-	.long LDIFF_SYM2028
-Lfde91_start:
+LDIFF_SYM2120=Lfde104_end - Lfde104_start
+	.long LDIFF_SYM2120
+Lfde104_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetHashCode
 
-LDIFF_SYM2029=Lme_5c - System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetHashCode
-	.long LDIFF_SYM2029
+LDIFF_SYM2121=Lme_69 - System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetHashCode
+	.long LDIFF_SYM2121
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
 	.align 3
-Lfde91_end:
+Lfde104_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40205,31 +45349,31 @@ Lfde91_end:
 
 	.byte 15,142,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetValueOrDefault
-	.quad Lme_5d
+	.quad Lme_6a
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2030=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2030
+LDIFF_SYM2122=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2122
 	.byte 2,141,24,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2031=Lfde92_end - Lfde92_start
-	.long LDIFF_SYM2031
-Lfde92_start:
+LDIFF_SYM2123=Lfde105_end - Lfde105_start
+	.long LDIFF_SYM2123
+Lfde105_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetValueOrDefault
 
-LDIFF_SYM2032=Lme_5d - System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetValueOrDefault
-	.long LDIFF_SYM2032
+LDIFF_SYM2124=Lme_6a - System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetValueOrDefault
+	.long LDIFF_SYM2124
 	.long 0
 	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29
 	.align 3
-Lfde92_end:
+Lfde105_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40239,36 +45383,36 @@ Lfde92_end:
 
 	.byte 15,147,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetValueOrDefault_Microsoft_Xna_Framework_Matrix
-	.quad Lme_5e
+	.quad Lme_6b
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2033=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2033
+LDIFF_SYM2125=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2125
 	.byte 1,106,3
 	.asciz "defaultValue"
 
-LDIFF_SYM2034=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2034
+LDIFF_SYM2126=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2126
 	.byte 1,80,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2035=Lfde93_end - Lfde93_start
-	.long LDIFF_SYM2035
-Lfde93_start:
+LDIFF_SYM2127=Lfde106_end - Lfde106_start
+	.long LDIFF_SYM2127
+Lfde106_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetValueOrDefault_Microsoft_Xna_Framework_Matrix
 
-LDIFF_SYM2036=Lme_5e - System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetValueOrDefault_Microsoft_Xna_Framework_Matrix
-	.long LDIFF_SYM2036
+LDIFF_SYM2128=Lme_6b - System_Nullable_1_Microsoft_Xna_Framework_Matrix_GetValueOrDefault_Microsoft_Xna_Framework_Matrix
+	.long LDIFF_SYM2128
 	.long 0
 	.byte 12,31,0,68,14,192,2,157,40,158,39,68,13,29,68,154,38
 	.align 3
-Lfde93_end:
+Lfde106_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40278,31 +45422,31 @@ Lfde93_end:
 
 	.byte 15,152,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_ToString
-	.quad Lme_5f
+	.quad Lme_6c
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2037=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2037
+LDIFF_SYM2129=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2129
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2038=Lfde94_end - Lfde94_start
-	.long LDIFF_SYM2038
-Lfde94_start:
+LDIFF_SYM2130=Lfde107_end - Lfde107_start
+	.long LDIFF_SYM2130
+Lfde107_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_ToString
 
-LDIFF_SYM2039=Lme_5f - System_Nullable_1_Microsoft_Xna_Framework_Matrix_ToString
-	.long LDIFF_SYM2039
+LDIFF_SYM2131=Lme_6c - System_Nullable_1_Microsoft_Xna_Framework_Matrix_ToString
+	.long LDIFF_SYM2131
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
 	.align 3
-Lfde94_end:
+Lfde107_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40312,31 +45456,31 @@ Lfde94_end:
 
 	.byte 15,177,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_Box_System_Nullable_1_Microsoft_Xna_Framework_Matrix
-	.quad Lme_60
+	.quad Lme_6d
 
 	.byte 2,118,16,3
 	.asciz "o"
 
-LDIFF_SYM2040=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2040
+LDIFF_SYM2132=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2132
 	.byte 1,80,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2041=Lfde95_end - Lfde95_start
-	.long LDIFF_SYM2041
-Lfde95_start:
+LDIFF_SYM2133=Lfde108_end - Lfde108_start
+	.long LDIFF_SYM2133
+Lfde108_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_Box_System_Nullable_1_Microsoft_Xna_Framework_Matrix
 
-LDIFF_SYM2042=Lme_60 - System_Nullable_1_Microsoft_Xna_Framework_Matrix_Box_System_Nullable_1_Microsoft_Xna_Framework_Matrix
-	.long LDIFF_SYM2042
+LDIFF_SYM2134=Lme_6d - System_Nullable_1_Microsoft_Xna_Framework_Matrix_Box_System_Nullable_1_Microsoft_Xna_Framework_Matrix
+	.long LDIFF_SYM2134
 	.long 0
 	.byte 12,31,0,68,14,112,157,14,158,13,68,13,29
 	.align 3
-Lfde95_end:
+Lfde108_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40346,36 +45490,36 @@ Lfde95_end:
 
 	.byte 15,185,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_Unbox_object
-	.quad Lme_61
+	.quad Lme_6e
 
 	.byte 2,118,16,3
 	.asciz "o"
 
-LDIFF_SYM2043=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2043
+LDIFF_SYM2135=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2135
 	.byte 1,106,11
 	.asciz ""
 
-LDIFF_SYM2044=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2044
+LDIFF_SYM2136=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2136
 	.byte 3,141,144,3,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2045=Lfde96_end - Lfde96_start
-	.long LDIFF_SYM2045
-Lfde96_start:
+LDIFF_SYM2137=Lfde109_end - Lfde109_start
+	.long LDIFF_SYM2137
+Lfde109_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Matrix_Unbox_object
 
-LDIFF_SYM2046=Lme_61 - System_Nullable_1_Microsoft_Xna_Framework_Matrix_Unbox_object
-	.long LDIFF_SYM2046
+LDIFF_SYM2138=Lme_6e - System_Nullable_1_Microsoft_Xna_Framework_Matrix_Unbox_object
+	.long LDIFF_SYM2138
 	.long 0
 	.byte 12,31,0,68,14,224,3,157,60,158,59,68,13,29,68,154,58
 	.align 3
-Lfde96_end:
+Lfde109_end:
 
 .section __DWARF, __debug_info,regular,debug
 LTDIE_221:
@@ -40384,301 +45528,54 @@ LTDIE_221:
 	.asciz "System_Array"
 
 	.byte 16,16
-LDIFF_SYM2047=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM2047
+LDIFF_SYM2139=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM2139
 	.byte 2,35,0,0,7
 	.asciz "System_Array"
 
-LDIFF_SYM2048=LTDIE_221 - Ldebug_info_start
-	.long LDIFF_SYM2048
+LDIFF_SYM2140=LTDIE_221 - Ldebug_info_start
+	.long LDIFF_SYM2140
 LTDIE_221_POINTER:
 
 	.byte 13
-LDIFF_SYM2049=LTDIE_221 - Ldebug_info_start
-	.long LDIFF_SYM2049
+LDIFF_SYM2141=LTDIE_221 - Ldebug_info_start
+	.long LDIFF_SYM2141
 LTDIE_221_REFERENCE:
 
 	.byte 14
-LDIFF_SYM2050=LTDIE_221 - Ldebug_info_start
-	.long LDIFF_SYM2050
-LTDIE_220:
-
-	.byte 5
-	.asciz "_InternalEnumerator`1"
-
-	.byte 32,16
-LDIFF_SYM2051=LTDIE_21 - Ldebug_info_start
-	.long LDIFF_SYM2051
-	.byte 2,35,0,6
-	.asciz "array"
-
-LDIFF_SYM2052=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2052
-	.byte 2,35,16,6
-	.asciz "idx"
-
-LDIFF_SYM2053=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2053
-	.byte 2,35,24,0,7
-	.asciz "_InternalEnumerator`1"
-
-LDIFF_SYM2054=LTDIE_220 - Ldebug_info_start
-	.long LDIFF_SYM2054
-LTDIE_220_POINTER:
-
-	.byte 13
-LDIFF_SYM2055=LTDIE_220 - Ldebug_info_start
-	.long LDIFF_SYM2055
-LTDIE_220_REFERENCE:
-
-	.byte 14
-LDIFF_SYM2056=LTDIE_220 - Ldebug_info_start
-	.long LDIFF_SYM2056
+LDIFF_SYM2142=LTDIE_221 - Ldebug_info_start
+	.long LDIFF_SYM2142
 	.byte 2
-	.asciz "System.Array/InternalEnumerator`1<Microsoft.Xna.Framework.Point>:.ctor"
-	.asciz "System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point__ctor_System_Array"
-
-	.byte 16,239,1
-	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point__ctor_System_Array
-	.quad Lme_63
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM2057=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2057
-	.byte 1,105,3
-	.asciz "array"
-
-LDIFF_SYM2058=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2058
-	.byte 2,141,24,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM2059=Lfde97_end - Lfde97_start
-	.long LDIFF_SYM2059
-Lfde97_start:
-
-	.long 0
-	.align 3
-	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point__ctor_System_Array
-
-LDIFF_SYM2060=Lme_63 - System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point__ctor_System_Array
-	.long LDIFF_SYM2060
-	.long 0
-	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,153,8
-	.align 3
-Lfde97_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "System.Array/InternalEnumerator`1<Microsoft.Xna.Framework.Point>:Dispose"
-	.asciz "System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_Dispose"
-
-	.byte 16,245,1
-	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_Dispose
-	.quad Lme_64
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM2061=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2061
-	.byte 2,141,16,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM2062=Lfde98_end - Lfde98_start
-	.long LDIFF_SYM2062
-Lfde98_start:
-
-	.long 0
-	.align 3
-	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_Dispose
-
-LDIFF_SYM2063=Lme_64 - System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_Dispose
-	.long LDIFF_SYM2063
-	.long 0
-	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
-	.align 3
-Lfde98_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "System.Array/InternalEnumerator`1<Microsoft.Xna.Framework.Point>:MoveNext"
-	.asciz "System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_MoveNext"
-
-	.byte 16,250,1
-	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_MoveNext
-	.quad Lme_65
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM2064=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2064
-	.byte 1,106,11
-	.asciz ""
-
-LDIFF_SYM2065=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2065
-	.byte 1,105,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM2066=Lfde99_end - Lfde99_start
-	.long LDIFF_SYM2066
-Lfde99_start:
-
-	.long 0
-	.align 3
-	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_MoveNext
-
-LDIFF_SYM2067=Lme_65 - System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_MoveNext
-	.long LDIFF_SYM2067
-	.long 0
-	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29,68,150,10,151,9,68,152,8,153,7,68,154,6
-	.align 3
-Lfde99_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "System.Array/InternalEnumerator`1<Microsoft.Xna.Framework.Point>:get_Current"
-	.asciz "System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_get_Current"
-
-	.byte 16,130,2
-	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_get_Current
-	.quad Lme_66
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM2068=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2068
-	.byte 1,106,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM2069=Lfde100_end - Lfde100_start
-	.long LDIFF_SYM2069
-Lfde100_start:
-
-	.long 0
-	.align 3
-	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_get_Current
-
-LDIFF_SYM2070=Lme_66 - System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_get_Current
-	.long LDIFF_SYM2070
-	.long 0
-	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29,68,154,10
-	.align 3
-Lfde100_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "System.Array/InternalEnumerator`1<Microsoft.Xna.Framework.Point>:System.Collections.IEnumerator.Reset"
-	.asciz "System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_Reset"
-
-	.byte 16,141,2
-	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_Reset
-	.quad Lme_67
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM2071=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2071
-	.byte 2,141,16,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM2072=Lfde101_end - Lfde101_start
-	.long LDIFF_SYM2072
-Lfde101_start:
-
-	.long 0
-	.align 3
-	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_Reset
-
-LDIFF_SYM2073=Lme_67 - System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_Reset
-	.long LDIFF_SYM2073
-	.long 0
-	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
-	.align 3
-Lfde101_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "System.Array/InternalEnumerator`1<Microsoft.Xna.Framework.Point>:System.Collections.IEnumerator.get_Current"
-	.asciz "System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_get_Current"
-
-	.byte 16,146,2
-	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_get_Current
-	.quad Lme_68
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM2074=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2074
-	.byte 2,141,16,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM2075=Lfde102_end - Lfde102_start
-	.long LDIFF_SYM2075
-Lfde102_start:
-
-	.long 0
-	.align 3
-	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_get_Current
-
-LDIFF_SYM2076=Lme_68 - System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_get_Current
-	.long LDIFF_SYM2076
-	.long 0
-	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
-	.align 3
-Lfde102_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "System.Array:InternalArray__IEnumerable_GetEnumerator<Microsoft.Xna.Framework.Point>"
-	.asciz "System_Array_InternalArray__IEnumerable_GetEnumerator_Microsoft_Xna_Framework_Point"
+	.asciz "System.Array:InternalArray__IEnumerable_GetEnumerator<T_REF>"
+	.asciz "System_Array_InternalArray__IEnumerable_GetEnumerator_T_REF"
 
 	.byte 16,78
-	.quad System_Array_InternalArray__IEnumerable_GetEnumerator_Microsoft_Xna_Framework_Point
-	.quad Lme_69
+	.quad System_Array_InternalArray__IEnumerable_GetEnumerator_T_REF
+	.quad Lme_6f
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2077=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2077
+LDIFF_SYM2143=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2143
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2078=Lfde103_end - Lfde103_start
-	.long LDIFF_SYM2078
-Lfde103_start:
+LDIFF_SYM2144=Lfde110_end - Lfde110_start
+	.long LDIFF_SYM2144
+Lfde110_start:
 
 	.long 0
 	.align 3
-	.quad System_Array_InternalArray__IEnumerable_GetEnumerator_Microsoft_Xna_Framework_Point
+	.quad System_Array_InternalArray__IEnumerable_GetEnumerator_T_REF
 
-LDIFF_SYM2079=Lme_69 - System_Array_InternalArray__IEnumerable_GetEnumerator_Microsoft_Xna_Framework_Point
-	.long LDIFF_SYM2079
+LDIFF_SYM2145=Lme_6f - System_Array_InternalArray__IEnumerable_GetEnumerator_T_REF
+	.long LDIFF_SYM2145
 	.long 0
-	.byte 12,31,0,68,14,112,157,14,158,13,68,13,29
+	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29
 	.align 3
-Lfde103_end:
+Lfde110_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40688,31 +45585,31 @@ Lfde103_end:
 
 	.byte 16,68
 	.quad System_Array_InternalArray__ICollection_get_Count
-	.quad Lme_71
+	.quad Lme_70
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2080=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2080
+LDIFF_SYM2146=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2146
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2081=Lfde104_end - Lfde104_start
-	.long LDIFF_SYM2081
-Lfde104_start:
+LDIFF_SYM2147=Lfde111_end - Lfde111_start
+	.long LDIFF_SYM2147
+Lfde111_start:
 
 	.long 0
 	.align 3
 	.quad System_Array_InternalArray__ICollection_get_Count
 
-LDIFF_SYM2082=Lme_71 - System_Array_InternalArray__ICollection_get_Count
-	.long LDIFF_SYM2082
+LDIFF_SYM2148=Lme_70 - System_Array_InternalArray__ICollection_get_Count
+	.long LDIFF_SYM2148
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
 	.align 3
-Lfde104_end:
+Lfde111_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40722,31 +45619,31 @@ Lfde104_end:
 
 	.byte 16,73
 	.quad System_Array_InternalArray__ICollection_get_IsReadOnly
-	.quad Lme_72
+	.quad Lme_71
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2083=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2083
+LDIFF_SYM2149=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2149
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2084=Lfde105_end - Lfde105_start
-	.long LDIFF_SYM2084
-Lfde105_start:
+LDIFF_SYM2150=Lfde112_end - Lfde112_start
+	.long LDIFF_SYM2150
+Lfde112_start:
 
 	.long 0
 	.align 3
 	.quad System_Array_InternalArray__ICollection_get_IsReadOnly
 
-LDIFF_SYM2085=Lme_72 - System_Array_InternalArray__ICollection_get_IsReadOnly
-	.long LDIFF_SYM2085
+LDIFF_SYM2151=Lme_71 - System_Array_InternalArray__ICollection_get_IsReadOnly
+	.long LDIFF_SYM2151
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
 	.align 3
-Lfde105_end:
+Lfde112_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40756,31 +45653,676 @@ Lfde105_end:
 
 	.byte 16,83
 	.quad System_Array_InternalArray__ICollection_Clear
-	.quad Lme_73
+	.quad Lme_72
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2086=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2086
+LDIFF_SYM2152=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2152
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2087=Lfde106_end - Lfde106_start
-	.long LDIFF_SYM2087
-Lfde106_start:
+LDIFF_SYM2153=Lfde113_end - Lfde113_start
+	.long LDIFF_SYM2153
+Lfde113_start:
 
 	.long 0
 	.align 3
 	.quad System_Array_InternalArray__ICollection_Clear
 
-LDIFF_SYM2088=Lme_73 - System_Array_InternalArray__ICollection_Clear
-	.long LDIFF_SYM2088
+LDIFF_SYM2154=Lme_72 - System_Array_InternalArray__ICollection_Clear
+	.long LDIFF_SYM2154
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
 	.align 3
-Lfde106_end:
+Lfde113_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "System.Array:InternalArray__ICollection_Add<T_REF>"
+	.asciz "System_Array_InternalArray__ICollection_Add_T_REF_T_REF"
+
+	.byte 16,88
+	.quad System_Array_InternalArray__ICollection_Add_T_REF_T_REF
+	.quad Lme_73
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2155=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2155
+	.byte 2,141,16,3
+	.asciz "item"
+
+LDIFF_SYM2156=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2156
+	.byte 2,141,24,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2157=Lfde114_end - Lfde114_start
+	.long LDIFF_SYM2157
+Lfde114_start:
+
+	.long 0
+	.align 3
+	.quad System_Array_InternalArray__ICollection_Add_T_REF_T_REF
+
+LDIFF_SYM2158=Lme_73 - System_Array_InternalArray__ICollection_Add_T_REF_T_REF
+	.long LDIFF_SYM2158
+	.long 0
+	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
+	.align 3
+Lfde114_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "System.Array:InternalArray__ICollection_Remove<T_REF>"
+	.asciz "System_Array_InternalArray__ICollection_Remove_T_REF_T_REF"
+
+	.byte 16,93
+	.quad System_Array_InternalArray__ICollection_Remove_T_REF_T_REF
+	.quad Lme_74
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2159=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2159
+	.byte 2,141,16,3
+	.asciz "item"
+
+LDIFF_SYM2160=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2160
+	.byte 2,141,24,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2161=Lfde115_end - Lfde115_start
+	.long LDIFF_SYM2161
+Lfde115_start:
+
+	.long 0
+	.align 3
+	.quad System_Array_InternalArray__ICollection_Remove_T_REF_T_REF
+
+LDIFF_SYM2162=Lme_74 - System_Array_InternalArray__ICollection_Remove_T_REF_T_REF
+	.long LDIFF_SYM2162
+	.long 0
+	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
+	.align 3
+Lfde115_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "System.Array:InternalArray__ICollection_Contains<T_REF>"
+	.asciz "System_Array_InternalArray__ICollection_Contains_T_REF_T_REF"
+
+	.byte 16,98
+	.quad System_Array_InternalArray__ICollection_Contains_T_REF_T_REF
+	.quad Lme_75
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2163=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2163
+	.byte 1,106,3
+	.asciz "item"
+
+LDIFF_SYM2164=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2164
+	.byte 2,141,40,11
+	.asciz "length"
+
+LDIFF_SYM2165=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2165
+	.byte 1,105,11
+	.asciz "i"
+
+LDIFF_SYM2166=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2166
+	.byte 1,104,11
+	.asciz "value"
+
+LDIFF_SYM2167=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2167
+	.byte 3,141,208,0,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2168=Lfde116_end - Lfde116_start
+	.long LDIFF_SYM2168
+Lfde116_start:
+
+	.long 0
+	.align 3
+	.quad System_Array_InternalArray__ICollection_Contains_T_REF_T_REF
+
+LDIFF_SYM2169=Lme_75 - System_Array_InternalArray__ICollection_Contains_T_REF_T_REF
+	.long LDIFF_SYM2169
+	.long 0
+	.byte 12,31,0,68,14,112,157,14,158,13,68,13,29,68,152,12,153,11,68,154,10
+	.align 3
+Lfde116_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "System.Array:InternalArray__ICollection_CopyTo<T_REF>"
+	.asciz "System_Array_InternalArray__ICollection_CopyTo_T_REF_T_REF___int"
+
+	.byte 16,123
+	.quad System_Array_InternalArray__ICollection_CopyTo_T_REF_T_REF___int
+	.quad Lme_76
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2170=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2170
+	.byte 1,104,3
+	.asciz "array"
+
+LDIFF_SYM2171=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM2171
+	.byte 1,105,3
+	.asciz "index"
+
+LDIFF_SYM2172=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2172
+	.byte 3,141,192,0,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2173=Lfde117_end - Lfde117_start
+	.long LDIFF_SYM2173
+Lfde117_start:
+
+	.long 0
+	.align 3
+	.quad System_Array_InternalArray__ICollection_CopyTo_T_REF_T_REF___int
+
+LDIFF_SYM2174=Lme_76 - System_Array_InternalArray__ICollection_CopyTo_T_REF_T_REF___int
+	.long LDIFF_SYM2174
+	.long 0
+	.byte 12,31,0,68,14,240,1,157,30,158,29,68,13,29,68,148,28,149,27,68,150,26,68,152,25,153,24,68,154,23
+	.align 3
+Lfde117_end:
+
+.section __DWARF, __debug_info,regular,debug
+LTDIE_222:
+
+	.byte 5
+	.asciz "System_Predicate`1"
+
+	.byte 112,16
+LDIFF_SYM2175=LTDIE_13 - Ldebug_info_start
+	.long LDIFF_SYM2175
+	.byte 2,35,0,0,7
+	.asciz "System_Predicate`1"
+
+LDIFF_SYM2176=LTDIE_222 - Ldebug_info_start
+	.long LDIFF_SYM2176
+LTDIE_222_POINTER:
+
+	.byte 13
+LDIFF_SYM2177=LTDIE_222 - Ldebug_info_start
+	.long LDIFF_SYM2177
+LTDIE_222_REFERENCE:
+
+	.byte 14
+LDIFF_SYM2178=LTDIE_222 - Ldebug_info_start
+	.long LDIFF_SYM2178
+	.byte 2
+	.asciz "(wrapper_delegate-invoke)_System.Predicate`1<TheAdventuresOf.Monster>:invoke_bool_T"
+	.asciz "wrapper_delegate_invoke_System_Predicate_1_TheAdventuresOf_Monster_invoke_bool_T_TheAdventuresOf_Monster"
+
+	.byte 0,0
+	.quad wrapper_delegate_invoke_System_Predicate_1_TheAdventuresOf_Monster_invoke_bool_T_TheAdventuresOf_Monster
+	.quad Lme_77
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2179=LTDIE_222_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2179
+	.byte 1,105,3
+	.asciz "param0"
+
+LDIFF_SYM2180=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2180
+	.byte 1,106,11
+	.asciz "V_0"
+
+LDIFF_SYM2181=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2181
+	.byte 1,104,11
+	.asciz "V_1"
+
+LDIFF_SYM2182=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2182
+	.byte 1,103,11
+	.asciz "V_2"
+
+LDIFF_SYM2183=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2183
+	.byte 1,102,11
+	.asciz "V_3"
+
+LDIFF_SYM2184=LTDIE_13_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2184
+	.byte 1,101,11
+	.asciz "V_4"
+
+LDIFF_SYM2185=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2185
+	.byte 1,100,11
+	.asciz "V_5"
+
+LDIFF_SYM2186=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM2186
+	.byte 1,99,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2187=Lfde118_end - Lfde118_start
+	.long LDIFF_SYM2187
+Lfde118_start:
+
+	.long 0
+	.align 3
+	.quad wrapper_delegate_invoke_System_Predicate_1_TheAdventuresOf_Monster_invoke_bool_T_TheAdventuresOf_Monster
+
+LDIFF_SYM2188=Lme_77 - wrapper_delegate_invoke_System_Predicate_1_TheAdventuresOf_Monster_invoke_bool_T_TheAdventuresOf_Monster
+	.long LDIFF_SYM2188
+	.long 0
+	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,147,16,148,15,68,149,14,150,13,68,151,12,152,11,68,153,10
+	.byte 154,9
+	.align 3
+Lfde118_end:
+
+.section __DWARF, __debug_info,regular,debug
+LTDIE_223:
+
+	.byte 5
+	.asciz "System_Comparison`1"
+
+	.byte 112,16
+LDIFF_SYM2189=LTDIE_13 - Ldebug_info_start
+	.long LDIFF_SYM2189
+	.byte 2,35,0,0,7
+	.asciz "System_Comparison`1"
+
+LDIFF_SYM2190=LTDIE_223 - Ldebug_info_start
+	.long LDIFF_SYM2190
+LTDIE_223_POINTER:
+
+	.byte 13
+LDIFF_SYM2191=LTDIE_223 - Ldebug_info_start
+	.long LDIFF_SYM2191
+LTDIE_223_REFERENCE:
+
+	.byte 14
+LDIFF_SYM2192=LTDIE_223 - Ldebug_info_start
+	.long LDIFF_SYM2192
+	.byte 2
+	.asciz "(wrapper_delegate-invoke)_System.Comparison`1<TheAdventuresOf.Monster>:invoke_int_T_T"
+	.asciz "wrapper_delegate_invoke_System_Comparison_1_TheAdventuresOf_Monster_invoke_int_T_T_TheAdventuresOf_Monster_TheAdventuresOf_Monster"
+
+	.byte 0,0
+	.quad wrapper_delegate_invoke_System_Comparison_1_TheAdventuresOf_Monster_invoke_int_T_T_TheAdventuresOf_Monster_TheAdventuresOf_Monster
+	.quad Lme_78
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2193=LTDIE_223_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2193
+	.byte 1,104,3
+	.asciz "param0"
+
+LDIFF_SYM2194=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2194
+	.byte 1,105,3
+	.asciz "param1"
+
+LDIFF_SYM2195=LTDIE_156_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2195
+	.byte 1,106,11
+	.asciz "V_0"
+
+LDIFF_SYM2196=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2196
+	.byte 1,103,11
+	.asciz "V_1"
+
+LDIFF_SYM2197=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2197
+	.byte 1,102,11
+	.asciz "V_2"
+
+LDIFF_SYM2198=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2198
+	.byte 1,101,11
+	.asciz "V_3"
+
+LDIFF_SYM2199=LTDIE_13_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2199
+	.byte 1,100,11
+	.asciz "V_4"
+
+LDIFF_SYM2200=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2200
+	.byte 1,99,11
+	.asciz "V_5"
+
+LDIFF_SYM2201=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2201
+	.byte 3,141,232,0,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2202=Lfde119_end - Lfde119_start
+	.long LDIFF_SYM2202
+Lfde119_start:
+
+	.long 0
+	.align 3
+	.quad wrapper_delegate_invoke_System_Comparison_1_TheAdventuresOf_Monster_invoke_int_T_T_TheAdventuresOf_Monster_TheAdventuresOf_Monster
+
+LDIFF_SYM2203=Lme_78 - wrapper_delegate_invoke_System_Comparison_1_TheAdventuresOf_Monster_invoke_int_T_T_TheAdventuresOf_Monster_TheAdventuresOf_Monster
+	.long LDIFF_SYM2203
+	.long 0
+	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,147,16,148,15,68,149,14,150,13,68,151,12,152,11,68,153,10
+	.byte 154,9
+	.align 3
+Lfde119_end:
+
+.section __DWARF, __debug_info,regular,debug
+LTDIE_224:
+
+	.byte 5
+	.asciz "_InternalEnumerator`1"
+
+	.byte 32,16
+LDIFF_SYM2204=LTDIE_21 - Ldebug_info_start
+	.long LDIFF_SYM2204
+	.byte 2,35,0,6
+	.asciz "array"
+
+LDIFF_SYM2205=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2205
+	.byte 2,35,16,6
+	.asciz "idx"
+
+LDIFF_SYM2206=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2206
+	.byte 2,35,24,0,7
+	.asciz "_InternalEnumerator`1"
+
+LDIFF_SYM2207=LTDIE_224 - Ldebug_info_start
+	.long LDIFF_SYM2207
+LTDIE_224_POINTER:
+
+	.byte 13
+LDIFF_SYM2208=LTDIE_224 - Ldebug_info_start
+	.long LDIFF_SYM2208
+LTDIE_224_REFERENCE:
+
+	.byte 14
+LDIFF_SYM2209=LTDIE_224 - Ldebug_info_start
+	.long LDIFF_SYM2209
+	.byte 2
+	.asciz "System.Array/InternalEnumerator`1<Microsoft.Xna.Framework.Point>:.ctor"
+	.asciz "System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point__ctor_System_Array"
+
+	.byte 16,239,1
+	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point__ctor_System_Array
+	.quad Lme_7a
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2210=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2210
+	.byte 1,105,3
+	.asciz "array"
+
+LDIFF_SYM2211=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2211
+	.byte 2,141,24,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2212=Lfde120_end - Lfde120_start
+	.long LDIFF_SYM2212
+Lfde120_start:
+
+	.long 0
+	.align 3
+	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point__ctor_System_Array
+
+LDIFF_SYM2213=Lme_7a - System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point__ctor_System_Array
+	.long LDIFF_SYM2213
+	.long 0
+	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,153,8
+	.align 3
+Lfde120_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "System.Array/InternalEnumerator`1<Microsoft.Xna.Framework.Point>:Dispose"
+	.asciz "System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_Dispose"
+
+	.byte 16,245,1
+	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_Dispose
+	.quad Lme_7b
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2214=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2214
+	.byte 2,141,16,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2215=Lfde121_end - Lfde121_start
+	.long LDIFF_SYM2215
+Lfde121_start:
+
+	.long 0
+	.align 3
+	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_Dispose
+
+LDIFF_SYM2216=Lme_7b - System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_Dispose
+	.long LDIFF_SYM2216
+	.long 0
+	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
+	.align 3
+Lfde121_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "System.Array/InternalEnumerator`1<Microsoft.Xna.Framework.Point>:MoveNext"
+	.asciz "System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_MoveNext"
+
+	.byte 16,250,1
+	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_MoveNext
+	.quad Lme_7c
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2217=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2217
+	.byte 1,106,11
+	.asciz ""
+
+LDIFF_SYM2218=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2218
+	.byte 1,105,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2219=Lfde122_end - Lfde122_start
+	.long LDIFF_SYM2219
+Lfde122_start:
+
+	.long 0
+	.align 3
+	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_MoveNext
+
+LDIFF_SYM2220=Lme_7c - System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_MoveNext
+	.long LDIFF_SYM2220
+	.long 0
+	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29,68,150,10,151,9,68,152,8,153,7,68,154,6
+	.align 3
+Lfde122_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "System.Array/InternalEnumerator`1<Microsoft.Xna.Framework.Point>:get_Current"
+	.asciz "System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_get_Current"
+
+	.byte 16,130,2
+	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_get_Current
+	.quad Lme_7d
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2221=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2221
+	.byte 1,106,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2222=Lfde123_end - Lfde123_start
+	.long LDIFF_SYM2222
+Lfde123_start:
+
+	.long 0
+	.align 3
+	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_get_Current
+
+LDIFF_SYM2223=Lme_7d - System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_get_Current
+	.long LDIFF_SYM2223
+	.long 0
+	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29,68,154,10
+	.align 3
+Lfde123_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "System.Array/InternalEnumerator`1<Microsoft.Xna.Framework.Point>:System.Collections.IEnumerator.Reset"
+	.asciz "System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_Reset"
+
+	.byte 16,141,2
+	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_Reset
+	.quad Lme_7e
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2224=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2224
+	.byte 2,141,16,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2225=Lfde124_end - Lfde124_start
+	.long LDIFF_SYM2225
+Lfde124_start:
+
+	.long 0
+	.align 3
+	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_Reset
+
+LDIFF_SYM2226=Lme_7e - System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_Reset
+	.long LDIFF_SYM2226
+	.long 0
+	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
+	.align 3
+Lfde124_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "System.Array/InternalEnumerator`1<Microsoft.Xna.Framework.Point>:System.Collections.IEnumerator.get_Current"
+	.asciz "System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_get_Current"
+
+	.byte 16,146,2
+	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_get_Current
+	.quad Lme_7f
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2227=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2227
+	.byte 2,141,16,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2228=Lfde125_end - Lfde125_start
+	.long LDIFF_SYM2228
+Lfde125_start:
+
+	.long 0
+	.align 3
+	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_get_Current
+
+LDIFF_SYM2229=Lme_7f - System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point_System_Collections_IEnumerator_get_Current
+	.long LDIFF_SYM2229
+	.long 0
+	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
+	.align 3
+Lfde125_end:
+
+.section __DWARF, __debug_info,regular,debug
+
+	.byte 2
+	.asciz "System.Array:InternalArray__IEnumerable_GetEnumerator<Microsoft.Xna.Framework.Point>"
+	.asciz "System_Array_InternalArray__IEnumerable_GetEnumerator_Microsoft_Xna_Framework_Point"
+
+	.byte 16,78
+	.quad System_Array_InternalArray__IEnumerable_GetEnumerator_Microsoft_Xna_Framework_Point
+	.quad Lme_80
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2230=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2230
+	.byte 2,141,16,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2231=Lfde126_end - Lfde126_start
+	.long LDIFF_SYM2231
+Lfde126_start:
+
+	.long 0
+	.align 3
+	.quad System_Array_InternalArray__IEnumerable_GetEnumerator_Microsoft_Xna_Framework_Point
+
+LDIFF_SYM2232=Lme_80 - System_Array_InternalArray__IEnumerable_GetEnumerator_Microsoft_Xna_Framework_Point
+	.long LDIFF_SYM2232
+	.long 0
+	.byte 12,31,0,68,14,112,157,14,158,13,68,13,29
+	.align 3
+Lfde126_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40790,36 +46332,36 @@ Lfde106_end:
 
 	.byte 16,88
 	.quad System_Array_InternalArray__ICollection_Add_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
-	.quad Lme_74
+	.quad Lme_88
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2089=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2089
+LDIFF_SYM2233=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2233
 	.byte 2,141,16,3
 	.asciz "item"
 
-LDIFF_SYM2090=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2090
+LDIFF_SYM2234=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2234
 	.byte 2,141,24,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2091=Lfde107_end - Lfde107_start
-	.long LDIFF_SYM2091
-Lfde107_start:
+LDIFF_SYM2235=Lfde127_end - Lfde127_start
+	.long LDIFF_SYM2235
+Lfde127_start:
 
 	.long 0
 	.align 3
 	.quad System_Array_InternalArray__ICollection_Add_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
 
-LDIFF_SYM2092=Lme_74 - System_Array_InternalArray__ICollection_Add_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
-	.long LDIFF_SYM2092
+LDIFF_SYM2236=Lme_88 - System_Array_InternalArray__ICollection_Add_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
+	.long LDIFF_SYM2236
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
 	.align 3
-Lfde107_end:
+Lfde127_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40829,36 +46371,36 @@ Lfde107_end:
 
 	.byte 16,93
 	.quad System_Array_InternalArray__ICollection_Remove_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
-	.quad Lme_75
+	.quad Lme_89
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2093=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2093
+LDIFF_SYM2237=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2237
 	.byte 2,141,16,3
 	.asciz "item"
 
-LDIFF_SYM2094=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2094
+LDIFF_SYM2238=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2238
 	.byte 2,141,24,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2095=Lfde108_end - Lfde108_start
-	.long LDIFF_SYM2095
-Lfde108_start:
+LDIFF_SYM2239=Lfde128_end - Lfde128_start
+	.long LDIFF_SYM2239
+Lfde128_start:
 
 	.long 0
 	.align 3
 	.quad System_Array_InternalArray__ICollection_Remove_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
 
-LDIFF_SYM2096=Lme_75 - System_Array_InternalArray__ICollection_Remove_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
-	.long LDIFF_SYM2096
+LDIFF_SYM2240=Lme_89 - System_Array_InternalArray__ICollection_Remove_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
+	.long LDIFF_SYM2240
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
 	.align 3
-Lfde108_end:
+Lfde128_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40868,51 +46410,51 @@ Lfde108_end:
 
 	.byte 16,98
 	.quad System_Array_InternalArray__ICollection_Contains_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
-	.quad Lme_76
+	.quad Lme_8a
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2097=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2097
+LDIFF_SYM2241=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2241
 	.byte 1,106,3
 	.asciz "item"
 
-LDIFF_SYM2098=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2098
+LDIFF_SYM2242=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2242
 	.byte 2,141,40,11
 	.asciz "length"
 
-LDIFF_SYM2099=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2099
+LDIFF_SYM2243=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2243
 	.byte 1,105,11
 	.asciz "i"
 
-LDIFF_SYM2100=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2100
+LDIFF_SYM2244=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2244
 	.byte 1,104,11
 	.asciz "value"
 
-LDIFF_SYM2101=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2101
+LDIFF_SYM2245=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2245
 	.byte 3,141,240,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2102=Lfde109_end - Lfde109_start
-	.long LDIFF_SYM2102
-Lfde109_start:
+LDIFF_SYM2246=Lfde129_end - Lfde129_start
+	.long LDIFF_SYM2246
+Lfde129_start:
 
 	.long 0
 	.align 3
 	.quad System_Array_InternalArray__ICollection_Contains_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
 
-LDIFF_SYM2103=Lme_76 - System_Array_InternalArray__ICollection_Contains_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
-	.long LDIFF_SYM2103
+LDIFF_SYM2247=Lme_8a - System_Array_InternalArray__ICollection_Contains_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
+	.long LDIFF_SYM2247
 	.long 0
 	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,152,16,153,15,68,154,14
 	.align 3
-Lfde109_end:
+Lfde129_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -40922,97 +46464,97 @@ Lfde109_end:
 
 	.byte 16,123
 	.quad System_Array_InternalArray__ICollection_CopyTo_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point___int
-	.quad Lme_77
+	.quad Lme_8b
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2104=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2104
+LDIFF_SYM2248=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2248
 	.byte 1,104,3
 	.asciz "array"
 
-LDIFF_SYM2105=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM2105
+LDIFF_SYM2249=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM2249
 	.byte 1,105,3
 	.asciz "index"
 
-LDIFF_SYM2106=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2106
+LDIFF_SYM2250=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2250
 	.byte 3,141,192,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2107=Lfde110_end - Lfde110_start
-	.long LDIFF_SYM2107
-Lfde110_start:
+LDIFF_SYM2251=Lfde130_end - Lfde130_start
+	.long LDIFF_SYM2251
+Lfde130_start:
 
 	.long 0
 	.align 3
 	.quad System_Array_InternalArray__ICollection_CopyTo_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point___int
 
-LDIFF_SYM2108=Lme_77 - System_Array_InternalArray__ICollection_CopyTo_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point___int
-	.long LDIFF_SYM2108
+LDIFF_SYM2252=Lme_8b - System_Array_InternalArray__ICollection_CopyTo_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point___int
+	.long LDIFF_SYM2252
 	.long 0
 	.byte 12,31,0,68,14,224,1,157,28,158,27,68,13,29,68,148,26,149,25,68,150,24,68,152,23,153,22,68,154,21
 	.align 3
-Lfde110_end:
+Lfde130_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_222:
+LTDIE_225:
 
 	.byte 5
 	.asciz "System_Collections_Generic_EqualityComparer`1"
 
 	.byte 16,16
-LDIFF_SYM2109=LTDIE_3 - Ldebug_info_start
-	.long LDIFF_SYM2109
+LDIFF_SYM2253=LTDIE_3 - Ldebug_info_start
+	.long LDIFF_SYM2253
 	.byte 2,35,0,0,7
 	.asciz "System_Collections_Generic_EqualityComparer`1"
 
-LDIFF_SYM2110=LTDIE_222 - Ldebug_info_start
-	.long LDIFF_SYM2110
-LTDIE_222_POINTER:
+LDIFF_SYM2254=LTDIE_225 - Ldebug_info_start
+	.long LDIFF_SYM2254
+LTDIE_225_POINTER:
 
 	.byte 13
-LDIFF_SYM2111=LTDIE_222 - Ldebug_info_start
-	.long LDIFF_SYM2111
-LTDIE_222_REFERENCE:
+LDIFF_SYM2255=LTDIE_225 - Ldebug_info_start
+	.long LDIFF_SYM2255
+LTDIE_225_REFERENCE:
 
 	.byte 14
-LDIFF_SYM2112=LTDIE_222 - Ldebug_info_start
-	.long LDIFF_SYM2112
+LDIFF_SYM2256=LTDIE_225 - Ldebug_info_start
+	.long LDIFF_SYM2256
 	.byte 2
 	.asciz "System.Collections.Generic.EqualityComparer`1<Microsoft.Xna.Framework.Point>:.ctor"
 	.asciz "System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point__ctor"
 
 	.byte 0,0
 	.quad System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
-	.quad Lme_79
+	.quad Lme_8d
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2113=LTDIE_222_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2113
+LDIFF_SYM2257=LTDIE_225_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2257
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2114=Lfde111_end - Lfde111_start
-	.long LDIFF_SYM2114
-Lfde111_start:
+LDIFF_SYM2258=Lfde131_end - Lfde131_start
+	.long LDIFF_SYM2258
+Lfde131_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
 
-LDIFF_SYM2115=Lme_79 - System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
-	.long LDIFF_SYM2115
+LDIFF_SYM2259=Lme_8d - System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
+	.long LDIFF_SYM2259
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
 	.align 3
-Lfde111_end:
+Lfde131_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -41022,143 +46564,143 @@ Lfde111_end:
 
 	.byte 17,32
 	.quad System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_get_Default
-	.quad Lme_7a
+	.quad Lme_8e
 
 	.byte 2,118,16,11
 	.asciz "comparer"
 
-LDIFF_SYM2116=LTDIE_222_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2116
+LDIFF_SYM2260=LTDIE_225_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2260
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2117=Lfde112_end - Lfde112_start
-	.long LDIFF_SYM2117
-Lfde112_start:
+LDIFF_SYM2261=Lfde132_end - Lfde132_start
+	.long LDIFF_SYM2261
+Lfde132_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_get_Default
 
-LDIFF_SYM2118=Lme_7a - System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_get_Default
-	.long LDIFF_SYM2118
+LDIFF_SYM2262=Lme_8e - System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_get_Default
+	.long LDIFF_SYM2262
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,154,8
 	.align 3
-Lfde112_end:
+Lfde132_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_224:
+LTDIE_227:
 
 	.byte 5
 	.asciz "System_Reflection_TypeInfo"
 
 	.byte 24,16
-LDIFF_SYM2119=LTDIE_19 - Ldebug_info_start
-	.long LDIFF_SYM2119
+LDIFF_SYM2263=LTDIE_19 - Ldebug_info_start
+	.long LDIFF_SYM2263
 	.byte 2,35,0,0,7
 	.asciz "System_Reflection_TypeInfo"
 
-LDIFF_SYM2120=LTDIE_224 - Ldebug_info_start
-	.long LDIFF_SYM2120
-LTDIE_224_POINTER:
+LDIFF_SYM2264=LTDIE_227 - Ldebug_info_start
+	.long LDIFF_SYM2264
+LTDIE_227_POINTER:
 
 	.byte 13
-LDIFF_SYM2121=LTDIE_224 - Ldebug_info_start
-	.long LDIFF_SYM2121
-LTDIE_224_REFERENCE:
+LDIFF_SYM2265=LTDIE_227 - Ldebug_info_start
+	.long LDIFF_SYM2265
+LTDIE_227_REFERENCE:
 
 	.byte 14
-LDIFF_SYM2122=LTDIE_224 - Ldebug_info_start
-	.long LDIFF_SYM2122
+LDIFF_SYM2266=LTDIE_227 - Ldebug_info_start
+	.long LDIFF_SYM2266
+LTDIE_229:
+
+	.byte 5
+	.asciz "System_Reflection_ConstructorInfo"
+
+	.byte 16,16
+LDIFF_SYM2267=LTDIE_16 - Ldebug_info_start
+	.long LDIFF_SYM2267
+	.byte 2,35,0,0,7
+	.asciz "System_Reflection_ConstructorInfo"
+
+LDIFF_SYM2268=LTDIE_229 - Ldebug_info_start
+	.long LDIFF_SYM2268
+LTDIE_229_POINTER:
+
+	.byte 13
+LDIFF_SYM2269=LTDIE_229 - Ldebug_info_start
+	.long LDIFF_SYM2269
+LTDIE_229_REFERENCE:
+
+	.byte 14
+LDIFF_SYM2270=LTDIE_229 - Ldebug_info_start
+	.long LDIFF_SYM2270
+LTDIE_228:
+
+	.byte 5
+	.asciz "System_Reflection_RuntimeConstructorInfo"
+
+	.byte 16,16
+LDIFF_SYM2271=LTDIE_229 - Ldebug_info_start
+	.long LDIFF_SYM2271
+	.byte 2,35,0,0,7
+	.asciz "System_Reflection_RuntimeConstructorInfo"
+
+LDIFF_SYM2272=LTDIE_228 - Ldebug_info_start
+	.long LDIFF_SYM2272
+LTDIE_228_POINTER:
+
+	.byte 13
+LDIFF_SYM2273=LTDIE_228 - Ldebug_info_start
+	.long LDIFF_SYM2273
+LTDIE_228_REFERENCE:
+
+	.byte 14
+LDIFF_SYM2274=LTDIE_228 - Ldebug_info_start
+	.long LDIFF_SYM2274
 LTDIE_226:
-
-	.byte 5
-	.asciz "System_Reflection_ConstructorInfo"
-
-	.byte 16,16
-LDIFF_SYM2123=LTDIE_16 - Ldebug_info_start
-	.long LDIFF_SYM2123
-	.byte 2,35,0,0,7
-	.asciz "System_Reflection_ConstructorInfo"
-
-LDIFF_SYM2124=LTDIE_226 - Ldebug_info_start
-	.long LDIFF_SYM2124
-LTDIE_226_POINTER:
-
-	.byte 13
-LDIFF_SYM2125=LTDIE_226 - Ldebug_info_start
-	.long LDIFF_SYM2125
-LTDIE_226_REFERENCE:
-
-	.byte 14
-LDIFF_SYM2126=LTDIE_226 - Ldebug_info_start
-	.long LDIFF_SYM2126
-LTDIE_225:
-
-	.byte 5
-	.asciz "System_Reflection_RuntimeConstructorInfo"
-
-	.byte 16,16
-LDIFF_SYM2127=LTDIE_226 - Ldebug_info_start
-	.long LDIFF_SYM2127
-	.byte 2,35,0,0,7
-	.asciz "System_Reflection_RuntimeConstructorInfo"
-
-LDIFF_SYM2128=LTDIE_225 - Ldebug_info_start
-	.long LDIFF_SYM2128
-LTDIE_225_POINTER:
-
-	.byte 13
-LDIFF_SYM2129=LTDIE_225 - Ldebug_info_start
-	.long LDIFF_SYM2129
-LTDIE_225_REFERENCE:
-
-	.byte 14
-LDIFF_SYM2130=LTDIE_225 - Ldebug_info_start
-	.long LDIFF_SYM2130
-LTDIE_223:
 
 	.byte 5
 	.asciz "System_RuntimeType"
 
 	.byte 40,16
-LDIFF_SYM2131=LTDIE_224 - Ldebug_info_start
-	.long LDIFF_SYM2131
+LDIFF_SYM2275=LTDIE_227 - Ldebug_info_start
+	.long LDIFF_SYM2275
 	.byte 2,35,0,6
 	.asciz "GenericCache"
 
-LDIFF_SYM2132=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2132
+LDIFF_SYM2276=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2276
 	.byte 2,35,24,6
 	.asciz "m_serializationCtor"
 
-LDIFF_SYM2133=LTDIE_225_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2133
+LDIFF_SYM2277=LTDIE_228_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2277
 	.byte 2,35,32,0,7
 	.asciz "System_RuntimeType"
 
-LDIFF_SYM2134=LTDIE_223 - Ldebug_info_start
-	.long LDIFF_SYM2134
-LTDIE_223_POINTER:
+LDIFF_SYM2278=LTDIE_226 - Ldebug_info_start
+	.long LDIFF_SYM2278
+LTDIE_226_POINTER:
 
 	.byte 13
-LDIFF_SYM2135=LTDIE_223 - Ldebug_info_start
-	.long LDIFF_SYM2135
-LTDIE_223_REFERENCE:
+LDIFF_SYM2279=LTDIE_226 - Ldebug_info_start
+	.long LDIFF_SYM2279
+LTDIE_226_REFERENCE:
 
 	.byte 14
-LDIFF_SYM2136=LTDIE_223 - Ldebug_info_start
-	.long LDIFF_SYM2136
-LTDIE_227:
+LDIFF_SYM2280=LTDIE_226 - Ldebug_info_start
+	.long LDIFF_SYM2280
+LTDIE_230:
 
 	.byte 8
 	.asciz "System_TypeCode"
 
 	.byte 4
-LDIFF_SYM2137=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2137
+LDIFF_SYM2281=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2281
 	.byte 9
 	.asciz "Empty"
 
@@ -41216,60 +46758,60 @@ LDIFF_SYM2137=LDIE_I4 - Ldebug_info_start
 	.byte 18,0,7
 	.asciz "System_TypeCode"
 
-LDIFF_SYM2138=LTDIE_227 - Ldebug_info_start
-	.long LDIFF_SYM2138
-LTDIE_227_POINTER:
+LDIFF_SYM2282=LTDIE_230 - Ldebug_info_start
+	.long LDIFF_SYM2282
+LTDIE_230_POINTER:
 
 	.byte 13
-LDIFF_SYM2139=LTDIE_227 - Ldebug_info_start
-	.long LDIFF_SYM2139
-LTDIE_227_REFERENCE:
+LDIFF_SYM2283=LTDIE_230 - Ldebug_info_start
+	.long LDIFF_SYM2283
+LTDIE_230_REFERENCE:
 
 	.byte 14
-LDIFF_SYM2140=LTDIE_227 - Ldebug_info_start
-	.long LDIFF_SYM2140
+LDIFF_SYM2284=LTDIE_230 - Ldebug_info_start
+	.long LDIFF_SYM2284
 	.byte 2
 	.asciz "System.Collections.Generic.EqualityComparer`1<Microsoft.Xna.Framework.Point>:CreateComparer"
 	.asciz "System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_CreateComparer"
 
 	.byte 17,49
 	.quad System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_CreateComparer
-	.quad Lme_7b
+	.quad Lme_8f
 
 	.byte 2,118,16,11
 	.asciz "t"
 
-LDIFF_SYM2141=LTDIE_223_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2141
+LDIFF_SYM2285=LTDIE_226_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2285
 	.byte 1,106,11
 	.asciz "u"
 
-LDIFF_SYM2142=LTDIE_223_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2142
+LDIFF_SYM2286=LTDIE_226_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2286
 	.byte 1,105,11
 	.asciz "underlyingTypeCode"
 
-LDIFF_SYM2143=LTDIE_227 - Ldebug_info_start
-	.long LDIFF_SYM2143
+LDIFF_SYM2287=LTDIE_230 - Ldebug_info_start
+	.long LDIFF_SYM2287
 	.byte 1,104,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2144=Lfde113_end - Lfde113_start
-	.long LDIFF_SYM2144
-Lfde113_start:
+LDIFF_SYM2288=Lfde133_end - Lfde133_start
+	.long LDIFF_SYM2288
+Lfde133_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_CreateComparer
 
-LDIFF_SYM2145=Lme_7b - System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_CreateComparer
-	.long LDIFF_SYM2145
+LDIFF_SYM2289=Lme_8f - System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_CreateComparer
+	.long LDIFF_SYM2289
 	.long 0
 	.byte 12,31,0,68,14,192,1,157,24,158,23,68,13,29,68,147,22,148,21,68,149,20,150,19,68,151,18,152,17,68,153,16
 	.byte 154,15
 	.align 3
-Lfde113_end:
+Lfde133_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -41279,61 +46821,61 @@ Lfde113_end:
 
 	.byte 17,129,1
 	.quad System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_IndexOf_Microsoft_Xna_Framework_Point___Microsoft_Xna_Framework_Point_int_int
-	.quad Lme_7e
+	.quad Lme_92
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2146=LTDIE_222_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2146
+LDIFF_SYM2290=LTDIE_225_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2290
 	.byte 1,103,3
 	.asciz "array"
 
-LDIFF_SYM2147=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM2147
+LDIFF_SYM2291=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM2291
 	.byte 1,104,3
 	.asciz "value"
 
-LDIFF_SYM2148=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2148
+LDIFF_SYM2292=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2292
 	.byte 2,141,56,3
 	.asciz "startIndex"
 
-LDIFF_SYM2149=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2149
+LDIFF_SYM2293=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2293
 	.byte 1,105,3
 	.asciz "count"
 
-LDIFF_SYM2150=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2150
+LDIFF_SYM2294=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2294
 	.byte 3,141,200,0,11
 	.asciz "endIndex"
 
-LDIFF_SYM2151=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2151
+LDIFF_SYM2295=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2295
 	.byte 1,102,11
 	.asciz "i"
 
-LDIFF_SYM2152=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2152
+LDIFF_SYM2296=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2296
 	.byte 1,101,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2153=Lfde114_end - Lfde114_start
-	.long LDIFF_SYM2153
-Lfde114_start:
+LDIFF_SYM2297=Lfde134_end - Lfde134_start
+	.long LDIFF_SYM2297
+Lfde134_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_IndexOf_Microsoft_Xna_Framework_Point___Microsoft_Xna_Framework_Point_int_int
 
-LDIFF_SYM2154=Lme_7e - System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_IndexOf_Microsoft_Xna_Framework_Point___Microsoft_Xna_Framework_Point_int_int
-	.long LDIFF_SYM2154
+LDIFF_SYM2298=Lme_92 - System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_IndexOf_Microsoft_Xna_Framework_Point___Microsoft_Xna_Framework_Point_int_int
+	.long LDIFF_SYM2298
 	.long 0
 	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,149,16,150,15,68,151,14,152,13,68,153,12
 	.align 3
-Lfde114_end:
+Lfde134_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -41343,36 +46885,36 @@ Lfde114_end:
 
 	.byte 17,145,1
 	.quad System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_System_Collections_IEqualityComparer_GetHashCode_object
-	.quad Lme_7f
+	.quad Lme_93
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2155=LTDIE_222_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2155
+LDIFF_SYM2299=LTDIE_225_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2299
 	.byte 2,141,40,3
 	.asciz "obj"
 
-LDIFF_SYM2156=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2156
+LDIFF_SYM2300=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2300
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2157=Lfde115_end - Lfde115_start
-	.long LDIFF_SYM2157
-Lfde115_start:
+LDIFF_SYM2301=Lfde135_end - Lfde135_start
+	.long LDIFF_SYM2301
+Lfde135_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_System_Collections_IEqualityComparer_GetHashCode_object
 
-LDIFF_SYM2158=Lme_7f - System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_System_Collections_IEqualityComparer_GetHashCode_object
-	.long LDIFF_SYM2158
+LDIFF_SYM2302=Lme_93 - System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_System_Collections_IEqualityComparer_GetHashCode_object
+	.long LDIFF_SYM2302
 	.long 0
 	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29,68,151,10,152,9,68,154,8
 	.align 3
-Lfde115_end:
+Lfde135_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -41382,97 +46924,97 @@ Lfde115_end:
 
 	.byte 17,152,1
 	.quad System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_System_Collections_IEqualityComparer_Equals_object_object
-	.quad Lme_80
+	.quad Lme_94
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2159=LTDIE_222_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2159
+LDIFF_SYM2303=LTDIE_225_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2303
 	.byte 3,141,192,0,3
 	.asciz "x"
 
-LDIFF_SYM2160=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2160
+LDIFF_SYM2304=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2304
 	.byte 1,105,3
 	.asciz "y"
 
-LDIFF_SYM2161=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2161
+LDIFF_SYM2305=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2305
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2162=Lfde116_end - Lfde116_start
-	.long LDIFF_SYM2162
-Lfde116_start:
+LDIFF_SYM2306=Lfde136_end - Lfde136_start
+	.long LDIFF_SYM2306
+Lfde136_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_System_Collections_IEqualityComparer_Equals_object_object
 
-LDIFF_SYM2163=Lme_80 - System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_System_Collections_IEqualityComparer_Equals_object_object
-	.long LDIFF_SYM2163
+LDIFF_SYM2307=Lme_94 - System_Collections_Generic_EqualityComparer_1_Microsoft_Xna_Framework_Point_System_Collections_IEqualityComparer_Equals_object_object
+	.long LDIFF_SYM2307
 	.long 0
 	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,148,14,149,13,68,150,12,151,11,68,153,10,154,9
 	.align 3
-Lfde116_end:
+Lfde136_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_228:
+LTDIE_231:
 
 	.byte 5
 	.asciz "System_Collections_Generic_GenericEqualityComparer`1"
 
 	.byte 16,16
-LDIFF_SYM2164=LTDIE_222 - Ldebug_info_start
-	.long LDIFF_SYM2164
+LDIFF_SYM2308=LTDIE_225 - Ldebug_info_start
+	.long LDIFF_SYM2308
 	.byte 2,35,0,0,7
 	.asciz "System_Collections_Generic_GenericEqualityComparer`1"
 
-LDIFF_SYM2165=LTDIE_228 - Ldebug_info_start
-	.long LDIFF_SYM2165
-LTDIE_228_POINTER:
+LDIFF_SYM2309=LTDIE_231 - Ldebug_info_start
+	.long LDIFF_SYM2309
+LTDIE_231_POINTER:
 
 	.byte 13
-LDIFF_SYM2166=LTDIE_228 - Ldebug_info_start
-	.long LDIFF_SYM2166
-LTDIE_228_REFERENCE:
+LDIFF_SYM2310=LTDIE_231 - Ldebug_info_start
+	.long LDIFF_SYM2310
+LTDIE_231_REFERENCE:
 
 	.byte 14
-LDIFF_SYM2167=LTDIE_228 - Ldebug_info_start
-	.long LDIFF_SYM2167
+LDIFF_SYM2311=LTDIE_231 - Ldebug_info_start
+	.long LDIFF_SYM2311
 	.byte 2
 	.asciz "System.Collections.Generic.GenericEqualityComparer`1<Microsoft.Xna.Framework.Point>:.ctor"
 	.asciz "System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor"
 
 	.byte 0,0
 	.quad System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
-	.quad Lme_81
+	.quad Lme_95
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2168=LTDIE_228_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2168
+LDIFF_SYM2312=LTDIE_231_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2312
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2169=Lfde117_end - Lfde117_start
-	.long LDIFF_SYM2169
-Lfde117_start:
+LDIFF_SYM2313=Lfde137_end - Lfde137_start
+	.long LDIFF_SYM2313
+Lfde137_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
 
-LDIFF_SYM2170=Lme_81 - System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
-	.long LDIFF_SYM2170
+LDIFF_SYM2314=Lme_95 - System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
+	.long LDIFF_SYM2314
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
 	.align 3
-Lfde117_end:
+Lfde137_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -41482,41 +47024,41 @@ Lfde117_end:
 
 	.byte 17,167,1
 	.quad System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
-	.quad Lme_82
+	.quad Lme_96
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2171=LTDIE_228_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2171
+LDIFF_SYM2315=LTDIE_231_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2315
 	.byte 2,141,16,3
 	.asciz "x"
 
-LDIFF_SYM2172=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2172
+LDIFF_SYM2316=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2316
 	.byte 2,141,24,3
 	.asciz "y"
 
-LDIFF_SYM2173=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2173
+LDIFF_SYM2317=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2317
 	.byte 2,141,40,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2174=Lfde118_end - Lfde118_start
-	.long LDIFF_SYM2174
-Lfde118_start:
+LDIFF_SYM2318=Lfde138_end - Lfde138_start
+	.long LDIFF_SYM2318
+Lfde138_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
 
-LDIFF_SYM2175=Lme_82 - System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
-	.long LDIFF_SYM2175
+LDIFF_SYM2319=Lme_96 - System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
+	.long LDIFF_SYM2319
 	.long 0
 	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29
 	.align 3
-Lfde118_end:
+Lfde138_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -41526,36 +47068,36 @@ Lfde118_end:
 
 	.byte 17,177,1
 	.quad System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode_Microsoft_Xna_Framework_Point
-	.quad Lme_83
+	.quad Lme_97
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2176=LTDIE_228_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2176
+LDIFF_SYM2320=LTDIE_231_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2320
 	.byte 2,141,16,3
 	.asciz "obj"
 
-LDIFF_SYM2177=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2177
+LDIFF_SYM2321=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2321
 	.byte 2,141,24,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2178=Lfde119_end - Lfde119_start
-	.long LDIFF_SYM2178
-Lfde119_start:
+LDIFF_SYM2322=Lfde139_end - Lfde139_start
+	.long LDIFF_SYM2322
+Lfde139_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode_Microsoft_Xna_Framework_Point
 
-LDIFF_SYM2179=Lme_83 - System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode_Microsoft_Xna_Framework_Point
-	.long LDIFF_SYM2179
+LDIFF_SYM2323=Lme_97 - System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode_Microsoft_Xna_Framework_Point
+	.long LDIFF_SYM2323
 	.long 0
 	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29
 	.align 3
-Lfde119_end:
+Lfde139_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -41565,66 +47107,66 @@ Lfde119_end:
 
 	.byte 17,182,1
 	.quad System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_IndexOf_Microsoft_Xna_Framework_Point___Microsoft_Xna_Framework_Point_int_int
-	.quad Lme_84
+	.quad Lme_98
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2180=LTDIE_228_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2180
+LDIFF_SYM2324=LTDIE_231_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2324
 	.byte 2,141,56,3
 	.asciz "array"
 
-LDIFF_SYM2181=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM2181
+LDIFF_SYM2325=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM2325
 	.byte 1,104,3
 	.asciz "value"
 
-LDIFF_SYM2182=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2182
+LDIFF_SYM2326=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2326
 	.byte 3,141,192,0,3
 	.asciz "startIndex"
 
-LDIFF_SYM2183=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2183
+LDIFF_SYM2327=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2327
 	.byte 1,105,3
 	.asciz "count"
 
-LDIFF_SYM2184=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2184
+LDIFF_SYM2328=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2328
 	.byte 3,141,208,0,11
 	.asciz "endIndex"
 
-LDIFF_SYM2185=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2185
+LDIFF_SYM2329=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2329
 	.byte 1,103,11
 	.asciz "i"
 
-LDIFF_SYM2186=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2186
+LDIFF_SYM2330=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2330
 	.byte 1,102,11
 	.asciz "i"
 
-LDIFF_SYM2187=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2187
+LDIFF_SYM2331=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2331
 	.byte 1,101,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2188=Lfde120_end - Lfde120_start
-	.long LDIFF_SYM2188
-Lfde120_start:
+LDIFF_SYM2332=Lfde140_end - Lfde140_start
+	.long LDIFF_SYM2332
+Lfde140_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_IndexOf_Microsoft_Xna_Framework_Point___Microsoft_Xna_Framework_Point_int_int
 
-LDIFF_SYM2189=Lme_84 - System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_IndexOf_Microsoft_Xna_Framework_Point___Microsoft_Xna_Framework_Point_int_int
-	.long LDIFF_SYM2189
+LDIFF_SYM2333=Lme_98 - System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_IndexOf_Microsoft_Xna_Framework_Point___Microsoft_Xna_Framework_Point_int_int
+	.long LDIFF_SYM2333
 	.long 0
 	.byte 12,31,0,68,14,160,1,157,20,158,19,68,13,29,68,149,18,150,17,68,151,16,152,15,68,153,14
 	.align 3
-Lfde120_end:
+Lfde140_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -41634,41 +47176,41 @@ Lfde120_end:
 
 	.byte 17,213,1
 	.quad System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_object
-	.quad Lme_85
+	.quad Lme_99
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2190=LTDIE_228_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2190
+LDIFF_SYM2334=LTDIE_231_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2334
 	.byte 2,141,40,3
 	.asciz "obj"
 
-LDIFF_SYM2191=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2191
+LDIFF_SYM2335=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2335
 	.byte 2,141,48,11
 	.asciz "comparer"
 
-LDIFF_SYM2192=LTDIE_228_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2192
+LDIFF_SYM2336=LTDIE_231_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2336
 	.byte 1,105,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2193=Lfde121_end - Lfde121_start
-	.long LDIFF_SYM2193
-Lfde121_start:
+LDIFF_SYM2337=Lfde141_end - Lfde141_start
+	.long LDIFF_SYM2337
+Lfde141_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_object
 
-LDIFF_SYM2194=Lme_85 - System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_object
-	.long LDIFF_SYM2194
+LDIFF_SYM2338=Lme_99 - System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_object
+	.long LDIFF_SYM2338
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,151,8,152,7,68,153,6
 	.align 3
-Lfde121_end:
+Lfde141_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -41678,291 +47220,291 @@ Lfde121_end:
 
 	.byte 17,218,1
 	.quad System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode
-	.quad Lme_86
+	.quad Lme_9a
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2195=LTDIE_228_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2195
+LDIFF_SYM2339=LTDIE_231_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2339
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2196=Lfde122_end - Lfde122_start
-	.long LDIFF_SYM2196
-Lfde122_start:
+LDIFF_SYM2340=Lfde142_end - Lfde142_start
+	.long LDIFF_SYM2340
+Lfde142_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode
 
-LDIFF_SYM2197=Lme_86 - System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode
-	.long LDIFF_SYM2197
+LDIFF_SYM2341=Lme_9a - System_Collections_Generic_GenericEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode
+	.long LDIFF_SYM2341
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29
 	.align 3
-Lfde122_end:
+Lfde142_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_229:
+LTDIE_232:
 
 	.byte 5
 	.asciz "System_Predicate`1"
 
 	.byte 112,16
-LDIFF_SYM2198=LTDIE_13 - Ldebug_info_start
-	.long LDIFF_SYM2198
+LDIFF_SYM2342=LTDIE_13 - Ldebug_info_start
+	.long LDIFF_SYM2342
 	.byte 2,35,0,0,7
 	.asciz "System_Predicate`1"
 
-LDIFF_SYM2199=LTDIE_229 - Ldebug_info_start
-	.long LDIFF_SYM2199
-LTDIE_229_POINTER:
+LDIFF_SYM2343=LTDIE_232 - Ldebug_info_start
+	.long LDIFF_SYM2343
+LTDIE_232_POINTER:
 
 	.byte 13
-LDIFF_SYM2200=LTDIE_229 - Ldebug_info_start
-	.long LDIFF_SYM2200
-LTDIE_229_REFERENCE:
+LDIFF_SYM2344=LTDIE_232 - Ldebug_info_start
+	.long LDIFF_SYM2344
+LTDIE_232_REFERENCE:
 
 	.byte 14
-LDIFF_SYM2201=LTDIE_229 - Ldebug_info_start
-	.long LDIFF_SYM2201
+LDIFF_SYM2345=LTDIE_232 - Ldebug_info_start
+	.long LDIFF_SYM2345
 	.byte 2
 	.asciz "(wrapper_delegate-invoke)_System.Predicate`1<Microsoft.Xna.Framework.Point>:invoke_bool_T"
 	.asciz "wrapper_delegate_invoke_System_Predicate_1_Microsoft_Xna_Framework_Point_invoke_bool_T_Microsoft_Xna_Framework_Point"
 
 	.byte 0,0
 	.quad wrapper_delegate_invoke_System_Predicate_1_Microsoft_Xna_Framework_Point_invoke_bool_T_Microsoft_Xna_Framework_Point
-	.quad Lme_8b
+	.quad Lme_9f
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2202=LTDIE_229_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2202
+LDIFF_SYM2346=LTDIE_232_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2346
 	.byte 1,106,3
 	.asciz "param0"
 
-LDIFF_SYM2203=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2203
+LDIFF_SYM2347=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2347
 	.byte 3,141,208,0,11
 	.asciz "V_0"
 
-LDIFF_SYM2204=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2204
+LDIFF_SYM2348=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2348
 	.byte 1,105,11
 	.asciz "V_1"
 
-LDIFF_SYM2205=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2205
+LDIFF_SYM2349=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2349
 	.byte 1,104,11
 	.asciz "V_2"
 
-LDIFF_SYM2206=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2206
+LDIFF_SYM2350=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2350
 	.byte 1,103,11
 	.asciz "V_3"
 
-LDIFF_SYM2207=LTDIE_13_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2207
+LDIFF_SYM2351=LTDIE_13_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2351
 	.byte 1,102,11
 	.asciz "V_4"
 
-LDIFF_SYM2208=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2208
+LDIFF_SYM2352=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2352
 	.byte 1,101,11
 	.asciz "V_5"
 
-LDIFF_SYM2209=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM2209
+LDIFF_SYM2353=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM2353
 	.byte 1,100,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2210=Lfde123_end - Lfde123_start
-	.long LDIFF_SYM2210
-Lfde123_start:
+LDIFF_SYM2354=Lfde143_end - Lfde143_start
+	.long LDIFF_SYM2354
+Lfde143_start:
 
 	.long 0
 	.align 3
 	.quad wrapper_delegate_invoke_System_Predicate_1_Microsoft_Xna_Framework_Point_invoke_bool_T_Microsoft_Xna_Framework_Point
 
-LDIFF_SYM2211=Lme_8b - wrapper_delegate_invoke_System_Predicate_1_Microsoft_Xna_Framework_Point_invoke_bool_T_Microsoft_Xna_Framework_Point
-	.long LDIFF_SYM2211
+LDIFF_SYM2355=Lme_9f - wrapper_delegate_invoke_System_Predicate_1_Microsoft_Xna_Framework_Point_invoke_bool_T_Microsoft_Xna_Framework_Point
+	.long LDIFF_SYM2355
 	.long 0
 	.byte 12,31,0,68,14,176,1,157,22,158,21,68,13,29,68,147,20,148,19,68,149,18,150,17,68,151,16,152,15,68,153,14
 	.byte 154,13
 	.align 3
-Lfde123_end:
+Lfde143_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_230:
+LTDIE_233:
 
 	.byte 5
 	.asciz "System_Comparison`1"
 
 	.byte 112,16
-LDIFF_SYM2212=LTDIE_13 - Ldebug_info_start
-	.long LDIFF_SYM2212
+LDIFF_SYM2356=LTDIE_13 - Ldebug_info_start
+	.long LDIFF_SYM2356
 	.byte 2,35,0,0,7
 	.asciz "System_Comparison`1"
 
-LDIFF_SYM2213=LTDIE_230 - Ldebug_info_start
-	.long LDIFF_SYM2213
-LTDIE_230_POINTER:
+LDIFF_SYM2357=LTDIE_233 - Ldebug_info_start
+	.long LDIFF_SYM2357
+LTDIE_233_POINTER:
 
 	.byte 13
-LDIFF_SYM2214=LTDIE_230 - Ldebug_info_start
-	.long LDIFF_SYM2214
-LTDIE_230_REFERENCE:
+LDIFF_SYM2358=LTDIE_233 - Ldebug_info_start
+	.long LDIFF_SYM2358
+LTDIE_233_REFERENCE:
 
 	.byte 14
-LDIFF_SYM2215=LTDIE_230 - Ldebug_info_start
-	.long LDIFF_SYM2215
+LDIFF_SYM2359=LTDIE_233 - Ldebug_info_start
+	.long LDIFF_SYM2359
 	.byte 2
 	.asciz "(wrapper_delegate-invoke)_System.Comparison`1<Microsoft.Xna.Framework.Point>:invoke_int_T_T"
 	.asciz "wrapper_delegate_invoke_System_Comparison_1_Microsoft_Xna_Framework_Point_invoke_int_T_T_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point"
 
 	.byte 0,0
 	.quad wrapper_delegate_invoke_System_Comparison_1_Microsoft_Xna_Framework_Point_invoke_int_T_T_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
-	.quad Lme_91
+	.quad Lme_a5
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2216=LTDIE_230_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2216
+LDIFF_SYM2360=LTDIE_233_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2360
 	.byte 1,106,3
 	.asciz "param0"
 
-LDIFF_SYM2217=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2217
+LDIFF_SYM2361=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2361
 	.byte 3,141,208,0,3
 	.asciz "param1"
 
-LDIFF_SYM2218=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2218
+LDIFF_SYM2362=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2362
 	.byte 3,141,224,0,11
 	.asciz "V_0"
 
-LDIFF_SYM2219=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2219
+LDIFF_SYM2363=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2363
 	.byte 1,105,11
 	.asciz "V_1"
 
-LDIFF_SYM2220=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2220
+LDIFF_SYM2364=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2364
 	.byte 1,104,11
 	.asciz "V_2"
 
-LDIFF_SYM2221=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2221
+LDIFF_SYM2365=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2365
 	.byte 1,103,11
 	.asciz "V_3"
 
-LDIFF_SYM2222=LTDIE_13_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2222
+LDIFF_SYM2366=LTDIE_13_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2366
 	.byte 1,102,11
 	.asciz "V_4"
 
-LDIFF_SYM2223=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2223
+LDIFF_SYM2367=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2367
 	.byte 1,101,11
 	.asciz "V_5"
 
-LDIFF_SYM2224=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2224
+LDIFF_SYM2368=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2368
 	.byte 1,100,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2225=Lfde124_end - Lfde124_start
-	.long LDIFF_SYM2225
-Lfde124_start:
+LDIFF_SYM2369=Lfde144_end - Lfde144_start
+	.long LDIFF_SYM2369
+Lfde144_start:
 
 	.long 0
 	.align 3
 	.quad wrapper_delegate_invoke_System_Comparison_1_Microsoft_Xna_Framework_Point_invoke_int_T_T_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
 
-LDIFF_SYM2226=Lme_91 - wrapper_delegate_invoke_System_Comparison_1_Microsoft_Xna_Framework_Point_invoke_int_T_T_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
-	.long LDIFF_SYM2226
+LDIFF_SYM2370=Lme_a5 - wrapper_delegate_invoke_System_Comparison_1_Microsoft_Xna_Framework_Point_invoke_int_T_T_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
+	.long LDIFF_SYM2370
 	.long 0
 	.byte 12,31,0,68,14,208,1,157,26,158,25,68,13,29,68,147,24,148,23,68,149,22,150,21,68,151,20,152,19,68,153,18
 	.byte 154,17
 	.align 3
-Lfde124_end:
+Lfde144_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_231:
+LTDIE_234:
 
 	.byte 5
 	.asciz "System_Nullable`1"
 
 	.byte 28,16
-LDIFF_SYM2227=LTDIE_21 - Ldebug_info_start
-	.long LDIFF_SYM2227
+LDIFF_SYM2371=LTDIE_21 - Ldebug_info_start
+	.long LDIFF_SYM2371
 	.byte 2,35,0,6
 	.asciz "value"
 
-LDIFF_SYM2228=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2228
+LDIFF_SYM2372=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2372
 	.byte 2,35,16,6
 	.asciz "has_value"
 
-LDIFF_SYM2229=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM2229
+LDIFF_SYM2373=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM2373
 	.byte 2,35,24,0,7
 	.asciz "System_Nullable`1"
 
-LDIFF_SYM2230=LTDIE_231 - Ldebug_info_start
-	.long LDIFF_SYM2230
-LTDIE_231_POINTER:
+LDIFF_SYM2374=LTDIE_234 - Ldebug_info_start
+	.long LDIFF_SYM2374
+LTDIE_234_POINTER:
 
 	.byte 13
-LDIFF_SYM2231=LTDIE_231 - Ldebug_info_start
-	.long LDIFF_SYM2231
-LTDIE_231_REFERENCE:
+LDIFF_SYM2375=LTDIE_234 - Ldebug_info_start
+	.long LDIFF_SYM2375
+LTDIE_234_REFERENCE:
 
 	.byte 14
-LDIFF_SYM2232=LTDIE_231 - Ldebug_info_start
-	.long LDIFF_SYM2232
+LDIFF_SYM2376=LTDIE_234 - Ldebug_info_start
+	.long LDIFF_SYM2376
 	.byte 2
 	.asciz "System.Nullable`1<Microsoft.Xna.Framework.Vector2>:.ctor"
 	.asciz "System_Nullable_1_Microsoft_Xna_Framework_Vector2__ctor_Microsoft_Xna_Framework_Vector2"
 
 	.byte 15,94
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2__ctor_Microsoft_Xna_Framework_Vector2
-	.quad Lme_92
+	.quad Lme_a6
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2233=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2233
+LDIFF_SYM2377=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2377
 	.byte 1,106,3
 	.asciz "value"
 
-LDIFF_SYM2234=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2234
+LDIFF_SYM2378=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2378
 	.byte 2,141,24,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2235=Lfde125_end - Lfde125_start
-	.long LDIFF_SYM2235
-Lfde125_start:
+LDIFF_SYM2379=Lfde145_end - Lfde145_start
+	.long LDIFF_SYM2379
+Lfde145_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2__ctor_Microsoft_Xna_Framework_Vector2
 
-LDIFF_SYM2236=Lme_92 - System_Nullable_1_Microsoft_Xna_Framework_Vector2__ctor_Microsoft_Xna_Framework_Vector2
-	.long LDIFF_SYM2236
+LDIFF_SYM2380=Lme_a6 - System_Nullable_1_Microsoft_Xna_Framework_Vector2__ctor_Microsoft_Xna_Framework_Vector2
+	.long LDIFF_SYM2380
 	.long 0
 	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,154,14
 	.align 3
-Lfde125_end:
+Lfde145_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -41972,31 +47514,31 @@ Lfde125_end:
 
 	.byte 15,99
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_get_HasValue
-	.quad Lme_93
+	.quad Lme_a7
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2237=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2237
+LDIFF_SYM2381=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2381
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2238=Lfde126_end - Lfde126_start
-	.long LDIFF_SYM2238
-Lfde126_start:
+LDIFF_SYM2382=Lfde146_end - Lfde146_start
+	.long LDIFF_SYM2382
+Lfde146_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_get_HasValue
 
-LDIFF_SYM2239=Lme_93 - System_Nullable_1_Microsoft_Xna_Framework_Vector2_get_HasValue
-	.long LDIFF_SYM2239
+LDIFF_SYM2383=Lme_a7 - System_Nullable_1_Microsoft_Xna_Framework_Vector2_get_HasValue
+	.long LDIFF_SYM2383
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
 	.align 3
-Lfde126_end:
+Lfde146_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42006,31 +47548,31 @@ Lfde126_end:
 
 	.byte 15,104
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_get_Value
-	.quad Lme_94
+	.quad Lme_a8
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2240=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2240
+LDIFF_SYM2384=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2384
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2241=Lfde127_end - Lfde127_start
-	.long LDIFF_SYM2241
-Lfde127_start:
+LDIFF_SYM2385=Lfde147_end - Lfde147_start
+	.long LDIFF_SYM2385
+Lfde147_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_get_Value
 
-LDIFF_SYM2242=Lme_94 - System_Nullable_1_Microsoft_Xna_Framework_Vector2_get_Value
-	.long LDIFF_SYM2242
+LDIFF_SYM2386=Lme_a8 - System_Nullable_1_Microsoft_Xna_Framework_Vector2_get_Value
+	.long LDIFF_SYM2386
 	.long 0
 	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29,68,154,14
 	.align 3
-Lfde127_end:
+Lfde147_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42040,36 +47582,36 @@ Lfde127_end:
 
 	.byte 15,113
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_Equals_object
-	.quad Lme_95
+	.quad Lme_a9
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2243=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2243
+LDIFF_SYM2387=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2387
 	.byte 1,105,3
 	.asciz "other"
 
-LDIFF_SYM2244=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2244
+LDIFF_SYM2388=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2388
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2245=Lfde128_end - Lfde128_start
-	.long LDIFF_SYM2245
-Lfde128_start:
+LDIFF_SYM2389=Lfde148_end - Lfde148_start
+	.long LDIFF_SYM2389
+Lfde148_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_Equals_object
 
-LDIFF_SYM2246=Lme_95 - System_Nullable_1_Microsoft_Xna_Framework_Vector2_Equals_object
-	.long LDIFF_SYM2246
+LDIFF_SYM2390=Lme_a9 - System_Nullable_1_Microsoft_Xna_Framework_Vector2_Equals_object
+	.long LDIFF_SYM2390
 	.long 0
 	.byte 12,31,0,68,14,112,157,14,158,13,68,13,29,68,151,12,152,11,68,153,10,154,9
 	.align 3
-Lfde128_end:
+Lfde148_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42079,36 +47621,36 @@ Lfde128_end:
 
 	.byte 15,123
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_Equals_System_Nullable_1_Microsoft_Xna_Framework_Vector2
-	.quad Lme_96
+	.quad Lme_aa
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2247=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2247
+LDIFF_SYM2391=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2391
 	.byte 1,106,3
 	.asciz "other"
 
-LDIFF_SYM2248=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2248
+LDIFF_SYM2392=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2392
 	.byte 2,141,24,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2249=Lfde129_end - Lfde129_start
-	.long LDIFF_SYM2249
-Lfde129_start:
+LDIFF_SYM2393=Lfde149_end - Lfde149_start
+	.long LDIFF_SYM2393
+Lfde149_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_Equals_System_Nullable_1_Microsoft_Xna_Framework_Vector2
 
-LDIFF_SYM2250=Lme_96 - System_Nullable_1_Microsoft_Xna_Framework_Vector2_Equals_System_Nullable_1_Microsoft_Xna_Framework_Vector2
-	.long LDIFF_SYM2250
+LDIFF_SYM2394=Lme_aa - System_Nullable_1_Microsoft_Xna_Framework_Vector2_Equals_System_Nullable_1_Microsoft_Xna_Framework_Vector2
+	.long LDIFF_SYM2394
 	.long 0
 	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29,68,154,10
 	.align 3
-Lfde129_end:
+Lfde149_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42118,31 +47660,31 @@ Lfde129_end:
 
 	.byte 15,134,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetHashCode
-	.quad Lme_97
+	.quad Lme_ab
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2251=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2251
+LDIFF_SYM2395=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2395
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2252=Lfde130_end - Lfde130_start
-	.long LDIFF_SYM2252
-Lfde130_start:
+LDIFF_SYM2396=Lfde150_end - Lfde150_start
+	.long LDIFF_SYM2396
+Lfde150_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetHashCode
 
-LDIFF_SYM2253=Lme_97 - System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetHashCode
-	.long LDIFF_SYM2253
+LDIFF_SYM2397=Lme_ab - System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetHashCode
+	.long LDIFF_SYM2397
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
 	.align 3
-Lfde130_end:
+Lfde150_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42152,31 +47694,31 @@ Lfde130_end:
 
 	.byte 15,142,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetValueOrDefault
-	.quad Lme_98
+	.quad Lme_ac
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2254=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2254
+LDIFF_SYM2398=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2398
 	.byte 3,141,208,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2255=Lfde131_end - Lfde131_start
-	.long LDIFF_SYM2255
-Lfde131_start:
+LDIFF_SYM2399=Lfde151_end - Lfde151_start
+	.long LDIFF_SYM2399
+Lfde151_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetValueOrDefault
 
-LDIFF_SYM2256=Lme_98 - System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetValueOrDefault
-	.long LDIFF_SYM2256
+LDIFF_SYM2400=Lme_ac - System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetValueOrDefault
+	.long LDIFF_SYM2400
 	.long 0
 	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29
 	.align 3
-Lfde131_end:
+Lfde151_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42186,36 +47728,36 @@ Lfde131_end:
 
 	.byte 15,147,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetValueOrDefault_Microsoft_Xna_Framework_Vector2
-	.quad Lme_99
+	.quad Lme_ad
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2257=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2257
+LDIFF_SYM2401=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2401
 	.byte 1,106,3
 	.asciz "defaultValue"
 
-LDIFF_SYM2258=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2258
+LDIFF_SYM2402=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2402
 	.byte 3,141,216,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2259=Lfde132_end - Lfde132_start
-	.long LDIFF_SYM2259
-Lfde132_start:
+LDIFF_SYM2403=Lfde152_end - Lfde152_start
+	.long LDIFF_SYM2403
+Lfde152_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetValueOrDefault_Microsoft_Xna_Framework_Vector2
 
-LDIFF_SYM2260=Lme_99 - System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetValueOrDefault_Microsoft_Xna_Framework_Vector2
-	.long LDIFF_SYM2260
+LDIFF_SYM2404=Lme_ad - System_Nullable_1_Microsoft_Xna_Framework_Vector2_GetValueOrDefault_Microsoft_Xna_Framework_Vector2
+	.long LDIFF_SYM2404
 	.long 0
 	.byte 12,31,0,68,14,208,1,157,26,158,25,68,13,29,68,154,24
 	.align 3
-Lfde132_end:
+Lfde152_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42225,31 +47767,31 @@ Lfde132_end:
 
 	.byte 15,152,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_ToString
-	.quad Lme_9a
+	.quad Lme_ae
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2261=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2261
+LDIFF_SYM2405=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2405
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2262=Lfde133_end - Lfde133_start
-	.long LDIFF_SYM2262
-Lfde133_start:
+LDIFF_SYM2406=Lfde153_end - Lfde153_start
+	.long LDIFF_SYM2406
+Lfde153_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_ToString
 
-LDIFF_SYM2263=Lme_9a - System_Nullable_1_Microsoft_Xna_Framework_Vector2_ToString
-	.long LDIFF_SYM2263
+LDIFF_SYM2407=Lme_ae - System_Nullable_1_Microsoft_Xna_Framework_Vector2_ToString
+	.long LDIFF_SYM2407
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
 	.align 3
-Lfde133_end:
+Lfde153_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42259,31 +47801,31 @@ Lfde133_end:
 
 	.byte 15,177,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_Box_System_Nullable_1_Microsoft_Xna_Framework_Vector2
-	.quad Lme_9b
+	.quad Lme_af
 
 	.byte 2,118,16,3
 	.asciz "o"
 
-LDIFF_SYM2264=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2264
+LDIFF_SYM2408=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2408
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2265=Lfde134_end - Lfde134_start
-	.long LDIFF_SYM2265
-Lfde134_start:
+LDIFF_SYM2409=Lfde154_end - Lfde154_start
+	.long LDIFF_SYM2409
+Lfde154_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_Box_System_Nullable_1_Microsoft_Xna_Framework_Vector2
 
-LDIFF_SYM2266=Lme_9b - System_Nullable_1_Microsoft_Xna_Framework_Vector2_Box_System_Nullable_1_Microsoft_Xna_Framework_Vector2
-	.long LDIFF_SYM2266
+LDIFF_SYM2410=Lme_af - System_Nullable_1_Microsoft_Xna_Framework_Vector2_Box_System_Nullable_1_Microsoft_Xna_Framework_Vector2
+	.long LDIFF_SYM2410
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
 	.align 3
-Lfde134_end:
+Lfde154_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42293,107 +47835,107 @@ Lfde134_end:
 
 	.byte 15,185,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_Unbox_object
-	.quad Lme_9c
+	.quad Lme_b0
 
 	.byte 2,118,16,3
 	.asciz "o"
 
-LDIFF_SYM2267=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2267
+LDIFF_SYM2411=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2411
 	.byte 1,106,11
 	.asciz ""
 
-LDIFF_SYM2268=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2268
+LDIFF_SYM2412=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2412
 	.byte 3,141,248,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2269=Lfde135_end - Lfde135_start
-	.long LDIFF_SYM2269
-Lfde135_start:
+LDIFF_SYM2413=Lfde155_end - Lfde155_start
+	.long LDIFF_SYM2413
+Lfde155_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Vector2_Unbox_object
 
-LDIFF_SYM2270=Lme_9c - System_Nullable_1_Microsoft_Xna_Framework_Vector2_Unbox_object
-	.long LDIFF_SYM2270
+LDIFF_SYM2414=Lme_b0 - System_Nullable_1_Microsoft_Xna_Framework_Vector2_Unbox_object
+	.long LDIFF_SYM2414
 	.long 0
 	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,154,16
 	.align 3
-Lfde135_end:
+Lfde155_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_232:
+LTDIE_235:
 
 	.byte 5
 	.asciz "System_Nullable`1"
 
 	.byte 36,16
-LDIFF_SYM2271=LTDIE_21 - Ldebug_info_start
-	.long LDIFF_SYM2271
+LDIFF_SYM2415=LTDIE_21 - Ldebug_info_start
+	.long LDIFF_SYM2415
 	.byte 2,35,0,6
 	.asciz "value"
 
-LDIFF_SYM2272=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2272
+LDIFF_SYM2416=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2416
 	.byte 2,35,16,6
 	.asciz "has_value"
 
-LDIFF_SYM2273=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM2273
+LDIFF_SYM2417=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM2417
 	.byte 2,35,32,0,7
 	.asciz "System_Nullable`1"
 
-LDIFF_SYM2274=LTDIE_232 - Ldebug_info_start
-	.long LDIFF_SYM2274
-LTDIE_232_POINTER:
+LDIFF_SYM2418=LTDIE_235 - Ldebug_info_start
+	.long LDIFF_SYM2418
+LTDIE_235_POINTER:
 
 	.byte 13
-LDIFF_SYM2275=LTDIE_232 - Ldebug_info_start
-	.long LDIFF_SYM2275
-LTDIE_232_REFERENCE:
+LDIFF_SYM2419=LTDIE_235 - Ldebug_info_start
+	.long LDIFF_SYM2419
+LTDIE_235_REFERENCE:
 
 	.byte 14
-LDIFF_SYM2276=LTDIE_232 - Ldebug_info_start
-	.long LDIFF_SYM2276
+LDIFF_SYM2420=LTDIE_235 - Ldebug_info_start
+	.long LDIFF_SYM2420
 	.byte 2
 	.asciz "System.Nullable`1<Microsoft.Xna.Framework.Rectangle>:.ctor"
 	.asciz "System_Nullable_1_Microsoft_Xna_Framework_Rectangle__ctor_Microsoft_Xna_Framework_Rectangle"
 
 	.byte 15,94
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle__ctor_Microsoft_Xna_Framework_Rectangle
-	.quad Lme_9d
+	.quad Lme_b1
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2277=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2277
+LDIFF_SYM2421=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2421
 	.byte 1,106,3
 	.asciz "value"
 
-LDIFF_SYM2278=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2278
+LDIFF_SYM2422=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2422
 	.byte 2,141,24,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2279=Lfde136_end - Lfde136_start
-	.long LDIFF_SYM2279
-Lfde136_start:
+LDIFF_SYM2423=Lfde156_end - Lfde156_start
+	.long LDIFF_SYM2423
+Lfde156_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle__ctor_Microsoft_Xna_Framework_Rectangle
 
-LDIFF_SYM2280=Lme_9d - System_Nullable_1_Microsoft_Xna_Framework_Rectangle__ctor_Microsoft_Xna_Framework_Rectangle
-	.long LDIFF_SYM2280
+LDIFF_SYM2424=Lme_b1 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle__ctor_Microsoft_Xna_Framework_Rectangle
+	.long LDIFF_SYM2424
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,154,8
 	.align 3
-Lfde136_end:
+Lfde156_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42403,31 +47945,31 @@ Lfde136_end:
 
 	.byte 15,99
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_get_HasValue
-	.quad Lme_9e
+	.quad Lme_b2
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2281=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2281
+LDIFF_SYM2425=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2425
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2282=Lfde137_end - Lfde137_start
-	.long LDIFF_SYM2282
-Lfde137_start:
+LDIFF_SYM2426=Lfde157_end - Lfde157_start
+	.long LDIFF_SYM2426
+Lfde157_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_get_HasValue
 
-LDIFF_SYM2283=Lme_9e - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_get_HasValue
-	.long LDIFF_SYM2283
+LDIFF_SYM2427=Lme_b2 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_get_HasValue
+	.long LDIFF_SYM2427
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
 	.align 3
-Lfde137_end:
+Lfde157_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42437,31 +47979,31 @@ Lfde137_end:
 
 	.byte 15,104
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_get_Value
-	.quad Lme_9f
+	.quad Lme_b3
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2284=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2284
+LDIFF_SYM2428=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2428
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2285=Lfde138_end - Lfde138_start
-	.long LDIFF_SYM2285
-Lfde138_start:
+LDIFF_SYM2429=Lfde158_end - Lfde158_start
+	.long LDIFF_SYM2429
+Lfde158_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_get_Value
 
-LDIFF_SYM2286=Lme_9f - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_get_Value
-	.long LDIFF_SYM2286
+LDIFF_SYM2430=Lme_b3 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_get_Value
+	.long LDIFF_SYM2430
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,154,8
 	.align 3
-Lfde138_end:
+Lfde158_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42471,36 +48013,36 @@ Lfde138_end:
 
 	.byte 15,113
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Equals_object
-	.quad Lme_a0
+	.quad Lme_b4
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2287=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2287
+LDIFF_SYM2431=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2431
 	.byte 1,105,3
 	.asciz "other"
 
-LDIFF_SYM2288=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2288
+LDIFF_SYM2432=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2432
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2289=Lfde139_end - Lfde139_start
-	.long LDIFF_SYM2289
-Lfde139_start:
+LDIFF_SYM2433=Lfde159_end - Lfde159_start
+	.long LDIFF_SYM2433
+Lfde159_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Equals_object
 
-LDIFF_SYM2290=Lme_a0 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Equals_object
-	.long LDIFF_SYM2290
+LDIFF_SYM2434=Lme_b4 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Equals_object
+	.long LDIFF_SYM2434
 	.long 0
 	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,151,16,152,15,68,153,14,154,13
 	.align 3
-Lfde139_end:
+Lfde159_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42510,36 +48052,36 @@ Lfde139_end:
 
 	.byte 15,123
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Equals_System_Nullable_1_Microsoft_Xna_Framework_Rectangle
-	.quad Lme_a1
+	.quad Lme_b5
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2291=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2291
+LDIFF_SYM2435=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2435
 	.byte 1,106,3
 	.asciz "other"
 
-LDIFF_SYM2292=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2292
+LDIFF_SYM2436=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2436
 	.byte 1,80,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2293=Lfde140_end - Lfde140_start
-	.long LDIFF_SYM2293
-Lfde140_start:
+LDIFF_SYM2437=Lfde160_end - Lfde160_start
+	.long LDIFF_SYM2437
+Lfde160_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Equals_System_Nullable_1_Microsoft_Xna_Framework_Rectangle
 
-LDIFF_SYM2294=Lme_a1 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Equals_System_Nullable_1_Microsoft_Xna_Framework_Rectangle
-	.long LDIFF_SYM2294
+LDIFF_SYM2438=Lme_b5 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Equals_System_Nullable_1_Microsoft_Xna_Framework_Rectangle
+	.long LDIFF_SYM2438
 	.long 0
 	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29,68,154,10
 	.align 3
-Lfde140_end:
+Lfde160_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42549,31 +48091,31 @@ Lfde140_end:
 
 	.byte 15,134,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetHashCode
-	.quad Lme_a2
+	.quad Lme_b6
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2295=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2295
+LDIFF_SYM2439=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2439
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2296=Lfde141_end - Lfde141_start
-	.long LDIFF_SYM2296
-Lfde141_start:
+LDIFF_SYM2440=Lfde161_end - Lfde161_start
+	.long LDIFF_SYM2440
+Lfde161_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetHashCode
 
-LDIFF_SYM2297=Lme_a2 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetHashCode
-	.long LDIFF_SYM2297
+LDIFF_SYM2441=Lme_b6 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetHashCode
+	.long LDIFF_SYM2441
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
 	.align 3
-Lfde141_end:
+Lfde161_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42583,31 +48125,31 @@ Lfde141_end:
 
 	.byte 15,142,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetValueOrDefault
-	.quad Lme_a3
+	.quad Lme_b7
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2298=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2298
+LDIFF_SYM2442=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2442
 	.byte 2,141,32,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2299=Lfde142_end - Lfde142_start
-	.long LDIFF_SYM2299
-Lfde142_start:
+LDIFF_SYM2443=Lfde162_end - Lfde162_start
+	.long LDIFF_SYM2443
+Lfde162_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetValueOrDefault
 
-LDIFF_SYM2300=Lme_a3 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetValueOrDefault
-	.long LDIFF_SYM2300
+LDIFF_SYM2444=Lme_b7 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetValueOrDefault
+	.long LDIFF_SYM2444
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29
 	.align 3
-Lfde142_end:
+Lfde162_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42617,36 +48159,36 @@ Lfde142_end:
 
 	.byte 15,147,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetValueOrDefault_Microsoft_Xna_Framework_Rectangle
-	.quad Lme_a4
+	.quad Lme_b8
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2301=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2301
+LDIFF_SYM2445=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2445
 	.byte 1,106,3
 	.asciz "defaultValue"
 
-LDIFF_SYM2302=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2302
+LDIFF_SYM2446=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2446
 	.byte 2,141,40,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2303=Lfde143_end - Lfde143_start
-	.long LDIFF_SYM2303
-Lfde143_start:
+LDIFF_SYM2447=Lfde163_end - Lfde163_start
+	.long LDIFF_SYM2447
+Lfde163_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetValueOrDefault_Microsoft_Xna_Framework_Rectangle
 
-LDIFF_SYM2304=Lme_a4 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetValueOrDefault_Microsoft_Xna_Framework_Rectangle
-	.long LDIFF_SYM2304
+LDIFF_SYM2448=Lme_b8 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_GetValueOrDefault_Microsoft_Xna_Framework_Rectangle
+	.long LDIFF_SYM2448
 	.long 0
 	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,154,16
 	.align 3
-Lfde143_end:
+Lfde163_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42656,31 +48198,31 @@ Lfde143_end:
 
 	.byte 15,152,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_ToString
-	.quad Lme_a5
+	.quad Lme_b9
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2305=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2305
+LDIFF_SYM2449=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2449
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2306=Lfde144_end - Lfde144_start
-	.long LDIFF_SYM2306
-Lfde144_start:
+LDIFF_SYM2450=Lfde164_end - Lfde164_start
+	.long LDIFF_SYM2450
+Lfde164_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_ToString
 
-LDIFF_SYM2307=Lme_a5 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_ToString
-	.long LDIFF_SYM2307
+LDIFF_SYM2451=Lme_b9 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_ToString
+	.long LDIFF_SYM2451
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
 	.align 3
-Lfde144_end:
+Lfde164_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42690,31 +48232,31 @@ Lfde144_end:
 
 	.byte 15,177,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Box_System_Nullable_1_Microsoft_Xna_Framework_Rectangle
-	.quad Lme_a6
+	.quad Lme_ba
 
 	.byte 2,118,16,3
 	.asciz "o"
 
-LDIFF_SYM2308=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2308
+LDIFF_SYM2452=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2452
 	.byte 1,80,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2309=Lfde145_end - Lfde145_start
-	.long LDIFF_SYM2309
-Lfde145_start:
+LDIFF_SYM2453=Lfde165_end - Lfde165_start
+	.long LDIFF_SYM2453
+Lfde165_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Box_System_Nullable_1_Microsoft_Xna_Framework_Rectangle
 
-LDIFF_SYM2310=Lme_a6 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Box_System_Nullable_1_Microsoft_Xna_Framework_Rectangle
-	.long LDIFF_SYM2310
+LDIFF_SYM2454=Lme_ba - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Box_System_Nullable_1_Microsoft_Xna_Framework_Rectangle
+	.long LDIFF_SYM2454
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
 	.align 3
-Lfde145_end:
+Lfde165_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42724,107 +48266,107 @@ Lfde145_end:
 
 	.byte 15,185,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Unbox_object
-	.quad Lme_a7
+	.quad Lme_bb
 
 	.byte 2,118,16,3
 	.asciz "o"
 
-LDIFF_SYM2311=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2311
+LDIFF_SYM2455=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2455
 	.byte 1,106,11
 	.asciz ""
 
-LDIFF_SYM2312=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2312
+LDIFF_SYM2456=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2456
 	.byte 3,141,144,1,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2313=Lfde146_end - Lfde146_start
-	.long LDIFF_SYM2313
-Lfde146_start:
+LDIFF_SYM2457=Lfde166_end - Lfde166_start
+	.long LDIFF_SYM2457
+Lfde166_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Unbox_object
 
-LDIFF_SYM2314=Lme_a7 - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Unbox_object
-	.long LDIFF_SYM2314
+LDIFF_SYM2458=Lme_bb - System_Nullable_1_Microsoft_Xna_Framework_Rectangle_Unbox_object
+	.long LDIFF_SYM2458
 	.long 0
 	.byte 12,31,0,68,14,176,1,157,22,158,21,68,13,29,68,154,20
 	.align 3
-Lfde146_end:
+Lfde166_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_233:
+LTDIE_236:
 
 	.byte 5
 	.asciz "System_Nullable`1"
 
 	.byte 24,16
-LDIFF_SYM2315=LTDIE_21 - Ldebug_info_start
-	.long LDIFF_SYM2315
+LDIFF_SYM2459=LTDIE_21 - Ldebug_info_start
+	.long LDIFF_SYM2459
 	.byte 2,35,0,6
 	.asciz "value"
 
-LDIFF_SYM2316=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2316
+LDIFF_SYM2460=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2460
 	.byte 2,35,16,6
 	.asciz "has_value"
 
-LDIFF_SYM2317=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM2317
+LDIFF_SYM2461=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM2461
 	.byte 2,35,20,0,7
 	.asciz "System_Nullable`1"
 
-LDIFF_SYM2318=LTDIE_233 - Ldebug_info_start
-	.long LDIFF_SYM2318
-LTDIE_233_POINTER:
+LDIFF_SYM2462=LTDIE_236 - Ldebug_info_start
+	.long LDIFF_SYM2462
+LTDIE_236_POINTER:
 
 	.byte 13
-LDIFF_SYM2319=LTDIE_233 - Ldebug_info_start
-	.long LDIFF_SYM2319
-LTDIE_233_REFERENCE:
+LDIFF_SYM2463=LTDIE_236 - Ldebug_info_start
+	.long LDIFF_SYM2463
+LTDIE_236_REFERENCE:
 
 	.byte 14
-LDIFF_SYM2320=LTDIE_233 - Ldebug_info_start
-	.long LDIFF_SYM2320
+LDIFF_SYM2464=LTDIE_236 - Ldebug_info_start
+	.long LDIFF_SYM2464
 	.byte 2
 	.asciz "System.Nullable`1<Microsoft.Xna.Framework.Color>:.ctor"
 	.asciz "System_Nullable_1_Microsoft_Xna_Framework_Color__ctor_Microsoft_Xna_Framework_Color"
 
 	.byte 15,94
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color__ctor_Microsoft_Xna_Framework_Color
-	.quad Lme_a8
+	.quad Lme_bc
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2321=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2321
+LDIFF_SYM2465=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2465
 	.byte 1,106,3
 	.asciz "value"
 
-LDIFF_SYM2322=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2322
+LDIFF_SYM2466=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2466
 	.byte 2,141,24,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2323=Lfde147_end - Lfde147_start
-	.long LDIFF_SYM2323
-Lfde147_start:
+LDIFF_SYM2467=Lfde167_end - Lfde167_start
+	.long LDIFF_SYM2467
+Lfde167_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color__ctor_Microsoft_Xna_Framework_Color
 
-LDIFF_SYM2324=Lme_a8 - System_Nullable_1_Microsoft_Xna_Framework_Color__ctor_Microsoft_Xna_Framework_Color
-	.long LDIFF_SYM2324
+LDIFF_SYM2468=Lme_bc - System_Nullable_1_Microsoft_Xna_Framework_Color__ctor_Microsoft_Xna_Framework_Color
+	.long LDIFF_SYM2468
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,154,8
 	.align 3
-Lfde147_end:
+Lfde167_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42834,31 +48376,31 @@ Lfde147_end:
 
 	.byte 15,99
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_get_HasValue
-	.quad Lme_a9
+	.quad Lme_bd
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2325=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2325
+LDIFF_SYM2469=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2469
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2326=Lfde148_end - Lfde148_start
-	.long LDIFF_SYM2326
-Lfde148_start:
+LDIFF_SYM2470=Lfde168_end - Lfde168_start
+	.long LDIFF_SYM2470
+Lfde168_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_get_HasValue
 
-LDIFF_SYM2327=Lme_a9 - System_Nullable_1_Microsoft_Xna_Framework_Color_get_HasValue
-	.long LDIFF_SYM2327
+LDIFF_SYM2471=Lme_bd - System_Nullable_1_Microsoft_Xna_Framework_Color_get_HasValue
+	.long LDIFF_SYM2471
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
 	.align 3
-Lfde148_end:
+Lfde168_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42868,31 +48410,31 @@ Lfde148_end:
 
 	.byte 15,104
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_get_Value
-	.quad Lme_aa
+	.quad Lme_be
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2328=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2328
+LDIFF_SYM2472=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2472
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2329=Lfde149_end - Lfde149_start
-	.long LDIFF_SYM2329
-Lfde149_start:
+LDIFF_SYM2473=Lfde169_end - Lfde169_start
+	.long LDIFF_SYM2473
+Lfde169_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_get_Value
 
-LDIFF_SYM2330=Lme_aa - System_Nullable_1_Microsoft_Xna_Framework_Color_get_Value
-	.long LDIFF_SYM2330
+LDIFF_SYM2474=Lme_be - System_Nullable_1_Microsoft_Xna_Framework_Color_get_Value
+	.long LDIFF_SYM2474
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,154,8
 	.align 3
-Lfde149_end:
+Lfde169_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42902,36 +48444,36 @@ Lfde149_end:
 
 	.byte 15,113
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_Equals_object
-	.quad Lme_ab
+	.quad Lme_bf
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2331=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2331
+LDIFF_SYM2475=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2475
 	.byte 1,105,3
 	.asciz "other"
 
-LDIFF_SYM2332=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2332
+LDIFF_SYM2476=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2476
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2333=Lfde150_end - Lfde150_start
-	.long LDIFF_SYM2333
-Lfde150_start:
+LDIFF_SYM2477=Lfde170_end - Lfde170_start
+	.long LDIFF_SYM2477
+Lfde170_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_Equals_object
 
-LDIFF_SYM2334=Lme_ab - System_Nullable_1_Microsoft_Xna_Framework_Color_Equals_object
-	.long LDIFF_SYM2334
+LDIFF_SYM2478=Lme_bf - System_Nullable_1_Microsoft_Xna_Framework_Color_Equals_object
+	.long LDIFF_SYM2478
 	.long 0
 	.byte 12,31,0,68,14,112,157,14,158,13,68,13,29,68,151,12,152,11,68,153,10,154,9
 	.align 3
-Lfde150_end:
+Lfde170_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42941,36 +48483,36 @@ Lfde150_end:
 
 	.byte 15,123
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_Equals_System_Nullable_1_Microsoft_Xna_Framework_Color
-	.quad Lme_ac
+	.quad Lme_c0
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2335=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2335
+LDIFF_SYM2479=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2479
 	.byte 1,106,3
 	.asciz "other"
 
-LDIFF_SYM2336=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2336
+LDIFF_SYM2480=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2480
 	.byte 2,141,24,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2337=Lfde151_end - Lfde151_start
-	.long LDIFF_SYM2337
-Lfde151_start:
+LDIFF_SYM2481=Lfde171_end - Lfde171_start
+	.long LDIFF_SYM2481
+Lfde171_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_Equals_System_Nullable_1_Microsoft_Xna_Framework_Color
 
-LDIFF_SYM2338=Lme_ac - System_Nullable_1_Microsoft_Xna_Framework_Color_Equals_System_Nullable_1_Microsoft_Xna_Framework_Color
-	.long LDIFF_SYM2338
+LDIFF_SYM2482=Lme_c0 - System_Nullable_1_Microsoft_Xna_Framework_Color_Equals_System_Nullable_1_Microsoft_Xna_Framework_Color
+	.long LDIFF_SYM2482
 	.long 0
 	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29,68,154,10
 	.align 3
-Lfde151_end:
+Lfde171_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -42980,31 +48522,31 @@ Lfde151_end:
 
 	.byte 15,134,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_GetHashCode
-	.quad Lme_ad
+	.quad Lme_c1
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2339=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2339
+LDIFF_SYM2483=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2483
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2340=Lfde152_end - Lfde152_start
-	.long LDIFF_SYM2340
-Lfde152_start:
+LDIFF_SYM2484=Lfde172_end - Lfde172_start
+	.long LDIFF_SYM2484
+Lfde172_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_GetHashCode
 
-LDIFF_SYM2341=Lme_ad - System_Nullable_1_Microsoft_Xna_Framework_Color_GetHashCode
-	.long LDIFF_SYM2341
+LDIFF_SYM2485=Lme_c1 - System_Nullable_1_Microsoft_Xna_Framework_Color_GetHashCode
+	.long LDIFF_SYM2485
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
 	.align 3
-Lfde152_end:
+Lfde172_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -43014,31 +48556,31 @@ Lfde152_end:
 
 	.byte 15,142,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_GetValueOrDefault
-	.quad Lme_ae
+	.quad Lme_c2
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2342=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2342
+LDIFF_SYM2486=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2486
 	.byte 2,141,32,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2343=Lfde153_end - Lfde153_start
-	.long LDIFF_SYM2343
-Lfde153_start:
+LDIFF_SYM2487=Lfde173_end - Lfde173_start
+	.long LDIFF_SYM2487
+Lfde173_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_GetValueOrDefault
 
-LDIFF_SYM2344=Lme_ae - System_Nullable_1_Microsoft_Xna_Framework_Color_GetValueOrDefault
-	.long LDIFF_SYM2344
+LDIFF_SYM2488=Lme_c2 - System_Nullable_1_Microsoft_Xna_Framework_Color_GetValueOrDefault
+	.long LDIFF_SYM2488
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29
 	.align 3
-Lfde153_end:
+Lfde173_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -43048,36 +48590,36 @@ Lfde153_end:
 
 	.byte 15,147,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_GetValueOrDefault_Microsoft_Xna_Framework_Color
-	.quad Lme_af
+	.quad Lme_c3
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2345=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2345
+LDIFF_SYM2489=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2489
 	.byte 1,106,3
 	.asciz "defaultValue"
 
-LDIFF_SYM2346=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2346
+LDIFF_SYM2490=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2490
 	.byte 2,141,40,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2347=Lfde154_end - Lfde154_start
-	.long LDIFF_SYM2347
-Lfde154_start:
+LDIFF_SYM2491=Lfde174_end - Lfde174_start
+	.long LDIFF_SYM2491
+Lfde174_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_GetValueOrDefault_Microsoft_Xna_Framework_Color
 
-LDIFF_SYM2348=Lme_af - System_Nullable_1_Microsoft_Xna_Framework_Color_GetValueOrDefault_Microsoft_Xna_Framework_Color
-	.long LDIFF_SYM2348
+LDIFF_SYM2492=Lme_c3 - System_Nullable_1_Microsoft_Xna_Framework_Color_GetValueOrDefault_Microsoft_Xna_Framework_Color
+	.long LDIFF_SYM2492
 	.long 0
 	.byte 12,31,0,68,14,112,157,14,158,13,68,13,29,68,154,12
 	.align 3
-Lfde154_end:
+Lfde174_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -43087,31 +48629,31 @@ Lfde154_end:
 
 	.byte 15,152,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_ToString
-	.quad Lme_b0
+	.quad Lme_c4
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2349=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2349
+LDIFF_SYM2493=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2493
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2350=Lfde155_end - Lfde155_start
-	.long LDIFF_SYM2350
-Lfde155_start:
+LDIFF_SYM2494=Lfde175_end - Lfde175_start
+	.long LDIFF_SYM2494
+Lfde175_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_ToString
 
-LDIFF_SYM2351=Lme_b0 - System_Nullable_1_Microsoft_Xna_Framework_Color_ToString
-	.long LDIFF_SYM2351
+LDIFF_SYM2495=Lme_c4 - System_Nullable_1_Microsoft_Xna_Framework_Color_ToString
+	.long LDIFF_SYM2495
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
 	.align 3
-Lfde155_end:
+Lfde175_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -43121,31 +48663,31 @@ Lfde155_end:
 
 	.byte 15,177,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_Box_System_Nullable_1_Microsoft_Xna_Framework_Color
-	.quad Lme_b1
+	.quad Lme_c5
 
 	.byte 2,118,16,3
 	.asciz "o"
 
-LDIFF_SYM2352=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2352
+LDIFF_SYM2496=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2496
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2353=Lfde156_end - Lfde156_start
-	.long LDIFF_SYM2353
-Lfde156_start:
+LDIFF_SYM2497=Lfde176_end - Lfde176_start
+	.long LDIFF_SYM2497
+Lfde176_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_Box_System_Nullable_1_Microsoft_Xna_Framework_Color
 
-LDIFF_SYM2354=Lme_b1 - System_Nullable_1_Microsoft_Xna_Framework_Color_Box_System_Nullable_1_Microsoft_Xna_Framework_Color
-	.long LDIFF_SYM2354
+LDIFF_SYM2498=Lme_c5 - System_Nullable_1_Microsoft_Xna_Framework_Color_Box_System_Nullable_1_Microsoft_Xna_Framework_Color
+	.long LDIFF_SYM2498
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
 	.align 3
-Lfde156_end:
+Lfde176_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -43155,435 +48697,225 @@ Lfde156_end:
 
 	.byte 15,185,1
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_Unbox_object
-	.quad Lme_b2
+	.quad Lme_c6
 
 	.byte 2,118,16,3
 	.asciz "o"
 
-LDIFF_SYM2355=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2355
+LDIFF_SYM2499=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2499
 	.byte 1,106,11
 	.asciz ""
 
-LDIFF_SYM2356=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2356
+LDIFF_SYM2500=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2500
 	.byte 3,141,224,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2357=Lfde157_end - Lfde157_start
-	.long LDIFF_SYM2357
-Lfde157_start:
+LDIFF_SYM2501=Lfde177_end - Lfde177_start
+	.long LDIFF_SYM2501
+Lfde177_start:
 
 	.long 0
 	.align 3
 	.quad System_Nullable_1_Microsoft_Xna_Framework_Color_Unbox_object
 
-LDIFF_SYM2358=Lme_b2 - System_Nullable_1_Microsoft_Xna_Framework_Color_Unbox_object
-	.long LDIFF_SYM2358
+LDIFF_SYM2502=Lme_c6 - System_Nullable_1_Microsoft_Xna_Framework_Color_Unbox_object
+	.long LDIFF_SYM2502
 	.long 0
 	.byte 12,31,0,68,14,112,157,14,158,13,68,13,29,68,154,12
 	.align 3
-Lfde157_end:
+Lfde177_end:
 
 .section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "System.Array:InternalArray__IEnumerable_GetEnumerator<T_REF>"
-	.asciz "System_Array_InternalArray__IEnumerable_GetEnumerator_T_REF"
-
-	.byte 16,78
-	.quad System_Array_InternalArray__IEnumerable_GetEnumerator_T_REF
-	.quad Lme_b3
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM2359=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2359
-	.byte 2,141,16,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM2360=Lfde158_end - Lfde158_start
-	.long LDIFF_SYM2360
-Lfde158_start:
-
-	.long 0
-	.align 3
-	.quad System_Array_InternalArray__IEnumerable_GetEnumerator_T_REF
-
-LDIFF_SYM2361=Lme_b3 - System_Array_InternalArray__IEnumerable_GetEnumerator_T_REF
-	.long LDIFF_SYM2361
-	.long 0
-	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29
-	.align 3
-Lfde158_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "System.Array:InternalArray__ICollection_Add<T_REF>"
-	.asciz "System_Array_InternalArray__ICollection_Add_T_REF_T_REF"
-
-	.byte 16,88
-	.quad System_Array_InternalArray__ICollection_Add_T_REF_T_REF
-	.quad Lme_b4
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM2362=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2362
-	.byte 2,141,16,3
-	.asciz "item"
-
-LDIFF_SYM2363=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2363
-	.byte 2,141,24,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM2364=Lfde159_end - Lfde159_start
-	.long LDIFF_SYM2364
-Lfde159_start:
-
-	.long 0
-	.align 3
-	.quad System_Array_InternalArray__ICollection_Add_T_REF_T_REF
-
-LDIFF_SYM2365=Lme_b4 - System_Array_InternalArray__ICollection_Add_T_REF_T_REF
-	.long LDIFF_SYM2365
-	.long 0
-	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
-	.align 3
-Lfde159_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "System.Array:InternalArray__ICollection_Remove<T_REF>"
-	.asciz "System_Array_InternalArray__ICollection_Remove_T_REF_T_REF"
-
-	.byte 16,93
-	.quad System_Array_InternalArray__ICollection_Remove_T_REF_T_REF
-	.quad Lme_b5
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM2366=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2366
-	.byte 2,141,16,3
-	.asciz "item"
-
-LDIFF_SYM2367=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2367
-	.byte 2,141,24,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM2368=Lfde160_end - Lfde160_start
-	.long LDIFF_SYM2368
-Lfde160_start:
-
-	.long 0
-	.align 3
-	.quad System_Array_InternalArray__ICollection_Remove_T_REF_T_REF
-
-LDIFF_SYM2369=Lme_b5 - System_Array_InternalArray__ICollection_Remove_T_REF_T_REF
-	.long LDIFF_SYM2369
-	.long 0
-	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29
-	.align 3
-Lfde160_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "System.Array:InternalArray__ICollection_Contains<T_REF>"
-	.asciz "System_Array_InternalArray__ICollection_Contains_T_REF_T_REF"
-
-	.byte 16,98
-	.quad System_Array_InternalArray__ICollection_Contains_T_REF_T_REF
-	.quad Lme_b6
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM2370=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2370
-	.byte 1,106,3
-	.asciz "item"
-
-LDIFF_SYM2371=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2371
-	.byte 2,141,40,11
-	.asciz "length"
-
-LDIFF_SYM2372=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2372
-	.byte 1,105,11
-	.asciz "i"
-
-LDIFF_SYM2373=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2373
-	.byte 1,104,11
-	.asciz "value"
-
-LDIFF_SYM2374=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2374
-	.byte 3,141,208,0,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM2375=Lfde161_end - Lfde161_start
-	.long LDIFF_SYM2375
-Lfde161_start:
-
-	.long 0
-	.align 3
-	.quad System_Array_InternalArray__ICollection_Contains_T_REF_T_REF
-
-LDIFF_SYM2376=Lme_b6 - System_Array_InternalArray__ICollection_Contains_T_REF_T_REF
-	.long LDIFF_SYM2376
-	.long 0
-	.byte 12,31,0,68,14,112,157,14,158,13,68,13,29,68,152,12,153,11,68,154,10
-	.align 3
-Lfde161_end:
-
-.section __DWARF, __debug_info,regular,debug
-
-	.byte 2
-	.asciz "System.Array:InternalArray__ICollection_CopyTo<T_REF>"
-	.asciz "System_Array_InternalArray__ICollection_CopyTo_T_REF_T_REF___int"
-
-	.byte 16,123
-	.quad System_Array_InternalArray__ICollection_CopyTo_T_REF_T_REF___int
-	.quad Lme_b7
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM2377=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2377
-	.byte 1,104,3
-	.asciz "array"
-
-LDIFF_SYM2378=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM2378
-	.byte 1,105,3
-	.asciz "index"
-
-LDIFF_SYM2379=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2379
-	.byte 3,141,192,0,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM2380=Lfde162_end - Lfde162_start
-	.long LDIFF_SYM2380
-Lfde162_start:
-
-	.long 0
-	.align 3
-	.quad System_Array_InternalArray__ICollection_CopyTo_T_REF_T_REF___int
-
-LDIFF_SYM2381=Lme_b7 - System_Array_InternalArray__ICollection_CopyTo_T_REF_T_REF___int
-	.long LDIFF_SYM2381
-	.long 0
-	.byte 12,31,0,68,14,240,1,157,30,158,29,68,13,29,68,148,28,149,27,68,150,26,68,152,25,153,24,68,154,23
-	.align 3
-Lfde162_end:
-
-.section __DWARF, __debug_info,regular,debug
-LTDIE_234:
+LTDIE_237:
 
 	.byte 5
 	.asciz "System_Predicate`1"
 
 	.byte 112,16
-LDIFF_SYM2382=LTDIE_13 - Ldebug_info_start
-	.long LDIFF_SYM2382
+LDIFF_SYM2503=LTDIE_13 - Ldebug_info_start
+	.long LDIFF_SYM2503
 	.byte 2,35,0,0,7
 	.asciz "System_Predicate`1"
 
-LDIFF_SYM2383=LTDIE_234 - Ldebug_info_start
-	.long LDIFF_SYM2383
-LTDIE_234_POINTER:
+LDIFF_SYM2504=LTDIE_237 - Ldebug_info_start
+	.long LDIFF_SYM2504
+LTDIE_237_POINTER:
 
 	.byte 13
-LDIFF_SYM2384=LTDIE_234 - Ldebug_info_start
-	.long LDIFF_SYM2384
-LTDIE_234_REFERENCE:
+LDIFF_SYM2505=LTDIE_237 - Ldebug_info_start
+	.long LDIFF_SYM2505
+LTDIE_237_REFERENCE:
 
 	.byte 14
-LDIFF_SYM2385=LTDIE_234 - Ldebug_info_start
-	.long LDIFF_SYM2385
+LDIFF_SYM2506=LTDIE_237 - Ldebug_info_start
+	.long LDIFF_SYM2506
 	.byte 2
 	.asciz "(wrapper_delegate-invoke)_System.Predicate`1<TheAdventuresOf.AnimationFrame>:invoke_bool_T"
 	.asciz "wrapper_delegate_invoke_System_Predicate_1_TheAdventuresOf_AnimationFrame_invoke_bool_T_TheAdventuresOf_AnimationFrame"
 
 	.byte 0,0
 	.quad wrapper_delegate_invoke_System_Predicate_1_TheAdventuresOf_AnimationFrame_invoke_bool_T_TheAdventuresOf_AnimationFrame
-	.quad Lme_b8
+	.quad Lme_c7
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2386=LTDIE_234_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2386
+LDIFF_SYM2507=LTDIE_237_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2507
 	.byte 1,105,3
 	.asciz "param0"
 
-LDIFF_SYM2387=LTDIE_164_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2387
+LDIFF_SYM2508=LTDIE_166_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2508
 	.byte 1,106,11
 	.asciz "V_0"
 
-LDIFF_SYM2388=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2388
+LDIFF_SYM2509=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2509
 	.byte 1,104,11
 	.asciz "V_1"
 
-LDIFF_SYM2389=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2389
+LDIFF_SYM2510=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2510
 	.byte 1,103,11
 	.asciz "V_2"
 
-LDIFF_SYM2390=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2390
+LDIFF_SYM2511=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2511
 	.byte 1,102,11
 	.asciz "V_3"
 
-LDIFF_SYM2391=LTDIE_13_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2391
+LDIFF_SYM2512=LTDIE_13_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2512
 	.byte 1,101,11
 	.asciz "V_4"
 
-LDIFF_SYM2392=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2392
+LDIFF_SYM2513=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2513
 	.byte 1,100,11
 	.asciz "V_5"
 
-LDIFF_SYM2393=LDIE_BOOLEAN - Ldebug_info_start
-	.long LDIFF_SYM2393
+LDIFF_SYM2514=LDIE_BOOLEAN - Ldebug_info_start
+	.long LDIFF_SYM2514
 	.byte 1,99,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2394=Lfde163_end - Lfde163_start
-	.long LDIFF_SYM2394
-Lfde163_start:
+LDIFF_SYM2515=Lfde178_end - Lfde178_start
+	.long LDIFF_SYM2515
+Lfde178_start:
 
 	.long 0
 	.align 3
 	.quad wrapper_delegate_invoke_System_Predicate_1_TheAdventuresOf_AnimationFrame_invoke_bool_T_TheAdventuresOf_AnimationFrame
 
-LDIFF_SYM2395=Lme_b8 - wrapper_delegate_invoke_System_Predicate_1_TheAdventuresOf_AnimationFrame_invoke_bool_T_TheAdventuresOf_AnimationFrame
-	.long LDIFF_SYM2395
+LDIFF_SYM2516=Lme_c7 - wrapper_delegate_invoke_System_Predicate_1_TheAdventuresOf_AnimationFrame_invoke_bool_T_TheAdventuresOf_AnimationFrame
+	.long LDIFF_SYM2516
 	.long 0
 	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,147,16,148,15,68,149,14,150,13,68,151,12,152,11,68,153,10
 	.byte 154,9
 	.align 3
-Lfde163_end:
+Lfde178_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_235:
+LTDIE_238:
 
 	.byte 5
 	.asciz "System_Comparison`1"
 
 	.byte 112,16
-LDIFF_SYM2396=LTDIE_13 - Ldebug_info_start
-	.long LDIFF_SYM2396
+LDIFF_SYM2517=LTDIE_13 - Ldebug_info_start
+	.long LDIFF_SYM2517
 	.byte 2,35,0,0,7
 	.asciz "System_Comparison`1"
 
-LDIFF_SYM2397=LTDIE_235 - Ldebug_info_start
-	.long LDIFF_SYM2397
-LTDIE_235_POINTER:
+LDIFF_SYM2518=LTDIE_238 - Ldebug_info_start
+	.long LDIFF_SYM2518
+LTDIE_238_POINTER:
 
 	.byte 13
-LDIFF_SYM2398=LTDIE_235 - Ldebug_info_start
-	.long LDIFF_SYM2398
-LTDIE_235_REFERENCE:
+LDIFF_SYM2519=LTDIE_238 - Ldebug_info_start
+	.long LDIFF_SYM2519
+LTDIE_238_REFERENCE:
 
 	.byte 14
-LDIFF_SYM2399=LTDIE_235 - Ldebug_info_start
-	.long LDIFF_SYM2399
+LDIFF_SYM2520=LTDIE_238 - Ldebug_info_start
+	.long LDIFF_SYM2520
 	.byte 2
 	.asciz "(wrapper_delegate-invoke)_System.Comparison`1<TheAdventuresOf.AnimationFrame>:invoke_int_T_T"
 	.asciz "wrapper_delegate_invoke_System_Comparison_1_TheAdventuresOf_AnimationFrame_invoke_int_T_T_TheAdventuresOf_AnimationFrame_TheAdventuresOf_AnimationFrame"
 
 	.byte 0,0
 	.quad wrapper_delegate_invoke_System_Comparison_1_TheAdventuresOf_AnimationFrame_invoke_int_T_T_TheAdventuresOf_AnimationFrame_TheAdventuresOf_AnimationFrame
-	.quad Lme_b9
+	.quad Lme_c8
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2400=LTDIE_235_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2400
+LDIFF_SYM2521=LTDIE_238_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2521
 	.byte 1,104,3
 	.asciz "param0"
 
-LDIFF_SYM2401=LTDIE_164_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2401
+LDIFF_SYM2522=LTDIE_166_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2522
 	.byte 1,105,3
 	.asciz "param1"
 
-LDIFF_SYM2402=LTDIE_164_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2402
+LDIFF_SYM2523=LTDIE_166_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2523
 	.byte 1,106,11
 	.asciz "V_0"
 
-LDIFF_SYM2403=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2403
+LDIFF_SYM2524=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2524
 	.byte 1,103,11
 	.asciz "V_1"
 
-LDIFF_SYM2404=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2404
+LDIFF_SYM2525=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2525
 	.byte 1,102,11
 	.asciz "V_2"
 
-LDIFF_SYM2405=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2405
+LDIFF_SYM2526=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2526
 	.byte 1,101,11
 	.asciz "V_3"
 
-LDIFF_SYM2406=LTDIE_13_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2406
+LDIFF_SYM2527=LTDIE_13_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2527
 	.byte 1,100,11
 	.asciz "V_4"
 
-LDIFF_SYM2407=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2407
+LDIFF_SYM2528=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2528
 	.byte 1,99,11
 	.asciz "V_5"
 
-LDIFF_SYM2408=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2408
+LDIFF_SYM2529=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2529
 	.byte 3,141,232,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2409=Lfde164_end - Lfde164_start
-	.long LDIFF_SYM2409
-Lfde164_start:
+LDIFF_SYM2530=Lfde179_end - Lfde179_start
+	.long LDIFF_SYM2530
+Lfde179_start:
 
 	.long 0
 	.align 3
 	.quad wrapper_delegate_invoke_System_Comparison_1_TheAdventuresOf_AnimationFrame_invoke_int_T_T_TheAdventuresOf_AnimationFrame_TheAdventuresOf_AnimationFrame
 
-LDIFF_SYM2410=Lme_b9 - wrapper_delegate_invoke_System_Comparison_1_TheAdventuresOf_AnimationFrame_invoke_int_T_T_TheAdventuresOf_AnimationFrame_TheAdventuresOf_AnimationFrame
-	.long LDIFF_SYM2410
+LDIFF_SYM2531=Lme_c8 - wrapper_delegate_invoke_System_Comparison_1_TheAdventuresOf_AnimationFrame_invoke_int_T_T_TheAdventuresOf_AnimationFrame_TheAdventuresOf_AnimationFrame
+	.long LDIFF_SYM2531
 	.long 0
 	.byte 12,31,0,68,14,144,1,157,18,158,17,68,13,29,68,147,16,148,15,68,149,14,150,13,68,151,12,152,11,68,153,10
 	.byte 154,9
 	.align 3
-Lfde164_end:
+Lfde179_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -43593,31 +48925,31 @@ Lfde164_end:
 
 	.byte 18,140,1
 	.quad System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Count
-	.quad Lme_ba
+	.quad Lme_c9
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2411=LTDIE_156_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2411
+LDIFF_SYM2532=LTDIE_158_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2532
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2412=Lfde165_end - Lfde165_start
-	.long LDIFF_SYM2412
-Lfde165_start:
+LDIFF_SYM2533=Lfde180_end - Lfde180_start
+	.long LDIFF_SYM2533
+Lfde180_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Count
 
-LDIFF_SYM2413=Lme_ba - System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Count
-	.long LDIFF_SYM2413
+LDIFF_SYM2534=Lme_c9 - System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Count
+	.long LDIFF_SYM2534
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
 	.align 3
-Lfde165_end:
+Lfde180_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -43627,36 +48959,36 @@ Lfde165_end:
 
 	.byte 18,180,1
 	.quad System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Item_int
-	.quad Lme_bb
+	.quad Lme_ca
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2414=LTDIE_156_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2414
+LDIFF_SYM2535=LTDIE_158_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2535
 	.byte 1,105,3
 	.asciz "index"
 
-LDIFF_SYM2415=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2415
+LDIFF_SYM2536=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2536
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2416=Lfde166_end - Lfde166_start
-	.long LDIFF_SYM2416
-Lfde166_start:
+LDIFF_SYM2537=Lfde181_end - Lfde181_start
+	.long LDIFF_SYM2537
+Lfde181_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Item_int
 
-LDIFF_SYM2417=Lme_bb - System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Item_int
-	.long LDIFF_SYM2417
+LDIFF_SYM2538=Lme_ca - System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Item_int
+	.long LDIFF_SYM2538
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,153,8,154,7
 	.align 3
-Lfde166_end:
+Lfde181_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -43666,41 +48998,41 @@ Lfde166_end:
 
 	.byte 18,228,1
 	.quad System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_Add_Microsoft_Xna_Framework_Point
-	.quad Lme_bc
+	.quad Lme_cb
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2418=LTDIE_156_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2418
+LDIFF_SYM2539=LTDIE_158_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2539
 	.byte 1,106,3
 	.asciz "item"
 
-LDIFF_SYM2419=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2419
+LDIFF_SYM2540=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2540
 	.byte 2,141,56,11
 	.asciz ""
 
-LDIFF_SYM2420=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2420
+LDIFF_SYM2541=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2541
 	.byte 1,105,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2421=Lfde167_end - Lfde167_start
-	.long LDIFF_SYM2421
-Lfde167_start:
+LDIFF_SYM2542=Lfde182_end - Lfde182_start
+	.long LDIFF_SYM2542
+Lfde182_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_Add_Microsoft_Xna_Framework_Point
 
-LDIFF_SYM2422=Lme_bc - System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_Add_Microsoft_Xna_Framework_Point
-	.long LDIFF_SYM2422
+LDIFF_SYM2543=Lme_cb - System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_Add_Microsoft_Xna_Framework_Point
+	.long LDIFF_SYM2543
 	.long 0
 	.byte 12,31,0,68,14,112,157,14,158,13,68,13,29,68,150,12,151,11,68,152,10,153,9,68,154,8
 	.align 3
-Lfde167_end:
+Lfde182_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -43710,31 +49042,102 @@ Lfde167_end:
 
 	.byte 18,52
 	.quad System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__ctor
-	.quad Lme_bd
+	.quad Lme_cc
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2423=LTDIE_156_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2423
+LDIFF_SYM2544=LTDIE_158_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2544
 	.byte 1,106,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2424=Lfde168_end - Lfde168_start
-	.long LDIFF_SYM2424
-Lfde168_start:
+LDIFF_SYM2545=Lfde183_end - Lfde183_start
+	.long LDIFF_SYM2545
+Lfde183_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__ctor
 
-LDIFF_SYM2425=Lme_bd - System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__ctor
-	.long LDIFF_SYM2425
+LDIFF_SYM2546=Lme_cc - System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__ctor
+	.long LDIFF_SYM2546
 	.long 0
 	.byte 12,31,0,68,14,64,157,8,158,7,68,13,29,68,154,6
 	.align 3
-Lfde168_end:
+Lfde183_end:
+
+.section __DWARF, __debug_info,regular,debug
+LTDIE_239:
+
+	.byte 5
+	.asciz "_InternalEnumerator`1"
+
+	.byte 32,16
+LDIFF_SYM2547=LTDIE_21 - Ldebug_info_start
+	.long LDIFF_SYM2547
+	.byte 2,35,0,6
+	.asciz "array"
+
+LDIFF_SYM2548=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2548
+	.byte 2,35,16,6
+	.asciz "idx"
+
+LDIFF_SYM2549=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2549
+	.byte 2,35,24,0,7
+	.asciz "_InternalEnumerator`1"
+
+LDIFF_SYM2550=LTDIE_239 - Ldebug_info_start
+	.long LDIFF_SYM2550
+LTDIE_239_POINTER:
+
+	.byte 13
+LDIFF_SYM2551=LTDIE_239 - Ldebug_info_start
+	.long LDIFF_SYM2551
+LTDIE_239_REFERENCE:
+
+	.byte 14
+LDIFF_SYM2552=LTDIE_239 - Ldebug_info_start
+	.long LDIFF_SYM2552
+	.byte 2
+	.asciz "System.Array/InternalEnumerator`1<T_REF>:.ctor"
+	.asciz "System_Array_InternalEnumerator_1_T_REF__ctor_System_Array"
+
+	.byte 16,239,1
+	.quad System_Array_InternalEnumerator_1_T_REF__ctor_System_Array
+	.quad Lme_cd
+
+	.byte 2,118,16,3
+	.asciz "this"
+
+LDIFF_SYM2553=LDIE_I - Ldebug_info_start
+	.long LDIFF_SYM2553
+	.byte 1,105,3
+	.asciz "array"
+
+LDIFF_SYM2554=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2554
+	.byte 2,141,24,0
+
+.section __DWARF, __debug_frame,regular,debug
+
+LDIFF_SYM2555=Lfde184_end - Lfde184_start
+	.long LDIFF_SYM2555
+Lfde184_start:
+
+	.long 0
+	.align 3
+	.quad System_Array_InternalEnumerator_1_T_REF__ctor_System_Array
+
+LDIFF_SYM2556=Lme_cd - System_Array_InternalEnumerator_1_T_REF__ctor_System_Array
+	.long LDIFF_SYM2556
+	.long 0
+	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,153,8
+	.align 3
+Lfde184_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -43744,97 +49147,97 @@ Lfde168_end:
 
 	.byte 16,197,1
 	.quad System_Array_InternalArray__get_Item_Microsoft_Xna_Framework_Point_int
-	.quad Lme_be
+	.quad Lme_ce
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2426=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2426
+LDIFF_SYM2557=LTDIE_221_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2557
 	.byte 1,105,3
 	.asciz "index"
 
-LDIFF_SYM2427=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2427
+LDIFF_SYM2558=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2558
 	.byte 1,106,11
 	.asciz "value"
 
-LDIFF_SYM2428=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2428
+LDIFF_SYM2559=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2559
 	.byte 3,141,216,0,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2429=Lfde169_end - Lfde169_start
-	.long LDIFF_SYM2429
-Lfde169_start:
+LDIFF_SYM2560=Lfde185_end - Lfde185_start
+	.long LDIFF_SYM2560
+Lfde185_start:
 
 	.long 0
 	.align 3
 	.quad System_Array_InternalArray__get_Item_Microsoft_Xna_Framework_Point_int
 
-LDIFF_SYM2430=Lme_be - System_Array_InternalArray__get_Item_Microsoft_Xna_Framework_Point_int
-	.long LDIFF_SYM2430
+LDIFF_SYM2561=Lme_ce - System_Array_InternalArray__get_Item_Microsoft_Xna_Framework_Point_int
+	.long LDIFF_SYM2561
 	.long 0
 	.byte 12,31,0,68,14,112,157,14,158,13,68,13,29,68,153,12,154,11
 	.align 3
-Lfde169_end:
+Lfde185_end:
 
 .section __DWARF, __debug_info,regular,debug
-LTDIE_236:
+LTDIE_240:
 
 	.byte 5
 	.asciz "System_Collections_Generic_ObjectEqualityComparer`1"
 
 	.byte 16,16
-LDIFF_SYM2431=LTDIE_222 - Ldebug_info_start
-	.long LDIFF_SYM2431
+LDIFF_SYM2562=LTDIE_225 - Ldebug_info_start
+	.long LDIFF_SYM2562
 	.byte 2,35,0,0,7
 	.asciz "System_Collections_Generic_ObjectEqualityComparer`1"
 
-LDIFF_SYM2432=LTDIE_236 - Ldebug_info_start
-	.long LDIFF_SYM2432
-LTDIE_236_POINTER:
+LDIFF_SYM2563=LTDIE_240 - Ldebug_info_start
+	.long LDIFF_SYM2563
+LTDIE_240_POINTER:
 
 	.byte 13
-LDIFF_SYM2433=LTDIE_236 - Ldebug_info_start
-	.long LDIFF_SYM2433
-LTDIE_236_REFERENCE:
+LDIFF_SYM2564=LTDIE_240 - Ldebug_info_start
+	.long LDIFF_SYM2564
+LTDIE_240_REFERENCE:
 
 	.byte 14
-LDIFF_SYM2434=LTDIE_236 - Ldebug_info_start
-	.long LDIFF_SYM2434
+LDIFF_SYM2565=LTDIE_240 - Ldebug_info_start
+	.long LDIFF_SYM2565
 	.byte 2
 	.asciz "System.Collections.Generic.ObjectEqualityComparer`1<Microsoft.Xna.Framework.Point>:.ctor"
 	.asciz "System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor"
 
 	.byte 0,0
 	.quad System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
-	.quad Lme_bf
+	.quad Lme_cf
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2435=LTDIE_236_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2435
+LDIFF_SYM2566=LTDIE_240_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2566
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2436=Lfde170_end - Lfde170_start
-	.long LDIFF_SYM2436
-Lfde170_start:
+LDIFF_SYM2567=Lfde186_end - Lfde186_start
+	.long LDIFF_SYM2567
+Lfde186_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
 
-LDIFF_SYM2437=Lme_bf - System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
-	.long LDIFF_SYM2437
+LDIFF_SYM2568=Lme_cf - System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point__ctor
+	.long LDIFF_SYM2568
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
 	.align 3
-Lfde170_end:
+Lfde186_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -43844,41 +49247,41 @@ Lfde170_end:
 
 	.byte 17,158,2
 	.quad System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
-	.quad Lme_c0
+	.quad Lme_d0
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2438=LTDIE_236_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2438
+LDIFF_SYM2569=LTDIE_240_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2569
 	.byte 2,141,16,3
 	.asciz "x"
 
-LDIFF_SYM2439=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2439
+LDIFF_SYM2570=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2570
 	.byte 2,141,24,3
 	.asciz "y"
 
-LDIFF_SYM2440=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2440
+LDIFF_SYM2571=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2571
 	.byte 2,141,40,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2441=Lfde171_end - Lfde171_start
-	.long LDIFF_SYM2441
-Lfde171_start:
+LDIFF_SYM2572=Lfde187_end - Lfde187_start
+	.long LDIFF_SYM2572
+Lfde187_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
 
-LDIFF_SYM2442=Lme_c0 - System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
-	.long LDIFF_SYM2442
+LDIFF_SYM2573=Lme_d0 - System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_Microsoft_Xna_Framework_Point_Microsoft_Xna_Framework_Point
+	.long LDIFF_SYM2573
 	.long 0
 	.byte 12,31,0,68,14,128,1,157,16,158,15,68,13,29
 	.align 3
-Lfde171_end:
+Lfde187_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -43888,36 +49291,36 @@ Lfde171_end:
 
 	.byte 17,168,2
 	.quad System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode_Microsoft_Xna_Framework_Point
-	.quad Lme_c1
+	.quad Lme_d1
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2443=LTDIE_236_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2443
+LDIFF_SYM2574=LTDIE_240_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2574
 	.byte 2,141,16,3
 	.asciz "obj"
 
-LDIFF_SYM2444=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2444
+LDIFF_SYM2575=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2575
 	.byte 2,141,24,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2445=Lfde172_end - Lfde172_start
-	.long LDIFF_SYM2445
-Lfde172_start:
+LDIFF_SYM2576=Lfde188_end - Lfde188_start
+	.long LDIFF_SYM2576
+Lfde188_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode_Microsoft_Xna_Framework_Point
 
-LDIFF_SYM2446=Lme_c1 - System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode_Microsoft_Xna_Framework_Point
-	.long LDIFF_SYM2446
+LDIFF_SYM2577=Lme_d1 - System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode_Microsoft_Xna_Framework_Point
+	.long LDIFF_SYM2577
 	.long 0
 	.byte 12,31,0,68,14,96,157,12,158,11,68,13,29
 	.align 3
-Lfde172_end:
+Lfde188_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -43927,66 +49330,66 @@ Lfde172_end:
 
 	.byte 17,173,2
 	.quad System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_IndexOf_Microsoft_Xna_Framework_Point___Microsoft_Xna_Framework_Point_int_int
-	.quad Lme_c2
+	.quad Lme_d2
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2447=LTDIE_236_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2447
+LDIFF_SYM2578=LTDIE_240_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2578
 	.byte 2,141,56,3
 	.asciz "array"
 
-LDIFF_SYM2448=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM2448
+LDIFF_SYM2579=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM2579
 	.byte 1,104,3
 	.asciz "value"
 
-LDIFF_SYM2449=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2449
+LDIFF_SYM2580=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2580
 	.byte 3,141,192,0,3
 	.asciz "startIndex"
 
-LDIFF_SYM2450=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2450
+LDIFF_SYM2581=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2581
 	.byte 1,105,3
 	.asciz "count"
 
-LDIFF_SYM2451=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2451
+LDIFF_SYM2582=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2582
 	.byte 3,141,208,0,11
 	.asciz "endIndex"
 
-LDIFF_SYM2452=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2452
+LDIFF_SYM2583=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2583
 	.byte 1,103,11
 	.asciz "i"
 
-LDIFF_SYM2453=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2453
+LDIFF_SYM2584=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2584
 	.byte 1,102,11
 	.asciz "i"
 
-LDIFF_SYM2454=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2454
+LDIFF_SYM2585=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2585
 	.byte 1,101,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2455=Lfde173_end - Lfde173_start
-	.long LDIFF_SYM2455
-Lfde173_start:
+LDIFF_SYM2586=Lfde189_end - Lfde189_start
+	.long LDIFF_SYM2586
+Lfde189_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_IndexOf_Microsoft_Xna_Framework_Point___Microsoft_Xna_Framework_Point_int_int
 
-LDIFF_SYM2456=Lme_c2 - System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_IndexOf_Microsoft_Xna_Framework_Point___Microsoft_Xna_Framework_Point_int_int
-	.long LDIFF_SYM2456
+LDIFF_SYM2587=Lme_d2 - System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_IndexOf_Microsoft_Xna_Framework_Point___Microsoft_Xna_Framework_Point_int_int
+	.long LDIFF_SYM2587
 	.long 0
 	.byte 12,31,0,68,14,160,1,157,20,158,19,68,13,29,68,149,18,150,17,68,151,16,152,15,68,153,14
 	.align 3
-Lfde173_end:
+Lfde189_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -43996,41 +49399,41 @@ Lfde173_end:
 
 	.byte 17,204,2
 	.quad System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_object
-	.quad Lme_c3
+	.quad Lme_d3
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2457=LTDIE_236_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2457
+LDIFF_SYM2588=LTDIE_240_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2588
 	.byte 2,141,40,3
 	.asciz "obj"
 
-LDIFF_SYM2458=LDIE_OBJECT - Ldebug_info_start
-	.long LDIFF_SYM2458
+LDIFF_SYM2589=LDIE_OBJECT - Ldebug_info_start
+	.long LDIFF_SYM2589
 	.byte 2,141,48,11
 	.asciz "comparer"
 
-LDIFF_SYM2459=LTDIE_236_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2459
+LDIFF_SYM2590=LTDIE_240_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2590
 	.byte 1,105,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2460=Lfde174_end - Lfde174_start
-	.long LDIFF_SYM2460
-Lfde174_start:
+LDIFF_SYM2591=Lfde190_end - Lfde190_start
+	.long LDIFF_SYM2591
+Lfde190_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_object
 
-LDIFF_SYM2461=Lme_c3 - System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_object
-	.long LDIFF_SYM2461
+LDIFF_SYM2592=Lme_d3 - System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_Equals_object
+	.long LDIFF_SYM2592
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,151,8,152,7,68,153,6
 	.align 3
-Lfde174_end:
+Lfde190_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -44040,102 +49443,31 @@ Lfde174_end:
 
 	.byte 17,209,2
 	.quad System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode
-	.quad Lme_c4
+	.quad Lme_d4
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2462=LTDIE_236_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2462
+LDIFF_SYM2593=LTDIE_240_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2593
 	.byte 2,141,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2463=Lfde175_end - Lfde175_start
-	.long LDIFF_SYM2463
-Lfde175_start:
+LDIFF_SYM2594=Lfde191_end - Lfde191_start
+	.long LDIFF_SYM2594
+Lfde191_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode
 
-LDIFF_SYM2464=Lme_c4 - System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode
-	.long LDIFF_SYM2464
+LDIFF_SYM2595=Lme_d4 - System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode
+	.long LDIFF_SYM2595
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29
 	.align 3
-Lfde175_end:
-
-.section __DWARF, __debug_info,regular,debug
-LTDIE_237:
-
-	.byte 5
-	.asciz "_InternalEnumerator`1"
-
-	.byte 32,16
-LDIFF_SYM2465=LTDIE_21 - Ldebug_info_start
-	.long LDIFF_SYM2465
-	.byte 2,35,0,6
-	.asciz "array"
-
-LDIFF_SYM2466=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2466
-	.byte 2,35,16,6
-	.asciz "idx"
-
-LDIFF_SYM2467=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2467
-	.byte 2,35,24,0,7
-	.asciz "_InternalEnumerator`1"
-
-LDIFF_SYM2468=LTDIE_237 - Ldebug_info_start
-	.long LDIFF_SYM2468
-LTDIE_237_POINTER:
-
-	.byte 13
-LDIFF_SYM2469=LTDIE_237 - Ldebug_info_start
-	.long LDIFF_SYM2469
-LTDIE_237_REFERENCE:
-
-	.byte 14
-LDIFF_SYM2470=LTDIE_237 - Ldebug_info_start
-	.long LDIFF_SYM2470
-	.byte 2
-	.asciz "System.Array/InternalEnumerator`1<T_REF>:.ctor"
-	.asciz "System_Array_InternalEnumerator_1_T_REF__ctor_System_Array"
-
-	.byte 16,239,1
-	.quad System_Array_InternalEnumerator_1_T_REF__ctor_System_Array
-	.quad Lme_c5
-
-	.byte 2,118,16,3
-	.asciz "this"
-
-LDIFF_SYM2471=LDIE_I - Ldebug_info_start
-	.long LDIFF_SYM2471
-	.byte 1,105,3
-	.asciz "array"
-
-LDIFF_SYM2472=LTDIE_221_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2472
-	.byte 2,141,24,0
-
-.section __DWARF, __debug_frame,regular,debug
-
-LDIFF_SYM2473=Lfde176_end - Lfde176_start
-	.long LDIFF_SYM2473
-Lfde176_start:
-
-	.long 0
-	.align 3
-	.quad System_Array_InternalEnumerator_1_T_REF__ctor_System_Array
-
-LDIFF_SYM2474=Lme_c5 - System_Array_InternalEnumerator_1_T_REF__ctor_System_Array
-	.long LDIFF_SYM2474
-	.long 0
-	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,153,8
-	.align 3
-Lfde176_end:
+Lfde191_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -44145,41 +49477,41 @@ Lfde176_end:
 
 	.byte 18,157,3
 	.quad System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_EnsureCapacity_int
-	.quad Lme_c6
+	.quad Lme_d5
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2475=LTDIE_156_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2475
+LDIFF_SYM2596=LTDIE_158_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2596
 	.byte 1,105,3
 	.asciz "min"
 
-LDIFF_SYM2476=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2476
+LDIFF_SYM2597=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2597
 	.byte 1,106,11
 	.asciz "newCapacity"
 
-LDIFF_SYM2477=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2477
+LDIFF_SYM2598=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2598
 	.byte 1,104,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2478=Lfde177_end - Lfde177_start
-	.long LDIFF_SYM2478
-Lfde177_start:
+LDIFF_SYM2599=Lfde192_end - Lfde192_start
+	.long LDIFF_SYM2599
+Lfde192_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_EnsureCapacity_int
 
-LDIFF_SYM2479=Lme_c6 - System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_EnsureCapacity_int
-	.long LDIFF_SYM2479
+LDIFF_SYM2600=Lme_d5 - System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_EnsureCapacity_int
+	.long LDIFF_SYM2600
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,151,8,152,7,68,153,6,154,5
 	.align 3
-Lfde177_end:
+Lfde192_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -44189,26 +49521,26 @@ Lfde177_end:
 
 	.byte 18,47
 	.quad System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__cctor
-	.quad Lme_c7
+	.quad Lme_d6
 
 	.byte 2,118,16,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2480=Lfde178_end - Lfde178_start
-	.long LDIFF_SYM2480
-Lfde178_start:
+LDIFF_SYM2601=Lfde193_end - Lfde193_start
+	.long LDIFF_SYM2601
+Lfde193_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__cctor
 
-LDIFF_SYM2481=Lme_c7 - System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__cctor
-	.long LDIFF_SYM2481
+LDIFF_SYM2602=Lme_d6 - System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__cctor
+	.long LDIFF_SYM2602
 	.long 0
 	.byte 12,31,0,68,14,48,157,6,158,5,68,13,29
 	.align 3
-Lfde178_end:
+Lfde193_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -44218,41 +49550,41 @@ Lfde178_end:
 
 	.byte 18,116
 	.quad System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_set_Capacity_int
-	.quad Lme_c8
+	.quad Lme_d7
 
 	.byte 2,118,16,3
 	.asciz "this"
 
-LDIFF_SYM2482=LTDIE_156_REFERENCE - Ldebug_info_start
-	.long LDIFF_SYM2482
+LDIFF_SYM2603=LTDIE_158_REFERENCE - Ldebug_info_start
+	.long LDIFF_SYM2603
 	.byte 1,105,3
 	.asciz "value"
 
-LDIFF_SYM2483=LDIE_I4 - Ldebug_info_start
-	.long LDIFF_SYM2483
+LDIFF_SYM2604=LDIE_I4 - Ldebug_info_start
+	.long LDIFF_SYM2604
 	.byte 1,106,11
 	.asciz "newItems"
 
-LDIFF_SYM2484=LDIE_SZARRAY - Ldebug_info_start
-	.long LDIFF_SYM2484
+LDIFF_SYM2605=LDIE_SZARRAY - Ldebug_info_start
+	.long LDIFF_SYM2605
 	.byte 1,104,0
 
 .section __DWARF, __debug_frame,regular,debug
 
-LDIFF_SYM2485=Lfde179_end - Lfde179_start
-	.long LDIFF_SYM2485
-Lfde179_start:
+LDIFF_SYM2606=Lfde194_end - Lfde194_start
+	.long LDIFF_SYM2606
+Lfde194_start:
 
 	.long 0
 	.align 3
 	.quad System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_set_Capacity_int
 
-LDIFF_SYM2486=Lme_c8 - System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_set_Capacity_int
-	.long LDIFF_SYM2486
+LDIFF_SYM2607=Lme_d7 - System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_set_Capacity_int
+	.long LDIFF_SYM2607
 	.long 0
 	.byte 12,31,0,68,14,80,157,10,158,9,68,13,29,68,152,8,153,7,68,154,6
 	.align 3
-Lfde179_end:
+Lfde194_end:
 
 .section __DWARF, __debug_info,regular,debug
 
@@ -44355,38 +49687,38 @@ Ldebug_line_header_end:
 	.byte 0,9,2
 	.quad TheAdventuresOf_TheAdventuresOf__ctor
 
-	.byte 4,2,1,10,3,21,2,56,1,3,1,2,44,1,243,3,2,2,236,0,1,3,2,2,244,0,1,8,61,2,48,1
+	.byte 4,2,1,10,3,20,2,56,1,3,1,2,44,1,243,3,2,2,236,0,1,3,2,2,244,0,1,8,61,2,48,1
 	.byte 0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_TheAdventuresOf_Initialize
 
-	.byte 4,2,1,10,3,37,2,56,1,8,229,3,1,2,180,2,1,3,1,2,228,0,1,3,1,2,228,0,1,3,1,2
-	.byte 228,0,1,3,1,2,44,1,2,48,1,0,1,1
+	.byte 4,2,1,10,3,36,2,56,1,8,229,3,1,2,180,2,1,3,1,2,228,0,1,3,1,2,228,0,1,3,1,2
+	.byte 44,1,2,48,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_TheAdventuresOf_LoadContent
 
-	.byte 4,2,1,10,3,50,2,56,1,8,230,3,2,2,136,1,1,3,1,2,200,0,1,3,3,2,200,0,1,3,2,2
-	.byte 60,1,3,1,2,228,0,1,3,2,2,212,0,1,3,1,2,224,1,1,3,125,2,40,1,3,5,2,52,1,3,1
-	.byte 2,228,0,1,3,2,2,212,0,1,3,1,2,224,1,1,3,125,2,40,1,3,5,2,52,1,3,1,2,200,0,1
-	.byte 3,1,2,200,0,1,2,200,0,1,0,1,1
+	.byte 4,2,1,10,3,48,2,56,1,8,230,3,2,2,136,1,1,3,1,2,200,0,1,3,2,2,200,0,1,3,1,2
+	.byte 52,1,8,61,3,2,2,52,1,3,1,2,60,1,3,2,2,208,0,1,3,1,2,224,1,1,3,125,2,40,1,3
+	.byte 5,2,52,1,3,1,2,200,0,1,3,1,2,200,0,1,2,200,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_TheAdventuresOf_Update_Microsoft_Xna_Framework_GameTime
 
-	.byte 4,2,1,10,3,210,0,2,60,1,8,236,3,1,2,196,0,1,3,1,2,224,0,1,3,2,2,208,0,1,3,1
-	.byte 2,204,0,1,3,1,2,204,0,1,3,2,2,204,0,1,3,1,2,52,1,2,48,1,0,1,1
+	.byte 4,2,1,10,3,203,0,2,60,1,8,236,3,1,2,196,0,1,3,1,2,224,0,1,3,1,2,212,0,1,3,2
+	.byte 2,204,0,1,3,1,2,52,1,2,48,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_TheAdventuresOf_Draw_Microsoft_Xna_Framework_GameTime
 
-	.byte 4,2,1,10,3,234,0,2,228,0,1,8,231,3,3,2,200,3,1,3,3,2,204,0,1,3,3,2,232,0,1,3
-	.byte 3,2,232,0,1,3,3,2,52,1,3,2,2,60,1,3,2,2,60,1,3,1,2,52,1,2,192,0,1,0,1,1
+	.byte 4,2,1,10,3,224,0,2,128,1,1,8,231,3,3,2,200,3,1,3,2,2,204,0,1,3,1,2,248,1,1,244
+	.byte 3,1,2,228,0,1,8,112,3,7,2,148,1,1,3,3,2,248,0,1,3,3,2,52,1,3,2,2,60,1,3,2
+	.byte 2,60,1,3,1,2,52,1,2,196,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
@@ -44446,64 +49778,65 @@ Ldebug_line_header_end:
 	.byte 0,9,2
 	.quad TheAdventuresOf_Character__ctor
 
-	.byte 4,4,1,10,3,12,2,56,1,3,15,2,48,1,2,212,0,1,0,1,1
+	.byte 4,4,1,10,3,12,2,56,1,3,16,2,48,1,8,231,2,252,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Character_HandleMovement_Microsoft_Xna_Framework_GameTime
 
-	.byte 4,4,1,10,3,31,2,56,1,2,204,0,1,0,1,1
+	.byte 4,4,1,10,3,34,2,56,1,2,204,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Character_InitializeAnimation
 
-	.byte 4,4,1,10,3,32,2,52,1,2,204,0,1,0,1,1
+	.byte 4,4,1,10,3,35,2,52,1,2,204,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Character_Move_Microsoft_Xna_Framework_GameTime_int
 
-	.byte 4,4,1,10,3,33,2,60,1,2,204,0,1,0,1,1
+	.byte 4,4,1,10,3,36,2,60,1,2,204,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Character_HandleAnimation_Microsoft_Xna_Framework_GameTime
 
-	.byte 4,4,1,10,3,34,2,56,1,2,204,0,1,0,1,1
+	.byte 4,4,1,10,3,37,2,56,1,2,204,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Character_InitializeCharacter_single_single_int_int
 
-	.byte 4,4,1,10,3,37,2,204,0,1,8,229,3,1,2,56,1,8,173,8,174,3,2,2,128,1,1,3,1,2,220,1
-	.byte 1,3,1,2,52,1,2,192,0,1,0,1,1
+	.byte 4,4,1,10,3,40,2,204,0,1,8,229,3,1,2,56,1,8,173,8,174,3,1,2,128,1,1,3,3,2,160,1
+	.byte 1,3,4,2,220,1,1,3,1,2,52,1,2,192,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Character_UpdateCharacterBounds
 
-	.byte 4,4,1,10,3,49,2,56,1,8,229,3,1,2,200,0,1,3,1,2,200,0,1,2,60,1,0,1,1
+	.byte 4,4,1,10,3,57,2,56,1,8,229,3,1,2,200,0,1,3,1,2,200,0,1,2,60,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Character_HandleLevelBoundCollision_int_int
 
-	.byte 4,4,1,10,3,55,2,196,0,1,8,230,3,2,2,48,1,3,1,2,48,1,8,62,3,1,2,60,1,244,2,208
+	.byte 4,4,1,10,3,63,2,196,0,1,8,230,3,2,2,48,1,3,1,2,48,1,8,62,3,1,2,60,1,244,2,208
 	.byte 0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Character_Update_Microsoft_Xna_Framework_GameTime_bool
 
-	.byte 4,4,1,10,3,197,0,2,60,1,8,229,3,1,2,200,0,1,2,44,1,0,1,1
+	.byte 4,4,1,10,3,205,0,2,60,1,8,229,3,1,2,200,0,1,2,44,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Character_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
 
-	.byte 4,4,1,10,3,202,0,2,200,1,1,8,230,3,2,2,248,0,1,8,173,243,3,1,2,232,6,1,8,61,3,1
-	.byte 2,44,1,3,1,2,144,4,1,3,127,2,140,1,1,3,2,2,176,1,1,243,2,212,0,1,0,1,1
+	.byte 4,4,1,10,3,210,0,2,204,1,1,8,230,3,2,2,248,0,1,8,173,243,3,1,2,140,1,1,3,127,2,140
+	.byte 6,1,3,7,2,172,1,1,8,61,8,173,243,3,1,2,140,1,1,3,127,2,140,6,1,3,7,2,176,1,1,243
+	.byte 2,224,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
@@ -44588,22 +49921,22 @@ Ldebug_line_header_end:
 	.byte 0,9,2
 	.quad TheAdventuresOf_Controller_HandleInput_Microsoft_Xna_Framework_Point
 
-	.byte 4,8,1,10,3,30,2,52,1,8,229,3,1,2,252,0,1,243,3,1,2,56,1,3,1,2,40,1,3,1,2,40
-	.byte 1,244,3,1,2,140,1,1,243,3,1,2,56,1,3,1,2,40,1,3,1,2,40,1,244,3,1,2,140,1,1,243
-	.byte 3,1,2,56,1,3,1,2,40,1,3,1,2,40,1,244,2,60,1,0,1,1
+	.byte 4,8,1,10,3,30,2,52,1,8,229,3,1,2,252,0,1,243,3,1,2,40,1,3,1,2,40,1,244,3,1,2
+	.byte 140,1,1,243,3,1,2,40,1,3,1,2,40,1,244,3,1,2,140,1,1,243,3,1,2,40,1,3,1,2,40,1
+	.byte 244,2,60,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Controller_ResetButtonPressedValues
 
-	.byte 4,8,1,10,3,55,2,48,1,8,229,3,1,2,36,1,3,1,2,36,1,3,1,2,36,1,3,1,2,36,1,2
+	.byte 4,8,1,10,3,52,2,48,1,8,229,3,1,2,36,1,3,1,2,36,1,3,1,2,36,1,3,1,2,36,1,2
 	.byte 44,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Controller_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch
 
-	.byte 4,8,1,10,3,63,2,248,0,1,8,230,3,3,2,180,4,1,3,3,2,252,0,1,3,3,2,128,1,1,3,1
+	.byte 4,8,1,10,3,60,2,248,0,1,8,230,3,3,2,180,4,1,3,3,2,252,0,1,3,3,2,128,1,1,3,1
 	.byte 2,128,1,1,2,48,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
@@ -44642,168 +49975,223 @@ Ldebug_line_header_end:
 	.byte 0,9,2
 	.quad TheAdventuresOf_Level__ctor
 
-	.byte 4,10,1,10,3,16,2,52,1,3,1,2,36,1,243,3,1,2,144,1,1,2,44,1,0,1,1
+	.byte 4,10,1,10,3,23,2,56,1,3,1,2,36,1,243,3,1,2,144,1,1,3,1,2,228,0,1,3,1,2,228,0
+	.byte 1,2,48,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Level_InitializeLevel
 
-	.byte 4,10,1,10,3,22,2,52,1,8,229,3,1,2,236,1,1,3,1,2,208,2,1,2,44,1,0,1,1
+	.byte 4,10,1,10,3,31,2,56,1,8,229,3,1,2,228,1,1,3,1,2,192,2,1,2,48,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Level_CheckCollision_TheAdventuresOf_Character
 
-	.byte 4,10,1,10,3,28,2,60,1,8,229,3,1,2,128,1,1,243,3,1,2,56,1,3,1,2,212,0,1,244,3,1
-	.byte 2,144,1,1,243,3,1,2,56,1,3,1,2,168,1,1,243,2,192,0,1,0,1,1
+	.byte 4,10,1,10,3,37,2,60,1,8,229,3,1,2,128,1,1,243,3,1,2,204,0,1,244,3,1,2,144,1,1,243
+	.byte 3,1,2,160,1,1,243,2,192,0,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_Level_GetRandomXLocation_single
+
+	.byte 4,10,1,10,3,50,2,196,0,1,8,231,3,2,2,236,1,1,8,229,2,56,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_Level_Update_Microsoft_Xna_Framework_GameTime_TheAdventuresOf_Player
+
+	.byte 4,10,1,10,3,59,2,228,0,1,8,230,3,1,2,232,0,1,8,229,3,3,2,192,0,1,3,2,2,204,0,1
+	.byte 3,1,2,216,1,1,3,1,2,224,0,1,3,1,2,220,1,1,3,125,2,40,1,3,4,2,52,1,3,2,2,56
+	.byte 1,3,1,2,200,0,1,245,3,1,2,132,2,1,244,3,1,2,56,1,3,2,2,60,1,3,2,2,204,0,1,8
+	.byte 173,8,232,3,1,2,196,0,1,243,3,113,2,40,1,3,16,2,148,1,1,3,1,2,244,0,1,8,229,3,1,2
+	.byte 208,1,1,3,1,2,60,1,243,2,236,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Level_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch
 
-	.byte 4,10,1,10,3,43,2,248,0,1,8,229,3,1,2,188,4,1,2,44,1,0,1,1
+	.byte 4,10,1,10,3,230,0,2,248,0,1,8,229,3,1,2,188,4,1,2,44,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Level__cctor
 
-	.byte 4,10,1,10,3,11,2,48,1,3,1,2,56,1,3,2,2,40,1,2,200,0,1,0,1,1
+	.byte 4,10,1,10,3,18,2,48,1,2,248,0,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_Level__Updatem__0_TheAdventuresOf_Monster
+
+	.byte 4,10,1,10,3,224,0,2,192,0,1,2,156,1,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_Player__ctor
+
+	.byte 4,11,1,10,3,32,2,56,1,2,156,1,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Player_InitializeCharacter_single_single_int_int
 
-	.byte 4,11,1,10,3,26,2,200,0,1,8,229,3,2,2,216,0,1,3,1,2,164,1,1,3,1,2,40,1,8,230,3
-	.byte 2,2,240,0,1,3,1,2,204,0,1,3,125,2,40,1,3,4,2,248,0,1,2,60,1,0,1,1
+	.byte 4,11,1,10,3,36,2,200,0,1,8,229,3,2,2,216,0,1,8,174,3,1,2,164,1,1,3,1,2,40,1,8
+	.byte 230,3,2,2,240,0,1,3,1,2,204,0,1,3,125,2,40,1,3,5,2,248,0,1,8,229,3,1,2,128,2,1
+	.byte 2,60,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Player_InitializeAnimation
 
-	.byte 4,11,1,10,3,40,2,56,1,8,233,3,1,2,228,0,1,3,1,2,140,2,1,3,2,2,148,2,1,3,1,2
-	.byte 228,0,1,3,2,2,140,2,1,3,2,2,48,1,3,1,2,44,1,2,48,1,0,1,1
+	.byte 4,11,1,10,3,55,2,56,1,8,233,3,1,2,228,0,1,3,1,2,176,1,1,3,127,2,40,1,3,2,2,52
+	.byte 1,3,1,2,184,1,1,3,127,2,40,1,3,3,2,52,1,3,1,2,228,0,1,3,1,2,176,1,1,3,127,2
+	.byte 40,1,3,3,2,52,1,3,2,2,48,1,3,1,2,44,1,2,48,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Player_Update_Microsoft_Xna_Framework_GameTime_bool
 
-	.byte 4,11,1,10,3,58,2,196,0,1,8,229,3,3,2,52,1,8,174,8,117,243,3,1,2,60,1,244,3,1,2,204
-	.byte 0,1,2,52,1,0,1,1
+	.byte 4,11,1,10,3,204,0,2,196,0,1,8,229,3,3,2,52,1,8,174,8,117,243,3,1,2,60,1,244,3,1,2
+	.byte 44,1,243,3,1,2,172,1,1,3,1,2,232,0,1,243,8,173,243,8,230,3,1,2,204,0,1,2,192,0,1,0
+	.byte 1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Player_HandleMovement_Microsoft_Xna_Framework_GameTime
 
-	.byte 4,11,1,10,3,201,0,2,60,1,8,229,3,1,2,36,1,243,3,1,2,56,1,3,1,2,196,0,1,3,1,2
-	.byte 52,1,243,3,1,2,52,1,243,3,1,2,56,1,3,1,2,196,0,1,3,1,2,52,1,243,2,192,0,1,0,1
-	.byte 1
+	.byte 4,11,1,10,3,228,0,2,60,1,8,229,3,1,2,36,1,243,3,1,2,196,0,1,3,1,2,52,1,243,3,1
+	.byte 2,52,1,243,3,1,2,196,0,1,3,1,2,52,1,243,2,192,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Player_HandleLevelBoundCollision_int_int
 
-	.byte 4,11,1,10,3,217,0,2,192,0,1,8,229,3,1,2,192,0,1,3,1,2,52,1,2,48,1,0,1,1
+	.byte 4,11,1,10,3,242,0,2,192,0,1,8,229,3,1,2,192,0,1,3,1,2,52,1,2,48,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Player_CheckCollision_TheAdventuresOf_Monster
 
-	.byte 4,11,1,10,3,223,0,2,60,1,8,229,3,1,2,136,1,1,243,8,229,3,1,2,56,1,8,61,3,1,2,136
-	.byte 1,1,243,3,1,2,56,1,243,2,204,0,1,0,1,1
+	.byte 4,11,1,10,3,248,0,2,192,0,1,8,229,3,1,2,136,1,1,243,8,229,3,1,2,56,1,8,61,3,1,2
+	.byte 136,1,1,243,8,173,243,3,1,2,56,1,3,1,2,44,1,8,229,3,1,2,232,0,1,244,8,229,2,208,0,1
+	.byte 0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Player_HandleAnimation_Microsoft_Xna_Framework_GameTime
 
-	.byte 4,11,1,10,3,236,0,2,60,1,8,230,8,173,243,8,173,243,3,1,2,48,1,3,1,2,196,0,1,8,61,243
+	.byte 4,11,1,10,3,140,1,2,60,1,8,230,8,173,243,8,173,243,3,1,2,48,1,3,1,2,196,0,1,8,61,243
 	.byte 3,1,2,48,1,3,1,2,196,0,1,243,8,229,2,192,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Player_HandleJump_Microsoft_Xna_Framework_GameTime
 
-	.byte 4,11,1,10,3,253,0,2,60,1,8,229,3,1,2,36,1,243,3,1,2,56,1,8,229,245,3,1,2,56,1,243
-	.byte 8,173,8,229,8,62,8,230,8,173,246,3,1,2,44,1,243,3,1,2,48,1,3,1,2,56,1,243,2,192,0,1
-	.byte 0,1,1
+	.byte 4,11,1,10,3,157,1,2,60,1,8,229,3,1,2,36,1,243,8,229,245,3,1,2,56,1,243,8,173,8,229,8
+	.byte 62,8,230,8,173,246,3,1,2,44,1,243,3,1,2,48,1,3,1,2,56,1,243,2,192,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Player_Move_Microsoft_Xna_Framework_GameTime_int
 
-	.byte 4,11,1,10,3,154,1,2,216,0,1,8,230,3,2,2,48,1,8,229,8,173,8,230,3,1,2,228,1,1,8,62
+	.byte 4,11,1,10,3,185,1,2,216,0,1,8,230,3,2,2,48,1,8,229,8,173,8,230,3,1,2,228,1,1,8,62
 	.byte 8,229,8,229,8,174,3,1,2,228,1,1,245,3,1,2,196,0,1,2,196,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Player_UpdateCharacterBounds
 
-	.byte 4,11,1,10,3,177,1,2,56,1,8,229,3,1,2,44,1,3,1,2,44,1,2,48,1,0,1,1
+	.byte 4,11,1,10,3,208,1,2,56,1,8,229,3,1,2,44,1,3,1,2,44,1,2,48,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Player_UpdateSwordBounds
 
-	.byte 4,11,1,10,3,183,1,2,56,1,8,229,3,1,2,200,0,1,3,1,2,200,0,1,2,60,1,0,1,1
+	.byte 4,11,1,10,3,214,1,2,56,1,8,229,3,1,2,200,0,1,3,1,2,200,0,1,2,60,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Player_MoveSword_int
 
-	.byte 4,11,1,10,3,189,1,2,60,1,8,230,3,2,2,48,1,3,1,2,220,0,1,8,62,3,1,2,220,0,1,244
+	.byte 4,11,1,10,3,220,1,2,60,1,8,230,3,2,2,48,1,3,1,2,220,0,1,8,62,3,1,2,220,0,1,244
 	.byte 2,204,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Player_Jump_Microsoft_Xna_Framework_GameTime
 
-	.byte 4,11,1,10,3,202,1,2,200,0,1,8,229,3,1,2,236,1,1,3,2,2,204,0,1,3,2,2,56,1,3,1
-	.byte 2,252,0,1,3,1,2,236,0,1,3,1,2,236,0,1,3,3,2,244,0,1,3,1,2,56,1,243,3,1,2,56
-	.byte 1,3,1,2,56,1,245,3,1,2,248,0,1,243,3,1,2,56,1,8,174,3,2,2,56,1,8,229,243,2,208,0
+	.byte 4,11,1,10,3,233,1,2,200,0,1,8,229,3,1,2,236,1,1,3,2,2,204,0,1,3,2,2,56,1,3,1
+	.byte 2,252,0,1,3,1,2,236,0,1,3,1,2,236,0,1,3,3,2,236,0,1,3,1,2,56,1,243,3,1,2,56
+	.byte 1,3,1,2,56,1,245,3,1,2,240,0,1,243,3,1,2,56,1,8,174,3,2,2,48,1,8,229,243,2,208,0
 	.byte 1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Player_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
 
-	.byte 4,11,1,10,3,233,1,2,128,1,1,8,229,3,2,2,192,0,1,8,173,243,3,1,2,176,4,1,8,61,8,173
-	.byte 243,3,1,2,180,4,1,243,2,192,0,1,0,1,1
+	.byte 4,11,1,10,3,136,2,2,128,1,1,8,229,3,2,2,192,0,1,8,173,243,3,1,2,176,4,1,3,1,2,52
+	.byte 1,8,61,8,173,243,3,1,2,180,4,1,3,1,2,52,1,243,2,192,0,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_Player_DrawHealth_Microsoft_Xna_Framework_Graphics_SpriteBatch
+
+	.byte 4,11,1,10,3,152,2,2,152,1,1,8,229,3,1,2,40,1,8,117,243,8,229,243,3,1,2,220,0,1,3,127
+	.byte 2,128,4,1,3,3,2,172,1,1,8,62,243,3,1,2,220,0,1,3,127,2,128,4,1,3,3,2,172,1,1,243
+	.byte 3,114,2,32,1,3,15,2,208,0,1,2,208,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_XmlImporter_GetXMLInformation
 
-	.byte 4,12,1,10,3,15,2,60,1,8,229,3,1,2,212,0,1,3,2,2,212,0,1,3,1,2,216,0,1,3,1,2
-	.byte 216,0,1,2,48,1,0,1,1
+	.byte 4,12,1,10,3,17,2,60,1,8,229,3,1,2,212,0,1,3,2,2,212,0,1,3,1,2,216,0,1,3,3,2
+	.byte 216,0,1,3,1,2,204,0,1,2,48,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_XmlImporter_LoadLevelInformation_TheAdventuresOf_Level
+
+	.byte 4,12,1,10,3,29,2,196,0,1,8,229,3,1,2,148,1,1,3,2,2,136,1,1,3,1,2,168,1,1,3,1
+	.byte 2,168,1,1,3,1,2,168,1,1,3,1,2,168,1,1,2,52,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_XmlImporter_LoadPlayerInformation_TheAdventuresOf_Player
 
-	.byte 4,12,1,10,3,24,2,200,0,1,8,229,3,1,2,148,1,1,3,2,2,136,1,1,3,1,2,168,1,1,3,1
+	.byte 4,12,1,10,3,40,2,212,0,1,8,229,3,1,2,148,1,1,3,2,2,136,1,1,3,1,2,168,1,1,3,1
 	.byte 2,168,1,1,3,1,2,168,1,1,3,1,2,168,1,1,3,1,2,168,1,1,3,1,2,168,1,1,3,1,2,168
-	.byte 1,1,3,2,2,168,1,1,8,117,2,60,1,0,1,1
+	.byte 1,1,3,1,2,168,1,1,3,1,2,168,1,1,3,1,2,164,1,1,2,196,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
-	.quad TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation_TheAdventuresOf_Monster
+	.quad TheAdventuresOf_XmlImporter_LoadBlockMonsterInformation
 
-	.byte 4,12,1,10,3,41,2,208,0,1,8,229,3,1,2,148,1,1,3,1,2,136,1,1,3,2,2,136,1,1,3,1
-	.byte 2,168,1,1,3,1,2,168,1,1,3,1,2,168,1,1,3,1,2,168,1,1,3,1,2,168,1,1,8,117,2,192
-	.byte 0,1,0,1,1
+	.byte 4,12,1,10,3,57,2,212,0,1,8,229,3,1,2,148,1,1,3,1,2,136,1,1,3,2,2,136,1,1,3,1
+	.byte 2,188,1,1,3,1,2,188,1,1,3,1,2,188,1,1,3,1,2,188,1,1,3,1,2,188,1,1,3,1,2,188
+	.byte 1,1,3,1,2,188,1,1,2,196,0,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_XmlImporter_TransferBlockMonsterInformation_TheAdventuresOf_Monster
+
+	.byte 4,12,1,10,3,203,0,2,60,1,8,229,3,1,2,44,1,3,1,2,44,1,3,1,2,44,1,3,1,2,44,1
+	.byte 3,1,2,44,1,3,1,2,44,1,3,2,2,44,1,8,117,2,56,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_AssetManager_LoadGameAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
 
-	.byte 4,13,1,10,3,20,2,196,0,1,8,229,3,1,2,212,0,1,8,229,3,1,2,224,0,1,3,125,2,44,1,3
+	.byte 4,13,1,10,3,22,2,204,0,1,8,229,3,1,2,212,0,1,8,229,3,1,2,224,0,1,3,125,2,44,1,3
 	.byte 4,2,208,0,1,3,1,2,228,0,1,8,229,3,1,2,224,0,1,3,125,2,44,1,3,4,2,208,0,1,3,1
-	.byte 2,228,0,1,8,229,3,1,2,224,0,1,3,125,2,44,1,3,4,2,208,0,1,2,192,0,1,0,1,1
+	.byte 2,228,0,1,8,229,3,1,2,224,0,1,3,125,2,44,1,3,4,2,208,0,1,3,1,2,228,0,1,8,229,3
+	.byte 1,2,224,0,1,3,125,2,44,1,3,4,2,208,0,1,3,1,2,228,0,1,8,229,3,1,2,224,0,1,3,125
+	.byte 2,44,1,3,4,2,208,0,1,2,192,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_AssetManager_LoadLevelAssets_Microsoft_Xna_Framework_Graphics_GraphicsDevice
 
-	.byte 4,13,1,10,3,37,2,196,0,1,8,229,3,1,2,212,0,1,8,229,3,1,2,224,0,1,3,125,2,44,1,3
+	.byte 4,13,1,10,3,47,2,196,0,1,8,229,3,1,2,212,0,1,8,229,3,1,2,224,0,1,3,125,2,44,1,3
 	.byte 4,2,208,0,1,3,1,2,228,0,1,8,229,3,1,2,224,0,1,3,125,2,44,1,3,4,2,208,0,1,3,1
 	.byte 2,228,0,1,8,229,3,1,2,224,0,1,3,125,2,44,1,3,4,2,208,0,1,2,192,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
@@ -44811,89 +50199,139 @@ Ldebug_line_header_end:
 	.byte 0,9,2
 	.quad TheAdventuresOf_AssetManager_DisposeLevelAssets
 
-	.byte 4,13,1,10,3,53,2,48,1,8,229,3,1,2,196,0,1,3,1,2,196,0,1,3,1,2,196,0,1,2,44,1
+	.byte 4,13,1,10,3,63,2,48,1,8,229,3,1,2,196,0,1,3,1,2,196,0,1,3,1,2,196,0,1,2,44,1
 	.byte 0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Monster__ctor
 
-	.byte 4,14,1,10,3,13,2,56,1,3,1,2,48,1,3,4,2,208,0,1,2,144,1,1,0,1,1
+	.byte 4,14,1,10,3,22,2,56,1,3,5,2,224,0,1,2,144,1,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_Monster_InitializeMonsterAfterSpawn
+
+	.byte 4,14,1,10,3,30,2,56,1,8,229,8,229,8,173,3,1,2,48,1,3,1,2,52,1,2,48,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_Monster_InitializeSpawn
+
+	.byte 4,14,1,10,3,38,2,56,1,8,229,3,3,2,44,1,3,1,2,44,1,8,173,243,3,1,2,40,1,8,62,243
+	.byte 3,1,2,44,1,244,3,1,2,48,1,2,48,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Monster_InitializeAnimation
 
-	.byte 4,14,1,10,3,21,2,56,1,8,229,3,1,2,228,0,1,3,2,2,144,2,1,3,1,2,228,0,1,3,2,2
-	.byte 136,2,1,3,2,2,48,1,3,1,2,44,1,2,48,1,0,1,1
+	.byte 4,14,1,10,3,56,2,56,1,8,229,3,1,2,228,0,1,3,3,2,180,1,1,3,125,2,40,1,3,5,2,52
+	.byte 1,3,1,2,228,0,1,3,3,2,172,1,1,3,125,2,40,1,3,5,2,52,1,3,2,2,48,1,3,1,2,44
+	.byte 1,2,48,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Monster_HandleLevelBoundCollision_int_int
 
-	.byte 4,14,1,10,3,34,2,60,1,8,229,3,1,2,200,0,1,2,44,1,0,1,1
-.section __DWARF, __debug_line,regular,debug
-
-	.byte 0,9,2
-	.quad TheAdventuresOf_Monster_Update_Microsoft_Xna_Framework_GameTime_bool
-
-	.byte 4,14,1,10,3,39,2,192,0,1,8,231,8,173,243,8,173,243,8,173,243,3,1,2,44,1,8,62,244,3,1,2
-	.byte 48,1,243,8,229,8,174,8,229,245,3,2,2,204,0,1,3,1,2,60,1,243,3,2,2,36,1,243,3,1,2,52
-	.byte 1,243,3,2,2,36,1,243,3,1,2,52,1,243,2,192,0,1,0,1,1
+	.byte 4,14,1,10,3,203,0,2,60,1,8,229,3,1,2,200,0,1,2,44,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Monster_HandleDelay_Microsoft_Xna_Framework_GameTime
 
-	.byte 4,14,1,10,3,207,0,2,60,1,8,229,3,1,2,180,1,1,3,1,2,240,0,1,243,8,173,3,1,2,224,0
+	.byte 4,14,1,10,3,208,0,2,60,1,8,229,3,1,2,180,1,1,3,1,2,240,0,1,243,8,173,3,1,2,224,0
 	.byte 1,243,2,204,0,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_Monster_HandleSpawn_Microsoft_Xna_Framework_GameTime
+
+	.byte 4,14,1,10,3,218,0,2,60,1,8,229,3,1,2,196,0,1,243,3,1,2,204,0,1,8,61,3,1,2,216,0
+	.byte 1,8,229,3,1,2,236,0,1,3,1,2,52,1,8,62,8,229,3,1,2,44,1,243,2,204,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Monster_HandleDeath_Microsoft_Xna_Framework_GameTime
 
-	.byte 4,14,1,10,3,217,0,2,56,1,8,233,2,44,1,0,1,1
-.section __DWARF, __debug_line,regular,debug
-
-	.byte 0,9,2
-	.quad TheAdventuresOf_Monster_RandomizeMovement
-
-	.byte 4,14,1,10,3,225,0,2,56,1,8,229,3,1,2,240,0,1,244,8,230,3,1,2,44,1,8,61,243,8,229,243
-	.byte 2,192,0,1,0,1,1
-.section __DWARF, __debug_line,regular,debug
-
-	.byte 0,9,2
-	.quad TheAdventuresOf_Monster_ChooseRandomDirection
-
-	.byte 4,14,1,10,3,239,0,2,56,1,8,230,3,1,2,240,0,1,243,8,173,8,229,8,61,243,8,173,8,229,243,2
-	.byte 192,0,1,0,1,1
+	.byte 4,14,1,10,3,235,0,2,60,1,8,231,3,1,2,236,0,1,8,229,3,1,2,52,1,8,61,3,1,2,204,0
+	.byte 1,243,3,1,2,204,0,1,8,62,243,8,229,3,1,2,56,1,243,2,204,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Monster_HandleAnimation_Microsoft_Xna_Framework_GameTime
 
-	.byte 4,14,1,10,3,253,0,2,60,1,8,229,8,173,243,3,1,2,48,1,8,61,243,3,1,2,48,1,243,2,192,0
+	.byte 4,14,1,10,3,254,0,2,60,1,8,229,8,173,243,3,1,2,48,1,8,61,243,3,1,2,48,1,243,2,192,0
 	.byte 1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Monster_HandleMovement_Microsoft_Xna_Framework_GameTime
 
-	.byte 4,14,1,10,3,136,1,2,60,1,8,229,8,173,243,3,1,2,196,0,1,3,1,2,52,1,8,61,3,1,2,44
-	.byte 1,3,1,2,196,0,1,3,1,2,52,1,243,2,192,0,1,0,1,1
+	.byte 4,14,1,10,3,137,1,2,60,1,8,229,8,173,243,3,1,2,196,0,1,3,1,2,52,1,8,61,8,173,243,3
+	.byte 1,2,196,0,1,3,1,2,52,1,243,2,192,0,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_Monster_Update_Microsoft_Xna_Framework_GameTime_bool
+
+	.byte 4,14,1,10,3,151,1,2,192,0,1,8,229,3,1,2,52,1,244,8,173,243,3,1,2,44,1,8,62,244,3,1
+	.byte 2,48,1,243,8,229,8,174,8,229,245,3,2,2,204,0,1,3,1,2,60,1,243,3,1,2,36,1,3,1,2,196
+	.byte 0,1,244,3,1,2,52,1,8,61,3,1,2,56,1,245,3,1,2,48,1,3,1,2,52,1,8,61,3,1,2,44
+	.byte 1,244,3,1,2,52,1,3,41,2,16,1,2,192,0,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_Monster_Rotate_Microsoft_Xna_Framework_GameTime
+
+	.byte 4,14,1,10,3,236,1,2,224,0,1,8,229,3,1,2,188,1,1,3,1,2,56,1,8,173,243,3,1,2,48,1
+	.byte 3,1,2,236,0,1,8,61,8,173,243,3,1,2,48,1,3,1,2,236,0,1,243,2,196,0,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_Monster_MoveUpDown_Microsoft_Xna_Framework_GameTime_int
+
+	.byte 4,14,1,10,3,252,1,2,212,0,1,8,229,3,1,2,44,1,243,3,1,2,228,1,1,8,62,243,3,1,2,228
+	.byte 1,1,243,2,208,0,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_Monster_RandomizeMovement
+
+	.byte 4,14,1,10,3,136,2,2,56,1,8,229,3,1,2,240,0,1,244,8,230,3,1,2,44,1,8,61,243,8,229,243
+	.byte 2,192,0,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_Monster_ChooseRandomDirection
+
+	.byte 4,14,1,10,3,150,2,2,56,1,8,230,3,1,2,240,0,1,243,8,173,8,229,8,61,243,8,173,8,229,243,2
+	.byte 192,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Monster_Move_Microsoft_Xna_Framework_GameTime_int
 
-	.byte 4,14,1,10,3,149,1,2,224,0,1,8,229,3,2,2,188,1,1,3,2,2,48,1,3,1,2,192,0,1,3,1
+	.byte 4,14,1,10,3,164,2,2,224,0,1,8,229,3,2,2,188,1,1,3,2,2,48,1,3,1,2,192,0,1,3,1
 	.byte 2,48,1,8,62,3,1,2,192,0,1,3,1,2,48,1,244,2,216,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
 	.quad TheAdventuresOf_Monster_Draw_Microsoft_Xna_Framework_Graphics_SpriteBatch_Microsoft_Xna_Framework_Graphics_Texture2D
 
-	.byte 4,14,1,10,3,165,1,2,60,1,8,229,3,1,2,200,0,1,2,44,1,0,1,1
+	.byte 4,14,1,10,3,180,2,2,60,1,8,229,3,1,2,200,0,1,2,44,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_Monster_reset
+
+	.byte 4,14,1,10,3,185,2,2,56,1,8,229,8,173,8,173,8,173,8,173,8,229,3,1,2,224,0,1,2,48,1,0
+	.byte 1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad TheAdventuresOf_Monster__cctor
+
+	.byte 4,14,1,10,3,9,2,48,1,3,1,2,52,1,3,1,2,40,1,2,200,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
@@ -44964,6 +50402,58 @@ Ldebug_line_header_end:
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
+	.quad System_Array_InternalArray__IEnumerable_GetEnumerator_T_REF
+
+	.byte 4,16,1,10,3,205,0,2,56,1,2,228,1,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad System_Array_InternalArray__ICollection_get_Count
+
+	.byte 4,16,1,10,3,195,0,2,52,1,2,220,0,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad System_Array_InternalArray__ICollection_get_IsReadOnly
+
+	.byte 4,16,1,10,3,200,0,2,52,1,2,196,0,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad System_Array_InternalArray__ICollection_Clear
+
+	.byte 4,16,1,10,3,210,0,2,52,1,2,236,0,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad System_Array_InternalArray__ICollection_Add_T_REF_T_REF
+
+	.byte 4,16,1,10,3,215,0,2,60,1,2,236,0,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad System_Array_InternalArray__ICollection_Remove_T_REF_T_REF
+
+	.byte 4,16,1,10,3,220,0,2,60,1,2,236,0,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad System_Array_InternalArray__ICollection_Contains_T_REF_T_REF
+
+	.byte 4,16,1,10,3,225,0,2,208,0,1,3,1,2,212,0,1,3,2,2,216,0,1,3,1,2,52,1,8,118,3,1
+	.byte 2,60,1,8,117,8,117,8,175,8,63,3,1,2,204,0,1,3,116,2,28,1,3,16,2,220,0,1,2,60,1,0
+	.byte 1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad System_Array_InternalArray__ICollection_CopyTo_T_REF_T_REF___int
+
+	.byte 4,16,1,10,3,250,0,2,208,0,1,3,1,2,40,1,3,4,2,56,1,3,1,2,196,0,1,3,1,2,216,0
+	.byte 1,3,1,2,240,1,1,3,3,2,192,0,1,3,1,2,196,0,1,3,1,2,216,0,1,8,229,3,3,2,236,0
+	.byte 1,2,136,2,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
 	.quad System_Array_InternalEnumerator_1_Microsoft_Xna_Framework_Point__ctor_System_Array
 
 	.byte 4,16,1,10,3,238,1,2,60,1,3,1,2,192,0,1,2,200,0,1,0,1,1
@@ -45004,24 +50494,6 @@ Ldebug_line_header_end:
 	.quad System_Array_InternalArray__IEnumerable_GetEnumerator_Microsoft_Xna_Framework_Point
 
 	.byte 4,16,1,10,3,205,0,2,52,1,2,216,1,1,0,1,1
-.section __DWARF, __debug_line,regular,debug
-
-	.byte 0,9,2
-	.quad System_Array_InternalArray__ICollection_get_Count
-
-	.byte 4,16,1,10,3,195,0,2,52,1,2,220,0,1,0,1,1
-.section __DWARF, __debug_line,regular,debug
-
-	.byte 0,9,2
-	.quad System_Array_InternalArray__ICollection_get_IsReadOnly
-
-	.byte 4,16,1,10,3,200,0,2,52,1,2,196,0,1,0,1,1
-.section __DWARF, __debug_line,regular,debug
-
-	.byte 0,9,2
-	.quad System_Array_InternalArray__ICollection_Clear
-
-	.byte 4,16,1,10,3,210,0,2,52,1,2,236,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
@@ -45322,40 +50794,6 @@ Ldebug_line_header_end:
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
-	.quad System_Array_InternalArray__IEnumerable_GetEnumerator_T_REF
-
-	.byte 4,16,1,10,3,205,0,2,56,1,2,228,1,1,0,1,1
-.section __DWARF, __debug_line,regular,debug
-
-	.byte 0,9,2
-	.quad System_Array_InternalArray__ICollection_Add_T_REF_T_REF
-
-	.byte 4,16,1,10,3,215,0,2,60,1,2,236,0,1,0,1,1
-.section __DWARF, __debug_line,regular,debug
-
-	.byte 0,9,2
-	.quad System_Array_InternalArray__ICollection_Remove_T_REF_T_REF
-
-	.byte 4,16,1,10,3,220,0,2,60,1,2,236,0,1,0,1,1
-.section __DWARF, __debug_line,regular,debug
-
-	.byte 0,9,2
-	.quad System_Array_InternalArray__ICollection_Contains_T_REF_T_REF
-
-	.byte 4,16,1,10,3,225,0,2,208,0,1,3,1,2,212,0,1,3,2,2,216,0,1,3,1,2,52,1,8,118,3,1
-	.byte 2,60,1,8,117,8,117,8,175,8,63,3,1,2,204,0,1,3,116,2,28,1,3,16,2,220,0,1,2,60,1,0
-	.byte 1,1
-.section __DWARF, __debug_line,regular,debug
-
-	.byte 0,9,2
-	.quad System_Array_InternalArray__ICollection_CopyTo_T_REF_T_REF___int
-
-	.byte 4,16,1,10,3,250,0,2,208,0,1,3,1,2,40,1,3,4,2,56,1,3,1,2,196,0,1,3,1,2,216,0
-	.byte 1,3,1,2,240,1,1,3,3,2,192,0,1,3,1,2,196,0,1,3,1,2,216,0,1,8,229,3,3,2,236,0
-	.byte 1,2,136,2,1,0,1,1
-.section __DWARF, __debug_line,regular,debug
-
-	.byte 0,9,2
 	.quad System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point_get_Count
 
 	.byte 4,18,1,10,3,139,1,2,52,1,2,196,0,1,0,1,1
@@ -45377,6 +50815,12 @@ Ldebug_line_header_end:
 	.quad System_Collections_Generic_List_1_Microsoft_Xna_Framework_Point__ctor
 
 	.byte 4,18,1,10,3,51,2,56,1,3,1,2,36,1,2,216,0,1,0,1,1
+.section __DWARF, __debug_line,regular,debug
+
+	.byte 0,9,2
+	.quad System_Array_InternalEnumerator_1_T_REF__ctor_System_Array
+
+	.byte 4,16,1,10,3,238,1,2,192,0,1,3,1,2,192,0,1,2,200,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2
@@ -45416,12 +50860,6 @@ Ldebug_line_header_end:
 	.quad System_Collections_Generic_ObjectEqualityComparer_1_Microsoft_Xna_Framework_Point_GetHashCode
 
 	.byte 4,17,1,10,3,208,2,2,52,1,2,180,1,1,0,1,1
-.section __DWARF, __debug_line,regular,debug
-
-	.byte 0,9,2
-	.quad System_Array_InternalEnumerator_1_T_REF__ctor_System_Array
-
-	.byte 4,16,1,10,3,238,1,2,192,0,1,3,1,2,192,0,1,2,200,0,1,0,1,1
 .section __DWARF, __debug_line,regular,debug
 
 	.byte 0,9,2

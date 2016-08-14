@@ -10,6 +10,8 @@
     <RightSwordOffset>1</RightSwordOffset>
     <SwordYOffset>45</SwordYOffset>
     <FrameCount>2</FrameCount>
+    <InitialMaxHealth>3</InitialMaxHealth>
+    <InvincibilityTime>3</InvincibilityTime>
   </Player>
   <Monsters>
     <BlockMonster>

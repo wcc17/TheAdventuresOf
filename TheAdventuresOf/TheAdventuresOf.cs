@@ -16,7 +16,6 @@ namespace TheAdventuresOf
 		Screen screen;
 
 		Player player;
-		Monster blockMonster;
 		Level level;
 
 		public TheAdventuresOf()
@@ -39,7 +38,6 @@ namespace TheAdventuresOf
 			screen = new Screen(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
 			level = new Level();
 			player = new Player();
-			blockMonster = new Monster();
 			base.Initialize();
 		}
 
@@ -55,20 +53,15 @@ namespace TheAdventuresOf
 			AssetManager.LoadGameAssets(this.GraphicsDevice);
 			AssetManager.LoadLevelAssets(this.GraphicsDevice);
 
-			//need level textures to do this, so initializing in LoadContent
-			level.InitializeLevel();
+			XmlImporter.LoadLevelInformation(level);
+			XmlImporter.LoadBlockMonsterInformation();
+			XmlImporter.LoadPlayerInformation(player);
 
-			player = XmlImporter.LoadPlayerInformation(player);
+			level.InitializeLevel();
 			player.InitializeCharacter(200f, 
-			                           Level.groundLevel, 
+			                           level.groundLevel, 
 			                           AssetManager.playerTexture.Width / player.frameCount, 
 			                           AssetManager.playerTexture.Height);
-
-			blockMonster = XmlImporter.LoadBlockMonsterInformation(blockMonster);
-			blockMonster.InitializeCharacter(500f, 
-			                                 Level.groundLevel,
-			                                 AssetManager.blockMonsterTexture.Width / blockMonster.frameCount, 
-			                                 AssetManager.blockMonsterTexture.Height);
 
 			FrameRate.LoadContent(Content);
 			Controller.InitializeController(this.GraphicsDevice);
@@ -90,35 +83,8 @@ namespace TheAdventuresOf
 
 			screen.Update(gameTime);
 			player.Update(gameTime, Controller.isButtonPressed);
-
-			//TODO: eventually this will be handled else where when there are more than one monsters, but this is fine for only one.
-			//preferablly they will just be removed from a collection that is being updated or drawn
-			if (!blockMonster.isDead)
-			{
-				blockMonster.Update(gameTime);
-			}
-			else 
-			{
-				Console.WriteLine("Resetting monster");
-				blockMonster.positionVector.X = level.GetRandomXLocation(blockMonster.characterWidth);
-				blockMonster.InitializeSpawn();
-			}
-
+			level.Update(gameTime, player);
 			level.CheckCollision(player);
-
-			//TODO: eventually this will be handled else where when there are more than one monsters, but this is fine for only one.
-			//preferablly they will just be removed from a collection that is being updated or drawn
-			if (!blockMonster.isDead)
-			{
-				level.CheckCollision(blockMonster);
-			}
-
-			//TODO: eventually this will be handled else where when there are more than one monsters, but this is fine for only one.
-			//preferablly they will just be removed from a collection that is being updated or drawn
-			if (!blockMonster.isDead)
-			{
-				player.CheckCollision(blockMonster);
-			}
 
 			base.Update(gameTime);
 		}
@@ -129,19 +95,15 @@ namespace TheAdventuresOf
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Draw(GameTime gameTime)
 		{
-			//graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
-
 			spriteBatch.Begin(transformMatrix: screen.scaleMatrix);
 
 			//Draw background 
 			level.Draw(spriteBatch);
 
-			//TODO: eventually this will be handled else where when there are more than one monsters, but this is fine for only one.
-			//preferablly they will just be removed from a collection that is being updated or drawn
-			if (!blockMonster.isDead)
+			foreach (Monster monster in level.monsters)
 			{
-				//Draw monster
-				blockMonster.Draw(spriteBatch, AssetManager.blockMonsterTexture);
+				//TODO: will need to check what type of monster it is before using texture
+				monster.Draw(spriteBatch, AssetManager.blockMonsterTexture);
 			}
 
 			//Draw player

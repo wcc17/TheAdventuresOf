@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 namespace TheAdventuresOf
 {
 	public class Level
@@ -9,16 +10,22 @@ namespace TheAdventuresOf
 
 		static Rectangle leftSideBounds;
 		static Rectangle rightSideBounds;
-		static int leftBoundWidth = 135;
-		static int rightBoundWidth = 125;
 
-		public static float groundLevel = 690f;
+		public int leftBoundWidth;
+		public int rightBoundWidth;
+		public float groundLevel;
+		public int monsterLimit;
 
 		static Random rand = new Random();
+
+		public List<Monster> monsters;
+		public List<Monster> monstersToRemove;
 
 		public Level()
 		{
 			levelPositionVector = new Vector2(0, 0);
+			monsters = new List<Monster>();
+			monstersToRemove = new List<Monster>();
 		}
 
 		public void InitializeLevel()
@@ -31,13 +38,11 @@ namespace TheAdventuresOf
 		{
 			if (leftSideBounds.Intersects(character.characterBounds))
 			{
-				Console.WriteLine("Intersecting on the left");
 				character.HandleLevelBoundCollision(Character.LEFT, leftBoundWidth);
 			}
 
 			if (rightSideBounds.Intersects(character.characterBounds))
 			{
-				Console.WriteLine("Intersecting on the right");
 				character.HandleLevelBoundCollision(Character.RIGHT, AssetManager.levelTexture.Width - rightBoundWidth);
 			}
 		}
@@ -49,6 +54,49 @@ namespace TheAdventuresOf
 			int X = rand.Next(135, AssetManager.levelTexture.Width - rightBoundWidth - (int)characterWidth + 1);
 
 			return X;
+		}
+
+		public void Update(GameTime gameTime, Player player)
+		{
+			//spawn new monsters if needed
+			if (monsters.Count < monsterLimit)
+			{
+				Monster blockMonster = new Monster();
+
+				//TODO: this needs to be replaced. see TODO comment on method declaration
+				blockMonster = XmlImporter.TransferBlockMonsterInformation(blockMonster);
+				blockMonster.groundLevel = groundLevel;
+				blockMonster.InitializeCharacter(GetRandomXLocation(AssetManager.blockMonsterTexture.Width),
+				                                 Screen.FULL_SCREEN_HEIGHT - AssetManager.blockMonsterTexture.Height,
+												 AssetManager.blockMonsterTexture.Width / blockMonster.frameCount,
+												 AssetManager.blockMonsterTexture.Height);
+				blockMonster.InitializeSpawn();
+
+				monsters.Add(blockMonster);
+			}
+
+			//update each monster and remove them if they're dead
+			foreach (Monster monster in monsters)
+			{
+				//these methods go first so that monster can update in reaction to them
+				CheckCollision(monster);
+				player.CheckCollision(monster);
+
+				monster.Update(gameTime);
+
+				if (monster.isDead)
+				{
+					//TODO: NEEEEED to make sure that garbage collection removes these objects after removal
+					//especially if i'm not going to use an object pool
+					//level.monsters.Remove(monster);
+					monstersToRemove.Add(monster);
+				}
+			}
+			if (monstersToRemove.Count > 0)
+			{
+				monsters.RemoveAll(m => monstersToRemove.Contains(m));
+				monstersToRemove.Clear();
+			}
 		}
 
 		public void Draw(SpriteBatch spriteBatch)

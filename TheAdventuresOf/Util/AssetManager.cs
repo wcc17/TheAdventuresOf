@@ -10,6 +10,8 @@ namespace TheAdventuresOf
 		public static Texture2D controllerTexture;
 		public static Texture2D arrowButtonTexture;
 		public static Texture2D swordTexture;
+		public static Texture2D heartTexture;
+		public static Texture2D emptyHeartTexture;
 
 		//level textures
 		public static Texture2D playerTexture;
@@ -30,6 +32,14 @@ namespace TheAdventuresOf
 			using (var stream = TitleContainer.OpenStream("Content/sword_1080p.png"))
 			{
 				swordTexture = Texture2D.FromStream(graphicsDevice, stream);
+			}
+			using (var stream = TitleContainer.OpenStream("Content/heart_1080p.png"))
+			{
+				heartTexture = Texture2D.FromStream(graphicsDevice, stream);
+			}
+			using (var stream = TitleContainer.OpenStream("Content/emptyheart_1080p.png"))
+			{
+				emptyHeartTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
 		}
 
