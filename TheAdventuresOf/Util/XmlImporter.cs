@@ -52,6 +52,8 @@ namespace TheAdventuresOf
 			player.frameCount = (int)playerElement.Element("FrameCount");
 			player.maxHealth = (int)playerElement.Element("InitialMaxHealth");
 			player.invincibilityTime = (double)playerElement.Element("InvincibilityTime");
+			player.knockBackDistanceLimit = (float)playerElement.Element("KnockBackDistanceLimit");
+			player.knockBackSpeed = (int)playerElement.Element("KnockBackSpeed");
 		}
 
 		public static void LoadBlockMonsterInformation()

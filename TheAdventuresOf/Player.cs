@@ -36,6 +36,12 @@ namespace TheAdventuresOf
 		float transparency = 1;
 		int transparencyMultiplier = -1;
 
+		bool isKnockedBackLeft;
+		bool isKnockedBackRight;
+		double knockBackDistance;
+		public float knockBackDistanceLimit;
+		public int knockBackSpeed;
+
 		public override void InitializeCharacter(float startX, float startY, int characterWidth, int characterHeight)
 		{
 			base.InitializeCharacter(startX, startY, characterWidth, characterHeight);
@@ -67,6 +73,7 @@ namespace TheAdventuresOf
 			walkAnimation.AddFrame(new Rectangle(characterWidth, 0, characterWidth - 1, characterHeight), 
 			                       TimeSpan.FromSeconds(animationSpeed));
 
+
 			standAnimation = new Animation();
 			standAnimation.AddFrame(new Rectangle(0, 0, characterWidth - 1, characterHeight), 
 			                        TimeSpan.FromSeconds(animationSpeed));
@@ -91,6 +98,11 @@ namespace TheAdventuresOf
 			if (isInvincible)
 			{
 				HandleInvincibility(gameTime);
+			}
+
+			if (isKnockedBackLeft || isKnockedBackRight)
+			{
+				HandleKnockBack(gameTime);
 			}
 
 			base.Update(gameTime, buttonPressed);
@@ -119,6 +131,8 @@ namespace TheAdventuresOf
 				transparency = 1;
 				transparencyMultiplier = -1;
 				tintColor = Color.White;
+
+				return;
 			}
 
 			if (transparency < 0 || transparency > 1)
@@ -130,10 +144,34 @@ namespace TheAdventuresOf
 			tintColor = Color.White * transparency;
 		}
 
+		public void HandleKnockBack(GameTime gameTime)
+		{
+			double distance = knockBackSpeed * (gameTime.ElapsedGameTime.TotalSeconds);
+			knockBackDistance += distance;
+
+			int addOrSubtract = 1;
+			if (isKnockedBackLeft)
+			{
+				addOrSubtract = -1;
+			}
+
+			positionVector.X += (addOrSubtract * (float)distance);
+			UpdateSwordPosition();
+			UpdateCharacterBounds();
+			UpdateSwordBounds();
+
+			if (knockBackDistance > knockBackDistanceLimit)
+			{
+				knockBackDistance = 0;
+				isKnockedBackLeft = false;
+				isKnockedBackRight = false;
+			}
+		}
+
 		public override void HandleLevelBoundCollision(int direction, int boundX)
 		{
 			base.HandleLevelBoundCollision(direction, boundX);
-			MoveSword(direction);
+			UpdateSwordPosition();
 		}
 
 		public void CheckCollision(Monster monster)
@@ -148,8 +186,18 @@ namespace TheAdventuresOf
 				{
 					Console.WriteLine("CHARACTER HURT");
 					health--;
+
 					isInvincible = true;
 					invincibilityTimer = TimeSpan.FromSeconds(invincibilityTime);
+
+					if (monster.moveLeft)
+					{
+						isKnockedBackLeft = true;
+					}
+					else if (monster.moveRight)
+					{
+						isKnockedBackRight = true;
+					}
 				}
 					
 			}
@@ -220,7 +268,7 @@ namespace TheAdventuresOf
 					break;
 			}
 
-			MoveSword(direction);
+			UpdateSwordPosition();
 		}
 
 		public override void UpdateCharacterBounds()
@@ -235,16 +283,15 @@ namespace TheAdventuresOf
 			swordBounds.Y = (int)swordPositionVector.Y;
 		}
 
-		public void MoveSword(int direction)
+		public void UpdateSwordPosition()
 		{
-			switch (direction)
+			if (moveLeft)
 			{
-				case LEFT:
-					swordPositionVector.X = positionVector.X - characterWidth - leftSwordOffset;
-					break;
-				case RIGHT:
-					swordPositionVector.X = positionVector.X + characterWidth - rightSwordOffset;
-					break;
+				swordPositionVector.X = positionVector.X - characterWidth - leftSwordOffset;
+			}
+			else if (moveRight)
+			{
+				swordPositionVector.X = positionVector.X + characterWidth - rightSwordOffset;
 			}
 		}
 
