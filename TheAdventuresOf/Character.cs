@@ -7,9 +7,11 @@ namespace TheAdventuresOf
 	{
 		public const int LEFT = 0;
 		public const int RIGHT = 1;
+		public static float RIGHT_ANGLE_RADIANS = (90 * MathHelper.Pi) / 180;
 
 		public float speed;
 		public float animationSpeed;
+		public float rotationSpeed;
 		public float rotation = 0;
 
 		public Rectangle characterBounds;
@@ -30,6 +32,9 @@ namespace TheAdventuresOf
 		public bool isMoving;
 
 		public Color tintColor = Color.White;
+
+		public bool isDying;
+		public bool isDead;
 
 		//completely overriden methods
 		public virtual void HandleMovement(GameTime gameTime) { }
@@ -70,6 +75,20 @@ namespace TheAdventuresOf
 				case RIGHT:
 					positionVector.X = boundX - characterWidth;
 					break;
+			}
+		}
+
+		public void Rotate(GameTime gameTime)
+		{
+			float degreesToRotate = rotationSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+			float radiansToRotate = (degreesToRotate * MathHelper.Pi) / 180;
+			if (moveLeft)
+			{
+				rotation -= radiansToRotate;
+			}
+			else if (moveRight)
+			{
+				rotation += radiansToRotate;
 			}
 		}
 

@@ -54,6 +54,7 @@ namespace TheAdventuresOf
 			player.invincibilityTime = (double)playerElement.Element("InvincibilityTime");
 			player.knockBackDistanceLimit = (float)playerElement.Element("KnockBackDistanceLimit");
 			player.knockBackSpeed = (int)playerElement.Element("KnockBackSpeed");
+			player.rotationSpeed = (int)playerElement.Element("RotationSpeed");
 		}
 
 		public static void LoadBlockMonsterInformation()

@@ -9,16 +9,12 @@ namespace TheAdventuresOf
 	{
 		public static int UP = 0;
 		public static int DOWN = 1;
-		public static float RIGHT_ANGLE_RADIANS = (90 * MathHelper.Pi) / 180;
 		public float groundLevel;
 
 		public int moveDistanceLimit;
 		public float moveDelayTime;
-		public float rotationSpeed;
 		public float upDownSpeed;
 		public bool isSpawning;
-		public bool isDying;
-		public bool isDead;
 
 		TimeSpan timeDelayed = TimeSpan.FromSeconds(0);
 		float distanceMoved;
@@ -188,20 +184,6 @@ namespace TheAdventuresOf
 			{
 				//only spawn if nothing else is going on
 				HandleSpawn(gameTime);
-			}
-		}
-
-		void Rotate(GameTime gameTime)
-		{
-			float degreesToRotate = rotationSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-			float radiansToRotate = (degreesToRotate * MathHelper.Pi) / 180;
-			if (moveLeft)
-			{
-				rotation -= radiansToRotate;
-			}
-			else if (moveRight)
-			{
-				rotation += radiansToRotate;
 			}
 		}
 

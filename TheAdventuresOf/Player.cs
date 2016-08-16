@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using CoreText;
 using Microsoft.Xna.Framework.Graphics;
+using CoreImage;
 
 namespace TheAdventuresOf
 {
@@ -85,27 +86,33 @@ namespace TheAdventuresOf
 
 		public override void Update(GameTime gameTime, bool buttonPressed)
 		{
-			HandleJump(gameTime);
-
-			//reset isMoving before checking again to see if player is still moving
-			isMoving = false;
-
-			if (buttonPressed)
+			if (!isDying)
 			{
-				HandleMovement(gameTime);
-			}
+				HandleJump(gameTime);
 
-			if (isInvincible)
-			{
-				HandleInvincibility(gameTime);
-			}
+				//reset isMoving before checking again to see if player is still moving
+				isMoving = false;
 
-			if (isKnockedBackLeft || isKnockedBackRight)
-			{
-				HandleKnockBack(gameTime);
-			}
+				if (buttonPressed)
+				{
+					HandleMovement(gameTime);
+				}
 
-			base.Update(gameTime, buttonPressed);
+				if (isInvincible)
+				{
+					HandleInvincibility(gameTime);
+				}
+
+				if (isKnockedBackLeft || isKnockedBackRight)
+				{
+					HandleKnockBack(gameTime);
+				}
+
+				base.Update(gameTime, buttonPressed);
+			}
+			else {
+				HandleDeath(gameTime);
+			}
 		}
 
 		public override void HandleMovement(GameTime gameTime)
@@ -119,6 +126,19 @@ namespace TheAdventuresOf
 			{
 				Move(gameTime, RIGHT);
 				UpdateCharacterBounds();
+			}
+		}
+
+		public void HandleDeath(GameTime gameTime)
+		{
+			if ((moveLeft && rotation > -RIGHT_ANGLE_RADIANS) || (moveRight && rotation < RIGHT_ANGLE_RADIANS))
+			{
+				Rotate(gameTime);
+			}
+			else 
+			{
+				Console.WriteLine("Character is completely dead");
+				isDead = true;
 			}
 		}
 
@@ -187,16 +207,22 @@ namespace TheAdventuresOf
 					Console.WriteLine("CHARACTER HURT");
 					health--;
 
-					isInvincible = true;
-					invincibilityTimer = TimeSpan.FromSeconds(invincibilityTime);
+					if (health > 0)
+					{
+						isInvincible = true;
+						invincibilityTimer = TimeSpan.FromSeconds(invincibilityTime);
 
-					if (monster.moveLeft)
-					{
-						isKnockedBackLeft = true;
+						if (monster.moveLeft)
+						{
+							isKnockedBackLeft = true;
+						}
+						else if (monster.moveRight)
+						{
+							isKnockedBackRight = true;
+						}
 					}
-					else if (monster.moveRight)
-					{
-						isKnockedBackRight = true;
+					else {
+						isDying = true;
 					}
 				}
 					
@@ -332,17 +358,29 @@ namespace TheAdventuresOf
 
 			if (moveRight)
 			{
-				spriteBatch.Draw(AssetManager.swordTexture, 
-				                 swordPositionVector, 
-				                 color: tintColor);
+				//TODO: the sword doesn't rotate correctly and will not be an easy fix. 
+				//TODO: for now, sword doesn't appear when the player is dead
+				if (!isDying && !isDead)
+				{
+					spriteBatch.Draw(AssetManager.swordTexture,
+								 swordPositionVector,
+								 color: tintColor,
+								 rotation: rotation);
+				}
 				DrawHealth(spriteBatch);
 			}
 			else if (moveLeft)
 			{
-				spriteBatch.Draw(AssetManager.swordTexture, 
-				                 swordPositionVector, 
-				                 effects: SpriteEffects.FlipHorizontally, 
-				                 color: tintColor);
+				//TODO: the sword doesn't rotate correctly and will not be an easy fix. 
+				//TODO: for now, sword doesn't appear when the player is dead
+				if (!isDying && !isDead)
+				{
+					spriteBatch.Draw(AssetManager.swordTexture,
+								 swordPositionVector,
+								 effects: SpriteEffects.FlipHorizontally,
+								 color: tintColor,
+								 rotation: rotation);
+				}
 				DrawHealth(spriteBatch);
 			}
 		}
