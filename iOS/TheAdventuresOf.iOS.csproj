@@ -119,6 +119,7 @@
     <BundleResource Include="Content\blockmonster_1080p.png" />
     <BundleResource Include="Content\emptyheart_1080p.png" />
     <BundleResource Include="Content\heart_1080p.png" />
+    <BundleResource Include="Content\sunmonster_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

@@ -17,6 +17,7 @@ namespace TheAdventuresOf
 		public static Texture2D playerTexture;
 		public static Texture2D levelTexture;
 		public static Texture2D blockMonsterTexture;
+		public static Texture2D sunMonsterTexture;
 
 		//TODO: opening "Content/controls1080p.png" on android throws exception. png is actually in Assets/Content/controls1080p.png. will need a function for this
 		public static void LoadGameAssets(GraphicsDevice graphicsDevice)
@@ -58,6 +59,10 @@ namespace TheAdventuresOf
 			{
 				blockMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
+			using (var stream = TitleContainer.OpenStream("Content/sunmonster_1080p.png"))
+			{
+				sunMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
+			}
 		}
 
 		public static void DisposeLevelAssets()
@@ -65,6 +70,7 @@ namespace TheAdventuresOf
 			playerTexture.Dispose();
 			levelTexture.Dispose();
 			blockMonsterTexture.Dispose();
+			sunMonsterTexture.Dispose();
 		}
 	}
 }

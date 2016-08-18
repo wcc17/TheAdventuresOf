@@ -22,8 +22,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Util\XmlImporter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\AssetManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Monster.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Monsters\BlockMonster.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Monsters\SunMonster.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Monsters\" />
   </ItemGroup>
 </Project>

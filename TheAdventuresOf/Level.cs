@@ -14,7 +14,12 @@ namespace TheAdventuresOf
 		public int leftBoundWidth;
 		public int rightBoundWidth;
 		public float groundLevel;
-		public int monsterLimit;
+
+		public int blockMonsterLimit;
+		public int sunMonsterLimit;
+
+		public int blockMonsterCount;
+		public int sunMonsterCount;
 
 		static Random rand = new Random();
 
@@ -58,23 +63,26 @@ namespace TheAdventuresOf
 
 		public void Update(GameTime gameTime, Player player)
 		{
+			HandleSpawnMonsters();
+			UpdateMonsters(gameTime, player);
+		}
+
+		public void HandleSpawnMonsters()
+		{
 			//spawn new monsters if needed
-			if (monsters.Count < monsterLimit)
+			if (blockMonsterCount < blockMonsterLimit)
 			{
-				Monster blockMonster = new Monster();
-
-				//TODO: this needs to be replaced. see TODO comment on method declaration
-				blockMonster = XmlImporter.TransferBlockMonsterInformation(blockMonster);
-				blockMonster.groundLevel = groundLevel;
-				blockMonster.InitializeCharacter(GetRandomXLocation(AssetManager.blockMonsterTexture.Width),
-				                                 Screen.FULL_SCREEN_HEIGHT - AssetManager.blockMonsterTexture.Height,
-												 AssetManager.blockMonsterTexture.Width / blockMonster.frameCount,
-												 AssetManager.blockMonsterTexture.Height);
-				blockMonster.InitializeSpawn();
-
-				monsters.Add(blockMonster);
+				SpawnBlockMonster();
 			}
 
+			if (sunMonsterCount < sunMonsterLimit)
+			{
+				SpawnSunMonster();
+			}
+		}
+
+		public void UpdateMonsters(GameTime gameTime, Player player)
+		{
 			//update each monster and remove them if they're dead
 			foreach (Monster monster in monsters)
 			{
@@ -90,8 +98,10 @@ namespace TheAdventuresOf
 					//especially if i'm not going to use an object pool
 					//level.monsters.Remove(monster);
 					monstersToRemove.Add(monster);
+					UpdateMonsterCount(monster);
 				}
 			}
+
 			if (monstersToRemove.Count > 0)
 			{
 				monsters.RemoveAll(m => monstersToRemove.Contains(m));
@@ -99,9 +109,57 @@ namespace TheAdventuresOf
 			}
 		}
 
+		public void UpdateMonsterCount(Monster monster)
+		{
+			if (monster is BlockMonster)
+			{
+				blockMonsterCount--;
+			}
+			else if (monster is SunMonster)
+			{
+				sunMonsterCount--;
+			}
+		}
+
 		public void Draw(SpriteBatch spriteBatch)
 		{
 			spriteBatch.Draw(AssetManager.levelTexture, levelPositionVector);
+		}
+
+		public void SpawnBlockMonster()
+		{
+			BlockMonster blockMonster = new BlockMonster();
+
+			//TODO: this needs to be replaced. see TODO comment on method declaration
+			blockMonster = XmlImporter.TransferBlockMonsterInformation(blockMonster);
+			blockMonster.groundLevel = groundLevel;
+			blockMonster.InitializeCharacter(GetRandomXLocation(AssetManager.blockMonsterTexture.Width),
+											 Screen.FULL_SCREEN_HEIGHT - AssetManager.blockMonsterTexture.Height,
+											 AssetManager.blockMonsterTexture.Width / blockMonster.frameCount,
+											 AssetManager.blockMonsterTexture.Height);
+			blockMonster.InitializeSpawn();
+
+			monsters.Add(blockMonster);
+
+			blockMonsterCount++;
+		}
+
+		public void SpawnSunMonster()
+		{
+			SunMonster sunMonster = new SunMonster();
+
+			//TODO: this needs to be replaced. see TODO comment on method declaration
+			sunMonster = XmlImporter.TransferSunMonsterInformation(sunMonster);
+			sunMonster.groundLevel = groundLevel - sunMonster.floatHeight;
+			sunMonster.InitializeCharacter(GetRandomXLocation(AssetManager.sunMonsterTexture.Width),
+										   Screen.FULL_SCREEN_HEIGHT - AssetManager.sunMonsterTexture.Height,
+										   AssetManager.sunMonsterTexture.Width / sunMonster.frameCount,
+										   AssetManager.sunMonsterTexture.Height);
+			sunMonster.InitializeSpawn();
+
+			monsters.Add(sunMonster);
+
+			sunMonsterCount++;
 		}
 	}
 }

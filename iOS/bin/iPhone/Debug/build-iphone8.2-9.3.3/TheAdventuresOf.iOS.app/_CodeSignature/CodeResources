@@ -86,15 +86,15 @@
 		</data>
 		<key>.monotouch-64/TheAdventuresOf.iOS.arm64.aotdata</key>
 		<data>
-		ytzi9nEuajG/GvFN3yEln8ChxnE=
+		BKhUth3gUs7ZKZgQRF3rcxuVrfY=
 		</data>
 		<key>.monotouch-64/TheAdventuresOf.iOS.exe</key>
 		<data>
-		eml/SGE3i7+DphNMBjeVAmUbZ0w=
+		/LWLGfQRdtItH6zMbFlL3ss4Drs=
 		</data>
 		<key>.monotouch-64/TheAdventuresOf.iOS.exe.mdb</key>
 		<data>
-		bMfGubiPgTkDLSwSK+ocKA2jxOc=
+		RRCH/wjWxDd/gfxVDL+wuzHPIsg=
 		</data>
 		<key>.monotouch-64/Xamarin.iOS.arm64.aotdata</key>
 		<data>
@@ -122,15 +122,15 @@
 		</data>
 		<key>.uploaded</key>
 		<data>
-		24qYZqLWReHrcTnMRB/nTaMYnpg=
+		AOj2bDOLsEkWIo/An5HO9BN4/7U=
 		</data>
 		<key>Content/XML/CharacterInformation.xml</key>
 		<data>
-		L1O1ThaBm1O2YP15mb9WR2GPeh0=
+		U4bZ0/sqIFo9vVwMf0F1dp24qHI=
 		</data>
 		<key>Content/XML/LevelInformation.xml</key>
 		<data>
-		eYP4Os3KcTf3xSsIUEe+T9N5150=
+		W627eBVF4feAvDStNe931sv0Zzk=
 		</data>
 		<key>Content/arial-24.xnb</key>
 		<data>
@@ -175,6 +175,10 @@
 		<key>Content/splash_iphone6splus.png</key>
 		<data>
 		gVfO5eLpQnW3iYv+cN9uM8Q56zA=
+		</data>
+		<key>Content/sunmonster_1080p.png</key>
+		<data>
+		L3490RMoNTqu8SfgmI2A6//f43Y=
 		</data>
 		<key>Content/sword_1080p.png</key>
 		<data>
@@ -226,55 +230,55 @@
 		</data>
 		<key>libMonoGame.Framework.dll.dylib</key>
 		<data>
-		7RNL3QrO1RwEbECiZ8PlrD1M++g=
+		X/iI8fjj4dqGgEvJQUaywpEyZSg=
 		</data>
 		<key>libOpenTK-1.0.dll.dylib</key>
 		<data>
-		COQEOQS7wHUVtMtG3wNkvhdFZqY=
+		V4L8o5E1ZM5OpgydFfr+s6HeCnM=
 		</data>
 		<key>libSystem.Core.dll.dylib</key>
 		<data>
-		L9YP1C4MNysAnH/OziegKmELXLc=
+		JsbP3ws1LtRph42owuxF+4UyT/o=
 		</data>
 		<key>libSystem.Runtime.Serialization.dll.dylib</key>
 		<data>
-		W6yAdSxGr9mESkvRZyzQ245+D6A=
+		bJNvf8K+zypFqxUI1I10N26cQOw=
 		</data>
 		<key>libSystem.Xml.Linq.dll.dylib</key>
 		<data>
-		kiqiH++ryjfXgwhnN8PgLVRAs9E=
+		qJw7uG1Y87/ZgDDZIsLMdhBa7H4=
 		</data>
 		<key>libSystem.Xml.dll.dylib</key>
 		<data>
-		FZUoyFqLH3HhRhSwHNC8339zaKQ=
+		qI9/gIG36W2GUxd4JuueTTWevPU=
 		</data>
 		<key>libSystem.dll.dylib</key>
 		<data>
-		uTt1ByJV7CwPP7zmSXTYccWBSJw=
+		vVS8W0sUxsrhlfmRBIt7FD6mht8=
 		</data>
 		<key>libTheAdventuresOf.iOS.exe.dylib</key>
 		<data>
-		GG0Gx7nYYa3phfM4Lb7TYEsmatE=
+		h+I3Tmhyrt5jcYbVyMRVTOw0HyM=
 		</data>
 		<key>libXamarin.iOS.dll.dylib</key>
 		<data>
-		OEtcPyR9LbyvBQpMGBpPKP+43QY=
+		e8hnTRCalbGAVlriwFFFbCmzuHE=
 		</data>
 		<key>libmono-profiler-log.dylib</key>
 		<data>
-		Xsq2xtyhVkN+dzYTbzWtcavv/zw=
+		NmrkWqQ9vCj+6KJUd1kjrHt/HTo=
 		</data>
 		<key>libmonosgen-2.0.dylib</key>
 		<data>
-		LNWWM6r2fuw04UK7Nj3fCMRAAEs=
+		Ehj1l//+9Rp7uRcEyLs+QBzNC+0=
 		</data>
 		<key>libmscorlib.dll.dylib</key>
 		<data>
-		vX78Y9OnNaJMSU0jJIeiCrp2IeM=
+		pyXpTohyzm+VOpBe8k076iwFaJo=
 		</data>
 		<key>libxamarin-debug.dylib</key>
 		<data>
-		MiZk+R868j6hkWMd1DqFXQ4GqdA=
+		aRnVCxKJLr3tedtBdyyPG8HSvps=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -503,33 +507,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ytzi9nEuajG/GvFN3yEln8ChxnE=
+			BKhUth3gUs7ZKZgQRF3rcxuVrfY=
 			</data>
 			<key>hash2</key>
 			<data>
-			yCXPoqaug3YR/TL7DhF8/4w9G7gg9ZMCLJpN06THKVk=
+			1syFkKpj1XWz7v41vy73ipJBJvig7dScaCaxkG+MbB8=
 			</data>
 		</dict>
 		<key>.monotouch-64/TheAdventuresOf.iOS.exe</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eml/SGE3i7+DphNMBjeVAmUbZ0w=
+			/LWLGfQRdtItH6zMbFlL3ss4Drs=
 			</data>
 			<key>hash2</key>
 			<data>
-			/MVWgHkFengcpfUz8qmjeLb5GULtaqwz/SRsx3rrUUI=
+			ToPtgJhfMdr5LIoxQzP4nFma21mTsWBFGkOZjryHDT8=
 			</data>
 		</dict>
 		<key>.monotouch-64/TheAdventuresOf.iOS.exe.mdb</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			bMfGubiPgTkDLSwSK+ocKA2jxOc=
+			RRCH/wjWxDd/gfxVDL+wuzHPIsg=
 			</data>
 			<key>hash2</key>
 			<data>
-			Or4lc0qEv9QE5JqScShvDy5fGeqC/EfyZYkW+tvJ+Sw=
+			plusqk+GNRictFDmx0L6AUC/Nluz1uy/8UxEYt9gLNo=
 			</data>
 		</dict>
 		<key>.monotouch-64/Xamarin.iOS.arm64.aotdata</key>
@@ -602,33 +606,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			24qYZqLWReHrcTnMRB/nTaMYnpg=
+			AOj2bDOLsEkWIo/An5HO9BN4/7U=
 			</data>
 			<key>hash2</key>
 			<data>
-			TojPDSM8iKEcPZ4HSmko6wj5oUj6FXbF37YwMqLHuO0=
+			RBrCGiquftNPflWSm33kVaCy5MtupKv/TZ6MDa7a5HE=
 			</data>
 		</dict>
 		<key>Content/XML/CharacterInformation.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			L1O1ThaBm1O2YP15mb9WR2GPeh0=
+			U4bZ0/sqIFo9vVwMf0F1dp24qHI=
 			</data>
 			<key>hash2</key>
 			<data>
-			CY9olb1QLkjyobEfjR1ZuW3AhuzwVFuXHLBfUgYTQCI=
+			lrcMS6iHZAU83OL66Ds5CN+Ku/hvQ6us835GpN7Uo14=
 			</data>
 		</dict>
 		<key>Content/XML/LevelInformation.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eYP4Os3KcTf3xSsIUEe+T9N5150=
+			W627eBVF4feAvDStNe931sv0Zzk=
 			</data>
 			<key>hash2</key>
 			<data>
-			7XY/fxoR3mEhBihaYOfA46B5OXSbyWsqqFE6aOM21cg=
+			3VKiUIZtdNm0XaIcWzUJX2BLkNaQG9nF6+Acks+ydn8=
 			</data>
 		</dict>
 		<key>Content/arial-24.xnb</key>
@@ -752,6 +756,17 @@
 			MitVqfg72Zpb6USxmazSdW1loPKgBuwQkHQsOfu7hjc=
 			</data>
 		</dict>
+		<key>Content/sunmonster_1080p.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			L3490RMoNTqu8SfgmI2A6//f43Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			PwhiRgxZ861ElbhzxWPYUvExBVOconQzaubcICHnvWM=
+			</data>
+		</dict>
 		<key>Content/sword_1080p.png</key>
 		<dict>
 			<key>hash</key>
@@ -866,143 +881,143 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7RNL3QrO1RwEbECiZ8PlrD1M++g=
+			X/iI8fjj4dqGgEvJQUaywpEyZSg=
 			</data>
 			<key>hash2</key>
 			<data>
-			nVK6XwAjdrj0kxbFilS0HRB5i76LcZ2KOHg5k4Wsdrc=
+			xysK9xA9HsVv/4pFn+vr54cbte/SSzOBIsL0RZ5MR6Y=
 			</data>
 		</dict>
 		<key>libOpenTK-1.0.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			COQEOQS7wHUVtMtG3wNkvhdFZqY=
+			V4L8o5E1ZM5OpgydFfr+s6HeCnM=
 			</data>
 			<key>hash2</key>
 			<data>
-			Q/Mq9OWJtxLEPXUB0CbSudawBDwUVgctu2btQTkHb6g=
+			sjvXOFNSNpX58+05Vz7Kh8jDqFli9jjLZXNolkP+JZA=
 			</data>
 		</dict>
 		<key>libSystem.Core.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			L9YP1C4MNysAnH/OziegKmELXLc=
+			JsbP3ws1LtRph42owuxF+4UyT/o=
 			</data>
 			<key>hash2</key>
 			<data>
-			Tnf3tPmfv4P6AeZeD+q1EIcXADo/w6RfdmX3P4f+WMQ=
+			m1qN2WmR3SFGjgpqQpTGbo3bpR36PP2I0IHZ/BWcLfc=
 			</data>
 		</dict>
 		<key>libSystem.Runtime.Serialization.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			W6yAdSxGr9mESkvRZyzQ245+D6A=
+			bJNvf8K+zypFqxUI1I10N26cQOw=
 			</data>
 			<key>hash2</key>
 			<data>
-			DG5Syq5m0CTw5DPv/PspMGldXlfbVtYQG7W3QkLLiZs=
+			JbtQ72gnZhW7+JqI92z94UL9JMYqP/ywQ23Evk5Yi8I=
 			</data>
 		</dict>
 		<key>libSystem.Xml.Linq.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kiqiH++ryjfXgwhnN8PgLVRAs9E=
+			qJw7uG1Y87/ZgDDZIsLMdhBa7H4=
 			</data>
 			<key>hash2</key>
 			<data>
-			3SNQllT004+axraAQ8nPtQXM8hQG3VeTvHOGlYwInrI=
+			vwaJXxpv9gbHdzrCiG+LswWFXJUXkw22bmhxQ/URumA=
 			</data>
 		</dict>
 		<key>libSystem.Xml.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			FZUoyFqLH3HhRhSwHNC8339zaKQ=
+			qI9/gIG36W2GUxd4JuueTTWevPU=
 			</data>
 			<key>hash2</key>
 			<data>
-			B0phsQ1sgK7TH+EsbYjsKIU7wVHpHvV6/rbZwksMat8=
+			65qdK3H9oroA6pYErEegS0IgI5bcq+0wBzwgQrX1wAU=
 			</data>
 		</dict>
 		<key>libSystem.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			uTt1ByJV7CwPP7zmSXTYccWBSJw=
+			vVS8W0sUxsrhlfmRBIt7FD6mht8=
 			</data>
 			<key>hash2</key>
 			<data>
-			o/36BvHikI3iNClcYV3OKziI8iMXIfskTtkI3MFcEEw=
+			yyFfvprn0NuHR21/ci8qvRKj5G09V5WZ8hzyEXiwXIg=
 			</data>
 		</dict>
 		<key>libTheAdventuresOf.iOS.exe.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GG0Gx7nYYa3phfM4Lb7TYEsmatE=
+			h+I3Tmhyrt5jcYbVyMRVTOw0HyM=
 			</data>
 			<key>hash2</key>
 			<data>
-			PPy8QYVDxoGYhG5MXb/uQLjkHgEMNH7fE98taaCs6Rg=
+			+QXVI/HVRIyaaNvhqKKNmIxDYNhE6aj4XBt1gv8fVJ8=
 			</data>
 		</dict>
 		<key>libXamarin.iOS.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OEtcPyR9LbyvBQpMGBpPKP+43QY=
+			e8hnTRCalbGAVlriwFFFbCmzuHE=
 			</data>
 			<key>hash2</key>
 			<data>
-			Gy/zusZjORbYLRMbnRW7T83dFVKIyW3mOb4HRkn62Kc=
+			OOh56TXbPs9T8iyXwcf2j8Pt4FVVT4rxcQbFqfVIAp4=
 			</data>
 		</dict>
 		<key>libmono-profiler-log.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Xsq2xtyhVkN+dzYTbzWtcavv/zw=
+			NmrkWqQ9vCj+6KJUd1kjrHt/HTo=
 			</data>
 			<key>hash2</key>
 			<data>
-			VQAuF2cWH9EdXQ340gPjDptgcsv7JAHk1u0XwquzHi8=
+			iABlzPhKjAniNf48AaAkdh0R1BkJRfCqgSu3ICov9LI=
 			</data>
 		</dict>
 		<key>libmonosgen-2.0.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LNWWM6r2fuw04UK7Nj3fCMRAAEs=
+			Ehj1l//+9Rp7uRcEyLs+QBzNC+0=
 			</data>
 			<key>hash2</key>
 			<data>
-			6KGxIJ0bVz/kJSibMQZW+tZZmyPGzI2Uqe8ZAQq+XBE=
+			yvYrGwdEgeO3PNfhK/re0FwQXh5dmMPycI7NCNv4P4s=
 			</data>
 		</dict>
 		<key>libmscorlib.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vX78Y9OnNaJMSU0jJIeiCrp2IeM=
+			pyXpTohyzm+VOpBe8k076iwFaJo=
 			</data>
 			<key>hash2</key>
 			<data>
-			9KbRTimmu0lF3lCoAn010Uif0BK3exklimQi/uCuhfo=
+			zFH0CsdtvuOOeDREVDnY3/xPBE/kUV/mRf2AsMimMJQ=
 			</data>
 		</dict>
 		<key>libxamarin-debug.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MiZk+R868j6hkWMd1DqFXQ4GqdA=
+			aRnVCxKJLr3tedtBdyyPG8HSvps=
 			</data>
 			<key>hash2</key>
 			<data>
-			4XDYejKZiuylRNsCo19Dp5g6DzVrxUCayysa1HbVFJs=
+			bgH24lzTGwaL3cO7DriqxiFQSo+f2LXZwn8M2bl+CAw=
 			</data>
 		</dict>
 	</dict>

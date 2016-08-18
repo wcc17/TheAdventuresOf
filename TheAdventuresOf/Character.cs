@@ -40,7 +40,10 @@ namespace TheAdventuresOf
 		public virtual void HandleMovement(GameTime gameTime) { }
 		public virtual void InitializeAnimation() { }
 		public virtual void Move(GameTime gameTime, int direction) { }
-		public virtual void HandleAnimation(GameTime gameTime) { }
+
+		//TODO: only player needs buttonPressed. leave as optional or give Monster its own Update method. Who knows yet
+		public virtual void Update(GameTime gameTime, bool buttonPressed = false) { }
+
 
 		public virtual void InitializeCharacter(float startX, float startY, int characterWidth, int characterHeight)
 		{
@@ -90,12 +93,6 @@ namespace TheAdventuresOf
 			{
 				rotation += radiansToRotate;
 			}
-		}
-
-		//TODO: only player needs buttonPressed. leave as optional or give Monster its own Update method. Who knows yet
-		public virtual void Update(GameTime gameTime, bool buttonPressed = false)
-		{
-			HandleAnimation(gameTime);
 		}
 
 		public virtual void Draw(SpriteBatch spriteBatch, Texture2D texture)

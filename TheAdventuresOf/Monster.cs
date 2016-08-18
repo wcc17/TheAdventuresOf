@@ -51,11 +51,14 @@ namespace TheAdventuresOf
 
 		public override void InitializeAnimation()
 		{
-			walkAnimation = new Animation();
-			walkAnimation.AddFrame(new Rectangle(characterWidth, 
-			                                     0, 
-			                                     characterWidth,
-			                                     characterHeight), TimeSpan.FromSeconds(animationSpeed));
+			if (frameCount > 1)
+			{
+				walkAnimation = new Animation();
+				walkAnimation.AddFrame(new Rectangle(characterWidth,
+													 0,
+													 characterWidth,
+													 characterHeight), TimeSpan.FromSeconds(animationSpeed));
+			}
 
 			standAnimation = new Animation();
 			standAnimation.AddFrame(new Rectangle(0,
@@ -117,17 +120,6 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public override void HandleAnimation(GameTime gameTime)
-		{
-			if (isMoving)
-			{
-				currentAnimation = walkAnimation;
-			}
-			else {
-				currentAnimation = standAnimation;
-			}
-		}
-
 		public override void HandleMovement(GameTime gameTime)
 		{
 			if (moveLeft)
@@ -162,9 +154,6 @@ namespace TheAdventuresOf
 						delayMove = true;
 					}
 
-					//animation is handled here only 
-					base.Update(gameTime, false);
-
 					HandleMovement(gameTime);
 				}
 			}
@@ -177,7 +166,7 @@ namespace TheAdventuresOf
 			{
 				//only die if we're not spawning
 				//TODO: I don't like that I'm setting this every frame, but I'll figure it out soon
-				currentAnimation = walkAnimation;
+				//currentAnimation = walkAnimation;
 				HandleDeath(gameTime);
 			}
 			else if (isSpawning)

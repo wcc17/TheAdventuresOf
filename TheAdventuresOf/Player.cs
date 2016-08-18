@@ -108,7 +108,7 @@ namespace TheAdventuresOf
 					HandleKnockBack(gameTime);
 				}
 
-				base.Update(gameTime, buttonPressed);
+				HandleAnimation(gameTime);
 			}
 			else {
 				HandleDeath(gameTime);
@@ -229,7 +229,7 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public override void HandleAnimation(GameTime gameTime)
+		public void HandleAnimation(GameTime gameTime)
 		{
 			//TODO: preventing animation from changing while jumping works this way for now, but may need to change if more are added
 			if (!isJumping)

@@ -55,6 +55,7 @@ namespace TheAdventuresOf
 
 			XmlImporter.LoadLevelInformation(level);
 			XmlImporter.LoadBlockMonsterInformation();
+			XmlImporter.LoadSunMonsterInformation();
 			XmlImporter.LoadPlayerInformation(player);
 
 			level.InitializeLevel();
@@ -102,8 +103,14 @@ namespace TheAdventuresOf
 
 			foreach (Monster monster in level.monsters)
 			{
-				//TODO: will need to check what type of monster it is before using texture
-				monster.Draw(spriteBatch, AssetManager.blockMonsterTexture);
+				if (monster is BlockMonster)
+				{
+					monster.Draw(spriteBatch, AssetManager.blockMonsterTexture);
+				}
+				else if (monster is SunMonster) 
+				{
+					monster.Draw(spriteBatch, AssetManager.sunMonsterTexture);
+				}
 			}
 
 			//Draw player
