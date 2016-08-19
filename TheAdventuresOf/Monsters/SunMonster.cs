@@ -10,6 +10,28 @@ namespace TheAdventuresOf
 		public SunMonster()
 		{
 		}
+
+		public override void InitializeSpawn()
+		{
+			reset();
+
+			//assuming that new X position is set in main Update function for now
+			ChooseRandomDirection();
+
+			isSpawning = true;
+		}
+
+		public override void HandleSpawn(GameTime gameTime)
+		{
+			if (positionVector.Y < groundLevel)
+			{
+				MoveUpDown(gameTime, DOWN);
+			}
+			else
+			{
+				InitializeMonsterAfterSpawn();
+			}
+		}
 	}
 }
 

@@ -23,30 +23,16 @@ namespace TheAdventuresOf
 		//don't want to instantiate a new Random object every frame
 		Random rand = new Random();
 
+		public virtual void HandleSpawn(GameTime gameTime) { }
+		public virtual void InitializeSpawn() { }
+		public override void HandleAnimation(GameTime gameTime) { }
+
 		public void InitializeMonsterAfterSpawn()
 		{
 			rotation = 0;
 			isSpawning = false;
 			currentAnimation = standAnimation;
 			UpdateCharacterBounds();
-		}
-
-		public void InitializeSpawn()
-		{
-			reset();
-
-			//assuming that new X position is set in main Update function for now
-			ChooseRandomDirection();
-			if (moveLeft)
-			{
-				rotation = RIGHT_ANGLE_RADIANS;
-			}
-			else
-			{
-				rotation = -RIGHT_ANGLE_RADIANS;
-			}
-
-			isSpawning = true;
 		}
 
 		public override void InitializeAnimation()
@@ -83,22 +69,6 @@ namespace TheAdventuresOf
 			{
 				delayMove = false;
 				timeDelayed = TimeSpan.FromSeconds(0);
-			}
-		}
-
-		void HandleSpawn(GameTime gameTime)
-		{
-			if (positionVector.Y > groundLevel)
-			{
-				MoveUpDown(gameTime, UP);
-			}
-			else if( (moveLeft && rotation > 0) || (moveRight && rotation < 0) )
-			{
-				Rotate(gameTime);
-			}
-			else
-			{
-				InitializeMonsterAfterSpawn();
 			}
 		}
 
@@ -176,18 +146,6 @@ namespace TheAdventuresOf
 			}
 		}
 
-		void MoveUpDown(GameTime gameTime, int direction)
-		{
-			if (direction == UP)
-			{
-				positionVector.Y -= (upDownSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
-			}
-			else 
-			{
-				positionVector.Y += (upDownSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
-			}
-		}
-
 		void RandomizeMovement()
 		{
 			if (rand.Next(0, 2) == 0)
@@ -202,7 +160,7 @@ namespace TheAdventuresOf
 			}
 		}
 
-		void ChooseRandomDirection()
+		public void ChooseRandomDirection()
 		{
 			//and choose a random direction
 			if (rand.Next(0, 2) == 0)
@@ -229,6 +187,19 @@ namespace TheAdventuresOf
 					positionVector.X += distanceToMove;
 					distanceMoved += distanceToMove;
 					break;
+			}
+		}
+
+		public void MoveUpDown(GameTime gameTime, int direction)
+		{
+			float distanceToMove = (upDownSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+			if (direction == UP)
+			{
+				positionVector.Y -= distanceToMove;
+			}
+			else
+			{
+				positionVector.Y += distanceToMove;
 			}
 		}
 

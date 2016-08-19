@@ -152,7 +152,7 @@ namespace TheAdventuresOf
 			sunMonster = XmlImporter.TransferSunMonsterInformation(sunMonster);
 			sunMonster.groundLevel = groundLevel - sunMonster.floatHeight;
 			sunMonster.InitializeCharacter(GetRandomXLocation(AssetManager.sunMonsterTexture.Width),
-										   Screen.FULL_SCREEN_HEIGHT - AssetManager.sunMonsterTexture.Height,
+										   0 - AssetManager.sunMonsterTexture.Height,
 										   AssetManager.sunMonsterTexture.Width / sunMonster.frameCount,
 										   AssetManager.sunMonsterTexture.Height);
 			sunMonster.InitializeSpawn();

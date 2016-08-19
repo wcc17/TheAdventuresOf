@@ -135,7 +135,11 @@ namespace TheAdventuresOf
 			{
 				Rotate(gameTime);
 			}
-			else 
+			else if (positionVector.Y < groundLevel)
+			{
+				positionVector.Y += (variableJumpSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+			}
+			else
 			{
 				Console.WriteLine("Character is completely dead");
 				isDead = true;
@@ -229,7 +233,7 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public void HandleAnimation(GameTime gameTime)
+		public override void HandleAnimation(GameTime gameTime)
 		{
 			//TODO: preventing animation from changing while jumping works this way for now, but may need to change if more are added
 			if (!isJumping)
@@ -350,6 +354,9 @@ namespace TheAdventuresOf
 
 				variableJumpSpeed = jumpSpeed;
 			}
+
+			UpdateCharacterBounds();
+			UpdateSwordBounds();
 		}
 
 		public override void Draw(SpriteBatch spriteBatch, Texture2D texture)

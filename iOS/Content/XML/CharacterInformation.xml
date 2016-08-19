@@ -23,8 +23,8 @@
       <FrameCount>2</FrameCount>
       <MoveDistanceLimit>150</MoveDistanceLimit>
       <MoveDelayTime>1.5</MoveDelayTime>
-      <RotationSpeed>400</RotationSpeed>
-      <UpDownSpeed>200</UpDownSpeed>
+      <RotationSpeed>350</RotationSpeed>
+      <UpDownSpeed>175</UpDownSpeed>
     </BlockMonster>
     <SunMonster>
       <Speed>200</Speed>
@@ -33,8 +33,8 @@
       <MoveDistanceLimit>250</MoveDistanceLimit>
       <MoveDelayTime>1.5</MoveDelayTime>
       <RotationSpeed>400</RotationSpeed>
-      <UpDownSpeed>200</UpDownSpeed>
-      <FloatHeight>100</FloatHeight>
+      <UpDownSpeed>175</UpDownSpeed>
+      <FloatHeight>125</FloatHeight>
     </SunMonster>
   </Monsters>
 </Characters>
