@@ -1,5 +1,7 @@
 .DS_Store
 *.userprefs
+
+#almost 100% sure these don't need to be pushed to github
 iOS/bin
 iOS/obj
 Android/bin
