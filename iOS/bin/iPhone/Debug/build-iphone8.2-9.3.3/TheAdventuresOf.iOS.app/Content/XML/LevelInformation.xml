@@ -6,5 +6,6 @@
     <RightBoundWidth>125</RightBoundWidth>
     <BlockMonsterLimit>7</BlockMonsterLimit>
     <SunMonsterLimit>7</SunMonsterLimit>
+    <CannonMonsterLimit>2</CannonMonsterLimit>
   </LevelOne>
 </Level>

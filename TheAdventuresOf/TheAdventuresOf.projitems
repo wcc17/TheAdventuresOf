@@ -24,6 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Monster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Monsters\BlockMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Monsters\SunMonster.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Monsters\CannonMonster.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

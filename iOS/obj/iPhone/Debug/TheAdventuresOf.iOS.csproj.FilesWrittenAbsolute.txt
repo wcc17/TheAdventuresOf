@@ -42,3 +42,6 @@
 /Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/optimized/Content/emptyheart_1080p.png
 /Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/optimized/Content/heart_1080p.png
 /Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone8.2-9.3.3/optimized/Content/sunmonster_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/optimized/Content/sunmonster_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/optimized/Content/cannonmonster_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone8.2-9.3.3/optimized/Content/cannonmonster_1080p.png

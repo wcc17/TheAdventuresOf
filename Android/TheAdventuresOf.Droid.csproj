@@ -68,6 +68,7 @@
     <None Include="Assets\Content\emptyheart_1080p.png" />
     <None Include="Assets\Content\heart_1080p.png" />
     <None Include="Assets\Content\sunmonster_1080p.png" />
+    <None Include="Assets\Content\cannonmonster_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Icon.png" />

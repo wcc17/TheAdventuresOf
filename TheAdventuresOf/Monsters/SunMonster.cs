@@ -5,7 +5,7 @@ namespace TheAdventuresOf
 {
 	public class SunMonster : Monster
 	{
-		public float floatHeight;
+		public static float floatHeight;
 
 		public SunMonster()
 		{

@@ -16,12 +16,12 @@ namespace TheAdventuresOf
 		public float upDownSpeed;
 		public bool isSpawning;
 
-		TimeSpan timeDelayed = TimeSpan.FromSeconds(0);
+		public TimeSpan timeDelayed = TimeSpan.FromSeconds(0);
 		float distanceMoved;
 		bool delayMove;
 
 		//don't want to instantiate a new Random object every frame
-		Random rand = new Random();
+		public Random rand = new Random();
 
 		public virtual void HandleSpawn(GameTime gameTime) { }
 		public virtual void InitializeSpawn() { }
@@ -62,7 +62,8 @@ namespace TheAdventuresOf
 			base.HandleLevelBoundCollision(direction, boundX);
 		}
 
-		void HandleDelay(GameTime gameTime)
+		//overriden in CannonMOnster
+		public virtual void HandleDelay(GameTime gameTime)
 		{
 			timeDelayed = timeDelayed.Add(gameTime.ElapsedGameTime);
 			if (timeDelayed.TotalSeconds > moveDelayTime)
@@ -72,7 +73,7 @@ namespace TheAdventuresOf
 			}
 		}
 
-		void HandleDeath(GameTime gameTime)
+		public void HandleDeath(GameTime gameTime)
 		{
 			//should rotate 90 degrees to the direction opposite of the direction they're facing
 			//after that should slowly sink down into the ground until they're off screen, slowly becoming more transparent
@@ -104,6 +105,7 @@ namespace TheAdventuresOf
 			}
 		}
 
+		//overridden in CannonMonster
 		public override void Update(GameTime gameTime, bool buttonPressed = false)
 		{
 			if (!isDying && !delayMove && !isSpawning)
@@ -135,8 +137,6 @@ namespace TheAdventuresOf
 			else if (isDying && !isSpawning)
 			{
 				//only die if we're not spawning
-				//TODO: I don't like that I'm setting this every frame, but I'll figure it out soon
-				//currentAnimation = walkAnimation;
 				HandleDeath(gameTime);
 			}
 			else if (isSpawning)

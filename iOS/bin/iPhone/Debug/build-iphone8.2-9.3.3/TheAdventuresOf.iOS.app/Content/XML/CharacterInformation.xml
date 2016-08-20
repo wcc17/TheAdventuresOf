@@ -36,5 +36,10 @@
       <UpDownSpeed>175</UpDownSpeed>
       <FloatHeight>125</FloatHeight>
     </SunMonster>
+    <CannonMonster>
+      <FrameCount>1</FrameCount>
+      <RotationSpeed>350</RotationSpeed>
+      <UpDownSpeed>175</UpDownSpeed>
+    </CannonMonster>
   </Monsters>
 </Characters>

@@ -56,6 +56,7 @@ namespace TheAdventuresOf
 			XmlImporter.LoadLevelInformation(level);
 			XmlImporter.LoadBlockMonsterInformation();
 			XmlImporter.LoadSunMonsterInformation();
+			XmlImporter.LoadCannonMonsterInformation();
 			XmlImporter.LoadPlayerInformation(player);
 
 			level.InitializeLevel();
@@ -107,9 +108,13 @@ namespace TheAdventuresOf
 				{
 					monster.Draw(spriteBatch, AssetManager.blockMonsterTexture);
 				}
-				else if (monster is SunMonster) 
+				else if (monster is SunMonster)
 				{
 					monster.Draw(spriteBatch, AssetManager.sunMonsterTexture);
+				}
+				else if (monster is CannonMonster)
+				{
+					monster.Draw(spriteBatch, AssetManager.cannonMonsterTexture);
 				}
 			}
 

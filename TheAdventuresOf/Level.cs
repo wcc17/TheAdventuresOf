@@ -17,9 +17,11 @@ namespace TheAdventuresOf
 
 		public int blockMonsterLimit;
 		public int sunMonsterLimit;
+		public int cannonMonsterLimit;
 
 		public int blockMonsterCount;
 		public int sunMonsterCount;
+		public int cannonMonsterCount;
 
 		static Random rand = new Random();
 
@@ -37,6 +39,10 @@ namespace TheAdventuresOf
 		{
 			leftSideBounds = new Rectangle(0, 0, leftBoundWidth, AssetManager.levelTexture.Height);
 			rightSideBounds = new Rectangle(AssetManager.levelTexture.Width - rightBoundWidth, 0, rightBoundWidth, AssetManager.levelTexture.Height);
+
+			//initialize cannon monster position based on left and right side bounds
+			CannonMonster.leftSideX = leftSideBounds.Width + 40;
+			CannonMonster.rightSideX = rightSideBounds.X - AssetManager.cannonMonsterTexture.Width - 40;
 		}
 
 		public void CheckCollision(Character character)
@@ -79,6 +85,11 @@ namespace TheAdventuresOf
 			{
 				SpawnSunMonster();
 			}
+
+			if (cannonMonsterCount < cannonMonsterLimit)
+			{
+				SpawnCannonMonster();
+			}
 		}
 
 		public void UpdateMonsters(GameTime gameTime, Player player)
@@ -119,13 +130,13 @@ namespace TheAdventuresOf
 			{
 				sunMonsterCount--;
 			}
+			else if (monster is CannonMonster)
+			{
+				cannonMonsterCount--;
+			}
 		}
 
-		public void Draw(SpriteBatch spriteBatch)
-		{
-			spriteBatch.Draw(AssetManager.levelTexture, levelPositionVector);
-		}
-
+		//TODO: maybe move these to a seperate class (MonsterSpawner or MonsterManager or some shit)
 		public void SpawnBlockMonster()
 		{
 			BlockMonster blockMonster = new BlockMonster();
@@ -150,7 +161,7 @@ namespace TheAdventuresOf
 
 			//TODO: this needs to be replaced. see TODO comment on method declaration
 			sunMonster = XmlImporter.TransferSunMonsterInformation(sunMonster);
-			sunMonster.groundLevel = groundLevel - sunMonster.floatHeight;
+			sunMonster.groundLevel = groundLevel - SunMonster.floatHeight;
 			sunMonster.InitializeCharacter(GetRandomXLocation(AssetManager.sunMonsterTexture.Width),
 										   0 - AssetManager.sunMonsterTexture.Height,
 										   AssetManager.sunMonsterTexture.Width / sunMonster.frameCount,
@@ -160,6 +171,34 @@ namespace TheAdventuresOf
 			monsters.Add(sunMonster);
 
 			sunMonsterCount++;
+		}
+
+		public void SpawnCannonMonster()
+		{
+			CannonMonster cannonMonster = new CannonMonster();
+
+			//TODO: this needs to be replaced. see TODO comment on method declaration
+			cannonMonster = XmlImporter.TransferCannonMonsterInformation(cannonMonster);
+			cannonMonster.groundLevel = groundLevel - 45;
+
+			//random side of the level is chosen here. if a cannon monster already exists there, it will be handled here
+			cannonMonster.ChooseRandomSide(cannonMonsterCount, monsters);
+
+			//TODO: i hate to pass the newly set X pos here to be set again in character init, but this is best solution for now
+			cannonMonster.InitializeCharacter(cannonMonster.positionVector.X,
+											  Screen.FULL_SCREEN_HEIGHT - AssetManager.cannonMonsterTexture.Height,
+											  AssetManager.cannonMonsterTexture.Width / cannonMonster.frameCount,
+											  AssetManager.cannonMonsterTexture.Height);
+			cannonMonster.InitializeSpawn();
+
+			monsters.Add(cannonMonster);
+
+			cannonMonsterCount++;
+		}	
+
+		public void Draw(SpriteBatch spriteBatch)
+		{
+			spriteBatch.Draw(AssetManager.levelTexture, levelPositionVector);
 		}
 	}
 }

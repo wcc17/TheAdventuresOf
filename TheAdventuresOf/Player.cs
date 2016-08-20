@@ -60,6 +60,8 @@ namespace TheAdventuresOf
 
 			health = maxHealth;
 			heartPositionVector = new Vector2(Screen.FULL_SCREEN_WIDTH - ((AssetManager.heartTexture.Width + 20) * health), 10);
+
+			moveRight = true;
 		}
 
 		public override void InitializeAnimation()

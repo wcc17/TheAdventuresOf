@@ -28,7 +28,7 @@ namespace TheAdventuresOf
 		public int characterHeight;
 
 		public bool moveLeft;
-		public bool moveRight = true;
+		public bool moveRight;
 		public bool isMoving;
 
 		public Color tintColor = Color.White;

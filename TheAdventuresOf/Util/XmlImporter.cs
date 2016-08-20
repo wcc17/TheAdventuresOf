@@ -14,6 +14,7 @@ namespace TheAdventuresOf
 
 		public static BlockMonster blockMonster;
 		public static SunMonster sunMonster;
+		public static CannonMonster cannonMonster;
 
 		public static void GetXMLInformation()
 		{
@@ -26,6 +27,7 @@ namespace TheAdventuresOf
 			//keep this around to use the info for new instances of monsters
 			blockMonster = new BlockMonster();
 			sunMonster = new SunMonster();
+			cannonMonster = new CannonMonster();
 		}
 
 		public static void LoadLevelInformation(Level level)
@@ -39,6 +41,7 @@ namespace TheAdventuresOf
 
 			level.blockMonsterLimit = (int)levelOneElement.Element("BlockMonsterLimit");
 			level.sunMonsterLimit = (int)levelOneElement.Element("SunMonsterLimit");
+			level.cannonMonsterLimit = (int)levelOneElement.Element("CannonMonsterLimit");
 		}
 
 		public static void LoadPlayerInformation(Player player)
@@ -89,7 +92,20 @@ namespace TheAdventuresOf
 			sunMonster.moveDelayTime = (float)sunMonsterElement.Element("MoveDelayTime");
 			sunMonster.rotationSpeed = (float)sunMonsterElement.Element("RotationSpeed");
 			sunMonster.upDownSpeed = (float)sunMonsterElement.Element("UpDownSpeed");
-			sunMonster.floatHeight = (float)sunMonsterElement.Element("FloatHeight");
+
+			//because these are static they will not need to be set in TransferInfo method
+			SunMonster.floatHeight = (float)sunMonsterElement.Element("FloatHeight");
+		}
+
+		public static void LoadCannonMonsterInformation()
+		{
+			XElement charactersElement = characterDocument.Element("Characters");
+			XElement monstersElement = charactersElement.Element("Monsters");
+			XElement cannonMonsterElement = monstersElement.Element("CannonMonster");
+
+			cannonMonster.frameCount = (int)cannonMonsterElement.Element("FrameCount");
+			cannonMonster.rotationSpeed = (float)cannonMonsterElement.Element("RotationSpeed");
+			cannonMonster.upDownSpeed = (float)cannonMonsterElement.Element("UpDownSpeed");
 		}
 
 
@@ -97,10 +113,6 @@ namespace TheAdventuresOf
 		//method to transfer stuff for all of the monsters. but the better solution would be that each type of 
 		//monster should have these variables as static variables and be set in the LoadMonsterInformation methods
 		//not the methods below. weekend work
-
-		//TODO: eventually these should all be static variables in the BlockMonster class. For now,
-		//we don't have a BlockMonster class, so I'm just transferring the info manually. Can't use the
-		//monster class because these variables will be different in different types of monsters
 		public static BlockMonster TransferBlockMonsterInformation(BlockMonster newBlockMonster)
 		{
 			newBlockMonster.speed = blockMonster.speed;
@@ -114,9 +126,6 @@ namespace TheAdventuresOf
 			return newBlockMonster;
 		}
 
-		//TODO: eventually these should all be static variables in the SunMonster class. For now,
-		//we don't have a SunMonster class, so I'm just transferring the info manually. Can't use the
-		//monster class because these variables will be different in different types of monsters
 		public static SunMonster TransferSunMonsterInformation(SunMonster newSunMonster)
 		{
 			newSunMonster.speed = sunMonster.speed;
@@ -126,10 +135,19 @@ namespace TheAdventuresOf
 			newSunMonster.moveDelayTime = sunMonster.moveDelayTime;
 			newSunMonster.rotationSpeed = sunMonster.rotationSpeed;
 			newSunMonster.upDownSpeed = sunMonster.upDownSpeed;
-			newSunMonster.floatHeight = sunMonster.floatHeight;
 
 			return newSunMonster;
 		}
+
+		public static CannonMonster TransferCannonMonsterInformation(CannonMonster newCannonMonster)
+		{
+			newCannonMonster.frameCount = cannonMonster.frameCount;
+			newCannonMonster.rotationSpeed = cannonMonster.rotationSpeed;
+			newCannonMonster.upDownSpeed = cannonMonster.upDownSpeed;
+
+			return newCannonMonster;
+		}
+
 
 	}
 }
