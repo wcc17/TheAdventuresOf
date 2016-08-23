@@ -19,3 +19,7 @@
 /Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/TheAdventuresOf.iOS.exe.mdb
 /Users/wcc17/Development/TheAdventuresOf/iOS/bin/iPhoneSimulator/Debug/MonoGame.Framework.dll
 /Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/optimized/Content/blockmonster_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/optimized/Content/emptyheart_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/optimized/Content/heart_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/optimized/Content/sunmonster_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/optimized/Content/cannonmonster_1080p.png

@@ -99,24 +99,8 @@ namespace TheAdventuresOf
 		{
 			spriteBatch.Begin(transformMatrix: screen.scaleMatrix);
 
-			//Draw background 
+			//Draw level related stuff (background and monsters)
 			level.Draw(spriteBatch);
-
-			foreach (Monster monster in level.monsters)
-			{
-				if (monster is BlockMonster)
-				{
-					monster.Draw(spriteBatch, AssetManager.blockMonsterTexture);
-				}
-				else if (monster is SunMonster)
-				{
-					monster.Draw(spriteBatch, AssetManager.sunMonsterTexture);
-				}
-				else if (monster is CannonMonster)
-				{
-					monster.Draw(spriteBatch, AssetManager.cannonMonsterTexture);
-				}
-			}
 
 			//Draw player
 			player.Draw(spriteBatch, AssetManager.playerTexture);
