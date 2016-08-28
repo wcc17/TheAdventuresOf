@@ -31,12 +31,7 @@ namespace TheAdventuresOf
 			leftSideBounds = new Rectangle(0, 0, leftBoundWidth, AssetManager.levelTexture.Height);
 			rightSideBounds = new Rectangle(AssetManager.levelTexture.Width - rightBoundWidth, 0, rightBoundWidth, AssetManager.levelTexture.Height);
 
-			//TODO: would really prefer this to be in MonsterManager rather than here.
-			//initialize cannon monster position based on left and right side bounds
-			CannonMonster.leftSideX = leftSideBounds.Width + 40;
-			CannonMonster.rightSideX = rightSideBounds.X - AssetManager.cannonMonsterTexture.Width - 40;
-
-			monsterManager = new MonsterManager(rightBoundWidth, leftBoundWidth, groundLevel);
+			monsterManager = new MonsterManager(leftSideBounds, rightSideBounds, groundLevel);
 			monsterManager.blockMonsterLimit = this.blockMonsterLimit;
 			monsterManager.sunMonsterLimit = this.sunMonsterLimit;
 			monsterManager.cannonMonsterLimit = this.cannonMonsterLimit;

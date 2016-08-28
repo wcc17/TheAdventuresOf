@@ -53,6 +53,7 @@ namespace TheAdventuresOf
 			AssetManager.LoadGameAssets(this.GraphicsDevice);
 			AssetManager.LoadLevelAssets(this.GraphicsDevice);
 
+			XmlImporter.LoadGameInformation();
 			XmlImporter.LoadLevelInformation(level);
 			XmlImporter.LoadBlockMonsterInformation();
 			XmlImporter.LoadSunMonsterInformation();
@@ -66,7 +67,7 @@ namespace TheAdventuresOf
 			                           AssetManager.playerTexture.Height);
 
 			FrameRate.LoadContent(Content);
-			Controller.InitializeController(this.GraphicsDevice);
+			Controller.InitializeController();
 		}
 
 		/// <summary>

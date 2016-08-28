@@ -143,7 +143,6 @@ namespace TheAdventuresOf
 			}
 			else
 			{
-				Console.WriteLine("Character is completely dead");
 				isDead = true;
 			}
 		}
@@ -210,7 +209,6 @@ namespace TheAdventuresOf
 			{
 				if (!isInvincible && !monster.isDying && !monster.isDead)
 				{
-					Console.WriteLine("CHARACTER HURT");
 					health--;
 
 					if (health > 0)
@@ -229,6 +227,10 @@ namespace TheAdventuresOf
 					}
 					else {
 						isDying = true;
+
+						//added to prevent character from floating off the screen when dying
+						//could not replicate, but saw it happen to tanner
+						isJumping = false;
 					}
 				}
 					

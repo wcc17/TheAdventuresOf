@@ -5,26 +5,36 @@ namespace TheAdventuresOf
 {
 	public static class Controller
 	{
+		public static Vector2 controllerPositionVector;
+		public static Vector2 leftButtonPositionVector;
+		public static Vector2 rightButtonPositionVector;
+		public static Vector2 upButtonPositionVector;
 
 		static Button leftButton;
 		static Button rightButton;
 		static Button upButton;
 
-		static Vector2 controllerPositionVector;
 
 		public static bool isButtonPressed;
 		public static bool leftButtonPressed;
 		public static bool rightButtonPressed;
 		public static bool upButtonPressed;
 
-		public static void InitializeController(GraphicsDevice graphicsDevice)
+		public static void InitializeController()
 		{
 
-			leftButton = new Button(AssetManager.arrowButtonTexture.Width, AssetManager.arrowButtonTexture.Height, 50, 865);
-			rightButton = new Button(AssetManager.arrowButtonTexture.Width, AssetManager.arrowButtonTexture.Height, 300, 865);
-			upButton = new Button(AssetManager.arrowButtonTexture.Width, AssetManager.arrowButtonTexture.Height, 1650, 865);
-
-			controllerPositionVector = new Vector2(0, 850);
+			leftButton = new Button(AssetManager.arrowButtonTexture.Width, 
+			                        AssetManager.arrowButtonTexture.Height, 
+			                        leftButtonPositionVector.X, 
+			                        leftButtonPositionVector.Y);
+			rightButton = new Button(AssetManager.arrowButtonTexture.Width, 
+			                         AssetManager.arrowButtonTexture.Height, 
+			                         rightButtonPositionVector.X, 
+			                         rightButtonPositionVector.Y);
+			upButton = new Button(AssetManager.arrowButtonTexture.Width, 
+			                      AssetManager.arrowButtonTexture.Height, 
+			                      upButtonPositionVector.X, 
+			                      upButtonPositionVector.Y);
 		}
 
 		public static void HandleInput(Point point)

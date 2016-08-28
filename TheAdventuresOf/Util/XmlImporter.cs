@@ -9,6 +9,7 @@ namespace TheAdventuresOf
 {
 	public static class XmlImporter
 	{
+		public static XDocument gameDocument;
 		public static XDocument characterDocument;
 		public static XDocument levelDocument;
 
@@ -18,9 +19,11 @@ namespace TheAdventuresOf
 
 		public static void GetXMLInformation()
 		{
+			Stream gameDocumentStream = TitleContainer.OpenStream("Content/XML/GameInformation.xml");
 			Stream characterDocumentStream = TitleContainer.OpenStream("Content/XML/CharacterInformation.xml");
 			Stream levelDocumentStream = TitleContainer.OpenStream("Content/XML/LevelInformation.xml");
 
+			gameDocument = XDocument.Load(gameDocumentStream);
 			characterDocument = XDocument.Load(characterDocumentStream);
 			levelDocument = XDocument.Load(levelDocumentStream);
 
@@ -28,6 +31,26 @@ namespace TheAdventuresOf
 			blockMonster = new BlockMonster();
 			sunMonster = new SunMonster();
 			cannonMonster = new CannonMonster();
+		}
+
+		public static void LoadGameInformation()
+		{
+			XElement gameElement = gameDocument.Element("Game");
+			XElement controllerElement = gameElement.Element("Controller");
+
+			var controllerX = (float)controllerElement.Element("ControllerX");
+			var controllerY = (float)controllerElement.Element("ControllerY");
+			var leftButtonX = (float)controllerElement.Element("LeftButtonX");
+			var leftButtonY = (float)controllerElement.Element("LeftButtonY");
+			var rightButtonX = (float)controllerElement.Element("RightButtonX");
+			var rightButtonY = (float)controllerElement.Element("RightButtonY");
+			var upButtonX = (float)controllerElement.Element("UpButtonX");
+			var upButtonY = (float)controllerElement.Element("UpButtonY");
+
+			Controller.controllerPositionVector = new Vector2(controllerX, controllerY);
+			Controller.leftButtonPositionVector = new Vector2(leftButtonX, leftButtonY);
+			Controller.rightButtonPositionVector = new Vector2(rightButtonX, rightButtonY);
+			Controller.upButtonPositionVector = new Vector2(upButtonX, upButtonY);
 		}
 
 		public static void LoadLevelInformation(Level level)
@@ -93,7 +116,7 @@ namespace TheAdventuresOf
 			sunMonster.rotationSpeed = (float)sunMonsterElement.Element("RotationSpeed");
 			sunMonster.upDownSpeed = (float)sunMonsterElement.Element("UpDownSpeed");
 
-			//because these are static they will not need to be set in TransferInfo method
+			//because this is static they will not need to be set in TransferInfo method
 			SunMonster.floatHeight = (float)sunMonsterElement.Element("FloatHeight");
 		}
 
@@ -109,11 +132,11 @@ namespace TheAdventuresOf
 		}
 
 
-		//TODO: something needs to be done about both of these. i could use a single trasnferMonsterInformation
+		//TODO: something needs to be done about these. i could use a single trasnferMonsterInformation
 		//method to transfer stuff for all of the monsters. but the better solution would be that each type of 
 		//monster should have these variables as static variables and be set in the LoadMonsterInformation methods
 		//not the methods below. weekend work
-		public static BlockMonster TransferBlockMonsterInformation(BlockMonster newBlockMonster)
+		public static void TransferBlockMonsterInformation(BlockMonster newBlockMonster)
 		{
 			newBlockMonster.speed = blockMonster.speed;
 			newBlockMonster.animationSpeed = blockMonster.animationSpeed;
@@ -122,11 +145,9 @@ namespace TheAdventuresOf
 			newBlockMonster.moveDelayTime = blockMonster.moveDelayTime;
 			newBlockMonster.rotationSpeed = blockMonster.rotationSpeed;
 			newBlockMonster.upDownSpeed = blockMonster.upDownSpeed;
-
-			return newBlockMonster;
 		}
 
-		public static SunMonster TransferSunMonsterInformation(SunMonster newSunMonster)
+		public static void TransferSunMonsterInformation(SunMonster newSunMonster)
 		{
 			newSunMonster.speed = sunMonster.speed;
 			newSunMonster.animationSpeed = sunMonster.animationSpeed;
@@ -135,17 +156,13 @@ namespace TheAdventuresOf
 			newSunMonster.moveDelayTime = sunMonster.moveDelayTime;
 			newSunMonster.rotationSpeed = sunMonster.rotationSpeed;
 			newSunMonster.upDownSpeed = sunMonster.upDownSpeed;
-
-			return newSunMonster;
 		}
 
-		public static CannonMonster TransferCannonMonsterInformation(CannonMonster newCannonMonster)
+		public static void TransferCannonMonsterInformation(CannonMonster newCannonMonster)
 		{
 			newCannonMonster.frameCount = cannonMonster.frameCount;
 			newCannonMonster.rotationSpeed = cannonMonster.rotationSpeed;
 			newCannonMonster.upDownSpeed = cannonMonster.upDownSpeed;
-
-			return newCannonMonster;
 		}
 
 

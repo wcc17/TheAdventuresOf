@@ -18,26 +18,35 @@ namespace TheAdventuresOf
 		public List<Monster> monsters;
 		public List<Monster> monstersToRemove;
 
-		static Random rand = new Random();
-
 		public int rightBoundWidth;
 		public int leftBoundWidth;
 		public float groundLevel;
 
-		public MonsterManager(int rightBoundWidth, int leftBoundWidth, float groundLevel)
+		static Random rand = new Random();
+
+		public int delayCannonSpawnTimerLimit = 5;
+		TimeSpan delayCannonSpawnTimer = TimeSpan.FromSeconds(0);
+		bool canSpawnCannonMonster = true;
+
+		public MonsterManager(Rectangle leftSideLevelBounds, Rectangle rightSideLevelBounds, float groundLevel)
 		{
 			monsters = new List<Monster>();
 			monstersToRemove = new List<Monster>();
 
-			this.rightBoundWidth = rightBoundWidth;
-			this.leftBoundWidth = leftBoundWidth;
+			this.rightBoundWidth = rightSideLevelBounds.Width;
+			this.leftBoundWidth = leftSideLevelBounds.Width;
 			this.groundLevel = groundLevel;
+
+			//initialize cannon monster position based on left and right side bounds
+			CannonMonster.leftSideX = leftSideLevelBounds.Width + 40;
+			CannonMonster.rightSideX = rightSideLevelBounds.X - AssetManager.cannonMonsterTexture.Width - 40;
 		}
 
 		int GetRandomXLocation(float characterWidth)
 		{
 			//character width is necessary to make sure we don't spawn a monster (x is the top left corner) on top of a boundary
 			//when generating a random number, it goes up to the second number - 1, which is why we include + 1
+			//TODO: where does the 135 come from?
 			int X = rand.Next(135, AssetManager.levelTexture.Width - rightBoundWidth - (int)characterWidth + 1);
 
 			return X;
@@ -58,7 +67,7 @@ namespace TheAdventuresOf
 
 			if (cannonMonsterCount < cannonMonsterLimit)
 			{
-				SpawnCannonMonster();
+				HandleCannonMonsterSpawn();
 			}
 		}
 
@@ -104,6 +113,9 @@ namespace TheAdventuresOf
 				monsters.RemoveAll(m => monstersToRemove.Contains(m));
 				monstersToRemove.Clear();
 			}
+
+			//update cannon monster spawn timer 
+			delayCannonSpawnTimer = delayCannonSpawnTimer.Add(gameTime.ElapsedGameTime);
 		}
 
 		public void DrawMonsters(SpriteBatch spriteBatch)
@@ -130,7 +142,7 @@ namespace TheAdventuresOf
 			BlockMonster blockMonster = new BlockMonster();
 
 			//TODO: this needs to be replaced. see TODO comment on method declaration
-			blockMonster = XmlImporter.TransferBlockMonsterInformation(blockMonster);
+			XmlImporter.TransferBlockMonsterInformation(blockMonster);
 			blockMonster.groundLevel = groundLevel;
 			blockMonster.InitializeCharacter(GetRandomXLocation(AssetManager.blockMonsterTexture.Width),
 											 Screen.FULL_SCREEN_HEIGHT - AssetManager.blockMonsterTexture.Height,
@@ -148,7 +160,7 @@ namespace TheAdventuresOf
 			SunMonster sunMonster = new SunMonster();
 
 			//TODO: this needs to be replaced. see TODO comment on method declaration
-			sunMonster = XmlImporter.TransferSunMonsterInformation(sunMonster);
+			XmlImporter.TransferSunMonsterInformation(sunMonster);
 			sunMonster.groundLevel = groundLevel - SunMonster.floatHeight;
 			sunMonster.InitializeCharacter(GetRandomXLocation(AssetManager.sunMonsterTexture.Width),
 										   0 - AssetManager.sunMonsterTexture.Height,
@@ -161,12 +173,40 @@ namespace TheAdventuresOf
 			sunMonsterCount++;
 		}
 
+		void HandleCannonMonsterSpawn()
+		{
+			//if the timer is past the limit
+			//randomly choose whether to spawn a new cannon monster or not
+			if (delayCannonSpawnTimer.Seconds > delayCannonSpawnTimerLimit)
+			{
+				Console.WriteLine("Cannon monster timer limit passed");
+
+				canSpawnCannonMonster = true;
+				delayCannonSpawnTimer = TimeSpan.FromSeconds(0);
+			}
+
+			if (canSpawnCannonMonster)
+			{
+				Console.WriteLine("Could spawn monster");
+
+				if (rand.Next(0, 2) == 0)
+				{
+					Console.WriteLine("Spawning monster");
+					SpawnCannonMonster();
+				}
+				else {
+					Console.WriteLine("Decided not to spawn monster");
+				}
+
+				canSpawnCannonMonster = false;
+			}
+		}
 		void SpawnCannonMonster()
 		{
 			CannonMonster cannonMonster = new CannonMonster();
 
 			//TODO: this needs to be replaced. see TODO comment on method declaration
-			cannonMonster = XmlImporter.TransferCannonMonsterInformation(cannonMonster);
+			XmlImporter.TransferCannonMonsterInformation(cannonMonster);
 			cannonMonster.groundLevel = groundLevel - 45;
 
 			//random side of the level is chosen here. if a cannon monster already exists there, it will be handled here
