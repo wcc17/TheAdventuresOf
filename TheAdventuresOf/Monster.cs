@@ -12,13 +12,13 @@ namespace TheAdventuresOf
 		public float groundLevel;
 
 		public int moveDistanceLimit;
-		public float moveDelayTime;
+		public float actionDelayTime;
 		public float upDownSpeed;
 		public bool isSpawning;
 
 		public TimeSpan timeDelayed = TimeSpan.FromSeconds(0);
 		float distanceMoved;
-		bool delayMove;
+		bool delayAction;
 
 		//don't want to instantiate a new Random object every frame
 		public Random rand = new Random();
@@ -27,12 +27,12 @@ namespace TheAdventuresOf
 		public virtual void InitializeSpawn() { }
 		public override void HandleAnimation(GameTime gameTime) { }
 
-		public void InitializeMonsterAfterSpawn()
+		public void InitializeMonster()
 		{
 			rotation = 0;
 			isSpawning = false;
 			currentAnimation = standAnimation;
-			UpdateCharacterBounds();
+			UpdateEntityBounds();
 		}
 
 		public override void InitializeAnimation()
@@ -40,17 +40,17 @@ namespace TheAdventuresOf
 			if (frameCount > 1)
 			{
 				walkAnimation = new Animation();
-				walkAnimation.AddFrame(new Rectangle(characterWidth,
+				walkAnimation.AddFrame(new Rectangle(entityWidth,
 													 0,
-													 characterWidth,
-													 characterHeight), TimeSpan.FromSeconds(animationSpeed));
+													 entityWidth,
+													 entityHeight), TimeSpan.FromSeconds(animationSpeed));
 			}
 
 			standAnimation = new Animation();
 			standAnimation.AddFrame(new Rectangle(0,
 			                                      0,
-			                                      characterWidth,
-			                                      characterHeight), TimeSpan.FromSeconds(animationSpeed));
+			                                      entityWidth,
+			                                      entityHeight), TimeSpan.FromSeconds(animationSpeed));
 
 			currentAnimation = standAnimation;
 
@@ -62,13 +62,12 @@ namespace TheAdventuresOf
 			base.HandleLevelBoundCollision(direction, boundX);
 		}
 
-		//overriden in CannonMOnster
 		public virtual void HandleDelay(GameTime gameTime)
 		{
 			timeDelayed = timeDelayed.Add(gameTime.ElapsedGameTime);
-			if (timeDelayed.TotalSeconds > moveDelayTime)
+			if (timeDelayed.TotalSeconds > actionDelayTime)
 			{
-				delayMove = false;
+				delayAction = false;
 				timeDelayed = TimeSpan.FromSeconds(0);
 			}
 		}
@@ -96,19 +95,19 @@ namespace TheAdventuresOf
 			if (moveLeft)
 			{
 				Move(gameTime, LEFT);
-				UpdateCharacterBounds();
+				UpdateEntityBounds();
 			}
 			else if (moveRight)
 			{
 				Move(gameTime, RIGHT);
-				UpdateCharacterBounds();
+				UpdateEntityBounds();
 			}
 		}
 
 		//overridden in CannonMonster
 		public override void Update(GameTime gameTime, bool buttonPressed = false)
 		{
-			if (!isDying && !delayMove && !isSpawning)
+			if (!isDying && !delayAction && !isSpawning)
 			{
 				//only try to move if we're not dying, delaying or spawning
 				if (!isMoving)
@@ -123,13 +122,13 @@ namespace TheAdventuresOf
 						distanceMoved = 0;
 						isMoving = false;
 
-						delayMove = true;
+						delayAction = true;
 					}
 
 					HandleMovement(gameTime);
 				}
 			}
-			else if (delayMove && !isDying && !isSpawning)
+			else if (delayAction && !isDying && !isSpawning)
 			{
 				//only delay if we're not dying and not spawning
 				HandleDelay(gameTime);
@@ -156,7 +155,7 @@ namespace TheAdventuresOf
 				ChooseRandomDirection();
 			}
 			else {
-				delayMove = true;
+				delayAction = true;
 			}
 		}
 
@@ -213,7 +212,7 @@ namespace TheAdventuresOf
 			isSpawning = false;
 			isDying = false;
 			isDead = false;
-			delayMove = false;
+			delayAction = false;
 			distanceMoved = 0;
 			timeDelayed = TimeSpan.FromSeconds(0);
 		}

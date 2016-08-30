@@ -122,6 +122,7 @@
     <BundleResource Include="Content\sunmonster_1080p.png" />
     <BundleResource Include="Content\cannonmonster_1080p.png" />
     <BundleResource Include="Content\XML\GameInformation.xml" />
+    <BundleResource Include="Content\bullet_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

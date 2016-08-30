@@ -97,7 +97,7 @@ namespace TheAdventuresOf
 			blockMonster.animationSpeed = (float)blockMonsterElement.Element("AnimationSpeed");
 			blockMonster.frameCount = (int)blockMonsterElement.Element("FrameCount");
 			blockMonster.moveDistanceLimit = (int)blockMonsterElement.Element("MoveDistanceLimit");
-			blockMonster.moveDelayTime = (float)blockMonsterElement.Element("MoveDelayTime");
+			blockMonster.actionDelayTime = (float)blockMonsterElement.Element("ActionDelayTime");
 			blockMonster.rotationSpeed = (float)blockMonsterElement.Element("RotationSpeed");
 			blockMonster.upDownSpeed = (float)blockMonsterElement.Element("UpDownSpeed");
 		}
@@ -112,7 +112,7 @@ namespace TheAdventuresOf
 			sunMonster.animationSpeed = (float)sunMonsterElement.Element("AnimationSpeed");
 			sunMonster.frameCount = (int)sunMonsterElement.Element("FrameCount");
 			sunMonster.moveDistanceLimit = (int)sunMonsterElement.Element("MoveDistanceLimit");
-			sunMonster.moveDelayTime = (float)sunMonsterElement.Element("MoveDelayTime");
+			sunMonster.actionDelayTime = (float)sunMonsterElement.Element("ActionDelayTime");
 			sunMonster.rotationSpeed = (float)sunMonsterElement.Element("RotationSpeed");
 			sunMonster.upDownSpeed = (float)sunMonsterElement.Element("UpDownSpeed");
 
@@ -129,10 +129,11 @@ namespace TheAdventuresOf
 			cannonMonster.frameCount = (int)cannonMonsterElement.Element("FrameCount");
 			cannonMonster.rotationSpeed = (float)cannonMonsterElement.Element("RotationSpeed");
 			cannonMonster.upDownSpeed = (float)cannonMonsterElement.Element("UpDownSpeed");
+			cannonMonster.actionDelayTime = (float)cannonMonsterElement.Element("ActionDelayTime");
 		}
 
 
-		//TODO: something needs to be done about these. i could use a single trasnferMonsterInformation
+		//TODO: something needs to be done about these. im not a fan. i could use a single trasnferMonsterInformation
 		//method to transfer stuff for all of the monsters. but the better solution would be that each type of 
 		//monster should have these variables as static variables and be set in the LoadMonsterInformation methods
 		//not the methods below. weekend work
@@ -142,7 +143,7 @@ namespace TheAdventuresOf
 			newBlockMonster.animationSpeed = blockMonster.animationSpeed;
 			newBlockMonster.frameCount = blockMonster.frameCount;
 			newBlockMonster.moveDistanceLimit = blockMonster.moveDistanceLimit;
-			newBlockMonster.moveDelayTime = blockMonster.moveDelayTime;
+			newBlockMonster.actionDelayTime = blockMonster.actionDelayTime;
 			newBlockMonster.rotationSpeed = blockMonster.rotationSpeed;
 			newBlockMonster.upDownSpeed = blockMonster.upDownSpeed;
 		}
@@ -153,7 +154,7 @@ namespace TheAdventuresOf
 			newSunMonster.animationSpeed = sunMonster.animationSpeed;
 			newSunMonster.frameCount = sunMonster.frameCount;
 			newSunMonster.moveDistanceLimit = sunMonster.moveDistanceLimit;
-			newSunMonster.moveDelayTime = sunMonster.moveDelayTime;
+			newSunMonster.actionDelayTime = sunMonster.actionDelayTime;
 			newSunMonster.rotationSpeed = sunMonster.rotationSpeed;
 			newSunMonster.upDownSpeed = sunMonster.upDownSpeed;
 		}
@@ -163,6 +164,7 @@ namespace TheAdventuresOf
 			newCannonMonster.frameCount = cannonMonster.frameCount;
 			newCannonMonster.rotationSpeed = cannonMonster.rotationSpeed;
 			newCannonMonster.upDownSpeed = cannonMonster.upDownSpeed;
+			newCannonMonster.actionDelayTime = cannonMonster.actionDelayTime;
 		}
 
 

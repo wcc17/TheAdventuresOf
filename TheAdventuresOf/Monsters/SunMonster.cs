@@ -29,7 +29,7 @@ namespace TheAdventuresOf
 			}
 			else
 			{
-				InitializeMonsterAfterSpawn();
+				InitializeMonster();
 			}
 		}
 	}

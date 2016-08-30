@@ -61,7 +61,7 @@ namespace TheAdventuresOf
 			XmlImporter.LoadPlayerInformation(player);
 
 			level.InitializeLevel();
-			player.InitializeCharacter(200f, 
+			player.InitializePlayer(200f, 
 			                           level.groundLevel, 
 			                           AssetManager.playerTexture.Width / player.frameCount, 
 			                           AssetManager.playerTexture.Height);

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace TheAdventuresOf
 {
@@ -10,6 +11,9 @@ namespace TheAdventuresOf
 		public static float rightSideX;
 
 		bool delayAction;
+		bool isShooting;
+
+		//Bullet bullet;
 
 		public CannonMonster()
 		{
@@ -46,18 +50,12 @@ namespace TheAdventuresOf
 			}
 			else
 			{
-				InitializeMonsterAfterSpawn();
+				InitializeMonster();
 			}
 		}
 
-		public override void HandleDelay(GameTime gameTime)
+		public void HandleShoot()
 		{
-			timeDelayed = timeDelayed.Add(gameTime.ElapsedGameTime);
-			if (timeDelayed.TotalSeconds > moveDelayTime)
-			{
-				delayAction = false;
-				timeDelayed = TimeSpan.FromSeconds(0);
-			}
 		}
 
 		public override void Update(GameTime gameTime, bool buttonPressed = false)
@@ -71,6 +69,14 @@ namespace TheAdventuresOf
 				//}
 				//else
 				//stop shooting and start delay
+
+				if (!isShooting)
+				{
+					HandleShoot();
+				}
+				else {
+					delayAction = true;
+				}
 			}
 			else if (delayAction && !isDying && !isSpawning)
 			{
@@ -125,7 +131,17 @@ namespace TheAdventuresOf
 				}
 			}
 
-			UpdateCharacterBounds();
+			UpdateEntityBounds();
+		}
+
+		public override void Draw(SpriteBatch spriteBatch, Texture2D texture)
+		{
+			base.Draw(spriteBatch, texture);
+
+			if (isShooting)
+			{
+				//bullet.Draw(spriteBatch, texture);
+			}
 		}
 
 	}

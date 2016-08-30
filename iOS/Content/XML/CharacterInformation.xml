@@ -22,7 +22,7 @@
       <AnimationSpeed>0.08</AnimationSpeed>
       <FrameCount>2</FrameCount>
       <MoveDistanceLimit>150</MoveDistanceLimit>
-      <MoveDelayTime>1.5</MoveDelayTime>
+      <ActionDelayTime>1.5</ActionDelayTime>
       <RotationSpeed>350</RotationSpeed>
       <UpDownSpeed>175</UpDownSpeed>
     </BlockMonster>
@@ -31,7 +31,7 @@
       <AnimationSpeed>0.08</AnimationSpeed>
       <FrameCount>1</FrameCount>
       <MoveDistanceLimit>250</MoveDistanceLimit>
-      <MoveDelayTime>1.5</MoveDelayTime>
+      <ActionDelayTime>1.5</ActionDelayTime>
       <RotationSpeed>400</RotationSpeed>
       <UpDownSpeed>175</UpDownSpeed>
       <FloatHeight>125</FloatHeight>
@@ -40,6 +40,7 @@
       <FrameCount>1</FrameCount>
       <RotationSpeed>350</RotationSpeed>
       <UpDownSpeed>175</UpDownSpeed>
+	  <ActionDelayTime>6</ActionDelayTime>
     </CannonMonster>
   </Monsters>
 </Characters>

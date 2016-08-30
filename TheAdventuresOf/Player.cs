@@ -43,13 +43,13 @@ namespace TheAdventuresOf
 		public float knockBackDistanceLimit;
 		public int knockBackSpeed;
 
-		public override void InitializeCharacter(float startX, float startY, int characterWidth, int characterHeight)
+		public void InitializePlayer(float startX, float startY, int playerWidth, int playerHeight)
 		{
-			base.InitializeCharacter(startX, startY, characterWidth, characterHeight);
+			base.InitializeCharacter(startX, startY, playerWidth, playerHeight);
 
 			groundLevel = startY;
 
-			swordPositionVector = new Vector2(startX + characterWidth - rightSwordOffset, startY + swordYOffset);
+			swordPositionVector = new Vector2(startX + playerWidth - rightSwordOffset, startY + swordYOffset);
 			jumpHeightLimit = startY - jumpHeight;
 			variableJumpSpeed = jumpSpeed;
 
@@ -71,14 +71,14 @@ namespace TheAdventuresOf
 			//the character will probably need to be redrawn, but I'm not going to mess with it for now
 			//TODO: can probably put this in a loop. all charactesr only have 3-4 frames tops, so can loop through them with playerFrames variable
 			walkAnimation = new Animation();
-			walkAnimation.AddFrame(new Rectangle(0, 0, characterWidth - 1, characterHeight),
+			walkAnimation.AddFrame(new Rectangle(0, 0, entityWidth - 1, entityHeight),
 			                       TimeSpan.FromSeconds(animationSpeed));
-			walkAnimation.AddFrame(new Rectangle(characterWidth, 0, characterWidth - 1, characterHeight), 
+			walkAnimation.AddFrame(new Rectangle(entityWidth, 0, entityWidth - 1, entityHeight), 
 			                       TimeSpan.FromSeconds(animationSpeed));
 
 
 			standAnimation = new Animation();
-			standAnimation.AddFrame(new Rectangle(0, 0, characterWidth - 1, characterHeight), 
+			standAnimation.AddFrame(new Rectangle(0, 0, entityWidth - 1, entityHeight), 
 			                        TimeSpan.FromSeconds(animationSpeed));
 
 			currentAnimation = standAnimation;
@@ -122,12 +122,12 @@ namespace TheAdventuresOf
 			if (Controller.leftButtonPressed)
 			{
 				Move(gameTime, LEFT);
-				UpdateCharacterBounds();
+				UpdateEntityBounds();
 			}
 			if (Controller.rightButtonPressed)
 			{
 				Move(gameTime, RIGHT);
-				UpdateCharacterBounds();
+				UpdateEntityBounds();
 			}
 		}
 
@@ -182,7 +182,7 @@ namespace TheAdventuresOf
 
 			positionVector.X += (addOrSubtract * (float)distance);
 			UpdateSwordPosition();
-			UpdateCharacterBounds();
+			UpdateEntityBounds();
 			UpdateSwordBounds();
 
 			if (knockBackDistance > knockBackDistanceLimit)
@@ -201,11 +201,11 @@ namespace TheAdventuresOf
 
 		public void CheckCollision(Monster monster)
 		{
-			if (swordBounds.Intersects(monster.characterBounds))
+			if (swordBounds.Intersects(monster.entityBounds))
 			{
 				monster.isDying = true;
 			}
-			else if (characterBounds.Intersects(monster.characterBounds))
+			else if (entityBounds.Intersects(monster.entityBounds))
 			{
 				if (!isInvincible && !monster.isDying && !monster.isDead)
 				{
@@ -305,9 +305,9 @@ namespace TheAdventuresOf
 			UpdateSwordPosition();
 		}
 
-		public override void UpdateCharacterBounds()
+		public override void UpdateEntityBounds()
 		{
-			base.UpdateCharacterBounds();
+			base.UpdateEntityBounds();
 			UpdateSwordBounds();
 		}
 
@@ -321,11 +321,11 @@ namespace TheAdventuresOf
 		{
 			if (moveLeft)
 			{
-				swordPositionVector.X = positionVector.X - characterWidth - leftSwordOffset;
+				swordPositionVector.X = positionVector.X - entityWidth - leftSwordOffset;
 			}
 			else if (moveRight)
 			{
-				swordPositionVector.X = positionVector.X + characterWidth - rightSwordOffset;
+				swordPositionVector.X = positionVector.X + entityWidth - rightSwordOffset;
 			}
 		}
 
@@ -359,8 +359,8 @@ namespace TheAdventuresOf
 				variableJumpSpeed = jumpSpeed;
 			}
 
-			UpdateCharacterBounds();
-			UpdateSwordBounds();
+			UpdateEntityBounds();
+			//UpdateSwordBounds(); already being called in UpdateEntityBounds
 		}
 
 		public override void Draw(SpriteBatch spriteBatch, Texture2D texture)

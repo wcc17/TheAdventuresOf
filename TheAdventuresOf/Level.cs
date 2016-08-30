@@ -39,14 +39,14 @@ namespace TheAdventuresOf
 
 		public void CheckCollision(Character character)
 		{
-			if (leftSideBounds.Intersects(character.characterBounds))
+			if (leftSideBounds.Intersects(character.entityBounds))
 			{
-				character.HandleLevelBoundCollision(Character.LEFT, leftBoundWidth);
+				character.HandleLevelBoundCollision(Entity.LEFT, leftBoundWidth);
 			}
 
-			if (rightSideBounds.Intersects(character.characterBounds))
+			if (rightSideBounds.Intersects(character.entityBounds))
 			{
-				character.HandleLevelBoundCollision(Character.RIGHT, AssetManager.levelTexture.Width - rightBoundWidth);
+				character.HandleLevelBoundCollision(Entity.RIGHT, AssetManager.levelTexture.Width - rightBoundWidth);
 			}
 		}
 
