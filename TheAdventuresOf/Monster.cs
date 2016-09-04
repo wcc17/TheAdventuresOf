@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.ComponentModel;
 
 namespace TheAdventuresOf
 {
@@ -17,8 +16,8 @@ namespace TheAdventuresOf
 		public bool isSpawning;
 
 		public TimeSpan timeDelayed = TimeSpan.FromSeconds(0);
+		public bool delayAction;
 		float distanceMoved;
-		bool delayAction;
 
 		//don't want to instantiate a new Random object every frame
 		public Random rand = new Random();
@@ -112,7 +111,7 @@ namespace TheAdventuresOf
 				//only try to move if we're not dying, delaying or spawning
 				if (!isMoving)
 				{
-					RandomizeMovement();
+					randomizeMovement();
 				}
 				else
 				{
@@ -145,7 +144,7 @@ namespace TheAdventuresOf
 			}
 		}
 
-		void RandomizeMovement()
+		void randomizeMovement()
 		{
 			if (rand.Next(0, 2) == 0)
 			{
@@ -207,7 +206,7 @@ namespace TheAdventuresOf
 			base.Draw(spriteBatch, texture);
 		}
 
-		public void reset()
+		public void Reset()
 		{
 			isSpawning = false;
 			isDying = false;

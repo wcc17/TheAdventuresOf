@@ -1,6 +1,4 @@
-﻿using System;
-using System.Security.Cryptography.X509Certificates;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 namespace TheAdventuresOf
 {
@@ -28,8 +26,6 @@ namespace TheAdventuresOf
 		public bool moveLeft;
 		public bool moveRight;
 		public bool isMoving;
-
-		public bool isOffScreen;
 
 		public void InitializeEntity(float startX, float startY)
 		{

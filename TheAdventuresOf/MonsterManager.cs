@@ -24,7 +24,8 @@ namespace TheAdventuresOf
 
 		static Random rand = new Random();
 
-		public int delayCannonSpawnTimerLimit = 5;
+		//TODO: delayCannonSpawnTimerLimit needs to be loaded from XML somewhere
+		public int delayCannonSpawnTimerLimit = 4;
 		TimeSpan delayCannonSpawnTimer = TimeSpan.FromSeconds(0);
 		bool canSpawnCannonMonster = true;
 
@@ -42,7 +43,7 @@ namespace TheAdventuresOf
 			CannonMonster.rightSideX = rightSideLevelBounds.X - AssetManager.cannonMonsterTexture.Width - 40;
 		}
 
-		int GetRandomXLocation(float characterWidth)
+		int getRandomXLocation(float characterWidth)
 		{
 			//character width is necessary to make sure we don't spawn a monster (x is the top left corner) on top of a boundary
 			//when generating a random number, it goes up to the second number - 1, which is why we include + 1
@@ -57,17 +58,17 @@ namespace TheAdventuresOf
 			//spawn new monsters if needed
 			if (blockMonsterCount < blockMonsterLimit)
 			{
-				SpawnBlockMonster();
+				spawnBlockMonster();
 			}
 
 			if (sunMonsterCount < sunMonsterLimit)
 			{
-				SpawnSunMonster();
+				spawnSunMonster();
 			}
 
 			if (cannonMonsterCount < cannonMonsterLimit)
 			{
-				HandleCannonMonsterSpawn();
+				handleCannonMonsterSpawn();
 			}
 		}
 
@@ -94,7 +95,12 @@ namespace TheAdventuresOf
 			{
 				//these methods go first so that monster can update in reaction to them
 				level.CheckCollision(monster);
-				player.CheckCollision(monster);
+				player.CheckCollisionMonster(monster);
+
+				if (monster is CannonMonster)
+				{
+					player.CheckCollisionBullet(((CannonMonster)monster).bullet);
+				}
 
 				monster.Update(gameTime);
 
@@ -137,14 +143,14 @@ namespace TheAdventuresOf
 			}
 		}
 
-		void SpawnBlockMonster()
+		void spawnBlockMonster()
 		{
 			BlockMonster blockMonster = new BlockMonster();
 
 			//TODO: this needs to be replaced. see TODO comment on method declaration
 			XmlImporter.TransferBlockMonsterInformation(blockMonster);
 			blockMonster.groundLevel = groundLevel;
-			blockMonster.InitializeCharacter(GetRandomXLocation(AssetManager.blockMonsterTexture.Width),
+			blockMonster.InitializeCharacter(getRandomXLocation(AssetManager.blockMonsterTexture.Width),
 											 Screen.FULL_SCREEN_HEIGHT - AssetManager.blockMonsterTexture.Height,
 											 AssetManager.blockMonsterTexture.Width / blockMonster.frameCount,
 											 AssetManager.blockMonsterTexture.Height);
@@ -155,14 +161,14 @@ namespace TheAdventuresOf
 			blockMonsterCount++;
 		}
 
-		void SpawnSunMonster()
+		void spawnSunMonster()
 		{
 			SunMonster sunMonster = new SunMonster();
 
 			//TODO: this needs to be replaced. see TODO comment on method declaration
 			XmlImporter.TransferSunMonsterInformation(sunMonster);
 			sunMonster.groundLevel = groundLevel - SunMonster.floatHeight;
-			sunMonster.InitializeCharacter(GetRandomXLocation(AssetManager.sunMonsterTexture.Width),
+			sunMonster.InitializeCharacter(getRandomXLocation(AssetManager.sunMonsterTexture.Width),
 										   0 - AssetManager.sunMonsterTexture.Height,
 										   AssetManager.sunMonsterTexture.Width / sunMonster.frameCount,
 										   AssetManager.sunMonsterTexture.Height);
@@ -173,7 +179,7 @@ namespace TheAdventuresOf
 			sunMonsterCount++;
 		}
 
-		void HandleCannonMonsterSpawn()
+		void handleCannonMonsterSpawn()
 		{
 			//if the timer is past the limit
 			//randomly choose whether to spawn a new cannon monster or not
@@ -192,7 +198,7 @@ namespace TheAdventuresOf
 				if (rand.Next(0, 2) == 0)
 				{
 					Console.WriteLine("Spawning monster");
-					SpawnCannonMonster();
+					spawnCannonMonster();
 				}
 				else {
 					Console.WriteLine("Decided not to spawn monster");
@@ -201,7 +207,7 @@ namespace TheAdventuresOf
 				canSpawnCannonMonster = false;
 			}
 		}
-		void SpawnCannonMonster()
+		void spawnCannonMonster()
 		{
 			CannonMonster cannonMonster = new CannonMonster();
 

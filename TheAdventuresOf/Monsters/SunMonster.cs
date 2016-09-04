@@ -7,13 +7,9 @@ namespace TheAdventuresOf
 	{
 		public static float floatHeight;
 
-		public SunMonster()
-		{
-		}
-
 		public override void InitializeSpawn()
 		{
-			reset();
+			Reset();
 
 			//assuming that new X position is set in main Update function for now
 			ChooseRandomDirection();

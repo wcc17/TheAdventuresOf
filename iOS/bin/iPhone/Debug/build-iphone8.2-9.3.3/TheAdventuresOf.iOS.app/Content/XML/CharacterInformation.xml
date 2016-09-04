@@ -40,7 +40,10 @@
       <FrameCount>1</FrameCount>
       <RotationSpeed>350</RotationSpeed>
       <UpDownSpeed>175</UpDownSpeed>
-	  <ActionDelayTime>6</ActionDelayTime>
+	  <ActionDelayTime>3.5</ActionDelayTime>
     </CannonMonster>
+	<Bullet>
+		<Speed>400</Speed>
+	</Bullet>
   </Monsters>
 </Characters>

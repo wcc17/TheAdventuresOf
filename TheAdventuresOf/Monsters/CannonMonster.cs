@@ -10,21 +10,16 @@ namespace TheAdventuresOf
 		public static float leftSideX;
 		public static float rightSideX;
 
-		bool delayAction;
 		bool isShooting;
 
-		//Bullet bullet;
-
-		public CannonMonster()
-		{
-		}
+		public Bullet bullet;
 
 		//no reason to check collision with level bounds here
 		public override void HandleLevelBoundCollision(int direction, int boundX) { }
 
 		public override void InitializeSpawn()
 		{
-			reset();
+			Reset();
 
 			if (moveLeft)
 			{
@@ -36,6 +31,8 @@ namespace TheAdventuresOf
 			}
 
 			isSpawning = true;
+
+			initializeBullet();
 		}
 
 		public override void HandleSpawn(GameTime gameTime)
@@ -51,31 +48,38 @@ namespace TheAdventuresOf
 			else
 			{
 				InitializeMonster();
+
+				//since spawning is complete, monster is ready to go. want him to shoot as soon as he spawns
+				//if we dont want that anymore, add delayAction = true to InitSpawn and get rid of this
+				bullet.isActive = true;
 			}
 		}
 
-		public void HandleShoot()
+		void handleShoot(GameTime gameTime)
 		{
+			bullet.Update(gameTime);
+
+			if (!bullet.isActive)
+			{
+				isShooting = false;
+				delayAction = true;
+				
+				//reset bullet
+				initializeBullet();
+			}
 		}
 
 		public override void Update(GameTime gameTime, bool buttonPressed = false)
 		{
-			if (!isDying && !delayAction && !isSpawning)
+			if (!isDying && !delayAction && !isSpawning && isShooting)
 			{
-				//if not delaying action, we should either prepare to shoot or delay an action
-				//if (!isShooting)
-				//{
-				//	Shoot();
-				//}
-				//else
-				//stop shooting and start delay
-
+				handleShoot(gameTime);
+			}
+			else if (!isDying && !delayAction && !isSpawning)
+			{
 				if (!isShooting)
 				{
-					HandleShoot();
-				}
-				else {
-					delayAction = true;
+					isShooting = true;
 				}
 			}
 			else if (delayAction && !isDying && !isSpawning)
@@ -84,11 +88,31 @@ namespace TheAdventuresOf
 			}
 			else if (isDying && !isSpawning)
 			{
+				//should still finish the shot and hurt player if applicable, even if dying
+				//TODO: look here if memory or performance becomes problem. shouldn't be because after isDead = true,
+				//bullet will no longer getr updated. just wondering if the bullet existing will cause GC
+				//to keep this somewhere in memory too long
+				if (isShooting)
+				{
+					handleShoot(gameTime);
+				}
+
 				HandleDeath(gameTime);
 			}
 			else if (isSpawning)
 			{
 				HandleSpawn(gameTime);
+			}
+		}
+
+		public override void HandleDelay(GameTime gameTime)
+		{
+			base.HandleDelay(gameTime);
+
+			if (!delayAction)
+			{
+				Console.WriteLine("activating bullet");
+				bullet.isActive = true;
 			}
 		}
 
@@ -140,8 +164,29 @@ namespace TheAdventuresOf
 
 			if (isShooting)
 			{
-				//bullet.Draw(spriteBatch, texture);
+				bullet.Draw(spriteBatch, AssetManager.bulletTexture);
 			}
+		}
+
+		void initializeBullet()
+		{
+			if (bullet == null)
+			{
+				bullet = new Bullet();
+			}
+
+			if (moveLeft)
+			{
+				bullet.moveLeft = true;
+				bullet.positionVector.X = positionVector.X;
+			}
+			else if (moveRight)
+			{
+				bullet.moveRight = true;
+				bullet.positionVector.X = positionVector.X + entityWidth;
+			}
+
+			bullet.UpdateEntityBounds();
 		}
 
 	}

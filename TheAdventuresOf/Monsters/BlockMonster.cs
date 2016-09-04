@@ -5,13 +5,9 @@ namespace TheAdventuresOf
 {
 	public class BlockMonster : Monster
 	{
-		public BlockMonster()
-		{
-		}
-
 		public override void InitializeSpawn()
 		{
-			reset();
+			Reset();
 
 			//assuming that new X position is set in main Update function for now
 			ChooseRandomDirection();

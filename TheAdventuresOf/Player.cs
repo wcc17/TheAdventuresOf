@@ -199,7 +199,20 @@ namespace TheAdventuresOf
 			UpdateSwordPosition();
 		}
 
-		public void CheckCollision(Monster monster)
+		public void CheckCollisionBullet(Bullet bullet)
+		{
+			if (entityBounds.Intersects(bullet.entityBounds))
+			{
+				if (!isInvincible && bullet.isActive)
+				{
+					Console.WriteLine("player took damage from bullet");
+					bullet.isActive = false;
+					handlePlayerTakingDamage(bullet);
+				}
+			}
+		}
+
+		public void CheckCollisionMonster(Monster monster)
 		{
 			if (swordBounds.Intersects(monster.entityBounds))
 			{
@@ -209,31 +222,37 @@ namespace TheAdventuresOf
 			{
 				if (!isInvincible && !monster.isDying && !monster.isDead)
 				{
-					health--;
-
-					if (health > 0)
-					{
-						isInvincible = true;
-						invincibilityTimer = TimeSpan.FromSeconds(invincibilityTime);
-
-						if (monster.moveLeft)
-						{
-							isKnockedBackLeft = true;
-						}
-						else if (monster.moveRight)
-						{
-							isKnockedBackRight = true;
-						}
-					}
-					else {
-						isDying = true;
-
-						//added to prevent character from floating off the screen when dying
-						//could not replicate, but saw it happen to tanner
-						isJumping = false;
-					}
+					Console.WriteLine("player took damage from monster");
+					handlePlayerTakingDamage(monster);
 				}
 					
+			}
+		}
+
+		void handlePlayerTakingDamage(Entity entity)
+		{
+			health--;
+
+			if (health > 0)
+			{
+				isInvincible = true;
+				invincibilityTimer = TimeSpan.FromSeconds(invincibilityTime);
+
+				if (entity.moveLeft)
+				{
+					isKnockedBackLeft = true;
+				}
+				else if (entity.moveRight)
+				{
+					isKnockedBackRight = true;
+				}
+			}
+			else {
+				isDying = true;
+
+				//added to prevent character from floating off the screen when dying
+				//could not replicate, but saw it happen to tanner
+				isJumping = false;
 			}
 		}
 
@@ -336,22 +355,22 @@ namespace TheAdventuresOf
 
 			variableJumpSpeed -= 12.5f;
 
-			Console.WriteLine("Y: " + positionVector.Y);
-			Console.WriteLine("jump speed: " + variableJumpSpeed);
-			Console.WriteLine("jumpHeight limit: " + jumpHeightLimit);
-			Console.WriteLine("Ground level: " + groundLevel);
+			//Console.WriteLine("Y: " + positionVector.Y);
+			//Console.WriteLine("jump speed: " + variableJumpSpeed);
+			//Console.WriteLine("jumpHeight limit: " + jumpHeightLimit);
+			//Console.WriteLine("Ground level: " + groundLevel);
 
 			//if we hit the jump height, make jumpSpeed negative, start falling
 			if (positionVector.Y <= jumpHeightLimit)
 			{
-				Console.WriteLine("Start falling");
+				//Console.WriteLine("Start falling");
 				variableJumpSpeed *= -1;
 			}
 
 			//if we're falling and we hit the ground, stop jumping and reset the jump speed
 			if (((int)positionVector.Y >= (int)groundLevel) && variableJumpSpeed < 0)
 			{
-				Console.WriteLine("Stop jumping");
+				//Console.WriteLine("Stop jumping");
 				isJumping = false;
 
 				positionVector.Y = groundLevel;
