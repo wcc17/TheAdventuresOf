@@ -52,7 +52,7 @@ namespace TheAdventuresOf
 
 		public void Update(GameTime gameTime, Player player)
 		{
-			monsterManager.HandleSpawnMonsters();
+			monsterManager.HandleSpawnMonsters(gameTime);
 			monsterManager.UpdateMonsters(gameTime, this, player);
 		}
 

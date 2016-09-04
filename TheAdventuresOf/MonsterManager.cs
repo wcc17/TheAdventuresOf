@@ -22,10 +22,15 @@ namespace TheAdventuresOf
 		public int leftBoundWidth;
 		public float groundLevel;
 
+		//TODO: spawnDelayTime needs to be loaded from XML
+		float spawnDelayTime = 0.5f;
+		TimeSpan spawnTimer = TimeSpan.FromSeconds(0);
+		bool canSpawn = false;
+
 		static Random rand = new Random();
 
 		//TODO: delayCannonSpawnTimerLimit needs to be loaded from XML somewhere
-		public int delayCannonSpawnTimerLimit = 4;
+		float delayCannonSpawnTimerLimit = 4;
 		TimeSpan delayCannonSpawnTimer = TimeSpan.FromSeconds(0);
 		bool canSpawnCannonMonster = true;
 
@@ -53,22 +58,43 @@ namespace TheAdventuresOf
 			return X;
 		}
 
-		public void HandleSpawnMonsters()
+		void handleSpawnDelay(GameTime gameTime)
 		{
-			//spawn new monsters if needed
-			if (blockMonsterCount < blockMonsterLimit)
+			//TODO: how does this affect cannon monster spawn timer?
+			//TODO: all of these timer methods can probably be one single method or class method
+			spawnTimer = spawnTimer.Add(gameTime.ElapsedGameTime);
+			if (spawnTimer.Seconds > spawnDelayTime)
 			{
-				spawnBlockMonster();
+				//will allow monsters to spawn, then next frame the timer will start adding up again
+				canSpawn = true;
+				spawnTimer = TimeSpan.FromSeconds(0);
 			}
+		}
 
-			if (sunMonsterCount < sunMonsterLimit)
-			{
-				spawnSunMonster();
-			}
+	
+		public void HandleSpawnMonsters(GameTime gameTime)
+		{
+			handleSpawnDelay(gameTime);
 
-			if (cannonMonsterCount < cannonMonsterLimit)
+			if (canSpawn)
 			{
-				handleCannonMonsterSpawn();
+				//spawn new monsters if needed
+				if (blockMonsterCount < blockMonsterLimit)
+				{
+					spawnBlockMonster();
+				}
+
+				if (sunMonsterCount < sunMonsterLimit)
+				{
+					spawnSunMonster();
+				}
+
+				if (cannonMonsterCount < cannonMonsterLimit)
+				{
+					handleCannonMonsterSpawn();
+				}
+
+				canSpawn = false;
 			}
 		}
 
@@ -116,7 +142,7 @@ namespace TheAdventuresOf
 
 			if (monstersToRemove.Count > 0)
 			{
-				monsters.RemoveAll(m => monstersToRemove.Contains(m));
+				monsters.RemoveAll(m => monstersToRemove.Contains(m)); //removes all monsters in monstersToRemove from monsters list
 				monstersToRemove.Clear();
 			}
 
@@ -136,10 +162,16 @@ namespace TheAdventuresOf
 				{
 					monster.Draw(spriteBatch, AssetManager.sunMonsterTexture);
 				}
-				else if (monster is CannonMonster)
-				{
-					monster.Draw(spriteBatch, AssetManager.cannonMonsterTexture);
-				}
+				//else if (monster is CannonMonster)
+				//{
+				//	monster.Draw(spriteBatch, AssetManager.cannonMonsterTexture);
+				//}
+			}
+
+			//CannonMonster should always be drawn last so that bullet is always on top of other monsters
+			foreach (Monster monster in monsters.FindAll(m => m is CannonMonster))
+			{
+				monster.Draw(spriteBatch, AssetManager.cannonMonsterTexture);
 			}
 		}
 
