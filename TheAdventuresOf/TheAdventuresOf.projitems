@@ -11,26 +11,31 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)TheAdventuresOf.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Screen.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Character.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\FrameRate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AnimationFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Animation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Button.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Level.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Player.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\XmlImporter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\AssetManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Monster.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Monsters\BlockMonster.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Monsters\SunMonster.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Monsters\CannonMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MonsterManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Entity.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Bullet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\BlockMonster.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\CannonMonster.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\SunMonster.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Character.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Entity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Monster.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Player.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Projectiles\Bullet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Projectile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Projectiles\Bile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\BileMonster.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Monsters\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Entity\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Entity\Monsters\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Entity\Projectiles\" />
   </ItemGroup>
 </Project>

@@ -19,8 +19,10 @@ namespace TheAdventuresOf
 		public static Texture2D blockMonsterTexture;
 		public static Texture2D sunMonsterTexture;
 		public static Texture2D cannonMonsterTexture;
+		public static Texture2D bileMonsterTexture;
 
 		public static Texture2D bulletTexture;
+		public static Texture2D bileTexture;
 
 
 		//TODO: opening "Content/controls1080p.png" on android throws exception. png is actually in Assets/Content/controls1080p.png. will need a function for this
@@ -74,6 +76,14 @@ namespace TheAdventuresOf
 			using (var stream = TitleContainer.OpenStream("Content/bullet_1080p.png"))
 			{
 				bulletTexture = Texture2D.FromStream(graphicsDevice, stream);
+			}
+			using (var stream = TitleContainer.OpenStream("Content/bilemonster_1080p.png"))
+			{
+				bileMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
+			}
+			using (var stream = TitleContainer.OpenStream("Content/bile_1080p.png"))
+			{
+				bileTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
 		}
 
