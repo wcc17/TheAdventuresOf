@@ -1,6 +1,6 @@
-# Version: 9.8.1.4 (c7sr0: 3cf8aae)
+# Version: 9.8.2.22 (cycle7-sr1: f37444a)
 # [first argument, ignore] # /Users/wcc17/Development/TheAdventuresOf/iOS/mtouch.exe
-/Library/Frameworks/Xamarin.iOS.framework/Versions/9.8.1.4/bin/mtouch \
+/Library/Frameworks/Xamarin.iOS.framework/Versions/9.8.2.22/bin/mtouch \
 	--cache \
 	/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhone/Debug/build-iphone8.2-9.3.3/mtouch-cache \
 	--dev \

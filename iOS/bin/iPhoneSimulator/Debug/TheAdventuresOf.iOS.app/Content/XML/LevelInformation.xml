@@ -4,8 +4,8 @@
     <GroundLevel>690</GroundLevel>
     <LeftBoundWidth>135</LeftBoundWidth>
     <RightBoundWidth>125</RightBoundWidth>
-    <BlockMonsterLimit>7</BlockMonsterLimit>
-    <SunMonsterLimit>7</SunMonsterLimit>
+    <BlockMonsterLimit>5</BlockMonsterLimit>
+    <SunMonsterLimit>5</SunMonsterLimit>
     <CannonMonsterLimit>2</CannonMonsterLimit>
   </LevelOne>
 </Level>

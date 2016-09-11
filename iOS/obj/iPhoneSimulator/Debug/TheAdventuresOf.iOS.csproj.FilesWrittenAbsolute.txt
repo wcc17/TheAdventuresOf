@@ -23,3 +23,6 @@
 /Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/optimized/Content/heart_1080p.png
 /Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/optimized/Content/sunmonster_1080p.png
 /Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/optimized/Content/cannonmonster_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/optimized/Content/bullet_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/optimized/Content/bile_1080p.png
+/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/optimized/Content/bilemonster_1080p.png

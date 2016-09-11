@@ -9,8 +9,8 @@
 #include <objc/message.h>
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
 #import <QuartzCore/QuartzCore.h>
 #import <QuartzCore/CAEmitterBehavior.h>
 #import <CoreMotion/CoreMotion.h>
@@ -1421,66 +1421,66 @@ static id native_to_managed_trampoline_21 (id self, SEL _cmd, MonoMethod **manag
 		{"UIFocusAnimationCoordinator", "UIKit.UIFocusAnimationCoordinator, Xamarin.iOS", NULL },
 		{"UIFocusUpdateContext", "UIKit.UIFocusUpdateContext, Xamarin.iOS", NULL },
 		{"UIApplication", "UIKit.UIApplication, Xamarin.iOS", NULL },
-		{"NSArray", "Foundation.NSArray, Xamarin.iOS", NULL },
-		{"NSBundle", "Foundation.NSBundle, Xamarin.iOS", NULL },
 		{"UIBezierPath", "UIKit.UIBezierPath, Xamarin.iOS", NULL },
-		{"UIImage", "UIKit.UIImage, Xamarin.iOS", NULL },
-		{"NSCoder", "Foundation.NSCoder, Xamarin.iOS", NULL },
 		{"UIKit_UIControlEventProxy", "UIKit.UIControlEventProxy, Xamarin.iOS", NULL },
 		{"UIControl", "UIKit.UIControl, Xamarin.iOS", NULL },
 		{"UIDevice", "UIKit.UIDevice, Xamarin.iOS", NULL },
-		{"MPMediaEntity", "MediaPlayer.MPMediaEntity, Xamarin.iOS", NULL },
 		{"UIEvent", "UIKit.UIEvent, Xamarin.iOS", NULL },
+		{"NSArray", "Foundation.NSArray, Xamarin.iOS", NULL },
+		{"NSBundle", "Foundation.NSBundle, Xamarin.iOS", NULL },
+		{"UIImage", "UIKit.UIImage, Xamarin.iOS", NULL },
+		{"NSCoder", "Foundation.NSCoder, Xamarin.iOS", NULL },
+		{"UIScreen", "UIKit.UIScreen, Xamarin.iOS", NULL },
+		{"UITextField", "UIKit.UITextField, Xamarin.iOS", NULL },
+		{"Foundation_InternalNSNotificationHandler", "Foundation.InternalNSNotificationHandler, Xamarin.iOS", NULL },
+		{"NSValue", "Foundation.NSValue, Xamarin.iOS", NULL },
+		{"NSNumber", "Foundation.NSNumber, Xamarin.iOS", NULL },
+		{"NSRunLoop", "Foundation.NSRunLoop, Xamarin.iOS", NULL },
+		{"NSString", "Foundation.NSString, Xamarin.iOS", NULL },
+		{"NSTimer", "Foundation.NSTimer, Xamarin.iOS", NULL },
+		{"NSURL", "Foundation.NSUrl, Xamarin.iOS", NULL },
+		{"AVAudioPlayer", "AVFoundation.AVAudioPlayer, Xamarin.iOS", NULL },
+		{"MPMediaEntity", "MediaPlayer.MPMediaEntity, Xamarin.iOS", NULL },
 		{"MPMediaItem", "MediaPlayer.MPMediaItem, Xamarin.iOS", NULL },
+		{"AVPlayer", "AVFoundation.AVPlayer, Xamarin.iOS", NULL },
 		{"MPMediaItemArtwork", "MediaPlayer.MPMediaItemArtwork, Xamarin.iOS", NULL },
 		{"MPMediaItemCollection", "MediaPlayer.MPMediaItemCollection, Xamarin.iOS", NULL },
 		{"NSNotification", "Foundation.NSNotification, Xamarin.iOS", NULL },
-		{"NSNull", "Foundation.NSNull, Xamarin.iOS", NULL },
-		{"NSValue", "Foundation.NSValue, Xamarin.iOS", NULL },
-		{"NSNumber", "Foundation.NSNumber, Xamarin.iOS", NULL },
-		{"Foundation_InternalNSNotificationHandler", "Foundation.InternalNSNotificationHandler, Xamarin.iOS", NULL },
-		{"MPMediaQuery", "MediaPlayer.MPMediaQuery, Xamarin.iOS", NULL },
-		{"NSRunLoop", "Foundation.NSRunLoop, Xamarin.iOS", NULL },
-		{"UIScreen", "UIKit.UIScreen, Xamarin.iOS", NULL },
-		{"NSString", "Foundation.NSString, Xamarin.iOS", NULL },
-		{"UITextField", "UIKit.UITextField, Xamarin.iOS", NULL },
-		{"NSTimer", "Foundation.NSTimer, Xamarin.iOS", NULL },
-		{"NSOperationQueue", "Foundation.NSOperationQueue, Xamarin.iOS", NULL },
-		{"NSURL", "Foundation.NSUrl, Xamarin.iOS", NULL },
-		{"MPMoviePlayerController", "MediaPlayer.MPMoviePlayerController, Xamarin.iOS", NULL },
-		{"MPMoviePlayerViewController", "MediaPlayer.MPMoviePlayerViewController, Xamarin.iOS", NULL },
-		{"AVAudioPlayer", "AVFoundation.AVAudioPlayer, Xamarin.iOS", NULL },
-		{"AVPlayer", "AVFoundation.AVPlayer, Xamarin.iOS", NULL },
 		{"UILocalNotification", "UIKit.UILocalNotification, Xamarin.iOS", NULL },
+		{"NSNull", "Foundation.NSNull, Xamarin.iOS", NULL },
+		{"MPMediaQuery", "MediaPlayer.MPMediaQuery, Xamarin.iOS", NULL },
 		{"__MonoMac_NSActionDispatcher", "Foundation.NSActionDispatcher, Xamarin.iOS", NULL },
 		{"__Xamarin_NSTimerActionDispatcher", "Foundation.NSTimerActionDispatcher, Xamarin.iOS", NULL },
 		{"__MonoMac_NSAsyncActionDispatcher", "Foundation.NSAsyncActionDispatcher, Xamarin.iOS", NULL },
 		{"NSAutoreleasePool", "Foundation.NSAutoreleasePool, Xamarin.iOS", NULL },
 		{"NSError", "Foundation.NSError, Xamarin.iOS", NULL },
+		{"NSOperationQueue", "Foundation.NSOperationQueue, Xamarin.iOS", NULL },
+		{"MPMoviePlayerController", "MediaPlayer.MPMoviePlayerController, Xamarin.iOS", NULL },
+		{"MPMoviePlayerViewController", "MediaPlayer.MPMoviePlayerViewController, Xamarin.iOS", NULL },
 		{"CADisplayLink", "CoreAnimation.CADisplayLink, Xamarin.iOS", NULL },
 		{"CALayer", "CoreAnimation.CALayer, Xamarin.iOS", NULL },
 		{"CMLogItem", "CoreMotion.CMLogItem, Xamarin.iOS", NULL },
 		{"CMAccelerometerData", "CoreMotion.CMAccelerometerData, Xamarin.iOS", NULL },
-		{"NSUserActivity", "Foundation.NSUserActivity, Xamarin.iOS", NULL },
 		{"EAGLContext", "OpenGLES.EAGLContext, Xamarin.iOS", NULL },
 		{"CMDeviceMotion", "CoreMotion.CMDeviceMotion, Xamarin.iOS", NULL },
 		{"CMMotionManager", "CoreMotion.CMMotionManager, Xamarin.iOS", NULL },
+		{"NSUserActivity", "Foundation.NSUserActivity, Xamarin.iOS", NULL },
 		{"CAEAGLLayer", "CoreAnimation.CAEAGLLayer, Xamarin.iOS", NULL },
-		{"EAGLSharegroup", "OpenGLES.EAGLSharegroup, Xamarin.iOS", NULL },
 		{"NSEnumerator", "Foundation.NSEnumerator, Xamarin.iOS", NULL },
 		{"NSException", "Foundation.NSException, Xamarin.iOS", NULL },
 		{"UITextPosition", "UIKit.UITextPosition, Xamarin.iOS", NULL },
 		{"UITextRange", "UIKit.UITextRange, Xamarin.iOS", NULL },
 		{"UITextSelectionRect", "UIKit.UITextSelectionRect, Xamarin.iOS", NULL },
-		{"UIUserNotificationSettings", "UIKit.UIUserNotificationSettings, Xamarin.iOS", NULL },
 		{"UITouch", "UIKit.UITouch, Xamarin.iOS", NULL },
-		{"UIWindow", "UIKit.UIWindow, Xamarin.iOS", NULL },
 		{"UITraitCollection", "UIKit.UITraitCollection, Xamarin.iOS", NULL },
+		{"EAGLSharegroup", "OpenGLES.EAGLSharegroup, Xamarin.iOS", NULL },
+		{"UIUserNotificationSettings", "UIKit.UIUserNotificationSettings, Xamarin.iOS", NULL },
+		{"UIWindow", "UIKit.UIWindow, Xamarin.iOS", NULL },
 		{"UIApplicationShortcutItem", "UIKit.UIApplicationShortcutItem, Xamarin.iOS", NULL },
 		{"UIAlertView", "UIKit.UIAlertView, Xamarin.iOS", NULL },
 		{"NSData", "Foundation.NSData, Xamarin.iOS", NULL },
-		{"NSMutableData", "Foundation.NSMutableData, Xamarin.iOS", NULL },
 		{"NSDictionary", "Foundation.NSDictionary, Xamarin.iOS", NULL },
+		{"NSMutableData", "Foundation.NSMutableData, Xamarin.iOS", NULL },
 		{"NSMutableDictionary", "Foundation.NSMutableDictionary, Xamarin.iOS", NULL },
 		{"NSNotificationCenter", "Foundation.NSNotificationCenter, Xamarin.iOS", NULL },
 		{"NSSet", "Foundation.NSSet, Xamarin.iOS", NULL },
@@ -1526,66 +1526,66 @@ void xamarin_create_classes () {
 	__xamarin_class_map [4].handle = objc_getClass ("UIFocusAnimationCoordinator");
 	__xamarin_class_map [5].handle = objc_getClass ("UIFocusUpdateContext");
 	__xamarin_class_map [6].handle = objc_getClass ("UIApplication");
-	__xamarin_class_map [7].handle = objc_getClass ("NSArray");
-	__xamarin_class_map [8].handle = objc_getClass ("NSBundle");
-	__xamarin_class_map [9].handle = objc_getClass ("UIBezierPath");
-	__xamarin_class_map [10].handle = objc_getClass ("UIImage");
-	__xamarin_class_map [11].handle = objc_getClass ("NSCoder");
-	__xamarin_class_map [12].handle = objc_getClass ("UIKit_UIControlEventProxy");
-	__xamarin_class_map [13].handle = objc_getClass ("UIControl");
-	__xamarin_class_map [14].handle = objc_getClass ("UIDevice");
-	__xamarin_class_map [15].handle = objc_getClass ("MPMediaEntity");
-	__xamarin_class_map [16].handle = objc_getClass ("UIEvent");
-	__xamarin_class_map [17].handle = objc_getClass ("MPMediaItem");
-	__xamarin_class_map [18].handle = objc_getClass ("MPMediaItemArtwork");
-	__xamarin_class_map [19].handle = objc_getClass ("MPMediaItemCollection");
-	__xamarin_class_map [20].handle = objc_getClass ("NSNotification");
-	__xamarin_class_map [21].handle = objc_getClass ("NSNull");
-	__xamarin_class_map [22].handle = objc_getClass ("NSValue");
-	__xamarin_class_map [23].handle = objc_getClass ("NSNumber");
-	__xamarin_class_map [24].handle = objc_getClass ("Foundation_InternalNSNotificationHandler");
-	__xamarin_class_map [25].handle = objc_getClass ("MPMediaQuery");
-	__xamarin_class_map [26].handle = objc_getClass ("NSRunLoop");
-	__xamarin_class_map [27].handle = objc_getClass ("UIScreen");
-	__xamarin_class_map [28].handle = objc_getClass ("NSString");
-	__xamarin_class_map [29].handle = objc_getClass ("UITextField");
-	__xamarin_class_map [30].handle = objc_getClass ("NSTimer");
-	__xamarin_class_map [31].handle = objc_getClass ("NSOperationQueue");
-	__xamarin_class_map [32].handle = objc_getClass ("NSURL");
-	__xamarin_class_map [33].handle = objc_getClass ("MPMoviePlayerController");
-	__xamarin_class_map [34].handle = objc_getClass ("MPMoviePlayerViewController");
-	__xamarin_class_map [35].handle = objc_getClass ("AVAudioPlayer");
-	__xamarin_class_map [36].handle = objc_getClass ("AVPlayer");
-	__xamarin_class_map [37].handle = objc_getClass ("UILocalNotification");
-	__xamarin_class_map [38].handle = objc_getClass ("__MonoMac_NSActionDispatcher");
-	__xamarin_class_map [39].handle = objc_getClass ("__Xamarin_NSTimerActionDispatcher");
-	__xamarin_class_map [40].handle = objc_getClass ("__MonoMac_NSAsyncActionDispatcher");
-	__xamarin_class_map [41].handle = objc_getClass ("NSAutoreleasePool");
-	__xamarin_class_map [42].handle = objc_getClass ("NSError");
+	__xamarin_class_map [7].handle = objc_getClass ("UIBezierPath");
+	__xamarin_class_map [8].handle = objc_getClass ("UIKit_UIControlEventProxy");
+	__xamarin_class_map [9].handle = objc_getClass ("UIControl");
+	__xamarin_class_map [10].handle = objc_getClass ("UIDevice");
+	__xamarin_class_map [11].handle = objc_getClass ("UIEvent");
+	__xamarin_class_map [12].handle = objc_getClass ("NSArray");
+	__xamarin_class_map [13].handle = objc_getClass ("NSBundle");
+	__xamarin_class_map [14].handle = objc_getClass ("UIImage");
+	__xamarin_class_map [15].handle = objc_getClass ("NSCoder");
+	__xamarin_class_map [16].handle = objc_getClass ("UIScreen");
+	__xamarin_class_map [17].handle = objc_getClass ("UITextField");
+	__xamarin_class_map [18].handle = objc_getClass ("Foundation_InternalNSNotificationHandler");
+	__xamarin_class_map [19].handle = objc_getClass ("NSValue");
+	__xamarin_class_map [20].handle = objc_getClass ("NSNumber");
+	__xamarin_class_map [21].handle = objc_getClass ("NSRunLoop");
+	__xamarin_class_map [22].handle = objc_getClass ("NSString");
+	__xamarin_class_map [23].handle = objc_getClass ("NSTimer");
+	__xamarin_class_map [24].handle = objc_getClass ("NSURL");
+	__xamarin_class_map [25].handle = objc_getClass ("AVAudioPlayer");
+	__xamarin_class_map [26].handle = objc_getClass ("MPMediaEntity");
+	__xamarin_class_map [27].handle = objc_getClass ("MPMediaItem");
+	__xamarin_class_map [28].handle = objc_getClass ("AVPlayer");
+	__xamarin_class_map [29].handle = objc_getClass ("MPMediaItemArtwork");
+	__xamarin_class_map [30].handle = objc_getClass ("MPMediaItemCollection");
+	__xamarin_class_map [31].handle = objc_getClass ("NSNotification");
+	__xamarin_class_map [32].handle = objc_getClass ("UILocalNotification");
+	__xamarin_class_map [33].handle = objc_getClass ("NSNull");
+	__xamarin_class_map [34].handle = objc_getClass ("MPMediaQuery");
+	__xamarin_class_map [35].handle = objc_getClass ("__MonoMac_NSActionDispatcher");
+	__xamarin_class_map [36].handle = objc_getClass ("__Xamarin_NSTimerActionDispatcher");
+	__xamarin_class_map [37].handle = objc_getClass ("__MonoMac_NSAsyncActionDispatcher");
+	__xamarin_class_map [38].handle = objc_getClass ("NSAutoreleasePool");
+	__xamarin_class_map [39].handle = objc_getClass ("NSError");
+	__xamarin_class_map [40].handle = objc_getClass ("NSOperationQueue");
+	__xamarin_class_map [41].handle = objc_getClass ("MPMoviePlayerController");
+	__xamarin_class_map [42].handle = objc_getClass ("MPMoviePlayerViewController");
 	__xamarin_class_map [43].handle = objc_getClass ("CADisplayLink");
 	__xamarin_class_map [44].handle = objc_getClass ("CALayer");
 	__xamarin_class_map [45].handle = objc_getClass ("CMLogItem");
 	__xamarin_class_map [46].handle = objc_getClass ("CMAccelerometerData");
-	__xamarin_class_map [47].handle = objc_getClass ("NSUserActivity");
-	__xamarin_class_map [48].handle = objc_getClass ("EAGLContext");
-	__xamarin_class_map [49].handle = objc_getClass ("CMDeviceMotion");
-	__xamarin_class_map [50].handle = objc_getClass ("CMMotionManager");
+	__xamarin_class_map [47].handle = objc_getClass ("EAGLContext");
+	__xamarin_class_map [48].handle = objc_getClass ("CMDeviceMotion");
+	__xamarin_class_map [49].handle = objc_getClass ("CMMotionManager");
+	__xamarin_class_map [50].handle = objc_getClass ("NSUserActivity");
 	__xamarin_class_map [51].handle = objc_getClass ("CAEAGLLayer");
-	__xamarin_class_map [52].handle = objc_getClass ("EAGLSharegroup");
-	__xamarin_class_map [53].handle = objc_getClass ("NSEnumerator");
-	__xamarin_class_map [54].handle = objc_getClass ("NSException");
-	__xamarin_class_map [55].handle = objc_getClass ("UITextPosition");
-	__xamarin_class_map [56].handle = objc_getClass ("UITextRange");
-	__xamarin_class_map [57].handle = objc_getClass ("UITextSelectionRect");
-	__xamarin_class_map [58].handle = objc_getClass ("UIUserNotificationSettings");
-	__xamarin_class_map [59].handle = objc_getClass ("UITouch");
-	__xamarin_class_map [60].handle = objc_getClass ("UIWindow");
-	__xamarin_class_map [61].handle = objc_getClass ("UITraitCollection");
+	__xamarin_class_map [52].handle = objc_getClass ("NSEnumerator");
+	__xamarin_class_map [53].handle = objc_getClass ("NSException");
+	__xamarin_class_map [54].handle = objc_getClass ("UITextPosition");
+	__xamarin_class_map [55].handle = objc_getClass ("UITextRange");
+	__xamarin_class_map [56].handle = objc_getClass ("UITextSelectionRect");
+	__xamarin_class_map [57].handle = objc_getClass ("UITouch");
+	__xamarin_class_map [58].handle = objc_getClass ("UITraitCollection");
+	__xamarin_class_map [59].handle = objc_getClass ("EAGLSharegroup");
+	__xamarin_class_map [60].handle = objc_getClass ("UIUserNotificationSettings");
+	__xamarin_class_map [61].handle = objc_getClass ("UIWindow");
 	__xamarin_class_map [62].handle = objc_getClass ("UIApplicationShortcutItem");
 	__xamarin_class_map [63].handle = objc_getClass ("UIAlertView");
 	__xamarin_class_map [64].handle = objc_getClass ("NSData");
-	__xamarin_class_map [65].handle = objc_getClass ("NSMutableData");
-	__xamarin_class_map [66].handle = objc_getClass ("NSDictionary");
+	__xamarin_class_map [65].handle = objc_getClass ("NSDictionary");
+	__xamarin_class_map [66].handle = objc_getClass ("NSMutableData");
 	__xamarin_class_map [67].handle = objc_getClass ("NSMutableDictionary");
 	__xamarin_class_map [68].handle = objc_getClass ("NSNotificationCenter");
 	__xamarin_class_map [69].handle = objc_getClass ("NSSet");

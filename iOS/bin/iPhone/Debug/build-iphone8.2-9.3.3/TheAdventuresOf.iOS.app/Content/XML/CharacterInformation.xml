@@ -36,6 +36,16 @@
       <UpDownSpeed>175</UpDownSpeed>
       <FloatHeight>125</FloatHeight>
     </SunMonster>
+	<BileMonster>
+      <Speed>200</Speed>
+      <AnimationSpeed>0.08</AnimationSpeed>
+      <FrameCount>3</FrameCount>
+      <MoveDistanceLimit>250</MoveDistanceLimit>
+      <ActionDelayTime>1.5</ActionDelayTime>
+      <RotationSpeed>400</RotationSpeed>
+      <UpDownSpeed>175</UpDownSpeed>
+      <FloatHeight>100</FloatHeight>
+    </BileMonster>
     <CannonMonster>
       <FrameCount>1</FrameCount>
       <RotationSpeed>350</RotationSpeed>

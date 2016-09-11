@@ -10,10 +10,12 @@ namespace TheAdventuresOf
 		public int blockMonsterCount;
 		public int sunMonsterCount;
 		public int cannonMonsterCount;
+		public int bileMonsterCount;
 
 		public int blockMonsterLimit;
 		public int sunMonsterLimit;
 		public int cannonMonsterLimit;
+		public int bileMonsterLimit;
 
 		public List<Monster> monsters;
 		public List<Monster> monstersToRemove;
@@ -39,8 +41,8 @@ namespace TheAdventuresOf
 			monsters = new List<Monster>();
 			monstersToRemove = new List<Monster>();
 
-			this.rightBoundWidth = rightSideLevelBounds.Width;
-			this.leftBoundWidth = leftSideLevelBounds.Width;
+			rightBoundWidth = rightSideLevelBounds.Width;
+			leftBoundWidth = leftSideLevelBounds.Width;
 			this.groundLevel = groundLevel;
 
 			//initialize cannon monster position based on left and right side bounds
@@ -60,7 +62,6 @@ namespace TheAdventuresOf
 
 		void handleSpawnDelay(GameTime gameTime)
 		{
-			//TODO: how does this affect cannon monster spawn timer?
 			//TODO: all of these timer methods can probably be one single method or class method
 			spawnTimer = spawnTimer.Add(gameTime.ElapsedGameTime);
 			if (spawnTimer.Seconds > spawnDelayTime)
@@ -94,6 +95,11 @@ namespace TheAdventuresOf
 					handleCannonMonsterSpawn();
 				}
 
+				if (bileMonsterCount < bileMonsterLimit)
+				{
+					spawnBileMonster();
+				}
+
 				canSpawn = false;
 			}
 		}
@@ -111,6 +117,10 @@ namespace TheAdventuresOf
 			else if (monster is CannonMonster)
 			{
 				cannonMonsterCount--;
+			}
+			else if (monster is BileMonster)
+			{
+				bileMonsterCount--;
 			}
 		}
 
@@ -162,10 +172,10 @@ namespace TheAdventuresOf
 				{
 					monster.Draw(spriteBatch, AssetManager.sunMonsterTexture);
 				}
-				//else if (monster is CannonMonster)
-				//{
-				//	monster.Draw(spriteBatch, AssetManager.cannonMonsterTexture);
-				//}
+				else if (monster is BileMonster)
+				{
+					monster.Draw(spriteBatch, AssetManager.bileMonsterTexture);
+				}
 			}
 
 			//CannonMonster should always be drawn last so that bullet is always on top of other monsters
@@ -209,6 +219,24 @@ namespace TheAdventuresOf
 			monsters.Add(sunMonster);
 
 			sunMonsterCount++;
+		}
+
+		void spawnBileMonster()
+		{
+			BileMonster bileMonster = new BileMonster();
+
+			//TODO: this needs to be replaced. see TODO comment on method declaration
+			XmlImporter.TransferBileMonsterInformation(bileMonster);
+			bileMonster.groundLevel = groundLevel - BileMonster.floatHeight;
+			bileMonster.InitializeCharacter(getRandomXLocation(AssetManager.bileMonsterTexture.Width),
+											0 - AssetManager.bileMonsterTexture.Height,
+											AssetManager.bileMonsterTexture.Width / bileMonster.frameCount,
+											AssetManager.bileMonsterTexture.Height);
+			bileMonster.InitializeSpawn();
+
+			monsters.Add(bileMonster);
+
+			bileMonsterCount++;
 		}
 
 		void handleCannonMonsterSpawn()

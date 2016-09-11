@@ -16,6 +16,7 @@ namespace TheAdventuresOf
 		public static BlockMonster blockMonster;
 		public static SunMonster sunMonster;
 		public static CannonMonster cannonMonster;
+		public static BileMonster bileMonster;
 
 		public static void GetXMLInformation()
 		{
@@ -31,6 +32,7 @@ namespace TheAdventuresOf
 			blockMonster = new BlockMonster();
 			sunMonster = new SunMonster();
 			cannonMonster = new CannonMonster();
+			bileMonster = new BileMonster();
 		}
 
 		public static void LoadGameInformation()
@@ -65,6 +67,7 @@ namespace TheAdventuresOf
 			level.blockMonsterLimit = (int)levelOneElement.Element("BlockMonsterLimit");
 			level.sunMonsterLimit = (int)levelOneElement.Element("SunMonsterLimit");
 			level.cannonMonsterLimit = (int)levelOneElement.Element("CannonMonsterLimit");
+			level.bileMonsterLimit = (int)levelOneElement.Element("BileMonsterLimit");
 		}
 
 		public static void LoadPlayerInformation(Player player)
@@ -116,8 +119,26 @@ namespace TheAdventuresOf
 			sunMonster.rotationSpeed = (float)sunMonsterElement.Element("RotationSpeed");
 			sunMonster.upDownSpeed = (float)sunMonsterElement.Element("UpDownSpeed");
 
-			//because this is static they will not need to be set in TransferInfo method
+			//TODO: because this is static they will not need to be set in TransferInfo method. does not need to be reset everytime
 			SunMonster.floatHeight = (float)sunMonsterElement.Element("FloatHeight");
+		}
+
+		public static void LoadBileMonsterInformation()
+		{
+			XElement charactersElement = characterDocument.Element("Characters");
+			XElement monstersElement = charactersElement.Element("Monsters");
+			XElement bileMonsterElement = monstersElement.Element("BileMonster");
+
+			bileMonster.speed = (float)bileMonsterElement.Element("Speed");
+			bileMonster.animationSpeed = (float)bileMonsterElement.Element("AnimationSpeed");
+			bileMonster.frameCount = (int)bileMonsterElement.Element("FrameCount");
+			bileMonster.moveDistanceLimit = (int)bileMonsterElement.Element("MoveDistanceLimit");
+			bileMonster.actionDelayTime = (float)bileMonsterElement.Element("ActionDelayTime");
+			bileMonster.rotationSpeed = (float)bileMonsterElement.Element("RotationSpeed");
+			bileMonster.upDownSpeed = (float)bileMonsterElement.Element("UpDownSpeed");
+
+			//TODO: because this is static they will not need to be set in TransferInfo method. does not need to be reset everytime
+			BileMonster.floatHeight = (float)bileMonsterElement.Element("FloatHeight");
 		}
 
 		public static void LoadCannonMonsterInformation()
@@ -157,6 +178,17 @@ namespace TheAdventuresOf
 			newSunMonster.actionDelayTime = sunMonster.actionDelayTime;
 			newSunMonster.rotationSpeed = sunMonster.rotationSpeed;
 			newSunMonster.upDownSpeed = sunMonster.upDownSpeed;
+		}
+
+		public static void TransferBileMonsterInformation(BileMonster newBileMonster)
+		{
+			newBileMonster.speed = bileMonster.speed;
+			newBileMonster.animationSpeed = bileMonster.animationSpeed;
+			newBileMonster.frameCount = bileMonster.frameCount;
+			newBileMonster.moveDistanceLimit = bileMonster.moveDistanceLimit;
+			newBileMonster.actionDelayTime = bileMonster.actionDelayTime;
+			newBileMonster.rotationSpeed = bileMonster.rotationSpeed;
+			newBileMonster.upDownSpeed = bileMonster.upDownSpeed;
 		}
 
 		public static void TransferCannonMonsterInformation(CannonMonster newCannonMonster)

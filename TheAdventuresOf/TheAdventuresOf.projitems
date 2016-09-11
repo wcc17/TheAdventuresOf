@@ -28,9 +28,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Player.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Projectiles\Bullet.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Entity\Projectile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Projectiles\Bile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\BileMonster.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Projectiles\Projectile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

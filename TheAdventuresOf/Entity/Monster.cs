@@ -201,7 +201,8 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public override void Draw(SpriteBatch spriteBatch, Texture2D texture)
+		//this method should never be called directly, only from descendants 
+		public override void Draw(SpriteBatch spriteBatch, Texture2D texture = null)
 		{
 			base.Draw(spriteBatch, texture);
 		}

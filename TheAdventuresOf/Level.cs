@@ -18,6 +18,7 @@ namespace TheAdventuresOf
 		public int blockMonsterLimit;
 		public int sunMonsterLimit;
 		public int cannonMonsterLimit;
+		public int bileMonsterLimit;
 
 		public MonsterManager monsterManager;
 
@@ -35,6 +36,7 @@ namespace TheAdventuresOf
 			monsterManager.blockMonsterLimit = this.blockMonsterLimit;
 			monsterManager.sunMonsterLimit = this.sunMonsterLimit;
 			monsterManager.cannonMonsterLimit = this.cannonMonsterLimit;
+			monsterManager.bileMonsterLimit = this.bileMonsterLimit;
 		}
 
 		public void CheckCollision(Character character)

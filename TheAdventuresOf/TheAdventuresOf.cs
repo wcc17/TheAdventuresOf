@@ -58,6 +58,7 @@ namespace TheAdventuresOf
 			XmlImporter.LoadBlockMonsterInformation();
 			XmlImporter.LoadSunMonsterInformation();
 			XmlImporter.LoadCannonMonsterInformation();
+			XmlImporter.LoadBileMonsterInformation();
 			XmlImporter.LoadPlayerInformation(player);
 
 			level.InitializeLevel();

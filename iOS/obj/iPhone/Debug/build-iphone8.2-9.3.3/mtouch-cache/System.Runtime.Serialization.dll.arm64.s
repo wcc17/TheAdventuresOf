@@ -18,7 +18,7 @@ Ldebug_info_begin:
 	.short 2
 	.long 0
 	.byte 8,1
-	.asciz "Mono AOT Compiler 4.4.0 (mono-4.4.0-branch-c7sr0/9bdc135 Mon Jun 20 15:57:59 EDT 2016)"
+	.asciz "Mono AOT Compiler 4.4.2 (mono-4.4.0-branch-c7sr1/f72fe45 Thu Jul 28 12:04:28 EDT 2016)"
 	.asciz "System.Runtime.Serialization.dll"
 	.asciz ""
 
@@ -794,7 +794,7 @@ runtime_version:
 .section __TEXT, __const
 	.align 2
 assembly_guid:
-	.asciz "374D2822-F2FB-4B6B-8D7F-809756F8CA20"
+	.asciz "DAF6EE74-CADA-4318-AC2A-9F9100AB4DC2"
 .section __TEXT, __const
 	.align 2
 assembly_name:
@@ -2009,7 +2009,7 @@ Ldebug_line_start:
 	.long Ldebug_line_header_end - . -4
 	.byte 1,1,251,14,13,0,1,1,1,1,0,0,0,1,0,0,1
 .section __DWARF, __debug_line,regular,debug
-	.asciz "/Users/builder/data/lanes/3412/3cf8aaed/source/maccore/_build/Library/Frameworks/Xamarin.iOS.framework/Versions/git/src/mono/external/referencesource/System.Runtime.Serialization/System/Runtime/Serialization"
+	.asciz "/Users/builder/data/lanes/3539/f37444ae/source/maccore/_build/Library/Frameworks/Xamarin.iOS.framework/Versions/git/src/mono/external/referencesource/System.Runtime.Serialization/System/Runtime/Serialization"
 
 	.byte 0
 	.asciz "CollectionDataContract.cs"
