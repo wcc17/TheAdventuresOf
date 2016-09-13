@@ -2,52 +2,40 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Threading;
 
 namespace TheAdventuresOf
 {
 	public class MonsterManager
 	{
+		public Level level;
+
 		public int blockMonsterCount;
 		public int sunMonsterCount;
 		public int cannonMonsterCount;
 		public int bileMonsterCount;
 
-		public int blockMonsterLimit;
-		public int sunMonsterLimit;
-		public int cannonMonsterLimit;
-		public int bileMonsterLimit;
-
 		public List<Monster> monsters;
 		public List<Monster> monstersToRemove;
 
-		public int rightBoundWidth;
-		public int leftBoundWidth;
-		public float groundLevel;
+		static Random rand = new Random();
 
 		//TODO: spawnDelayTime needs to be loaded from XML
 		float spawnDelayTime = 0.5f;
 		TimeSpan spawnTimer = TimeSpan.FromSeconds(0);
 		bool canSpawn = false;
 
-		static Random rand = new Random();
-
 		//TODO: delayCannonSpawnTimerLimit needs to be loaded from XML somewhere
 		float delayCannonSpawnTimerLimit = 4;
 		TimeSpan delayCannonSpawnTimer = TimeSpan.FromSeconds(0);
 		bool canSpawnCannonMonster = true;
 
-		public MonsterManager(Rectangle leftSideLevelBounds, Rectangle rightSideLevelBounds, float groundLevel)
+		public MonsterManager(Level level)
 		{
 			monsters = new List<Monster>();
 			monstersToRemove = new List<Monster>();
 
-			rightBoundWidth = rightSideLevelBounds.Width;
-			leftBoundWidth = leftSideLevelBounds.Width;
-			this.groundLevel = groundLevel;
-
-			//initialize cannon monster position based on left and right side bounds
-			CannonMonster.leftSideX = leftSideLevelBounds.Width + 40;
-			CannonMonster.rightSideX = rightSideLevelBounds.X - AssetManager.cannonMonsterTexture.Width - 40;
+			this.level = level;
 		}
 
 		int getRandomXLocation(float characterWidth)
@@ -55,7 +43,7 @@ namespace TheAdventuresOf
 			//character width is necessary to make sure we don't spawn a monster (x is the top left corner) on top of a boundary
 			//when generating a random number, it goes up to the second number - 1, which is why we include + 1
 			//TODO: where does the 135 come from?
-			int X = rand.Next(135, AssetManager.levelTexture.Width - rightBoundWidth - (int)characterWidth + 1);
+			int X = rand.Next(level.leftSideBounds.Width, AssetManager.levelTexture.Width - level.rightSideBounds.Width - (int)characterWidth + 1);
 
 			return X;
 		}
@@ -80,22 +68,22 @@ namespace TheAdventuresOf
 			if (canSpawn)
 			{
 				//spawn new monsters if needed
-				if (blockMonsterCount < blockMonsterLimit)
+				if (blockMonsterCount < level.blockMonsterLimit)
 				{
 					spawnBlockMonster();
 				}
 
-				if (sunMonsterCount < sunMonsterLimit)
+				if (sunMonsterCount < level.sunMonsterLimit)
 				{
 					spawnSunMonster();
 				}
 
-				if (cannonMonsterCount < cannonMonsterLimit)
+				if (cannonMonsterCount < level.cannonMonsterLimit)
 				{
 					handleCannonMonsterSpawn();
 				}
 
-				if (bileMonsterCount < bileMonsterLimit)
+				if (bileMonsterCount < level.bileMonsterLimit)
 				{
 					spawnBileMonster();
 				}
@@ -164,24 +152,16 @@ namespace TheAdventuresOf
 		{
 			foreach (Monster monster in monsters)
 			{
-				if (monster is BlockMonster)
+				if ( !(monster is CannonMonster) )
 				{
-					monster.Draw(spriteBatch, AssetManager.blockMonsterTexture);
-				}
-				else if (monster is SunMonster)
-				{
-					monster.Draw(spriteBatch, AssetManager.sunMonsterTexture);
-				}
-				else if (monster is BileMonster)
-				{
-					monster.Draw(spriteBatch, AssetManager.bileMonsterTexture);
+					monster.Draw(spriteBatch);
 				}
 			}
 
 			//CannonMonster should always be drawn last so that bullet is always on top of other monsters
 			foreach (Monster monster in monsters.FindAll(m => m is CannonMonster))
 			{
-				monster.Draw(spriteBatch, AssetManager.cannonMonsterTexture);
+				monster.Draw(spriteBatch);
 			}
 		}
 
@@ -189,9 +169,8 @@ namespace TheAdventuresOf
 		{
 			BlockMonster blockMonster = new BlockMonster();
 
-			//TODO: this needs to be replaced. see TODO comment on method declaration
-			XmlImporter.TransferBlockMonsterInformation(blockMonster);
-			blockMonster.groundLevel = groundLevel;
+			blockMonster.SetBlockMonsterData(level.blockMonster);
+			blockMonster.groundLevel = level.groundLevel;
 			blockMonster.InitializeCharacter(getRandomXLocation(AssetManager.blockMonsterTexture.Width),
 											 Screen.FULL_SCREEN_HEIGHT - AssetManager.blockMonsterTexture.Height,
 											 AssetManager.blockMonsterTexture.Width / blockMonster.frameCount,
@@ -207,9 +186,8 @@ namespace TheAdventuresOf
 		{
 			SunMonster sunMonster = new SunMonster();
 
-			//TODO: this needs to be replaced. see TODO comment on method declaration
-			XmlImporter.TransferSunMonsterInformation(sunMonster);
-			sunMonster.groundLevel = groundLevel - SunMonster.floatHeight;
+			sunMonster.SetSunMonsterData(level.sunMonster);
+			sunMonster.groundLevel = level.groundLevel - SunMonster.floatHeight;
 			sunMonster.InitializeCharacter(getRandomXLocation(AssetManager.sunMonsterTexture.Width),
 										   0 - AssetManager.sunMonsterTexture.Height,
 										   AssetManager.sunMonsterTexture.Width / sunMonster.frameCount,
@@ -225,9 +203,8 @@ namespace TheAdventuresOf
 		{
 			BileMonster bileMonster = new BileMonster();
 
-			//TODO: this needs to be replaced. see TODO comment on method declaration
-			XmlImporter.TransferBileMonsterInformation(bileMonster);
-			bileMonster.groundLevel = groundLevel - BileMonster.floatHeight;
+			bileMonster.SetBileMonsterData(level.bileMonster);
+			bileMonster.groundLevel = level.groundLevel - BileMonster.floatHeight;
 			bileMonster.InitializeCharacter(getRandomXLocation(AssetManager.bileMonsterTexture.Width),
 											0 - AssetManager.bileMonsterTexture.Height,
 											AssetManager.bileMonsterTexture.Width / bileMonster.frameCount,
@@ -237,6 +214,28 @@ namespace TheAdventuresOf
 			monsters.Add(bileMonster);
 
 			bileMonsterCount++;
+		}
+
+		void spawnCannonMonster()
+		{
+			CannonMonster cannonMonster = new CannonMonster();
+
+			cannonMonster.SetCannonMonsterData(level.cannonMonster);
+			cannonMonster.groundLevel = level.groundLevel - 45;
+
+			//random side of the level is chosen here. if a cannon monster already exists there, it will be handled here
+			cannonMonster.ChooseRandomSide(cannonMonsterCount, monsters);
+
+			//TODO: i hate to pass the newly set X pos here to be set again in character init, but this is best solution for now
+			cannonMonster.InitializeCharacter(cannonMonster.positionVector.X,
+											  Screen.FULL_SCREEN_HEIGHT - AssetManager.cannonMonsterTexture.Height,
+											  AssetManager.cannonMonsterTexture.Width / cannonMonster.frameCount,
+											  AssetManager.cannonMonsterTexture.Height);
+			cannonMonster.InitializeSpawn();
+
+			monsters.Add(cannonMonster);
+
+			cannonMonsterCount++;
 		}
 
 		void handleCannonMonsterSpawn()
@@ -266,28 +265,6 @@ namespace TheAdventuresOf
 
 				canSpawnCannonMonster = false;
 			}
-		}
-		void spawnCannonMonster()
-		{
-			CannonMonster cannonMonster = new CannonMonster();
-
-			//TODO: this needs to be replaced. see TODO comment on method declaration
-			XmlImporter.TransferCannonMonsterInformation(cannonMonster);
-			cannonMonster.groundLevel = groundLevel - 45;
-
-			//random side of the level is chosen here. if a cannon monster already exists there, it will be handled here
-			cannonMonster.ChooseRandomSide(cannonMonsterCount, monsters);
-
-			//TODO: i hate to pass the newly set X pos here to be set again in character init, but this is best solution for now
-			cannonMonster.InitializeCharacter(cannonMonster.positionVector.X,
-											  Screen.FULL_SCREEN_HEIGHT - AssetManager.cannonMonsterTexture.Height,
-											  AssetManager.cannonMonsterTexture.Width / cannonMonster.frameCount,
-											  AssetManager.cannonMonsterTexture.Height);
-			cannonMonster.InitializeSpawn();
-
-			monsters.Add(cannonMonster);
-
-			cannonMonsterCount++;
 		}
 	}
 }

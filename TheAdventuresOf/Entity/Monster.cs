@@ -26,6 +26,8 @@ namespace TheAdventuresOf
 		public virtual void InitializeSpawn() { }
 		public override void HandleAnimation(GameTime gameTime) { }
 
+		public Texture2D monsterTexture;
+
 		public void InitializeMonster()
 		{
 			rotation = 0;
@@ -201,10 +203,9 @@ namespace TheAdventuresOf
 			}
 		}
 
-		//this method should never be called directly, only from descendants 
-		public override void Draw(SpriteBatch spriteBatch, Texture2D texture = null)
+		public virtual void Draw(SpriteBatch spriteBatch)
 		{
-			base.Draw(spriteBatch, texture);
+			base.Draw(spriteBatch, monsterTexture);
 		}
 
 		public void Reset()

@@ -1,15 +1,19 @@
-﻿using System;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 namespace TheAdventuresOf
 {
 	public class Level
 	{
-		static Vector2 levelPositionVector;
+		public Vector2 levelPositionVector;
 
-		static Rectangle leftSideBounds;
-		static Rectangle rightSideBounds;
+		public Rectangle leftSideBounds;
+		public Rectangle rightSideBounds;
+
+		//these are set in XmlImporter. these hold default values that are loaded from xml so the values aren't hardcoded
+		public BlockMonster blockMonster;
+		public SunMonster sunMonster;
+		public CannonMonster cannonMonster;
+		public BileMonster bileMonster;
 
 		public int leftBoundWidth;
 		public int rightBoundWidth;
@@ -32,11 +36,11 @@ namespace TheAdventuresOf
 			leftSideBounds = new Rectangle(0, 0, leftBoundWidth, AssetManager.levelTexture.Height);
 			rightSideBounds = new Rectangle(AssetManager.levelTexture.Width - rightBoundWidth, 0, rightBoundWidth, AssetManager.levelTexture.Height);
 
-			monsterManager = new MonsterManager(leftSideBounds, rightSideBounds, groundLevel);
-			monsterManager.blockMonsterLimit = this.blockMonsterLimit;
-			monsterManager.sunMonsterLimit = this.sunMonsterLimit;
-			monsterManager.cannonMonsterLimit = this.cannonMonsterLimit;
-			monsterManager.bileMonsterLimit = this.bileMonsterLimit;
+			//initialize cannon monster position based on left and right side bounds
+			CannonMonster.leftSideX = leftSideBounds.Width + 40;
+			CannonMonster.rightSideX = rightSideBounds.X - AssetManager.cannonMonsterTexture.Width - 40;
+
+			monsterManager = new MonsterManager(this);
 		}
 
 		public void CheckCollision(Character character)

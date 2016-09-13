@@ -13,11 +13,6 @@ namespace TheAdventuresOf
 		public static XDocument characterDocument;
 		public static XDocument levelDocument;
 
-		public static BlockMonster blockMonster;
-		public static SunMonster sunMonster;
-		public static CannonMonster cannonMonster;
-		public static BileMonster bileMonster;
-
 		public static void GetXMLInformation()
 		{
 			Stream gameDocumentStream = TitleContainer.OpenStream("Content/XML/GameInformation.xml");
@@ -27,12 +22,6 @@ namespace TheAdventuresOf
 			gameDocument = XDocument.Load(gameDocumentStream);
 			characterDocument = XDocument.Load(characterDocumentStream);
 			levelDocument = XDocument.Load(levelDocumentStream);
-
-			//keep this around to use the info for new instances of monsters
-			blockMonster = new BlockMonster();
-			sunMonster = new SunMonster();
-			cannonMonster = new CannonMonster();
-			bileMonster = new BileMonster();
 		}
 
 		public static void LoadGameInformation()
@@ -68,6 +57,11 @@ namespace TheAdventuresOf
 			level.sunMonsterLimit = (int)levelOneElement.Element("SunMonsterLimit");
 			level.cannonMonsterLimit = (int)levelOneElement.Element("CannonMonsterLimit");
 			level.bileMonsterLimit = (int)levelOneElement.Element("BileMonsterLimit");
+
+			level.blockMonster = LoadBlockMonsterInformation();
+			level.sunMonster = LoadSunMonsterInformation();
+			level.bileMonster = LoadBileMonsterInformation();
+			level.cannonMonster = LoadCannonMonsterInformation();
 		}
 
 		public static void LoadPlayerInformation(Player player)
@@ -90,8 +84,10 @@ namespace TheAdventuresOf
 			player.rotationSpeed = (int)playerElement.Element("RotationSpeed");
 		}
 
-		public static void LoadBlockMonsterInformation()
+		public static BlockMonster LoadBlockMonsterInformation()
 		{
+			BlockMonster blockMonster = new BlockMonster();
+
 			XElement charactersElement = characterDocument.Element("Characters");
 			XElement monstersElement = charactersElement.Element("Monsters");
 			XElement blockMonsterElement = monstersElement.Element("BlockMonster");
@@ -103,10 +99,14 @@ namespace TheAdventuresOf
 			blockMonster.actionDelayTime = (float)blockMonsterElement.Element("ActionDelayTime");
 			blockMonster.rotationSpeed = (float)blockMonsterElement.Element("RotationSpeed");
 			blockMonster.upDownSpeed = (float)blockMonsterElement.Element("UpDownSpeed");
+
+			return blockMonster;
 		}
 
-		public static void LoadSunMonsterInformation()
+		public static SunMonster LoadSunMonsterInformation()
 		{
+			SunMonster sunMonster = new SunMonster();
+
 			XElement charactersElement = characterDocument.Element("Characters");
 			XElement monstersElement = charactersElement.Element("Monsters");
 			XElement sunMonsterElement = monstersElement.Element("SunMonster");
@@ -121,10 +121,14 @@ namespace TheAdventuresOf
 
 			//TODO: because this is static they will not need to be set in TransferInfo method. does not need to be reset everytime
 			SunMonster.floatHeight = (float)sunMonsterElement.Element("FloatHeight");
+
+			return sunMonster;
 		}
 
-		public static void LoadBileMonsterInformation()
+		public static BileMonster LoadBileMonsterInformation()
 		{
+			BileMonster bileMonster = new BileMonster();
+
 			XElement charactersElement = characterDocument.Element("Characters");
 			XElement monstersElement = charactersElement.Element("Monsters");
 			XElement bileMonsterElement = monstersElement.Element("BileMonster");
@@ -139,10 +143,14 @@ namespace TheAdventuresOf
 
 			//TODO: because this is static they will not need to be set in TransferInfo method. does not need to be reset everytime
 			BileMonster.floatHeight = (float)bileMonsterElement.Element("FloatHeight");
+
+			return bileMonster;
 		}
 
-		public static void LoadCannonMonsterInformation()
+		public static CannonMonster LoadCannonMonsterInformation()
 		{
+			CannonMonster cannonMonster = new CannonMonster();
+
 			XElement charactersElement = characterDocument.Element("Characters");
 			XElement monstersElement = charactersElement.Element("Monsters");
 			XElement cannonMonsterElement = monstersElement.Element("CannonMonster");
@@ -151,55 +159,9 @@ namespace TheAdventuresOf
 			cannonMonster.rotationSpeed = (float)cannonMonsterElement.Element("RotationSpeed");
 			cannonMonster.upDownSpeed = (float)cannonMonsterElement.Element("UpDownSpeed");
 			cannonMonster.actionDelayTime = (float)cannonMonsterElement.Element("ActionDelayTime");
+
+			return cannonMonster;
 		}
-
-
-		//TODO: something needs to be done about these. im not a fan. i could use a single trasnferMonsterInformation
-		//method to transfer stuff for all of the monsters. but the better solution would be that each type of 
-		//monster should have these variables as static variables and be set in the LoadMonsterInformation methods
-		//not the methods below. weekend work
-		public static void TransferBlockMonsterInformation(BlockMonster newBlockMonster)
-		{
-			newBlockMonster.speed = blockMonster.speed;
-			newBlockMonster.animationSpeed = blockMonster.animationSpeed;
-			newBlockMonster.frameCount = blockMonster.frameCount;
-			newBlockMonster.moveDistanceLimit = blockMonster.moveDistanceLimit;
-			newBlockMonster.actionDelayTime = blockMonster.actionDelayTime;
-			newBlockMonster.rotationSpeed = blockMonster.rotationSpeed;
-			newBlockMonster.upDownSpeed = blockMonster.upDownSpeed;
-		}
-
-		public static void TransferSunMonsterInformation(SunMonster newSunMonster)
-		{
-			newSunMonster.speed = sunMonster.speed;
-			newSunMonster.animationSpeed = sunMonster.animationSpeed;
-			newSunMonster.frameCount = sunMonster.frameCount;
-			newSunMonster.moveDistanceLimit = sunMonster.moveDistanceLimit;
-			newSunMonster.actionDelayTime = sunMonster.actionDelayTime;
-			newSunMonster.rotationSpeed = sunMonster.rotationSpeed;
-			newSunMonster.upDownSpeed = sunMonster.upDownSpeed;
-		}
-
-		public static void TransferBileMonsterInformation(BileMonster newBileMonster)
-		{
-			newBileMonster.speed = bileMonster.speed;
-			newBileMonster.animationSpeed = bileMonster.animationSpeed;
-			newBileMonster.frameCount = bileMonster.frameCount;
-			newBileMonster.moveDistanceLimit = bileMonster.moveDistanceLimit;
-			newBileMonster.actionDelayTime = bileMonster.actionDelayTime;
-			newBileMonster.rotationSpeed = bileMonster.rotationSpeed;
-			newBileMonster.upDownSpeed = bileMonster.upDownSpeed;
-		}
-
-		public static void TransferCannonMonsterInformation(CannonMonster newCannonMonster)
-		{
-			newCannonMonster.frameCount = cannonMonster.frameCount;
-			newCannonMonster.rotationSpeed = cannonMonster.rotationSpeed;
-			newCannonMonster.upDownSpeed = cannonMonster.upDownSpeed;
-			newCannonMonster.actionDelayTime = cannonMonster.actionDelayTime;
-		}
-
-
 	}
 }
 

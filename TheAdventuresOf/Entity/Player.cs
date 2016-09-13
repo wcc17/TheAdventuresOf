@@ -105,7 +105,8 @@ namespace TheAdventuresOf
 					HandleInvincibility(gameTime);
 				}
 
-				if (isKnockedBackLeft || isKnockedBackRight)
+				//don't want the knockback to happen while the player is in the air
+				if ( (isKnockedBackLeft || isKnockedBackRight) && !isJumping )
 				{
 					HandleKnockBack(gameTime);
 				}

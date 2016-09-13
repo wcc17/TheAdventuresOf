@@ -1,10 +1,24 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace TheAdventuresOf
 {
 	public class BlockMonster : Monster
 	{
+		public void SetBlockMonsterData(BlockMonster blockMonster)
+		{
+			speed = blockMonster.speed;
+			animationSpeed = blockMonster.animationSpeed;
+			frameCount = blockMonster.frameCount;
+			moveDistanceLimit = blockMonster.moveDistanceLimit;
+			actionDelayTime = blockMonster.actionDelayTime;
+			rotationSpeed = blockMonster.rotationSpeed;
+			upDownSpeed = blockMonster.upDownSpeed;
+
+			monsterTexture = AssetManager.blockMonsterTexture;
+		}
+
 		public override void InitializeSpawn()
 		{
 			Reset();

@@ -12,6 +12,19 @@ namespace TheAdventuresOf
 
 		Bile bile;
 
+		public void SetBileMonsterData(BileMonster bileMonster)
+		{
+			speed = bileMonster.speed;
+			animationSpeed = bileMonster.animationSpeed;
+			frameCount = bileMonster.frameCount;
+			moveDistanceLimit = bileMonster.moveDistanceLimit;
+			actionDelayTime = bileMonster.actionDelayTime;
+			rotationSpeed = bileMonster.rotationSpeed;
+			upDownSpeed = bileMonster.upDownSpeed;
+
+			monsterTexture = AssetManager.bileMonsterTexture;
+		}
+
 		public override void InitializeSpawn()
 		{
 			Reset();

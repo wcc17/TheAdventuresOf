@@ -17,6 +17,16 @@ namespace TheAdventuresOf
 		//no reason to check collision with level bounds here
 		public override void HandleLevelBoundCollision(int direction, int boundX) { }
 
+		public void SetCannonMonsterData(CannonMonster cannonMonster)
+		{
+			frameCount = cannonMonster.frameCount;
+			rotationSpeed = cannonMonster.rotationSpeed;
+			upDownSpeed = cannonMonster.upDownSpeed;
+			actionDelayTime = cannonMonster.actionDelayTime;
+
+			monsterTexture = AssetManager.cannonMonsterTexture;
+		}
+
 		public override void InitializeSpawn()
 		{
 			Reset();
@@ -158,9 +168,9 @@ namespace TheAdventuresOf
 			UpdateEntityBounds();
 		}
 
-		public override void Draw(SpriteBatch spriteBatch, Texture2D texture)
+		public override void Draw(SpriteBatch spriteBatch)
 		{
-			base.Draw(spriteBatch, texture);
+			base.Draw(spriteBatch);
 
 			if (isShooting)
 			{
