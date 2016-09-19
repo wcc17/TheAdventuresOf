@@ -221,6 +221,7 @@ namespace TheAdventuresOf
 			CannonMonster cannonMonster = new CannonMonster();
 
 			cannonMonster.SetCannonMonsterData(level.cannonMonster);
+			//TODO: get rid of this hardcoded number
 			cannonMonster.groundLevel = level.groundLevel - 45;
 
 			//random side of the level is chosen here. if a cannon monster already exists there, it will be handled here

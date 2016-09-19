@@ -73,7 +73,7 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public void HandleDeath(GameTime gameTime)
+		public virtual void HandleDeath(GameTime gameTime)
 		{
 			//should rotate 90 degrees to the direction opposite of the direction they're facing
 			//after that should slowly sink down into the ground until they're off screen, slowly becoming more transparent

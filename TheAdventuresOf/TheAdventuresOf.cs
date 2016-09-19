@@ -59,9 +59,9 @@ namespace TheAdventuresOf
 
 			level.InitializeLevel();
 			player.InitializePlayer(200f, 
-			                           level.groundLevel, 
-			                           AssetManager.playerTexture.Width / player.frameCount, 
-			                           AssetManager.playerTexture.Height);
+		                            level.groundLevel, 
+		                            AssetManager.playerTexture.Width / player.frameCount, 
+		                            AssetManager.playerTexture.Height);
 
 			FrameRate.LoadContent(Content);
 			Controller.InitializeController();
