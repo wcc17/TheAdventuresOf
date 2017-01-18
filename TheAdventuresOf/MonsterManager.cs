@@ -42,8 +42,8 @@ namespace TheAdventuresOf
 		{
 			//character width is necessary to make sure we don't spawn a monster (x is the top left corner) on top of a boundary
 			//when generating a random number, it goes up to the second number - 1, which is why we include + 1
-			//TODO: where does the 135 come from?
-			int X = rand.Next(level.leftSideBounds.Width, AssetManager.levelTexture.Width - level.rightSideBounds.Width - (int)characterWidth + 1);
+			int X = rand.Next(level.leftSideBounds.Width, 
+					  AssetManager.levelTexture.Width - level.rightSideBounds.Width - (int)characterWidth + 1);
 
 			return X;
 		}
