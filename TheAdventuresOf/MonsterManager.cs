@@ -165,6 +165,9 @@ namespace TheAdventuresOf
 			}
 		}
 
+		//TODO: all spawn*Monster methods should be moved to a MonsterSpawner class.
+		//Then I can make a generic monster.Spawn method or something along those lines and go from there to 
+		//these more specific methods (if possible). at the very least, MonsterSpawner or something like that
 		void spawnBlockMonster()
 		{
 			BlockMonster blockMonster = new BlockMonster();
