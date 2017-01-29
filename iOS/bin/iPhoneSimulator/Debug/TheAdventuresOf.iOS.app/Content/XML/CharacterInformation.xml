@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Characters>
   <Player>
+    <EntityTag>Player</EntityTag>
     <Speed>245</Speed>
     <AnimationSpeed>0.08</AnimationSpeed>
     <JumpSpeed>500</JumpSpeed>
@@ -18,6 +19,7 @@
   </Player>
   <Monsters>
     <BlockMonster>
+      <EntityTag>BlockMonster</EntityTag>
       <Speed>200</Speed>
       <AnimationSpeed>0.08</AnimationSpeed>
       <FrameCount>2</FrameCount>
@@ -27,6 +29,7 @@
       <UpDownSpeed>175</UpDownSpeed>
     </BlockMonster>
     <SunMonster>
+      <EntityTag>SunMonster</EntityTag>
       <Speed>200</Speed>
       <AnimationSpeed>0.08</AnimationSpeed>
       <FrameCount>1</FrameCount>
@@ -37,23 +40,26 @@
       <FloatHeight>125</FloatHeight>
     </SunMonster>
 	<BileMonster>
+      <EntityTag>BileMonster</EntityTag>
       <Speed>200</Speed>
       <AnimationSpeed>0.08</AnimationSpeed>
-      <FrameCount>1</FrameCount>
+      <FrameCount>3</FrameCount>
       <MoveDistanceLimit>250</MoveDistanceLimit>
       <ActionDelayTime>1.5</ActionDelayTime>
       <RotationSpeed>400</RotationSpeed>
       <UpDownSpeed>175</UpDownSpeed>
-      <FloatHeight>150</FloatHeight>
+      <FloatHeight>100</FloatHeight>
+      <BileObjectLimit>4</BileObjectLimit>
+      <ThrowDelayTimeLimit>4.5</ThrowDelayTimeLimit>
     </BileMonster>
     <CannonMonster>
+      <EntityTag>CannonMonster</EntityTag>
       <FrameCount>1</FrameCount>
       <RotationSpeed>350</RotationSpeed>
       <UpDownSpeed>175</UpDownSpeed>
 	  <ActionDelayTime>3.5</ActionDelayTime>
+      <GroundOffset>45</GroundOffset>
+      <BoundOffset>40</BoundOffset>
     </CannonMonster>
-	<Bullet>
-		<Speed>400</Speed>
-	</Bullet>
   </Monsters>
 </Characters>

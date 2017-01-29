@@ -1,6 +1,6 @@
-# Version: 9.8.2.22 (cycle7-sr1: f37444a)
-# [first argument, ignore] # /Users/wcc17/Development/TheAdventuresOf/iOS/mtouch.exe
-/Library/Frameworks/Xamarin.iOS.framework/Versions/9.8.2.22/bin/mtouch \
+# Version: 10.3.1.8 (cycle8-xi: 7beaef4)
+# [first argument, ignore] # /Library/Frameworks/Xamarin.iOS.framework/Versions/10.3.1.8/lib/mtouch/mtouch.exe
+/Library/Frameworks/Xamarin.iOS.framework/Versions/10.3.1.8/lib/mtouch/mtouch.exe \
 	--cache \
 	/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/mtouch-cache \
 	--sim \
@@ -13,10 +13,9 @@
 	--sdkroot \
 	/Applications/Xcode.app/Contents/Developer \
 	--sdk \
-	9.3 \
+	10.2 \
 	--targetver \
 	7.0 \
-	--new-refcount \
 	--http-message-handler=HttpClientHandler \
 	--tls-provider=default \
 	--abi=i386 \
@@ -28,13 +27,13 @@
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Xml.dll \
 	-r \
+	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Core.dll \
+	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Xamarin.iOS.dll \
 	-r \
 	/Library/Frameworks/Mono.framework/External/xbuild/MonoGame/v3.0/Assemblies/iOS/MonoGame.Framework.dll \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Xml.Linq.dll \
-	-r \
-	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Core.dll \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/mscorlib.dll \
 	-r \

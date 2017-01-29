@@ -2,7 +2,7 @@
 <Projectiles>
     <Bile>
         <EntityTag>Bile</EntityTag>
-        <Speed>250</Speed>
+        <Speed>300</Speed>
         <!-- level ground level does not work here,
             because the ground level assumes that something
 			will be drawn from the top left corner down. -->
