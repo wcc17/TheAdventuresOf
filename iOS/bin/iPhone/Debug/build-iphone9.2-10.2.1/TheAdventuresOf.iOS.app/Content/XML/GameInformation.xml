@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Game>
+	<Controller>
+		<ControllerX>0</ControllerX>
+		<ControllerY>850</ControllerY>
+		<LeftButtonX>50</LeftButtonX>
+		<LeftButtonY>865</LeftButtonY>
+		<RightButtonX>350</RightButtonX>
+		<RightButtonY>865</RightButtonY>
+		<UpButtonX>1650</UpButtonX>
+		<UpButtonY>865</UpButtonY>
+	</Controller>
+</Game>
+

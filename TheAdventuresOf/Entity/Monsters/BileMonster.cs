@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -8,23 +8,20 @@ namespace TheAdventuresOf
 	public class BileMonster : Monster
 	{
 		public static float floatHeight;
-
-		//TODO: get rid of the hardcoded values!!
-		public static float bileObjectLimit = 4;
-		public static float bileSpeed;
+		public static float bileObjectLimit;
+		public static float throwDelayTimeLimit;
 		List<Bile> activeBileObjects;
 
-		public static float throwDelayTimeLimit = 4.5f;
+		public string bileTag;
+		public float bileSpeed;
+
 		public TimeSpan timeThrowDelayed = TimeSpan.FromSeconds(0);
 		bool delayThrow = true;
-
-		public static float firstFrameTimeLimit = 0.75f;
-		public static float secondFrameTimeLimit = 0.75f;
-		public TimeSpan frameTime = TimeSpan.FromSeconds(0);
 		bool isThrowing = false;
 
 		public void SetBileMonsterData(BileMonster bileMonster, Bile bile)
 		{
+			entityTag = bileMonster.entityTag;
 			speed = bileMonster.speed;
 			animationSpeed = bileMonster.animationSpeed;
 			frameCount = bileMonster.frameCount;
@@ -35,8 +32,9 @@ namespace TheAdventuresOf
 
 			//set bile specific info
 			bileSpeed = bile.speed;
+			bileTag = bile.entityTag;
 
-			monsterTexture = AssetManager.bileMonsterTexture;
+			monsterTexture = AssetManager.Instance.bileMonsterTexture;
 		}
 
 		public override void InitializeSpawn()
@@ -70,7 +68,7 @@ namespace TheAdventuresOf
 		{
 			base.HandleDeath(gameTime);
 
-			//TODO: definitley not the most graceful way to do this, but will do for now
+			//TODO: these just instantly disappear. need some sort of fade out or something
 			activeBileObjects.Clear();
 		}
 
@@ -104,7 +102,6 @@ namespace TheAdventuresOf
 			{
 				//check if monster is ready to throw, so he can throw on the next frame
 				HandleThrowDelay(gameTime);
-
 				base.Update(gameTime, buttonPressed);
 			}
 		}
@@ -115,7 +112,7 @@ namespace TheAdventuresOf
 
 			foreach (Bile bile in activeBileObjects)
 			{
-				bile.Draw(spriteBatch, AssetManager.bileTexture);
+				bile.Draw(spriteBatch, AssetManager.Instance.bileTexture);
 			}
 		}
 
@@ -129,6 +126,7 @@ namespace TheAdventuresOf
 		{
 			Bile bile = new Bile();
 
+			bile.entityTag = bileTag;
 			bile.speed = bileSpeed;
 			bile.moveLeft = moveLeft;
 			bile.moveRight = moveRight;

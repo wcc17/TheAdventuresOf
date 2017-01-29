@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 namespace TheAdventuresOf
@@ -23,16 +23,16 @@ namespace TheAdventuresOf
 		public static void InitializeController()
 		{
 
-			leftButton = new Button(AssetManager.arrowButtonTexture.Width, 
-			                        AssetManager.arrowButtonTexture.Height, 
+			leftButton = new Button(AssetManager.Instance.arrowButtonTexture.Width, 
+			                        AssetManager.Instance.arrowButtonTexture.Height, 
 			                        leftButtonPositionVector.X, 
 			                        leftButtonPositionVector.Y);
-			rightButton = new Button(AssetManager.arrowButtonTexture.Width, 
-			                         AssetManager.arrowButtonTexture.Height, 
+			rightButton = new Button(AssetManager.Instance.arrowButtonTexture.Width, 
+			                         AssetManager.Instance.arrowButtonTexture.Height, 
 			                         rightButtonPositionVector.X, 
 			                         rightButtonPositionVector.Y);
-			upButton = new Button(AssetManager.arrowButtonTexture.Width, 
-			                      AssetManager.arrowButtonTexture.Height, 
+			upButton = new Button(AssetManager.Instance.arrowButtonTexture.Width, 
+			                      AssetManager.Instance.arrowButtonTexture.Height, 
 			                      upButtonPositionVector.X, 
 			                      upButtonPositionVector.Y);
 		}
@@ -70,16 +70,16 @@ namespace TheAdventuresOf
 		public static void Draw(SpriteBatch spriteBatch)
 		{
 			//Draw controller
-			spriteBatch.Draw(AssetManager.controllerTexture, controllerPositionVector);
+			spriteBatch.Draw(AssetManager.Instance.controllerTexture, controllerPositionVector);
 
 			//Draw left buttons
-			leftButton.Draw(spriteBatch, AssetManager.arrowButtonTexture);
+			leftButton.Draw(spriteBatch, AssetManager.Instance.arrowButtonTexture);
 
 			//Draw right button
-			rightButton.Draw(spriteBatch, AssetManager.arrowButtonTexture, (float)Math.PI, SpriteEffects.FlipVertically);
+			rightButton.Draw(spriteBatch, AssetManager.Instance.arrowButtonTexture, (float)Math.PI, SpriteEffects.FlipVertically);
 
 			//Draw jump buttons
-			upButton.Draw(spriteBatch, AssetManager.arrowButtonTexture, (float)Math.PI / 2);
+			upButton.Draw(spriteBatch, AssetManager.Instance.arrowButtonTexture, (float)Math.PI / 2);
 		}
 	}
 }

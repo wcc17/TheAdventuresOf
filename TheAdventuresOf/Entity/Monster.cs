@@ -38,6 +38,11 @@ namespace TheAdventuresOf
 
 		public override void InitializeAnimation()
 		{
+			if (entityTag.Equals("BlockMonster"))
+			{
+				Console.WriteLine("break");	
+			}
+
 			if (frameCount > 1)
 			{
 				//TODO: this isn't setting up blockMonsters frames properly
@@ -118,7 +123,7 @@ namespace TheAdventuresOf
 				}
 				else
 				{
-					//stop movement
+					//stop movement if necessary
 					if (distanceMoved > moveDistanceLimit)
 					{
 						distanceMoved = 0;
@@ -127,6 +132,7 @@ namespace TheAdventuresOf
 						delayAction = true;
 					}
 
+					HandleAnimation(gameTime);
 					HandleMovement(gameTime);
 				}
 			}

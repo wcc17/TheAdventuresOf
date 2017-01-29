@@ -4,32 +4,47 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TheAdventuresOf
 {
-	public static class AssetManager
+
+	public class AssetManager
 	{
+		private static AssetManager instance;
+
 		public const string androidFilePath = "Assets/Content/";
 		public const string iosFilePath = "Content/";
 
 		//game textures
-		public static Texture2D controllerTexture;
-		public static Texture2D arrowButtonTexture;
-		public static Texture2D swordTexture;
-		public static Texture2D heartTexture;
-		public static Texture2D emptyHeartTexture;
+		public Texture2D controllerTexture;
+		public Texture2D arrowButtonTexture;
+		public Texture2D swordTexture;
+		public Texture2D heartTexture;
+		public Texture2D emptyHeartTexture;
 
 		//level textures
-		public static Texture2D playerTexture;
-		public static Texture2D levelTexture;
-		public static Texture2D blockMonsterTexture;
-		public static Texture2D sunMonsterTexture;
-		public static Texture2D cannonMonsterTexture;
-		public static Texture2D bileMonsterTexture;
+		public Texture2D playerTexture;
+		public Texture2D levelTexture;
+		public Texture2D blockMonsterTexture;
+		public Texture2D sunMonsterTexture;
+		public Texture2D cannonMonsterTexture;
+		public Texture2D bileMonsterTexture;
 
-		public static Texture2D bulletTexture;
-		public static Texture2D bileTexture;
+		public Texture2D bulletTexture;
+		public Texture2D bileTexture;
 
 		public static string filePath; 
 
-		public static void InitializeAssetManager()
+		public static AssetManager Instance
+		{
+			get
+			{
+				if (instance == null)
+				{
+					instance = new AssetManager();
+				}
+				return instance;
+			}
+		}
+
+		private AssetManager()
 		{
 			#if __ANDROID__
 				filePath = androidFilePath;
@@ -39,7 +54,7 @@ namespace TheAdventuresOf
 			#endif
 		}
 
-		public static void LoadGameAssets(GraphicsDevice graphicsDevice)
+		public void LoadGameAssets(GraphicsDevice graphicsDevice)
 		{
 			using (var stream = TitleContainer.OpenStream(filePath + "arrow_1080p.png"))
 			{
@@ -64,7 +79,7 @@ namespace TheAdventuresOf
 		}
 
 		//TODO: eventually add logic for reloading textures based on what level the player is on 
-		public static void LoadLevelAssets(GraphicsDevice graphicsDevice)
+		public void LoadLevelAssets(GraphicsDevice graphicsDevice)
 		{
 			using (var stream = TitleContainer.OpenStream(filePath + "character_1080p.png"))
 			{
@@ -100,7 +115,7 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public static void DisposeLevelAssets()
+		public void DisposeLevelAssets()
 		{
 			playerTexture.Dispose();
 			levelTexture.Dispose();

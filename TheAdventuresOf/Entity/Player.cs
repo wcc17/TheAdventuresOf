@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -7,7 +7,6 @@ namespace TheAdventuresOf
 	public class Player : Character
 	{
 		public float groundLevel;
-
 		public float jumpSpeed;
 		public float jumpHeight;
 
@@ -53,11 +52,11 @@ namespace TheAdventuresOf
 
 			swordBounds = new Rectangle((int)swordPositionVector.X, 
 			                            (int)swordPositionVector.Y, 
-			                            AssetManager.swordTexture.Width, 
-			                            AssetManager.swordTexture.Height);
+			                            AssetManager.Instance.swordTexture.Width, 
+			                            AssetManager.Instance.swordTexture.Height);
 
 			health = maxHealth;
-			heartPositionVector = new Vector2(Screen.FULL_SCREEN_WIDTH - ((AssetManager.heartTexture.Width + 20) * health), 10);
+			heartPositionVector = new Vector2(Screen.FULL_SCREEN_WIDTH - ((AssetManager.Instance.heartTexture.Width + 20) * health), 10);
 
 			moveRight = true;
 		}
@@ -390,7 +389,7 @@ namespace TheAdventuresOf
 				//TODO: for now, sword doesn't appear when the player is dead
 				if (!isDying && !isDead)
 				{
-					spriteBatch.Draw(AssetManager.swordTexture,
+					spriteBatch.Draw(AssetManager.Instance.swordTexture,
 								 swordPositionVector,
 								 color: tintColor,
 								 rotation: rotation);
@@ -403,7 +402,7 @@ namespace TheAdventuresOf
 				//TODO: for now, sword doesn't appear when the player is dead
 				if (!isDying && !isDead)
 				{
-					spriteBatch.Draw(AssetManager.swordTexture,
+					spriteBatch.Draw(AssetManager.Instance.swordTexture,
 								 swordPositionVector,
 								 effects: SpriteEffects.FlipHorizontally,
 								 color: tintColor,
@@ -420,14 +419,14 @@ namespace TheAdventuresOf
 			{
 				if (i > emptyHearts)
 				{
-					spriteBatch.Draw(AssetManager.heartTexture,
-								 	 new Vector2(heartPositionVector.X + (i * AssetManager.heartTexture.Width),
+					spriteBatch.Draw(AssetManager.Instance.heartTexture,
+								 	 new Vector2(heartPositionVector.X + (i * AssetManager.Instance.heartTexture.Width),
 											 heartPositionVector.Y));
 				}
 				else 
 				{
-					spriteBatch.Draw(AssetManager.emptyHeartTexture,
-									 new Vector2(heartPositionVector.X + (i * AssetManager.emptyHeartTexture.Width),
+					spriteBatch.Draw(AssetManager.Instance.emptyHeartTexture,
+									 new Vector2(heartPositionVector.X + (i * AssetManager.Instance.emptyHeartTexture.Width),
 												 heartPositionVector.Y));
 				}
 			}

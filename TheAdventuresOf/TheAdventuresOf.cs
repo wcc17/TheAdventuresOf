@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,10 +20,10 @@ namespace TheAdventuresOf
 
 		public TheAdventuresOf()
 		{
+			//despite the annoying xamarin warning that graphics isn't used, this MUST be instantiated
 			graphics = new GraphicsDeviceManager(this);
 
 			Content.RootDirectory = "Content";
-
 			XmlImporter.GetXMLInformation();
 		}
 
@@ -35,9 +35,6 @@ namespace TheAdventuresOf
 		/// </summary>
 		protected override void Initialize()
 		{
-			//sets up asset manager to load from certain directories depending on platform
-			AssetManager.InitializeAssetManager();
-
 			screen = new Screen(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
 			level = new Level();
 			player = new Player();
@@ -54,8 +51,8 @@ namespace TheAdventuresOf
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
-			AssetManager.LoadGameAssets(this.GraphicsDevice);
-			AssetManager.LoadLevelAssets(this.GraphicsDevice);
+			AssetManager.Instance.LoadGameAssets(this.GraphicsDevice);
+			AssetManager.Instance.LoadLevelAssets(this.GraphicsDevice);
 
 			XmlImporter.LoadGameInformation();
 			XmlImporter.LoadLevelInformation(level);
@@ -64,8 +61,8 @@ namespace TheAdventuresOf
 			level.InitializeLevel();
 			player.InitializePlayer(200f, 
 		                            level.groundLevel, 
-		                            AssetManager.playerTexture.Width / player.frameCount, 
-		                            AssetManager.playerTexture.Height);
+		                            AssetManager.Instance.playerTexture.Width / player.frameCount, 
+		                            AssetManager.Instance.playerTexture.Height);
 
 			FrameRate.LoadContent(Content);
 			Controller.InitializeController();
@@ -105,7 +102,7 @@ namespace TheAdventuresOf
 			level.Draw(spriteBatch);
 
 			//Draw player
-			player.Draw(spriteBatch, AssetManager.playerTexture);
+			player.Draw(spriteBatch, AssetManager.Instance.playerTexture);
 
 			//Draw controller and buttons
 			Controller.Draw(spriteBatch);

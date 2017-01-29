@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Xml;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -81,7 +81,7 @@ namespace TheAdventuresOf
 			level.blockMonster = LoadBlockMonsterInformation();
 			level.sunMonster = LoadSunMonsterInformation();
 			level.bileMonster = LoadBileMonsterInformation();
-			level.cannonMonster = LoadCannonMonsterInformation();
+			level.cannonMonster = LoadCannonMonsterInformation(level);
 		}
 
 		public static void LoadPlayerInformation(Player player)
@@ -89,6 +89,7 @@ namespace TheAdventuresOf
 			XElement charactersElement = characterDocument.Element("Characters");
 			XElement playerElement = charactersElement.Element("Player");
 
+			player.entityTag = (string)playerElement.Element("EntityTag");
 			player.speed= (float)playerElement.Element("Speed");
 			player.animationSpeed = (float)playerElement.Element("AnimationSpeed");
 			player.jumpSpeed = (float)playerElement.Element("JumpSpeed");
@@ -112,6 +113,7 @@ namespace TheAdventuresOf
 			XElement monstersElement = charactersElement.Element("Monsters");
 			XElement blockMonsterElement = monstersElement.Element("BlockMonster");
 
+			blockMonster.entityTag = (string)blockMonsterElement.Element("EntityTag");
 			blockMonster.speed = (float)blockMonsterElement.Element("Speed");
 			blockMonster.animationSpeed = (float)blockMonsterElement.Element("AnimationSpeed");
 			blockMonster.frameCount = (int)blockMonsterElement.Element("FrameCount");
@@ -131,6 +133,7 @@ namespace TheAdventuresOf
 			XElement monstersElement = charactersElement.Element("Monsters");
 			XElement sunMonsterElement = monstersElement.Element("SunMonster");
 
+			sunMonster.entityTag = (string)sunMonsterElement.Element("EntityTag");
 			sunMonster.speed = (float)sunMonsterElement.Element("Speed");
 			sunMonster.animationSpeed = (float)sunMonsterElement.Element("AnimationSpeed");
 			sunMonster.frameCount = (int)sunMonsterElement.Element("FrameCount");
@@ -139,7 +142,6 @@ namespace TheAdventuresOf
 			sunMonster.rotationSpeed = (float)sunMonsterElement.Element("RotationSpeed");
 			sunMonster.upDownSpeed = (float)sunMonsterElement.Element("UpDownSpeed");
 
-			//TODO: because this is static they will not need to be set in TransferInfo method. does not need to be reset everytime
 			SunMonster.floatHeight = (float)sunMonsterElement.Element("FloatHeight");
 
 			return sunMonster;
@@ -153,6 +155,7 @@ namespace TheAdventuresOf
 			XElement monstersElement = charactersElement.Element("Monsters");
 			XElement bileMonsterElement = monstersElement.Element("BileMonster");
 
+			bileMonster.entityTag = (string)bileMonsterElement.Element("EntityTag");
 			bileMonster.speed = (float)bileMonsterElement.Element("Speed");
 			bileMonster.animationSpeed = (float)bileMonsterElement.Element("AnimationSpeed");
 			bileMonster.frameCount = (int)bileMonsterElement.Element("FrameCount");
@@ -161,13 +164,14 @@ namespace TheAdventuresOf
 			bileMonster.rotationSpeed = (float)bileMonsterElement.Element("RotationSpeed");
 			bileMonster.upDownSpeed = (float)bileMonsterElement.Element("UpDownSpeed");
 
-			//TODO: because this is static they will not need to be set in TransferInfo method. does not need to be reset everytime
+			BileMonster.bileObjectLimit = (float)bileMonsterElement.Element("BileObjectLimit");
+			BileMonster.throwDelayTimeLimit = (float)bileMonsterElement.Element("ThrowDelayTimeLimit");
 			BileMonster.floatHeight = (float)bileMonsterElement.Element("FloatHeight");
 
 			return bileMonster;
 		}
 
-		public static CannonMonster LoadCannonMonsterInformation()
+		public static CannonMonster LoadCannonMonsterInformation(Level level)
 		{
 			CannonMonster cannonMonster = new CannonMonster();
 
@@ -175,10 +179,20 @@ namespace TheAdventuresOf
 			XElement monstersElement = charactersElement.Element("Monsters");
 			XElement cannonMonsterElement = monstersElement.Element("CannonMonster");
 
+			cannonMonster.entityTag = (string)cannonMonsterElement.Element("EntityTag");
 			cannonMonster.frameCount = (int)cannonMonsterElement.Element("FrameCount");
 			cannonMonster.rotationSpeed = (float)cannonMonsterElement.Element("RotationSpeed");
 			cannonMonster.upDownSpeed = (float)cannonMonsterElement.Element("UpDownSpeed");
 			cannonMonster.actionDelayTime = (float)cannonMonsterElement.Element("ActionDelayTime");
+
+			CannonMonster.groundOffset = (float)cannonMonsterElement.Element("GroundOffset");
+			CannonMonster.boundOffset = (float)cannonMonsterElement.Element("BoundOffset");
+			CannonMonster.leftSideX = level.leftBoundWidth + CannonMonster.boundOffset;
+
+			//needing to use AssetManager.level here might not work later on with multiple levels. 
+			//Will need to be sure that the new level is always loaded before XmlImporter is used
+			float rightSideBound = AssetManager.Instance.levelTexture.Width - level.rightBoundWidth;
+			CannonMonster.rightSideX = rightSideBound - AssetManager.Instance.cannonMonsterTexture.Width - CannonMonster.boundOffset;
 
 			return cannonMonster;
 		}
@@ -191,22 +205,28 @@ namespace TheAdventuresOf
 
 		public static Bile LoadBileInformation()
 		{
-			XElement projectilesElement = projectileDocument.Element("Projectiles");
-
-			XElement bileElement = projectilesElement.Element("Bile");
 			Bile bile = new Bile();
+
+			XElement projectilesElement = projectileDocument.Element("Projectiles");
+			XElement bileElement = projectilesElement.Element("Bile");
+
+			bile.entityTag = (string)bileElement.Element("EntityTag");
 			bile.speed = (float)bileElement.Element("Speed");
+			Bile.groundLevel = (float)bileElement.Element("GroundLevel");
 
 			return bile;
 		}
 
 		public static Bullet LoadBulletInformation()
 		{
-			XElement projectilesElement = projectileDocument.Element("Projectiles");
-
-			XElement bulletElement = projectilesElement.Element("Bullet");
 			Bullet bullet = new Bullet();
+
+			XElement projectilesElement = projectileDocument.Element("Projectiles");
+			XElement bulletElement = projectilesElement.Element("Bullet");
+
+			bullet.entityTag = (string)bulletElement.Element("EntityTag");
 			bullet.speed = (float)bulletElement.Element("Speed");
+			Bullet.startYPos = (float)bulletElement.Element("StartYPos");
 
 			return bullet;
 		}

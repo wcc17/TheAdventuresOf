@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 namespace TheAdventuresOf
 {
@@ -9,7 +9,6 @@ namespace TheAdventuresOf
 		public Rectangle leftSideBounds;
 		public Rectangle rightSideBounds;
 
-		//TODO: I think I want these held by a singleton somewhere else solely responsible for holding this info
 		public BlockMonster blockMonster;
 		public SunMonster sunMonster;
 		public CannonMonster cannonMonster;
@@ -35,12 +34,8 @@ namespace TheAdventuresOf
 
 		public void InitializeLevel()
 		{
-			leftSideBounds = new Rectangle(0, 0, leftBoundWidth, AssetManager.levelTexture.Height);
-			rightSideBounds = new Rectangle(AssetManager.levelTexture.Width - rightBoundWidth, 0, rightBoundWidth, AssetManager.levelTexture.Height);
-
-			//initialize cannon monster position based on left and right side bounds
-			CannonMonster.leftSideX = leftSideBounds.Width + 40;
-			CannonMonster.rightSideX = rightSideBounds.X - AssetManager.cannonMonsterTexture.Width - 40;
+			leftSideBounds = new Rectangle(0, 0, leftBoundWidth, AssetManager.Instance.levelTexture.Height);
+			rightSideBounds = new Rectangle(AssetManager.Instance.levelTexture.Width - rightBoundWidth, 0, rightBoundWidth, AssetManager.Instance.levelTexture.Height);
 
 			monsterManager = new MonsterManager(this);
 		}
@@ -54,7 +49,7 @@ namespace TheAdventuresOf
 
 			if (rightSideBounds.Intersects(character.entityBounds))
 			{
-				character.HandleLevelBoundCollision(Entity.RIGHT, AssetManager.levelTexture.Width - rightBoundWidth);
+				character.HandleLevelBoundCollision(Entity.RIGHT, AssetManager.Instance.levelTexture.Width - rightBoundWidth);
 			}
 		}
 
@@ -66,7 +61,7 @@ namespace TheAdventuresOf
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			spriteBatch.Draw(AssetManager.levelTexture, levelPositionVector);
+			spriteBatch.Draw(AssetManager.Instance.levelTexture, levelPositionVector);
 			monsterManager.DrawMonsters(spriteBatch);
 		}
 	}

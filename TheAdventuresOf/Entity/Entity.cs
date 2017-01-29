@@ -11,6 +11,8 @@ namespace TheAdventuresOf
 	 **/
 	public class Entity
 	{
+		public string entityTag = "Entity";
+
 		public const int LEFT = 0;
 		public const int RIGHT = 1;
 
@@ -53,7 +55,6 @@ namespace TheAdventuresOf
 			}
 		}
 
-		//TODO: only player needs buttonPressed. leave as optional or give Monster its own Update method. Who knows yet
 		public virtual void Update(GameTime gameTime, bool buttonPressed = false) { }
 		public virtual void Move(GameTime gameTime, int direction) { }
 		public virtual void HandleMovement(GameTime gameTime) { }

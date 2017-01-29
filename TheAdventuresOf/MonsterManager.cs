@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -43,7 +43,7 @@ namespace TheAdventuresOf
 			//character width is necessary to make sure we don't spawn a monster (x is the top left corner) on top of a boundary
 			//when generating a random number, it goes up to the second number - 1, which is why we include + 1
 			int X = rand.Next(level.leftSideBounds.Width, 
-					  AssetManager.levelTexture.Width - level.rightSideBounds.Width - (int)characterWidth + 1);
+					  AssetManager.Instance.levelTexture.Width - level.rightSideBounds.Width - (int)characterWidth + 1);
 
 			return X;
 		}
@@ -174,10 +174,10 @@ namespace TheAdventuresOf
 
 			blockMonster.SetBlockMonsterData(level.blockMonster);
 			blockMonster.groundLevel = level.groundLevel;
-			blockMonster.InitializeCharacter(getRandomXLocation(AssetManager.blockMonsterTexture.Width),
-											 Screen.FULL_SCREEN_HEIGHT - AssetManager.blockMonsterTexture.Height,
-											 AssetManager.blockMonsterTexture.Width / blockMonster.frameCount,
-											 AssetManager.blockMonsterTexture.Height);
+			blockMonster.InitializeCharacter(getRandomXLocation(AssetManager.Instance.blockMonsterTexture.Width),
+											 Screen.FULL_SCREEN_HEIGHT - AssetManager.Instance.blockMonsterTexture.Height,
+											 AssetManager.Instance.blockMonsterTexture.Width / blockMonster.frameCount,
+											 AssetManager.Instance.blockMonsterTexture.Height);
 			blockMonster.InitializeSpawn();
 
 			monsters.Add(blockMonster);
@@ -191,10 +191,10 @@ namespace TheAdventuresOf
 
 			sunMonster.SetSunMonsterData(level.sunMonster);
 			sunMonster.groundLevel = level.groundLevel - SunMonster.floatHeight;
-			sunMonster.InitializeCharacter(getRandomXLocation(AssetManager.sunMonsterTexture.Width),
-										   0 - AssetManager.sunMonsterTexture.Height,
-										   AssetManager.sunMonsterTexture.Width / sunMonster.frameCount,
-										   AssetManager.sunMonsterTexture.Height);
+			sunMonster.InitializeCharacter(getRandomXLocation(AssetManager.Instance.sunMonsterTexture.Width),
+										   0 - AssetManager.Instance.sunMonsterTexture.Height,
+										   AssetManager.Instance.sunMonsterTexture.Width / sunMonster.frameCount,
+										   AssetManager.Instance.sunMonsterTexture.Height);
 			sunMonster.InitializeSpawn();
 
 			monsters.Add(sunMonster);
@@ -208,10 +208,10 @@ namespace TheAdventuresOf
 
 			bileMonster.SetBileMonsterData(level.bileMonster, level.bile);
 			bileMonster.groundLevel = level.groundLevel - BileMonster.floatHeight;
-			bileMonster.InitializeCharacter(getRandomXLocation(AssetManager.bileMonsterTexture.Width),
-											0 - AssetManager.bileMonsterTexture.Height,
-											AssetManager.bileMonsterTexture.Width / bileMonster.frameCount,
-											AssetManager.bileMonsterTexture.Height);
+			bileMonster.InitializeCharacter(getRandomXLocation(AssetManager.Instance.bileMonsterTexture.Width),
+											0 - AssetManager.Instance.bileMonsterTexture.Height,
+											AssetManager.Instance.bileMonsterTexture.Width / bileMonster.frameCount,
+											AssetManager.Instance.bileMonsterTexture.Height);
 			bileMonster.InitializeSpawn();
 
 			monsters.Add(bileMonster);
@@ -224,17 +224,13 @@ namespace TheAdventuresOf
 			CannonMonster cannonMonster = new CannonMonster();
 
 			cannonMonster.SetCannonMonsterData(level.cannonMonster, level.bullet);
-			//TODO: get rid of this hardcoded number
-			cannonMonster.groundLevel = level.groundLevel - 45;
-
+			cannonMonster.groundLevel = level.groundLevel - CannonMonster.groundOffset;
 			//random side of the level is chosen here. if a cannon monster already exists there, it will be handled here
 			cannonMonster.ChooseRandomSide(cannonMonsterCount, monsters);
-
-			//TODO: i hate to pass the newly set X pos here to be set again in character init, but this is best solution for now
 			cannonMonster.InitializeCharacter(cannonMonster.positionVector.X,
-											  Screen.FULL_SCREEN_HEIGHT - AssetManager.cannonMonsterTexture.Height,
-											  AssetManager.cannonMonsterTexture.Width / cannonMonster.frameCount,
-											  AssetManager.cannonMonsterTexture.Height);
+											  Screen.FULL_SCREEN_HEIGHT - AssetManager.Instance.cannonMonsterTexture.Height,
+											  AssetManager.Instance.cannonMonsterTexture.Width / cannonMonster.frameCount,
+											  AssetManager.Instance.cannonMonsterTexture.Height);
 			cannonMonster.InitializeSpawn();
 
 			monsters.Add(cannonMonster);

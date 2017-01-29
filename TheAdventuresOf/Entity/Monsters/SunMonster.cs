@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -10,6 +10,7 @@ namespace TheAdventuresOf
 
 		public void SetSunMonsterData(SunMonster sunMonster)
 		{
+			entityTag = sunMonster.entityTag;
 			speed = sunMonster.speed;
 			animationSpeed = sunMonster.animationSpeed;
 			frameCount = sunMonster.frameCount;
@@ -18,7 +19,7 @@ namespace TheAdventuresOf
 			rotationSpeed = sunMonster.rotationSpeed;
 			upDownSpeed = sunMonster.upDownSpeed;
 
-			monsterTexture = AssetManager.sunMonsterTexture;
+			monsterTexture = AssetManager.Instance.sunMonsterTexture;
 		}
 
 		public override void InitializeSpawn()

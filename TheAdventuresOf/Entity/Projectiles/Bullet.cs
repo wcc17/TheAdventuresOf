@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using System;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -6,14 +6,12 @@ namespace TheAdventuresOf
 {
 	public class Bullet : Projectile
 	{
+		public static float startYPos;
+
 		public Bullet()
 		{
-			//x pos will be set by cannon monster
-			//TODO: need a solution for loading this somewhere else
-			InitializeEntity(0, 725);
-
-			entityBounds.Width = AssetManager.bulletTexture.Width;
-			entityBounds.Height = AssetManager.bulletTexture.Height;
+			entityBounds.Width = AssetManager.Instance.bulletTexture.Width;
+			entityBounds.Height = AssetManager.Instance.bulletTexture.Height;
 		}
 
 		public override void Update(GameTime gameTime, bool buttonPressed = false)

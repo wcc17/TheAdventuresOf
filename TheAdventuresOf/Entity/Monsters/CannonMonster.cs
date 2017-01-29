@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,17 +9,18 @@ namespace TheAdventuresOf
 	{
 		public static float leftSideX;
 		public static float rightSideX;
+		public static float groundOffset;
+		public static float boundOffset;
 
 		bool isShooting;
 
 		public Bullet bullet;
-		static float bulletSpeed;
-
-		//no reason to check collision with level bounds here
-		public override void HandleLevelBoundCollision(int direction, int boundX) { }
+		float bulletSpeed;
+		string bulletTag;
 
 		public void SetCannonMonsterData(CannonMonster cannonMonster, Bullet bullet)
 		{
+			entityTag = cannonMonster.entityTag;
 			frameCount = cannonMonster.frameCount;
 			rotationSpeed = cannonMonster.rotationSpeed;
 			upDownSpeed = cannonMonster.upDownSpeed;
@@ -27,8 +28,9 @@ namespace TheAdventuresOf
 
 			//set Bullet specific stuff here
 			bulletSpeed = bullet.speed;
+			bulletTag = bullet.entityTag;
 
-			monsterTexture = AssetManager.cannonMonsterTexture;
+			monsterTexture = AssetManager.Instance.cannonMonsterTexture;
 		}
 
 		public override void InitializeSpawn()
@@ -178,7 +180,7 @@ namespace TheAdventuresOf
 
 			if (isShooting)
 			{
-				bullet.Draw(spriteBatch, AssetManager.bulletTexture);
+				bullet.Draw(spriteBatch, AssetManager.Instance.bulletTexture);
 			}
 		}
 
@@ -187,9 +189,11 @@ namespace TheAdventuresOf
 			if (bullet == null)
 			{
 				bullet = new Bullet();
+				bullet.InitializeEntity(0, Bullet.startYPos); //x pos will be set by cannon monster
 			}
 
 			bullet.speed = bulletSpeed;
+			bullet.entityTag = bulletTag;
 
 			if (moveLeft)
 			{
@@ -205,6 +209,8 @@ namespace TheAdventuresOf
 			bullet.UpdateEntityBounds();
 		}
 
+		//no reason to check collision with level bounds here
+		public override void HandleLevelBoundCollision(int direction, int boundX) { }
 	}
 }
 
