@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/build-iphone8.2-9.3.3/actool/bundle/LaunchImage-800-Landscape-736h@3x.png">
-      <LogicalName>LaunchImage-800-Landscape-736h@3x.png</LogicalName>
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/build-iphone9.2-10.0.2/actool/bundle/LaunchImage.png">
+      <LogicalName>LaunchImage.png</LogicalName>
       <Optimize>false</Optimize>
     </_BundleResourceWithLogicalName>
-    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/build-iphone8.2-9.3.3/actool/bundle/LaunchImage.png">
-      <LogicalName>LaunchImage.png</LogicalName>
+    <_BundleResourceWithLogicalName Include="obj/iPhone/Debug/build-iphone9.2-10.0.2/actool/bundle/LaunchImage-800-Landscape-736h@3x.png">
+      <LogicalName>LaunchImage-800-Landscape-736h@3x.png</LogicalName>
       <Optimize>false</Optimize>
     </_BundleResourceWithLogicalName>
   </ItemGroup>

@@ -1,1 +1,14 @@
 /Users/wcc17/Development/TheAdventuresOf/Android/obj/Debug/MonoAndroid,Version=v5.0.AssemblyAttribute.cs
+/Users/wcc17/Development/TheAdventuresOf/Android/bin/Debug/MonoGame.Framework.dll
+/Users/wcc17/Development/TheAdventuresOf/Android/bin/Debug/TheAdventuresOf.Droid.dll.mdb
+/Users/wcc17/Development/TheAdventuresOf/Android/bin/Debug/TheAdventuresOf.Droid.dll
+/Users/wcc17/Development/TheAdventuresOf/Android/bin/Debug/TheAdventuresOf.Droid.apk
+/Users/wcc17/Development/TheAdventuresOf/Android/obj/Debug/android/bin/TheAdventuresOf.Droid.apk
+/Users/wcc17/Development/TheAdventuresOf/Android/obj/Debug/res/drawable/icon.png
+/Users/wcc17/Development/TheAdventuresOf/Android/obj/Debug/res/drawable/splash.png
+/Users/wcc17/Development/TheAdventuresOf/Android/obj/Debug/res/values/styles.xml
+/Users/wcc17/Development/TheAdventuresOf/Android/obj/Debug/R.cs.flag
+/Users/wcc17/Development/TheAdventuresOf/Android/bin/Debug/TheAdventuresOf.Droid-Signed.apk
+/Users/wcc17/Development/TheAdventuresOf/Android/obj/Debug/uploadflags.txt
+/Users/wcc17/Development/TheAdventuresOf/Android/obj/Debug/TheAdventuresOf.Droid.dll
+/Users/wcc17/Development/TheAdventuresOf/Android/obj/Debug/TheAdventuresOf.Droid.dll.mdb

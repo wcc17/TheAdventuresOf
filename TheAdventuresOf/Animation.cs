@@ -7,7 +7,7 @@ namespace TheAdventuresOf
 {
 	public class Animation
 	{
-		List<AnimationFrame> frames = new List<AnimationFrame>();
+		public List<AnimationFrame> frames = new List<AnimationFrame>();
 		TimeSpan timeIntoAnimation;
 
 		TimeSpan duration;
@@ -51,6 +51,12 @@ namespace TheAdventuresOf
 				{
 					return Rectangle.Empty;
 				}
+			}
+
+			//if warning on set method 'accessor never reaches end..." still exists, its incorrect according to StackO
+			set
+			{
+				CurrentRectangle = value;
 			}
 		}
 

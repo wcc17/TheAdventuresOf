@@ -15,7 +15,7 @@ namespace TheAdventuresOf
 		public int cannonMonsterCount;
 		public int bileMonsterCount;
 
-		public List<Monster> monsters;
+		public static List<Monster> monsters;
 		public List<Monster> monstersToRemove;
 
 		static Random rand = new Random();
@@ -206,7 +206,7 @@ namespace TheAdventuresOf
 		{
 			BileMonster bileMonster = new BileMonster();
 
-			bileMonster.SetBileMonsterData(level.bileMonster);
+			bileMonster.SetBileMonsterData(level.bileMonster, level.bile);
 			bileMonster.groundLevel = level.groundLevel - BileMonster.floatHeight;
 			bileMonster.InitializeCharacter(getRandomXLocation(AssetManager.bileMonsterTexture.Width),
 											0 - AssetManager.bileMonsterTexture.Height,
@@ -223,7 +223,7 @@ namespace TheAdventuresOf
 		{
 			CannonMonster cannonMonster = new CannonMonster();
 
-			cannonMonster.SetCannonMonsterData(level.cannonMonster);
+			cannonMonster.SetCannonMonsterData(level.cannonMonster, level.bullet);
 			//TODO: get rid of this hardcoded number
 			cannonMonster.groundLevel = level.groundLevel - 45;
 

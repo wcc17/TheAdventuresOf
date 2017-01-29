@@ -10,13 +10,15 @@ namespace TheAdventuresOf
 
 		public Bile()
 		{
-			//TODO: need a solution for loading this somewhere else
-			speed = 300;
-
 			entityBounds.Width = AssetManager.bileTexture.Width;
 			entityBounds.Height = AssetManager.bileTexture.Height;
 
 			isFalling = true;
+		}
+
+		public void SetBileData(Bile bile)
+		{
+			this.speed = bile.speed;
 		}
 
 		public override void Update(GameTime gameTime, bool buttonPressed = false)

@@ -9,18 +9,32 @@ namespace TheAdventuresOf
 {
 	public static class XmlImporter
 	{
+		public const string androidFilePath = "Assets/Content/";
+		public const string iosFilePath = "Content/";
+
+		public static string filePath;
 		public static XDocument gameDocument;
 		public static XDocument characterDocument;
+		public static XDocument projectileDocument;
 		public static XDocument levelDocument;
 
 		public static void GetXMLInformation()
 		{
-			Stream gameDocumentStream = TitleContainer.OpenStream("Content/XML/GameInformation.xml");
-			Stream characterDocumentStream = TitleContainer.OpenStream("Content/XML/CharacterInformation.xml");
-			Stream levelDocumentStream = TitleContainer.OpenStream("Content/XML/LevelInformation.xml");
+			#if __ANDROID__
+				filePath = androidFilePath;
+			#endif
+			#if __IOS__
+				filePath = iosFilePath;
+			#endif
+
+			Stream gameDocumentStream = TitleContainer.OpenStream(filePath + "XML/GameInformation.xml");
+			Stream characterDocumentStream = TitleContainer.OpenStream(filePath + "XML/CharacterInformation.xml");
+			Stream projectileDocumentStream = TitleContainer.OpenStream(filePath + "XML/ProjectileInformation.xml");
+			Stream levelDocumentStream = TitleContainer.OpenStream(filePath + "XML/LevelInformation.xml");
 
 			gameDocument = XDocument.Load(gameDocumentStream);
 			characterDocument = XDocument.Load(characterDocumentStream);
+			projectileDocument = XDocument.Load(projectileDocumentStream);
 			levelDocument = XDocument.Load(levelDocumentStream);
 		}
 
@@ -53,10 +67,16 @@ namespace TheAdventuresOf
 			level.leftBoundWidth = (int)levelOneElement.Element("LeftBoundWidth");
 			level.rightBoundWidth = (int)levelOneElement.Element("RightBoundWidth");
 
-			level.blockMonsterLimit = (int)levelOneElement.Element("BlockMonsterLimit");
-			level.sunMonsterLimit = (int)levelOneElement.Element("SunMonsterLimit");
-			level.cannonMonsterLimit = (int)levelOneElement.Element("CannonMonsterLimit");
-			level.bileMonsterLimit = (int)levelOneElement.Element("BileMonsterLimit");
+			LoadMonsterInformation(level, levelOneElement);
+			LoadProjectileInformation(level);
+		}
+
+		public static void LoadMonsterInformation(Level level, XElement levelElement)
+		{
+			level.blockMonsterLimit = (int)levelElement.Element("BlockMonsterLimit");
+			level.sunMonsterLimit = (int)levelElement.Element("SunMonsterLimit");
+			level.cannonMonsterLimit = (int)levelElement.Element("CannonMonsterLimit");
+			level.bileMonsterLimit = (int)levelElement.Element("BileMonsterLimit");
 
 			level.blockMonster = LoadBlockMonsterInformation();
 			level.sunMonster = LoadSunMonsterInformation();
@@ -161,6 +181,34 @@ namespace TheAdventuresOf
 			cannonMonster.actionDelayTime = (float)cannonMonsterElement.Element("ActionDelayTime");
 
 			return cannonMonster;
+		}
+
+		public static void LoadProjectileInformation(Level level)
+		{
+			level.bile = LoadBileInformation();
+			level.bullet = LoadBulletInformation();
+		}
+
+		public static Bile LoadBileInformation()
+		{
+			XElement projectilesElement = projectileDocument.Element("Projectiles");
+
+			XElement bileElement = projectilesElement.Element("Bile");
+			Bile bile = new Bile();
+			bile.speed = (float)bileElement.Element("Speed");
+
+			return bile;
+		}
+
+		public static Bullet LoadBulletInformation()
+		{
+			XElement projectilesElement = projectileDocument.Element("Projectiles");
+
+			XElement bulletElement = projectilesElement.Element("Bullet");
+			Bullet bullet = new Bullet();
+			bullet.speed = (float)bulletElement.Element("Speed");
+
+			return bullet;
 		}
 	}
 }

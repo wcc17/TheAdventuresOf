@@ -13,16 +13,20 @@ namespace TheAdventuresOf
 		bool isShooting;
 
 		public Bullet bullet;
+		static float bulletSpeed;
 
 		//no reason to check collision with level bounds here
 		public override void HandleLevelBoundCollision(int direction, int boundX) { }
 
-		public void SetCannonMonsterData(CannonMonster cannonMonster)
+		public void SetCannonMonsterData(CannonMonster cannonMonster, Bullet bullet)
 		{
 			frameCount = cannonMonster.frameCount;
 			rotationSpeed = cannonMonster.rotationSpeed;
 			upDownSpeed = cannonMonster.upDownSpeed;
 			actionDelayTime = cannonMonster.actionDelayTime;
+
+			//set Bullet specific stuff here
+			bulletSpeed = bullet.speed;
 
 			monsterTexture = AssetManager.cannonMonsterTexture;
 		}
@@ -184,6 +188,8 @@ namespace TheAdventuresOf
 			{
 				bullet = new Bullet();
 			}
+
+			bullet.speed = bulletSpeed;
 
 			if (moveLeft)
 			{

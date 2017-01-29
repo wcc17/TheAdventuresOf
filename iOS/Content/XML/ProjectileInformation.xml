@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Projectiles>
+    <Bile>
+        <Speed>300</Speed>
+    </Bile>
+    <Bullet>
+		<Speed>400</Speed>
+	</Bullet>
+</Projectiles>

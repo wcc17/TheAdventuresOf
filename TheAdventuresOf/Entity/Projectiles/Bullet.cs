@@ -8,9 +8,6 @@ namespace TheAdventuresOf
 	{
 		public Bullet()
 		{
-			//TODO: need a solution for loading this somewhere else
-			speed = 500;
-
 			//x pos will be set by cannon monster
 			//TODO: need a solution for loading this somewhere else
 			InitializeEntity(0, 725);

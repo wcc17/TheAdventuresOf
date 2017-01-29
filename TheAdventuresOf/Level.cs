@@ -9,11 +9,13 @@ namespace TheAdventuresOf
 		public Rectangle leftSideBounds;
 		public Rectangle rightSideBounds;
 
-		//these are set in XmlImporter. these hold default values that are loaded from xml so the values aren't hardcoded
+		//TODO: I think I want these held by a singleton somewhere else solely responsible for holding this info
 		public BlockMonster blockMonster;
 		public SunMonster sunMonster;
 		public CannonMonster cannonMonster;
 		public BileMonster bileMonster;
+		public Bile bile;
+		public Bullet bullet;
 
 		public int leftBoundWidth;
 		public int rightBoundWidth;

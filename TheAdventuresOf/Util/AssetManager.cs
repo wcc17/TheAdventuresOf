@@ -6,6 +6,9 @@ namespace TheAdventuresOf
 {
 	public static class AssetManager
 	{
+		public const string androidFilePath = "Assets/Content/";
+		public const string iosFilePath = "Content/";
+
 		//game textures
 		public static Texture2D controllerTexture;
 		public static Texture2D arrowButtonTexture;
@@ -24,27 +27,37 @@ namespace TheAdventuresOf
 		public static Texture2D bulletTexture;
 		public static Texture2D bileTexture;
 
+		public static string filePath; 
 
-		//TODO: opening "Content/controls1080p.png" on android throws exception. png is actually in Assets/Content/controls1080p.png. will need a function for this
+		public static void InitializeAssetManager()
+		{
+			#if __ANDROID__
+				filePath = androidFilePath;
+			#endif
+			#if __IOS__
+				filePath = iosFilePath;
+			#endif
+		}
+
 		public static void LoadGameAssets(GraphicsDevice graphicsDevice)
 		{
-			using (var stream = TitleContainer.OpenStream("Content/arrow_1080p.png"))
+			using (var stream = TitleContainer.OpenStream(filePath + "arrow_1080p.png"))
 			{
 				arrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
-			using (var stream = TitleContainer.OpenStream("Content/controller_1080p.png"))
+			using (var stream = TitleContainer.OpenStream(filePath + "controller_1080p.png"))
 			{
 				controllerTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
-			using (var stream = TitleContainer.OpenStream("Content/sword_1080p.png"))
+			using (var stream = TitleContainer.OpenStream(filePath + "sword_1080p.png"))
 			{
 				swordTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
-			using (var stream = TitleContainer.OpenStream("Content/heart_1080p.png"))
+			using (var stream = TitleContainer.OpenStream(filePath + "heart_1080p.png"))
 			{
 				heartTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
-			using (var stream = TitleContainer.OpenStream("Content/emptyheart_1080p.png"))
+			using (var stream = TitleContainer.OpenStream(filePath + "emptyheart_1080p.png"))
 			{
 				emptyHeartTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
@@ -53,35 +66,35 @@ namespace TheAdventuresOf
 		//TODO: eventually add logic for reloading textures based on what level the player is on 
 		public static void LoadLevelAssets(GraphicsDevice graphicsDevice)
 		{
-			using (var stream = TitleContainer.OpenStream("Content/character_1080p.png"))
+			using (var stream = TitleContainer.OpenStream(filePath + "character_1080p.png"))
 			{
 				playerTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
-			using (var stream = TitleContainer.OpenStream("Content/level1background_1080p.png"))
+			using (var stream = TitleContainer.OpenStream(filePath + "level1background_1080p.png"))
 			{
 				levelTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
-			using (var stream = TitleContainer.OpenStream("Content/blockmonster_1080p.png"))
+			using (var stream = TitleContainer.OpenStream(filePath + "blockmonster_1080p.png"))
 			{
 				blockMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
-			using (var stream = TitleContainer.OpenStream("Content/sunmonster_1080p.png"))
+			using (var stream = TitleContainer.OpenStream(filePath + "sunmonster_1080p.png"))
 			{
 				sunMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
-			using (var stream = TitleContainer.OpenStream("Content/cannonmonster_1080p.png"))
+			using (var stream = TitleContainer.OpenStream(filePath + "cannonmonster_1080p.png"))
 			{
 				cannonMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
-			using (var stream = TitleContainer.OpenStream("Content/bullet_1080p.png"))
+			using (var stream = TitleContainer.OpenStream(filePath + "bullet_1080p.png"))
 			{
 				bulletTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
-			using (var stream = TitleContainer.OpenStream("Content/bilemonster_1080p.png"))
+			using (var stream = TitleContainer.OpenStream(filePath + "bilemonster_1080p.png"))
 			{
 				bileMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
-			using (var stream = TitleContainer.OpenStream("Content/bile_1080p.png"))
+			using (var stream = TitleContainer.OpenStream(filePath + "bile_1080p.png"))
 			{
 				bileTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}

@@ -40,6 +40,7 @@ namespace TheAdventuresOf
 		{
 			if (frameCount > 1)
 			{
+				//TODO: this isn't setting up blockMonsters frames properly
 				walkAnimation = new Animation();
 				walkAnimation.AddFrame(new Rectangle(entityWidth,
 													 0,

@@ -7,17 +7,23 @@ namespace TheAdventuresOf
 {
 	public class BileMonster : Monster
 	{
-		//TODO: get rid of the hardcoded value
-		public static float bileObjectLimit = 4;
-		public static float throwDelayTimeLimit = 4.5f;
 		public static float floatHeight;
 
+		//TODO: get rid of the hardcoded values!!
+		public static float bileObjectLimit = 4;
+		public static float bileSpeed;
+		List<Bile> activeBileObjects;
+
+		public static float throwDelayTimeLimit = 4.5f;
 		public TimeSpan timeThrowDelayed = TimeSpan.FromSeconds(0);
 		bool delayThrow = true;
 
-		List<Bile> activeBileObjects;
+		public static float firstFrameTimeLimit = 0.75f;
+		public static float secondFrameTimeLimit = 0.75f;
+		public TimeSpan frameTime = TimeSpan.FromSeconds(0);
+		bool isThrowing = false;
 
-		public void SetBileMonsterData(BileMonster bileMonster)
+		public void SetBileMonsterData(BileMonster bileMonster, Bile bile)
 		{
 			speed = bileMonster.speed;
 			animationSpeed = bileMonster.animationSpeed;
@@ -26,6 +32,9 @@ namespace TheAdventuresOf
 			actionDelayTime = bileMonster.actionDelayTime;
 			rotationSpeed = bileMonster.rotationSpeed;
 			upDownSpeed = bileMonster.upDownSpeed;
+
+			//set bile specific info
+			bileSpeed = bile.speed;
 
 			monsterTexture = AssetManager.bileMonsterTexture;
 		}
@@ -83,10 +92,13 @@ namespace TheAdventuresOf
 				bile.Update(gameTime);
 			}
 
-			if (!isDying && !delayThrow && !isSpawning)
+			if (!isDying && !delayThrow && !isSpawning && !isThrowing)
 			{
-				spawnNewBileObject();
-				delayThrow = true;
+				isThrowing = true;
+			}
+			else if (!isDying && !delayThrow && !isSpawning && isThrowing)
+			{
+				handleThrow(gameTime);
 			}
 			else 
 			{
@@ -107,10 +119,17 @@ namespace TheAdventuresOf
 			}
 		}
 
+		void handleThrow(GameTime gameTime)
+		{
+			spawnNewBileObject();
+			delayThrow = true;
+		}
+
 		void spawnNewBileObject()
 		{
 			Bile bile = new Bile();
 
+			bile.speed = bileSpeed;
 			bile.moveLeft = moveLeft;
 			bile.moveRight = moveRight;
 			bile.positionVector.X = positionVector.X;

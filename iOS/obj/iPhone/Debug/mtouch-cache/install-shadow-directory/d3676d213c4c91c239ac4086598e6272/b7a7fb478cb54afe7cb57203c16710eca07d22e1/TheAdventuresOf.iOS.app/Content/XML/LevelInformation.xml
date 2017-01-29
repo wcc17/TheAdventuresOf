@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Level>
-  <LevelOne>
-    <GroundLevel>690</GroundLevel>
-    <LeftBoundWidth>135</LeftBoundWidth>
-    <RightBoundWidth>125</RightBoundWidth>
-    <MonsterLimit>15</MonsterLimit>
-  </LevelOne>
-</Level>

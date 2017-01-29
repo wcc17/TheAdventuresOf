@@ -1,8 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
-using CoreText;
 using Microsoft.Xna.Framework.Graphics;
-using CoreImage;
 
 namespace TheAdventuresOf
 {
@@ -232,7 +230,7 @@ namespace TheAdventuresOf
 
 		void handlePlayerTakingDamage(Entity entity)
 		{
-			//health--;
+			health--;
 
 			if (health > 0)
 			{
@@ -251,8 +249,7 @@ namespace TheAdventuresOf
 			else {
 				isDying = true;
 
-				//added to prevent character from floating off the screen when dying
-				//could not replicate, but saw it happen to tanner
+				//TODO: this alone does not prevent character from floating off screen if mid-air during death
 				isJumping = false;
 			}
 		}

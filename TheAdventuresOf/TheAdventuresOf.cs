@@ -35,10 +35,14 @@ namespace TheAdventuresOf
 		/// </summary>
 		protected override void Initialize()
 		{
+			//sets up asset manager to load from certain directories depending on platform
+			AssetManager.InitializeAssetManager();
+
 			screen = new Screen(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
 			level = new Level();
 			player = new Player();
 			base.Initialize();
+
 		}
 
 		/// <summary>
