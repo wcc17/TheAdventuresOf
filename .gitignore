@@ -1,5 +1,6 @@
 .DS_Store
 *.userprefs
 iOS/obj/
+iOS/bin/
 Android/bin/
 Android/obj/

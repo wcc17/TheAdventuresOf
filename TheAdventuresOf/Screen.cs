@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Input.Touch;
 
 namespace TheAdventuresOf
 {
-	//TODO: screen should probably be static or singleton
 	public class Screen
 	{
 		public const float FULL_SCREEN_WIDTH = 1920f;
@@ -51,7 +50,6 @@ namespace TheAdventuresOf
 			{
 				for (int i = 0; i < touchPoints.Count; i++)
 				{
-					//TODO: make sure this multiTouchLimit works in all situations
 					if (i < multiTouchLimit)
 					{
 						Controller.HandleInput(touchPoints[i]);
@@ -69,7 +67,6 @@ namespace TheAdventuresOf
 			{
 				for (int i = 0; i < touchCollection.Count; i++)
 				{
-					//TODO: make sure this multiTouchLimit works in all situations
 					if (i < multiTouchLimit)
 					{
 						//these return as float, but area always either .0 or .9998 or something like that. 
@@ -80,7 +77,6 @@ namespace TheAdventuresOf
 					}
 				}
 			}
-
 			return touchPoints;
 		}
 

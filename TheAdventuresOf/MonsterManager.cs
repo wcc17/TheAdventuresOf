@@ -20,13 +20,9 @@ namespace TheAdventuresOf
 
 		static Random rand = new Random();
 
-		//TODO: spawnDelayTime needs to be loaded from XML
-		float spawnDelayTime = 0.5f;
 		TimeSpan spawnTimer = TimeSpan.FromSeconds(0);
 		bool canSpawn = false;
 
-		//TODO: delayCannonSpawnTimerLimit needs to be loaded from XML somewhere
-		float delayCannonSpawnTimerLimit = 4;
 		TimeSpan delayCannonSpawnTimer = TimeSpan.FromSeconds(0);
 		bool canSpawnCannonMonster = true;
 
@@ -50,9 +46,8 @@ namespace TheAdventuresOf
 
 		void handleSpawnDelay(GameTime gameTime)
 		{
-			//TODO: all of these timer methods can probably be one single method or class method
 			spawnTimer = spawnTimer.Add(gameTime.ElapsedGameTime);
-			if (spawnTimer.Seconds > spawnDelayTime)
+			if (spawnTimer.Seconds > level.spawnDelayTime)
 			{
 				//will allow monsters to spawn, then next frame the timer will start adding up again
 				canSpawn = true;
@@ -242,7 +237,7 @@ namespace TheAdventuresOf
 		{
 			//if the timer is past the limit
 			//randomly choose whether to spawn a new cannon monster or not
-			if (delayCannonSpawnTimer.Seconds > delayCannonSpawnTimerLimit)
+			if (delayCannonSpawnTimer.Seconds > level.delayCannonSpawnTimerLimit)
 			{
 				Console.WriteLine("Cannon monster timer limit passed");
 

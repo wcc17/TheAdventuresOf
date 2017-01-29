@@ -66,7 +66,6 @@ namespace TheAdventuresOf
 			//TODO: fix this characterWidth - 1. Theres a black bar appearing on the first frame that I can't get rid of
 			//for now, the fix is to do characterWidth - 1, but thats not the greatest solution.
 			//the character will probably need to be redrawn, but I'm not going to mess with it for now
-			//TODO: can probably put this in a loop. all charactesr only have 3-4 frames tops, so can loop through them with playerFrames variable
 			walkAnimation = new Animation();
 			walkAnimation.AddFrame(new Rectangle(0, 0, entityWidth - 1, entityHeight),
 			                       TimeSpan.FromSeconds(animationSpeed));
@@ -247,15 +246,11 @@ namespace TheAdventuresOf
 			}
 			else {
 				isDying = true;
-
-				//TODO: this alone does not prevent character from floating off screen if mid-air during death
-				isJumping = false;
 			}
 		}
 
 		public override void HandleAnimation(GameTime gameTime)
 		{
-			//TODO: preventing animation from changing while jumping works this way for now, but may need to change if more are added
 			if (!isJumping)
 			{
 				if (isMoving)
@@ -347,8 +342,13 @@ namespace TheAdventuresOf
 
 		public void Jump(GameTime gameTime)
 		{
-			positionVector.Y -= (variableJumpSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
-			swordPositionVector.Y = positionVector.Y + swordYOffset;
+			Console.WriteLine("jump jump jump");
+
+			if (!isDying && !isDead)
+			{
+				positionVector.Y -= (variableJumpSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+				swordPositionVector.Y = positionVector.Y + swordYOffset;
+			}
 
 			variableJumpSpeed -= 12.5f;
 
@@ -385,8 +385,6 @@ namespace TheAdventuresOf
 
 			if (moveRight)
 			{
-				//TODO: the sword doesn't rotate correctly and will not be an easy fix. 
-				//TODO: for now, sword doesn't appear when the player is dead
 				if (!isDying && !isDead)
 				{
 					spriteBatch.Draw(AssetManager.Instance.swordTexture,
@@ -398,8 +396,6 @@ namespace TheAdventuresOf
 			}
 			else if (moveLeft)
 			{
-				//TODO: the sword doesn't rotate correctly and will not be an easy fix. 
-				//TODO: for now, sword doesn't appear when the player is dead
 				if (!isDying && !isDead)
 				{
 					spriteBatch.Draw(AssetManager.Instance.swordTexture,

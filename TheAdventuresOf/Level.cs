@@ -25,6 +25,9 @@ namespace TheAdventuresOf
 		public int cannonMonsterLimit;
 		public int bileMonsterLimit;
 
+		public float spawnDelayTime; //time before another monster can be spawned
+		public float delayCannonSpawnTimerLimit; //time before spawning another cannonMonster is considered
+
 		public MonsterManager monsterManager;
 
 		public Level()

@@ -77,6 +77,8 @@ namespace TheAdventuresOf
 			level.sunMonsterLimit = (int)levelElement.Element("SunMonsterLimit");
 			level.cannonMonsterLimit = (int)levelElement.Element("CannonMonsterLimit");
 			level.bileMonsterLimit = (int)levelElement.Element("BileMonsterLimit");
+			level.spawnDelayTime = (float)levelElement.Element("SpawnDelayTime");
+			level.delayCannonSpawnTimerLimit = (float)levelElement.Element("DelayCannonSpawnTimeLimit");
 
 			level.blockMonster = LoadBlockMonsterInformation();
 			level.sunMonster = LoadSunMonsterInformation();

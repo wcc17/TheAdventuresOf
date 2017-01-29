@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TheAdventuresOf
 {
-	//TODO: not sure how necessary this class is going to be actually with Entity already a thing
 	public class Projectile : Entity
 	{
 		public bool isActive;
