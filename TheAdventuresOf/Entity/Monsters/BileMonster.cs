@@ -132,6 +132,8 @@ namespace TheAdventuresOf
 			bile.moveRight = moveRight;
 			bile.positionVector.X = positionVector.X;
 			bile.positionVector.Y = positionVector.Y;
+			bile.originVector.X = positionVector.X;
+			bile.originVector.Y = positionVector.Y;
 			bile.UpdateEntityBounds();
 
 			activeBileObjects.Add(bile);

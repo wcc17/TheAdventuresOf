@@ -6,7 +6,9 @@ namespace TheAdventuresOf
 	public class Bile : Projectile
 	{
 		public static float groundLevel;
-		float leftRightSpeedMultiplier = 1.0f;
+		public Vector2 originVector = new Vector2();
+
+		float parabolaX = 0f;
 		bool isFalling;
 
 		public Bile()
@@ -28,30 +30,25 @@ namespace TheAdventuresOf
 		{
 			if (isFalling)
 			{
-				if (moveLeft)
-				{
-					positionVector.X -= ( (speed * (leftRightSpeedMultiplier))  * (float)gameTime.ElapsedGameTime.TotalSeconds);
-				}
-
+				int directionMultiplier = 1;
 				if (moveRight)
 				{
-					positionVector.X += ( (speed * (leftRightSpeedMultiplier)) * (float)gameTime.ElapsedGameTime.TotalSeconds);
+					directionMultiplier = -1;
 				}
 
-				//decrease the amount of X change over time as object gets closer to the ground
-				if (leftRightSpeedMultiplier > 0.0f)
-				{
-					leftRightSpeedMultiplier -= 0.025f;
-				}
+				float time = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-				positionVector.Y += (speed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+				//y = ax^2 + b
+				parabolaX += ((time * speed) * directionMultiplier);
+				positionVector.X = parabolaX + originVector.X;
+				positionVector.Y = (float)(Math.Pow(-(0.2*parabolaX), 2)) + originVector.Y;
 
 				UpdateEntityBounds();
 
 				if (positionVector.Y >= groundLevel)
 				{
 					positionVector.Y = groundLevel;
-					leftRightSpeedMultiplier = 1.0f;
+					parabolaX = 0f;
 					isFalling = false;
 				}
 			}
