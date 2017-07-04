@@ -67,15 +67,26 @@ namespace TheAdventuresOf
 		public override void HandleDeath(GameTime gameTime)
 		{
 			base.HandleDeath(gameTime);
-
-            if(isDead) {
-				activeBileObjects.Clear();
-            } else {
-                foreach (Bile bile in activeBileObjects) {
-                    bile.HandleFadeOut(gameTime);
-                }
-            }
+            handleBileObjectsOnDeath(gameTime);
 		}
+
+        /**
+         * Handles fading out the bile objects if the bile monster dies 
+         */
+        void handleBileObjectsOnDeath(GameTime gameTime) {
+            
+			if (isDead)
+			{
+				activeBileObjects.Clear();
+			}
+			else
+			{
+				foreach (Bile bile in activeBileObjects)
+				{
+					bile.HandleFadeOut(gameTime);
+				}
+			} 
+        }
 
 		public void HandleThrowDelay(GameTime gameTime)
 		{
@@ -89,11 +100,7 @@ namespace TheAdventuresOf
 
 		public override void Update(GameTime gameTime, bool buttonPressed = false)
 		{
-			//update all of the existing bile objects
-			foreach (Bile bile in activeBileObjects)
-			{
-				bile.Update(gameTime);
-			}
+            updateBileObjects(gameTime);
 
 			if (!isDying && !delayThrow && !isSpawning && !isThrowing)
 			{
@@ -123,6 +130,26 @@ namespace TheAdventuresOf
 			{
 				bile.Draw(spriteBatch, AssetManager.Instance.bileTexture);
 			}
+		}
+
+        /**
+         * Call bile objects Update method and remove bile objects
+         * from active bile objects if player hits the object or if
+         * the bile object has been on the screen too long
+         **/
+		void updateBileObjects(GameTime gameTime)
+		{
+			//update all of the existing bile objects
+			foreach (Bile bile in activeBileObjects)
+			{
+				if (!bile.isDead)
+				{
+					bile.Update(gameTime);
+					Console.WriteLine("size of active objects: " + activeBileObjects.Count);
+				}
+			}
+			activeBileObjects.RemoveAll(bile => bile.isDead == true);
+			Console.WriteLine("size of active objects after removing: " + activeBileObjects.Count);
 		}
 
 		void handleThrow(GameTime gameTime)

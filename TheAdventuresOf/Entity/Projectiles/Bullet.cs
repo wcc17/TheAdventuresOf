@@ -38,13 +38,18 @@ namespace TheAdventuresOf
 			UpdateEntityBounds();
 		}
 
+        //TODO: bullet should fall out of the air after colliding with player
+        public override void HandlePostPlayerCollision() {
+            base.HandlePostPlayerCollision();
+        }
+
 		void checkScreenPos()
 		{
 			if (moveLeft)
 			{
 				if (positionVector.X < -10)
 				{
-					Console.WriteLine("bullet is off screen");
+					//Console.WriteLine("bullet is off screen");
 					isActive = false;
 				}
 			}
@@ -53,7 +58,7 @@ namespace TheAdventuresOf
 			{
 				if (positionVector.X > Screen.FULL_SCREEN_WIDTH + 10)
 				{
-					Console.WriteLine("bullet is off screen");
+					//Console.WriteLine("bullet is off screen");
 					isActive = false;
 				}
 			}

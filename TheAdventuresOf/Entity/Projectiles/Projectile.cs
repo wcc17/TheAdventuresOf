@@ -23,6 +23,13 @@ namespace TheAdventuresOf
 
 		}
 
+        /**
+         * Can override this method to take steps past setting projectile
+         * isActive to false. Ex., bile should disappear
+         **/
+        public virtual void HandlePostPlayerCollision() {
+            isActive = false;
+        }
 	}
 }
 

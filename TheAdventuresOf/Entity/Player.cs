@@ -205,7 +205,7 @@ namespace TheAdventuresOf
                 if (!isInvincible && proj.isActive) 
                 {
                     Console.WriteLine("player took damage from projectile");
-                    proj.isActive = false;
+                    proj.HandlePostPlayerCollision();
                     handlePlayerTakingDamage(proj);
                 }
             }    
@@ -230,7 +230,7 @@ namespace TheAdventuresOf
 
 		void handlePlayerTakingDamage(Entity entity)
 		{
-			health--;
+			//health--;
 
 			if (health > 0)
 			{
