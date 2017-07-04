@@ -10,7 +10,7 @@ namespace TheAdventuresOf
 		public static float floatHeight;
 		public static float bileObjectLimit;
 		public static float throwDelayTimeLimit;
-		List<Bile> activeBileObjects;
+		public List<Bile> activeBileObjects;
 
 		public string bileTag;
 		public float bileSpeed;
@@ -135,6 +135,7 @@ namespace TheAdventuresOf
 			bile.originVector.X = positionVector.X;
 			bile.originVector.Y = positionVector.Y;
 			bile.UpdateEntityBounds();
+            bile.isActive = true; //TODO: bile objects should only last a certain amount of time
 
 			activeBileObjects.Add(bile);
 		}

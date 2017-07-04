@@ -118,8 +118,16 @@ namespace TheAdventuresOf
 
 				if (monster is CannonMonster)
 				{
-					player.CheckCollisionBullet(((CannonMonster)monster).bullet);
+					player.CheckCollisionProjectile(((CannonMonster)monster).bullet);
 				}
+                if (monster is BileMonster) 
+                {
+                    foreach (Bile bile in ((BileMonster) monster).activeBileObjects) 
+                    {
+                        Console.WriteLine("bile scrolled through tho");
+						player.CheckCollisionProjectile(bile);    
+                    }
+                }
 
 				monster.Update(gameTime);
 

@@ -7,7 +7,7 @@
     <BlockMonsterLimit>3</BlockMonsterLimit>
     <SunMonsterLimit>3</SunMonsterLimit>
     <CannonMonsterLimit>1</CannonMonsterLimit>
-	<BileMonsterLimit>4</BileMonsterLimit>
+	<BileMonsterLimit>2</BileMonsterLimit>
     <SpawnDelayTime>0.5</SpawnDelayTime>
     <DelayCannonSpawnTimeLimit>4</DelayCannonSpawnTimeLimit>
   </LevelOne>

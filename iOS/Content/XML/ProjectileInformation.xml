@@ -6,7 +6,7 @@
         <!-- level ground level does not work here,
             because the ground level assumes that something
 			will be drawn from the top left corner down. -->
-        <GroundLevel>770</GroundLevel>
+        <GroundLevel>740</GroundLevel>
     </Bile>
     <Bullet>
         <EntityTag>Bullet</EntityTag>

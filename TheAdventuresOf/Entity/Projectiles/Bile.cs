@@ -45,6 +45,8 @@ namespace TheAdventuresOf
 
 				UpdateEntityBounds();
 
+                //Console.WriteLine
+
 				if (positionVector.Y >= groundLevel)
 				{
 					positionVector.Y = groundLevel;

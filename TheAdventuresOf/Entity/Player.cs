@@ -136,6 +136,8 @@ namespace TheAdventuresOf
 			}
 			else if (positionVector.Y < groundLevel)
 			{
+                //TODO: I'll bet money that variableJumpSpeed here is what causes 
+                //TODO: the player to float up off of the screen on some deaths!!
 				positionVector.Y += (variableJumpSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
 			}
 			else
@@ -196,18 +198,18 @@ namespace TheAdventuresOf
 			UpdateSwordPosition();
 		}
 
-		public void CheckCollisionBullet(Bullet bullet)
-		{
-			if (entityBounds.Intersects(bullet.entityBounds))
-			{
-				if (!isInvincible && bullet.isActive)
-				{
-					Console.WriteLine("player took damage from bullet");
-					bullet.isActive = false;
-					handlePlayerTakingDamage(bullet);
-				}
-			}
-		}
+        public void CheckCollisionProjectile(Projectile proj) 
+        {
+            if (entityBounds.Intersects(proj.entityBounds)) 
+            {
+                if (!isInvincible && proj.isActive) 
+                {
+                    Console.WriteLine("player took damage from projectile");
+                    proj.isActive = false;
+                    handlePlayerTakingDamage(proj);
+                }
+            }    
+        }
 
 		public void CheckCollisionMonster(Monster monster)
 		{
@@ -235,14 +237,14 @@ namespace TheAdventuresOf
 				isInvincible = true;
 				invincibilityTimer = TimeSpan.FromSeconds(invincibilityTime);
 
-				if (entity.moveLeft)
-				{
-					isKnockedBackLeft = true;
-				}
-				else if (entity.moveRight)
-				{
-					isKnockedBackRight = true;
-				}
+				//check for bile - it shouldn't affect knock back direction because its just sitting on the ground
+				if(!(entity is Bile)) {
+                    isKnockedBackLeft = entity.moveLeft;
+                    isKnockedBackRight = entity.moveRight;
+                } else {
+                    isKnockedBackLeft = !moveLeft;
+                    isKnockedBackRight = !moveRight;
+                }
 			}
 			else {
 				isDying = true;
@@ -342,7 +344,7 @@ namespace TheAdventuresOf
 
 		public void Jump(GameTime gameTime)
 		{
-			Console.WriteLine("jump jump jump");
+			Console.WriteLine("Player.Jump being called");
 
 			if (!isDying && !isDead)
 			{
@@ -351,11 +353,6 @@ namespace TheAdventuresOf
 			}
 
 			variableJumpSpeed -= 12.5f;
-
-			//Console.WriteLine("Y: " + positionVector.Y);
-			//Console.WriteLine("jump speed: " + variableJumpSpeed);
-			//Console.WriteLine("jumpHeight limit: " + jumpHeightLimit);
-			//Console.WriteLine("Ground level: " + groundLevel);
 
 			//if we hit the jump height, make jumpSpeed negative, start falling
 			if (positionVector.Y <= jumpHeightLimit)

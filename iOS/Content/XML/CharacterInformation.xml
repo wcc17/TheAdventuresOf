@@ -45,12 +45,12 @@
       <AnimationSpeed>0.08</AnimationSpeed>
       <FrameCount>3</FrameCount>
       <MoveDistanceLimit>250</MoveDistanceLimit>
-      <ActionDelayTime>1.5</ActionDelayTime>
+      <ActionDelayTime>1.5</ActionDelayTime> <!-- this will be how quickly he moves -->
       <RotationSpeed>400</RotationSpeed>
       <UpDownSpeed>175</UpDownSpeed>
       <FloatHeight>100</FloatHeight>
       <BileObjectLimit>4</BileObjectLimit>
-      <ThrowDelayTimeLimit>4.5</ThrowDelayTimeLimit>
+      <ThrowDelayTimeLimit>8</ThrowDelayTimeLimit>
     </BileMonster>
     <CannonMonster>
       <EntityTag>CannonMonster</EntityTag>
