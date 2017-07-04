@@ -124,7 +124,6 @@ namespace TheAdventuresOf
                 {
                     foreach (Bile bile in ((BileMonster) monster).activeBileObjects) 
                     {
-                        Console.WriteLine("bile scrolled through tho");
 						player.CheckCollisionProjectile(bile);    
                     }
                 }

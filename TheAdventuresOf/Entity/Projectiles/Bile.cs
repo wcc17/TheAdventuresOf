@@ -10,6 +10,7 @@ namespace TheAdventuresOf
 
 		float parabolaX = 0f;
 		bool isFalling;
+        float transparency = 1.0f;
 
 		public Bile()
 		{
@@ -45,8 +46,6 @@ namespace TheAdventuresOf
 
 				UpdateEntityBounds();
 
-                //Console.WriteLine
-
 				if (positionVector.Y >= groundLevel)
 				{
 					positionVector.Y = groundLevel;
@@ -55,6 +54,22 @@ namespace TheAdventuresOf
 				}
 			}
 		}
+
+        /**
+         * Handle the projectile object fading out on monsters death
+         * or on expiration of projectile object
+         */
+        public void HandleFadeOut(GameTime gameTime) 
+        {
+			transparency -= (0.5f * ((float)gameTime.ElapsedGameTime.TotalSeconds));
+			tintColor = Color.White * transparency;
+
+            //wanted the bile object to hurt player for a short amount of time
+            //after monster actually died
+            if(transparency < 0.9) {
+                isActive = false;
+            }
+        }
 	}
 }
 

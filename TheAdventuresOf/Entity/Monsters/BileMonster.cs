@@ -68,8 +68,13 @@ namespace TheAdventuresOf
 		{
 			base.HandleDeath(gameTime);
 
-			//TODO: these just instantly disappear. need some sort of fade out or something
-			activeBileObjects.Clear();
+            if(isDead) {
+				activeBileObjects.Clear();
+            } else {
+                foreach (Bile bile in activeBileObjects) {
+                    bile.HandleFadeOut(gameTime);
+                }
+            }
 		}
 
 		public void HandleThrowDelay(GameTime gameTime)
@@ -92,9 +97,12 @@ namespace TheAdventuresOf
 
 			if (!isDying && !delayThrow && !isSpawning && !isThrowing)
 			{
-				isThrowing = true;
+                if (activeBileObjects.Count < bileObjectLimit) 
+                {
+					isThrowing = true;
+                }
 			}
-			else if (!isDying && !delayThrow && !isSpawning && isThrowing)
+            else if (!isDying && !delayThrow && !isSpawning && isThrowing)
 			{
 				handleThrow(gameTime);
 			}
@@ -102,6 +110,7 @@ namespace TheAdventuresOf
 			{
 				//check if monster is ready to throw, so he can throw on the next frame
 				HandleThrowDelay(gameTime);
+
 				base.Update(gameTime, buttonPressed);
 			}
 		}
@@ -138,6 +147,7 @@ namespace TheAdventuresOf
             bile.isActive = true; //TODO: bile objects should only last a certain amount of time
 
 			activeBileObjects.Add(bile);
+            isThrowing = false;           
 		}
 	}
 }
