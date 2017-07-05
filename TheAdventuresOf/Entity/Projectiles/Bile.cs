@@ -11,19 +11,18 @@ namespace TheAdventuresOf
         public static float groundLevel;
 		public Vector2 originVector = new Vector2();
 
-		public bool isDead;
         bool isFalling;
         float parabolaX;
-        float transparency;
         float timeAlive;
 
 		public Bile()
 		{
             isFalling = false;
             isDead = false;
-            parabolaX = 0f;
-            transparency = 1.0f;
             timeAlive = 0.0f;
+
+            //TODO: move this to XML loading code
+            fadeSpeed = 0.8f;
 
 			entityBounds.Width = AssetManager.Instance.bileTexture.Width;
 			entityBounds.Height = AssetManager.Instance.bileTexture.Height;
@@ -80,27 +79,6 @@ namespace TheAdventuresOf
             //fade out process in the next frame, so we can get this thing off screen
             timeAlive = timeToLive;
 		}
-
-        /**
-         * Handle the projectile object fading out on monsters death
-         * or on expiration of projectile object
-         */
-        public void HandleFadeOut(GameTime gameTime) 
-        {
-			transparency -= (0.5f * ((float)gameTime.ElapsedGameTime.TotalSeconds));
-			tintColor = Color.White * transparency;
-
-            //wanted the bile object to hurt player for a short amount of time
-            //after monster actually died
-            if(transparency < 0.9 && transparency > 0.0) 
-            {
-                isActive = false;
-            }
-            else if(transparency <= 0.0) 
-            {
-                isDead = true;
-            }
-        }
 	}
 }
 

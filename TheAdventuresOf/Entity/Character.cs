@@ -11,11 +11,7 @@ namespace TheAdventuresOf
 	 **/
 	public class Character : Entity
 	{
-		public static float RIGHT_ANGLE_RADIANS = (90 * MathHelper.Pi) / 180;
-
 		public float animationSpeed;
-		public float rotationSpeed;
-		public float rotation = 0;
 
 		public Vector2 originVector;
 
@@ -46,20 +42,6 @@ namespace TheAdventuresOf
 			                                entityWidth, 
 			                                entityHeight);
 			InitializeAnimation();
-		}
-
-		public void Rotate(GameTime gameTime)
-		{
-			float degreesToRotate = rotationSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-			float radiansToRotate = (degreesToRotate * MathHelper.Pi) / 180;
-			if (moveLeft)
-			{
-				rotation -= radiansToRotate;
-			}
-			else if (moveRight)
-			{
-				rotation += radiansToRotate;
-			}
 		}
 
 		public override void Draw(SpriteBatch spriteBatch, Texture2D texture)

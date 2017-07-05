@@ -27,8 +27,8 @@ namespace TheAdventuresOf
 			actionDelayTime = cannonMonster.actionDelayTime;
 
 			//set Bullet specific stuff here
-			bulletSpeed = bullet.speed;
-			bulletTag = bullet.entityTag;
+			bulletSpeed = bullet.speed; //TODO: not a big fan of these being set here
+			bulletTag = bullet.entityTag; //TODO: not a big fan of these being set here rather than in XML
 
 			monsterTexture = AssetManager.Instance.cannonMonsterTexture;
 		}
@@ -75,7 +75,7 @@ namespace TheAdventuresOf
 		{
 			bullet.Update(gameTime);
 
-			if (!bullet.isActive)
+			if (bullet.isDead)
 			{
 				isShooting = false;
 				delayAction = true;
@@ -192,21 +192,7 @@ namespace TheAdventuresOf
 				bullet.InitializeEntity(0, Bullet.startYPos); //x pos will be set by cannon monster
 			}
 
-			bullet.speed = bulletSpeed;
-			bullet.entityTag = bulletTag;
-
-			if (moveLeft)
-			{
-				bullet.moveLeft = true;
-				bullet.positionVector.X = positionVector.X;
-			}
-			else if (moveRight)
-			{
-				bullet.moveRight = true;
-				bullet.positionVector.X = positionVector.X + entityWidth;
-			}
-
-			bullet.UpdateEntityBounds();
+            bullet.Reset(bulletSpeed, bulletTag, moveLeft, moveRight, positionVector.X, Bullet.startYPos, entityWidth);
 		}
 
 		//no reason to check collision with level bounds here

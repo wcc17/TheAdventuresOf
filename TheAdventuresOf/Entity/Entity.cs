@@ -11,12 +11,15 @@ namespace TheAdventuresOf
 	 **/
 	public class Entity
 	{
+        public static float RIGHT_ANGLE_RADIANS = (90 * MathHelper.Pi) / 180;
 		public string entityTag = "Entity";
 
 		public const int LEFT = 0;
 		public const int RIGHT = 1;
 
 		public float speed;
+		public float rotationSpeed;
+		public float rotation = 0;
 
 		public Rectangle entityBounds;
 
@@ -52,6 +55,20 @@ namespace TheAdventuresOf
 				case RIGHT:
 					positionVector.X = boundX - entityWidth;
 					break;
+			}
+		}
+
+		public void Rotate(GameTime gameTime)
+		{
+			float degreesToRotate = rotationSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+			float radiansToRotate = (degreesToRotate * MathHelper.Pi) / 180;
+			if (moveLeft)
+			{
+				rotation -= radiansToRotate;
+			}
+			else if (moveRight)
+			{
+				rotation += radiansToRotate;
 			}
 		}
 
