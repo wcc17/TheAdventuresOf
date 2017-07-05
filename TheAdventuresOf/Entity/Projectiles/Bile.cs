@@ -5,10 +5,8 @@ namespace TheAdventuresOf
 {
 	public class Bile : Projectile
 	{
-		//TODO: hardcoded value, needs to be loaded from XML
-		public static float timeToLive = 10.0f; 
-
         public static float groundLevel;
+        public static float timeToLive;
 		public Vector2 originVector = new Vector2();
 
         bool isFalling;
@@ -20,9 +18,6 @@ namespace TheAdventuresOf
             isFalling = false;
             isDead = false;
             timeAlive = 0.0f;
-
-            //TODO: move this to XML loading code
-            fadeSpeed = 0.8f;
 
 			entityBounds.Width = AssetManager.Instance.bileTexture.Width;
 			entityBounds.Height = AssetManager.Instance.bileTexture.Height;

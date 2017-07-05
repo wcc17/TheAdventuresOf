@@ -68,7 +68,6 @@ namespace TheAdventuresOf
 			level.rightBoundWidth = (int)levelOneElement.Element("RightBoundWidth");
 
 			LoadMonsterInformation(level, levelOneElement);
-			LoadProjectileInformation(level);
 		}
 
 		public static void LoadMonsterInformation(Level level, XElement levelElement)
@@ -170,6 +169,15 @@ namespace TheAdventuresOf
 			BileMonster.throwDelayTimeLimit = (float)bileMonsterElement.Element("ThrowDelayTimeLimit");
 			BileMonster.floatHeight = (float)bileMonsterElement.Element("FloatHeight");
 
+			//load projectile info here
+			XElement projectilesElement = projectileDocument.Element("Projectiles");
+			XElement bileElement = projectilesElement.Element("Bile");
+			BileMonster.bileEntityTag = (string)bileElement.Element("EntityTag");
+			BileMonster.bileSpeed = (float)bileElement.Element("Speed");
+            BileMonster.bileFadeSpeed = (float)bileElement.Element("FadeSpeed");
+			Bile.groundLevel = (float)bileElement.Element("GroundLevel");
+            Bile.timeToLive = (float)bileElement.Element("TimeToLive");
+
 			return bileMonster;
 		}
 
@@ -196,41 +204,16 @@ namespace TheAdventuresOf
 			float rightSideBound = AssetManager.Instance.levelTexture.Width - level.rightBoundWidth;
 			CannonMonster.rightSideX = rightSideBound - AssetManager.Instance.cannonMonsterTexture.Width - CannonMonster.boundOffset;
 
-			return cannonMonster;
-		}
-
-		public static void LoadProjectileInformation(Level level)
-		{
-			level.bile = LoadBileInformation();
-			level.bullet = LoadBulletInformation();
-		}
-
-		public static Bile LoadBileInformation()
-		{
-			Bile bile = new Bile();
-
-			XElement projectilesElement = projectileDocument.Element("Projectiles");
-			XElement bileElement = projectilesElement.Element("Bile");
-
-			bile.entityTag = (string)bileElement.Element("EntityTag");
-			bile.speed = (float)bileElement.Element("Speed");
-			Bile.groundLevel = (float)bileElement.Element("GroundLevel");
-
-			return bile;
-		}
-
-		public static Bullet LoadBulletInformation()
-		{
-			Bullet bullet = new Bullet();
-
+			//load projectile info here
 			XElement projectilesElement = projectileDocument.Element("Projectiles");
 			XElement bulletElement = projectilesElement.Element("Bullet");
-
-			bullet.entityTag = (string)bulletElement.Element("EntityTag");
-			bullet.speed = (float)bulletElement.Element("Speed");
+			CannonMonster.bulletEntityTag = (string)bulletElement.Element("EntityTag");
+			CannonMonster.bulletSpeed = (float)bulletElement.Element("Speed");
+            CannonMonster.bulletRotationSpeed = (float)bulletElement.Element("RotationSpeed");
+            CannonMonster.bulletFadeSpeed = (float)bulletElement.Element("FadeSpeed");
 			Bullet.startYPos = (float)bulletElement.Element("StartYPos");
 
-			return bullet;
+			return cannonMonster;
 		}
 	}
 }

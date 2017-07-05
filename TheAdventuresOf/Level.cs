@@ -13,8 +13,6 @@ namespace TheAdventuresOf
 		public SunMonster sunMonster;
 		public CannonMonster cannonMonster;
 		public BileMonster bileMonster;
-		public Bile bile;
-		public Bullet bullet;
 
 		public int leftBoundWidth;
 		public int rightBoundWidth;

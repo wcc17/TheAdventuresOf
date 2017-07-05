@@ -208,7 +208,7 @@ namespace TheAdventuresOf
 		{
 			BileMonster bileMonster = new BileMonster();
 
-			bileMonster.SetBileMonsterData(level.bileMonster, level.bile);
+			bileMonster.SetBileMonsterData(level.bileMonster);
 			bileMonster.groundLevel = level.groundLevel - BileMonster.floatHeight;
 			bileMonster.InitializeCharacter(getRandomXLocation(AssetManager.Instance.bileMonsterTexture.Width),
 											0 - AssetManager.Instance.bileMonsterTexture.Height,
@@ -225,7 +225,7 @@ namespace TheAdventuresOf
 		{
 			CannonMonster cannonMonster = new CannonMonster();
 
-			cannonMonster.SetCannonMonsterData(level.cannonMonster, level.bullet);
+			cannonMonster.SetCannonMonsterData(level.cannonMonster);
 			cannonMonster.groundLevel = level.groundLevel - CannonMonster.groundOffset;
 			//random side of the level is chosen here. if a cannon monster already exists there, it will be handled here
 			cannonMonster.ChooseRandomSide(cannonMonsterCount, monsters);

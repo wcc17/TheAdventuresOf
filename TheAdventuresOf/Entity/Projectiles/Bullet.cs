@@ -13,10 +13,6 @@ namespace TheAdventuresOf
         {
             entityBounds.Width = AssetManager.Instance.bulletTexture.Width;
             entityBounds.Height = AssetManager.Instance.bulletTexture.Height;
-
-            //TODO: Move this to XML loading code
-            rotationSpeed = 1000;
-            fadeSpeed = 1.3f;
         }
 
         public override void Update(GameTime gameTime, bool buttonPressed = false)
@@ -67,34 +63,6 @@ namespace TheAdventuresOf
 			UpdateEntityBounds();
 		}
 
-        public void Reset(float speed, string entityTag, bool moveLeft,
-                          bool moveRight, float x, float y, float monsterWidth) 
-        {
-            isDead = false;
-            hasCollidedWithPlayer = false;
-
-            this.transparency = 1.0f;
-            tintColor = Color.White * transparency;
-
-			this.speed = speed;
-            this.entityTag = entityTag;
-            this.rotation = 0;
-            this.moveLeft = moveLeft;
-            this.moveRight = moveRight;
-
-			positionVector.Y = y;
-            if (this.moveLeft) 
-            {
-                positionVector.X = x;
-            }
-            else 
-            {
-                positionVector.X = x + monsterWidth;
-            }
-
-			UpdateEntityBounds();
-        }
-
         void checkScreenPos()
         {
             if (moveLeft)
@@ -117,6 +85,34 @@ namespace TheAdventuresOf
                 }
             }
         }
+
+		public void Reset(string entityTag, float speed, float startX,
+                          float rotationSpeed, float fadeSpeed, bool moveLeft, 
+                          bool moveRight, float monsterWidth)
+		{
+			isDead = false;
+			hasCollidedWithPlayer = false;
+			rotation = 0;
+
+            transparency = 1.0f;
+            tintColor = Color.White * transparency;
+
+            this.entityTag = entityTag;
+            this.speed = speed;
+            this.rotationSpeed = rotationSpeed;
+            this.fadeSpeed = fadeSpeed;
+			this.moveLeft = moveLeft;
+			this.moveRight = moveRight;
+
+			positionVector.Y = startYPos;
+            positionVector.X = startX + monsterWidth;
+			if (this.moveLeft)
+			{
+				positionVector.X = startX;
+			}
+
+			UpdateEntityBounds();
+		}
     }
 }
 

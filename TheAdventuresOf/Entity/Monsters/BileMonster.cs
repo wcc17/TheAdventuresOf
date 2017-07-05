@@ -12,14 +12,16 @@ namespace TheAdventuresOf
         public static float throwDelayTimeLimit;
         public List<Bile> activeBileObjects;
 
-        public string bileTag;
-        public float bileSpeed;
+        public static string bileEntityTag;
+        public static float bileSpeed;
+        public static float bileFadeSpeed;
+
 
         public TimeSpan timeThrowDelayed = TimeSpan.FromSeconds(0);
         bool delayThrow = true;
         bool isThrowing = false;
 
-        public void SetBileMonsterData(BileMonster bileMonster, Bile bile)
+        public void SetBileMonsterData(BileMonster bileMonster)
         {
             entityTag = bileMonster.entityTag;
             speed = bileMonster.speed;
@@ -29,10 +31,6 @@ namespace TheAdventuresOf
             actionDelayTime = bileMonster.actionDelayTime;
             rotationSpeed = bileMonster.rotationSpeed;
             upDownSpeed = bileMonster.upDownSpeed;
-
-            //set bile specific info
-            bileSpeed = bile.speed;
-            bileTag = bile.entityTag;
 
             monsterTexture = AssetManager.Instance.bileMonsterTexture;
         }
@@ -163,8 +161,9 @@ namespace TheAdventuresOf
         {
             Bile bile = new Bile();
 
-            bile.entityTag = bileTag;
+            bile.entityTag = bileEntityTag;
             bile.speed = bileSpeed;
+            bile.fadeSpeed = bileFadeSpeed;
             bile.moveLeft = moveLeft;
             bile.moveRight = moveRight;
             bile.positionVector.X = positionVector.X;
@@ -172,7 +171,7 @@ namespace TheAdventuresOf
             bile.originVector.X = positionVector.X;
             bile.originVector.Y = positionVector.Y;
             bile.UpdateEntityBounds();
-            bile.isActive = true; //TODO: bile objects should only last a certain amount of time
+            bile.isActive = true; 
 
             activeBileObjects.Add(bile);
             isThrowing = false;

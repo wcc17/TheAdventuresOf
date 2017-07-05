@@ -15,21 +15,19 @@ namespace TheAdventuresOf
 		bool isShooting;
 
 		public Bullet bullet;
-		float bulletSpeed;
-		string bulletTag;
+        public static string bulletEntityTag;
+        public static float bulletSpeed;
+        public static float bulletStartYPos;
+        public static float bulletRotationSpeed;
+        public static float bulletFadeSpeed;
 
-		public void SetCannonMonsterData(CannonMonster cannonMonster, Bullet bullet)
+		public void SetCannonMonsterData(CannonMonster cannonMonster)
 		{
 			entityTag = cannonMonster.entityTag;
 			frameCount = cannonMonster.frameCount;
 			rotationSpeed = cannonMonster.rotationSpeed;
 			upDownSpeed = cannonMonster.upDownSpeed;
 			actionDelayTime = cannonMonster.actionDelayTime;
-
-			//set Bullet specific stuff here
-			bulletSpeed = bullet.speed; //TODO: not a big fan of these being set here
-			bulletTag = bullet.entityTag; //TODO: not a big fan of these being set here rather than in XML
-
 			monsterTexture = AssetManager.Instance.cannonMonsterTexture;
 		}
 
@@ -189,10 +187,12 @@ namespace TheAdventuresOf
 			if (bullet == null)
 			{
 				bullet = new Bullet();
-				bullet.InitializeEntity(0, Bullet.startYPos); //x pos will be set by cannon monster
+				bullet.InitializeEntity(0, 0); //x pos will be set by cannon monster
 			}
 
-            bullet.Reset(bulletSpeed, bulletTag, moveLeft, moveRight, positionVector.X, Bullet.startYPos, entityWidth);
+            bullet.Reset(bulletEntityTag, bulletSpeed, positionVector.X, 
+                         bulletRotationSpeed, bulletFadeSpeed, moveLeft, 
+                         moveRight, entityWidth);
 		}
 
 		//no reason to check collision with level bounds here

@@ -7,10 +7,14 @@
             because the ground level assumes that something
 			will be drawn from the top left corner down. -->
         <GroundLevel>740</GroundLevel>
+		<TimeToLive>10</TimeToLive>
+		<FadeSpeed>0.8</FadeSpeed>
     </Bile>
     <Bullet>
         <EntityTag>Bullet</EntityTag>
 		<Speed>400</Speed>
         <StartYPos>725</StartYPos>
+		<RotationSpeed>1000</RotationSpeed>
+		<FadeSpeed>1.3</FadeSpeed>
 	</Bullet>
 </Projectiles>
