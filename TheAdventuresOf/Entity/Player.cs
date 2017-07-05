@@ -105,7 +105,10 @@ namespace TheAdventuresOf
 				if ( (isKnockedBackLeft || isKnockedBackRight) && !isJumping )
 				{
 					HandleKnockBack(gameTime);
-				}
+                } else {
+                    isKnockedBackLeft = false;
+                    isKnockedBackRight = false;
+                }
 
 				HandleAnimation(gameTime);
 			}
@@ -136,9 +139,7 @@ namespace TheAdventuresOf
 			}
 			else if (positionVector.Y < groundLevel)
 			{
-                //TODO: I'll bet money that variableJumpSpeed here is what causes 
-                //TODO: the player to float up off of the screen on some deaths!!
-				positionVector.Y += (variableJumpSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                positionVector.Y += (jumpSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
 			}
 			else
 			{
@@ -230,7 +231,7 @@ namespace TheAdventuresOf
 
 		void handlePlayerTakingDamage(Entity entity)
 		{
-			//health--;
+			health--;
 
 			if (health > 0)
 			{
