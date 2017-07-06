@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace TheAdventuresOf
 {
@@ -86,6 +87,9 @@ namespace TheAdventuresOf
         public override void Update(GameTime gameTime, bool buttonPressed = false) 
         {
             float playerX = Level.playerManager.GetPlayerPosition().X;
+            float playerWidth = Level.playerManager.GetPlayerWidth();
+            float entityCenter = (positionVector.X + (entityWidth / 2));
+            float playerCenter = (playerX + (playerWidth / 2));
 
             if(isSpawning && !isDead) {
                 HandleSpawn(gameTime);
@@ -101,17 +105,19 @@ namespace TheAdventuresOf
                 }
                 else 
                 {
-                    if (positionVector.X < playerX)
+                    //these small offsets (-1 and +1) keeps monster from not being able to decide whether to go left or right
+                    if (entityCenter < (playerCenter - 1))
                     {
                         moveLeft = false;
                         moveRight = true;
                     }
-                    else if (positionVector.X > playerX)
+                    else if (entityCenter > (playerCenter + 1))
                     {
                         moveLeft = true;
                         moveRight = false;
                     }
                     else {
+                        //this will only happen ifplayer isn't moving
                         moveLeft = false;
                         moveRight = false;
                     }
@@ -163,7 +169,7 @@ namespace TheAdventuresOf
                 positionVector.Y += distanceToMove;
                 UpdateEntityBounds();
 
-                attackSpeed += 45;
+                attackSpeed += 35;
 
                 if(positionVector.Y > (Screen.FULL_SCREEN_HEIGHT + entityHeight) )
                 {
@@ -234,6 +240,22 @@ namespace TheAdventuresOf
                 isMovingState = false;
                 isIdleState = false;
                 isAttackState = true;
+            }
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            //we don't want the monster to act weird when player isn't moving
+            //make the base Draw method draw it going in a certain direction
+            //then immediately make moveRight false so that movement isnt affected
+            if(!moveLeft && !moveRight) {
+                moveRight = true;              
+                base.Draw(spriteBatch, monsterTexture);
+                moveRight = false;
+            }
+            else 
+            {
+                base.Draw(spriteBatch, monsterTexture);
             }
         }
     }

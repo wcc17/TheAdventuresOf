@@ -36,5 +36,10 @@ namespace TheAdventuresOf
         {
             return player.positionVector;    
         }
+
+        public float GetPlayerWidth() 
+        {
+            return player.entityWidth;    
+        }
     }
 }
