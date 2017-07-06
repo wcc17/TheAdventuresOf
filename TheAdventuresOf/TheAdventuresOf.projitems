@@ -33,6 +33,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Projectiles\Projectile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\ObjectPool.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MonsterSpawner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\SpikeMonster.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PlayerManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

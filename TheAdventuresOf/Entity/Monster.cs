@@ -22,46 +22,30 @@ namespace TheAdventuresOf
 		//don't want to instantiate a new Random object every frame
 		public Random rand = new Random();
 
-		public virtual void HandleSpawn(GameTime gameTime) { }
-		public virtual void InitializeSpawn() { }
-		public override void HandleAnimation(GameTime gameTime) { }
+        public virtual void InitializeSpawn() { }
+        public virtual void HandleSpawn(GameTime gameTime) { }
+        public override void HandleAnimation(GameTime gameTime) { }
 
-		public Texture2D monsterTexture;
+        public Texture2D monsterTexture;
 
-		public void InitializeMonster()
-		{
-			rotation = 0;
-			isSpawning = false;
-			currentAnimation = standAnimation;
-			UpdateEntityBounds();
-		}
+        public void InitializeMonster()
+        {
+            rotation = 0;
+            isSpawning = false;
+            currentAnimation = standAnimation;
+            UpdateEntityBounds();
+        }
 
-		public override void InitializeAnimation()
-		{
-			if (entityTag.Equals("BlockMonster"))
-			{
-				Console.WriteLine("break");	
-			}
+        public override void InitializeAnimation()
+        {
+            standAnimation = new Animation();
+            standAnimation.AddFrame(new Rectangle(0,
+                                                  0,
+                                                  entityWidth,
+                                                  entityHeight), TimeSpan.FromSeconds(animationSpeed));
 
-			if (frameCount > 1)
-			{
-				walkAnimation = new Animation();
-				walkAnimation.AddFrame(new Rectangle(entityWidth,
-													 0,
-													 entityWidth,
-													 entityHeight), TimeSpan.FromSeconds(animationSpeed));
-			}
-
-			standAnimation = new Animation();
-			standAnimation.AddFrame(new Rectangle(0,
-			                                      0,
-			                                      entityWidth,
-			                                      entityHeight), TimeSpan.FromSeconds(animationSpeed));
-
-			currentAnimation = standAnimation;
-
-			base.InitializeAnimation();
-		}
+            currentAnimation = standAnimation;
+        }
 
 		public override void HandleLevelBoundCollision(int direction, int boundX)
 		{
@@ -110,7 +94,6 @@ namespace TheAdventuresOf
 			}
 		}
 
-		//overridden in CannonMonster
 		public override void Update(GameTime gameTime, bool buttonPressed = false)
 		{
 			if (!isDying && !delayAction && !isSpawning)
@@ -180,6 +163,7 @@ namespace TheAdventuresOf
 			}
 		}
 
+        //TODO: why does this take in an int for direction? We have moveLeft and moveRight
 		public override void Move(GameTime gameTime, int direction)
 		{
 			float distanceToMove = (speed * (float)gameTime.ElapsedGameTime.TotalSeconds);

@@ -26,6 +26,7 @@ namespace TheAdventuresOf
 		public Texture2D sunMonsterTexture;
 		public Texture2D cannonMonsterTexture;
 		public Texture2D bileMonsterTexture;
+        public Texture2D spikeMonsterTexture;
 
 		public Texture2D bulletTexture;
 		public Texture2D bileTexture;
@@ -81,6 +82,7 @@ namespace TheAdventuresOf
 		//TODO: eventually add logic for reloading textures based on what level the player is on 
 		public void LoadLevelAssets(GraphicsDevice graphicsDevice)
 		{
+            //monsters
 			using (var stream = TitleContainer.OpenStream(filePath + "character_1080p.png"))
 			{
 				playerTexture = Texture2D.FromStream(graphicsDevice, stream);
@@ -101,20 +103,27 @@ namespace TheAdventuresOf
 			{
 				cannonMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
-			using (var stream = TitleContainer.OpenStream(filePath + "bullet_1080p.png"))
-			{
-				bulletTexture = Texture2D.FromStream(graphicsDevice, stream);
-			}
 			using (var stream = TitleContainer.OpenStream(filePath + "bilemonster_1080p.png"))
 			{
 				bileMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
+            using (var stream = TitleContainer.OpenStream(filePath + "spikemonster_1080p.png"))
+            {
+                spikeMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+
+            //projectiles
+            using (var stream = TitleContainer.OpenStream(filePath + "bullet_1080p.png"))
+            {
+                bulletTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
 			using (var stream = TitleContainer.OpenStream(filePath + "bile_1080p.png"))
 			{
 				bileTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
 		}
 
+        //TODO: this needs to be called when new level happens and when game closes
 		public void DisposeLevelAssets()
 		{
 			playerTexture.Dispose();
@@ -122,6 +131,11 @@ namespace TheAdventuresOf
 			blockMonsterTexture.Dispose();
 			sunMonsterTexture.Dispose();
 			cannonMonsterTexture.Dispose();
+            bileMonsterTexture.Dispose();
+            spikeMonsterTexture.Dispose();
+
+            bulletTexture.Dispose();
+            bileTexture.Dispose();
 		}
 	}
 }

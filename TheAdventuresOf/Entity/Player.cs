@@ -231,7 +231,7 @@ namespace TheAdventuresOf
 
 		void handlePlayerTakingDamage(Entity entity)
 		{
-			health--;
+			//health--;
 
 			if (health > 0)
 			{

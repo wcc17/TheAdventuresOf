@@ -76,17 +76,21 @@ namespace TheAdventuresOf
 			level.sunMonsterLimit = (int)levelElement.Element("SunMonsterLimit");
 			level.cannonMonsterLimit = (int)levelElement.Element("CannonMonsterLimit");
 			level.bileMonsterLimit = (int)levelElement.Element("BileMonsterLimit");
+            level.spikeMonsterLimit = (int)levelElement.Element("SpikeMonsterLimit");
 			level.spawnDelayTime = (float)levelElement.Element("SpawnDelayTime");
 			level.delayCannonSpawnTimerLimit = (float)levelElement.Element("DelayCannonSpawnTimeLimit");
 
 			level.blockMonster = LoadBlockMonsterInformation();
 			level.sunMonster = LoadSunMonsterInformation();
-			level.bileMonster = LoadBileMonsterInformation();
-			level.cannonMonster = LoadCannonMonsterInformation(level);
+            level.cannonMonster = LoadCannonMonsterInformation(level);
+            level.bileMonster = LoadBileMonsterInformation();
+            level.spikeMonster = LoadSpikeMonsterInformation();
 		}
 
-		public static void LoadPlayerInformation(Player player)
+		public static Player LoadPlayerInformation()
 		{
+            Player player = new Player();
+
 			XElement charactersElement = characterDocument.Element("Characters");
 			XElement playerElement = charactersElement.Element("Player");
 
@@ -104,6 +108,8 @@ namespace TheAdventuresOf
 			player.knockBackDistanceLimit = (float)playerElement.Element("KnockBackDistanceLimit");
 			player.knockBackSpeed = (int)playerElement.Element("KnockBackSpeed");
 			player.rotationSpeed = (int)playerElement.Element("RotationSpeed");
+
+            return player;
 		}
 
 		public static BlockMonster LoadBlockMonsterInformation()
@@ -215,6 +221,29 @@ namespace TheAdventuresOf
 
 			return cannonMonster;
 		}
+
+        public static SpikeMonster LoadSpikeMonsterInformation() 
+        {
+            SpikeMonster spikeMonster = new SpikeMonster();
+
+            XElement charactersElement = characterDocument.Element("Characters");
+            XElement monstersElement = charactersElement.Element("Monsters");
+            XElement spikeMonsterElement = monstersElement.Element("SpikeMonster");
+
+            spikeMonster.entityTag = (string)spikeMonsterElement.Element("EntityTag");
+            spikeMonster.frameCount = (int)spikeMonsterElement.Element("FrameCount");
+            spikeMonster.speed = (float)spikeMonsterElement.Element("Speed");
+            spikeMonster.moveDistanceLimit = (int)spikeMonsterElement.Element("MoveDistanceLimit");
+            spikeMonster.rotationSpeed = (float)spikeMonsterElement.Element("RotationSpeed");
+            spikeMonster.upDownSpeed = (float)spikeMonsterElement.Element("UpDownSpeed");
+            spikeMonster.actionDelayTime = (float)spikeMonsterElement.Element("ActionDelayTime");
+
+            SpikeMonster.floatHeight = (float)spikeMonsterElement.Element("FloatHeight");
+            SpikeMonster.attackSpeed = (float)spikeMonsterElement.Element("AttackSpeed");
+            SpikeMonster.attackDelayTime = (float)spikeMonsterElement.Element("AttackDelayTime");
+
+            return spikeMonster;
+        }
 	}
 }
 

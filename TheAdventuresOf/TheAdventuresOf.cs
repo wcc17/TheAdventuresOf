@@ -37,7 +37,6 @@ namespace TheAdventuresOf
 		{
 			screen = new Screen(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
 			level = new Level();
-			player = new Player();
 			base.Initialize();
 
 		}
@@ -56,13 +55,8 @@ namespace TheAdventuresOf
 
 			XmlImporter.LoadGameInformation();
 			XmlImporter.LoadLevelInformation(level);
-			XmlImporter.LoadPlayerInformation(player);
 
 			level.InitializeLevel();
-			player.InitializePlayer(200f, 
-		                            level.groundLevel, 
-		                            AssetManager.Instance.playerTexture.Width / player.frameCount, 
-		                            AssetManager.Instance.playerTexture.Height);
 
 			FrameRate.LoadContent(Content);
 			Controller.InitializeController();
@@ -83,10 +77,7 @@ namespace TheAdventuresOf
 			#endif
 
 			screen.Update(gameTime);
-			player.Update(gameTime, Controller.isButtonPressed);
-			level.Update(gameTime, player);
-			level.CheckCollision(player);
-
+			level.Update(gameTime);
 			base.Update(gameTime);
 		}
 
@@ -100,9 +91,6 @@ namespace TheAdventuresOf
 
 			//Draw level related stuff (background and monsters)
 			level.Draw(spriteBatch);
-
-			//Draw player
-			player.Draw(spriteBatch, AssetManager.Instance.playerTexture);
 
 			//Draw controller and buttons
 			Controller.Draw(spriteBatch);

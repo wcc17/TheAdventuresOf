@@ -13,6 +13,7 @@ namespace TheAdventuresOf
 		public SunMonster sunMonster;
 		public CannonMonster cannonMonster;
 		public BileMonster bileMonster;
+        public SpikeMonster spikeMonster;
 
 		public int leftBoundWidth;
 		public int rightBoundWidth;
@@ -22,11 +23,13 @@ namespace TheAdventuresOf
 		public int sunMonsterLimit;
 		public int cannonMonsterLimit;
 		public int bileMonsterLimit;
+        public int spikeMonsterLimit;
 
 		public float spawnDelayTime; //time before another monster can be spawned
 		public float delayCannonSpawnTimerLimit; //time before spawning another cannonMonster is considered
 
-		public MonsterManager monsterManager;
+		public static MonsterManager monsterManager;
+        public static PlayerManager playerManager;
 
 		public Level()
 		{
@@ -38,33 +41,52 @@ namespace TheAdventuresOf
 			leftSideBounds = new Rectangle(0, 0, leftBoundWidth, AssetManager.Instance.levelTexture.Height);
 			rightSideBounds = new Rectangle(AssetManager.Instance.levelTexture.Width - rightBoundWidth, 0, rightBoundWidth, AssetManager.Instance.levelTexture.Height);
 
+            playerManager = new PlayerManager(this);
 			monsterManager = new MonsterManager(this);
 		}
 
-		public void CheckCollision(Character character)
+		public void Update(GameTime gameTime)
 		{
-			if (leftSideBounds.Intersects(character.entityBounds))
-			{
-				character.HandleLevelBoundCollision(Entity.LEFT, leftBoundWidth);
-			}
+            playerManager.Update(gameTime);
 
-			if (rightSideBounds.Intersects(character.entityBounds))
-			{
-				character.HandleLevelBoundCollision(Entity.RIGHT, AssetManager.Instance.levelTexture.Width - rightBoundWidth);
-			}
-		}
-
-		public void Update(GameTime gameTime, Player player)
-		{
 			monsterManager.HandleSpawnMonsters(gameTime);
-			monsterManager.UpdateMonsters(gameTime, this, player);
+            monsterManager.UpdateMonsters(gameTime, this);
 		}
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
+            //Draw level
 			spriteBatch.Draw(AssetManager.Instance.levelTexture, levelPositionVector);
-			monsterManager.DrawMonsters(spriteBatch);
+			
+            //Draw monsters
+            monsterManager.DrawMonsters(spriteBatch);
+
+            //Draw player
+            playerManager.Draw(spriteBatch);
 		}
+
+        public void CheckCollisionWithBounds(Character character)
+        {
+            if (leftSideBounds.Intersects(character.entityBounds))
+            {
+                character.HandleLevelBoundCollision(Entity.LEFT, leftBoundWidth);
+            }
+
+            if (rightSideBounds.Intersects(character.entityBounds))
+            {
+                character.HandleLevelBoundCollision(Entity.RIGHT, AssetManager.Instance.levelTexture.Width - rightBoundWidth);
+            }
+        }
+
+        public void CheckPlayerCollisionProjectile(Projectile proj)
+        {
+            PlayerManager.player.CheckCollisionProjectile(proj);
+        }
+
+        public void CheckPlayerCollisionWithMonster(Monster monster)
+        {
+            PlayerManager.player.CheckCollisionMonster(monster);
+        }
 	}
 }
 

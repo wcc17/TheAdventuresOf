@@ -61,5 +61,17 @@
       <GroundOffset>45</GroundOffset>
       <BoundOffset>40</BoundOffset>
     </CannonMonster>
+	<SpikeMonster>
+      <EntityTag>SpikeMonster</EntityTag>
+      <Speed>200</Speed>
+      <FrameCount>3</FrameCount>
+      <MoveDistanceLimit>150</MoveDistanceLimit>
+      <ActionDelayTime>10</ActionDelayTime>
+	  <AttackDelayTime>1</AttackDelayTime>		
+      <RotationSpeed>350</RotationSpeed>
+      <UpDownSpeed>175</UpDownSpeed>
+	  <AttackSpeed>525</AttackSpeed>
+	  <FloatHeight>250</FloatHeight>		
+    </SpikeMonster>
   </Monsters>
 </Characters>

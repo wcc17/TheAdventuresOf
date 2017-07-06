@@ -144,11 +144,10 @@ namespace TheAdventuresOf
                 if (!bile.isDead)
                 {
                     bile.Update(gameTime);
-                    Console.WriteLine("size of active objects: " + activeBileObjects.Count);
                 }
             }
+            //TODO: ensure that old bile objects are actually being gotten rid of
             activeBileObjects.RemoveAll(bile => bile.isDead == true);
-            Console.WriteLine("size of active objects after removing: " + activeBileObjects.Count);
         }
 
         void handleThrow(GameTime gameTime)

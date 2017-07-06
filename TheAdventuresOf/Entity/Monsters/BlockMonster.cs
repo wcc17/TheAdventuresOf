@@ -1,6 +1,5 @@
 using System;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace TheAdventuresOf
 {
@@ -19,6 +18,17 @@ namespace TheAdventuresOf
 
 			monsterTexture = AssetManager.Instance.blockMonsterTexture;
 		}
+
+        public override void InitializeAnimation() 
+        {
+            base.InitializeAnimation();
+
+            walkAnimation = new Animation();
+            walkAnimation.AddFrame(new Rectangle(entityWidth,
+                                                 0,
+                                                 entityWidth,
+                                                 entityHeight), TimeSpan.FromSeconds(animationSpeed));
+        }
 
 		public override void InitializeSpawn()
 		{

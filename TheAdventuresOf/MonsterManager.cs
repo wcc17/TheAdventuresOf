@@ -14,6 +14,7 @@ namespace TheAdventuresOf
 		public int sunMonsterCount;
 		public int cannonMonsterCount;
 		public int bileMonsterCount;
+        public int spikeMonsterCount;
 
 		public static List<Monster> monsters;
 		public List<Monster> monstersToRemove;
@@ -83,6 +84,11 @@ namespace TheAdventuresOf
 					spawnBileMonster();
 				}
 
+                if (spikeMonsterCount < level.spikeMonsterLimit)
+                {
+                    spawnSpikeMonster();
+                }
+
 				canSpawn = false;
 			}
 		}
@@ -105,26 +111,30 @@ namespace TheAdventuresOf
 			{
 				bileMonsterCount--;
 			}
+            else if (monster is SpikeMonster)
+            {
+                spikeMonsterCount--;
+            }
 		}
 
-		public void UpdateMonsters(GameTime gameTime, Level level, Player player)
+		public void UpdateMonsters(GameTime gameTime, Level level)
 		{
 			//update each monster and remove them if they're dead
 			foreach (Monster monster in monsters)
 			{
-				//these methods go first so that monster can update in reaction to them
-				level.CheckCollision(monster);
-				player.CheckCollisionMonster(monster);
+                //these methods go first so that monster can update in reaction to them
+				level.CheckCollisionWithBounds(monster);
+                level.CheckPlayerCollisionWithMonster(monster);
 
 				if (monster is CannonMonster)
 				{
-					player.CheckCollisionProjectile(((CannonMonster)monster).bullet);
+                    level.CheckPlayerCollisionProjectile(((CannonMonster)monster).bullet);
 				}
                 if (monster is BileMonster) 
                 {
                     foreach (Bile bile in ((BileMonster) monster).activeBileObjects) 
                     {
-						player.CheckCollisionProjectile(bile);    
+                        level.CheckPlayerCollisionProjectile(bile);    
                     }
                 }
 
@@ -239,6 +249,23 @@ namespace TheAdventuresOf
 
 			cannonMonsterCount++;
 		}
+
+        void spawnSpikeMonster() 
+        {
+            SpikeMonster spikeMonster = new SpikeMonster();
+
+            spikeMonster.SetSpikeMonsterData(level.spikeMonster);
+            spikeMonster.groundLevel = level.groundLevel - SpikeMonster.floatHeight;
+            spikeMonster.InitializeCharacter(getRandomXLocation(AssetManager.Instance.spikeMonsterTexture.Width),
+                                             0 - AssetManager.Instance.spikeMonsterTexture.Height,
+                                             AssetManager.Instance.spikeMonsterTexture.Width / spikeMonster.frameCount,
+                                             AssetManager.Instance.spikeMonsterTexture.Height);
+            spikeMonster.InitializeSpawn();
+
+            monsters.Add(spikeMonster);
+
+            spikeMonsterCount++;
+        }
 
 		void handleCannonMonsterSpawn()
 		{
