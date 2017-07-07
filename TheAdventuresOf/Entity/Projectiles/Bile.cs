@@ -44,7 +44,7 @@ namespace TheAdventuresOf
 		public override void Move(GameTime gameTime, int direction = 0)
 		{
 			int directionMultiplier = 1;
-			if (moveRight)
+            if (moveLeft)
 			{
 				directionMultiplier = -1;
 			}

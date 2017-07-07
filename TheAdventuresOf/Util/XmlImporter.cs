@@ -172,8 +172,10 @@ namespace TheAdventuresOf
 			bileMonster.upDownSpeed = (float)bileMonsterElement.Element("UpDownSpeed");
 
 			BileMonster.bileObjectLimit = (float)bileMonsterElement.Element("BileObjectLimit");
-			BileMonster.throwDelayTimeLimit = (float)bileMonsterElement.Element("ThrowDelayTimeLimit");
-			BileMonster.floatHeight = (float)bileMonsterElement.Element("FloatHeight");
+            BileMonster.floatHeight = (float)bileMonsterElement.Element("FloatHeight");
+            BileMonster.buildupDelayTimeLimit = (float)bileMonsterElement.Element("BuildUpDelayTimeLimit");
+            BileMonster.buildUpTimeLimit = (float)bileMonsterElement.Element("BuildUpTimeLimit");
+            BileMonster.throwTimeLimit = (float)bileMonsterElement.Element("ThrowTimeLimit");
 
 			//load projectile info here
 			XElement projectilesElement = projectileDocument.Element("Projectiles");

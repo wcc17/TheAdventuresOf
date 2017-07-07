@@ -16,13 +16,6 @@ namespace TheAdventuresOf
         //differentiation from attackState to be clear about each one means. isAttacking is attacking, isAttackState is for animation
         bool isAttacking = false; 
 
-        bool isMovingState; //is different from isMoving. Related to animation. Idle state can occur while monster is still moving
-        bool isIdleState;
-        bool isAttackState;
-
-        int shakeState = 0;
-        float shakeAmt = 0;
-
         Animation attackAnimation;
         Animation movingAnimation;
 
@@ -43,16 +36,11 @@ namespace TheAdventuresOf
         {
             Reset();
 
-
             //doesn't really matter what direction, just need one to draw 
             moveLeft = true; 
             isSpawning = true;
             isAttacking = false;
             delayAction = true;
-
-            isIdleState = true;
-            isMovingState = false;
-            isAttackState = false;
         }
 
         public override void InitializeAnimation()
@@ -97,7 +85,6 @@ namespace TheAdventuresOf
             else if(!isDead)
             {
                 handleState(playerX);
-                HandleAnimation(gameTime);
 
                 if (!delayAction)
                 {
@@ -105,13 +92,13 @@ namespace TheAdventuresOf
                 }
                 else 
                 {
-                    //these small offsets (-1 and +1) keeps monster from not being able to decide whether to go left or right
-                    if (entityCenter < (playerCenter - 1))
+                    //these small offsets (-3 and +3) keeps monster from not being able to decide whether to go left or right
+                    if (entityCenter < (playerCenter - 3))
                     {
                         moveLeft = false;
                         moveRight = true;
                     }
-                    else if (entityCenter > (playerCenter + 1))
+                    else if (entityCenter > (playerCenter + 3))
                     {
                         moveLeft = true;
                         moveRight = false;
@@ -128,23 +115,6 @@ namespace TheAdventuresOf
             }
         }
 
-        public override void HandleAnimation(GameTime gameTime) 
-        {
-            if(isMovingState) 
-            {
-                currentAnimation = movingAnimation;    
-            }
-            else if(isIdleState)
-            {
-                currentAnimation = standAnimation;
-            }
-            else if(isAttackState)
-            {
-                currentAnimation = attackAnimation;
-            }
-                        
-        }
-
         void handleAction(GameTime gameTime) 
         {
             if(!isAttacking) {
@@ -153,12 +123,11 @@ namespace TheAdventuresOf
                 if (attackTimeDelayed.TotalSeconds > attackDelayTime)
                 {
                     isAttacking = true;
-                    isAttackState = true;
                     attackTimeDelayed = TimeSpan.FromSeconds(0);
                 }
                 else 
                 {
-                    handleAttackBuildup(gameTime);
+                    HandleShake(gameTime);
                 }
             }
             else 
@@ -179,44 +148,6 @@ namespace TheAdventuresOf
             }
         }
 
-        void handleAttackBuildup(GameTime gameTime)
-        {
-            float shakeDistance = 300 * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            Console.WriteLine(shakeDistance);
-            shakeAmt += shakeDistance;
-
-            switch(shakeState) {
-                case 0:
-                    Console.WriteLine("shake right");
-                    positionVector.X += shakeDistance;
-                    break;
-                case 1:
-                    Console.WriteLine("shake up");
-                    positionVector.Y -= shakeDistance;
-                    break;
-                case 2:
-                    Console.WriteLine("shake left");
-                    positionVector.X -= shakeDistance;
-                    break;
-                case 3:
-                    Console.WriteLine("shake down");
-                    positionVector.Y += shakeDistance;
-                    break;
-            }
-
-            //TODO: re-evaluate
-            UpdateEntityBounds();
-
-            if(shakeAmt > 4) {
-                shakeAmt = 0;
-                shakeState++;
-
-                if(shakeState > 3) {
-                    shakeState = 0;
-                }
-            }
-        }
-
         void handleState(float playerX) 
         {
             if (delayAction) 
@@ -224,22 +155,16 @@ namespace TheAdventuresOf
                 //TODO: magic number, do I want in XML or nah? just distance from player where idle animation is used
                 if ( (positionVector.X < (playerX - 35)) || (positionVector.X > (playerX + 35)) )
                 {   
-                    isMovingState = true;
-                    isIdleState = false;
-                    isAttackState = false;
+                    currentAnimation = movingAnimation;
                 }
                 else
                 {
-                    isMovingState = false;
-                    isIdleState = true;
-                    isAttackState = false;
+                    currentAnimation = standAnimation;
                 }
             }
             else 
             {
-                isMovingState = false;
-                isIdleState = false;
-                isAttackState = true;
+                currentAnimation = attackAnimation;
             }
         }
 

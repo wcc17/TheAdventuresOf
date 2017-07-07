@@ -28,6 +28,9 @@ namespace TheAdventuresOf
 
         public Texture2D monsterTexture;
 
+        int shakeState = 0;
+        float shakeAmt = 0;
+
         public void InitializeMonster()
         {
             rotation = 0;
@@ -193,12 +196,59 @@ namespace TheAdventuresOf
 			}
 		}
 
+        //TODO: Action is the wrong word everywhere. Should be ForceMovement and delayMovement
+        /**
+         * ForceAction keeps clear that we are forcing the monster to move on the
+         * next frame. This was more obvious than including the inner code somehwere
+         */
+        public virtual void ForceAction() 
+        {
+            delayAction = false;
+            timeDelayed = TimeSpan.FromSeconds(0); 
+        }
+
 		public virtual void Draw(SpriteBatch spriteBatch)
 		{
 			base.Draw(spriteBatch, monsterTexture);
 		}
 
-		public void Reset()
+        public virtual void HandleShake(GameTime gameTime)
+        {
+            //TODO: magic number, do I want in XML or nah?
+            float shakeDistance = 300 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            shakeAmt += shakeDistance;
+
+            switch (shakeState)
+            {
+                case 0:
+                    positionVector.X += shakeDistance;
+                    break;
+                case 1:
+                    positionVector.Y -= shakeDistance;
+                    break;
+                case 2:
+                    positionVector.X -= shakeDistance;
+                    break;
+                case 3:
+                    positionVector.Y += shakeDistance;
+                    break;
+            }
+
+            UpdateEntityBounds();
+
+            if (shakeAmt > 4)
+            {
+                shakeAmt = 0;
+                shakeState++;
+
+                if (shakeState > 3)
+                {
+                    shakeState = 0;
+                }
+            }
+        }
+
+		public virtual void Reset()
 		{
 			isSpawning = false;
 			isDying = false;

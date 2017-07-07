@@ -9,17 +9,24 @@ namespace TheAdventuresOf
     {
         public static float floatHeight;
         public static float bileObjectLimit;
-        public static float throwDelayTimeLimit;
         public List<Bile> activeBileObjects;
+        public static float buildupDelayTimeLimit;
+        public static float buildUpTimeLimit;
+        public static float throwTimeLimit;
 
         public static string bileEntityTag;
         public static float bileSpeed;
         public static float bileFadeSpeed;
 
+        bool delayBuildup = true; //wait to start building up
+        bool isThrowing = false; //is actually tossing bile object
 
-        public TimeSpan timeThrowDelayed = TimeSpan.FromSeconds(0);
-        bool delayThrow = true;
-        bool isThrowing = false;
+        Animation buildUpAnimation;
+        Animation throwAnimation;
+
+        Timer buildupDelayTimer = new Timer(buildupDelayTimeLimit);
+        Timer buildupTimer = new Timer(buildUpTimeLimit);
+        Timer throwTimer = new Timer(throwTimeLimit);
 
         public void SetBileMonsterData(BileMonster bileMonster)
         {
@@ -43,11 +50,26 @@ namespace TheAdventuresOf
             ChooseRandomDirection();
 
             isSpawning = true;
-
-            //don't want him to begin shooting as soon as he spawns
             delayAction = true;
 
             activeBileObjects = new List<Bile>();
+        }
+
+        public override void InitializeAnimation()
+        {
+            base.InitializeAnimation();
+
+            buildUpAnimation = new Animation();
+            buildUpAnimation.AddFrame(new Rectangle(entityWidth,
+                                                    0,
+                                                    entityWidth,
+                                                    entityHeight), TimeSpan.FromSeconds(animationSpeed));
+
+            throwAnimation = new Animation();
+            throwAnimation.AddFrame(new Rectangle(entityWidth*2,
+                                                  0,
+                                                  entityWidth,
+                                                  entityHeight), TimeSpan.FromSeconds(animationSpeed));
         }
 
         public override void HandleSpawn(GameTime gameTime)
@@ -68,54 +90,25 @@ namespace TheAdventuresOf
             handleBileObjectsOnDeath(gameTime);
         }
 
-        /**
-         * Handles fading out the bile objects if the bile monster dies 
-         */
-        void handleBileObjectsOnDeath(GameTime gameTime)
-        {
-
-            if (isDead)
-            {
-                activeBileObjects.Clear();
-            }
-            else
-            {
-                foreach (Bile bile in activeBileObjects)
-                {
-                    bile.HandleFadeOut(gameTime);
-                }
-            }
-        }
-
-        public void HandleThrowDelay(GameTime gameTime)
-        {
-            timeThrowDelayed = timeThrowDelayed.Add(gameTime.ElapsedGameTime);
-            if (timeThrowDelayed.TotalSeconds > throwDelayTimeLimit)
-            {
-                delayThrow = false;
-                timeThrowDelayed = TimeSpan.FromSeconds(0);
-            }
-        }
-
         public override void Update(GameTime gameTime, bool buttonPressed = false)
         {
             updateBileObjects(gameTime);
 
-            if (!isDying && !delayThrow && !isSpawning && !isThrowing)
+            if (!isDying && !delayBuildup && !isSpawning && !isThrowing)
             {
                 if (activeBileObjects.Count < bileObjectLimit)
                 {
-                    isThrowing = true;
+                    handleBuildUpAnimation(gameTime);
                 }
             }
-            else if (!isDying && !delayThrow && !isSpawning && isThrowing)
+            else if (!isDying && !delayBuildup && !isSpawning && isThrowing)
             {
-                handleThrow(gameTime);
+                handleThrowAnimation(gameTime);
             }
             else
             {
                 //check if monster is ready to throw, so he can throw on the next frame
-                HandleThrowDelay(gameTime);
+                handleBuildUpDelay(gameTime);
 
                 base.Update(gameTime, buttonPressed);
             }
@@ -129,6 +122,98 @@ namespace TheAdventuresOf
             {
                 bile.Draw(spriteBatch, AssetManager.Instance.bileTexture);
             }
+        }
+
+        public override void Reset() 
+        {
+            base.Reset();
+
+            buildupDelayTimer.Reset();
+            buildupTimer.Reset();
+            throwTimer.Reset();
+        }
+
+        /**
+         * Handles fading out the bile objects if the bile monster dies 
+         */
+        void handleBileObjectsOnDeath(GameTime gameTime)
+        {
+            if (isDead)
+            {
+                activeBileObjects.Clear();
+            }
+            else
+            {
+                foreach (Bile bile in activeBileObjects)
+                {
+                    bile.HandleFadeOut(gameTime);
+                }
+            }
+        }
+
+        void handleBuildUpDelay(GameTime gameTime)
+        {
+            currentAnimation = standAnimation;
+
+            bool timeUp = buildupDelayTimer.IsTimeUp(gameTime.ElapsedGameTime);
+            if(timeUp) 
+            {
+                delayBuildup = false;
+                buildupDelayTimer.Reset();
+            }
+        }
+
+        void handleBuildUpAnimation(GameTime gameTime)
+        {
+            currentAnimation = buildUpAnimation;
+
+            HandleShake(gameTime);
+
+            bool timeUp = buildupTimer.IsTimeUp(gameTime.ElapsedGameTime);
+            if(timeUp) 
+            {
+                isThrowing = true;
+                spawnNewBileObject();
+                buildupTimer.Reset();
+            }
+        }
+
+        void handleThrowAnimation(GameTime gameTime)
+        {
+            currentAnimation = throwAnimation;
+
+            handleThrowRotation(gameTime);
+
+            bool timeUp = throwTimer.IsTimeUp(gameTime.ElapsedGameTime);
+            if(timeUp) {
+                rotation = 0;
+
+                isThrowing = false;
+                delayBuildup = true;
+                throwTimer.Reset();
+
+                ForceAction();
+            }
+        }
+
+        void handleThrowRotation(GameTime gameTime) 
+        {
+            float maxRotation = 0.5f;
+            if (moveLeft)
+            {
+                maxRotation *= -1;
+                if (rotation > maxRotation)
+                {
+                    Rotate(gameTime);
+                }
+            }
+            else
+            {
+                if (rotation < maxRotation)
+                {
+                    Rotate(gameTime);
+                }
+            }    
         }
 
         /**
@@ -150,12 +235,6 @@ namespace TheAdventuresOf
             activeBileObjects.RemoveAll(bile => bile.isDead == true);
         }
 
-        void handleThrow(GameTime gameTime)
-        {
-            spawnNewBileObject();
-            delayThrow = true;
-        }
-
         void spawnNewBileObject()
         {
             Bile bile = new Bile();
@@ -173,8 +252,8 @@ namespace TheAdventuresOf
             bile.isActive = true; 
 
             activeBileObjects.Add(bile);
-            isThrowing = false;
         }
+
     }
 }
 

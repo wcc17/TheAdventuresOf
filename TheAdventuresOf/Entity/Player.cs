@@ -345,8 +345,6 @@ namespace TheAdventuresOf
 
 		public void Jump(GameTime gameTime)
 		{
-			Console.WriteLine("Player.Jump being called");
-
 			if (!isDying && !isDead)
 			{
 				positionVector.Y -= (variableJumpSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
