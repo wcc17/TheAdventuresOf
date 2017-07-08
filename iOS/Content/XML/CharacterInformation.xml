@@ -62,6 +62,8 @@
 	  <ActionDelayTime>3.5</ActionDelayTime>
       <GroundOffset>45</GroundOffset>
       <BoundOffset>40</BoundOffset>
+	  <RecoilDistance>10</RecoilDistance>		
+	  <RecoilSpeed>175</RecoilSpeed>		
     </CannonMonster>
 	<SpikeMonster>
       <EntityTag>SpikeMonster</EntityTag>

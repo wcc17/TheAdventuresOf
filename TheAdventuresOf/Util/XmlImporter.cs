@@ -205,7 +205,9 @@ namespace TheAdventuresOf
 
 			CannonMonster.groundOffset = (float)cannonMonsterElement.Element("GroundOffset");
 			CannonMonster.boundOffset = (float)cannonMonsterElement.Element("BoundOffset");
-			CannonMonster.leftSideX = level.leftBoundWidth + CannonMonster.boundOffset;
+            CannonMonster.recoilDistance = (float)cannonMonsterElement.Element("RecoilDistance");
+            CannonMonster.recoilSpeed = (float)cannonMonsterElement.Element("RecoilSpeed");
+            CannonMonster.leftSideX = level.leftBoundWidth + CannonMonster.boundOffset;
 
 			//needing to use AssetManager.level here might not work later on with multiple levels. 
 			//Will need to be sure that the new level is always loaded before XmlImporter is used

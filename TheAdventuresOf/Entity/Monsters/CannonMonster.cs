@@ -11,8 +11,11 @@ namespace TheAdventuresOf
 		public static float rightSideX;
 		public static float groundOffset;
 		public static float boundOffset;
+        public static float recoilSpeed;
+        public static float recoilDistance;
 
 		bool isShooting;
+        bool isRecoil;
 
 		public Bullet bullet;
         public static string bulletEntityTag;
@@ -73,10 +76,22 @@ namespace TheAdventuresOf
 		{
 			bullet.Update(gameTime);
 
+            handleRecoil(gameTime);
+
 			if (bullet.isDead)
 			{
 				isShooting = false;
 				delayAction = true;
+
+                //reset position after recoil
+                if (moveLeft) 
+                {
+                    positionVector.X = rightSideX;
+                }
+                else 
+                {
+                    positionVector.X = leftSideX;
+                }
 				
 				//reset bullet
 				initializeBullet();
@@ -94,6 +109,7 @@ namespace TheAdventuresOf
 				if (!isShooting)
 				{
 					isShooting = true;
+                    isRecoil = true;
 				}
 			}
 			else if (delayAction && !isDying && !isSpawning)
@@ -194,6 +210,106 @@ namespace TheAdventuresOf
                          bulletRotationSpeed, bulletFadeSpeed, moveLeft, 
                          moveRight, entityWidth);
 		}
+
+        /**
+         * In case I have to revisit the math behind this:
+         * 
+         * -positionVector.X < -(leftSideX - recoilDistance)
+         * is the same as
+         * positionVector.X > (leftSideX - recoilDistance)
+         * 
+         * ex. positionVector.X = 10
+         * leftSideX = 10
+         * recoilDistance = 5
+         * 10 will go down to 5 before the recoil stops
+         * 
+         * -10 < -(10 - 5)
+         * -10 < -5
+         * -9  < -5    and so on..
+         */
+        void handleRecoil(GameTime gameTime)
+        {
+
+            float multiplier = 1; //to change from negative/positive depending on which side the monster is on 
+            float startX = rightSideX;
+            if (moveRight)
+            {
+                multiplier = -1;
+                startX = leftSideX;
+            }
+
+            if (isRecoil)
+            {
+                if ((positionVector.X * multiplier) < (multiplier * (startX + (recoilDistance * multiplier))))
+                {
+                    positionVector.X += (float)(recoilSpeed * gameTime.ElapsedGameTime.TotalSeconds) * multiplier;
+                    UpdateEntityBounds();
+                }
+                else
+                {
+                    isRecoil = false;
+                }
+            }
+            else
+            {
+                if ((positionVector.X * multiplier) > (startX * multiplier))
+                {
+                    positionVector.X -= (float)(recoilSpeed * gameTime.ElapsedGameTime.TotalSeconds) * multiplier;
+                    UpdateEntityBounds();
+                }
+            }
+        }
+
+        //TODO: get rid of this after at least one commit. Not sure If I want to keep the clever-ish way or the long way of doing this
+        void handleRecoilLongWay(GameTime gameTime)
+        {
+            //if (isRecoil)
+            //{
+            //    if (moveLeft) 
+            //    {
+            //        if (positionVector.X < (rightSideX + recoilDistance))
+            //        {
+            //            positionVector.X += (float)(recoilSpeed * gameTime.ElapsedGameTime.TotalSeconds);
+            //        }
+            //        else
+            //        {
+            //            isRecoil = false;
+            //        }
+            //    }
+            //    else 
+            //    {
+            //        if (positionVector.X > (leftSideX - recoilDistance))
+            //        {
+            //            positionVector.X -= (float)(recoilSpeed * gameTime.ElapsedGameTime.TotalSeconds);
+            //        }
+            //        else
+            //        {
+            //            isRecoil = false;
+            //        }
+            //    }
+
+            //    UpdateEntityBounds();
+            //}
+            //else
+            //{
+            //    if (moveLeft) 
+            //    {
+            //        if (positionVector.X > rightSideX)
+            //        {
+            //            positionVector.X -= (float)(recoilSpeed * gameTime.ElapsedGameTime.TotalSeconds);
+            //        }
+            //    }
+            //    else 
+            //    {
+            //        if (positionVector.X < leftSideX)
+            //        {
+            //            positionVector.X += (float)(recoilSpeed * gameTime.ElapsedGameTime.TotalSeconds);
+            //        }
+            //    }
+
+            //    UpdateEntityBounds();
+            //}
+        }
 
 		//no reason to check collision with level bounds here
 		public override void HandleLevelBoundCollision(int direction, int boundX) { }

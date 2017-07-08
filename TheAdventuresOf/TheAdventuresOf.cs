@@ -14,8 +14,6 @@ namespace TheAdventuresOf
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 		Screen screen;
-
-		Player player;
 		Level level;
 
 		public TheAdventuresOf()
