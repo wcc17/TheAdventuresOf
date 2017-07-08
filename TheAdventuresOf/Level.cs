@@ -65,16 +65,16 @@ namespace TheAdventuresOf
             playerManager.Draw(spriteBatch);
 		}
 
-        public void CheckCollisionWithBounds(Character character)
+        public void CheckCollisionWithBounds(Entity entity)
         {
-            if (leftSideBounds.Intersects(character.entityBounds))
+            if (leftSideBounds.Intersects(entity.entityBounds))
             {
-                character.HandleLevelBoundCollision(Entity.LEFT, leftBoundWidth);
+                entity.HandleLevelBoundCollision(Entity.LEFT, leftBoundWidth);
             }
 
-            if (rightSideBounds.Intersects(character.entityBounds))
+            if (rightSideBounds.Intersects(entity.entityBounds))
             {
-                character.HandleLevelBoundCollision(Entity.RIGHT, AssetManager.Instance.levelTexture.Width - rightBoundWidth);
+                entity.HandleLevelBoundCollision(Entity.RIGHT, AssetManager.Instance.levelTexture.Width - rightBoundWidth);
             }
         }
 

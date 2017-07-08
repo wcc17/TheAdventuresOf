@@ -63,7 +63,7 @@
       <GroundOffset>45</GroundOffset>
       <BoundOffset>40</BoundOffset>
 	  <RecoilDistance>10</RecoilDistance>		
-	  <RecoilSpeed>175</RecoilSpeed>		
+	  <RecoilSpeed>165</RecoilSpeed>		
     </CannonMonster>
 	<SpikeMonster>
       <EntityTag>SpikeMonster</EntityTag>
@@ -74,7 +74,7 @@
 	  <AttackDelayTime>1.2</AttackDelayTime>		
       <RotationSpeed>350</RotationSpeed>
       <UpDownSpeed>175</UpDownSpeed>
-	  <AttackSpeed>320</AttackSpeed>
+	  <AttackSpeed>280</AttackSpeed>
 	  <FloatHeight>250</FloatHeight>		
     </SpikeMonster>
   </Monsters>

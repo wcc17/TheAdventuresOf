@@ -7,6 +7,7 @@ namespace TheAdventuresOf
 	{
         public static float groundLevel;
         public static float timeToLive;
+        public static float distance;
 		public Vector2 originVector = new Vector2();
 
         bool isFalling;
@@ -54,7 +55,7 @@ namespace TheAdventuresOf
 			//y = ax^2 + b
 			parabolaX += ((time * speed) * directionMultiplier);
 			positionVector.X = parabolaX + originVector.X;
-			positionVector.Y = (float)(Math.Pow(-(0.2*parabolaX), 2)) + originVector.Y;
+			positionVector.Y = (float)(Math.Pow(-(distance*parabolaX), 2)) + originVector.Y;
 
 			UpdateEntityBounds();
 

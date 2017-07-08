@@ -185,6 +185,7 @@ namespace TheAdventuresOf
             BileMonster.bileFadeSpeed = (float)bileElement.Element("FadeSpeed");
 			Bile.groundLevel = (float)bileElement.Element("GroundLevel");
             Bile.timeToLive = (float)bileElement.Element("TimeToLive");
+            Bile.distance = (float)bileElement.Element("Distance");
 
 			return bileMonster;
 		}
