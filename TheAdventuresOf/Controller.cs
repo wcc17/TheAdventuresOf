@@ -1,10 +1,15 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using UIKit;
+
 namespace TheAdventuresOf
 {
 	public static class Controller
 	{
+        //for slight vibrations when buttons are pressed
+        static UIImpactFeedbackGenerator impactGenerator;
+
 		public static Vector2 controllerPositionVector;
 		public static Vector2 leftButtonPositionVector;
 		public static Vector2 rightButtonPositionVector;
@@ -14,7 +19,6 @@ namespace TheAdventuresOf
 		static Button rightButton;
 		static Button upButton;
 
-
 		public static bool isButtonPressed;
 		public static bool leftButtonPressed;
 		public static bool rightButtonPressed;
@@ -22,6 +26,8 @@ namespace TheAdventuresOf
 
 		public static void InitializeController()
 		{
+            impactGenerator = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Medium);
+            impactGenerator.Prepare();
 
 			leftButton = new Button(AssetManager.Instance.arrowButtonTexture.Width, 
 			                        AssetManager.Instance.arrowButtonTexture.Height, 
@@ -37,6 +43,9 @@ namespace TheAdventuresOf
 			                      upButtonPositionVector.Y);
 		}
 
+        //activated on every point touched on the screen
+        //so even though leftButton is pressed, we might be looking at the rightButton point
+        //so this function will think leftButton is NOT being pressed
 		public static void HandleInput(Point point)
 		{
 			if (leftButton.IsPressed(point))
@@ -58,6 +67,29 @@ namespace TheAdventuresOf
 			}
 
 		}
+
+        public static void HandleImpacts() 
+        {
+            HandleImpact(leftButton, leftButtonPressed);
+            HandleImpact(rightButton, rightButtonPressed);
+            HandleImpact(upButton, upButtonPressed);
+        }
+
+        public static void HandleImpact(Button button, bool isPressed)
+        {
+            if (isPressed)
+            {
+                if (!button.initialPressHappened)
+                {
+                    button.initialPressHappened = true;
+                    impactGenerator.ImpactOccurred();
+                }
+            }
+            else
+            {
+                button.initialPressHappened = false;
+            }
+        }
 
 		public static void ResetButtonPressedValues()
 		{

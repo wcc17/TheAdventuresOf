@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using UIKit;
+
 namespace TheAdventuresOf
 {
 	public class Button
@@ -11,6 +13,9 @@ namespace TheAdventuresOf
 		float width, height;
  		Vector2 buttonPositionVector;
 		Vector2 originVector;
+
+        //if the button has already been pressed once (before it was being held down)
+        public bool initialPressHappened = false;
 
 		public Button(float textureWidth, float textureHeight, float posX, float posY)
 		{

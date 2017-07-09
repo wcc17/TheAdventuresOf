@@ -56,6 +56,8 @@ namespace TheAdventuresOf
 					}
 				}
 			}
+
+            Controller.HandleImpacts();
 		}
 
 		private List<Point> GetTouchInput()
