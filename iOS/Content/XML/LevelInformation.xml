@@ -4,11 +4,14 @@
     <GroundLevel>690</GroundLevel>
     <LeftBoundWidth>135</LeftBoundWidth>
     <RightBoundWidth>125</RightBoundWidth>
+		
     <BlockMonsterLimit>3</BlockMonsterLimit>
     <SunMonsterLimit>3</SunMonsterLimit>
     <CannonMonsterLimit>1</CannonMonsterLimit>
 	<BileMonsterLimit>2</BileMonsterLimit>
 	<SpikeMonsterLimit>1</SpikeMonsterLimit>	
+	<DashMonsterLimit>2</DashMonsterLimit>
+		
     <SpawnDelayTime>0.5</SpawnDelayTime>
     <DelayCannonSpawnTimeLimit>4</DelayCannonSpawnTimeLimit>
   </LevelOne>

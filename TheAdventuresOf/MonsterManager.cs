@@ -15,6 +15,7 @@ namespace TheAdventuresOf
 		public int cannonMonsterCount;
 		public int bileMonsterCount;
         public int spikeMonsterCount;
+        public int dashMonsterCount;
 
 		public static List<Monster> monsters;
 		public List<Monster> monstersToRemove;
@@ -89,10 +90,16 @@ namespace TheAdventuresOf
                     spawnSpikeMonster();
                 }
 
+                if (dashMonsterCount < level.dashMonsterLimit)
+                {
+                    spawnDashMonster();
+                }
+
 				canSpawn = false;
 			}
 		}
 
+        //TODO: could use map here for the counts? doesn't really matter that much
 		public void UpdateMonsterCount(Monster monster)
 		{
 			if (monster is BlockMonster)
@@ -114,6 +121,10 @@ namespace TheAdventuresOf
             else if (monster is SpikeMonster)
             {
                 spikeMonsterCount--;
+            }
+            else if (monster is DashMonster)
+            {
+                dashMonsterCount--;
             }
 		}
 
@@ -265,6 +276,24 @@ namespace TheAdventuresOf
             monsters.Add(spikeMonster);
 
             spikeMonsterCount++;
+        }
+
+        void spawnDashMonster()
+        {
+            DashMonster dashMonster = new DashMonster();
+
+            dashMonster.SetDashMonsterData(level.dashMonster);
+            dashMonster.groundLevel = level.groundLevel + DashMonster.groundOffset;
+            //TODO: do we want him to spawn in a random spot or at either side of the level?
+            dashMonster.InitializeCharacter(getRandomXLocation(AssetManager.Instance.dashMonsterTexture.Width),
+                                            Screen.FULL_SCREEN_HEIGHT - AssetManager.Instance.dashMonsterTexture.Height,
+                                            AssetManager.Instance.dashMonsterTexture.Width / dashMonster.frameCount,
+                                            AssetManager.Instance.dashMonsterTexture.Height);
+            dashMonster.InitializeSpawn();
+
+            monsters.Add(dashMonster);
+
+            dashMonsterCount++;
         }
 
 		void handleCannonMonsterSpawn()

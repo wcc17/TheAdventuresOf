@@ -77,14 +77,17 @@ namespace TheAdventuresOf
 			level.cannonMonsterLimit = (int)levelElement.Element("CannonMonsterLimit");
 			level.bileMonsterLimit = (int)levelElement.Element("BileMonsterLimit");
             level.spikeMonsterLimit = (int)levelElement.Element("SpikeMonsterLimit");
+            level.dashMonsterLimit = (int)levelElement.Element("DashMonsterLimit");
+
 			level.spawnDelayTime = (float)levelElement.Element("SpawnDelayTime");
 			level.delayCannonSpawnTimerLimit = (float)levelElement.Element("DelayCannonSpawnTimeLimit");
 
 			level.blockMonster = LoadBlockMonsterInformation();
 			level.sunMonster = LoadSunMonsterInformation();
-            level.cannonMonster = LoadCannonMonsterInformation(level);
+            level.cannonMonster = LoadCannonMonsterInformation(level.rightBoundWidth, level.leftBoundWidth);
             level.bileMonster = LoadBileMonsterInformation();
             level.spikeMonster = LoadSpikeMonsterInformation();
+            level.dashMonster = LoadDashMonsterInformation(level.rightBoundWidth, level.leftBoundWidth);
 		}
 
 		public static Player LoadPlayerInformation()
@@ -190,7 +193,7 @@ namespace TheAdventuresOf
 			return bileMonster;
 		}
 
-		public static CannonMonster LoadCannonMonsterInformation(Level level)
+		public static CannonMonster LoadCannonMonsterInformation(int rightBoundWidth, int leftBoundWidth)
 		{
 			CannonMonster cannonMonster = new CannonMonster();
 
@@ -208,12 +211,6 @@ namespace TheAdventuresOf
 			CannonMonster.boundOffset = (float)cannonMonsterElement.Element("BoundOffset");
             CannonMonster.recoilDistance = (float)cannonMonsterElement.Element("RecoilDistance");
             CannonMonster.recoilSpeed = (float)cannonMonsterElement.Element("RecoilSpeed");
-            CannonMonster.leftSideX = level.leftBoundWidth + CannonMonster.boundOffset;
-
-			//needing to use AssetManager.level here might not work later on with multiple levels. 
-			//Will need to be sure that the new level is always loaded before XmlImporter is used
-			float rightSideBound = AssetManager.Instance.levelTexture.Width - level.rightBoundWidth;
-			CannonMonster.rightSideX = rightSideBound - AssetManager.Instance.cannonMonsterTexture.Width - CannonMonster.boundOffset;
 
 			//load projectile info here
 			XElement projectilesElement = projectileDocument.Element("Projectiles");
@@ -223,6 +220,10 @@ namespace TheAdventuresOf
             CannonMonster.bulletRotationSpeed = (float)bulletElement.Element("RotationSpeed");
             CannonMonster.bulletFadeSpeed = (float)bulletElement.Element("FadeSpeed");
 			Bullet.startYPos = (float)bulletElement.Element("StartYPos");
+
+            float rightSideBound = AssetManager.Instance.levelTexture.Width - rightBoundWidth;
+            CannonMonster.leftSideX = leftBoundWidth + CannonMonster.boundOffset;
+            CannonMonster.rightSideX = rightSideBound - AssetManager.Instance.cannonMonsterTexture.Width - CannonMonster.boundOffset;
 
 			return cannonMonster;
 		}
@@ -236,8 +237,8 @@ namespace TheAdventuresOf
             XElement spikeMonsterElement = monstersElement.Element("SpikeMonster");
 
             spikeMonster.entityTag = (string)spikeMonsterElement.Element("EntityTag");
-            spikeMonster.frameCount = (int)spikeMonsterElement.Element("FrameCount");
             spikeMonster.speed = (float)spikeMonsterElement.Element("Speed");
+            spikeMonster.frameCount = (int)spikeMonsterElement.Element("FrameCount");
             spikeMonster.moveDistanceLimit = (int)spikeMonsterElement.Element("MoveDistanceLimit");
             spikeMonster.rotationSpeed = (float)spikeMonsterElement.Element("RotationSpeed");
             spikeMonster.upDownSpeed = (float)spikeMonsterElement.Element("UpDownSpeed");
@@ -248,6 +249,35 @@ namespace TheAdventuresOf
             SpikeMonster.attackDelayTime = (float)spikeMonsterElement.Element("AttackDelayTime");
 
             return spikeMonster;
+        }
+
+        public static DashMonster LoadDashMonsterInformation(int rightBoundWidth, int leftBoundWidth)
+        {
+            DashMonster dashMonster = new DashMonster();
+
+            XElement charactersElement = characterDocument.Element("Characters");
+            XElement monstersElement = charactersElement.Element("Monsters");
+            XElement dashMonsterElement = monstersElement.Element("DashMonster");
+
+            dashMonster.entityTag = (string)dashMonsterElement.Element("EntityTag");
+            dashMonster.speed = (float)dashMonsterElement.Element("Speed");
+            dashMonster.frameCount = (int)dashMonsterElement.Element("FrameCount");
+            dashMonster.actionDelayTime = (float)dashMonsterElement.Element("ActionDelayTime");
+            dashMonster.rotationSpeed = (float)dashMonsterElement.Element("RotationSpeed");
+            dashMonster.upDownSpeed = (float)dashMonsterElement.Element("UpDownSpeed");
+            dashMonster.animationSpeed = (float)dashMonsterElement.Element("AnimationSpeed");
+
+            DashMonster.groundOffset = (float)dashMonsterElement.Element("GroundOffset");
+            DashMonster.boundOffset = (float)dashMonsterElement.Element("BoundOffset");
+
+            //needing to use AssetManager.level here might not work later on with multiple levels. 
+            //Will need to be sure that the new level is always loaded before XmlImporter is used
+            //TODO: ensure that level graphc assets are loaded before xml importing happens on a new level
+            float rightSideBound = AssetManager.Instance.levelTexture.Width - rightBoundWidth;
+            DashMonster.leftSideX = leftBoundWidth + DashMonster.boundOffset;
+            DashMonster.rightSideX = rightSideBound - (AssetManager.Instance.dashMonsterTexture.Width / dashMonster.frameCount) - DashMonster.boundOffset;
+
+            return dashMonster;
         }
 	}
 }

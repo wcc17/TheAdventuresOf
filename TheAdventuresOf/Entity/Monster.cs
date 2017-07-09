@@ -167,6 +167,7 @@ namespace TheAdventuresOf
 		}
 
         //TODO: why does this take in an int for direction? We have moveLeft and moveRight
+        //TODO: I don't think I want this here, I would rather each monster override (pretty much what I'm doing already)
 		public override void Move(GameTime gameTime, int direction)
 		{
 			float distanceToMove = (speed * (float)gameTime.ElapsedGameTime.TotalSeconds);

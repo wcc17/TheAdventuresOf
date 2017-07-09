@@ -36,6 +36,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\SpikeMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PlayerManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\Timer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\DashMonster.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

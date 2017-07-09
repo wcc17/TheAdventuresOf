@@ -27,6 +27,7 @@ namespace TheAdventuresOf
 		public Texture2D cannonMonsterTexture;
 		public Texture2D bileMonsterTexture;
         public Texture2D spikeMonsterTexture;
+        public Texture2D dashMonsterTexture;
 
 		public Texture2D bulletTexture;
 		public Texture2D bileTexture;
@@ -79,37 +80,41 @@ namespace TheAdventuresOf
 			}
 		}
 
-		//TODO: eventually add logic for reloading textures based on what level the player is on 
-		public void LoadLevelAssets(GraphicsDevice graphicsDevice)
-		{
+        //TODO: eventually add logic for reloading textures based on what level the player is on 
+        public void LoadLevelAssets(GraphicsDevice graphicsDevice)
+        {
             //monsters
-			using (var stream = TitleContainer.OpenStream(filePath + "character_1080p.png"))
-			{
-				playerTexture = Texture2D.FromStream(graphicsDevice, stream);
-			}
-			using (var stream = TitleContainer.OpenStream(filePath + "level1background_1080p.png"))
-			{
-				levelTexture = Texture2D.FromStream(graphicsDevice, stream);
-			}
-			using (var stream = TitleContainer.OpenStream(filePath + "blockmonster_1080p.png"))
-			{
-				blockMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
-			}
-			using (var stream = TitleContainer.OpenStream(filePath + "sunmonster_1080p.png"))
-			{
-				sunMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
-			}
-			using (var stream = TitleContainer.OpenStream(filePath + "cannonmonster_1080p.png"))
-			{
-				cannonMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
-			}
-			using (var stream = TitleContainer.OpenStream(filePath + "bilemonster_1080p.png"))
-			{
-				bileMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
-			}
+            using (var stream = TitleContainer.OpenStream(filePath + "character_1080p.png"))
+            {
+                playerTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(filePath + "level1background_1080p.png"))
+            {
+                levelTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(filePath + "blockmonster_1080p.png"))
+            {
+                blockMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(filePath + "sunmonster_1080p.png"))
+            {
+                sunMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(filePath + "cannonmonster_1080p.png"))
+            {
+                cannonMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(filePath + "bilemonster_1080p.png"))
+            {
+                bileMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
             using (var stream = TitleContainer.OpenStream(filePath + "spikemonster_1080p.png"))
             {
                 spikeMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(filePath + "dashmonster_1080p.png"))
+            {
+                dashMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
             //projectiles
@@ -133,6 +138,7 @@ namespace TheAdventuresOf
 			cannonMonsterTexture.Dispose();
             bileMonsterTexture.Dispose();
             spikeMonsterTexture.Dispose();
+            dashMonsterTexture.Dispose();
 
             bulletTexture.Dispose();
             bileTexture.Dispose();

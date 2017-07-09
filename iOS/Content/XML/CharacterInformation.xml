@@ -75,7 +75,18 @@
       <RotationSpeed>350</RotationSpeed>
       <UpDownSpeed>175</UpDownSpeed>
 	  <AttackSpeed>280</AttackSpeed>
-	  <FloatHeight>250</FloatHeight>		
+	  <FloatHeight>250</FloatHeight>
     </SpikeMonster>
+	<DashMonster>	
+	  <EntityTag>DashMonster></EntityTag>
+	  <Speed>450</Speed>
+	  <FrameCount>3</FrameCount>
+	  <ActionDelayTime>3</ActionDelayTime>
+	  <RotationSpeed>350</RotationSpeed>
+	  <UpDownSpeed>175</UpDownSpeed>
+	  <AnimationSpeed>0.04</AnimationSpeed>		
+	  <GroundOffset>8</GroundOffset>	
+	  <BoundOffset>40</BoundOffset>		
+	</DashMonster>		
   </Monsters>
 </Characters>
