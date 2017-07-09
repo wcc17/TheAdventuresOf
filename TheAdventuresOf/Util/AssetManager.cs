@@ -14,10 +14,12 @@ namespace TheAdventuresOf
 
 		//game textures
 		public Texture2D controllerTexture;
-		public Texture2D arrowButtonTexture;
-		public Texture2D swordTexture;
-		public Texture2D heartTexture;
-		public Texture2D emptyHeartTexture;
+        public Texture2D swordTexture;
+        public Texture2D heartTexture;
+        public Texture2D emptyHeartTexture;
+        public Texture2D leftArrowButtonTexture;
+        public Texture2D rightArrowButtonTexture;
+        public Texture2D upArrowButtonTexture;
 
 		//level textures
 		public Texture2D playerTexture;
@@ -58,10 +60,6 @@ namespace TheAdventuresOf
 
 		public void LoadGameAssets(GraphicsDevice graphicsDevice)
 		{
-			using (var stream = TitleContainer.OpenStream(filePath + "arrow_1080p.png"))
-			{
-				arrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
-			}
 			using (var stream = TitleContainer.OpenStream(filePath + "controller_1080p.png"))
 			{
 				controllerTexture = Texture2D.FromStream(graphicsDevice, stream);
@@ -78,6 +76,18 @@ namespace TheAdventuresOf
 			{
 				emptyHeartTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
+            using (var stream = TitleContainer.OpenStream(filePath + "leftarrow_1080p.png"))
+            {
+                leftArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(filePath + "rightarrow_1080p.png"))
+            {
+                rightArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(filePath + "uparrow_1080p.png"))
+            {
+                upArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
 		}
 
         //TODO: eventually add logic for reloading textures based on what level the player is on 
@@ -132,6 +142,7 @@ namespace TheAdventuresOf
 		public void DisposeLevelAssets()
 		{
 			playerTexture.Dispose();
+            swordTexture.Dispose();
 			levelTexture.Dispose();
 			blockMonsterTexture.Dispose();
 			sunMonsterTexture.Dispose();
@@ -143,6 +154,17 @@ namespace TheAdventuresOf
             bulletTexture.Dispose();
             bileTexture.Dispose();
 		}
+
+        //TODO: this needs to be called somewhere
+        public void DisposeGameAssets() 
+        {
+            controllerTexture.Dispose();
+            heartTexture.Dispose();
+            emptyHeartTexture.Dispose();
+            leftArrowButtonTexture.Dispose();
+            rightArrowButtonTexture.Dispose();
+            upArrowButtonTexture.Dispose(); 
+        }
 	}
 }
 

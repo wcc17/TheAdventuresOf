@@ -29,16 +29,16 @@ namespace TheAdventuresOf
             impactGenerator = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Medium);
             impactGenerator.Prepare();
 
-			leftButton = new Button(AssetManager.Instance.arrowButtonTexture.Width, 
-			                        AssetManager.Instance.arrowButtonTexture.Height, 
+			leftButton = new Button(AssetManager.Instance.leftArrowButtonTexture.Width, 
+			                        AssetManager.Instance.leftArrowButtonTexture.Height, 
 			                        leftButtonPositionVector.X, 
 			                        leftButtonPositionVector.Y);
-			rightButton = new Button(AssetManager.Instance.arrowButtonTexture.Width, 
-			                         AssetManager.Instance.arrowButtonTexture.Height, 
+			rightButton = new Button(AssetManager.Instance.rightArrowButtonTexture.Width, 
+			                         AssetManager.Instance.rightArrowButtonTexture.Height, 
 			                         rightButtonPositionVector.X, 
 			                         rightButtonPositionVector.Y);
-			upButton = new Button(AssetManager.Instance.arrowButtonTexture.Width, 
-			                      AssetManager.Instance.arrowButtonTexture.Height, 
+			upButton = new Button(AssetManager.Instance.upArrowButtonTexture.Width, 
+			                      AssetManager.Instance.upArrowButtonTexture.Height, 
 			                      upButtonPositionVector.X, 
 			                      upButtonPositionVector.Y);
 		}
@@ -82,12 +82,17 @@ namespace TheAdventuresOf
                 if (!button.initialPressHappened)
                 {
                     button.initialPressHappened = true;
+                    button.ShowPressedDown();
                     impactGenerator.ImpactOccurred();
                 }
             }
             else
             {
-                button.initialPressHappened = false;
+                if(button.initialPressHappened) 
+                {
+                    button.ShowPressedUp();
+                    button.initialPressHappened = false;
+                }
             }
         }
 
@@ -104,14 +109,14 @@ namespace TheAdventuresOf
 			//Draw controller
 			spriteBatch.Draw(AssetManager.Instance.controllerTexture, controllerPositionVector);
 
-			//Draw left buttons
-			leftButton.Draw(spriteBatch, AssetManager.Instance.arrowButtonTexture);
+            //Draw left buttons
+            leftButton.Draw(spriteBatch, AssetManager.Instance.leftArrowButtonTexture);
 
 			//Draw right button
-			rightButton.Draw(spriteBatch, AssetManager.Instance.arrowButtonTexture, (float)Math.PI, SpriteEffects.FlipVertically);
+            rightButton.Draw(spriteBatch, AssetManager.Instance.rightArrowButtonTexture);
 
 			//Draw jump buttons
-			upButton.Draw(spriteBatch, AssetManager.Instance.arrowButtonTexture, (float)Math.PI / 2);
+            upButton.Draw(spriteBatch, AssetManager.Instance.upArrowButtonTexture);
 		}
 	}
 }

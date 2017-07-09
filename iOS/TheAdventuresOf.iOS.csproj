@@ -120,6 +120,9 @@
     <BundleResource Include="Content\XML\ProjectileInformation.xml" />
     <BundleResource Include="Content\spikemonster_1080p.png" />
     <BundleResource Include="Content\dashmonster_1080p.png" />
+    <BundleResource Include="Content\leftarrow_1080p.png" />
+    <BundleResource Include="Content\rightarrow_1080p.png" />
+    <BundleResource Include="Content\uparrow_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
