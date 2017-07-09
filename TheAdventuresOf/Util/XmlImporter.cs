@@ -100,8 +100,6 @@ namespace TheAdventuresOf
 			player.entityTag = (string)playerElement.Element("EntityTag");
 			player.speed= (float)playerElement.Element("Speed");
 			player.animationSpeed = (float)playerElement.Element("AnimationSpeed");
-			player.jumpSpeed = (float)playerElement.Element("JumpSpeed");
-			player.jumpHeight = (float)playerElement.Element("JumpHeight");
 			player.leftSwordOffset = (float)playerElement.Element("LeftSwordOffset");
 			player.rightSwordOffset = (float)playerElement.Element("RightSwordOffset");
 			player.swordYOffset = (float)playerElement.Element("SwordYOffset");
@@ -111,6 +109,8 @@ namespace TheAdventuresOf
 			player.knockBackDistanceLimit = (float)playerElement.Element("KnockBackDistanceLimit");
 			player.knockBackSpeed = (int)playerElement.Element("KnockBackSpeed");
 			player.rotationSpeed = (int)playerElement.Element("RotationSpeed");
+            player.initialJumpVelocity = (float)playerElement.Element("InitialJumpVelocity");
+            player.jumpGravity = (float)playerElement.Element("JumpGravity");
 
             return player;
 		}

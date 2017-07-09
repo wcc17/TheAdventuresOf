@@ -4,8 +4,6 @@
     <EntityTag>Player</EntityTag>
     <Speed>245</Speed>
     <AnimationSpeed>0.08</AnimationSpeed>
-    <JumpSpeed>500</JumpSpeed>
-    <JumpHeight>150</JumpHeight>
     <!-- these just make it easier to put the sword where it needs to be -->
     <LeftSwordOffset>5</LeftSwordOffset>
     <RightSwordOffset>1</RightSwordOffset>
@@ -16,6 +14,8 @@
     <KnockBackDistanceLimit>45</KnockBackDistanceLimit>
     <KnockBackSpeed>850</KnockBackSpeed>
     <RotationSpeed>500</RotationSpeed>
+	<InitialJumpVelocity>-12.5</InitialJumpVelocity>
+	<JumpGravity>0.45</JumpGravity>	
   </Player>
   <Monsters>
     <BlockMonster>
@@ -75,7 +75,7 @@
       <RotationSpeed>350</RotationSpeed>
       <UpDownSpeed>175</UpDownSpeed>
 	  <AttackSpeed>280</AttackSpeed>
-	  <FloatHeight>250</FloatHeight>
+	  <FloatHeight>275</FloatHeight>
     </SpikeMonster>
 	<DashMonster>	
 	  <EntityTag>DashMonster></EntityTag>

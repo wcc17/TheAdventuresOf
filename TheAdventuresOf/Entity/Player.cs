@@ -7,8 +7,6 @@ namespace TheAdventuresOf
 	public class Player : Character
 	{
 		public float groundLevel;
-		public float jumpSpeed;
-		public float jumpHeight;
 
 		public Rectangle swordBounds;
 		public float leftSwordOffset;
@@ -17,11 +15,11 @@ namespace TheAdventuresOf
 
 		Vector2 swordPositionVector;
 
-		public float variableJumpSpeed;
-		public float jumpHeightLimit;
-
 		public bool hasJumped;
 		public bool isJumping;
+        public float initialJumpVelocity;
+        public float jumpGravity;
+        float velocityY;
 
 		public int maxHealth;
 		public int health;
@@ -47,8 +45,6 @@ namespace TheAdventuresOf
 			groundLevel = startY;
 
 			swordPositionVector = new Vector2(startX + playerWidth - rightSwordOffset, startY + swordYOffset);
-			jumpHeightLimit = startY - jumpHeight;
-			variableJumpSpeed = jumpSpeed;
 
 			swordBounds = new Rectangle((int)swordPositionVector.X, 
 			                            (int)swordPositionVector.Y, 
@@ -139,7 +135,7 @@ namespace TheAdventuresOf
 			}
 			else if (positionVector.Y < groundLevel)
 			{
-                positionVector.Y += (jumpSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                positionVector.Y += (speed * (float)gameTime.ElapsedGameTime.TotalSeconds);
 			}
 			else
 			{
@@ -280,6 +276,7 @@ namespace TheAdventuresOf
 			{
 				hasJumped = false;
 				isJumping = true;
+                velocityY = initialJumpVelocity;
 			}
 			else
 			{
@@ -345,34 +342,26 @@ namespace TheAdventuresOf
 
 		public void Jump(GameTime gameTime)
 		{
-			if (!isDying && !isDead)
-			{
-				positionVector.Y -= (variableJumpSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
-				swordPositionVector.Y = positionVector.Y + swordYOffset;
-			}
+            //TODO: do i need to check isDying and isDead or was this a side effect of that bug where he floated the wrong way on death
+            ////if (!isDying && !isDead)
+            ////{
+            //	positionVector.Y -= (variableJumpSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+            //	swordPositionVector.Y = positionVector.Y + swordYOffset;
+            ////}
 
-			variableJumpSpeed -= 12.5f;
 
-			//if we hit the jump height, make jumpSpeed negative, start falling
-			if (positionVector.Y <= jumpHeightLimit)
-			{
-				//Console.WriteLine("Start falling");
-				variableJumpSpeed *= -1;
-			}
+            velocityY += (jumpGravity);// * (float)gameTime.ElapsedGameTime.TotalSeconds);
+            positionVector.Y += (velocityY);// * (float)gameTime.ElapsedGameTime.TotalSeconds);
+            swordPositionVector.Y = positionVector.Y + swordYOffset;
 
 			//if we're falling and we hit the ground, stop jumping and reset the jump speed
-			if (((int)positionVector.Y >= (int)groundLevel) && variableJumpSpeed < 0)
+            if (((int)positionVector.Y >= (int)groundLevel))// && variableJumpSpeed < 0)
 			{
-				//Console.WriteLine("Stop jumping");
 				isJumping = false;
-
 				positionVector.Y = groundLevel;
-
-				variableJumpSpeed = jumpSpeed;
 			}
 
 			UpdateEntityBounds();
-			//UpdateSwordBounds(); already being called in UpdateEntityBounds
 		}
 
 		public override void Draw(SpriteBatch spriteBatch, Texture2D texture)
