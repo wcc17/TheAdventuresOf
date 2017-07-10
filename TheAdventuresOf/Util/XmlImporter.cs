@@ -78,6 +78,7 @@ namespace TheAdventuresOf
 			level.bileMonsterLimit = (int)levelElement.Element("BileMonsterLimit");
             level.spikeMonsterLimit = (int)levelElement.Element("SpikeMonsterLimit");
             level.dashMonsterLimit = (int)levelElement.Element("DashMonsterLimit");
+            level.flyingCannonMonsterLimit = (int)levelElement.Element("FlyingCannonMonsterLimit");
 
 			level.spawnDelayTime = (float)levelElement.Element("SpawnDelayTime");
 			level.delayCannonSpawnTimerLimit = (float)levelElement.Element("DelayCannonSpawnTimeLimit");
@@ -88,6 +89,7 @@ namespace TheAdventuresOf
             level.bileMonster = LoadBileMonsterInformation();
             level.spikeMonster = LoadSpikeMonsterInformation();
             level.dashMonster = LoadDashMonsterInformation(level.rightBoundWidth, level.leftBoundWidth);
+            level.flyingCannonMonster = LoadFlyingCannonMonsterInformation(level.rightBoundWidth, level.leftBoundWidth);
 		}
 
 		public static Player LoadPlayerInformation()
@@ -221,6 +223,9 @@ namespace TheAdventuresOf
             CannonMonster.bulletFadeSpeed = (float)bulletElement.Element("FadeSpeed");
 			Bullet.startYPos = (float)bulletElement.Element("StartYPos");
 
+            //needing to use AssetManager.level here might not work later on with multiple levels. 
+            //Will need to be sure that the new level is always loaded before XmlImporter is used
+            //TODO: ensure that level graphc assets are loaded before xml importing happens on a new level
             float rightSideBound = AssetManager.Instance.levelTexture.Width - rightBoundWidth;
             CannonMonster.leftSideX = leftBoundWidth + CannonMonster.boundOffset;
             CannonMonster.rightSideX = rightSideBound - AssetManager.Instance.cannonMonsterTexture.Width - CannonMonster.boundOffset;
@@ -278,6 +283,34 @@ namespace TheAdventuresOf
             DashMonster.rightSideX = rightSideBound - (AssetManager.Instance.dashMonsterTexture.Width / dashMonster.frameCount) - DashMonster.boundOffset;
 
             return dashMonster;
+        }
+
+        public static FlyingCannonMonster LoadFlyingCannonMonsterInformation(int rightBoundWidth, int leftBoundWidth)
+        {
+            FlyingCannonMonster flyingCannonMonster = new FlyingCannonMonster();
+
+            XElement charactersElement = characterDocument.Element("Characters");
+            XElement monstersElement = charactersElement.Element("Monsters");
+            XElement flyingCannonMonsterElement = monstersElement.Element("FlyingCannonMonster");
+
+            flyingCannonMonster.entityTag = (string)flyingCannonMonsterElement.Element("EntityTag");
+            flyingCannonMonster.frameCount = (int)flyingCannonMonsterElement.Element("FrameCount");
+            flyingCannonMonster.rotationSpeed = (float)flyingCannonMonsterElement.Element("RotationSpeed");
+            flyingCannonMonster.upDownSpeed = (float)flyingCannonMonsterElement.Element("UpDownSpeed");
+            flyingCannonMonster.actionDelayTime = (float)flyingCannonMonsterElement.Element("ActionDelayTime");
+            flyingCannonMonster.animationSpeed = (float)flyingCannonMonsterElement.Element("AnimationSpeed");
+
+            FlyingCannonMonster.floatHeight = (float)flyingCannonMonsterElement.Element("FloatHeight");
+            FlyingCannonMonster.boundOffset = (float)flyingCannonMonsterElement.Element("BoundOffset");
+
+            //needing to use AssetManager.level here might not work later on with multiple levels. 
+            //Will need to be sure that the new level is always loaded before XmlImporter is used
+            //TODO: ensure that level graphc assets are loaded before xml importing happens on a new level
+            float rightSideBound = AssetManager.Instance.levelTexture.Width - rightBoundWidth;
+            FlyingCannonMonster.leftSideX = leftBoundWidth + FlyingCannonMonster.boundOffset;
+            FlyingCannonMonster.rightSideX = rightSideBound - (AssetManager.Instance.flyingCannonMonsterTexture.Width / flyingCannonMonster.frameCount) - FlyingCannonMonster.boundOffset;
+
+            return flyingCannonMonster;
         }
 	}
 }

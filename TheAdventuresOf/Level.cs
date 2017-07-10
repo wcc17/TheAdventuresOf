@@ -15,6 +15,7 @@ namespace TheAdventuresOf
 		public BileMonster bileMonster;
         public SpikeMonster spikeMonster;
         public DashMonster dashMonster;
+        public FlyingCannonMonster flyingCannonMonster;
 
 		public int leftBoundWidth;
 		public int rightBoundWidth;
@@ -26,6 +27,7 @@ namespace TheAdventuresOf
 		public int bileMonsterLimit;
         public int spikeMonsterLimit;
         public int dashMonsterLimit;
+        public int flyingCannonMonsterLimit;
 
 		public float spawnDelayTime; //time before another monster can be spawned
 		public float delayCannonSpawnTimerLimit; //time before spawning another cannonMonster is considered

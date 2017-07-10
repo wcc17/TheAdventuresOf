@@ -87,6 +87,16 @@
 	  <AnimationSpeed>0.04</AnimationSpeed>		
 	  <GroundOffset>8</GroundOffset>	
 	  <BoundOffset>40</BoundOffset>		
-	</DashMonster>		
+	</DashMonster>	
+	<FlyingCannonMonster>
+	  <EntityTag>FlyingCannonMonster</EntityTag>
+	  <FrameCount>2</FrameCount>
+	  <RotationSpeed>350</RotationSpeed>
+	  <UpDownSpeed>175</UpDownSpeed>
+	  <ActionDelayTime>3.5</ActionDelayTime>	
+	  <AnimationSpeed>0.06</AnimationSpeed>	
+	  <BoundOffset>40</BoundOffset>		
+	  <FloatHeight>150</FloatHeight>		
+	</FlyingCannonMonster>		
   </Monsters>
 </Characters>

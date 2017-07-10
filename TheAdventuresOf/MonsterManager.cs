@@ -16,6 +16,7 @@ namespace TheAdventuresOf
 		public int bileMonsterCount;
         public int spikeMonsterCount;
         public int dashMonsterCount;
+        public int flyingCannonMonsterCount;
 
 		public static List<Monster> monsters;
 		public List<Monster> monstersToRemove;
@@ -95,6 +96,11 @@ namespace TheAdventuresOf
                     spawnDashMonster();
                 }
 
+                if (flyingCannonMonsterCount < level.flyingCannonMonsterLimit)
+                {
+                    spawnFlyingCannonMonster();
+                }
+
 				canSpawn = false;
 			}
 		}
@@ -125,6 +131,10 @@ namespace TheAdventuresOf
             else if (monster is DashMonster)
             {
                 dashMonsterCount--;
+            }
+            else if (monster is FlyingCannonMonster)
+            {
+                flyingCannonMonsterCount--;
             }
 		}
 
@@ -294,6 +304,24 @@ namespace TheAdventuresOf
             monsters.Add(dashMonster);
 
             dashMonsterCount++;
+        }
+
+        void spawnFlyingCannonMonster()
+        {
+            FlyingCannonMonster flyingCannonMonster = new FlyingCannonMonster();
+
+            flyingCannonMonster.SetFlyingCannonMonsterData(level.flyingCannonMonster);
+            flyingCannonMonster.groundLevel = level.groundLevel - FlyingCannonMonster.floatHeight;
+            flyingCannonMonster.InitializeCharacter(getRandomXLocation(AssetManager.Instance.flyingCannonMonsterTexture.Width),
+                                                    0 - AssetManager.Instance.flyingCannonMonsterTexture.Height,
+                                                    AssetManager.Instance.flyingCannonMonsterTexture.Width / flyingCannonMonster.frameCount,
+                                                    AssetManager.Instance.flyingCannonMonsterTexture.Height);
+
+            flyingCannonMonster.InitializeSpawn();
+
+            monsters.Add(flyingCannonMonster);
+
+            flyingCannonMonsterCount++;
         }
 
 		void handleCannonMonsterSpawn()

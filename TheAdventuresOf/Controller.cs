@@ -26,7 +26,7 @@ namespace TheAdventuresOf
 
 		public static void InitializeController()
 		{
-            impactGenerator = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Medium);
+            impactGenerator = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Light);
             impactGenerator.Prepare();
 
 			leftButton = new Button(AssetManager.Instance.leftArrowButtonTexture.Width, 
