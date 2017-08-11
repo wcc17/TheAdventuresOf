@@ -6,7 +6,6 @@ namespace TheAdventuresOf
 {
     public class Bullet : Projectile
     {
-        public static float startYPos;
         bool hasCollidedWithPlayer;
 
         public Bullet()
@@ -18,6 +17,8 @@ namespace TheAdventuresOf
         public override void Update(GameTime gameTime, bool buttonPressed = false)
         {
             base.Update(gameTime, buttonPressed);
+
+            Console.WriteLine("Bullet updating");
 
             if (hasCollidedWithPlayer)
             {
@@ -86,7 +87,7 @@ namespace TheAdventuresOf
             }
         }
 
-		public void Reset(string entityTag, float speed, float startX,
+		public void Reset(string entityTag, float speed, float startX, float startY,
                           float rotationSpeed, float fadeSpeed, bool moveLeft, 
                           bool moveRight, float monsterWidth)
 		{
@@ -104,7 +105,7 @@ namespace TheAdventuresOf
 			this.moveLeft = moveLeft;
 			this.moveRight = moveRight;
 
-			positionVector.Y = startYPos;
+			positionVector.Y = startY;
             positionVector.X = startX + monsterWidth;
 			if (this.moveLeft)
 			{

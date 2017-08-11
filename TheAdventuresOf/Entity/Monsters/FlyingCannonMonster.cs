@@ -1,47 +1,48 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 namespace TheAdventuresOf
 {
-    public class FlyingCannonMonster : Monster
+    public class FlyingCannonMonster : BaseCannonMonster
     {
-        public static float leftSideX;
-        public static float rightSideX;
         public static float floatHeight;
-        public static float boundOffset;
 
-        public void SetFlyingCannonMonsterData(FlyingCannonMonster flyingCannonMonster)
-        {
+        public void SetFlyingCannonMonsterData(FlyingCannonMonster flyingCannonMonster) {
             entityTag = flyingCannonMonster.entityTag;
             frameCount = flyingCannonMonster.frameCount;
             rotationSpeed = flyingCannonMonster.rotationSpeed;
             upDownSpeed = flyingCannonMonster.upDownSpeed;
             actionDelayTime = flyingCannonMonster.actionDelayTime;
-            animationSpeed = flyingCannonMonster.animationSpeed;
-
             monsterTexture = AssetManager.Instance.flyingCannonMonsterTexture;
+            bulletStartYPos = flyingCannonMonster.bulletStartYPos;
         }
 
-        public override void InitializeSpawn() 
-        {
-            Reset();
-
-            ChooseRandomDirection();
-
-            isSpawning = true;
-            delayAction = true;
-        }
-
-        public override void HandleSpawn(GameTime gameTime)
-        {
-            if (positionVector.Y < groundLevel)
-            {
+        public override void HandleSpawn(GameTime gameTime) {
+            
+            if (positionVector.Y < groundLevel) {
                 MoveUpDown(gameTime, DOWN);
-            }
-            else
-            {
+            } else if ((moveLeft && rotation > 0) || (moveRight && rotation < 0)) {
+                Rotate(gameTime);
+            } else {
                 InitializeMonster();
+
+                //since spawning is complete, monster is rdy. want him to shoot immediately
+                //if not, add delayAction = true to InitializeSpawn to stop this
+                bullet.isActive = true;
             }
+        }
+
+        public void ChooseRandomSide(int cannonMonsterCount, List<Monster> monsters)
+        {
+            FlyingCannonMonster existingCannonMonster = null;
+
+            if (cannonMonsterCount > 0)
+            {
+                existingCannonMonster = (FlyingCannonMonster)monsters.Find(cm => (cm is FlyingCannonMonster));
+            }
+
+            ChooseSide(existingCannonMonster);
         }
     }
 }
