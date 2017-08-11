@@ -1,26 +1,26 @@
-using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 namespace TheAdventuresOf
 {
-    public class CannonMonster : BaseCannonMonster
+    public class GroundCannonMonster : BaseCannonMonster
 	{
 		public static float groundOffset;
 
-		public void SetCannonMonsterData(CannonMonster cannonMonster)
+		public void SetCannonMonsterData(GroundCannonMonster groundCannonMonster)
 		{
-			entityTag = cannonMonster.entityTag;
-			frameCount = cannonMonster.frameCount;
-			rotationSpeed = cannonMonster.rotationSpeed;
-			upDownSpeed = cannonMonster.upDownSpeed;
-			actionDelayTime = cannonMonster.actionDelayTime;
+			entityTag = groundCannonMonster.entityTag;
+			frameCount = groundCannonMonster.frameCount;
+			rotationSpeed = groundCannonMonster.rotationSpeed;
+			upDownSpeed = groundCannonMonster.upDownSpeed;
+			actionDelayTime = groundCannonMonster.actionDelayTime;
 			monsterTexture = AssetManager.Instance.cannonMonsterTexture;
-            boundOffset = cannonMonster.boundOffset;
-            bulletStartYPos = cannonMonster.bulletStartYPos;
+            boundOffset = groundCannonMonster.boundOffset;
+            bulletStartYPos = groundCannonMonster.bulletStartYPos;
 
-            leftSideX = cannonMonster.leftSideX;
-            rightSideX = cannonMonster.rightSideX;
+            leftSideX = groundCannonMonster.leftSideX;
+            rightSideX = groundCannonMonster.rightSideX;
 		}
 
 		public override void HandleSpawn(GameTime gameTime)
@@ -45,10 +45,10 @@ namespace TheAdventuresOf
 
         public void ChooseRandomSide(int cannonMonsterCount, List<Monster> monsters) {
 
-            CannonMonster existingCannonMonster = null;
+            GroundCannonMonster existingCannonMonster = null;
 
             if(cannonMonsterCount > 0) {
-                existingCannonMonster = (CannonMonster)monsters.Find(cm => (cm is CannonMonster));
+                existingCannonMonster = (GroundCannonMonster)monsters.Find(cm => (cm is GroundCannonMonster));
             }
 
             ChooseSide(existingCannonMonster);

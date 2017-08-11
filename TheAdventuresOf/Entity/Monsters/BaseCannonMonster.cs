@@ -194,7 +194,7 @@ namespace TheAdventuresOf
         public void ChooseSide(BaseCannonMonster existingCannonMonster)
         {
             //there can only be two of these monsters on the level at any time
-            //if a cannonMonster already exists, get its side and put the new one on the other side
+            //if a groundCannonMonster already exists, get its side and put the new one on the other side
             if (existingCannonMonster != null)
             {
                 if (existingCannonMonster.moveLeft)

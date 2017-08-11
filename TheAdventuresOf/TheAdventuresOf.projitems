@@ -21,7 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Util\AssetManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MonsterManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\BlockMonster.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\CannonMonster.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\GroundCannonMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\SunMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Character.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Entity.cs" />

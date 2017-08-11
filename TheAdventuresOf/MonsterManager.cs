@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -116,7 +116,7 @@ namespace TheAdventuresOf
 			{
 				sunMonsterCount--;
 			}
-			else if (monster is CannonMonster)
+			else if (monster is GroundCannonMonster)
 			{
 				cannonMonsterCount--;
 			}
@@ -147,9 +147,9 @@ namespace TheAdventuresOf
 				level.CheckCollisionWithBounds(monster);
                 level.CheckPlayerCollisionWithMonster(monster);
 
-				if (monster is CannonMonster)
+				if (monster is GroundCannonMonster)
 				{
-                    level.CheckPlayerCollisionProjectile(((CannonMonster)monster).bullet);
+                    level.CheckPlayerCollisionProjectile(((GroundCannonMonster)monster).bullet);
 				}
                 if (monster is BileMonster) 
                 {
@@ -185,14 +185,14 @@ namespace TheAdventuresOf
 		{
 			foreach (Monster monster in monsters)
 			{
-				if ( !(monster is CannonMonster) )
+				if ( !(monster is GroundCannonMonster) )
 				{
 					monster.Draw(spriteBatch);
 				}
 			}
 
-			//CannonMonster should always be drawn last so that bullet is always on top of other monsters
-			foreach (Monster monster in monsters.FindAll(m => m is CannonMonster))
+			//GroundCannonMonster should always be drawn last so that bullet is always on top of other monsters
+			foreach (Monster monster in monsters.FindAll(m => m is GroundCannonMonster))
 			{
 				monster.Draw(spriteBatch);
 			}
@@ -254,19 +254,19 @@ namespace TheAdventuresOf
 
 		void spawnCannonMonster()
 		{
-			CannonMonster cannonMonster = new CannonMonster();
+			GroundCannonMonster groundCannonMonster = new GroundCannonMonster();
 
-			cannonMonster.SetCannonMonsterData(level.cannonMonster);
-			cannonMonster.groundLevel = level.groundLevel - CannonMonster.groundOffset;
+			groundCannonMonster.SetCannonMonsterData(level.groundCannonMonster);
+			groundCannonMonster.groundLevel = level.groundLevel - GroundCannonMonster.groundOffset;
 			//random side of the level is chosen here. if a cannon monster already exists there, it will be handled here
-			cannonMonster.ChooseRandomSide(cannonMonsterCount, monsters);
-			cannonMonster.InitializeCharacter(cannonMonster.positionVector.X,
+			groundCannonMonster.ChooseRandomSide(cannonMonsterCount, monsters);
+			groundCannonMonster.InitializeCharacter(groundCannonMonster.positionVector.X,
 											  Screen.FULL_SCREEN_HEIGHT - AssetManager.Instance.cannonMonsterTexture.Height,
-											  AssetManager.Instance.cannonMonsterTexture.Width / cannonMonster.frameCount,
+											  AssetManager.Instance.cannonMonsterTexture.Width / groundCannonMonster.frameCount,
 											  AssetManager.Instance.cannonMonsterTexture.Height);
-			cannonMonster.InitializeSpawn();
+			groundCannonMonster.InitializeSpawn();
 
-			monsters.Add(cannonMonster);
+			monsters.Add(groundCannonMonster);
 
 			cannonMonsterCount++;
 		}

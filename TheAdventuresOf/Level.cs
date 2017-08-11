@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 namespace TheAdventuresOf
 {
@@ -11,7 +11,7 @@ namespace TheAdventuresOf
 
 		public BlockMonster blockMonster;
 		public SunMonster sunMonster;
-		public CannonMonster cannonMonster;
+		public GroundCannonMonster groundCannonMonster;
 		public BileMonster bileMonster;
         public SpikeMonster spikeMonster;
         public DashMonster dashMonster;
@@ -30,7 +30,7 @@ namespace TheAdventuresOf
         public int flyingCannonMonsterLimit;
 
 		public float spawnDelayTime; //time before another monster can be spawned
-		public float delayCannonSpawnTimerLimit; //time before spawning another cannonMonster is considered
+		public float delayCannonSpawnTimerLimit; //time before spawning another groundCannonMonster is considered
 
 		public static MonsterManager monsterManager;
         public static PlayerManager playerManager;

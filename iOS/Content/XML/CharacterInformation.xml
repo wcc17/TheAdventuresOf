@@ -62,8 +62,8 @@
 	  <RecoilSpeed>165</RecoilSpeed>
 	</BaseCannonMonster>		
 		
-    <CannonMonster>
-      <EntityTag>CannonMonster</EntityTag>
+    <GroundCannonMonster>
+      <EntityTag>GroundCannonMonster</EntityTag>
       <FrameCount>1</FrameCount>
       <RotationSpeed>350</RotationSpeed>
       <UpDownSpeed>175</UpDownSpeed>
@@ -71,7 +71,7 @@
       <GroundOffset>45</GroundOffset>
       <BoundOffset>40</BoundOffset>
       <BulletStartYPos>725</BulletStartYPos>
-    </CannonMonster>
+    </GroundCannonMonster>
 
     <FlyingCannonMonster>
       <EntityTag>FlyingCannonMonster</EntityTag>
