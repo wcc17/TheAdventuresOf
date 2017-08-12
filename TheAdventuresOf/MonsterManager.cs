@@ -78,7 +78,7 @@ namespace TheAdventuresOf
 
 				if (cannonMonsterCount < level.cannonMonsterLimit)
 				{
-					handleCannonMonsterSpawn();
+					handleGroundCannonMonsterSpawn();
 				}
 
 				if (bileMonsterCount < level.bileMonsterLimit)
@@ -325,9 +325,11 @@ namespace TheAdventuresOf
             dashMonsterCount++;
         }
 
-        //TODO: do i really want this?
-        //TODO: do i want this for the flying cannon monster?
-        //TODO: maybe I want this for everyone? so that new monsters don't spawn immediately after the old one dies
+        //TODO: this should be retooled for all monsters
+        //maybe get rid of the delay timer and just add a short delay
+        //before a new monster can be delayed
+        //ultimately the goal is to prevent new monsters from spawning
+        //DIRECTLY after old monsters die.
 		void handleGroundCannonMonsterSpawn()
 		{
 			//if the timer is past the limit

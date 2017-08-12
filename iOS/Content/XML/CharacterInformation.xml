@@ -79,7 +79,7 @@
       <RotationSpeed>350</RotationSpeed>
       <UpDownSpeed>175</UpDownSpeed>
       <ActionDelayTime>3.5</ActionDelayTime>    
-      <AnimationSpeed>0.06</AnimationSpeed> 
+      <AnimationSpeed>0.05</AnimationSpeed> 
       <BoundOffset>40</BoundOffset>     
       <FloatHeight>150</FloatHeight> 
 	  <BulletStartYPos>575</BulletStartYPos>	

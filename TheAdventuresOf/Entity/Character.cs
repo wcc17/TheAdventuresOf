@@ -30,7 +30,6 @@ namespace TheAdventuresOf
 		{
 			InitializeEntity(startX, startY);
 
-			Console.WriteLine("initializing character");
 			entityWidth = characterWidth;
 			entityHeight = characterHeight;
 
