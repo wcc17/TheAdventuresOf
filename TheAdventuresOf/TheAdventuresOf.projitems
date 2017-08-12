@@ -39,6 +39,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\DashMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\FlyingCannonMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\BaseCannonMonster.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

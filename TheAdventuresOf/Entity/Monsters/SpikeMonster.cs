@@ -159,7 +159,7 @@ namespace TheAdventuresOf
                 }
                 else
                 {
-                    currentAnimation = standAnimation;
+                    currentAnimation = baseAnimation;
                 }
             }
             else 

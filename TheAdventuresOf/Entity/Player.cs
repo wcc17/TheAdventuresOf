@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -69,11 +69,11 @@ namespace TheAdventuresOf
 			                       TimeSpan.FromSeconds(animationSpeed));
 
 
-			standAnimation = new Animation();
-			standAnimation.AddFrame(new Rectangle(0, 0, entityWidth - 1, entityHeight), 
+			baseAnimation = new Animation();
+			baseAnimation.AddFrame(new Rectangle(0, 0, entityWidth - 1, entityHeight), 
 			                        TimeSpan.FromSeconds(animationSpeed));
 
-			currentAnimation = standAnimation;
+			currentAnimation = baseAnimation;
 
 			base.InitializeAnimation();
 		}
@@ -258,7 +258,7 @@ namespace TheAdventuresOf
 					currentAnimation.Update(gameTime);
 				}
 				else {
-					currentAnimation = standAnimation;
+					currentAnimation = baseAnimation;
 					currentAnimation.Update(gameTime);
 				}
 			}
@@ -288,7 +288,7 @@ namespace TheAdventuresOf
 			//if character is currently jumping
 			if (isJumping)
 			{
-				currentAnimation = standAnimation;
+				currentAnimation = baseAnimation;
 				Jump(gameTime);
 			}
 		}

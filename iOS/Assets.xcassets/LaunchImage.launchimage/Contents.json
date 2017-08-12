@@ -30,11 +30,19 @@
       "minimum-system-version": "8.0",
       "orientation": "landscape",
       "extent": "full-screen",
-      "filename": "splash_iphone6splus.png",
+      "filename": "splash_iphone6plus.png",
       "size": "736x414",
       "subtype": "736h",
       "scale": "3x",
       "idiom": "iphone"
+    },
+    {
+      "minimum-system-version": "7.0",
+      "orientation": "portrait",
+      "extent": "full-screen",
+      "size": "1024x1366",
+      "scale": "2x",
+      "idiom": "ipad"
     },
     {
       "minimum-system-version": "7.0",
@@ -88,7 +96,6 @@
     {
       "orientation": "portrait",
       "extent": "full-screen",
-      "filename": "Default.png",
       "size": "320x480",
       "scale": "1x",
       "idiom": "iphone"

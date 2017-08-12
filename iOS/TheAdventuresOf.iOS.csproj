@@ -102,7 +102,6 @@
     <BundleResource Include="GameThumbnail.png" />
     <BundleResource Include="Content\controller_1080p.png" />
     <BundleResource Include="Content\level1background_1080p.png" />
-    <BundleResource Include="Content\splash_iphone6splus.png" />
     <BundleResource Include="Content\arrow_1080p.png" />
     <BundleResource Include="Content\character_1080p.png" />
     <BundleResource Include="Content\sword_1080p.png" />
@@ -124,17 +123,20 @@
     <BundleResource Include="Content\rightarrow_1080p.png" />
     <BundleResource Include="Content\uparrow_1080p.png" />
     <BundleResource Include="Content\flyingcannonmonster_1080p.png" />
+    <BundleResource Include="Content\Menu\splash_iphone6splus_old.png" />
+    <BundleResource Include="Content\Menu\splash_iphone6plus.png" />
+    <BundleResource Include="Content\Menu\splash_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Default.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\splash_iphone6splus.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\splash_iphone6plus.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\XML\" />
+    <Folder Include="Content\Menu\" />
   </ItemGroup>
   <Import Project="..\TheAdventuresOf\TheAdventuresOf.projitems" Label="Shared" Condition="Exists('..\TheAdventuresOf\TheAdventuresOf.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

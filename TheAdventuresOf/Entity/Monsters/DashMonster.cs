@@ -9,9 +9,6 @@ namespace TheAdventuresOf
         public static float leftSideX;
         public static float rightSideX;
 
-        //public static float bounceHeight = 1;
-        //public int bounceUpDown = 1; //positive to go up, negative to go down
-
         public static float groundOffset;
         public static float boundOffset;
         Animation movingAnimation;
@@ -132,7 +129,7 @@ namespace TheAdventuresOf
                     delayAction = true;
                     moveLeft = false;
                     moveRight = true;
-                    currentAnimation = standAnimation;
+                    currentAnimation = baseAnimation;
                 }
 
                 UpdateEntityBounds();
@@ -150,7 +147,7 @@ namespace TheAdventuresOf
                     delayAction = true;
                     moveLeft = true;
                     moveRight = false;
-                    currentAnimation = standAnimation;
+                    currentAnimation = baseAnimation;
                 }
 
                 UpdateEntityBounds();
@@ -161,20 +158,5 @@ namespace TheAdventuresOf
         {
             currentAnimation.Update(gameTime);
         }
-
-        //void handleBounce(GameTime gameTime)
-        //{
-        //    if (positionVector.Y >= (groundLevel + bounceHeight))
-        //    {
-        //        bounceUpDown = -1;
-        //    }
-
-        //    if (positionVector.Y <= groundLevel)
-        //    {
-        //        bounceUpDown = 1;
-        //    }
-
-        //    positionVector.Y += (float)(speed/3 * gameTime.ElapsedGameTime.TotalSeconds * bounceUpDown);
-        //}
     }
 }

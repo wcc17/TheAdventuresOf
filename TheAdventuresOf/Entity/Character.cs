@@ -16,7 +16,7 @@ namespace TheAdventuresOf
 		public Vector2 originVector;
 
 		public int frameCount;
-		public Animation standAnimation;
+		public Animation baseAnimation;
 		public Animation walkAnimation;
 		public Animation currentAnimation;
 

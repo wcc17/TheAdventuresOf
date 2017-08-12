@@ -232,14 +232,14 @@ namespace TheAdventuresOf
             groundCannonMonster.boundOffset = (float)cannonMonsterElement.Element("BoundOffset");
             groundCannonMonster.bulletStartYPos = (float)cannonMonsterElement.Element("BulletStartYPos");
 
+            GroundCannonMonster.groundOffset = (float)cannonMonsterElement.Element("GroundOffset");
+
             //needing to use AssetManager.level here might not work later on with multiple levels. 
             //Will need to be sure that the new level is always loaded before XmlImporter is used
             //TODO: ensure that level graphc assets are loaded before xml importing happens on a new level
             float rightSideBound = AssetManager.Instance.levelTexture.Width - rightBoundWidth;
             groundCannonMonster.leftSideX = leftBoundWidth + groundCannonMonster.boundOffset;
             groundCannonMonster.rightSideX = rightSideBound - AssetManager.Instance.cannonMonsterTexture.Width - groundCannonMonster.boundOffset;
-
-            GroundCannonMonster.groundOffset = (float)cannonMonsterElement.Element("GroundOffset");
 
 			return groundCannonMonster;
 		}
@@ -260,6 +260,10 @@ namespace TheAdventuresOf
             flyingCannonMonster.animationSpeed = (float)flyingCannonMonsterElement.Element("AnimationSpeed");
             flyingCannonMonster.bulletStartYPos = (float)flyingCannonMonsterElement.Element("BulletStartYPos");
             flyingCannonMonster.boundOffset = (float)flyingCannonMonsterElement.Element("BoundOffset");
+            flyingCannonMonster.bounceHeight = (float)flyingCannonMonsterElement.Element("BounceHeight");
+            flyingCannonMonster.bounceSpeed = (float)flyingCannonMonsterElement.Element("BounceSpeed");
+
+            FlyingCannonMonster.floatHeight = (float)flyingCannonMonsterElement.Element("FloatHeight");
 
             //needing to use AssetManager.level here might not work later on with multiple levels. 
             //Will need to be sure that the new level is always loaded before XmlImporter is used
@@ -269,8 +273,6 @@ namespace TheAdventuresOf
             flyingCannonMonster.rightSideX = rightSideBound 
                 - (AssetManager.Instance.flyingCannonMonsterTexture.Width / flyingCannonMonster.frameCount) 
                 - flyingCannonMonster.boundOffset;
-
-            FlyingCannonMonster.floatHeight = (float)flyingCannonMonsterElement.Element("FloatHeight");
 
             return flyingCannonMonster;
         }

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -153,7 +153,7 @@ namespace TheAdventuresOf
 
         void handleBuildUpDelay(GameTime gameTime)
         {
-            currentAnimation = standAnimation;
+            currentAnimation = baseAnimation;
 
             bool timeUp = buildupDelayTimer.IsTimeUp(gameTime.ElapsedGameTime);
             if(timeUp) 

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 
 namespace TheAdventuresOf
@@ -71,7 +71,7 @@ namespace TheAdventuresOf
 				currentAnimation = walkAnimation;
 			}
 			else {
-				currentAnimation = standAnimation;
+				currentAnimation = baseAnimation;
 			}
 		}
 	}

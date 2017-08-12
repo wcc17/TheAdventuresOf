@@ -83,6 +83,8 @@
       <BoundOffset>40</BoundOffset>     
       <FloatHeight>150</FloatHeight> 
 	  <BulletStartYPos>575</BulletStartYPos>	
+	  <BounceHeight>12</BounceHeight>
+	  <BounceSpeed>125</BounceSpeed>		
     </FlyingCannonMonster>  
 		
 	<SpikeMonster>

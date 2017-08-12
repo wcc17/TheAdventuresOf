@@ -48,7 +48,11 @@ namespace TheAdventuresOf
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch(GraphicsDevice);
 
-			AssetManager.Instance.LoadGameAssets(this.GraphicsDevice);
+            GameManager gameManager = new GameManager();
+            AssetManager.Instance.LoadMenuAssets(this.GraphicsDevice);
+
+            //TODO: should I load this later when I'm actually ready to go into the game?
+			AssetManager.Instance.LoadGameAssets(this.GraphicsDevice, Content);
 			AssetManager.Instance.LoadLevelAssets(this.GraphicsDevice);
 
 			XmlImporter.LoadGameInformation();
@@ -56,7 +60,6 @@ namespace TheAdventuresOf
 
 			level.InitializeLevel();
 
-			FrameRate.LoadContent(Content);
 			Controller.InitializeController();
 		}
 

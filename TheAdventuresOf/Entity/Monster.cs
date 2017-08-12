@@ -19,83 +19,38 @@ namespace TheAdventuresOf
 		public bool delayAction;
 		float distanceMoved;
 
-		//don't want to instantiate a new Random object every frame
 		public Random rand = new Random();
-
-        public virtual void InitializeSpawn() { }
-        public virtual void HandleSpawn(GameTime gameTime) { }
-        public override void HandleAnimation(GameTime gameTime) { }
 
         public Texture2D monsterTexture;
 
         int shakeState = 0;
         float shakeAmt = 0;
+        public float bounceHeight;
+        public float bounceSpeed;
+        public int bounceUpDown = 1; //positive to go up, negative to go down
+
+        public virtual void InitializeSpawn() { }
+        public virtual void HandleSpawn(GameTime gameTime) { }
+        public override void HandleAnimation(GameTime gameTime) { }
 
         public void InitializeMonster()
         {
             rotation = 0;
             isSpawning = false;
-            currentAnimation = standAnimation;
+            currentAnimation = baseAnimation;
             UpdateEntityBounds();
         }
 
         public override void InitializeAnimation()
         {
-            standAnimation = new Animation();
-            standAnimation.AddFrame(new Rectangle(0,
+            baseAnimation = new Animation();
+            baseAnimation.AddFrame(new Rectangle(0,
                                                   0,
                                                   entityWidth,
                                                   entityHeight), TimeSpan.FromSeconds(animationSpeed));
 
-            currentAnimation = standAnimation;
+            currentAnimation = baseAnimation;
         }
-
-		public override void HandleLevelBoundCollision(int direction, int boundX)
-		{
-			base.HandleLevelBoundCollision(direction, boundX);
-		}
-
-		public virtual void HandleDelay(GameTime gameTime)
-		{
-			timeDelayed = timeDelayed.Add(gameTime.ElapsedGameTime);
-			if (timeDelayed.TotalSeconds > actionDelayTime)
-			{
-				delayAction = false;
-				timeDelayed = TimeSpan.FromSeconds(0);
-			}
-		}
-
-		public virtual void HandleDeath(GameTime gameTime)
-		{
-			//should rotate 90 degrees to the direction opposite of the direction they're facing
-			//after that should slowly sink down into the ground until they're off screen, slowly becoming more transparent
-			if ((moveLeft && rotation > -RIGHT_ANGLE_RADIANS) || (moveRight && rotation < RIGHT_ANGLE_RADIANS))
-			{
-				Rotate(gameTime);
-			}
-			else if (positionVector.Y < Screen.FULL_SCREEN_HEIGHT)
-			{
-				MoveUpDown(gameTime, DOWN);
-			}
-			else
-			{
-				isDead = true;
-			}
-		}
-
-		public override void HandleMovement(GameTime gameTime)
-		{
-			if (moveLeft)
-			{
-				Move(gameTime, LEFT);
-				UpdateEntityBounds();
-			}
-			else if (moveRight)
-			{
-				Move(gameTime, RIGHT);
-				UpdateEntityBounds();
-			}
-		}
 
 		public override void Update(GameTime gameTime, bool buttonPressed = false)
 		{
@@ -137,6 +92,104 @@ namespace TheAdventuresOf
 				HandleSpawn(gameTime);
 			}
 		}
+
+        public override void HandleLevelBoundCollision(int direction, int boundX)
+        {
+            base.HandleLevelBoundCollision(direction, boundX);
+        }
+
+        public virtual void HandleDelay(GameTime gameTime)
+        {
+            timeDelayed = timeDelayed.Add(gameTime.ElapsedGameTime);
+            if (timeDelayed.TotalSeconds > actionDelayTime)
+            {
+                delayAction = false;
+                timeDelayed = TimeSpan.FromSeconds(0);
+            }
+        }
+
+        public virtual void HandleDeath(GameTime gameTime)
+        {
+            //should rotate 90 degrees to the direction opposite of the direction they're facing
+            //after that should slowly sink down into the ground until they're off screen, slowly becoming more transparent
+            if ((moveLeft && rotation > -RIGHT_ANGLE_RADIANS) || (moveRight && rotation < RIGHT_ANGLE_RADIANS))
+            {
+                Rotate(gameTime);
+            }
+            else if (positionVector.Y < Screen.FULL_SCREEN_HEIGHT)
+            {
+                MoveUpDown(gameTime, DOWN);
+            }
+            else
+            {
+                isDead = true;
+            }
+        }
+
+        public override void HandleMovement(GameTime gameTime)
+        {
+            if (moveLeft)
+            {
+                Move(gameTime, LEFT);
+                UpdateEntityBounds();
+            }
+            else if (moveRight)
+            {
+                Move(gameTime, RIGHT);
+                UpdateEntityBounds();
+            }
+        }
+
+        public virtual void HandleShake(GameTime gameTime)
+        {
+            //TODO: magic number, do I want in XML or nah?
+            float shakeDistance = 300 * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            shakeAmt += shakeDistance;
+
+            switch (shakeState)
+            {
+                case 0:
+                    positionVector.X += shakeDistance;
+                    break;
+                case 1:
+                    positionVector.Y -= shakeDistance;
+                    break;
+                case 2:
+                    positionVector.X -= shakeDistance;
+                    break;
+                case 3:
+                    positionVector.Y += shakeDistance;
+                    break;
+            }
+
+            UpdateEntityBounds();
+
+            if (shakeAmt > 4)
+            {
+                shakeAmt = 0;
+                shakeState++;
+
+                if (shakeState > 3)
+                {
+                    shakeState = 0;
+                }
+            }
+        }
+
+        public virtual void HandleBounce(GameTime gameTime)
+        {
+            if (positionVector.Y >= (groundLevel + bounceHeight))
+            {
+                bounceUpDown = -1;
+            }
+
+            if (positionVector.Y <= groundLevel)
+            {
+                bounceUpDown = 1;
+            }
+
+            positionVector.Y += (float)(bounceSpeed / 3 * gameTime.ElapsedGameTime.TotalSeconds * bounceUpDown);
+        }
 
 		void randomizeMovement()
 		{
@@ -213,43 +266,7 @@ namespace TheAdventuresOf
 			base.Draw(spriteBatch, monsterTexture);
 		}
 
-        public virtual void HandleShake(GameTime gameTime)
-        {
-            //TODO: magic number, do I want in XML or nah?
-            float shakeDistance = 300 * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            shakeAmt += shakeDistance;
-
-            switch (shakeState)
-            {
-                case 0:
-                    positionVector.X += shakeDistance;
-                    break;
-                case 1:
-                    positionVector.Y -= shakeDistance;
-                    break;
-                case 2:
-                    positionVector.X -= shakeDistance;
-                    break;
-                case 3:
-                    positionVector.Y += shakeDistance;
-                    break;
-            }
-
-            UpdateEntityBounds();
-
-            if (shakeAmt > 4)
-            {
-                shakeAmt = 0;
-                shakeState++;
-
-                if (shakeState > 3)
-                {
-                    shakeState = 0;
-                }
-            }
-        }
-
-		public virtual void Reset()
+        public virtual void Reset()
 		{
 			isSpawning = false;
 			isDying = false;
