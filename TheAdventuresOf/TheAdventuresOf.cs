@@ -1,8 +1,5 @@
-using System;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 namespace TheAdventuresOf
 {
@@ -11,10 +8,8 @@ namespace TheAdventuresOf
 	/// </summary>
 	public class TheAdventuresOf : Game
 	{
-		GraphicsDeviceManager graphics;
-		SpriteBatch spriteBatch;
-		Screen screen;
-		Level level;
+        GraphicsDeviceManager graphics;
+        GameManager gameManager;
 
 		public TheAdventuresOf()
 		{
@@ -33,10 +28,8 @@ namespace TheAdventuresOf
 		/// </summary>
 		protected override void Initialize()
 		{
-			screen = new Screen(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
-			level = new Level();
+            gameManager = new GameManager(this.GraphicsDevice, Content);
 			base.Initialize();
-
 		}
 
 		/// <summary>
@@ -45,22 +38,7 @@ namespace TheAdventuresOf
 		/// </summary>
 		protected override void LoadContent()
 		{
-			// Create a new SpriteBatch, which can be used to draw textures.
-			spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            GameManager gameManager = new GameManager();
-            AssetManager.Instance.LoadMenuAssets(this.GraphicsDevice);
-
-            //TODO: should I load this later when I'm actually ready to go into the game?
-			AssetManager.Instance.LoadGameAssets(this.GraphicsDevice, Content);
-			AssetManager.Instance.LoadLevelAssets(this.GraphicsDevice);
-
-			XmlImporter.LoadGameInformation();
-			XmlImporter.LoadLevelInformation(level);
-
-			level.InitializeLevel();
-
-			Controller.InitializeController();
+            gameManager.LoadContent();
 		}
 
 		/// <summary>
@@ -77,8 +55,7 @@ namespace TheAdventuresOf
 				Exit();
 			#endif
 
-			screen.Update(gameTime);
-			level.Update(gameTime);
+            gameManager.Update(gameTime);
 			base.Update(gameTime);
 		}
 
@@ -88,18 +65,7 @@ namespace TheAdventuresOf
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Draw(GameTime gameTime)
 		{
-			spriteBatch.Begin(transformMatrix: screen.scaleMatrix);
-
-			//Draw level related stuff (background and monsters)
-			level.Draw(spriteBatch);
-
-			//Draw controller and buttons
-			Controller.Draw(spriteBatch);
-
-			//Calculate and draw fps to screen
-			FrameRate.Draw(spriteBatch, gameTime);
-
-			spriteBatch.End();
+            gameManager.Draw(gameTime);
 
 			base.Draw(gameTime);
 		}
