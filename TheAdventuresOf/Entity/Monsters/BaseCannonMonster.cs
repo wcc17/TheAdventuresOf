@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿﻿﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -23,24 +23,6 @@ namespace TheAdventuresOf
         public static float recoilSpeed;
         public static float recoilDistance;
         public bool isRecoil;
-
-        public override void InitializeSpawn()
-        {
-            Reset();
-
-            if (moveLeft)
-            {
-                rotation = RIGHT_ANGLE_RADIANS;
-            }
-            else
-            {
-                rotation = -RIGHT_ANGLE_RADIANS;
-            }
-
-            isSpawning = true;
-
-            initializeBullet();
-        }
 
         public void initializeBullet()
         {

@@ -18,8 +18,6 @@ namespace TheAdventuresOf
         {
             base.Update(gameTime, buttonPressed);
 
-            Console.WriteLine("Bullet updating");
-
             if (hasCollidedWithPlayer)
             {
                 handleDestruction(gameTime);

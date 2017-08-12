@@ -23,6 +23,24 @@ namespace TheAdventuresOf
             rightSideX = groundCannonMonster.rightSideX;
 		}
 
+        public override void InitializeSpawn()
+        {
+            Reset();
+
+            if (moveLeft)
+            {
+                rotation = RIGHT_ANGLE_RADIANS;
+            }
+            else
+            {
+                rotation = -RIGHT_ANGLE_RADIANS;
+            }
+
+            isSpawning = true;
+
+            initializeBullet();
+        }
+
 		public override void HandleSpawn(GameTime gameTime)
 		{
 			if (positionVector.Y > groundLevel)

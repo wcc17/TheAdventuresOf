@@ -7,11 +7,11 @@
 		
     <BlockMonsterLimit>3</BlockMonsterLimit>
     <SunMonsterLimit>3</SunMonsterLimit>
-    <CannonMonsterLimit>2</CannonMonsterLimit>
-	<BileMonsterLimit>2</BileMonsterLimit>
-	<SpikeMonsterLimit>1</SpikeMonsterLimit>	
-	<DashMonsterLimit>2</DashMonsterLimit>
-	<FlyingCannonMonsterLimit>2</FlyingCannonMonsterLimit>
+    <CannonMonsterLimit>1</CannonMonsterLimit>
+    <FlyingCannonMonsterLimit>1</FlyingCannonMonsterLimit>
+    <BileMonsterLimit>2</BileMonsterLimit>
+    <SpikeMonsterLimit>1</SpikeMonsterLimit>    
+    <DashMonsterLimit>1</DashMonsterLimit>
 		
     <SpawnDelayTime>0.5</SpawnDelayTime>
     <DelayCannonSpawnTimeLimit>4</DelayCannonSpawnTimeLimit>

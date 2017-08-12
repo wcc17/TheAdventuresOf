@@ -271,6 +271,25 @@ namespace TheAdventuresOf
 			cannonMonsterCount++;
 		}
 
+        void spawnFlyingCannonMonster()
+        {
+            FlyingCannonMonster flyingCannonMonster = new FlyingCannonMonster();
+
+            flyingCannonMonster.SetFlyingCannonMonsterData(level.flyingCannonMonster);
+            flyingCannonMonster.groundLevel = level.groundLevel - FlyingCannonMonster.floatHeight;
+            flyingCannonMonster.ChooseRandomSide(flyingCannonMonsterCount, monsters);
+            flyingCannonMonster.InitializeCharacter(flyingCannonMonster.positionVector.X,
+                                                    0 - AssetManager.Instance.flyingCannonMonsterTexture.Height,
+                                                    AssetManager.Instance.flyingCannonMonsterTexture.Width / flyingCannonMonster.frameCount,
+                                                    AssetManager.Instance.flyingCannonMonsterTexture.Height);
+
+            flyingCannonMonster.InitializeSpawn();
+
+            monsters.Add(flyingCannonMonster);
+
+            flyingCannonMonsterCount++;
+        }
+
         void spawnSpikeMonster() 
         {
             SpikeMonster spikeMonster = new SpikeMonster();
@@ -306,31 +325,16 @@ namespace TheAdventuresOf
             dashMonsterCount++;
         }
 
-        void spawnFlyingCannonMonster()
-        {
-            FlyingCannonMonster flyingCannonMonster = new FlyingCannonMonster();
-
-            flyingCannonMonster.SetFlyingCannonMonsterData(level.flyingCannonMonster);
-            flyingCannonMonster.groundLevel = level.groundLevel - FlyingCannonMonster.floatHeight;
-            flyingCannonMonster.InitializeCharacter(getRandomXLocation(AssetManager.Instance.flyingCannonMonsterTexture.Width),
-                                                    0 - AssetManager.Instance.flyingCannonMonsterTexture.Height,
-                                                    AssetManager.Instance.flyingCannonMonsterTexture.Width / flyingCannonMonster.frameCount,
-                                                    AssetManager.Instance.flyingCannonMonsterTexture.Height);
-
-            flyingCannonMonster.InitializeSpawn();
-
-            monsters.Add(flyingCannonMonster);
-
-            flyingCannonMonsterCount++;
-        }
-
-		void handleCannonMonsterSpawn()
+        //TODO: do i really want this?
+        //TODO: do i want this for the flying cannon monster?
+        //TODO: maybe I want this for everyone? so that new monsters don't spawn immediately after the old one dies
+		void handleGroundCannonMonsterSpawn()
 		{
 			//if the timer is past the limit
 			//randomly choose whether to spawn a new cannon monster or not
 			if (delayCannonSpawnTimer.Seconds > level.delayCannonSpawnTimerLimit)
 			{
-				Console.WriteLine("Cannon monster timer limit passed");
+				//Console.WriteLine("Cannon monster timer limit passed");
 
 				canSpawnCannonMonster = true;
 				delayCannonSpawnTimer = TimeSpan.FromSeconds(0);
@@ -338,15 +342,15 @@ namespace TheAdventuresOf
 
 			if (canSpawnCannonMonster)
 			{
-				Console.WriteLine("Could spawn monster");
+				//Console.WriteLine("Could spawn monster");
 
 				if (rand.Next(0, 2) == 0)
 				{
-					Console.WriteLine("Spawning monster");
+					//Console.WriteLine("Spawning monster");
 					spawnCannonMonster();
 				}
 				else {
-					Console.WriteLine("Decided not to spawn monster");
+					//Console.WriteLine("Decided not to spawn monster");
 				}
 
 				canSpawnCannonMonster = false;

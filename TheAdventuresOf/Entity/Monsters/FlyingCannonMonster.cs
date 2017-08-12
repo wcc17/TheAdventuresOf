@@ -16,14 +16,24 @@ namespace TheAdventuresOf
             actionDelayTime = flyingCannonMonster.actionDelayTime;
             monsterTexture = AssetManager.Instance.flyingCannonMonsterTexture;
             bulletStartYPos = flyingCannonMonster.bulletStartYPos;
+
+            leftSideX = flyingCannonMonster.leftSideX;
+            rightSideX = flyingCannonMonster.rightSideX;
+        }
+
+        public override void InitializeSpawn()
+        {
+            Reset();
+
+            isSpawning = true;
+
+            initializeBullet();
         }
 
         public override void HandleSpawn(GameTime gameTime) {
             
             if (positionVector.Y < groundLevel) {
                 MoveUpDown(gameTime, DOWN);
-            } else if ((moveLeft && rotation > 0) || (moveRight && rotation < 0)) {
-                Rotate(gameTime);
             } else {
                 InitializeMonster();
 

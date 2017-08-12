@@ -82,7 +82,7 @@
       <AnimationSpeed>0.06</AnimationSpeed> 
       <BoundOffset>40</BoundOffset>     
       <FloatHeight>150</FloatHeight> 
-	  <BulletStartYPos>725</BulletStartYPos>	
+	  <BulletStartYPos>575</BulletStartYPos>	
     </FlyingCannonMonster>  
 		
 	<SpikeMonster>
