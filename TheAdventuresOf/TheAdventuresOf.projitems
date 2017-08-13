@@ -14,7 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Util\FrameRate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AnimationFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Animation.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controller.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Button.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Level.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\XmlImporter.cs" />
@@ -40,6 +40,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\FlyingCannonMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\BaseCannonMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MainMenu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MenuController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controller.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

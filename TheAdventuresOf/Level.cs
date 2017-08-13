@@ -49,9 +49,9 @@ namespace TheAdventuresOf
 			monsterManager = new MonsterManager(this);
 		}
 
-		public void Update(GameTime gameTime)
+		public void Update(GameTime gameTime, GameController gameController)
 		{
-            playerManager.Update(gameTime);
+            playerManager.Update(gameTime, gameController);
 
 			monsterManager.HandleSpawnMonsters(gameTime);
             monsterManager.UpdateMonsters(gameTime, this);

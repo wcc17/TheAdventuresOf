@@ -21,9 +21,9 @@ namespace TheAdventuresOf
 
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, GameController gameController)
         {
-            player.Update(gameTime, Controller.isButtonPressed);
+            player.UpdatePlayer(gameTime, gameController);
             level.CheckCollisionWithBounds(player);
         }
 

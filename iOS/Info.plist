@@ -12,14 +12,14 @@
 	<string>project.MonoGame.TheAdventuresOf.iOS</string>
 	<key>MinimumOSVersion</key>
 	<string>7.0</string>
+	<key>CFBundleName</key>
+	<string>TheAdventuresOf.iOS</string>
+	<key>XSLaunchImageAssets</key>
+	<string>Assets.xcassets/LaunchImage.launchimage</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>CFBundleName</key>
-	<string>TheAdventuresOf.iOS</string>
-	<key>XSLaunchImageAssets</key>
-	<string>Assets.xcassets/LaunchImage.launchimage</string>
 </dict>
 </plist>

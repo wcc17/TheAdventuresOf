@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Xml;
 using System.IO;
 using Microsoft.Xna.Framework;
@@ -41,7 +41,7 @@ namespace TheAdventuresOf
 		public static void LoadGameInformation()
 		{
 			XElement gameElement = gameDocument.Element("Game");
-			XElement controllerElement = gameElement.Element("Controller");
+			XElement controllerElement = gameElement.Element("GameController");
 
 			var controllerX = (float)controllerElement.Element("ControllerX");
 			var controllerY = (float)controllerElement.Element("ControllerY");
@@ -52,10 +52,10 @@ namespace TheAdventuresOf
 			var upButtonX = (float)controllerElement.Element("UpButtonX");
 			var upButtonY = (float)controllerElement.Element("UpButtonY");
 
-			Controller.controllerPositionVector = new Vector2(controllerX, controllerY);
-			Controller.leftButtonPositionVector = new Vector2(leftButtonX, leftButtonY);
-			Controller.rightButtonPositionVector = new Vector2(rightButtonX, rightButtonY);
-			Controller.upButtonPositionVector = new Vector2(upButtonX, upButtonY);
+			GameController.controllerPositionVector = new Vector2(controllerX, controllerY);
+			GameController.leftButtonPositionVector = new Vector2(leftButtonX, leftButtonY);
+			GameController.rightButtonPositionVector = new Vector2(rightButtonX, rightButtonY);
+			GameController.upButtonPositionVector = new Vector2(upButtonX, upButtonY);
 		}
 
 		public static void LoadLevelInformation(Level level)

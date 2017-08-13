@@ -78,18 +78,19 @@ namespace TheAdventuresOf
 			base.InitializeAnimation();
 		}
 
-		public override void Update(GameTime gameTime, bool buttonPressed)
+		public void UpdatePlayer(GameTime gameTime, GameController gameController)
 		{
 			if (!isDying)
 			{
-				HandleJump(gameTime);
+                HandleJump(gameTime, gameController.upButtonPressed);
 
 				//reset isMoving before checking again to see if player is still moving
 				isMoving = false;
 
-				if (buttonPressed)
+                if (gameController.isButtonPressed)
 				{
-					HandleMovement(gameTime);
+                    HandlePlayerMovement(gameTime, gameController.leftButtonPressed, 
+                                   gameController.rightButtonPressed);
 				}
 
 				if (isInvincible)
@@ -113,14 +114,15 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public override void HandleMovement(GameTime gameTime)
-		{
-			if (Controller.leftButtonPressed)
+		public void HandlePlayerMovement(GameTime gameTime, 
+                                            bool leftButtonPressed, 
+                                            bool rightButtonPressed) {
+			if (leftButtonPressed)
 			{
 				Move(gameTime, LEFT);
 				UpdateEntityBounds();
 			}
-			if (Controller.rightButtonPressed)
+			if (rightButtonPressed)
 			{
 				Move(gameTime, RIGHT);
 				UpdateEntityBounds();
@@ -264,9 +266,9 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public void HandleJump(GameTime gameTime)
+		public void HandleJump(GameTime gameTime, bool isUpButtonPressed)
 		{
-			if (Controller.upButtonPressed)
+			if (isUpButtonPressed)
 			{
 				hasJumped = true;
 			}

@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input.Touch;
@@ -34,17 +34,18 @@ namespace TheAdventuresOf
 			return matrix;
 		}
 
-		public void Update(GameTime gameTime)
+		public void Update(GameTime gameTime, Controller controller)
 		{
-			HandleInput(gameTime);
+			HandleInput(gameTime, controller);
 		}
 
-		public void HandleInput(GameTime gameTime)
-		{
-			//reset the controller
-			Controller.ResetButtonPressedValues();
+        //TODO: this needs to be updated so that main menu can use it as well as the gameController
+        public void HandleInput(GameTime gameTime, Controller controller)
+        {
+            //reset the controller
+            controller.ResetButtonPressedValues();
 
-			List<Point> touchPoints = GetTouchInput();
+            List<Point> touchPoints = GetTouchInput();
 
 			if (touchPoints.Count > 0)
 			{
@@ -52,12 +53,12 @@ namespace TheAdventuresOf
 				{
 					if (i < multiTouchLimit)
 					{
-						Controller.HandleInput(touchPoints[i]);
+						controller.HandleInput(touchPoints[i]);
 					}
 				}
 			}
 
-            Controller.HandleImpacts();
+            controller.HandleImpacts();
 		}
 
 		private List<Point> GetTouchInput()

@@ -13,8 +13,12 @@ namespace TheAdventuresOf
 		public const string androidFilePath = "Assets/Content/";
 		public const string iosFilePath = "Content/";
 
-        //menu textures
+        //splash textures
         public Texture2D splashTexture;
+
+        //menu textures
+        public Texture2D menuTexture;
+        public Texture2D menuPlayButtonTexture;
 
 		//game textures
 		public Texture2D controllerTexture;
@@ -60,15 +64,29 @@ namespace TheAdventuresOf
 			#endif
 		}
 
+        public void LoadSplashAssets(GraphicsDevice graphicsDevice, ContentManager contentManager) {
+            string menuFilePath = filePath + "/Menu/";
+
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "splash_1080p.png"))
+            {
+                splashTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+
+            font = contentManager.Load<SpriteFont>("arial");
+        }
+
         public void LoadMenuAssets(GraphicsDevice graphicsDevice) {
             string menuFilePath = filePath + "/Menu/";
 
-            using (var stream = TitleContainer.OpenStream(menuFilePath + "splash_1080p.png")) {
-                splashTexture = Texture2D.FromStream(graphicsDevice, stream);
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_1080p.png")) {
+                menuTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_playbutton_1080p.png")) {
+                menuPlayButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
         }
 
-		public void LoadGameAssets(GraphicsDevice graphicsDevice, ContentManager contentManager) {
+		public void LoadGameAssets(GraphicsDevice graphicsDevice) {
             
 			using (var stream = TitleContainer.OpenStream(filePath + "controller_1080p.png")) {
 				controllerTexture = Texture2D.FromStream(graphicsDevice, stream);
@@ -91,8 +109,6 @@ namespace TheAdventuresOf
             using (var stream = TitleContainer.OpenStream(filePath + "uparrow_1080p.png")) {
                 upArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-
-            font = contentManager.Load<SpriteFont>("arial");
 		}
 
         //TODO: eventually add logic for reloading textures based on what level the player is on 
@@ -135,6 +151,13 @@ namespace TheAdventuresOf
 				bileTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
 		}
+
+        //TODO: needs to be called somewhere!
+        public void DisposeMenuAssets() {
+            splashTexture.Dispose();
+            menuTexture.Dispose();
+            menuPlayButtonTexture.Dispose();
+        }
 
         //TODO: this needs to be called when new level happens and when game closes
 		public void DisposeLevelAssets() {

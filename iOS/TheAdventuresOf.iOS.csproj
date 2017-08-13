@@ -126,6 +126,8 @@
     <BundleResource Include="Content\Menu\splash_iphone6splus_old.png" />
     <BundleResource Include="Content\Menu\splash_iphone6plus.png" />
     <BundleResource Include="Content\Menu\splash_1080p.png" />
+    <BundleResource Include="Content\Menu\mainmenu_1080p.png" />
+    <BundleResource Include="Content\Menu\mainmenu_playbutton_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
