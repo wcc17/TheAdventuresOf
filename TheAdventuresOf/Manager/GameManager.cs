@@ -10,9 +10,11 @@ namespace TheAdventuresOf
         public const int SPLASH_STATE = 0;
         public const int MENU_STATE = 1;
         public const int LEVEL_STATE = 2;
+        public const int LOAD_STATE = 3;
 
         Vector2 basePositionVector = new Vector2(0, 0);
 
+        int nextGameState = -1;
         int gameState = SPLASH_STATE;
         GraphicsDevice graphicsDevice;
         ContentManager contentManager;
@@ -65,23 +67,25 @@ namespace TheAdventuresOf
             currentController.InitializeController();
         }
 
-        void loadLevel()
-        {
-            Console.WriteLine("Load Level");
+        //only load level assets. will eventually have switch for level number
+        void loadLevelAssets() {
+            Console.WriteLine("Load Level assets");
 
             currentLevel = new Level();
 
-            //TODO: should I load this later when I'm actually ready to go into the game?
-            AssetManager.Instance.LoadGameAssets(graphicsDevice); 
+            AssetManager.Instance.LoadGameAssets(graphicsDevice);
             AssetManager.Instance.LoadLevelAssets(graphicsDevice, contentManager);
 
             XmlImporter.LoadGameInformation();
             XmlImporter.LoadLevelInformation(currentLevel);
+        }
 
+        //start playing level. will eventually have switch for level number
+        void loadLevel()
+        {
             currentLevel.InitializeLevel();
 
             gameState = LEVEL_STATE;
-            musicManager.ChangeState(gameState);
 
             currentController = new GameController();
             currentController.InitializeController();
@@ -90,20 +94,22 @@ namespace TheAdventuresOf
 
         public void Update(GameTime gameTime)
         {
+            musicManager.Update(gameTime);
+
             switch(gameState) {
                 case SPLASH_STATE:
-                    Console.WriteLine("Update Splash State");
                     updateSplash(gameTime);
                     break;
                 case MENU_STATE:
-                    Console.WriteLine("Update Menu State");
                     screenManager.Update(gameTime, currentController);
                     updateMenu(gameTime);
                     break;
                 case LEVEL_STATE:
-                    Console.WriteLine("Update Level State:");
                     screenManager.Update(gameTime, currentController);
                     updateLevel(gameTime);
+                    break;
+                case LOAD_STATE:
+                    updateLoadState(gameTime);
                     break;
             }
         }
@@ -114,8 +120,8 @@ namespace TheAdventuresOf
             if(timeUp) {
                 splashTimer.Reset();
 
+                //no need to get load screen involved
                 loadMainMenu();
-                //gameState = LEVEL_STATE;
 
                 //need to throw away splash texture and information after this
             }
@@ -125,7 +131,11 @@ namespace TheAdventuresOf
             mainMenu.Update(gameTime, (MenuController) currentController);
 
             if(mainMenu.proceedToNextState) {
-                loadLevel();
+                gameState = LOAD_STATE;
+                nextGameState = LEVEL_STATE;
+
+                //load level assets for nextGameState
+                loadLevelAssets();
             }
         }
 
@@ -137,24 +147,24 @@ namespace TheAdventuresOf
             //when done, we can switch state
         }
 
+        void updateLoadState(GameTime gameTime) {
+            //if musicManager is still on the current state, change its state to prepare for the next
+            if (musicManager.gameState != nextGameState)
+            {
+                musicManager.ChangeState(nextGameState);
+            }
 
-        void drawSplash() {
-            spriteBatch.Draw(AssetManager.Instance.splashTexture, basePositionVector);    
-        }
-
-        void drawMenu() {
-            mainMenu.Draw(spriteBatch);
-
-            //draw play buttons, etc
-            currentController.Draw(spriteBatch);
-        }
-
-        void drawLevel() {
-	        //Draw level related stuff (background and monsters)
-	        currentLevel.Draw(spriteBatch);
-
-	        //Draw controller and buttons
-	        currentController.Draw(spriteBatch);
+            //if musicManager is no longer changing a song, load the main menu
+            if (!musicManager.changingSongs)
+            {
+                switch (nextGameState)
+                {
+                    //TODO: will I eventually have more levels here? kind of meaningless to switch for just the level state
+                    case LEVEL_STATE:
+                        loadLevel();
+                        break;
+                }
+            }
         }
 
         public void Draw(GameTime gameTime) {
@@ -162,16 +172,16 @@ namespace TheAdventuresOf
 
             switch(gameState) {
                 case SPLASH_STATE:
-                    Console.WriteLine("Drawing splash state");
                     drawSplash();
                     break;
                 case MENU_STATE:
-                    Console.WriteLine("Drawing menu state");
                     drawMenu();
                     break;
                 case LEVEL_STATE:
-                    Console.WriteLine("Drawing level state");
                     drawLevel();
+                    break;
+                case LOAD_STATE:
+                    drawLoadScreen();
                     break;
             }
 
@@ -180,6 +190,34 @@ namespace TheAdventuresOf
             FrameRate.Draw(spriteBatch, gameTime);
 
             spriteBatch.End();
+        }
+
+        void drawSplash()
+        {
+            spriteBatch.Draw(AssetManager.Instance.splashTexture, basePositionVector);
+        }
+
+        void drawMenu()
+        {
+            mainMenu.Draw(spriteBatch);
+
+            //draw play buttons, etc
+            currentController.Draw(spriteBatch);
+        }
+
+        void drawLevel()
+        {
+            //Draw level related stuff (background and monsters)
+            currentLevel.Draw(spriteBatch);
+
+            //Draw controller and buttons
+            currentController.Draw(spriteBatch);
+        }
+
+        void drawLoadScreen()
+        {
+            //TODO: should have a new screen for load screen rather than splash screen
+            drawSplash();
         }
     }
 }

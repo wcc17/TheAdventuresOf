@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Media;
 
 namespace TheAdventuresOf
@@ -8,8 +9,11 @@ namespace TheAdventuresOf
 
     public class MusicManager
     {
-        int gameState;
-        //Song currentSong;
+        public bool changingSongs;
+        public int gameState;
+
+        float volume = 1.0f;
+        Song currentSong;
 
         public MusicManager(int gameState)
         {
@@ -18,26 +22,42 @@ namespace TheAdventuresOf
             MediaPlayer.IsRepeating = true;
         }
 
-        public void ChangeState(int gameState) {
+        public void ChangeState(int newGameState) {
+
+            gameState = newGameState;
 
             switch(gameState) {
                 case GameManager.SPLASH_STATE:
-                    MediaPlayer.Play(AssetManager.Instance.menuSong);
-                    break;
-                case GameManager.MENU_STATE:
-                    //TODO: ensure that menu music already started playing in SPLASH_STATE
-                    //MediaPlayer.Play(AssetManager.Instance.menuSong);
+                    currentSong = AssetManager.Instance.menuSong;
+                    MediaPlayer.Play(currentSong);
                     break;
                 case GameManager.LEVEL_STATE:
-                    MediaPlayer.Play(AssetManager.Instance.levelOneSong);
+                    changingSongs = true;
+                    currentSong = AssetManager.Instance.levelOneSong;
                     break;
             }
         }
 
-        //TODO: need some sort of loading screen in GameManager where this can happen
-        //until then, songs will just change abruptly because theres no where to perform the fade out
-        public void ChangeSong(Song nextSong) {
-            //TODO: fade from one song to the next? or just fade out previous song
+        public void Update(GameTime gameTime) {
+            HandleMusicVolume(gameTime);
+        }
+
+        public void HandleMusicVolume(GameTime gameTime) {
+            if (changingSongs) {
+                if (volume > 0.0f) {
+                    volume -= (float)(gameTime.ElapsedGameTime.TotalSeconds * 0.5f);
+                    MediaPlayer.Volume = volume;
+                }
+            }
+
+            if (volume <= 0.0f) {
+                volume = 1.0f;
+                changingSongs = false;
+
+                MediaPlayer.Volume = volume;
+
+                MediaPlayer.Play(currentSong);
+            }
         }
     }
 }
