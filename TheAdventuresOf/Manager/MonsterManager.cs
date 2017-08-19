@@ -208,7 +208,7 @@ namespace TheAdventuresOf
 			blockMonster.SetBlockMonsterData(level.blockMonster);
 			blockMonster.groundLevel = level.groundLevel;
 			blockMonster.InitializeCharacter(getRandomXLocation(AssetManager.Instance.blockMonsterTexture.Width),
-											 Screen.FULL_SCREEN_HEIGHT - AssetManager.Instance.blockMonsterTexture.Height,
+											 ScreenManager.FULL_SCREEN_HEIGHT - AssetManager.Instance.blockMonsterTexture.Height,
 											 AssetManager.Instance.blockMonsterTexture.Width / blockMonster.frameCount,
 											 AssetManager.Instance.blockMonsterTexture.Height);
 			blockMonster.InitializeSpawn();
@@ -261,7 +261,7 @@ namespace TheAdventuresOf
 			//random side of the level is chosen here. if a cannon monster already exists there, it will be handled here
 			groundCannonMonster.ChooseRandomSide(cannonMonsterCount, monsters);
 			groundCannonMonster.InitializeCharacter(groundCannonMonster.positionVector.X,
-											  Screen.FULL_SCREEN_HEIGHT - AssetManager.Instance.cannonMonsterTexture.Height,
+											  ScreenManager.FULL_SCREEN_HEIGHT - AssetManager.Instance.cannonMonsterTexture.Height,
 											  AssetManager.Instance.cannonMonsterTexture.Width / groundCannonMonster.frameCount,
 											  AssetManager.Instance.cannonMonsterTexture.Height);
 			groundCannonMonster.InitializeSpawn();
@@ -315,7 +315,7 @@ namespace TheAdventuresOf
             dashMonster.groundLevel = level.groundLevel + DashMonster.groundOffset;
             //TODO: do we want him to spawn in a random spot or at either side of the level?
             dashMonster.InitializeCharacter(getRandomXLocation(AssetManager.Instance.dashMonsterTexture.Width),
-                                            Screen.FULL_SCREEN_HEIGHT - AssetManager.Instance.dashMonsterTexture.Height,
+                                            ScreenManager.FULL_SCREEN_HEIGHT - AssetManager.Instance.dashMonsterTexture.Height,
                                             AssetManager.Instance.dashMonsterTexture.Width / dashMonster.frameCount,
                                             AssetManager.Instance.dashMonsterTexture.Height);
             dashMonster.InitializeSpawn();

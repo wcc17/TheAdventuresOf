@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -76,7 +76,7 @@ namespace TheAdventuresOf
 
             if (moveRight)
             {
-                if (positionVector.X > Screen.FULL_SCREEN_WIDTH + 10)
+                if (positionVector.X > ScreenManager.FULL_SCREEN_WIDTH + 10)
                 {
                     //Console.WriteLine("bullet is off screen");
                     isActive = false;

@@ -52,7 +52,7 @@ namespace TheAdventuresOf
 			                            AssetManager.Instance.swordTexture.Height);
 
 			health = maxHealth;
-			heartPositionVector = new Vector2(Screen.FULL_SCREEN_WIDTH - ((AssetManager.Instance.heartTexture.Width + 20) * health), 10);
+			heartPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH - ((AssetManager.Instance.heartTexture.Width + 20) * health), 10);
 
 			moveRight = true;
 		}

@@ -116,7 +116,7 @@ namespace TheAdventuresOf
             {
                 Rotate(gameTime);
             }
-            else if (positionVector.Y < Screen.FULL_SCREEN_HEIGHT)
+            else if (positionVector.Y < ScreenManager.FULL_SCREEN_HEIGHT)
             {
                 MoveUpDown(gameTime, DOWN);
             }

@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 
 namespace TheAdventuresOf
 {
-	public class Screen
+	public class ScreenManager
 	{
 		public const float FULL_SCREEN_WIDTH = 1920f;
 		public const float FULL_SCREEN_HEIGHT = 1080f;
@@ -16,9 +16,9 @@ namespace TheAdventuresOf
 
 		//actual width and actual height are the values that the device thinks the screen should be, not what we want it to be
 		//so those weird scaled res for iphone 6s plus, etc.
-		public Screen(int actualWidth, int actualHeight)
+		public ScreenManager(int actualWidth, int actualHeight)
 		{
-			Console.WriteLine("Instantiating Screen object");
+			Console.WriteLine("Instantiating ScreenManager object");
 
 			scaleMatrix = CreateScaleMatrix(actualWidth, actualHeight);
 		}

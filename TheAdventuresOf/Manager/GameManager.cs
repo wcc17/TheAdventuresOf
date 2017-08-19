@@ -7,48 +7,51 @@ namespace TheAdventuresOf
 {
     public class GameManager
     {
-        const int SPLASH_STATE = 0;
-        const int MENU_STATE = 1;
-        const int LEVEL_STATE = 2;
+        public const int SPLASH_STATE = 0;
+        public const int MENU_STATE = 1;
+        public const int LEVEL_STATE = 2;
 
         Vector2 basePositionVector = new Vector2(0, 0);
 
         int gameState = SPLASH_STATE;
         GraphicsDevice graphicsDevice;
         ContentManager contentManager;
+        ScreenManager screenManager;
+        MusicManager musicManager;
         SpriteBatch spriteBatch;
-        Screen screen;
         Level currentLevel = null;
         MainMenu mainMenu;
 
         Controller currentController;
 
         //TODO: load this information in an XML file
-        float splashTimeLimit = 5.0f;
+        float splashTimeLimit = 2.5f;
         Timer splashTimer;
 
         public GameManager(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {
             this.graphicsDevice = graphicsDevice;
             this.contentManager = contentManager;
+            this.musicManager = new MusicManager(gameState);
         }
 
         public void LoadContent() {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(graphicsDevice);
 
-            screen = new Screen(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
+            screenManager = new ScreenManager(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
 
             loadSplashScreen();
         }
 
         void loadSplashScreen() {
             Console.WriteLine("Load splash screen");
+            AssetManager.Instance.LoadSplashAssets(graphicsDevice, contentManager);
 
             gameState = SPLASH_STATE;
+            musicManager.ChangeState(gameState);
 
             splashTimer = new Timer(splashTimeLimit);
-            AssetManager.Instance.LoadSplashAssets(graphicsDevice, contentManager);
         }
 
         void loadMainMenu() {
@@ -70,7 +73,7 @@ namespace TheAdventuresOf
 
             //TODO: should I load this later when I'm actually ready to go into the game?
             AssetManager.Instance.LoadGameAssets(graphicsDevice); 
-            AssetManager.Instance.LoadLevelAssets(graphicsDevice);
+            AssetManager.Instance.LoadLevelAssets(graphicsDevice, contentManager);
 
             XmlImporter.LoadGameInformation();
             XmlImporter.LoadLevelInformation(currentLevel);
@@ -78,6 +81,7 @@ namespace TheAdventuresOf
             currentLevel.InitializeLevel();
 
             gameState = LEVEL_STATE;
+            musicManager.ChangeState(gameState);
 
             currentController = new GameController();
             currentController.InitializeController();
@@ -93,12 +97,12 @@ namespace TheAdventuresOf
                     break;
                 case MENU_STATE:
                     Console.WriteLine("Update Menu State");
-                    screen.Update(gameTime, currentController);
+                    screenManager.Update(gameTime, currentController);
                     updateMenu(gameTime);
                     break;
                 case LEVEL_STATE:
                     Console.WriteLine("Update Level State:");
-                    screen.Update(gameTime, currentController);
+                    screenManager.Update(gameTime, currentController);
                     updateLevel(gameTime);
                     break;
             }
@@ -154,7 +158,7 @@ namespace TheAdventuresOf
         }
 
         public void Draw(GameTime gameTime) {
-            spriteBatch.Begin(transformMatrix: screen.scaleMatrix);
+            spriteBatch.Begin(transformMatrix: screenManager.scaleMatrix);
 
             switch(gameState) {
                 case SPLASH_STATE:

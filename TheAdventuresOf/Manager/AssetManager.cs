@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 
 namespace TheAdventuresOf
 {
@@ -19,6 +20,7 @@ namespace TheAdventuresOf
         //menu textures
         public Texture2D menuTexture;
         public Texture2D menuPlayButtonTexture;
+        public Song menuSong;
 
 		//game textures
 		public Texture2D controllerTexture;
@@ -40,6 +42,7 @@ namespace TheAdventuresOf
         public Texture2D spikeMonsterTexture;
         public Texture2D dashMonsterTexture;
         public Texture2D flyingCannonMonsterTexture;
+        public Song levelOneSong;
 
 		public Texture2D bulletTexture;
 		public Texture2D bileTexture;
@@ -65,7 +68,7 @@ namespace TheAdventuresOf
 		}
 
         public void LoadSplashAssets(GraphicsDevice graphicsDevice, ContentManager contentManager) {
-            string menuFilePath = filePath + "/Menu/";
+            string menuFilePath = filePath + "Menu/";
 
             using (var stream = TitleContainer.OpenStream(menuFilePath + "splash_1080p.png"))
             {
@@ -73,10 +76,11 @@ namespace TheAdventuresOf
             }
 
             font = contentManager.Load<SpriteFont>("arial");
+            menuSong = contentManager.Load<Song>("Menu/mainmenu_music");
         }
 
         public void LoadMenuAssets(GraphicsDevice graphicsDevice) {
-            string menuFilePath = filePath + "/Menu/";
+            string menuFilePath = filePath + "Menu/";
 
             using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_1080p.png")) {
                 menuTexture = Texture2D.FromStream(graphicsDevice, stream);
@@ -112,7 +116,7 @@ namespace TheAdventuresOf
 		}
 
         //TODO: eventually add logic for reloading textures based on what level the player is on 
-        public void LoadLevelAssets(GraphicsDevice graphicsDevice)
+        public void LoadLevelAssets(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {
             //monsters
             using (var stream = TitleContainer.OpenStream(filePath + "character_1080p.png")) {
@@ -150,6 +154,9 @@ namespace TheAdventuresOf
 			using (var stream = TitleContainer.OpenStream(filePath + "bile_1080p.png")) {
 				bileTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
+
+            //music
+            levelOneSong = contentManager.Load<Song>("level1_music");
 		}
 
         //TODO: needs to be called somewhere!
@@ -157,6 +164,8 @@ namespace TheAdventuresOf
             splashTexture.Dispose();
             menuTexture.Dispose();
             menuPlayButtonTexture.Dispose();
+
+            menuSong.Dispose();
         }
 
         //TODO: this needs to be called when new level happens and when game closes
@@ -174,6 +183,8 @@ namespace TheAdventuresOf
 
             bulletTexture.Dispose();
             bileTexture.Dispose();
+
+            levelOneSong.Dispose();
 		}
 
         //TODO: this needs to be called somewhere

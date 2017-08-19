@@ -5,5 +5,7 @@
   <Config />
   <SourceFiles>
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/arial.spritefont</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Menu/mainmenu_music.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/level1_music.mp3</File>
   </SourceFiles>
 </SourceFileCollection>

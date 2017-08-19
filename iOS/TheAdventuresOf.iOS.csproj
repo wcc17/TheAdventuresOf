@@ -97,6 +97,7 @@
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="Content\arial-24.spritefont" />
+    <None Include="Content\level1_music.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GameThumbnail.png" />
@@ -128,6 +129,7 @@
     <BundleResource Include="Content\Menu\splash_1080p.png" />
     <BundleResource Include="Content\Menu\mainmenu_1080p.png" />
     <BundleResource Include="Content\Menu\mainmenu_playbutton_1080p.png" />
+    <BundleResource Include="Content\Menu\mainmenu_music.mp3" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
