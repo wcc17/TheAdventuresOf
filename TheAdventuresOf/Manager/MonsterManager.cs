@@ -147,9 +147,9 @@ namespace TheAdventuresOf
 				level.CheckCollisionWithBounds(monster);
                 level.CheckPlayerCollisionWithMonster(monster);
 
-				if (monster is GroundCannonMonster)
+                if (monster is BaseCannonMonster)
 				{
-                    level.CheckPlayerCollisionProjectile(((GroundCannonMonster)monster).bullet);
+                    level.CheckPlayerCollisionProjectile(((BaseCannonMonster)monster).bullet);
 				}
                 if (monster is BileMonster) 
                 {
