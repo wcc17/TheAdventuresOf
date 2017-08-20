@@ -10,5 +10,17 @@
 		<UpButtonX>1650</UpButtonX>
 		<UpButtonY>865</UpButtonY>
 	</GameController>
+	<Scoring>
+		<TextFloatSpeed>100</TextFloatSpeed>
+		<TextDisappearSpeed>1.2</TextDisappearSpeed>
+		<BlockMonster>100</BlockMonster>
+		<SunMonster>150</SunMonster>
+		<BileMonster>200</BileMonster>
+		<DashMonster>275</DashMonster>
+		<GroundCannonMonster>300</GroundCannonMonster>
+		<FlyingCannonMonster>350</FlyingCannonMonster>
+		<TotalScoreTextX>20</TotalScoreTextX>
+		<TotalScoreTextY>10</TotalScoreTextY>
+    </Scoring>		
 </Game>
 

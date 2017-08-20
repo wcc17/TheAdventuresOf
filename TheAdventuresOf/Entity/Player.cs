@@ -212,19 +212,23 @@ namespace TheAdventuresOf
 
 		public void CheckCollisionMonster(Monster monster)
 		{
-			if (swordBounds.Intersects(monster.entityBounds))
-			{
-				monster.isDying = true;
-			}
-			else if (entityBounds.Intersects(monster.entityBounds))
-			{
-				if (!isInvincible && !monster.isDying && !monster.isDead)
-				{
-					Console.WriteLine("player took damage from monster");
-					handlePlayerTakingDamage(monster);
-				}
-					
-			}
+            if(!monster.isDying && !monster.isDead) {
+                //TODO: should this be an if/else if statement? or two ifs?
+                if (swordBounds.Intersects(monster.entityBounds))
+                {
+                    monster.isDying = true;
+                    ScoringManager.Instance.HandleMonsterKill(monster);
+                }
+                else if (entityBounds.Intersects(monster.entityBounds))
+                {
+                    if (!isInvincible)
+                    {
+                        Console.WriteLine("player took damage from monster");
+                        handlePlayerTakingDamage(monster);
+                    }
+
+                } 
+            }
 		}
 
 		void handlePlayerTakingDamage(Entity entity)

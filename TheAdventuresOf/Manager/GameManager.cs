@@ -141,6 +141,7 @@ namespace TheAdventuresOf
 
         void updateLevel(GameTime gameTime) {
             currentLevel.Update(gameTime, (GameController) currentController);
+            ScoringManager.Instance.Update(gameTime);
 
             //should constantly check if level is "done"
             //level will have a public variable for this eventually
@@ -212,6 +213,9 @@ namespace TheAdventuresOf
 
             //Draw controller and buttons
             currentController.Draw(spriteBatch);
+
+            //Draw score related stuff
+            ScoringManager.Instance.Draw(spriteBatch);
         }
 
         void drawLoadScreen()

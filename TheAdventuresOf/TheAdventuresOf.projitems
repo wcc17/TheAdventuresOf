@@ -44,6 +44,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controller\Controller.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\GameController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\MenuController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\ScoringManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ScoreText.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

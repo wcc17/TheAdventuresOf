@@ -56,6 +56,18 @@ namespace TheAdventuresOf
 			GameController.leftButtonPositionVector = new Vector2(leftButtonX, leftButtonY);
 			GameController.rightButtonPositionVector = new Vector2(rightButtonX, rightButtonY);
 			GameController.upButtonPositionVector = new Vector2(upButtonX, upButtonY);
+
+            XElement scoringElement = gameElement.Element("Scoring");
+            ScoreText.textFloatSpeed = (float)scoringElement.Element("TextFloatSpeed");
+            ScoreText.textDisappearSpeed = (float)scoringElement.Element("TextDisappearSpeed");
+            ScoringManager.blockMonsterScore = (int)scoringElement.Element("BlockMonster");
+            ScoringManager.sunMonsterScore = (int)scoringElement.Element("SunMonster");
+            ScoringManager.bileMonsterScore = (int)scoringElement.Element("BileMonster");
+            ScoringManager.dashMonsterScore = (int)scoringElement.Element("DashMonster");
+            ScoringManager.groundCannonMonsterScore = (int)scoringElement.Element("GroundCannonMonster");
+            ScoringManager.flyingCannonMonsterScore = (int)scoringElement.Element("FlyingCannonMonster");
+            ScoringManager.totalScoreTextX = (float)scoringElement.Element("TotalScoreTextX");
+            ScoringManager.totalScoreTextY = (float)scoringElement.Element("TotalScoreTextY");
 		}
 
 		public static void LoadLevelInformation(Level level)
