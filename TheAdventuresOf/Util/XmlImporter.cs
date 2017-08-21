@@ -60,12 +60,15 @@ namespace TheAdventuresOf
             XElement scoringElement = gameElement.Element("Scoring");
             ScoreText.textFloatSpeed = (float)scoringElement.Element("TextFloatSpeed");
             ScoreText.textDisappearSpeed = (float)scoringElement.Element("TextDisappearSpeed");
+            ScoreText.textFontScale = (float)scoringElement.Element("TextFontScale");
+            ScoreText.textPositionOffset = (float)scoringElement.Element("TextPositionOffset");
             ScoringManager.blockMonsterScore = (int)scoringElement.Element("BlockMonster");
             ScoringManager.sunMonsterScore = (int)scoringElement.Element("SunMonster");
             ScoringManager.bileMonsterScore = (int)scoringElement.Element("BileMonster");
             ScoringManager.dashMonsterScore = (int)scoringElement.Element("DashMonster");
             ScoringManager.groundCannonMonsterScore = (int)scoringElement.Element("GroundCannonMonster");
             ScoringManager.flyingCannonMonsterScore = (int)scoringElement.Element("FlyingCannonMonster");
+            ScoringManager.spikeMonsterScore = (int)scoringElement.Element("SpikeMonster");
             ScoringManager.totalScoreTextX = (float)scoringElement.Element("TotalScoreTextX");
             ScoringManager.totalScoreTextY = (float)scoringElement.Element("TotalScoreTextY");
 		}
@@ -304,9 +307,9 @@ namespace TheAdventuresOf
             spikeMonster.rotationSpeed = (float)spikeMonsterElement.Element("RotationSpeed");
             spikeMonster.upDownSpeed = (float)spikeMonsterElement.Element("UpDownSpeed");
             spikeMonster.actionDelayTime = (float)spikeMonsterElement.Element("ActionDelayTime");
+            spikeMonster.attackSpeed = (float)spikeMonsterElement.Element("AttackSpeed");
 
             SpikeMonster.floatHeight = (float)spikeMonsterElement.Element("FloatHeight");
-            SpikeMonster.attackSpeed = (float)spikeMonsterElement.Element("AttackSpeed");
             SpikeMonster.attackDelayTime = (float)spikeMonsterElement.Element("AttackDelayTime");
 
             return spikeMonster;

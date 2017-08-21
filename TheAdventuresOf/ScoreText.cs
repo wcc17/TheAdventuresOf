@@ -8,6 +8,8 @@ namespace TheAdventuresOf
     {
         public static float textFloatSpeed;
         public static float textDisappearSpeed;
+        public static float textFontScale;
+        public static float textPositionOffset;
         public bool isActive = true;
 
         float alpha = 1.0f;
@@ -17,7 +19,7 @@ namespace TheAdventuresOf
 
         public ScoreText(float startX, float startY, int pointsEarned)
         {
-            positionVector = new Vector2(startX, startY);
+            positionVector = new Vector2(startX-textPositionOffset, startY);
             this.pointsEarned = pointsEarned;
         }
 
@@ -32,7 +34,12 @@ namespace TheAdventuresOf
         }
 
         public void Draw(SpriteBatch spriteBatch) {
-            spriteBatch.DrawString(AssetManager.Instance.font, pointsEarned.ToString(), positionVector, Color.White * alpha);
+            //spriteBatch.DrawString(AssetManager.Instance.font, pointsEarned.ToString(), positionVector, Color.White * alpha);
+
+            spriteBatch.DrawString(AssetManager.Instance.font,
+                                   pointsEarned.ToString(), positionVector,
+                                   Color.White * alpha, 0, new Vector2(0,0), 
+                                   textFontScale, SpriteEffects.None, 0);
         }
     }
 }

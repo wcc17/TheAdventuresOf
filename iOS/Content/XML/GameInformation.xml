@@ -13,12 +13,15 @@
 	<Scoring>
 		<TextFloatSpeed>100</TextFloatSpeed>
 		<TextDisappearSpeed>1.2</TextDisappearSpeed>
+		<TextFontScale> 0.70</TextFontScale>
+		<TextPositionOffset>20</TextPositionOffset>
 		<BlockMonster>100</BlockMonster>
 		<SunMonster>150</SunMonster>
 		<BileMonster>200</BileMonster>
 		<DashMonster>275</DashMonster>
 		<GroundCannonMonster>300</GroundCannonMonster>
 		<FlyingCannonMonster>350</FlyingCannonMonster>
+		<SpikeMonster>250</SpikeMonster>
 		<TotalScoreTextX>20</TotalScoreTextX>
 		<TotalScoreTextY>10</TotalScoreTextY>
     </Scoring>		

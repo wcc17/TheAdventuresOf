@@ -7,8 +7,9 @@ namespace TheAdventuresOf
     public class SpikeMonster : Monster
     {
         public static float floatHeight;
-        public static float attackSpeed;
         public static float attackDelayTime;
+        public float attackSpeed;
+        public bool didDamagePlayer = false;
 
         //different from delay before attack. This is how long monster will hover above player before dropping down
         public TimeSpan attackTimeDelayed = TimeSpan.FromSeconds(0);
@@ -28,6 +29,7 @@ namespace TheAdventuresOf
             actionDelayTime = spikeMonster.actionDelayTime;
             rotationSpeed = spikeMonster.rotationSpeed;
             upDownSpeed = spikeMonster.upDownSpeed;
+            attackSpeed = spikeMonster.attackSpeed;
 
             monsterTexture = AssetManager.Instance.spikeMonsterTexture;
         }
@@ -144,6 +146,10 @@ namespace TheAdventuresOf
                 {
                     Console.WriteLine("spike monster is dead");
                     isDead = true;
+
+                    if(!didDamagePlayer) {
+                        ScoringManager.Instance.HandleMonsterKill(this);
+                    }
                 }
             }
         }

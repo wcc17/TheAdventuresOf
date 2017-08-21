@@ -216,13 +216,22 @@ namespace TheAdventuresOf
                 //TODO: should this be an if/else if statement? or two ifs?
                 if (swordBounds.Intersects(monster.entityBounds))
                 {
-                    monster.isDying = true;
-                    ScoringManager.Instance.HandleMonsterKill(monster);
+                    //spike monster can't be killed by the sword
+                    if(!(monster is SpikeMonster)) {
+                        monster.isDying = true;
+                        ScoringManager.Instance.HandleMonsterKill(monster);
+                    }
                 }
                 else if (entityBounds.Intersects(monster.entityBounds))
                 {
                     if (!isInvincible)
                     {
+                        if(monster is SpikeMonster) {
+                            Console.WriteLine("Player took damage from SpikeMonster");
+                            ((SpikeMonster) monster).didDamagePlayer = true;
+                        }
+
+
                         Console.WriteLine("player took damage from monster");
                         handlePlayerTakingDamage(monster);
                     }

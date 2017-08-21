@@ -17,6 +17,7 @@ namespace TheAdventuresOf
         public static int dashMonsterScore;
         public static int groundCannonMonsterScore;
         public static int flyingCannonMonsterScore;
+        public static int spikeMonsterScore;
         public static float totalScoreTextX;
         public static float totalScoreTextY;
 
@@ -62,11 +63,15 @@ namespace TheAdventuresOf
             if(monster is FlyingCannonMonster) {
                 pointsEarned = flyingCannonMonsterScore;
             }
+            if(monster is SpikeMonster) {
+                pointsEarned = spikeMonsterScore;
+            }
 
             score += pointsEarned;
 
             //generate a new ScoringText object
-            ScoreText newScoreText = new ScoreText(monster.positionVector.X, monster.groundLevel, pointsEarned);
+            float scoreTextX = monster.positionVector.X + monster.entityBounds.Width / 2;
+            ScoreText newScoreText = new ScoreText(scoreTextX, monster.groundLevel, pointsEarned);
             activeScoreText.Add(newScoreText);
         }
 
@@ -76,8 +81,6 @@ namespace TheAdventuresOf
             }
 
             activeScoreText.RemoveAll(inactiveScoreText => inactiveScoreText.isActive == false);
-
-            Console.WriteLine("Active score texts: " + activeScoreText.Count);
         }
 
         public void Draw(SpriteBatch spriteBatch) {
