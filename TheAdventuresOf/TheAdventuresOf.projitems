@@ -46,6 +46,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controller\MenuController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\ScoringManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ScoreText.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\DebugInfoPrinter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

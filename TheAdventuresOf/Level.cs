@@ -23,7 +23,7 @@ namespace TheAdventuresOf
 
 		public int blockMonsterLimit;
 		public int sunMonsterLimit;
-		public int cannonMonsterLimit;
+		public int groundCannonMonsterLimit;
 		public int bileMonsterLimit;
         public int spikeMonsterLimit;
         public int dashMonsterLimit;

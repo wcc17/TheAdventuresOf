@@ -89,7 +89,7 @@ namespace TheAdventuresOf
 		{
 			level.blockMonsterLimit = (int)levelElement.Element("BlockMonsterLimit");
 			level.sunMonsterLimit = (int)levelElement.Element("SunMonsterLimit");
-			level.cannonMonsterLimit = (int)levelElement.Element("CannonMonsterLimit");
+            level.groundCannonMonsterLimit = (int)levelElement.Element("GroundCannonMonsterLimit");
 			level.bileMonsterLimit = (int)levelElement.Element("BileMonsterLimit");
             level.spikeMonsterLimit = (int)levelElement.Element("SpikeMonsterLimit");
             level.dashMonsterLimit = (int)levelElement.Element("DashMonsterLimit");
@@ -118,7 +118,7 @@ namespace TheAdventuresOf
 			XElement playerElement = charactersElement.Element("Player");
 
 			player.entityTag = (string)playerElement.Element("EntityTag");
-			player.speed= (float)playerElement.Element("Speed");
+			player.speed = (float)playerElement.Element("Speed");
 			player.animationSpeed = (float)playerElement.Element("AnimationSpeed");
 			player.leftSwordOffset = (float)playerElement.Element("LeftSwordOffset");
 			player.rightSwordOffset = (float)playerElement.Element("RightSwordOffset");

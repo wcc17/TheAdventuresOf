@@ -8,18 +8,28 @@ namespace TheAdventuresOf
 {
 	public class MonsterManager
 	{
+        const int BLOCK_MONSTER = 0;
+        const int SUN_MONSTER = 1;
+        const int GROUND_CANNON_MONSTER = 2;
+        const int BILE_MONSTER = 3;
+        const int SPIKE_MONSTER = 4;
+        const int DASH_MONSTER = 5;
+        const int FLYING_CANNON_MONSTER = 6;
+
 		public Level level;
 
 		public int blockMonsterCount;
 		public int sunMonsterCount;
-		public int cannonMonsterCount;
+		public int groundCannonMonsterCount;
 		public int bileMonsterCount;
         public int spikeMonsterCount;
         public int dashMonsterCount;
         public int flyingCannonMonsterCount;
+        public int monsterCount;
 
 		public static List<Monster> monsters;
 		public List<Monster> monstersToRemove;
+        List<int> availableMonsters;
 
 		static Random rand = new Random();
 
@@ -32,7 +42,10 @@ namespace TheAdventuresOf
 		public MonsterManager(Level level)
 		{
 			monsters = new List<Monster>();
-			monstersToRemove = new List<Monster>();
+
+            //just trying to avoid creating new lists every other frame or whatever
+            monstersToRemove = new List<Monster>();
+            availableMonsters = new List<int>(); 
 
 			this.level = level;
 		}
@@ -58,54 +71,93 @@ namespace TheAdventuresOf
 			}
 		}
 
-	
+        //TODO: this method alone is reason enough to move spawning info to its own Manager	
 		public void HandleSpawnMonsters(GameTime gameTime)
 		{
 			handleSpawnDelay(gameTime);
 
+            //will be a chance to not spawn a monster this time
+            //if (canSpawn && (monsterCount >= level.minimumMonsterCount) && rand.Next(0, 2) == 0)
+            //{
+            //    canSpawn = false;
+            //}
+
 			if (canSpawn)
 			{
+                availableMonsters.Clear();
+
 				//spawn new monsters if needed
 				if (blockMonsterCount < level.blockMonsterLimit)
 				{
-					spawnBlockMonster();
+                    availableMonsters.Add(BLOCK_MONSTER);
 				}
 
 				if (sunMonsterCount < level.sunMonsterLimit)
 				{
-					spawnSunMonster();
+                    availableMonsters.Add(SUN_MONSTER);
 				}
 
-				if (cannonMonsterCount < level.cannonMonsterLimit)
+                if (groundCannonMonsterCount < level.groundCannonMonsterLimit)
 				{
-					handleGroundCannonMonsterSpawn();
+                    availableMonsters.Add(GROUND_CANNON_MONSTER);
 				}
 
 				if (bileMonsterCount < level.bileMonsterLimit)
 				{
-					spawnBileMonster();
+                    availableMonsters.Add(BILE_MONSTER);
 				}
 
                 if (spikeMonsterCount < level.spikeMonsterLimit)
                 {
-                    spawnSpikeMonster();
+                    availableMonsters.Add(SPIKE_MONSTER);
                 }
 
                 if (dashMonsterCount < level.dashMonsterLimit)
                 {
-                    spawnDashMonster();
+                    availableMonsters.Add(DASH_MONSTER);
                 }
 
                 if (flyingCannonMonsterCount < level.flyingCannonMonsterLimit)
                 {
-                    spawnFlyingCannonMonster();
+                    availableMonsters.Add(FLYING_CANNON_MONSTER);
                 }
 
-				canSpawn = false;
+                if(availableMonsters.Count > 0) {
+                    int randomMonsterIndex = rand.Next(0, availableMonsters.Count);
+                    int monsterToSpawn = availableMonsters[randomMonsterIndex];
+
+                    switch (monsterToSpawn)
+                    {
+                        case BLOCK_MONSTER:
+                            spawnBlockMonster();
+                            break;
+                        case SUN_MONSTER:
+                            spawnSunMonster();
+                            break;
+                        case GROUND_CANNON_MONSTER:
+                            //handleGroundCannonMonsterSpawn();
+                            spawnGroundCannonMonster();
+                            break;
+                        case BILE_MONSTER:
+                            spawnBileMonster();
+                            break;
+                        case SPIKE_MONSTER:
+                            spawnSpikeMonster();
+                            break;
+                        case DASH_MONSTER:
+                            spawnDashMonster();
+                            break;
+                        case FLYING_CANNON_MONSTER:
+                            spawnFlyingCannonMonster();
+                            break;
+                    }
+
+                    monsterCount++;
+                    canSpawn = false;
+                }
 			}
 		}
 
-        //TODO: could use map here for the counts? doesn't really matter that much
 		public void UpdateMonsterCount(Monster monster)
 		{
 			if (monster is BlockMonster)
@@ -118,7 +170,7 @@ namespace TheAdventuresOf
 			}
 			else if (monster is GroundCannonMonster)
 			{
-				cannonMonsterCount--;
+                groundCannonMonsterCount--;
 			}
 			else if (monster is BileMonster)
 			{
@@ -136,6 +188,8 @@ namespace TheAdventuresOf
             {
                 flyingCannonMonsterCount--;
             }
+
+            monsterCount++;
 		}
 
 		public void UpdateMonsters(GameTime gameTime, Level level)
@@ -252,14 +306,14 @@ namespace TheAdventuresOf
 			bileMonsterCount++;
 		}
 
-		void spawnCannonMonster()
+		void spawnGroundCannonMonster()
 		{
 			GroundCannonMonster groundCannonMonster = new GroundCannonMonster();
 
 			groundCannonMonster.SetCannonMonsterData(level.groundCannonMonster);
 			groundCannonMonster.groundLevel = level.groundLevel - GroundCannonMonster.groundOffset;
 			//random side of the level is chosen here. if a cannon monster already exists there, it will be handled here
-			groundCannonMonster.ChooseRandomSide(cannonMonsterCount, monsters);
+            groundCannonMonster.ChooseRandomSide(groundCannonMonsterCount, monsters);
 			groundCannonMonster.InitializeCharacter(groundCannonMonster.positionVector.X,
 											  ScreenManager.FULL_SCREEN_HEIGHT - AssetManager.Instance.cannonMonsterTexture.Height,
 											  AssetManager.Instance.cannonMonsterTexture.Width / groundCannonMonster.frameCount,
@@ -268,7 +322,7 @@ namespace TheAdventuresOf
 
 			monsters.Add(groundCannonMonster);
 
-			cannonMonsterCount++;
+			groundCannonMonsterCount++;
 		}
 
         void spawnFlyingCannonMonster()
@@ -330,34 +384,34 @@ namespace TheAdventuresOf
         //before a new monster can be delayed
         //ultimately the goal is to prevent new monsters from spawning
         //DIRECTLY after old monsters die.
-		void handleGroundCannonMonsterSpawn()
-		{
-			//if the timer is past the limit
-			//randomly choose whether to spawn a new cannon monster or not
-			if (delayCannonSpawnTimer.Seconds > level.delayCannonSpawnTimerLimit)
-			{
-				//Console.WriteLine("Cannon monster timer limit passed");
+		//void handleGroundCannonMonsterSpawn()
+		//{
+		//	//if the timer is past the limit
+		//	//randomly choose whether to spawn a new cannon monster or not
+		//	if (delayCannonSpawnTimer.Seconds > level.delayCannonSpawnTimerLimit)
+		//	{
+		//		//Console.WriteLine("Cannon monster timer limit passed");
 
-				canSpawnCannonMonster = true;
-				delayCannonSpawnTimer = TimeSpan.FromSeconds(0);
-			}
+		//		canSpawnCannonMonster = true;
+		//		delayCannonSpawnTimer = TimeSpan.FromSeconds(0);
+		//	}
 
-			if (canSpawnCannonMonster)
-			{
-				//Console.WriteLine("Could spawn monster");
+		//	if (canSpawnCannonMonster)
+		//	{
+		//		//Console.WriteLine("Could spawn monster");
 
-				if (rand.Next(0, 2) == 0)
-				{
-					//Console.WriteLine("Spawning monster");
-					spawnCannonMonster();
-				}
-				else {
-					//Console.WriteLine("Decided not to spawn monster");
-				}
+		//		if (rand.Next(0, 2) == 0)
+		//		{
+		//			//Console.WriteLine("Spawning monster");
+		//			spawnCannonMonster();
+		//		}
+		//		else {
+		//			//Console.WriteLine("Decided not to spawn monster");
+		//		}
 
-				canSpawnCannonMonster = false;
-			}
-		}
+		//		canSpawnCannonMonster = false;
+		//	}
+		//}
 	}
 }
 

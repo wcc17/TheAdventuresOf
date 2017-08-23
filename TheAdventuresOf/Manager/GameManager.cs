@@ -20,6 +20,7 @@ namespace TheAdventuresOf
         ContentManager contentManager;
         ScreenManager screenManager;
         MusicManager musicManager;
+        DebugInfoPrinter debugInfoPrinter;
         SpriteBatch spriteBatch;
         Level currentLevel = null;
         MainMenu mainMenu;
@@ -35,6 +36,7 @@ namespace TheAdventuresOf
             this.graphicsDevice = graphicsDevice;
             this.contentManager = contentManager;
             this.musicManager = new MusicManager(gameState);
+            this.debugInfoPrinter = new DebugInfoPrinter();
         }
 
         public void LoadContent() {
@@ -112,6 +114,9 @@ namespace TheAdventuresOf
                     updateLoadState(gameTime);
                     break;
             }
+
+            //Calculate and draw fps to screen
+            FrameRate.Update(gameTime);
         }
 
         void updateSplash(GameTime gameTime) {
@@ -186,9 +191,7 @@ namespace TheAdventuresOf
                     break;
             }
 
-            //TODO: this will eventually be drawn with the level only
-            //Calculate and draw fps to screen
-            FrameRate.Draw(spriteBatch, gameTime);
+            debugInfoPrinter.Draw(spriteBatch);
 
             spriteBatch.End();
         }

@@ -7,11 +7,13 @@ namespace TheAdventuresOf
 {
 	public static class FrameRate
 	{
-		public static void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+		public static void Update(GameTime gameTime)
 		{
 			float frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            DebugInfoPrinter.AddOrUpdateValue("FrameRate", frameRate.ToString());
             //TODO: should not be creating a new Vector2 everytime. Should be loading coordinates from XML
-			spriteBatch.DrawString(AssetManager.Instance.font, frameRate.ToString(), new Vector2(20, 50), Color.White);
+			//spriteBatch.DrawString(AssetManager.Instance.font, frameRate.ToString(), new Vector2(20, 50), Color.White);
 		}
 
 	}
