@@ -8,13 +8,13 @@ namespace TheAdventuresOf
 {
 	public class MonsterManager
 	{
-        const int BLOCK_MONSTER = 0;
-        const int SUN_MONSTER = 1;
-        const int GROUND_CANNON_MONSTER = 2;
-        const int BILE_MONSTER = 3;
-        const int SPIKE_MONSTER = 4;
-        const int DASH_MONSTER = 5;
-        const int FLYING_CANNON_MONSTER = 6;
+        public const int BLOCK_MONSTER = 0;
+        public const int SUN_MONSTER = 1;
+        public const int GROUND_CANNON_MONSTER = 2;
+        public const int BILE_MONSTER = 3;
+        public const int SPIKE_MONSTER = 4;
+        public const int DASH_MONSTER = 5;
+        public const int FLYING_CANNON_MONSTER = 6;
 
 		public Level level;
 
@@ -76,48 +76,42 @@ namespace TheAdventuresOf
 		{
 			handleSpawnDelay(gameTime);
 
-            //will be a chance to not spawn a monster this time
-            //if (canSpawn && (monsterCount >= level.minimumMonsterCount) && rand.Next(0, 2) == 0)
-            //{
-            //    canSpawn = false;
-            //}
-
 			if (canSpawn)
 			{
                 availableMonsters.Clear();
 
 				//spawn new monsters if needed
-				if (blockMonsterCount < level.blockMonsterLimit)
+                if (blockMonsterCount < level.tierMonsterLimits[BLOCK_MONSTER][level.currentTier])
 				{
                     availableMonsters.Add(BLOCK_MONSTER);
 				}
 
-				if (sunMonsterCount < level.sunMonsterLimit)
+				if (sunMonsterCount < level.tierMonsterLimits[SUN_MONSTER][level.currentTier])
 				{
                     availableMonsters.Add(SUN_MONSTER);
 				}
 
-                if (groundCannonMonsterCount < level.groundCannonMonsterLimit)
+                if (groundCannonMonsterCount < level.tierMonsterLimits[GROUND_CANNON_MONSTER][level.currentTier])
 				{
                     availableMonsters.Add(GROUND_CANNON_MONSTER);
 				}
 
-				if (bileMonsterCount < level.bileMonsterLimit)
+                if (bileMonsterCount < level.tierMonsterLimits[BILE_MONSTER][level.currentTier])
 				{
                     availableMonsters.Add(BILE_MONSTER);
 				}
 
-                if (spikeMonsterCount < level.spikeMonsterLimit)
+                if (spikeMonsterCount < level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier])
                 {
                     availableMonsters.Add(SPIKE_MONSTER);
                 }
 
-                if (dashMonsterCount < level.dashMonsterLimit)
+                if (dashMonsterCount < level.tierMonsterLimits[DASH_MONSTER][level.currentTier])
                 {
                     availableMonsters.Add(DASH_MONSTER);
                 }
 
-                if (flyingCannonMonsterCount < level.flyingCannonMonsterLimit)
+                if (flyingCannonMonsterCount < level.tierMonsterLimits[FLYING_CANNON_MONSTER][level.currentTier])
                 {
                     availableMonsters.Add(FLYING_CANNON_MONSTER);
                 }
@@ -158,6 +152,22 @@ namespace TheAdventuresOf
 			}
 		}
 
+        public void Update(GameTime gameTime, Level level) {
+            HandleSpawnMonsters(gameTime);
+            //TODO: WHY AM I PASSING LEVEL HERE? we already keep a level variable
+            UpdateMonsters(gameTime, level);
+
+            DebugInfoPrinter.AddOrUpdateValue("Tier", (level.currentTier+1).ToString());
+            DebugInfoPrinter.AddOrUpdateValue("TierLimit", (level.tierScores[level.currentTier].ToString()));
+            DebugInfoPrinter.AddOrUpdateValue("Block Limit: ", level.tierMonsterLimits[BLOCK_MONSTER][level.currentTier].ToString());
+            DebugInfoPrinter.AddOrUpdateValue("Sun Limit: ", level.tierMonsterLimits[SUN_MONSTER][level.currentTier].ToString());
+            DebugInfoPrinter.AddOrUpdateValue("GCannon Limit: ", level.tierMonsterLimits[GROUND_CANNON_MONSTER][level.currentTier].ToString());
+            DebugInfoPrinter.AddOrUpdateValue("FCannon Limit: ", level.tierMonsterLimits[FLYING_CANNON_MONSTER][level.currentTier].ToString());
+            DebugInfoPrinter.AddOrUpdateValue("Bile Limit: ", level.tierMonsterLimits[BILE_MONSTER][level.currentTier].ToString());
+            DebugInfoPrinter.AddOrUpdateValue("Spike Limit: ", level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier].ToString());
+            DebugInfoPrinter.AddOrUpdateValue("Dash Limit: ", level.tierMonsterLimits[DASH_MONSTER][level.currentTier].ToString());
+        }
+
 		public void UpdateMonsterCount(Monster monster)
 		{
 			if (monster is BlockMonster)
@@ -192,6 +202,7 @@ namespace TheAdventuresOf
             monsterCount++;
 		}
 
+        //TODO: why am i passing level here? we already keep a level variable
 		public void UpdateMonsters(GameTime gameTime, Level level)
 		{
 			//update each monster and remove them if they're dead
