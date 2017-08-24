@@ -1,42 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Level>
-  <LevelOne>
+  <SpawnDelayTime>1</SpawnDelayTime>
+  <DelayCannonSpawnTimeLimit>4</DelayCannonSpawnTimeLimit>
+
+	<LevelOne>
     <GroundLevel>690</GroundLevel>
     <LeftBoundWidth>135</LeftBoundWidth>
     <RightBoundWidth>125</RightBoundWidth>
 
-	<!--
-        Levels will be split up into tiers
-		Reaching a certain tier will unlock a new monster or two
-		and will also increase the number of monsters on the field by 1 or 2 (depending on tier)
+	<Tier1Score>600</Tier1Score>    <!-- 7 monsters  -->
+    <Tier2Score>2000</Tier2Score>   <!-- 8 monsters  -->
+    <Tier3Score>4000</Tier3Score>   <!-- 9 monsters  -->
+    <Tier4Score>6500</Tier4Score>   <!-- 10 monsters -->
+    <Tier5Score>10000</Tier5Score>  <!-- 10 monsters -->
 
-		Example
-		<BlockMonsterLimit>
-		    <Tier1>x</Tier1>
-		    <Tier2>x</Tier2>
-		    etc..
-	    </BlockMonsterLimit>
-
-		The Level class will still only have one variable for each monster limit
-		But I'll store the different tiers in a map
-		BlockMonster1 : Tier1Limit
-		BlockMonster2 : Tier2Limit
-        ..something like that. Will have to think about how to make the keys
+	<Tier1>
+      <BlockMonsterLimit>       4</BlockMonsterLimit>
+      <SunMonsterLimit>         2</SunMonsterLimit>
+      <GroundCannonMonsterLimit>0</GroundCannonMonsterLimit>
+      <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
+      <BileMonsterLimit>        1</BileMonsterLimit>
+      <SpikeMonsterLimit>       0</SpikeMonsterLimit>    
+      <DashMonsterLimit>        0</DashMonsterLimit>
+	</Tier1>
 		
-		When a certain score is reached the tier will change and the new limits will be loaded from the map
-
-		Should increase the challenge of the level, increase number of monsters on the field
-        and add new monsters to the leve as the game goes on
-    -->
-    <BlockMonsterLimit>2</BlockMonsterLimit>
-    <SunMonsterLimit>2</SunMonsterLimit>
-    <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
-    <FlyingCannonMonsterLimit>1</FlyingCannonMonsterLimit>
-    <BileMonsterLimit>1</BileMonsterLimit>
-    <SpikeMonsterLimit>1</SpikeMonsterLimit>    
-    <DashMonsterLimit>2</DashMonsterLimit>
+    <Tier2>
+	  <BlockMonsterLimit>       3</BlockMonsterLimit>
+      <SunMonsterLimit>         3</SunMonsterLimit>
+      <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
+      <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
+      <BileMonsterLimit>        1</BileMonsterLimit>
+      <SpikeMonsterLimit>       0</SpikeMonsterLimit>    
+      <DashMonsterLimit>        0</DashMonsterLimit>
+	</Tier2>
 		
-    <SpawnDelayTime>1</SpawnDelayTime>
-    <DelayCannonSpawnTimeLimit>4</DelayCannonSpawnTimeLimit>
+    <Tier3>
+	  <BlockMonsterLimit>       3</BlockMonsterLimit>
+      <SunMonsterLimit>         2</SunMonsterLimit>
+      <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
+      <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
+      <BileMonsterLimit>        2</BileMonsterLimit>
+      <SpikeMonsterLimit>       1</SpikeMonsterLimit>    
+      <DashMonsterLimit>        0</DashMonsterLimit>
+	</Tier3>
+		
+    <Tier4>
+	  <BlockMonsterLimit>       3</BlockMonsterLimit>
+      <SunMonsterLimit>         2</SunMonsterLimit>
+      <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
+      <FlyingCannonMonsterLimit>1</FlyingCannonMonsterLimit>
+      <BileMonsterLimit>        2</BileMonsterLimit>
+      <SpikeMonsterLimit>       1</SpikeMonsterLimit>    
+      <DashMonsterLimit>        0</DashMonsterLimit>
+	</Tier4>
+		
+    <Tier5>
+	  <BlockMonsterLimit>       2</BlockMonsterLimit>
+      <SunMonsterLimit>         2</SunMonsterLimit>
+      <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
+      <FlyingCannonMonsterLimit>1</FlyingCannonMonsterLimit>
+      <BileMonsterLimit>        2</BileMonsterLimit>
+      <SpikeMonsterLimit>       1</SpikeMonsterLimit>    
+      <DashMonsterLimit>        1</DashMonsterLimit>
+	</Tier5>
   </LevelOne>
 </Level>

@@ -1,9 +1,21 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+
 namespace TheAdventuresOf
 {
 	public class Level
-	{
+    {
+        public int currentTier;
+        public static int TIER_1 = 0;
+        public static int TIER_2 = 1;
+        public static int TIER_3 = 2;
+        public static int TIER_4 = 3;
+        public static int TIER_5 = 4;
+
+        public Dictionary<int, int> tierScores;
+        public Dictionary<int, List<int>> tierMonsterLimits;
+
 		public Vector2 levelPositionVector;
 
 		public Rectangle leftSideBounds;
@@ -21,14 +33,6 @@ namespace TheAdventuresOf
 		public int rightBoundWidth;
 		public float groundLevel;
 
-		public int blockMonsterLimit;
-		public int sunMonsterLimit;
-		public int groundCannonMonsterLimit;
-		public int bileMonsterLimit;
-        public int spikeMonsterLimit;
-        public int dashMonsterLimit;
-        public int flyingCannonMonsterLimit;
-
 		public float spawnDelayTime; //time before another monster can be spawned
 		public float delayCannonSpawnTimerLimit; //time before spawning another groundCannonMonster is considered
 
@@ -38,6 +42,8 @@ namespace TheAdventuresOf
 		public Level()
 		{
 			levelPositionVector = new Vector2(0, 0);
+
+            currentTier = TIER_1;
 		}
 
 		public void InitializeLevel()
@@ -53,8 +59,11 @@ namespace TheAdventuresOf
 		{
             playerManager.Update(gameTime, gameController);
 
-			monsterManager.HandleSpawnMonsters(gameTime);
-            monsterManager.UpdateMonsters(gameTime, this);
+            monsterManager.Update(gameTime, this);
+
+            if(ScoringManager.score > tierScores[currentTier]) {
+                currentTier = currentTier + 1;
+            }
 		}
 
 		public void Draw(SpriteBatch spriteBatch)

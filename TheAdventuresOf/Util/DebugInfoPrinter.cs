@@ -26,14 +26,24 @@ namespace TheAdventuresOf
 
         public void Draw(SpriteBatch spriteBatch) {
             foreach(KeyValuePair<string, string> debugString in debugStrings) {
-                spriteBatch.DrawString(AssetManager.Instance.font, 
-                                       debugString.Key + ": " + debugString.Value, 
-                                       positionVector, Color.White);
+                //spriteBatch.DrawString(AssetManager.Instance.font, 
+                                       //debugString.Key + ": " + debugString.Value, 
+                                       //positionVector, Color.White);
 
-                positionVector.Y += 40;
+                spriteBatch.DrawString(AssetManager.Instance.font,
+                                       debugString.Key + ": " + debugString.Value,
+                                       positionVector,
+                                       Color.White,
+                                       0,
+                                       new Vector2(0, 0),
+                                       0.6f, 
+                                       SpriteEffects.None, 
+                                       0);
+
+                positionVector.Y += 24;
             }
 
-            positionVector.Y = 10;
+            positionVector.Y = 6;
         }
     }
 }

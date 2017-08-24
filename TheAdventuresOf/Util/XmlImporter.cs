@@ -4,6 +4,7 @@ using System.IO;
 using Microsoft.Xna.Framework;
 using System.Xml.Linq;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace TheAdventuresOf
 {
@@ -73,32 +74,56 @@ namespace TheAdventuresOf
             ScoringManager.totalScoreTextY = (float)scoringElement.Element("TotalScoreTextY");
 		}
 
-		public static void LoadLevelInformation(Level level)
-		{
+		public static void LoadLevelInformation(Level level) {
 			XElement levelElement = levelDocument.Element("Level");
 			XElement levelOneElement = levelElement.Element("LevelOne");
+
+            List<XElement> tierElements = new List<XElement>();
+            tierElements.Add(levelOneElement.Element("Tier1"));
+            tierElements.Add(levelOneElement.Element("Tier2"));
+            tierElements.Add(levelOneElement.Element("Tier3"));
+            tierElements.Add(levelOneElement.Element("Tier4"));
+            tierElements.Add(levelOneElement.Element("Tier5"));
 
 			level.groundLevel = (float)levelOneElement.Element("GroundLevel");
 			level.leftBoundWidth = (int)levelOneElement.Element("LeftBoundWidth");
 			level.rightBoundWidth = (int)levelOneElement.Element("RightBoundWidth");
 
-			LoadMonsterInformation(level, levelOneElement);
+            level.tierScores = new Dictionary<int, int>();
+            level.tierScores.Add(Level.TIER_1, (int)levelOneElement.Element("Tier1Score"));
+            level.tierScores.Add(Level.TIER_2, (int)levelOneElement.Element("Tier2Score"));
+            level.tierScores.Add(Level.TIER_3, (int)levelOneElement.Element("Tier3Score"));
+            level.tierScores.Add(Level.TIER_4, (int)levelOneElement.Element("Tier4Score"));
+            level.tierScores.Add(Level.TIER_5, (int)levelOneElement.Element("Tier5Score"));
+
+            level.tierMonsterLimits = new Dictionary<int, List<int>>();
+            level.tierMonsterLimits.Add(MonsterManager.BLOCK_MONSTER, LoadTierMonsterLimits("BlockMonsterLimit", tierElements));
+            level.tierMonsterLimits.Add(MonsterManager.SUN_MONSTER, LoadTierMonsterLimits("SunMonsterLimit", tierElements));
+            level.tierMonsterLimits.Add(MonsterManager.GROUND_CANNON_MONSTER, LoadTierMonsterLimits("GroundCannonMonsterLimit", tierElements));
+            level.tierMonsterLimits.Add(MonsterManager.FLYING_CANNON_MONSTER, LoadTierMonsterLimits("FlyingCannonMonsterLimit", tierElements));
+            level.tierMonsterLimits.Add(MonsterManager.BILE_MONSTER, LoadTierMonsterLimits("BileMonsterLimit", tierElements));
+            level.tierMonsterLimits.Add(MonsterManager.SPIKE_MONSTER, LoadTierMonsterLimits("SpikeMonsterLimit", tierElements));
+            level.tierMonsterLimits.Add(MonsterManager.DASH_MONSTER, LoadTierMonsterLimits("DashMonsterLimit", tierElements));
+            
+            level.spawnDelayTime = (float)levelElement.Element("SpawnDelayTime");
+            //TODO: get rid of this here and elsewhere
+            level.delayCannonSpawnTimerLimit = (float)levelElement.Element("DelayCannonSpawnTimeLimit");
+
+			LoadMonsterInformation(level);
 		}
 
-		public static void LoadMonsterInformation(Level level, XElement levelElement)
-		{
-			level.blockMonsterLimit = (int)levelElement.Element("BlockMonsterLimit");
-			level.sunMonsterLimit = (int)levelElement.Element("SunMonsterLimit");
-            level.groundCannonMonsterLimit = (int)levelElement.Element("GroundCannonMonsterLimit");
-			level.bileMonsterLimit = (int)levelElement.Element("BileMonsterLimit");
-            level.spikeMonsterLimit = (int)levelElement.Element("SpikeMonsterLimit");
-            level.dashMonsterLimit = (int)levelElement.Element("DashMonsterLimit");
-            level.flyingCannonMonsterLimit = (int)levelElement.Element("FlyingCannonMonsterLimit");
+        //load a monster limit for each tier, for a given monsterLimit string
+        public static List<int> LoadTierMonsterLimits(String monsterLimitElementString, List<XElement> tierElements) {
+            List<int> monsterLimits = new List<int>();
 
-			level.spawnDelayTime = (float)levelElement.Element("SpawnDelayTime");
-			level.delayCannonSpawnTimerLimit = (float)levelElement.Element("DelayCannonSpawnTimeLimit");
+            foreach(XElement tierElement in tierElements) {
+                monsterLimits.Add((int)tierElement.Element(monsterLimitElementString));
+            }
 
+            return monsterLimits;
+        }
 
+        public static void LoadMonsterInformation(Level level) {
 			level.blockMonster = LoadBlockMonsterInformation();
 			level.sunMonster = LoadSunMonsterInformation();
             level.bileMonster = LoadBileMonsterInformation();
