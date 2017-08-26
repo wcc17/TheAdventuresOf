@@ -6,6 +6,7 @@ namespace TheAdventuresOf
 {
 	public class Level
     {
+        public int maxTier;
         public int currentTier;
         public static int TIER_1 = 0;
         public static int TIER_2 = 1;
@@ -61,7 +62,7 @@ namespace TheAdventuresOf
 
             monsterManager.Update(gameTime, this);
 
-            if(ScoringManager.score > tierScores[currentTier]) {
+            if(ScoringManager.score > tierScores[currentTier] && currentTier < (maxTier-1)) {
                 currentTier = currentTier + 1;
             }
 		}
