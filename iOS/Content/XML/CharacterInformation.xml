@@ -16,6 +16,7 @@
     <RotationSpeed>500</RotationSpeed>
 	<InitialJumpVelocity>-12.5</InitialJumpVelocity>
 	<JumpGravity>0.45</JumpGravity>	
+    <CollisionOffset>4</CollisionOffset>
   </Player>
   <Monsters>
     <BlockMonster>

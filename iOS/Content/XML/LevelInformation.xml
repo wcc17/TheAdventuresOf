@@ -17,6 +17,7 @@
     <Tier3Score>4000</Tier3Score>   <!-- 9 monsters  -->
     <Tier4Score>6500</Tier4Score>   <!-- 10 monsters -->
     <Tier5Score>10000</Tier5Score>  <!-- 10 monsters -->
+	<MaxTier>5</MaxTier>
 
 	<Tier1>
       <BlockMonsterLimit>       4</BlockMonsterLimit>

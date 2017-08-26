@@ -104,6 +104,8 @@ namespace TheAdventuresOf
             level.tierMonsterLimits.Add(MonsterManager.BILE_MONSTER, LoadTierMonsterLimits("BileMonsterLimit", tierElements));
             level.tierMonsterLimits.Add(MonsterManager.SPIKE_MONSTER, LoadTierMonsterLimits("SpikeMonsterLimit", tierElements));
             level.tierMonsterLimits.Add(MonsterManager.DASH_MONSTER, LoadTierMonsterLimits("DashMonsterLimit", tierElements));
+
+            level.maxTier = (int)levelOneElement.Element("MaxTier");
             
             level.spawnDelayTime = (float)levelElement.Element("SpawnDelayTime");
             //TODO: get rid of this here and elsewhere
@@ -156,6 +158,7 @@ namespace TheAdventuresOf
 			player.rotationSpeed = (int)playerElement.Element("RotationSpeed");
             player.initialJumpVelocity = (float)playerElement.Element("InitialJumpVelocity");
             player.jumpGravity = (float)playerElement.Element("JumpGravity");
+            player.collisionOffset = (int)playerElement.Element("CollisionOffset");
 
             return player;
 		}

@@ -8,6 +8,10 @@ namespace TheAdventuresOf
 	{
 		public float groundLevel;
 
+        //giving the player a little slack when it comes to collisions with monsters so we can be 100% sure that the monster hurt the player
+        Rectangle collisionBounds;
+        public int collisionOffset;
+
 		public Rectangle swordBounds;
 		public float leftSwordOffset;
 		public float rightSwordOffset;
@@ -55,6 +59,11 @@ namespace TheAdventuresOf
 			heartPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH - ((AssetManager.Instance.heartTexture.Width + 20) * health), 10);
 
 			moveRight = true;
+
+            collisionBounds = new Rectangle(entityBounds.X + collisionOffset, 
+                                            entityBounds.Y + collisionOffset, 
+                                            entityBounds.Width - collisionOffset, 
+                                            entityBounds.Height - collisionOffset);
 		}
 
 		public override void InitializeAnimation()
@@ -199,7 +208,8 @@ namespace TheAdventuresOf
 
         public void CheckCollisionProjectile(Projectile proj) 
         {
-            if (entityBounds.Intersects(proj.entityBounds)) 
+             
+            if (collisionBounds.Intersects(proj.entityBounds)) 
             {
                 if (!isInvincible && proj.isActive) 
                 {
@@ -222,7 +232,7 @@ namespace TheAdventuresOf
                         ScoringManager.Instance.HandleMonsterKill(monster);
                     }
                 }
-                else if (entityBounds.Intersects(monster.entityBounds))
+                else if (collisionBounds.Intersects(monster.entityBounds))
                 {
                     if (!isInvincible)
                     {
@@ -331,17 +341,21 @@ namespace TheAdventuresOf
 			UpdateSwordPosition();
 		}
 
-		public override void UpdateEntityBounds()
-		{
+		public override void UpdateEntityBounds() {
 			base.UpdateEntityBounds();
 			UpdateSwordBounds();
+            UpdateCollisionBounds();
 		}
 
-		public void UpdateSwordBounds()
-		{
+		public void UpdateSwordBounds() {
 			swordBounds.X = (int)swordPositionVector.X;
 			swordBounds.Y = (int)swordPositionVector.Y;
 		}
+
+        public void UpdateCollisionBounds() {
+            collisionBounds.X = entityBounds.X + collisionOffset;
+            collisionBounds.Y = entityBounds.Y + collisionOffset;
+        }
 
 		public void UpdateSwordPosition()
 		{
