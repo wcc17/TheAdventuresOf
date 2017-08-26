@@ -5,10 +5,11 @@ namespace TheAdventuresOf
 {
 	public class Bile : Projectile
 	{
-        public static float groundLevel;
         public static float timeToLive;
         public static float distance;
-		public Vector2 originVector = new Vector2();
+        public static float groundOffset;
+        public Vector2 originVector = new Vector2();
+        public float groundLevel;
 
         bool isFalling;
         float parabolaX;

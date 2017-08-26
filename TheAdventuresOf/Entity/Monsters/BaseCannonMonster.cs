@@ -18,7 +18,8 @@ namespace TheAdventuresOf
         public static float bulletSpeed;
         public static float initialBulletRotationSpeed;
         public static float initialBulletFadeSpeed;
-        public float bulletStartYPos;
+        //public float bulletStartYPos;
+        public float bulletYOffset;
 
         public static float recoilSpeed;
         public static float recoilDistance;
@@ -32,7 +33,7 @@ namespace TheAdventuresOf
                 bullet.InitializeEntity(0, 0); //x pos will be set by cannon monster
             }
 
-            bullet.Reset(bulletEntityTag, bulletSpeed, positionVector.X, bulletStartYPos,
+            bullet.Reset(bulletEntityTag, bulletSpeed, positionVector.X, groundLevel + bulletYOffset,
                          initialBulletRotationSpeed, initialBulletFadeSpeed, 
                          moveLeft, moveRight, entityWidth);
         }

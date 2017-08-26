@@ -17,7 +17,7 @@ namespace TheAdventuresOf
 			actionDelayTime = groundCannonMonster.actionDelayTime;
 			monsterTexture = AssetManager.Instance.cannonMonsterTexture;
             boundOffset = groundCannonMonster.boundOffset;
-            bulletStartYPos = groundCannonMonster.bulletStartYPos;
+            bulletYOffset = groundCannonMonster.bulletYOffset;
 
             leftSideX = groundCannonMonster.leftSideX;
             rightSideX = groundCannonMonster.rightSideX;

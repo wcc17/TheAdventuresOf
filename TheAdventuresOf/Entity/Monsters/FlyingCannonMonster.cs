@@ -14,7 +14,7 @@ namespace TheAdventuresOf
             rotationSpeed = flyingCannonMonster.rotationSpeed;
             upDownSpeed = flyingCannonMonster.upDownSpeed;
             actionDelayTime = flyingCannonMonster.actionDelayTime;
-            bulletStartYPos = flyingCannonMonster.bulletStartYPos;
+            bulletYOffset = flyingCannonMonster.bulletYOffset;
             animationSpeed = flyingCannonMonster.animationSpeed;
             leftSideX = flyingCannonMonster.leftSideX;
             rightSideX = flyingCannonMonster.rightSideX;
