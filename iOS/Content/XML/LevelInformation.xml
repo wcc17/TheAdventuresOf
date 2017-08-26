@@ -4,9 +4,13 @@
   <DelayCannonSpawnTimeLimit>4</DelayCannonSpawnTimeLimit>
 
 	<LevelOne>
-    <GroundLevel>690</GroundLevel>
-    <LeftBoundWidth>135</LeftBoundWidth>
-    <RightBoundWidth>125</RightBoundWidth>
+<!--    <GroundLevel>690</GroundLevel>-->
+    <!--<LeftBoundWidth>135</LeftBoundWidth>
+    <RightBoundWidth>125</RightBoundWidth>-->
+	<GroundLevel>555</GroundLevel>
+	<LeftBoundWidth>250</LeftBoundWidth>
+    <RightBoundWidth>230</RightBoundWidth>
+	
 
 	<Tier1Score>600</Tier1Score>    <!-- 7 monsters  -->
     <Tier2Score>2000</Tier2Score>   <!-- 8 monsters  -->

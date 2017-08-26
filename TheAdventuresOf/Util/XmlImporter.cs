@@ -126,7 +126,7 @@ namespace TheAdventuresOf
         public static void LoadMonsterInformation(Level level) {
 			level.blockMonster = LoadBlockMonsterInformation();
 			level.sunMonster = LoadSunMonsterInformation();
-            level.bileMonster = LoadBileMonsterInformation();
+            level.bileMonster = LoadBileMonsterInformation(level.groundLevel);
             level.spikeMonster = LoadSpikeMonsterInformation();
             level.dashMonster = LoadDashMonsterInformation(level.rightBoundWidth, level.leftBoundWidth);
 
@@ -202,7 +202,7 @@ namespace TheAdventuresOf
 			return sunMonster;
 		}
 
-		public static BileMonster LoadBileMonsterInformation()
+		public static BileMonster LoadBileMonsterInformation(float groundLevel)
 		{
 			BileMonster bileMonster = new BileMonster();
 
@@ -231,9 +231,11 @@ namespace TheAdventuresOf
 			BileMonster.bileEntityTag = (string)bileElement.Element("EntityTag");
 			BileMonster.bileSpeed = (float)bileElement.Element("Speed");
             BileMonster.bileFadeSpeed = (float)bileElement.Element("FadeSpeed");
-			Bile.groundLevel = (float)bileElement.Element("GroundLevel");
             Bile.timeToLive = (float)bileElement.Element("TimeToLive");
             Bile.distance = (float)bileElement.Element("Distance");
+            Bile.groundOffset = (float)bileElement.Element("GroundOffset");
+
+            BileMonster.bileGroundLevel = groundLevel;
 
 			return bileMonster;
 		}
@@ -270,7 +272,7 @@ namespace TheAdventuresOf
 			groundCannonMonster.upDownSpeed = (float)cannonMonsterElement.Element("UpDownSpeed");
 			groundCannonMonster.actionDelayTime = (float)cannonMonsterElement.Element("ActionDelayTime");
             groundCannonMonster.boundOffset = (float)cannonMonsterElement.Element("BoundOffset");
-            groundCannonMonster.bulletStartYPos = (float)cannonMonsterElement.Element("BulletStartYPos");
+            groundCannonMonster.bulletYOffset = (float)cannonMonsterElement.Element("BulletYOffset");
 
             GroundCannonMonster.groundOffset = (float)cannonMonsterElement.Element("GroundOffset");
 
@@ -298,7 +300,7 @@ namespace TheAdventuresOf
             flyingCannonMonster.upDownSpeed = (float)flyingCannonMonsterElement.Element("UpDownSpeed");
             flyingCannonMonster.actionDelayTime = (float)flyingCannonMonsterElement.Element("ActionDelayTime");
             flyingCannonMonster.animationSpeed = (float)flyingCannonMonsterElement.Element("AnimationSpeed");
-            flyingCannonMonster.bulletStartYPos = (float)flyingCannonMonsterElement.Element("BulletStartYPos");
+            flyingCannonMonster.bulletYOffset = (float)flyingCannonMonsterElement.Element("BulletYOffset");
             flyingCannonMonster.boundOffset = (float)flyingCannonMonsterElement.Element("BoundOffset");
             flyingCannonMonster.bounceHeight = (float)flyingCannonMonsterElement.Element("BounceHeight");
             flyingCannonMonster.bounceSpeed = (float)flyingCannonMonsterElement.Element("BounceSpeed");

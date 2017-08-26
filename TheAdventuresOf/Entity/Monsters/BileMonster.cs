@@ -7,6 +7,7 @@ namespace TheAdventuresOf
 {
     public class BileMonster : Monster
     {
+        public static float bileGroundLevel;
         public static float floatHeight;
         public static float bileObjectLimit;
         public List<Bile> activeBileObjects;
@@ -240,6 +241,7 @@ namespace TheAdventuresOf
             Bile bile = new Bile();
 
             bile.entityTag = bileEntityTag;
+            bile.groundLevel = bileGroundLevel + Bile.groundOffset;
             bile.speed = bileSpeed;
             bile.fadeSpeed = bileFadeSpeed;
             bile.moveLeft = moveLeft;

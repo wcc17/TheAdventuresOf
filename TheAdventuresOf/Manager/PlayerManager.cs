@@ -14,7 +14,8 @@ namespace TheAdventuresOf
             this.level = level;
 
             player = XmlImporter.LoadPlayerInformation();
-            player.InitializePlayer(200f,
+            //TODO: startX should be loaded in level xml
+            player.InitializePlayer(280f,
                                     level.groundLevel,
                                     AssetManager.Instance.playerTexture.Width / player.frameCount,
                                     AssetManager.Instance.playerTexture.Height);
