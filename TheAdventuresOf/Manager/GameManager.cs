@@ -70,38 +70,40 @@ namespace TheAdventuresOf
             currentController.InitializeController();
         }
 
+        //really just to make it easier to skip prelevel while testing if i want to
+        void loadCommonLevelAssets() {
+            AssetManager.Instance.LoadGameAssets(graphicsDevice);
+            XmlImporter.LoadGameInformation();
+
+            currentController = new GameController();
+            currentController.InitializeController();
+        }
+
         void loadPreLevelAssets() {
             Console.WriteLine("Load PreLevel Assets");
 
-            AssetManager.Instance.LoadGameAssets(graphicsDevice);
             AssetManager.Instance.LoadPreLevelAssets(graphicsDevice);
 
             currentLevel = new PreLevel(AssetManager.Instance.preLevelTexture);
 
             //xml load prelevel information
             XmlImporter.LoadPreLevelInformation((PreLevel)currentLevel);
-            XmlImporter.LoadGameInformation();
         }
 
         void loadPreLevel() {
             currentLevel.InitializeLevel();
 
             gameState = PRE_LEVEL_STATE;
-
-            currentController = new GameController();
-            currentController.InitializeController();
         }
 
         //only load level assets. will eventually have switch for level number
         void loadLevelAssets() {
             Console.WriteLine("Load Level assets");
 
-            //AssetManager.Instance.LoadGameAssets(graphicsDevice);
             AssetManager.Instance.LoadLevelAssets(graphicsDevice, contentManager);
 
             currentLevel = new Level(AssetManager.Instance.levelTexture);
 
-            //XmlImporter.LoadGameInformation();
             XmlImporter.LoadLevelInformation((Level)currentLevel);
         }
 
@@ -111,9 +113,6 @@ namespace TheAdventuresOf
             currentLevel.InitializeLevel();
 
             gameState = LEVEL_STATE;
-
-            //currentController = new GameController();
-            //currentController.InitializeController();
         }
 
 
@@ -167,6 +166,7 @@ namespace TheAdventuresOf
                 nextGameState = PRE_LEVEL_STATE;
 
                 //load level assets for nextGameState
+                loadCommonLevelAssets();
                 //loadLevelAssets();
                 loadPreLevelAssets();
             }
