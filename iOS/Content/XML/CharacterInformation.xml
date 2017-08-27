@@ -53,7 +53,7 @@
       <UpDownSpeed>175</UpDownSpeed>
       <FloatHeight>125</FloatHeight>
       <BileObjectLimit>4</BileObjectLimit>
-      <BuildUpDelayTimeLimit>5.5</BuildUpDelayTimeLimit>
+      <BuildUpDelayTimeLimit>2.5</BuildUpDelayTimeLimit>
 	  <BuildUpTimeLimit>2</BuildUpTimeLimit>	
 	  <ThrowTimeLimit>1.2</ThrowTimeLimit>	
     </BileMonster>
