@@ -74,6 +74,16 @@ namespace TheAdventuresOf
             ScoringManager.totalScoreTextY = (float)scoringElement.Element("TotalScoreTextY");
 		}
 
+        public static void LoadPreLevelInformation(PreLevel preLevel) {
+            XElement levelElement = levelDocument.Element("Level");
+            XElement preLevelElement = levelElement.Element("PreLevel");
+
+            preLevel.groundLevel = (float)preLevelElement.Element("GroundLevel");
+            preLevel.leftBoundWidth = (int)preLevelElement.Element("LeftBoundWidth");
+            preLevel.rightBoundWidth = (int)preLevelElement.Element("RightBoundWidth");
+            preLevel.preLevelCharX = (float)preLevelElement.Element("PreLevelCharX");
+        }
+
 		public static void LoadLevelInformation(Level level) {
 			XElement levelElement = levelDocument.Element("Level");
 			XElement levelOneElement = levelElement.Element("LevelOne");

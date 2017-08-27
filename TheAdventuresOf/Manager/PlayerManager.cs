@@ -7,9 +7,9 @@ namespace TheAdventuresOf
     public class PlayerManager
     {
         public static Player player { get; set; }
-        Level level;
+        BaseLevel level;
 
-        public PlayerManager(Level level)
+        public PlayerManager(BaseLevel level)
         {
             this.level = level;
 

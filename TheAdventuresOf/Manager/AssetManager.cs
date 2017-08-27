@@ -32,6 +32,10 @@ namespace TheAdventuresOf
         public Texture2D upArrowButtonTexture;
         public SpriteFont font;
 
+        //prelevel textures
+        public Texture2D preLevelCharacterTexture;
+        public Texture2D preLevelTexture;
+
 		//level textures
 		public Texture2D playerTexture;
 		public Texture2D levelTexture;
@@ -91,7 +95,10 @@ namespace TheAdventuresOf
         }
 
 		public void LoadGameAssets(GraphicsDevice graphicsDevice) {
-            
+
+            using (var stream = TitleContainer.OpenStream(filePath + "character_1080p.png")) {
+                playerTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
 			using (var stream = TitleContainer.OpenStream(filePath + "controller_1080p.png")) {
 				controllerTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
@@ -119,9 +126,6 @@ namespace TheAdventuresOf
         public void LoadLevelAssets(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {
             //monsters
-            using (var stream = TitleContainer.OpenStream(filePath + "character_1080p.png")) {
-                playerTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
             using (var stream = TitleContainer.OpenStream(filePath + "level1background_1080p.png")) {
                 levelTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
@@ -158,6 +162,24 @@ namespace TheAdventuresOf
             //music
             levelOneSong = contentManager.Load<Song>("level1_music");
 		}
+
+        public void LoadPreLevelAssets(GraphicsDevice graphicsDevice) {
+            string preLevelFilePath = filePath + "PreLevel/";
+
+            using (var stream = TitleContainer.OpenStream(preLevelFilePath + "pre_level1_character_1080p.png")) {
+                preLevelCharacterTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(preLevelFilePath + "pre_level1_background_1080p.png"))
+            {
+                preLevelTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+        }
+
+        //TODO: needs to be called somewhere
+        public void DisposePreLevelAssets() {
+            preLevelCharacterTexture.Dispose();
+            preLevelTexture.Dispose();
+        }
 
         //TODO: needs to be called somewhere!
         public void DisposeMenuAssets() {
