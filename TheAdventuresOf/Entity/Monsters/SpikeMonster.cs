@@ -115,6 +115,8 @@ namespace TheAdventuresOf
                     HandleDelay(gameTime);
                 }
             }
+
+            UpdateEntityBounds();
         }
 
         void handleAction(GameTime gameTime) 
@@ -138,7 +140,6 @@ namespace TheAdventuresOf
                 float distanceToMove = (attackSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
 
                 positionVector.Y += distanceToMove;
-                UpdateEntityBounds();
 
                 attackSpeed += 35;
 

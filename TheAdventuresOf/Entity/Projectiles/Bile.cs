@@ -41,6 +41,8 @@ namespace TheAdventuresOf
 				Move(gameTime);
             }
 
+            UpdateEntityBounds();
+
 		}
 
 		public override void Move(GameTime gameTime, int direction = 0)
@@ -57,8 +59,6 @@ namespace TheAdventuresOf
 			parabolaX += ((time * speed) * directionMultiplier);
 			positionVector.X = parabolaX + originVector.X;
 			positionVector.Y = (float)(Math.Pow(-(distance*parabolaX), 2)) + originVector.Y;
-
-			UpdateEntityBounds();
 
 			if (positionVector.Y >= groundLevel)
 			{
