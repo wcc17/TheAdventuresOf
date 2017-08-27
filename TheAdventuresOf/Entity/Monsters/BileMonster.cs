@@ -163,6 +163,9 @@ namespace TheAdventuresOf
             {
                 delayBuildup = false;
                 buildupDelayTimer.Reset();
+
+                moveLeft = PlayerManager.player.moveLeft;
+                moveRight = PlayerManager.player.moveRight;
             }
         }
 
