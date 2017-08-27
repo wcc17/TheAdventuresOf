@@ -56,8 +56,10 @@ namespace TheAdventuresOf
             {
                 HandleDelay(gameTime);
             }
-            else if (isDying && !isSpawning)
+            else if (isDying)
             {
+                isSpawning = false;
+
                 //should still finish the shot and hurt player if applicable, even if dying
                 //TODO: look here if memory or performance becomes problem. shouldn't be because after isDead = true,
                 //bullet will no longer getr updated. just wondering if the bullet existing will cause GC
@@ -73,6 +75,8 @@ namespace TheAdventuresOf
             {
                 HandleSpawn(gameTime);
             }
+
+            UpdateEntityBounds();
         }
 
         public void HandleShoot(GameTime gameTime)
@@ -129,8 +133,6 @@ namespace TheAdventuresOf
                         isRecoil = false;
                     }
                 }
-
-                UpdateEntityBounds();
             }
             else
             {
@@ -148,8 +150,6 @@ namespace TheAdventuresOf
                         positionVector.X += (float)(recoilSpeed * gameTime.ElapsedGameTime.TotalSeconds);
                     }
                 }
-
-                UpdateEntityBounds();
             }
         }
 
@@ -210,8 +210,6 @@ namespace TheAdventuresOf
                     moveLeft = true;
                 }
             }
-
-            UpdateEntityBounds();
         }
 
 

@@ -93,14 +93,17 @@ namespace TheAdventuresOf
             {
                 HandleDelay(gameTime);
             }
-            else if(isDying && !isSpawning)
+            else if(isDying)
             {
+                isSpawning = false;
                 HandleDeath(gameTime);    
             }
             else if(isSpawning)
             {
                 HandleSpawn(gameTime);
             }
+
+            UpdateEntityBounds();
 
         }
 
@@ -131,8 +134,6 @@ namespace TheAdventuresOf
                     moveRight = true;
                     currentAnimation = baseAnimation;
                 }
-
-                UpdateEntityBounds();
             }
             else 
             {
@@ -149,8 +150,6 @@ namespace TheAdventuresOf
                     moveRight = false;
                     currentAnimation = baseAnimation;
                 }
-
-                UpdateEntityBounds();
             }
         }
 

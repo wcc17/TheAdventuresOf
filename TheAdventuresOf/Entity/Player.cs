@@ -121,6 +121,8 @@ namespace TheAdventuresOf
 			else {
 				HandleDeath(gameTime);
 			}
+
+            UpdateEntityBounds();
 		}
 
 		public void HandlePlayerMovement(GameTime gameTime, 
@@ -129,12 +131,10 @@ namespace TheAdventuresOf
 			if (leftButtonPressed)
 			{
 				Move(gameTime, LEFT);
-				UpdateEntityBounds();
 			}
 			if (rightButtonPressed)
 			{
 				Move(gameTime, RIGHT);
-				UpdateEntityBounds();
 			}
 		}
 
@@ -189,8 +189,6 @@ namespace TheAdventuresOf
 
 			positionVector.X += (addOrSubtract * (float)distance);
 			UpdateSwordPosition();
-			UpdateEntityBounds();
-			UpdateSwordBounds();
 
 			if (knockBackDistance > knockBackDistanceLimit)
 			{
@@ -389,8 +387,6 @@ namespace TheAdventuresOf
 				isJumping = false;
 				positionVector.Y = groundLevel;
 			}
-
-			UpdateEntityBounds();
 		}
 
 		public override void Draw(SpriteBatch spriteBatch, Texture2D texture)

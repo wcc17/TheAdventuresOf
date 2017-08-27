@@ -38,7 +38,6 @@ namespace TheAdventuresOf
             rotation = 0;
             isSpawning = false;
             currentAnimation = baseAnimation;
-            UpdateEntityBounds();
         }
 
         public override void InitializeAnimation()
@@ -81,8 +80,10 @@ namespace TheAdventuresOf
 				//only delay if we're not dying and not spawning
 				HandleDelay(gameTime);
 			}
-			else if (isDying && !isSpawning)
+			else if (isDying)
 			{
+                isSpawning = false;
+
 				//only die if we're not spawning
 				HandleDeath(gameTime);
 			}
@@ -91,6 +92,8 @@ namespace TheAdventuresOf
 				//only spawn if nothing else is going on
 				HandleSpawn(gameTime);
 			}
+
+            UpdateEntityBounds();
 		}
 
         public override void HandleLevelBoundCollision(int direction, int boundX)
@@ -131,12 +134,10 @@ namespace TheAdventuresOf
             if (moveLeft)
             {
                 Move(gameTime, LEFT);
-                UpdateEntityBounds();
             }
             else if (moveRight)
             {
                 Move(gameTime, RIGHT);
-                UpdateEntityBounds();
             }
         }
 
@@ -161,8 +162,6 @@ namespace TheAdventuresOf
                     positionVector.Y += shakeDistance;
                     break;
             }
-
-            UpdateEntityBounds();
 
             if (shakeAmt > 4)
             {

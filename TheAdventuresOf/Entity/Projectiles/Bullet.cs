@@ -27,6 +27,7 @@ namespace TheAdventuresOf
                 Move(gameTime);
             }
 
+            UpdateEntityBounds();
             checkScreenPos();
         }
 
@@ -41,8 +42,6 @@ namespace TheAdventuresOf
             {
                 positionVector.X += (speed * (float)gameTime.ElapsedGameTime.TotalSeconds);
             }
-
-            UpdateEntityBounds();
         }
 
         public override void HandlePostPlayerCollision()
@@ -59,7 +58,6 @@ namespace TheAdventuresOf
 			positionVector.Y += ((speed / 2) * (float)gameTime.ElapsedGameTime.TotalSeconds);
 
 			HandleFadeOut(gameTime);
-			UpdateEntityBounds();
 		}
 
         void checkScreenPos()
@@ -109,8 +107,6 @@ namespace TheAdventuresOf
 			{
 				positionVector.X = startX;
 			}
-
-			UpdateEntityBounds();
 		}
     }
 }

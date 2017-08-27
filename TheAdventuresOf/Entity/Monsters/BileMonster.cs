@@ -113,6 +113,8 @@ namespace TheAdventuresOf
 
                 base.Update(gameTime, buttonPressed);
             }
+
+            UpdateEntityBounds();
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -250,7 +252,6 @@ namespace TheAdventuresOf
             bile.positionVector.Y = positionVector.Y;
             bile.originVector.X = positionVector.X;
             bile.originVector.Y = positionVector.Y;
-            bile.UpdateEntityBounds();
             bile.isActive = true; 
 
             activeBileObjects.Add(bile);
