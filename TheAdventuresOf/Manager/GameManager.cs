@@ -9,8 +9,9 @@ namespace TheAdventuresOf
     {
         public const int SPLASH_STATE = 0;
         public const int MENU_STATE = 1;
-        public const int LEVEL_STATE = 2;
-        public const int LOAD_STATE = 3;
+        public const int PRE_LEVEL_STATE = 2;
+        public const int LEVEL_STATE = 3;
+        public const int LOAD_STATE = 4;
 
         Vector2 basePositionVector = new Vector2(0, 0);
 
@@ -22,7 +23,7 @@ namespace TheAdventuresOf
         MusicManager musicManager;
         DebugInfoPrinter debugInfoPrinter;
         SpriteBatch spriteBatch;
-        Level currentLevel = null;
+        BaseLevel currentLevel = null;
         MainMenu mainMenu;
 
         Controller currentController;
@@ -69,17 +70,39 @@ namespace TheAdventuresOf
             currentController.InitializeController();
         }
 
+        void loadPreLevelAssets() {
+            Console.WriteLine("Load PreLevel Assets");
+
+            AssetManager.Instance.LoadGameAssets(graphicsDevice);
+            AssetManager.Instance.LoadPreLevelAssets(graphicsDevice);
+
+            currentLevel = new PreLevel(AssetManager.Instance.preLevelTexture);
+
+            //xml load prelevel information
+            XmlImporter.LoadPreLevelInformation((PreLevel)currentLevel);
+            XmlImporter.LoadGameInformation();
+        }
+
+        void loadPreLevel() {
+            currentLevel.InitializeLevel();
+
+            gameState = PRE_LEVEL_STATE;
+
+            currentController = new GameController();
+            currentController.InitializeController();
+        }
+
         //only load level assets. will eventually have switch for level number
         void loadLevelAssets() {
             Console.WriteLine("Load Level assets");
 
-            currentLevel = new Level();
-
-            AssetManager.Instance.LoadGameAssets(graphicsDevice);
+            //AssetManager.Instance.LoadGameAssets(graphicsDevice);
             AssetManager.Instance.LoadLevelAssets(graphicsDevice, contentManager);
 
-            XmlImporter.LoadGameInformation();
-            XmlImporter.LoadLevelInformation(currentLevel);
+            currentLevel = new Level(AssetManager.Instance.levelTexture);
+
+            //XmlImporter.LoadGameInformation();
+            XmlImporter.LoadLevelInformation((Level)currentLevel);
         }
 
         //start playing level. will eventually have switch for level number
@@ -89,8 +112,8 @@ namespace TheAdventuresOf
 
             gameState = LEVEL_STATE;
 
-            currentController = new GameController();
-            currentController.InitializeController();
+            //currentController = new GameController();
+            //currentController.InitializeController();
         }
 
 
@@ -105,6 +128,10 @@ namespace TheAdventuresOf
                 case MENU_STATE:
                     screenManager.Update(gameTime, currentController);
                     updateMenu(gameTime);
+                    break;
+                case PRE_LEVEL_STATE:
+                    screenManager.Update(gameTime, currentController);
+                    updatePreLevel(gameTime);
                     break;
                 case LEVEL_STATE:
                     screenManager.Update(gameTime, currentController);
@@ -137,20 +164,31 @@ namespace TheAdventuresOf
 
             if(mainMenu.proceedToNextState) {
                 gameState = LOAD_STATE;
-                nextGameState = LEVEL_STATE;
+                nextGameState = PRE_LEVEL_STATE;
 
                 //load level assets for nextGameState
-                loadLevelAssets();
+                //loadLevelAssets();
+                loadPreLevelAssets();
             }
+        }
+
+        void updatePreLevel(GameTime gameTime) {
+            currentLevel.Update(gameTime, (GameController)currentController);
+
+            if (((PreLevel)currentLevel).nextLevel) {
+                gameState = LOAD_STATE;
+                nextGameState = LEVEL_STATE;
+
+                loadLevelAssets();
+            }                
+
         }
 
         void updateLevel(GameTime gameTime) {
             currentLevel.Update(gameTime, (GameController) currentController);
-            ScoringManager.Instance.Update(gameTime);
 
-            //should constantly check if level is "done"
-            //level will have a public variable for this eventually
-            //when done, we can switch state
+            //TODO: this shouldn't be updated during the prelevel
+            ScoringManager.Instance.Update(gameTime);
         }
 
         void updateLoadState(GameTime gameTime) {
@@ -166,6 +204,9 @@ namespace TheAdventuresOf
                 switch (nextGameState)
                 {
                     //TODO: will I eventually have more levels here? kind of meaningless to switch for just the level state
+                    case PRE_LEVEL_STATE:
+                        loadPreLevel();
+                        break;
                     case LEVEL_STATE:
                         loadLevel();
                         break;
@@ -181,7 +222,11 @@ namespace TheAdventuresOf
                     drawSplash();
                     break;
                 case MENU_STATE:
+                    Console.WriteLine("drawing menu");
                     drawMenu();
+                    break;
+                case PRE_LEVEL_STATE:
+                    drawLevel();
                     break;
                 case LEVEL_STATE:
                     drawLevel();

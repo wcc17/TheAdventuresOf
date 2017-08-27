@@ -13,7 +13,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Util\FrameRate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AnimationFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Animation.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Level.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\XmlImporter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\BlockMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\GroundCannonMonster.cs" />
@@ -33,7 +32,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\DashMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\FlyingCannonMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\BaseCannonMonster.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)MainMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\AssetManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\GameManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\MonsterManager.cs" />
@@ -47,6 +45,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Manager\ScoringManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ScoreText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\DebugInfoPrinter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Levels\BaseLevel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Levels\MainMenu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Levels\Level.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Levels\PreLevel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />
@@ -55,5 +57,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Entity\Projectiles\" />
     <Folder Include="$(MSBuildThisFileDirectory)Manager\" />
     <Folder Include="$(MSBuildThisFileDirectory)Controller\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Levels\" />
   </ItemGroup>
 </Project>

@@ -3,7 +3,14 @@
   <SpawnDelayTime>1</SpawnDelayTime>
   <DelayCannonSpawnTimeLimit>4</DelayCannonSpawnTimeLimit>
 
-	<LevelOne>
+  <PreLevel>
+    <GroundLevel>555</GroundLevel>
+	<LeftBoundWidth>0</LeftBoundWidth>
+    <RightBoundWidth>1920</RightBoundWidth>
+	<PreLevelCharX>1560</PreLevelCharX>
+  </PreLevel>
+	
+  <LevelOne>
 <!--    <GroundLevel>690</GroundLevel>-->
     <!--<LeftBoundWidth>135</LeftBoundWidth>
     <RightBoundWidth>125</RightBoundWidth>-->

@@ -132,6 +132,8 @@
     <BundleResource Include="Content\Menu\mainmenu_music.mp3" />
     <BundleResource Include="Content\level1background_1080p.png" />
     <BundleResource Include="Content\sword_1080p.png" />
+    <BundleResource Include="Content\PreLevel\pre_level1_character_1080p.png" />
+    <BundleResource Include="Content\PreLevel\pre_level1_background_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
