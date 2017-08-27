@@ -99,13 +99,13 @@
     <None Include="Content\arial-24.spritefont" />
     <None Include="Content\level1_music.mp3" />
     <None Include="Content\level1background_1080p.png.OLD" />
+    <None Include="Content\sword_1080p.png.OLD" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GameThumbnail.png" />
     <BundleResource Include="Content\controller_1080p.png" />
     <BundleResource Include="Content\arrow_1080p.png" />
     <BundleResource Include="Content\character_1080p.png" />
-    <BundleResource Include="Content\sword_1080p.png" />
     <BundleResource Include="Content\XML\CharacterInformation.xml" />
     <BundleResource Include="Content\XML\LevelInformation.xml" />
     <BundleResource Include="Content\blockmonster_1080p.png" />
@@ -131,6 +131,7 @@
     <BundleResource Include="Content\Menu\mainmenu_playbutton_1080p.png" />
     <BundleResource Include="Content\Menu\mainmenu_music.mp3" />
     <BundleResource Include="Content\level1background_1080p.png" />
+    <BundleResource Include="Content\sword_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

@@ -23,7 +23,7 @@
 		<FlyingCannonMonster>350</FlyingCannonMonster>
 		<SpikeMonster>250</SpikeMonster>
 		<TotalScoreTextX>1770</TotalScoreTextX>
-		<TotalScoreTextY>10</TotalScoreTextY>
+		<TotalScoreTextY>50</TotalScoreTextY>
     </Scoring>		
 </Game>
 

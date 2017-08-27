@@ -12,11 +12,11 @@
     <RightBoundWidth>230</RightBoundWidth>
 	
 
-	<Tier1Score>600</Tier1Score>    <!-- 7 monsters  -->
-    <Tier2Score>2000</Tier2Score>   <!-- 8 monsters  -->
-    <Tier3Score>4000</Tier3Score>   <!-- 9 monsters  -->
-    <Tier4Score>6500</Tier4Score>   <!-- 10 monsters -->
-    <Tier5Score>10000</Tier5Score>  <!-- 10 monsters -->
+	<Tier1Score>1000</Tier1Score>    <!-- 7 monsters  -->
+    <Tier2Score>3000</Tier2Score>   <!-- 8 monsters  -->
+    <Tier3Score>5500</Tier3Score>   <!-- 9 monsters  -->
+    <Tier4Score>8500</Tier4Score>   <!-- 10 monsters -->
+    <Tier5Score>13000</Tier5Score>  <!-- 10 monsters -->
 	<MaxTier>5</MaxTier>
 
 	<Tier1>

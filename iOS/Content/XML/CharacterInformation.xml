@@ -5,9 +5,9 @@
     <Speed>245</Speed>
     <AnimationSpeed>0.08</AnimationSpeed>
     <!-- these just make it easier to put the sword where it needs to be -->
-    <LeftSwordOffset>5</LeftSwordOffset>
+    <LeftSwordOffset>25</LeftSwordOffset>
     <RightSwordOffset>1</RightSwordOffset>
-    <SwordYOffset>45</SwordYOffset>
+    <SwordYOffset>40</SwordYOffset>
     <FrameCount>2</FrameCount>
     <InitialMaxHealth>3</InitialMaxHealth>
     <InvincibilityTime>3</InvincibilityTime>
