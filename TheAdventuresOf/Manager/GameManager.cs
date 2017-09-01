@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -21,7 +22,6 @@ namespace TheAdventuresOf
         ContentManager contentManager;
         ScreenManager screenManager;
         MusicManager musicManager;
-        DebugInfoPrinter debugInfoPrinter;
         SpriteBatch spriteBatch;
         BaseLevel currentLevel = null;
         MainMenu mainMenu;
@@ -37,7 +37,6 @@ namespace TheAdventuresOf
             this.graphicsDevice = graphicsDevice;
             this.contentManager = contentManager;
             this.musicManager = new MusicManager(gameState);
-            this.debugInfoPrinter = new DebugInfoPrinter();
         }
 
         public void LoadContent() {
@@ -50,7 +49,7 @@ namespace TheAdventuresOf
         }
 
         void loadSplashScreen() {
-            Console.WriteLine("Load splash screen");
+            Logger.WriteToConsole("Load splash screen");
             AssetManager.Instance.LoadSplashAssets(graphicsDevice, contentManager);
 
             gameState = SPLASH_STATE;
@@ -60,7 +59,7 @@ namespace TheAdventuresOf
         }
 
         void loadMainMenu() {
-            Console.WriteLine("Load Main Menu");
+            Logger.WriteToConsole("Load Main Menu");
             mainMenu = new MainMenu();
             mainMenu.LoadMenu(graphicsDevice);
 
@@ -80,7 +79,7 @@ namespace TheAdventuresOf
         }
 
         void loadPreLevelAssets() {
-            Console.WriteLine("Load PreLevel Assets");
+            Logger.WriteToConsole("Load PreLevel Assets");
 
             AssetManager.Instance.LoadPreLevelAssets(graphicsDevice);
 
@@ -98,7 +97,7 @@ namespace TheAdventuresOf
 
         //only load level assets. will eventually have switch for level number
         void loadLevelAssets() {
-            Console.WriteLine("Load Level assets");
+            Logger.WriteToConsole("Load Level assets");
 
             AssetManager.Instance.LoadLevelAssets(graphicsDevice, contentManager);
 
@@ -222,7 +221,6 @@ namespace TheAdventuresOf
                     drawSplash();
                     break;
                 case MENU_STATE:
-                    Console.WriteLine("drawing menu");
                     drawMenu();
                     break;
                 case PRE_LEVEL_STATE:
@@ -236,7 +234,7 @@ namespace TheAdventuresOf
                     break;
             }
 
-            debugInfoPrinter.Draw(spriteBatch);
+            Logger.Instance.DrawToScreen(spriteBatch);
 
             spriteBatch.End();
         }

@@ -83,7 +83,7 @@ namespace TheAdventuresOf
         }
 
         public void HandleMediaStateChange(object sender, EventArgs e) {
-            Console.WriteLine("Media State Changed");
+            Logger.WriteToConsole("Media State Changed");
             if(MediaPlayer.State == MediaState.Stopped && !changingSongs) {
                 repeatDelay = true;
             }

@@ -211,7 +211,7 @@ namespace TheAdventuresOf
             {
                 if (!isInvincible && proj.isActive) 
                 {
-                    Console.WriteLine("player took damage from projectile");
+                    Logger.WriteToConsole("player took damage from projectile");
                     proj.HandlePostPlayerCollision();
                     handlePlayerTakingDamage(proj);
                 }
@@ -235,12 +235,12 @@ namespace TheAdventuresOf
                     if (!isInvincible)
                     {
                         if(monster is SpikeMonster) {
-                            Console.WriteLine("Player took damage from SpikeMonster");
+                            Logger.WriteToConsole("Player took damage from SpikeMonster");
                             ((SpikeMonster) monster).didDamagePlayer = true;
                         }
 
 
-                        Console.WriteLine("player took damage from monster");
+                        Logger.WriteToConsole("player took damage from monster");
                         handlePlayerTakingDamage(monster);
                     }
 
