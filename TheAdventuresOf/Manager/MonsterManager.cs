@@ -157,15 +157,15 @@ namespace TheAdventuresOf
             //TODO: WHY AM I PASSING LEVEL HERE? we already keep a level variable
             UpdateMonsters(gameTime, level);
 
-            DebugInfoPrinter.AddOrUpdateValue("Tier", (level.currentTier+1).ToString());
-            DebugInfoPrinter.AddOrUpdateValue("TierLimit", (level.tierScores[level.currentTier].ToString()));
-            DebugInfoPrinter.AddOrUpdateValue("Block Limit: ", level.tierMonsterLimits[BLOCK_MONSTER][level.currentTier].ToString());
-            DebugInfoPrinter.AddOrUpdateValue("Sun Limit: ", level.tierMonsterLimits[SUN_MONSTER][level.currentTier].ToString());
-            DebugInfoPrinter.AddOrUpdateValue("GCannon Limit: ", level.tierMonsterLimits[GROUND_CANNON_MONSTER][level.currentTier].ToString());
-            DebugInfoPrinter.AddOrUpdateValue("FCannon Limit: ", level.tierMonsterLimits[FLYING_CANNON_MONSTER][level.currentTier].ToString());
-            DebugInfoPrinter.AddOrUpdateValue("Bile Limit: ", level.tierMonsterLimits[BILE_MONSTER][level.currentTier].ToString());
-            DebugInfoPrinter.AddOrUpdateValue("Spike Limit: ", level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier].ToString());
-            DebugInfoPrinter.AddOrUpdateValue("Dash Limit: ", level.tierMonsterLimits[DASH_MONSTER][level.currentTier].ToString());
+            Logger.Instance.AddOrUpdateValue("Tier", (level.currentTier+1).ToString());
+            Logger.Instance.AddOrUpdateValue("TierLimit", (level.tierScores[level.currentTier].ToString()));
+            Logger.Instance.AddOrUpdateValue("Block Limit: ", level.tierMonsterLimits[BLOCK_MONSTER][level.currentTier].ToString());
+            Logger.Instance.AddOrUpdateValue("Sun Limit: ", level.tierMonsterLimits[SUN_MONSTER][level.currentTier].ToString());
+            Logger.Instance.AddOrUpdateValue("GCannon Limit: ", level.tierMonsterLimits[GROUND_CANNON_MONSTER][level.currentTier].ToString());
+            Logger.Instance.AddOrUpdateValue("FCannon Limit: ", level.tierMonsterLimits[FLYING_CANNON_MONSTER][level.currentTier].ToString());
+            Logger.Instance.AddOrUpdateValue("Bile Limit: ", level.tierMonsterLimits[BILE_MONSTER][level.currentTier].ToString());
+            Logger.Instance.AddOrUpdateValue("Spike Limit: ", level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier].ToString());
+            Logger.Instance.AddOrUpdateValue("Dash Limit: ", level.tierMonsterLimits[DASH_MONSTER][level.currentTier].ToString());
         }
 
 		public void UpdateMonsterCount(Monster monster)
@@ -401,7 +401,7 @@ namespace TheAdventuresOf
 		//	//randomly choose whether to spawn a new cannon monster or not
 		//	if (delayCannonSpawnTimer.Seconds > level.delayCannonSpawnTimerLimit)
 		//	{
-		//		//Console.WriteLine("Cannon monster timer limit passed");
+		//		//Logger.WriteToConsole("Cannon monster timer limit passed");
 
 		//		canSpawnCannonMonster = true;
 		//		delayCannonSpawnTimer = TimeSpan.FromSeconds(0);
@@ -409,15 +409,15 @@ namespace TheAdventuresOf
 
 		//	if (canSpawnCannonMonster)
 		//	{
-		//		//Console.WriteLine("Could spawn monster");
+		//		//Logger.WriteToConsole("Could spawn monster");
 
 		//		if (rand.Next(0, 2) == 0)
 		//		{
-		//			//Console.WriteLine("Spawning monster");
+		//			//Logger.WriteToConsole("Spawning monster");
 		//			spawnCannonMonster();
 		//		}
 		//		else {
-		//			//Console.WriteLine("Decided not to spawn monster");
+		//			//Logger.WriteToConsole("Decided not to spawn monster");
 		//		}
 
 		//		canSpawnCannonMonster = false;

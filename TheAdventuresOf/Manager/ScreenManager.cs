@@ -1,4 +1,4 @@
-﻿﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input.Touch;
@@ -18,14 +18,14 @@ namespace TheAdventuresOf
 		//so those weird scaled res for iphone 6s plus, etc.
 		public ScreenManager(int actualWidth, int actualHeight)
 		{
-			Console.WriteLine("Instantiating ScreenManager object");
+			Logger.WriteToConsole("Instantiating ScreenManager object");
 
 			scaleMatrix = CreateScaleMatrix(actualWidth, actualHeight);
 		}
 
 		private Matrix CreateScaleMatrix(int actualWidth, int actualHeight)
 		{
-			Console.WriteLine("Generating scaling matrix");
+			Logger.WriteToConsole("Generating scaling matrix");
 
 			var scaleX = (float)actualWidth / FULL_SCREEN_WIDTH;
 			var scaleY = (float)actualHeight / FULL_SCREEN_HEIGHT;

@@ -1,4 +1,4 @@
-﻿﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -159,7 +159,7 @@ namespace TheAdventuresOf
 
             if (!delayAction)
             {
-                Console.WriteLine("activating bullet");
+                Logger.WriteToConsole("activating bullet");
                 bullet.isActive = true;
             }
         }

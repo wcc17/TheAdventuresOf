@@ -146,7 +146,7 @@ namespace TheAdventuresOf
 
                 if(positionVector.Y > (ScreenManager.FULL_SCREEN_HEIGHT + entityHeight) )
                 {
-                    Console.WriteLine("spike monster is dead");
+                    Logger.WriteToConsole("spike monster is dead");
                     isDead = true;
 
                     if(!didDamagePlayer) {

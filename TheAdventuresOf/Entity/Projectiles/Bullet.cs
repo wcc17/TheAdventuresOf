@@ -66,7 +66,7 @@ namespace TheAdventuresOf
             {
                 if (positionVector.X < -10)
                 {
-                    //Console.WriteLine("bullet is off screen");
+                    //Logger.WriteToConsole("bullet is off screen");
                     isActive = false;
                     isDead = true;
                 }
@@ -76,7 +76,7 @@ namespace TheAdventuresOf
             {
                 if (positionVector.X > ScreenManager.FULL_SCREEN_WIDTH + 10)
                 {
-                    //Console.WriteLine("bullet is off screen");
+                    //Logger.WriteToConsole("bullet is off screen");
                     isActive = false;
                     isDead = true;
                 }
