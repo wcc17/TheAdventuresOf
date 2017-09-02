@@ -129,12 +129,10 @@ namespace TheAdventuresOf
         {
             //monsters
             string level1String;
-            #if __IOS__
-                level1String = "level1background_1080p.png";
-            #elif __ANDROID__
+            #if __IOS__ || __ANDROID__
                 level1String = "level1background_1080p.png";
             #else
-                level1String = "level1background_xbox_1080p.png";
+                level1String = "level1background_xboxalt_1080p.png";
             #endif
 
             using (var stream = TitleContainer.OpenStream(filePath + level1String)) {
