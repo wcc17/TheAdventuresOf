@@ -13,13 +13,14 @@ namespace TheAdventuresOf
         }
 
         public override void HandleInput(Point point) {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Left))
+           
+            if (GamePad.GetState(PlayerIndex.One).DPad.Left == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Left))
             {
                 isButtonPressed = true;
                 leftButtonPressed = true;
             }
 
-            if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Right))
+            if (GamePad.GetState(PlayerIndex.One).DPad.Right == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Right))
             {
                 isButtonPressed = true;
                 rightButtonPressed = true;
