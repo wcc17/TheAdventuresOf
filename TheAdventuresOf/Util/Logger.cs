@@ -27,15 +27,6 @@ namespace TheAdventuresOf
 
         private Logger()
         {
-            //#if __WINDOWS__
-            //#endif
-            //#if __ANDROID__
-            //                filePath = androidFilePath;
-            //#endif
-            //#if __IOS__
-            //            filePath = iosFilePath;
-            //#endif
-
             debugStrings = new SortedDictionary<string, string>();
             positionVector = new Vector2(20, 10);
         }
@@ -56,10 +47,6 @@ namespace TheAdventuresOf
         {
             foreach (KeyValuePair<string, string> debugString in debugStrings)
             {
-                //spriteBatch.DrawString(AssetManager.Instance.font, 
-                //debugString.Key + ": " + debugString.Value, 
-                //positionVector, Color.White);
-
                 spriteBatch.DrawString(AssetManager.Instance.font,
                                        debugString.Key + ": " + debugString.Value,
                                        positionVector,
@@ -78,10 +65,10 @@ namespace TheAdventuresOf
 
         public static void WriteToConsole(String message)
         {
-            #if __WINDOWS__
-                Debug.WriteLine(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff") + ": " + message);
-            #else
+            #if __IOS__ || __ANDROID__
                 Console.WriteLine(message);
+            #else
+                Debug.WriteLine(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff") + ": " + message);
             #endif
         }
     }

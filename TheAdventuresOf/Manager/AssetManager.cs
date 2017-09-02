@@ -65,8 +65,9 @@ namespace TheAdventuresOf
 		private AssetManager() {
 			#if __ANDROID__
 				filePath = androidFilePath;
-			#endif
-			#if __IOS__
+			//#endif
+			//#if __IOS__
+            #else
 				filePath = iosFilePath;
 			#endif
 		}
@@ -126,9 +127,19 @@ namespace TheAdventuresOf
         public void LoadLevelAssets(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {
             //monsters
-            using (var stream = TitleContainer.OpenStream(filePath + "level1background_1080p.png")) {
+            string level1String;
+            #if __IOS__
+                level1String = "level1background_1080p.png";
+            #elif __ANDROID__
+                level1String = "level1background_1080p.png";
+            #else
+                level1String = "level1background_xbox_1080p.png";
+            #endif
+
+            using (var stream = TitleContainer.OpenStream(filePath + level1String)) {
                 levelTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
+
             using (var stream = TitleContainer.OpenStream(filePath + "blockmonster_1080p.png")) {
                 blockMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
             }

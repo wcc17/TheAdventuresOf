@@ -1,18 +1,15 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using UIKit;
 
 namespace TheAdventuresOf
 {
     public class Controller
     {
-        //for slight vibrations when buttons are pressed
-        public UIImpactFeedbackGenerator impactGenerator;
+        public VibrationController vibrationController;
 
         public virtual void InitializeController() {
-            impactGenerator = new UIImpactFeedbackGenerator(UIImpactFeedbackStyle.Light);
-            impactGenerator.Prepare();
+            vibrationController = new VibrationController();
         }
 
         public virtual void HandleImpact(Button button, bool isPressed)
@@ -23,7 +20,7 @@ namespace TheAdventuresOf
                 {
                     button.initialPressHappened = true;
                     button.ShowPressedDown();
-                    impactGenerator.ImpactOccurred();
+                    vibrationController.ImpactOccured();
                 }
             }
             else
