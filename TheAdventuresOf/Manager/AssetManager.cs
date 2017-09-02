@@ -100,9 +100,6 @@ namespace TheAdventuresOf
             using (var stream = TitleContainer.OpenStream(filePath + "character_1080p.png")) {
                 playerTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-			using (var stream = TitleContainer.OpenStream(filePath + "controller_1080p.png")) {
-				controllerTexture = Texture2D.FromStream(graphicsDevice, stream);
-			}
 			using (var stream = TitleContainer.OpenStream(filePath + "sword_1080p.png")) {
 				swordTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
@@ -112,6 +109,10 @@ namespace TheAdventuresOf
 			using (var stream = TitleContainer.OpenStream(filePath + "emptyheart_1080p.png")) {
 				emptyHeartTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
+            //TODO: don't need to load these textures when on windows or xbox
+            using (var stream = TitleContainer.OpenStream(filePath + "controller_1080p.png")) {
+                controllerTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
             using (var stream = TitleContainer.OpenStream(filePath + "leftarrow_1080p.png")) {
                 leftArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
             }

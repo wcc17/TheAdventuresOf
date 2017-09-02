@@ -166,6 +166,9 @@
     <Content Include="Content\level1background_1080p.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\level1background_xbox_1080p.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\level1_music.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

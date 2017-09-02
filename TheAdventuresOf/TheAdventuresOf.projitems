@@ -9,6 +9,8 @@
     <Import_RootNamespace>TheAdventuresOf</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Controller\GameController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controller\GameControllerWindows.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\VibrationController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TheAdventuresOf.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\FrameRate.cs" />
@@ -41,7 +43,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Manager\ScreenManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\Button.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\Controller.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controller\GameController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controller\GameControllerMobile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\MenuController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\ScoringManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ScoreText.cs" />
