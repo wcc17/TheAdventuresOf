@@ -23,8 +23,9 @@ namespace TheAdventuresOf
 		{
 			#if __ANDROID__
 				filePath = androidFilePath;
-			#endif
-			#if __IOS__
+			//#endif
+			//#if __IOS__
+            #else
 				filePath = iosFilePath;
 			#endif
 

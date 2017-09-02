@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Projectiles>
+    <Bile>
+        <EntityTag>Bile</EntityTag>
+        <Speed>320</Speed>
+        
+        <!-- TODO: this is a bad way to do this -->
+        <!-- level ground level does not work here,
+            because the ground level assumes that something
+            will be drawn from the top left corner down. -->
+        <!-- <GroundLevel>740</GroundLevel> old level design -->
+<!--        <GroundLevel>605</GroundLevel>-->
+		<GroundOffset>55</GroundOffset>
+		
+		<TimeToLive>10</TimeToLive>
+		<FadeSpeed>0.8</FadeSpeed>
+		
+		<!-- The smaller the value, the further it will go. 
+		     Think of the a in a quadratic function (y = ax^2 + b).
+             Will have to increase speed as Distance gets smaller. -->
+		<Distance>0.06</Distance>
+    </Bile>
+    <Bullet>
+        <EntityTag>Bullet</EntityTag>
+		<Speed>400</Speed>
+		<RotationSpeed>1000</RotationSpeed>
+		<FadeSpeed>1.3</FadeSpeed>
+	</Bullet>
+</Projectiles>
