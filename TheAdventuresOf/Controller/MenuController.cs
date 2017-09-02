@@ -1,12 +1,12 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace TheAdventuresOf
 {
     public class MenuController : Controller
     {
-        //TODO: load this information in XML file
         public static Vector2 playButtonPositionVector;
 
         static Button playButton;
@@ -26,7 +26,26 @@ namespace TheAdventuresOf
         }
 
         public override void HandleInput(Point point) {
-            if (playButton.IsPressed(point)) {
+            #if __IOS__ || __ANDROID__
+                HandleInputMobile(point);
+            #else
+                HandleInputWindows();
+            #endif
+        }
+
+        public override void HandleInputMobile(Point point)
+        {
+            if (playButton.IsPressed(point))
+            {
+                isButtonPressed = true;
+                playButtonPressed = true;
+            }
+        }
+
+        public override void HandleInputWindows()
+        {
+            if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Enter))
+            {
                 isButtonPressed = true;
                 playButtonPressed = true;
             }

@@ -39,27 +39,40 @@ namespace TheAdventuresOf
 			HandleInput(gameTime, controller);
 		}
 
-        //TODO: this needs to be updated so that main menu can use it as well as the gameController
+        //TODO: gameTime shouldn't be passed here 
         public void HandleInput(GameTime gameTime, Controller controller)
         {
             //reset the controller
             controller.ResetButtonPressedValues();
 
-            List<Point> touchPoints = GetTouchInput();
-
-			if (touchPoints.Count > 0)
-			{
-				for (int i = 0; i < touchPoints.Count; i++)
-				{
-					if (i < multiTouchLimit)
-					{
-						controller.HandleInput(touchPoints[i]);
-					}
-				}
-			}
+            #if __IOS__ || __ANDROID__
+                handleInputMobile(controller);
+            #else
+                handleInputWindows(controller);
+            #endif
 
             controller.HandleImpacts();
 		}
+
+        private void handleInputMobile(Controller controller)
+        {
+            List<Point> touchPoints = GetTouchInput();
+            if (touchPoints.Count > 0)
+            {
+                for (int i = 0; i < touchPoints.Count; i++)
+                {
+                    if (i < multiTouchLimit)
+                    {
+                        controller.HandleInput(touchPoints[i]);
+                    }
+                }
+            }
+        }
+
+        private void handleInputWindows(Controller controller)
+        {
+            controller.HandleInput(new Point());
+        }
 
 		private List<Point> GetTouchInput()
 		{

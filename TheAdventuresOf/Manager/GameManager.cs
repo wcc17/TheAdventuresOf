@@ -74,7 +74,12 @@ namespace TheAdventuresOf
             AssetManager.Instance.LoadGameAssets(graphicsDevice);
             XmlImporter.LoadGameInformation();
 
-            currentController = new GameController();
+            #if __IOS__ || __ANDROID__
+                currentController = new GameControllerMobile();
+            #else
+                currentController = new GameControllerWindows();
+            #endif
+
             currentController.InitializeController();
         }
 

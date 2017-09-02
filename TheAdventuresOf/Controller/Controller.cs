@@ -36,7 +36,8 @@ namespace TheAdventuresOf
         public virtual void ResetButtonPressedValues(){ }
         public virtual void HandleInput(Point point) { }
         public virtual void HandleImpacts() { }
-        public virtual void Draw(SpriteBatch spriteBatch) { } 
-
+        public virtual void Draw(SpriteBatch spriteBatch) { }
+        public virtual void HandleInputMobile(Point point) { }
+        public virtual void HandleInputWindows() { }
     }
 }
