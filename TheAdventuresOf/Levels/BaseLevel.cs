@@ -15,8 +15,6 @@ namespace TheAdventuresOf
         public int rightBoundWidth;
         public float groundLevel;
 
-        public static PlayerManager playerManager;
-
         public Texture2D levelTexture;
 
         public BaseLevel(Texture2D levelTexture)
@@ -29,11 +27,11 @@ namespace TheAdventuresOf
             leftSideBounds = new Rectangle(0, 0, leftBoundWidth, levelTexture.Height);
             rightSideBounds = new Rectangle(levelTexture.Width - rightBoundWidth, 0, rightBoundWidth, levelTexture.Height);
 
-            playerManager = new PlayerManager(this);
+            PlayerManager.Instance.InitializePlayerManager(this);
         }
 
         public virtual void Update(GameTime gameTime, GameController gameController) {
-            playerManager.Update(gameTime, gameController);
+            PlayerManager.Instance.Update(gameTime, gameController);
         }
 
         public virtual void Draw(SpriteBatch spriteBatch) {
@@ -41,7 +39,7 @@ namespace TheAdventuresOf
             spriteBatch.Draw(levelTexture, levelPositionVector);
 
             //Draw player
-            playerManager.Draw(spriteBatch);
+            PlayerManager.Instance.Draw(spriteBatch);
         }
 
         public virtual void CheckCollisionWithBounds(Entity entity)
@@ -59,12 +57,12 @@ namespace TheAdventuresOf
 
         public virtual void CheckPlayerCollisionProjectile(Projectile proj)
         {
-            PlayerManager.player.CheckCollisionProjectile(proj);
+            PlayerManager.Instance.CheckPlayerCollisionProjectile(proj);
         }
 
         public virtual void CheckPlayerCollisionWithMonster(Monster monster)
         {
-            PlayerManager.player.CheckCollisionMonster(monster);
+            PlayerManager.Instance.CheckPlayerCollisionWithMonster(monster);
         }
     }
 }

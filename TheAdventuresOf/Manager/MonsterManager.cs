@@ -152,10 +152,10 @@ namespace TheAdventuresOf
 			}
 		}
 
-        public void Update(GameTime gameTime, Level level) {
+        public void Update(GameTime gameTime) {
             HandleSpawnMonsters(gameTime);
             //TODO: WHY AM I PASSING LEVEL HERE? we already keep a level variable
-            UpdateMonsters(gameTime, level);
+            UpdateMonsters(gameTime);
 
             Logger.Instance.AddOrUpdateValue("Tier", (level.currentTier+1).ToString());
             Logger.Instance.AddOrUpdateValue("TierLimit", (level.tierScores[level.currentTier].ToString()));
@@ -202,8 +202,7 @@ namespace TheAdventuresOf
             monsterCount++;
 		}
 
-        //TODO: why am i passing level here? we already keep a level variable
-		public void UpdateMonsters(GameTime gameTime, Level level)
+		public void UpdateMonsters(GameTime gameTime)
 		{
 			//update each monster and remove them if they're dead
 			foreach (Monster monster in monsters)

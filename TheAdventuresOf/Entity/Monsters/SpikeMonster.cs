@@ -77,8 +77,8 @@ namespace TheAdventuresOf
         public override void Update(GameTime gameTime, bool buttonPressed = false) 
         {
             //TODO: PlayerManager should probably be a singleton
-            float playerX = BaseLevel.playerManager.GetPlayerPosition().X;
-            float playerWidth = BaseLevel.playerManager.GetPlayerWidth();
+            float playerX = PlayerManager.Instance.GetPlayerPosition().X;
+            float playerWidth = PlayerManager.Instance.GetPlayerWidth();
             float entityCenter = (positionVector.X + (entityWidth / 2));
             float playerCenter = (playerX + (playerWidth / 2));
 
