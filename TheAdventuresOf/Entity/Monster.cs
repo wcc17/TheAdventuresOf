@@ -58,7 +58,7 @@ namespace TheAdventuresOf
 				//only try to move if we're not dying, delaying or spawning
 				if (!isMoving)
 				{
-					randomizeMovement();
+                    decideMovement();
 				}
 				else
 				{
@@ -190,33 +190,59 @@ namespace TheAdventuresOf
             positionVector.Y += (float)(bounceSpeed / 3 * gameTime.ElapsedGameTime.TotalSeconds * bounceUpDown);
         }
 
-		void randomizeMovement()
+        //decide if we're going to move and in what direction
+		void decideMovement()
 		{
 			if (rand.Next(0, 2) == 0)
 			{
 				//if 0, start moving, otherwise don't
 				isMoving = true;
 
-				ChooseRandomDirection();
+                ChooseDirection();
 			}
 			else {
 				delayAction = true;
 			}
 		}
 
-		public void ChooseRandomDirection()
+        //choose direction we're going
+		public void ChooseDirection()
 		{
-			//and choose a random direction
-			if (rand.Next(0, 2) == 0)
-			{
-				moveRight = false;
-				moveLeft = true;
-			}
-			else {
-				moveLeft = false;
-				moveRight = true;
-			}
+            //2/5 chance for random, 3/5 chance for move toward player
+            //and choose a random direction
+            if (rand.Next(0, 5) <= 1)
+            {
+                chooseRandomDirection();
+            }
+            else if (rand.Next(0, 5) > 1)
+            {
+                moveTowardPlayer();
+            }
 		}
+
+        private void chooseRandomDirection() {
+            //and choose a random direction
+            if (rand.Next(0, 2) == 0) {
+                moveRight = false;
+                moveLeft = true;
+            }
+            else {
+                moveLeft = false;
+                moveRight = true;
+            }
+        }
+
+        //move in the direction of the player depending on what side of the player they're on
+        private void moveTowardPlayer() {
+            if (PlayerManager.Instance.GetPlayerPosition().X >= this.positionVector.X) {
+                moveRight = true;
+                moveLeft = false;
+            }
+            else {
+                moveRight = false;
+                moveLeft = true;
+            }
+        }
 
         //TODO: why does this take in an int for direction? We have moveLeft and moveRight
         //TODO: I don't think I want this here, I would rather each monster override (pretty much what I'm doing already)

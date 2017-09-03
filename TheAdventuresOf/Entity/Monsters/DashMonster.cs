@@ -51,7 +51,7 @@ namespace TheAdventuresOf
             Reset();
 
             //assuming that new X position is set in main Update function for now
-            ChooseRandomDirection();
+            ChooseDirection();
             if (moveLeft)
             {
                 rotation = RIGHT_ANGLE_RADIANS;

@@ -48,7 +48,7 @@ namespace TheAdventuresOf
             Reset();
 
             //assuming that new X position is set in main Update function for now
-            ChooseRandomDirection();
+            ChooseDirection();
 
             isSpawning = true;
             delayAction = true;
