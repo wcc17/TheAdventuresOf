@@ -2,7 +2,7 @@
 <Characters>
   <Player>
     <EntityTag>Player</EntityTag>
-    <Speed>245</Speed>
+    <Speed>265</Speed>
     <AnimationSpeed>0.08</AnimationSpeed>
     <!-- these just make it easier to put the sword where it needs to be -->
     <LeftSwordOffset>25</LeftSwordOffset>
