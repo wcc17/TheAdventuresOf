@@ -16,6 +16,7 @@
 	<RightBoundWidth>1920</RightBoundWidth>
     <StoreLevelCharX>1600</StoreLevelCharX>
 	<StoreLevelCharY>320</StoreLevelCharY>
+		<!-- TODO: boxes are 820 pixels apart in 2160p store level image -->
   </StoreLevel>
 	
   <LevelOne>
