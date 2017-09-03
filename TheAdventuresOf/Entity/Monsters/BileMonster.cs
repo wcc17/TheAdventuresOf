@@ -102,14 +102,17 @@ namespace TheAdventuresOf
                     handleBuildUpAnimation(gameTime);
                 }
             }
-            else if (!isDying && !delayBuildup && !isSpawning && isThrowing)
+            else if (!isDying && !isDead && !delayBuildup && !isSpawning && isThrowing)
             {
                 handleThrowAnimation(gameTime);
             }
             else
             {
-                //check if monster is ready to throw, so he can throw on the next frame
-                handleBuildUpDelay(gameTime);
+                //if we don't check this, buildUpDelay will end and cause throw animation to occur even when dying or dead
+                if (!isDying && !isDead) {
+                    //check if monster is ready to throw, so he can throw on the next frame
+                    handleBuildUpDelay(gameTime);
+                }
 
                 base.Update(gameTime, buttonPressed);
             }
@@ -164,8 +167,13 @@ namespace TheAdventuresOf
                 delayBuildup = false;
                 buildupDelayTimer.Reset();
 
-                moveLeft = PlayerManager.player.moveLeft;
-                moveRight = PlayerManager.player.moveRight;
+                if(PlayerManager.Instance.GetPlayerPosition().X >= this.positionVector.X) {
+                    moveRight = true;
+                    moveLeft = false;
+                } else {
+                    moveRight = false;
+                    moveLeft = true;
+                }
             }
         }
 
@@ -187,7 +195,6 @@ namespace TheAdventuresOf
         void handleThrowAnimation(GameTime gameTime)
         {
             currentAnimation = throwAnimation;
-
             handleThrowRotation(gameTime);
 
             bool timeUp = throwTimer.IsTimeUp(gameTime.ElapsedGameTime);

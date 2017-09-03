@@ -27,7 +27,7 @@ namespace TheAdventuresOf
         public override void Update(GameTime gameTime, GameController gameController) {
             base.Update(gameTime, gameController);
 
-            if(playerManager.GetPlayerPosition().X > rightBoundWidth) {
+            if(PlayerManager.Instance.GetPlayerPosition().X > rightBoundWidth) {
                 nextLevel = true;
             }
         }

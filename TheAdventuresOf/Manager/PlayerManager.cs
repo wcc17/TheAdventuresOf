@@ -4,13 +4,27 @@ using Microsoft.Xna.Framework;
 
 namespace TheAdventuresOf
 {
+    //TODO: most methods on this singleton be static probably?
     public class PlayerManager
     {
-        public static Player player { get; set; }
+        private static PlayerManager instance;
+
+        private static Player player { get; set; }
         BaseLevel level;
 
-        public PlayerManager(BaseLevel level)
-        {
+        public static PlayerManager Instance {
+            get {
+                if (instance == null) {
+                    instance = new PlayerManager();
+                }
+
+                return instance;
+            }
+        }
+        private PlayerManager() { }
+
+        /** NOTE: THIS MUST BE CALLED FIRST and manually **/
+        public void InitializePlayerManager(BaseLevel level) {
             this.level = level;
 
             player = XmlImporter.LoadPlayerInformation();
@@ -19,7 +33,6 @@ namespace TheAdventuresOf
                                     level.groundLevel,
                                     AssetManager.Instance.playerTexture.Width / player.frameCount,
                                     AssetManager.Instance.playerTexture.Height);
-
         }
 
         public void Update(GameTime gameTime, GameController gameController)
@@ -41,6 +54,14 @@ namespace TheAdventuresOf
         public float GetPlayerWidth() 
         {
             return player.entityWidth;    
+        }
+
+        public void CheckPlayerCollisionProjectile(Projectile proj) {
+            player.CheckCollisionProjectile(proj);
+        }
+
+        public void CheckPlayerCollisionWithMonster(Monster monster) {
+            player.CheckCollisionMonster(monster);
         }
     }
 }
