@@ -36,6 +36,10 @@ namespace TheAdventuresOf
         public Texture2D preLevelCharacterTexture;
         public Texture2D preLevelTexture;
 
+        //store level textures
+        public Texture2D storeLevelCharacterTexture;
+        public Texture2D storeLevelTexture;
+
         //level textures
         public Texture2D playerTexture;
         public Texture2D levelTexture;
@@ -225,25 +229,45 @@ namespace TheAdventuresOf
 
         }
 
-        //TODO: needs to be called somewhere
+        public void LoadStoreLevelAssets(GraphicsDevice graphicsDevice) {
+            string storeLevelFilePath = filePath + "StoreLevel/";
+
+            using (var stream = TitleContainer.OpenStream(storeLevelFilePath + "store_level_character_1080p.png")) {
+                storeLevelCharacterTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+
+#if __IOS__ || __ANDROID__
+            using (var stream = TitleContainer.OpenStream(storeLevelFilePath + "store_level_1080p.png"))
+            {
+                storeLevelTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+#else
+            using (var stream = TitleContainer.OpenStream(storeLevelFilePath + "store_level_xbox_1080p.png"))
+            {
+                storeLevelTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+#endif
+        }
+
         public void DisposePreLevelAssets() {
             preLevelCharacterTexture.Dispose();
             preLevelTexture.Dispose();
         }
 
-        //TODO: needs to be called somewhere!
         public void DisposeMenuAssets() {
-            splashTexture.Dispose();
+            //splashTexture.Dispose(); TODO: not disposing right now because its used as load screen
             menuTexture.Dispose();
             menuPlayButtonTexture.Dispose();
 
             menuSong.Dispose();
         }
 
-        //TODO: this needs to be called when new level happens and when game closes
+        public void DisposeStoreAssets() {
+            storeLevelTexture.Dispose();
+            storeLevelCharacterTexture.Dispose();
+        }
+
 		public void DisposeLevelAssets() {
-			playerTexture.Dispose();
-            swordTexture.Dispose();
 			levelTexture.Dispose();
 			blockMonsterTexture.Dispose();
 			sunMonsterTexture.Dispose();
@@ -255,9 +279,14 @@ namespace TheAdventuresOf
 
             bulletTexture.Dispose();
             bileTexture.Dispose();
-
-            levelOneSong.Dispose();
 		}
+
+        //TODO: should handle disposing of music in MusicManager
+        public void DisposeMusic() {
+            //MusicManager will probably only delete 1 song at a time
+            //this is a placeholder so I see the TODO
+            //levelOneMusic.Dispose(); gum
+        }
 
         //TODO: this needs to be called somewhere
         public void DisposeGameAssets() {
@@ -266,7 +295,10 @@ namespace TheAdventuresOf
             emptyHeartTexture.Dispose();
             leftArrowButtonTexture.Dispose();
             rightArrowButtonTexture.Dispose();
-            upArrowButtonTexture.Dispose(); 
+            upArrowButtonTexture.Dispose();
+
+            playerTexture.Dispose();
+            swordTexture.Dispose();
         }
 	}
 }

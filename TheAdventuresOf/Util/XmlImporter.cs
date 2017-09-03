@@ -85,6 +85,17 @@ namespace TheAdventuresOf
             preLevel.preLevelCharX = (float)preLevelElement.Element("PreLevelCharX");
         }
 
+        public static void LoadStoreLevelInformation(StoreLevel storeLevel) {
+            XElement levelElement = levelDocument.Element("Level");
+            XElement storeLevelElement = levelElement.Element("StoreLevel");
+
+            storeLevel.groundLevel = (float)storeLevelElement.Element("GroundLevel");
+            storeLevel.leftBoundWidth = (int)storeLevelElement.Element("LeftBoundWidth");
+            storeLevel.rightBoundWidth = (int)storeLevelElement.Element("RightBoundWidth");
+            storeLevel.storeLevelCharX = (float)storeLevelElement.Element("StoreLevelCharX");
+            storeLevel.storeLevelCharY = (float)storeLevelElement.Element("StoreLevelCharY");
+        }
+
 		public static void LoadLevelInformation(Level level) {
 			XElement levelElement = levelDocument.Element("Level");
 			XElement levelOneElement = levelElement.Element("LevelOne");

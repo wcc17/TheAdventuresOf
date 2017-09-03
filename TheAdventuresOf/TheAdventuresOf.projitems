@@ -52,6 +52,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Levels\MainMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Levels\Level.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Levels\PreLevel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Levels\StoreLevel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

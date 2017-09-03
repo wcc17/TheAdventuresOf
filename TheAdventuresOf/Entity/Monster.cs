@@ -210,17 +210,17 @@ namespace TheAdventuresOf
 		{
             //2/5 chance for random, 3/5 chance for move toward player
             //and choose a random direction
-            if (rand.Next(0, 5) <= 1)
-            {
-                chooseRandomDirection();
+            if (rand.Next(0, 5) <= 1) {
+                ChooseRandomDirection();
             }
-            else if (rand.Next(0, 5) > 1)
-            {
+            else if (rand.Next(0, 5) > 1) {
                 moveTowardPlayer();
+            } else {
+                Logger.WriteToConsole("No direction chosen");
             }
 		}
 
-        private void chooseRandomDirection() {
+        public void ChooseRandomDirection() {
             //and choose a random direction
             if (rand.Next(0, 2) == 0) {
                 moveRight = false;
