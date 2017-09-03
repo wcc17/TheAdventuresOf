@@ -11,7 +11,7 @@
   </PreLevel>
 	
   <LevelOne>
-<!--    <GroundLevel>690</GroundLevel>-->
+    <!--<GroundLevel>690</GroundLevel>-->
     <!--<LeftBoundWidth>135</LeftBoundWidth>
     <RightBoundWidth>125</RightBoundWidth>-->
 	<GroundLevel>555</GroundLevel>
@@ -19,36 +19,36 @@
     <RightBoundWidth>230</RightBoundWidth>
 	
 
-	<Tier1Score>1000</Tier1Score>    <!-- 7 monsters  -->
-    <Tier2Score>3000</Tier2Score>   <!-- 8 monsters  -->
-    <Tier3Score>5500</Tier3Score>   <!-- 9 monsters  -->
-    <Tier4Score>8500</Tier4Score>   <!-- 10 monsters -->
-    <Tier5Score>13000</Tier5Score>  <!-- 10 monsters -->
+	<Tier1Score>2000</Tier1Score>   <!-- 9 monsters  -->
+    <Tier2Score>3000</Tier2Score>   <!-- 10 monsters  -->
+    <Tier3Score>5500</Tier3Score>   <!-- 11 monsters  -->
+    <Tier4Score>8500</Tier4Score>   <!-- 12 monsters -->
+    <Tier5Score>12000</Tier5Score>  <!-- 12 monsters -->
 	<MaxTier>5</MaxTier>
 
 	<Tier1>
       <BlockMonsterLimit>       4</BlockMonsterLimit>
-      <SunMonsterLimit>         2</SunMonsterLimit>
+      <SunMonsterLimit>         3</SunMonsterLimit>
       <GroundCannonMonsterLimit>0</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
-      <BileMonsterLimit>        1</BileMonsterLimit>
+      <BileMonsterLimit>        2</BileMonsterLimit>
       <SpikeMonsterLimit>       0</SpikeMonsterLimit>    
       <DashMonsterLimit>        0</DashMonsterLimit>
 	</Tier1>
 		
     <Tier2>
 	  <BlockMonsterLimit>       3</BlockMonsterLimit>
-      <SunMonsterLimit>         3</SunMonsterLimit>
+      <SunMonsterLimit>         4</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
-      <BileMonsterLimit>        1</BileMonsterLimit>
+      <BileMonsterLimit>        2</BileMonsterLimit>
       <SpikeMonsterLimit>       0</SpikeMonsterLimit>    
       <DashMonsterLimit>        0</DashMonsterLimit>
 	</Tier2>
 		
     <Tier3>
-	  <BlockMonsterLimit>       3</BlockMonsterLimit>
-      <SunMonsterLimit>         2</SunMonsterLimit>
+	  <BlockMonsterLimit>       4</BlockMonsterLimit>
+      <SunMonsterLimit>         3</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        2</BileMonsterLimit>
@@ -57,8 +57,8 @@
 	</Tier3>
 		
     <Tier4>
-	  <BlockMonsterLimit>       3</BlockMonsterLimit>
-      <SunMonsterLimit>         2</SunMonsterLimit>
+	  <BlockMonsterLimit>       4</BlockMonsterLimit>
+      <SunMonsterLimit>         3</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>1</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        2</BileMonsterLimit>
@@ -67,8 +67,8 @@
 	</Tier4>
 		
     <Tier5>
-	  <BlockMonsterLimit>       2</BlockMonsterLimit>
-      <SunMonsterLimit>         2</SunMonsterLimit>
+	  <BlockMonsterLimit>       4</BlockMonsterLimit>
+      <SunMonsterLimit>         3</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>1</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        2</BileMonsterLimit>
