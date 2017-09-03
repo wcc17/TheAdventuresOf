@@ -9,46 +9,61 @@
     <RightBoundWidth>1920</RightBoundWidth>
 	<PreLevelCharX>1560</PreLevelCharX>
   </PreLevel>
+
+  <StoreLevel>
+	<GroundLevel>685</GroundLevel>
+    <LeftBoundWidth>0</LeftBoundWidth>
+	<RightBoundWidth>1920</RightBoundWidth>
+    <StoreLevelCharX>1600</StoreLevelCharX>
+	<StoreLevelCharY>320</StoreLevelCharY>
+  </StoreLevel>
 	
   <LevelOne>
-<!--    <GroundLevel>690</GroundLevel>-->
-    <!--<LeftBoundWidth>135</LeftBoundWidth>
-    <RightBoundWidth>125</RightBoundWidth>-->
 	<GroundLevel>555</GroundLevel>
 	<LeftBoundWidth>250</LeftBoundWidth>
     <RightBoundWidth>230</RightBoundWidth>
 	
+    <!-- real -->
+	<Tier1Score>2000</Tier1Score>
+    <Tier2Score>3000</Tier2Score>
+    <Tier3Score>5500</Tier3Score>
+    <Tier4Score>8500</Tier4Score>
+    <Tier5Score>12000</Tier5Score>
 
-	<Tier1Score>1000</Tier1Score>    <!-- 7 monsters  -->
-    <Tier2Score>3000</Tier2Score>   <!-- 8 monsters  -->
-    <Tier3Score>5500</Tier3Score>   <!-- 9 monsters  -->
-    <Tier4Score>8500</Tier4Score>   <!-- 10 monsters -->
-    <Tier5Score>13000</Tier5Score>  <!-- 10 monsters -->
+	<!-- test -->
+    <!--
+		<Tier1Score>50</Tier1Score>
+    <Tier2Score>100</Tier2Score>
+    <Tier3Score>150</Tier3Score>
+    <Tier4Score>200</Tier4Score>
+    <Tier5Score>250</Tier5Score>
+	-->
+		
 	<MaxTier>5</MaxTier>
 
-	<Tier1>
+	<Tier1> <!--9-->
       <BlockMonsterLimit>       4</BlockMonsterLimit>
-      <SunMonsterLimit>         2</SunMonsterLimit>
+      <SunMonsterLimit>         3</SunMonsterLimit>
       <GroundCannonMonsterLimit>0</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
-      <BileMonsterLimit>        1</BileMonsterLimit>
+      <BileMonsterLimit>        2</BileMonsterLimit>
       <SpikeMonsterLimit>       0</SpikeMonsterLimit>    
       <DashMonsterLimit>        0</DashMonsterLimit>
 	</Tier1>
 		
-    <Tier2>
+    <Tier2> <!--10-->
 	  <BlockMonsterLimit>       3</BlockMonsterLimit>
-      <SunMonsterLimit>         3</SunMonsterLimit>
+      <SunMonsterLimit>         4</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
-      <BileMonsterLimit>        1</BileMonsterLimit>
+      <BileMonsterLimit>        2</BileMonsterLimit>
       <SpikeMonsterLimit>       0</SpikeMonsterLimit>    
       <DashMonsterLimit>        0</DashMonsterLimit>
 	</Tier2>
 		
-    <Tier3>
-	  <BlockMonsterLimit>       3</BlockMonsterLimit>
-      <SunMonsterLimit>         2</SunMonsterLimit>
+    <Tier3> <!--11-->
+	  <BlockMonsterLimit>       4</BlockMonsterLimit>
+      <SunMonsterLimit>         3</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        2</BileMonsterLimit>
@@ -56,9 +71,9 @@
       <DashMonsterLimit>        0</DashMonsterLimit>
 	</Tier3>
 		
-    <Tier4>
-	  <BlockMonsterLimit>       3</BlockMonsterLimit>
-      <SunMonsterLimit>         2</SunMonsterLimit>
+    <Tier4> <!--12-->
+	  <BlockMonsterLimit>       4</BlockMonsterLimit>
+      <SunMonsterLimit>         3</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>1</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        2</BileMonsterLimit>
@@ -66,9 +81,9 @@
       <DashMonsterLimit>        0</DashMonsterLimit>
 	</Tier4>
 		
-    <Tier5>
-	  <BlockMonsterLimit>       2</BlockMonsterLimit>
-      <SunMonsterLimit>         2</SunMonsterLimit>
+    <Tier5> <!--12-->
+	  <BlockMonsterLimit>       4</BlockMonsterLimit>
+      <SunMonsterLimit>         3</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>1</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        2</BileMonsterLimit>
