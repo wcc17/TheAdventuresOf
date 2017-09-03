@@ -13,6 +13,7 @@ namespace TheAdventuresOf
         public const int PRE_LEVEL_STATE = 2;
         public const int LEVEL_STATE = 3;
         public const int LOAD_STATE = 4;
+        public const int STORE_LEVEL_STATE = 5;
 
         Vector2 basePositionVector = new Vector2(0, 0);
 
@@ -89,15 +90,16 @@ namespace TheAdventuresOf
             AssetManager.Instance.LoadPreLevelAssets(graphicsDevice);
 
             currentLevel = new PreLevel(AssetManager.Instance.preLevelTexture);
-
-            //xml load prelevel information
             XmlImporter.LoadPreLevelInformation((PreLevel)currentLevel);
         }
 
-        void loadPreLevel() {
-            currentLevel.InitializeLevel();
+        void loadStoreLevelAssets() {
+            Logger.WriteToConsole("Load StoreLevel Assets");
 
-            gameState = PRE_LEVEL_STATE;
+            AssetManager.Instance.LoadStoreLevelAssets(graphicsDevice);
+
+            currentLevel = new StoreLevel(AssetManager.Instance.storeLevelTexture);
+            XmlImporter.LoadStoreLevelInformation((StoreLevel)currentLevel);
         }
 
         //only load level assets. will eventually have switch for level number
@@ -111,7 +113,13 @@ namespace TheAdventuresOf
             XmlImporter.LoadLevelInformation((Level)currentLevel);
         }
 
-        //start playing level. will eventually have switch for level number
+        void loadPreLevel()
+        {
+            currentLevel.InitializeLevel();
+
+            gameState = PRE_LEVEL_STATE;
+        }
+
         void loadLevel()
         {
             currentLevel.InitializeLevel();
@@ -119,26 +127,36 @@ namespace TheAdventuresOf
             gameState = LEVEL_STATE;
         }
 
+        void loadStoreLevel() {
+            currentLevel.InitializeLevel();
+
+            gameState = STORE_LEVEL_STATE;
+        }
+
 
         public void Update(GameTime gameTime)
         {
             musicManager.Update(gameTime);
+
+            if(gameState != SPLASH_STATE && gameState != LOAD_STATE) {
+                screenManager.Update(gameTime, currentController);
+            }
 
             switch(gameState) {
                 case SPLASH_STATE:
                     updateSplash(gameTime);
                     break;
                 case MENU_STATE:
-                    screenManager.Update(gameTime, currentController);
                     updateMenu(gameTime);
                     break;
                 case PRE_LEVEL_STATE:
-                    screenManager.Update(gameTime, currentController);
                     updatePreLevel(gameTime);
                     break;
                 case LEVEL_STATE:
-                    screenManager.Update(gameTime, currentController);
                     updateLevel(gameTime);
+                    break;
+                case STORE_LEVEL_STATE:
+                    updateStoreLevel(gameTime);
                     break;
                 case LOAD_STATE:
                     updateLoadState(gameTime);
@@ -169,6 +187,8 @@ namespace TheAdventuresOf
                 gameState = LOAD_STATE;
                 nextGameState = PRE_LEVEL_STATE;
 
+                AssetManager.Instance.DisposeMenuAssets();
+
                 //load level assets for nextGameState
                 loadCommonLevelAssets();
                 //loadLevelAssets();
@@ -179,10 +199,11 @@ namespace TheAdventuresOf
         void updatePreLevel(GameTime gameTime) {
             currentLevel.Update(gameTime, (GameController)currentController);
 
-            if (((PreLevel)currentLevel).nextLevel) {
+            if (currentLevel.nextLevel) {
                 gameState = LOAD_STATE;
                 nextGameState = LEVEL_STATE;
 
+                AssetManager.Instance.DisposePreLevelAssets();
                 loadLevelAssets();
             }                
 
@@ -191,8 +212,27 @@ namespace TheAdventuresOf
         void updateLevel(GameTime gameTime) {
             currentLevel.Update(gameTime, (GameController) currentController);
 
-            //TODO: this shouldn't be updated during the prelevel
             ScoringManager.Instance.Update(gameTime);
+
+            if (currentLevel.nextLevel) {
+                gameState = LOAD_STATE;
+                nextGameState = STORE_LEVEL_STATE;
+
+                AssetManager.Instance.DisposeLevelAssets();
+                loadStoreLevelAssets();
+            }
+        }
+
+        void updateStoreLevel(GameTime gameTime) {
+            currentLevel.Update(gameTime, (GameController)currentController);
+
+            if(currentLevel.nextLevel) {
+                gameState = LOAD_STATE;
+                nextGameState = PRE_LEVEL_STATE;
+
+                AssetManager.Instance.DisposeStoreAssets();
+                loadPreLevelAssets();
+            }
         }
 
         void updateLoadState(GameTime gameTime) {
@@ -214,6 +254,9 @@ namespace TheAdventuresOf
                     case LEVEL_STATE:
                         loadLevel();
                         break;
+                    case STORE_LEVEL_STATE:
+                        loadStoreLevel();
+                        break;
                 }
             }
         }
@@ -232,6 +275,9 @@ namespace TheAdventuresOf
                     drawLevel();
                     break;
                 case LEVEL_STATE:
+                    drawLevel();
+                    break;
+                case STORE_LEVEL_STATE:
                     drawLevel();
                     break;
                 case LOAD_STATE:

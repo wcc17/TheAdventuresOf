@@ -39,16 +39,26 @@ namespace TheAdventuresOf
                     currentSong = AssetManager.Instance.menuSong;
                     MediaPlayer.Play(currentSong);
                     break;
+                case GameManager.PRE_LEVEL_STATE:
+                    currentSong = null; //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
+                    MediaPlayer.Stop();
+                    break;
                 case GameManager.LEVEL_STATE:
                     changingSongs = true;
                     currentSong = AssetManager.Instance.levelOneSong;
+                    break;
+                case GameManager.STORE_LEVEL_STATE:
+                    currentSong = null; //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
+                    MediaPlayer.Stop();
                     break;
             }
         }
 
         public void Update(GameTime gameTime) {
-            HandleMusicVolume(gameTime);
-            HandleRepeatDelay(gameTime);
+            if(currentSong != null) { //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
+                HandleMusicVolume(gameTime);
+                HandleRepeatDelay(gameTime);
+            }
         }
 
         public void HandleMusicVolume(GameTime gameTime) {

@@ -8,7 +8,7 @@ namespace TheAdventuresOf
     {
         public int maxTier;
         public int currentTier;
-        public static int TIER_1 = 0;
+        public static int TIER_1 = 0; //TODO: TIER_1 should be 1, not 0
         public static int TIER_2 = 1;
         public static int TIER_3 = 2;
         public static int TIER_4 = 3;
@@ -48,6 +48,11 @@ namespace TheAdventuresOf
 
             if(ScoringManager.score > tierScores[currentTier] && currentTier < (maxTier-1)) {
                 currentTier = currentTier + 1;
+            }
+
+            if(currentTier == (maxTier-1) && ScoringManager.score > tierScores[currentTier]) {
+                ScoringManager.Instance.ClearScores();
+                nextLevel = true;
             }
 		}
 

@@ -17,6 +17,8 @@ namespace TheAdventuresOf
 
         public Texture2D levelTexture;
 
+        public bool nextLevel; //when its time to go to next level, set to true
+
         public BaseLevel(Texture2D levelTexture)
         {
             levelPositionVector = new Vector2(0, 0);

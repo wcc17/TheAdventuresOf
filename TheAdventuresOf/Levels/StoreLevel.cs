@@ -4,23 +4,24 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TheAdventuresOf
 {
-    public class PreLevel : BaseLevel
+    public class StoreLevel : BaseLevel
     {
-        public float preLevelCharX;
-        Vector2 preLevelCharacterPositionVector;
+        public float storeLevelCharX;
+        public float storeLevelCharY;
+        Vector2 storeLevelCharacterPositionVector;
 
-        public PreLevel(Texture2D levelTexture) : base(levelTexture: levelTexture) { }
+        public StoreLevel(Texture2D levelTexture) : base(levelTexture: levelTexture) { }
 
         public override void InitializeLevel() {
             base.InitializeLevel();
 
-            preLevelCharacterPositionVector = new Vector2(preLevelCharX, groundLevel);
+            storeLevelCharacterPositionVector = new Vector2(storeLevelCharX, storeLevelCharY);
         }
 
         public override void Draw(SpriteBatch spriteBatch) {
             base.Draw(spriteBatch);
 
-            spriteBatch.Draw(AssetManager.Instance.preLevelCharacterTexture, preLevelCharacterPositionVector);
+            spriteBatch.Draw(AssetManager.Instance.storeLevelCharacterTexture, storeLevelCharacterPositionVector);
         }
 
         public override void Update(GameTime gameTime, GameController gameController) {

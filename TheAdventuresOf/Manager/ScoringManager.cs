@@ -90,5 +90,10 @@ namespace TheAdventuresOf
                 scoreText.Draw(spriteBatch);
             }
         }
+
+        public void ClearScores() {
+            score = 0;
+            activeScoreText.Clear();
+        }
     }
 }
