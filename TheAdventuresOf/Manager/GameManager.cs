@@ -212,7 +212,7 @@ namespace TheAdventuresOf
         void updateLevel(GameTime gameTime) {
             currentLevel.Update(gameTime, (GameController) currentController);
 
-            ScoringManager.Instance.Update(gameTime);
+            TextManager.Instance.Update(gameTime);
 
             if (currentLevel.nextLevel) {
                 gameState = LOAD_STATE;
@@ -312,7 +312,7 @@ namespace TheAdventuresOf
             currentController.Draw(spriteBatch);
 
             //Draw score related stuff
-            ScoringManager.Instance.Draw(spriteBatch);
+            TextManager.Instance.Draw(spriteBatch);
         }
 
         void drawLoadScreen()

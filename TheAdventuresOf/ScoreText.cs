@@ -1,45 +1,26 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace TheAdventuresOf
 {
-    public class ScoreText
+    public class ScoreText : Text
     {
         public static float textFloatSpeed;
-        public static float textDisappearSpeed;
-        public static float textFontScale;
-        public static float textPositionOffset;
-        public bool isActive = true;
 
-        float alpha = 1.0f;
+        public ScoreText(float startX, float startY, string text, int index) : base(startX, startY, text, index) { }
 
-        Vector2 positionVector;
-        int pointsEarned;
-
-        public ScoreText(float startX, float startY, int pointsEarned)
+        public override void Update(GameTime gameTime)
         {
-            positionVector = new Vector2(startX-textPositionOffset, startY);
-            this.pointsEarned = pointsEarned;
-        }
-
-        public void Update(GameTime gameTime) {
             //update position
             positionVector.Y -= (float)(gameTime.ElapsedGameTime.TotalSeconds * textFloatSpeed);
 
             alpha -= (float)(gameTime.ElapsedGameTime.TotalSeconds * textDisappearSpeed);
-            if (alpha <= 0.0f) {
+            if (alpha <= 0.0f)
+            {
                 isActive = false;
             }
-        }
-
-        public void Draw(SpriteBatch spriteBatch) {
-            //spriteBatch.DrawString(AssetManager.Instance.font, pointsEarned.ToString(), positionVector, Color.White * alpha);
-
-            spriteBatch.DrawString(AssetManager.Instance.font,
-                                   pointsEarned.ToString(), positionVector,
-                                   Color.White * alpha, 0, new Vector2(0,0), 
-                                   textFontScale, SpriteEffects.None, 0);
         }
     }
 }

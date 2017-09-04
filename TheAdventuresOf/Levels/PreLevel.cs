@@ -6,6 +6,14 @@ namespace TheAdventuresOf
 {
     public class PreLevel : BaseLevel
     {
+        //TODO: all (or most of) of this should be loaded from XML
+        public const int PRE_LEVEL_TEXT_INDEX = 0;
+        public static float textThreshold = 400;
+        public static float textX = 1100;
+        public static float textY = 500;
+
+        public bool textAdded;
+
         public float preLevelCharX;
         Vector2 preLevelCharacterPositionVector;
 
@@ -26,7 +34,16 @@ namespace TheAdventuresOf
         public override void Update(GameTime gameTime, GameController gameController) {
             base.Update(gameTime, gameController);
 
+            if(PlayerManager.Instance.GetPlayerPosition().X > textThreshold) {
+                if(!textAdded)
+                {
+                    textAdded = true;
+                    TextManager.Instance.AddOrUpdateText(textX, textY, "Can I have your sword when you die?", PRE_LEVEL_TEXT_INDEX);
+                }
+            }
+
             if(PlayerManager.Instance.GetPlayerPosition().X > rightBoundWidth) {
+                TextManager.Instance.RemoveText(PRE_LEVEL_TEXT_INDEX);
                 nextLevel = true;
             }
         }
