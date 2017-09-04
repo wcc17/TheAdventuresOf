@@ -63,5 +63,11 @@ namespace TheAdventuresOf
         public void CheckPlayerCollisionWithMonster(Monster monster) {
             player.CheckCollisionMonster(monster);
         }
+
+        //TODO: REMOVE THIS AFTER SETTING PLAYERX IN XML 
+        public void SetPlayerX(float X)
+        {
+            player.positionVector.X = X;
+        }
     }
 }

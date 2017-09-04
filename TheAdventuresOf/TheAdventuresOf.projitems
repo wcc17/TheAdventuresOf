@@ -12,6 +12,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controller\GameController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\GameControllerWindows.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\VibrationController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\TextManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ScoreText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TheAdventuresOf.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\FrameRate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AnimationFrame.cs" />
@@ -46,7 +48,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controller\GameControllerMobile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\MenuController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\ScoringManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ScoreText.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Text.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\Logger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Levels\BaseLevel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Levels\MainMenu.cs" />
@@ -59,7 +61,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Entity\" />
     <Folder Include="$(MSBuildThisFileDirectory)Entity\Monsters\" />
     <Folder Include="$(MSBuildThisFileDirectory)Entity\Projectiles\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Manager\" />
     <Folder Include="$(MSBuildThisFileDirectory)Levels\" />
   </ItemGroup>
 </Project>
