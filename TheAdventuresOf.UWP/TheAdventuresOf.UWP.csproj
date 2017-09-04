@@ -109,9 +109,6 @@
     <None Include="Content\arial.spritefont">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Content\level1background_1080p.png.OLD">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Content\sword_1080p.png.OLD">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -163,12 +160,6 @@
     <Content Include="Content\leftarrow_1080p.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\level1background_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\level1background_xboxalt_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Content\level1background_xbox_1080p.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -193,7 +184,7 @@
     <Content Include="Content\Menu\splash_iphone6splus_old.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Content\PreLevel\pre_level1_background_1080p.png">
+    <Content Include="Content\PreLevel\pre_level1_background_xbox_1080p.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\PreLevel\pre_level1_character_1080p.png">
@@ -203,6 +194,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\spikemonster_1080p.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\StoreLevel\store_level_character_1080p.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\StoreLevel\store_level_xbox_1080p.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\sunmonster_1080p.png">
