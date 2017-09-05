@@ -16,7 +16,48 @@
 	<RightBoundWidth>1920</RightBoundWidth>
     <StoreLevelCharX>1600</StoreLevelCharX>
 	<StoreLevelCharY>320</StoreLevelCharY>
-		<!-- TODO: boxes are 820 pixels apart in 2160p store level image -->
+    <LevelText>
+	    <Text>
+		    <Value>Welcome to my store!</Value>
+			<Index>0</Index>
+            <StartX>0</StartX>
+			<EndX>259</EndX>
+			<TextX>1500</TextX>
+            <TextY>200</TextY>
+		</Text>
+        <Text>
+            <Value>This is item 1</Value>
+            <Index>1</Index>
+            <StartX>260</StartX>
+            <EndX>540</EndX>
+			<TextX>1500</TextX>
+            <TextY>200</TextY>
+        </Text>
+		<Text>
+            <Value>This is item 2</Value>
+            <Index>0</Index>
+            <StartX>670</StartX>
+            <EndX>955</EndX>
+			<TextX>1500</TextX>
+            <TextY>200</TextY>
+        </Text>
+		<Text>
+            <Value>This is item 3</Value>
+            <Index>0</Index>
+            <StartX>1080</StartX>
+            <EndX>1365</EndX>
+			<TextX>1500</TextX>
+            <TextY>200</TextY>
+        </Text>
+		<Text>
+            <Value>Welcome to my store!</Value>
+            <Index>0</Index>
+            <StartX>1366</StartX>
+            <EndX>1930</EndX>
+			<TextX>1500</TextX>
+            <TextY>200</TextY>
+        </Text>
+	</LevelText>
   </StoreLevel>
 	
   <LevelOne>
