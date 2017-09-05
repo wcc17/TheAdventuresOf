@@ -61,9 +61,9 @@ namespace TheAdventuresOf
 
             XElement scoringElement = gameElement.Element("Scoring");
             ScoreText.textFloatSpeed = (float)scoringElement.Element("TextFloatSpeed");
-            ScoreText.textDisappearSpeed = (float)scoringElement.Element("TextDisappearSpeed");
-            ScoreText.textFontScale = (float)scoringElement.Element("TextFontScale");
-            ScoreText.textPositionOffset = (float)scoringElement.Element("TextPositionOffset");
+            Text.textDisappearSpeed = (float)scoringElement.Element("TextDisappearSpeed");
+            Text.textFontScale = (float)scoringElement.Element("TextFontScale");
+            Text.textPositionOffset = (float)scoringElement.Element("TextPositionOffset");
             ScoringManager.blockMonsterScore = (int)scoringElement.Element("BlockMonster");
             ScoringManager.sunMonsterScore = (int)scoringElement.Element("SunMonster");
             ScoringManager.bileMonsterScore = (int)scoringElement.Element("BileMonster");
@@ -94,6 +94,20 @@ namespace TheAdventuresOf
             storeLevel.rightBoundWidth = (int)storeLevelElement.Element("RightBoundWidth");
             storeLevel.storeLevelCharX = (float)storeLevelElement.Element("StoreLevelCharX");
             storeLevel.storeLevelCharY = (float)storeLevelElement.Element("StoreLevelCharY");
+
+            XElement levelTextElement = storeLevelElement.Element("LevelText");
+            List<Text> texts = new List<Text>();
+            foreach (XElement textElement in levelTextElement.Elements("Text")) {
+                string textString = (string)textElement.Element("Value");
+                int index = (int)textElement.Element("Index");
+                float startX = (float)textElement.Element("StartX");
+                float endX = (float)textElement.Element("EndX");
+                float textX = (float)textElement.Element("TextX");
+                float textY = (float)textElement.Element("TextY");
+
+                Text text = new Text(textX, textY, textString, index, startX, endX);
+                texts.Add(text);
+            }
         }
 
 		public static void LoadLevelInformation(Level level) {
