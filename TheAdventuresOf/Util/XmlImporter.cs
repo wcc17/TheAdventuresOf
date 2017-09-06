@@ -83,6 +83,9 @@ namespace TheAdventuresOf
             preLevel.leftBoundWidth = (int)preLevelElement.Element("LeftBoundWidth");
             preLevel.rightBoundWidth = (int)preLevelElement.Element("RightBoundWidth");
             preLevel.preLevelCharX = (float)preLevelElement.Element("PreLevelCharX");
+            PreLevel.textX = (float)preLevelElement.Element("TextX");
+            PreLevel.textY = (float)preLevelElement.Element("TextY");
+            PreLevel.textThreshold = (float)preLevelElement.Element("TextThreshold");
         }
 
         public static void LoadStoreLevelInformation(StoreLevel storeLevel) {
@@ -92,8 +95,8 @@ namespace TheAdventuresOf
             storeLevel.groundLevel = (float)storeLevelElement.Element("GroundLevel");
             storeLevel.leftBoundWidth = (int)storeLevelElement.Element("LeftBoundWidth");
             storeLevel.rightBoundWidth = (int)storeLevelElement.Element("RightBoundWidth");
-            storeLevel.storeLevelCharX = (float)storeLevelElement.Element("StoreLevelCharX");
-            storeLevel.storeLevelCharY = (float)storeLevelElement.Element("StoreLevelCharY");
+            StoreLevel.storeLevelCharX = (float)storeLevelElement.Element("StoreLevelCharX");
+            StoreLevel.storeLevelCharY = (float)storeLevelElement.Element("StoreLevelCharY");
 
             XElement levelTextElement = storeLevelElement.Element("LevelText");
             List<Text> texts = new List<Text>();
@@ -108,6 +111,8 @@ namespace TheAdventuresOf
                 Text text = new Text(textX, textY, textString, index, startX, endX);
                 texts.Add(text);
             }
+
+            StoreLevel.texts = texts;
         }
 
 		public static void LoadLevelInformation(Level level) {

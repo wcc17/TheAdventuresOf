@@ -30,7 +30,15 @@ namespace TheAdventuresOf
         public void AddOrUpdateText(float x, float y, string stringText, int index)
         {
             Text text = new Text(x, y, stringText, index);
-            activeText.Add(index, text);
+            AddOrUpdateText(text);
+        }
+
+        public void AddOrUpdateText(Text text) {
+            if(!activeText.ContainsKey(text.index)) {
+                activeText.Add(text.index, text);
+            } else {
+                activeText[text.index] = text;
+            }
         }
 
         public void RemoveText(int index)

@@ -7,11 +7,13 @@ namespace TheAdventuresOf
 {
     public class StoreLevel : BaseLevel
     {
-        public float storeLevelCharX;
-        public float storeLevelCharY;
+        public static float storeLevelCharX;
+        public static float storeLevelCharY;
+        public static List<Text> texts;
         Vector2 storeLevelCharacterPositionVector;
 
         public StoreLevel(Texture2D levelTexture) : base(levelTexture: levelTexture) { }
+
 
         public override void InitializeLevel()
         {
@@ -19,7 +21,9 @@ namespace TheAdventuresOf
 
             storeLevelCharacterPositionVector = new Vector2(storeLevelCharX, storeLevelCharY);
 
+            //TODO: get rid of hardcoded info
             PlayerManager.Instance.SetPlayerX(100);
+            TextManager.Instance.AddOrUpdateText(1500, 200, "Welcome ;)", 1);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -33,9 +37,23 @@ namespace TheAdventuresOf
         {
             base.Update(gameTime, gameController);
 
+            manageStoreText();
+
             if (PlayerManager.Instance.GetPlayerPosition().X > rightBoundWidth)
             {
                 nextLevel = true;
+                TextManager.Instance.RemoveAllText();
+            }
+        }
+
+        void manageStoreText() {
+            float playerX = PlayerManager.Instance.GetPlayerPosition().X;
+
+            foreach (Text text in texts) {
+                if(text.startX <= playerX && text.endX > playerX) {
+                    TextManager.Instance.AddOrUpdateText(text);
+                    break;
+                }
             }
         }
 

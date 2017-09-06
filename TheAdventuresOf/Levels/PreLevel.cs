@@ -8,9 +8,9 @@ namespace TheAdventuresOf
     {
         //TODO: all (or most of) of this should be loaded from XML
         public const int PRE_LEVEL_TEXT_INDEX = 0;
-        public static float textThreshold = 400;
-        public static float textX = 1100;
-        public static float textY = 500;
+        public static float textThreshold;
+        public static float textX;
+        public static float textY;
 
         public bool textAdded;
 
