@@ -33,12 +33,6 @@ namespace TheAdventuresOf
         public override void Update(GameTime gameTime, bool buttonPressed = false) {
             //can't use base.Update, because this monster doesn't "spawn", he just starts acting
 
-            //monster "spawns" (is now in game)
-            //no delay happens when monster first "spawns", he just starts attack
-            //after monster is back out of sight, use delay
-            //after delay, attack again 
-            //repeat until player can kill monster
-
             if(!isDying && !delayAction) {
                 if(!isMoving) {
                     prepareAttack();
@@ -51,8 +45,6 @@ namespace TheAdventuresOf
                 HandleDeath(gameTime);
             }
 
-            Console.WriteLine("X: " + positionVector.X);
-            Console.WriteLine("Y: " + positionVector.Y);
             UpdateEntityBounds();
         }
 
@@ -87,8 +79,7 @@ namespace TheAdventuresOf
                 positionVector.Y += velocity;
             }
 
-            //TODO: this magic number needs to be loaded from XML
-            //-2 is right before we're about to start falling again
+            //rotationVelocityLimit is right before we're about to start falling again
             if(velocity > rotationVelocityLimit && rotation > 0) {
                 Rotate(gameTime);
             } else if(rotation <= 0) {
