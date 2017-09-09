@@ -55,6 +55,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Levels\Level.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Levels\PreLevel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Levels\StoreLevel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\UndergroundMonster.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

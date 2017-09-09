@@ -63,6 +63,7 @@ namespace TheAdventuresOf
 				else
 				{
 					//stop movement if necessary
+                    //TODO: this probably belongs in the HandleMovement method. investigate what monster is even using this
 					if (distanceMoved > moveDistanceLimit)
 					{
 						distanceMoved = 0;
@@ -262,7 +263,7 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public void MoveUpDown(GameTime gameTime, int direction)
+		public virtual void MoveUpDown(GameTime gameTime, int direction)
 		{
 			float distanceToMove = (upDownSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
 			if (direction == UP)

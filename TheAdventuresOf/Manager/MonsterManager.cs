@@ -15,6 +15,7 @@ namespace TheAdventuresOf
         public const int SPIKE_MONSTER = 4;
         public const int DASH_MONSTER = 5;
         public const int FLYING_CANNON_MONSTER = 6;
+        public const int UNDERGROUND_MONSTER = 7;
 
 		public Level level;
 
@@ -25,6 +26,7 @@ namespace TheAdventuresOf
         public int spikeMonsterCount;
         public int dashMonsterCount;
         public int flyingCannonMonsterCount;
+        public int undergroundMonsterCount;
         public int monsterCount;
 
 		public static List<Monster> monsters;
@@ -36,6 +38,7 @@ namespace TheAdventuresOf
 		TimeSpan spawnTimer = TimeSpan.FromSeconds(0);
 		bool canSpawn = false;
 
+        //TODO: are these even used anymore? or am i just keeping while i keep the commented method at the bottom
 		TimeSpan delayCannonSpawnTimer = TimeSpan.FromSeconds(0);
 		bool canSpawnCannonMonster = true;
 
@@ -81,47 +84,39 @@ namespace TheAdventuresOf
                 availableMonsters.Clear();
 
 				//spawn new monsters if needed
-                if (blockMonsterCount < level.tierMonsterLimits[BLOCK_MONSTER][level.currentTier])
-				{
+                if (blockMonsterCount < level.tierMonsterLimits[BLOCK_MONSTER][level.currentTier]) {
                     availableMonsters.Add(BLOCK_MONSTER);
 				}
-
-				if (sunMonsterCount < level.tierMonsterLimits[SUN_MONSTER][level.currentTier])
-				{
+				if (sunMonsterCount < level.tierMonsterLimits[SUN_MONSTER][level.currentTier]) {
                     availableMonsters.Add(SUN_MONSTER);
 				}
-
-                if (groundCannonMonsterCount < level.tierMonsterLimits[GROUND_CANNON_MONSTER][level.currentTier])
-				{
+                if (groundCannonMonsterCount < level.tierMonsterLimits[GROUND_CANNON_MONSTER][level.currentTier]) {
                     availableMonsters.Add(GROUND_CANNON_MONSTER);
 				}
-
-                if (bileMonsterCount < level.tierMonsterLimits[BILE_MONSTER][level.currentTier])
-				{
+                if (bileMonsterCount < level.tierMonsterLimits[BILE_MONSTER][level.currentTier]) {
                     availableMonsters.Add(BILE_MONSTER);
 				}
-
-                if (spikeMonsterCount < level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier])
-                {
+                if (spikeMonsterCount < level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier]) {
                     availableMonsters.Add(SPIKE_MONSTER);
                 }
-
-                if (dashMonsterCount < level.tierMonsterLimits[DASH_MONSTER][level.currentTier])
-                {
+                if (dashMonsterCount < level.tierMonsterLimits[DASH_MONSTER][level.currentTier]) {
                     availableMonsters.Add(DASH_MONSTER);
                 }
-
-                if (flyingCannonMonsterCount < level.tierMonsterLimits[FLYING_CANNON_MONSTER][level.currentTier])
-                {
+                if (flyingCannonMonsterCount < level.tierMonsterLimits[FLYING_CANNON_MONSTER][level.currentTier]) {
                     availableMonsters.Add(FLYING_CANNON_MONSTER);
                 }
+                if (undergroundMonsterCount < level.tierMonsterLimits[UNDERGROUND_MONSTER][level.currentTier]) {
+                    availableMonsters.Add(UNDERGROUND_MONSTER);
+                }
 
-                if(availableMonsters.Count > 0) {
-                    int randomMonsterIndex = rand.Next(0, availableMonsters.Count);
-                    int monsterToSpawn = availableMonsters[randomMonsterIndex];
+                //if(availableMonsters.Count > 0) {
 
-                    switch (monsterToSpawn)
-                    {
+                //int randomMonsterIndex = rand.Next(0, availableMonsters.Count);
+                //int monsterToSpawn = availableMonsters[randomMonsterIndex];
+                foreach(int monsterToSpawn in availableMonsters) {
+                    
+                    switch (monsterToSpawn) {
+                        
                         case BLOCK_MONSTER:
                             spawnBlockMonster();
                             break;
@@ -144,12 +139,16 @@ namespace TheAdventuresOf
                         case FLYING_CANNON_MONSTER:
                             spawnFlyingCannonMonster();
                             break;
+                        case UNDERGROUND_MONSTER:
+                            spawnUndergroundMonster();
+                            break;
                     }
 
                     monsterCount++;
-                    canSpawn = false;
                 }
-			}
+
+                canSpawn = false;
+            }
 		}
 
         public void Update(GameTime gameTime) {
@@ -166,40 +165,29 @@ namespace TheAdventuresOf
             Logger.Instance.AddOrUpdateValue("Bile Limit: ", level.tierMonsterLimits[BILE_MONSTER][level.currentTier].ToString());
             Logger.Instance.AddOrUpdateValue("Spike Limit: ", level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier].ToString());
             Logger.Instance.AddOrUpdateValue("Dash Limit: ", level.tierMonsterLimits[DASH_MONSTER][level.currentTier].ToString());
+            Logger.Instance.AddOrUpdateValue("UGround Limit: ", level.tierMonsterLimits[UNDERGROUND_MONSTER][level.currentTier].ToString());
         }
 
-		public void UpdateMonsterCount(Monster monster)
-		{
-			if (monster is BlockMonster)
-			{
+		public void UpdateMonsterCount(Monster monster) {
+			if (monster is BlockMonster) {
 				blockMonsterCount--;
-			}
-			else if (monster is SunMonster)
-			{
+			} else if (monster is SunMonster) {
 				sunMonsterCount--;
-			}
-			else if (monster is GroundCannonMonster)
-			{
+			} else if (monster is GroundCannonMonster) {
                 groundCannonMonsterCount--;
-			}
-			else if (monster is BileMonster)
-			{
+			} else if (monster is BileMonster) {
 				bileMonsterCount--;
-			}
-            else if (monster is SpikeMonster)
-            {
+			} else if (monster is SpikeMonster) {
                 spikeMonsterCount--;
-            }
-            else if (monster is DashMonster)
-            {
+            } else if (monster is DashMonster) {
                 dashMonsterCount--;
-            }
-            else if (monster is FlyingCannonMonster)
-            {
+            } else if (monster is FlyingCannonMonster) {
                 flyingCannonMonsterCount--;
+            } else if (monster is UndergroundMonster) {
+                undergroundMonsterCount--;   
             }
 
-            monsterCount++;
+            monsterCount--;
 		}
 
 		public void UpdateMonsters(GameTime gameTime)
@@ -255,6 +243,9 @@ namespace TheAdventuresOf
 				}
 			}
 
+            //TODO: there needs to be a better way to do this. Theres no reason to 
+            //TODO: loop through all of the monsters again just to get the GroundCannonMonster
+            //TODO: also am not doing it for the FlyingCannonMonster
 			//GroundCannonMonster should always be drawn last so that bullet is always on top of other monsters
 			foreach (Monster monster in monsters.FindAll(m => m is GroundCannonMonster))
 			{
@@ -377,7 +368,6 @@ namespace TheAdventuresOf
 
             dashMonster.SetDashMonsterData(level.dashMonster);
             dashMonster.groundLevel = level.groundLevel + DashMonster.groundOffset;
-            //TODO: do we want him to spawn in a random spot or at either side of the level?
             dashMonster.InitializeCharacter(getRandomXLocation(AssetManager.Instance.dashMonsterTexture.Width),
                                             ScreenManager.FULL_SCREEN_HEIGHT + AssetManager.Instance.dashMonsterTexture.Height,
                                             AssetManager.Instance.dashMonsterTexture.Width / dashMonster.frameCount,
@@ -387,6 +377,24 @@ namespace TheAdventuresOf
             monsters.Add(dashMonster);
 
             dashMonsterCount++;
+        }
+
+        void spawnUndergroundMonster() {
+            UndergroundMonster undergroundMonster = new UndergroundMonster();
+
+            undergroundMonster.SetUndergroundMonsterData(level.undergroundMonster);
+            undergroundMonster.groundLevel = level.groundLevel;
+            undergroundMonster.InitializeCharacter(PlayerManager.Instance.GetPlayerPosition().X,
+                                                   ScreenManager.FULL_SCREEN_HEIGHT + AssetManager.Instance.undergroundMonsterTexture.Height,
+                                                   AssetManager.Instance.undergroundMonsterTexture.Width,
+                                                   AssetManager.Instance.undergroundMonsterTexture.Height);
+
+            //even though theres no true "spawn", just need to get him ready
+            undergroundMonster.InitializeSpawn();
+
+            monsters.Add(undergroundMonster);
+
+            undergroundMonsterCount++;
         }
 
         //TODO: this should be retooled for all monsters

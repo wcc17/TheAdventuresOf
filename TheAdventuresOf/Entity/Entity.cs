@@ -58,7 +58,7 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public void Rotate(GameTime gameTime)
+		public virtual void Rotate(GameTime gameTime)
 		{
 			float degreesToRotate = rotationSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
 			float radiansToRotate = (degreesToRotate * MathHelper.Pi) / 180;

@@ -24,6 +24,7 @@ namespace TheAdventuresOf
         public SpikeMonster spikeMonster;
         public DashMonster dashMonster;
         public FlyingCannonMonster flyingCannonMonster;
+        public UndergroundMonster undergroundMonster;
 
 		public float spawnDelayTime; //time before another monster can be spawned
 		public float delayCannonSpawnTimerLimit; //time before spawning another groundCannonMonster is considered

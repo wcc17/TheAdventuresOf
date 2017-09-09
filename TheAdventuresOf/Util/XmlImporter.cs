@@ -71,6 +71,7 @@ namespace TheAdventuresOf
             ScoringManager.groundCannonMonsterScore = (int)scoringElement.Element("GroundCannonMonster");
             ScoringManager.flyingCannonMonsterScore = (int)scoringElement.Element("FlyingCannonMonster");
             ScoringManager.spikeMonsterScore = (int)scoringElement.Element("SpikeMonster");
+            ScoringManager.undergroundMonsterScore = (int)scoringElement.Element("UndergroundMonster");
             ScoringManager.totalScoreTextX = (float)scoringElement.Element("TotalScoreTextX");
             ScoringManager.totalScoreTextY = (float)scoringElement.Element("TotalScoreTextY");
 		}
@@ -145,6 +146,7 @@ namespace TheAdventuresOf
             level.tierMonsterLimits.Add(MonsterManager.BILE_MONSTER, LoadTierMonsterLimits("BileMonsterLimit", tierElements));
             level.tierMonsterLimits.Add(MonsterManager.SPIKE_MONSTER, LoadTierMonsterLimits("SpikeMonsterLimit", tierElements));
             level.tierMonsterLimits.Add(MonsterManager.DASH_MONSTER, LoadTierMonsterLimits("DashMonsterLimit", tierElements));
+            level.tierMonsterLimits.Add(MonsterManager.UNDERGROUND_MONSTER, LoadTierMonsterLimits("UndergroundMonsterLimit", tierElements));
 
             level.maxTier = (int)levelOneElement.Element("MaxTier");
             
@@ -172,6 +174,7 @@ namespace TheAdventuresOf
             level.bileMonster = LoadBileMonsterInformation(level.groundLevel);
             level.spikeMonster = LoadSpikeMonsterInformation();
             level.dashMonster = LoadDashMonsterInformation(level.rightBoundWidth, level.leftBoundWidth);
+            level.undergroundMonster = LoadUndergroundMonsterInformation();
 
             LoadBaseCannonMonsterInformation();
             level.groundCannonMonster = LoadCannonMonsterInformation(level.rightBoundWidth, level.leftBoundWidth);
@@ -413,6 +416,30 @@ namespace TheAdventuresOf
             DashMonster.rightSideX = rightSideBound - (AssetManager.Instance.dashMonsterTexture.Width / dashMonster.frameCount) - DashMonster.boundOffset;
 
             return dashMonster;
+        }
+
+        public static UndergroundMonster LoadUndergroundMonsterInformation()
+        {
+            UndergroundMonster undergroundMonster = new UndergroundMonster();
+
+            XElement charactersElement = characterDocument.Element("Characters");
+            XElement monstersElement = charactersElement.Element("Monsters");
+            XElement undergroundMonsterElement = monstersElement.Element("UndergroundMonster");
+
+            undergroundMonster.entityTag = (string)undergroundMonsterElement.Element("EntityTag");
+            undergroundMonster.animationSpeed = (float)undergroundMonsterElement.Element("AnimationSpeed");
+            undergroundMonster.frameCount = (int)undergroundMonsterElement.Element("FrameCount");
+            undergroundMonster.moveDistanceLimit = (int)undergroundMonsterElement.Element("MoveDistanceLimit");
+            undergroundMonster.actionDelayTime = (float)undergroundMonsterElement.Element("ActionDelayTime");
+            undergroundMonster.rotationSpeed = (float)undergroundMonsterElement.Element("RotationSpeed");
+            undergroundMonster.upDownSpeed = (float)undergroundMonsterElement.Element("UpDownSpeed");
+
+            UndergroundMonster.initialVelocity = (float)undergroundMonsterElement.Element("InitialVelocity");
+            UndergroundMonster.gravity = (float)undergroundMonsterElement.Element("Gravity");
+            UndergroundMonster.velocityWeakenValue = (float)undergroundMonsterElement.Element("VelocityWeakenValue");
+            UndergroundMonster.rotationVelocityLimit = (float)undergroundMonsterElement.Element("RotationVelocityLimit");
+
+            return undergroundMonster;
         }
 	}
 }
