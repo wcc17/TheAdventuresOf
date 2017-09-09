@@ -18,6 +18,7 @@ namespace TheAdventuresOf
         public static int groundCannonMonsterScore;
         public static int flyingCannonMonsterScore;
         public static int spikeMonsterScore;
+        public static int undergroundMonsterScore;
         public static float totalScoreTextX;
         public static float totalScoreTextY;
 
@@ -65,6 +66,9 @@ namespace TheAdventuresOf
             }
             if(monster is SpikeMonster) {
                 pointsEarned = spikeMonsterScore;
+            }
+            if(monster is UndergroundMonster) {
+                pointsEarned = undergroundMonsterScore;
             }
 
             score += pointsEarned;

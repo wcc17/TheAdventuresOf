@@ -369,16 +369,8 @@ namespace TheAdventuresOf
 
 		public void Jump(GameTime gameTime)
 		{
-            //TODO: do i need to check isDying and isDead or was this a side effect of that bug where he floated the wrong way on death
-            ////if (!isDying && !isDead)
-            ////{
-            //	positionVector.Y -= (variableJumpSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
-            //	swordPositionVector.Y = positionVector.Y + swordYOffset;
-            ////}
-
-
-            velocityY += (jumpGravity);// * (float)gameTime.ElapsedGameTime.TotalSeconds);
-            positionVector.Y += (velocityY);// * (float)gameTime.ElapsedGameTime.TotalSeconds);
+            velocityY += (jumpGravity);
+            positionVector.Y += (velocityY);
             swordPositionVector.Y = positionVector.Y + swordYOffset;
 
 			//if we're falling and we hit the ground, stop jumping and reset the jump speed

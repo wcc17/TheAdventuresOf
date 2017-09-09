@@ -186,6 +186,7 @@ namespace TheAdventuresOf
             if(mainMenu.proceedToNextState) {
                 gameState = LOAD_STATE;
                 nextGameState = PRE_LEVEL_STATE;
+                //nextGameState = LEVEL_STATE;
 
                 AssetManager.Instance.DisposeMenuAssets();
 
