@@ -32,10 +32,10 @@
 		
     <SunMonster>
       <EntityTag>SunMonster</EntityTag>
-      <Speed>200</Speed>
+      <Speed>230</Speed>
       <AnimationSpeed>0.08</AnimationSpeed>
       <FrameCount>1</FrameCount>
-      <MoveDistanceLimit>250</MoveDistanceLimit>
+      <MoveDistanceLimit>300</MoveDistanceLimit>
       <ActionDelayTime>1.5</ActionDelayTime>
       <RotationSpeed>400</RotationSpeed>
       <UpDownSpeed>175</UpDownSpeed>
@@ -125,7 +125,7 @@
       <UpDownSpeed>275</UpDownSpeed>
       <InitialVelocity>-15</InitialVelocity>
       <Gravity>0.48</Gravity> 
-      <VelocityWeakenValue>0.75</VelocityWeakenValue> <!-- before monster hits ground, velocity will be lessened so player has more warning -->
+      <VelocityWeakenValue>0.60</VelocityWeakenValue> <!-- before monster hits ground, velocity will be lessened so player has more warning -->
       <RotationVelocityLimit>-10</RotationVelocityLimit> <!-- when this limit is hit, rotation will begin in air -->
     </UndergroundMonster>
 		
