@@ -87,6 +87,7 @@ namespace TheAdventuresOf
         void loadPreLevelAssets() {
             Logger.WriteToConsole("Load PreLevel Assets");
 
+            AssetManager.Instance.LoadPlayerAssets(graphicsDevice);
             AssetManager.Instance.LoadPreLevelAssets(graphicsDevice);
 
             currentLevel = new PreLevel(AssetManager.Instance.preLevelTexture);
@@ -96,6 +97,7 @@ namespace TheAdventuresOf
         void loadStoreLevelAssets() {
             Logger.WriteToConsole("Load StoreLevel Assets");
 
+            AssetManager.Instance.LoadPlayerAssets(graphicsDevice);
             AssetManager.Instance.LoadStoreLevelAssets(graphicsDevice);
 
             currentLevel = new StoreLevel(AssetManager.Instance.storeLevelTexture);
@@ -106,6 +108,7 @@ namespace TheAdventuresOf
         void loadLevelAssets() {
             Logger.WriteToConsole("Load Level assets");
 
+            AssetManager.Instance.LoadPlayerAssets(graphicsDevice);
             AssetManager.Instance.LoadLevelAssets(graphicsDevice, contentManager);
 
             currentLevel = new Level(AssetManager.Instance.levelTexture);
