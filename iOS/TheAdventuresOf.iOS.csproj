@@ -96,46 +96,48 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
-    <None Include="Content\arial-24.spritefont" />
-    <None Include="Content\level1_music.mp3" />
-    <None Include="Content\level1background_1080p.png.OLD" />
-    <None Include="Content\sword_1080p.png.OLD" />
+    <None Include="Content\Level\level1_music.mp3" />
+    <None Include="Content\Menu\mainmenu_music.mp3" />
+    <None Include="Content\PreLevel\.DS_Store" />
+    <None Include="Content\StoreLevel\.DS_Store" />
+    <None Include="Content\Game\arial.spritefont" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GameThumbnail.png" />
-    <BundleResource Include="Content\controller_1080p.png" />
-    <BundleResource Include="Content\arrow_1080p.png" />
-    <BundleResource Include="Content\character_1080p.png" />
-    <BundleResource Include="Content\XML\CharacterInformation.xml" />
-    <BundleResource Include="Content\XML\LevelInformation.xml" />
-    <BundleResource Include="Content\blockmonster_1080p.png" />
-    <BundleResource Include="Content\emptyheart_1080p.png" />
-    <BundleResource Include="Content\heart_1080p.png" />
-    <BundleResource Include="Content\sunmonster_1080p.png" />
-    <BundleResource Include="Content\cannonmonster_1080p.png" />
-    <BundleResource Include="Content\XML\GameInformation.xml" />
-    <BundleResource Include="Content\bullet_1080p.png" />
-    <BundleResource Include="Content\bile_1080p.png" />
-    <BundleResource Include="Content\bilemonster_1080p.png" />
-    <BundleResource Include="Content\XML\ProjectileInformation.xml" />
-    <BundleResource Include="Content\spikemonster_1080p.png" />
-    <BundleResource Include="Content\dashmonster_1080p.png" />
-    <BundleResource Include="Content\leftarrow_1080p.png" />
-    <BundleResource Include="Content\rightarrow_1080p.png" />
-    <BundleResource Include="Content\uparrow_1080p.png" />
-    <BundleResource Include="Content\flyingcannonmonster_1080p.png" />
-    <BundleResource Include="Content\Menu\splash_iphone6splus_old.png" />
-    <BundleResource Include="Content\Menu\splash_iphone6plus.png" />
-    <BundleResource Include="Content\Menu\splash_1080p.png" />
+    <BundleResource Include="Content\Level\level1background_1080p.png" />
+    <BundleResource Include="Content\Game\arrow_1080p.png" />
+    <BundleResource Include="Content\Game\controller_1080p.png" />
+    <BundleResource Include="Content\Game\emptyheart_1080p.png" />
+    <BundleResource Include="Content\Game\heart_1080p.png" />
+    <BundleResource Include="Content\Game\leftarrow_1080p.png" />
+    <BundleResource Include="Content\Game\rightarrow_1080p.png" />
+    <BundleResource Include="Content\Game\uparrow_1080p.png" />
     <BundleResource Include="Content\Menu\mainmenu_1080p.png" />
     <BundleResource Include="Content\Menu\mainmenu_playbutton_1080p.png" />
-    <BundleResource Include="Content\Menu\mainmenu_music.mp3" />
-    <BundleResource Include="Content\level1background_1080p.png" />
-    <BundleResource Include="Content\sword_1080p.png" />
-    <BundleResource Include="Content\PreLevel\pre_level1_character_1080p.png" />
+    <BundleResource Include="Content\Menu\splash_1080p.png" />
+    <BundleResource Include="Content\Menu\splash_iphone6plus.png" />
+    <BundleResource Include="Content\Menu\splash_iphone6splus_old.png" />
+    <BundleResource Include="Content\Monster\bilemonster_1080p.png" />
+    <BundleResource Include="Content\Monster\blockmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\cannonmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\dashmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\flyingcannonmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\spikemonster_1080p.png" />
+    <BundleResource Include="Content\Monster\sunmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\undergroundmonster_1080p.png" />
+    <BundleResource Include="Content\Player\character_1080p.png" />
+    <BundleResource Include="Content\Player\sword_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level1_background_1080p.png" />
-    <BundleResource Include="Content\StoreLevel\store_level_character_1080p.png" />
+    <BundleResource Include="Content\PreLevel\pre_level1_character_1080p.png" />
+    <BundleResource Include="Content\PreLevel\pre_level1background_xbox_1080p.png" />
+    <BundleResource Include="Content\Projectile\bile_1080p.png" />
+    <BundleResource Include="Content\Projectile\bullet_1080p.png" />
     <BundleResource Include="Content\StoreLevel\store_level_1080p.png" />
+    <BundleResource Include="Content\StoreLevel\store_level_character_1080p.png" />
+    <BundleResource Include="Content\XML\CharacterInformation.xml" />
+    <BundleResource Include="Content\XML\GameInformation.xml" />
+    <BundleResource Include="Content\XML\LevelInformation.xml" />
+    <BundleResource Include="Content\XML\ProjectileInformation.xml" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -143,10 +145,6 @@
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\splash_iphone6plus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\XML\" />
-    <Folder Include="Content\Menu\" />
   </ItemGroup>
   <Import Project="..\TheAdventuresOf\TheAdventuresOf.projitems" Label="Shared" Condition="Exists('..\TheAdventuresOf\TheAdventuresOf.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

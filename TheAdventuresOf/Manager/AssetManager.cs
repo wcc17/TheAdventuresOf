@@ -50,6 +50,7 @@ namespace TheAdventuresOf
         public Texture2D spikeMonsterTexture;
         public Texture2D dashMonsterTexture;
         public Texture2D flyingCannonMonsterTexture;
+        public Texture2D undergroundMonsterTexture;
         public Song levelOneSong;
 
         public Texture2D bulletTexture;
@@ -71,6 +72,9 @@ namespace TheAdventuresOf
 
         private AssetManager()
         {
+            //TODO: should limit the preprocessor directives to this constructor method.
+            //for xbox assets, just add xbox to the filename string. This may involve renaming xbox assets.
+            //TODO: stop including xbox in the name of the asset, just name it the same as the iOS one and we won't have this problem? will be harder to tell apart though
 #if __ANDROID__
             filePath = androidFilePath;
             //#endif
@@ -89,7 +93,7 @@ namespace TheAdventuresOf
                 splashTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
-            font = contentManager.Load<SpriteFont>("arial");
+            font = contentManager.Load<SpriteFont>("Game/arial");
             menuSong = contentManager.Load<Song>("Menu/mainmenu_music");
         }
 
@@ -109,101 +113,113 @@ namespace TheAdventuresOf
 
         public void LoadGameAssets(GraphicsDevice graphicsDevice)
         {
+            String playerFilePath = filePath + "Player/";
+            String gameFilePath = filePath + "Game/";
 
-            using (var stream = TitleContainer.OpenStream(filePath + "character_1080p.png"))
+            //player textures
+            //TODO: should have its own "LoadPlayerAssets" method
+            using (var stream = TitleContainer.OpenStream(playerFilePath + "character_1080p.png"))
             {
                 playerTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(filePath + "sword_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(playerFilePath + "sword_1080p.png"))
             {
                 swordTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(filePath + "heart_1080p.png"))
+
+            //game textures
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "heart_1080p.png"))
             {
                 heartTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(filePath + "emptyheart_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "emptyheart_1080p.png"))
             {
                 emptyHeartTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            //TODO: don't need to load these textures when on windows or xbox
-            using (var stream = TitleContainer.OpenStream(filePath + "controller_1080p.png"))
+
+#if __IOS__ || __ANDROID__
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "controller_1080p.png"))
             {
                 controllerTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(filePath + "leftarrow_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "leftarrow_1080p.png"))
             {
                 leftArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(filePath + "rightarrow_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "rightarrow_1080p.png"))
             {
                 rightArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(filePath + "uparrow_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "uparrow_1080p.png"))
             {
                 upArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
+#endif
         }
 
         //TODO: eventually add logic for reloading textures based on what level the player is on 
         public void LoadLevelAssets(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {
-            //monsters
+            string levelFilePath = filePath + "Level/";
+            string monsterFilePath = filePath + "Monster/";
+            string projectileFilePath = filePath + "Projectile/";
+
             string level1String;
-#if __IOS__
-            level1String = "level1background_1080p.png";
-#elif __ANDROID__
+#if __IOS__ || __ANDROID__
             level1String = "level1background_1080p.png";
 #else
             level1String = "level1background_xbox_1080p.png";
 #endif
-
-            using (var stream = TitleContainer.OpenStream(filePath + level1String))
+            using (var stream = TitleContainer.OpenStream(levelFilePath + level1String))
             {
                 levelTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
-            using (var stream = TitleContainer.OpenStream(filePath + "blockmonster_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(monsterFilePath + "blockmonster_1080p.png"))
             {
                 blockMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(filePath + "sunmonster_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(monsterFilePath + "sunmonster_1080p.png"))
             {
                 sunMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(filePath + "cannonmonster_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(monsterFilePath + "cannonmonster_1080p.png"))
             {
                 cannonMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(filePath + "bilemonster_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(monsterFilePath + "bilemonster_1080p.png"))
             {
                 bileMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(filePath + "spikemonster_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(monsterFilePath + "spikemonster_1080p.png"))
             {
                 spikeMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(filePath + "dashmonster_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(monsterFilePath + "dashmonster_1080p.png"))
             {
                 dashMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(filePath + "flyingcannonmonster_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(monsterFilePath + "flyingcannonmonster_1080p.png"))
             {
                 flyingCannonMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
+            using (var stream = TitleContainer.OpenStream(monsterFilePath + "undergroundmonster_1080p.png"))
+            {
+                undergroundMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
 
             //projectiles
-            using (var stream = TitleContainer.OpenStream(filePath + "bullet_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(projectileFilePath + "bullet_1080p.png"))
             {
                 bulletTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(filePath + "bile_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(projectileFilePath + "bile_1080p.png"))
             {
                 bileTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
             //music
-            levelOneSong = contentManager.Load<Song>("level1_music");
+            levelOneSong = contentManager.Load<Song>("Level/level1_music");
         }
 
         public void LoadPreLevelAssets(GraphicsDevice graphicsDevice)
@@ -276,6 +292,7 @@ namespace TheAdventuresOf
             spikeMonsterTexture.Dispose();
             dashMonsterTexture.Dispose();
             flyingCannonMonsterTexture.Dispose();
+            undergroundMonsterTexture.Dispose();
 
             bulletTexture.Dispose();
             bileTexture.Dispose();
