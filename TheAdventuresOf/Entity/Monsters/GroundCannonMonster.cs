@@ -13,11 +13,12 @@ namespace TheAdventuresOf
 			entityTag = groundCannonMonster.entityTag;
 			frameCount = groundCannonMonster.frameCount;
 			rotationSpeed = groundCannonMonster.rotationSpeed;
-			upDownSpeed = groundCannonMonster.upDownSpeed;
 			actionDelayTime = groundCannonMonster.actionDelayTime;
 			monsterTexture = AssetManager.Instance.cannonMonsterTexture;
             boundOffset = groundCannonMonster.boundOffset;
             bulletYOffset = groundCannonMonster.bulletYOffset;
+            spawnSpeed = groundCannonMonster.spawnSpeed;
+            deathSpeed = groundCannonMonster.deathSpeed;
 
             leftSideX = groundCannonMonster.leftSideX;
             rightSideX = groundCannonMonster.rightSideX;
@@ -45,7 +46,7 @@ namespace TheAdventuresOf
 		{
 			if (positionVector.Y > groundLevel)
 			{
-				MoveUpDown(gameTime, UP);
+				MoveUpDown(gameTime, UP, spawnSpeed);
 			}
 			else if ((moveLeft && rotation > 0) || (moveRight && rotation < 0))
 			{

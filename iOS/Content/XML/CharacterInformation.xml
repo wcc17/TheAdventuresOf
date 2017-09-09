@@ -22,35 +22,38 @@
     <BlockMonster>
       <EntityTag>BlockMonster</EntityTag>
       <Speed>200</Speed>
+      <SpawnSpeed>250</SpawnSpeed>
+      <DeathSpeed>400</DeathSpeed>
       <AnimationSpeed>0.08</AnimationSpeed>
       <FrameCount>2</FrameCount>
       <MoveDistanceLimit>150</MoveDistanceLimit>
       <ActionDelayTime>1.5</ActionDelayTime>
       <RotationSpeed>350</RotationSpeed>
-      <UpDownSpeed>175</UpDownSpeed>
     </BlockMonster>
 		
     <SunMonster>
       <EntityTag>SunMonster</EntityTag>
       <Speed>230</Speed>
+      <SpawnSpeed>250</SpawnSpeed>
+      <DeathSpeed>400</DeathSpeed>
       <AnimationSpeed>0.08</AnimationSpeed>
       <FrameCount>1</FrameCount>
       <MoveDistanceLimit>300</MoveDistanceLimit>
       <ActionDelayTime>1.5</ActionDelayTime>
       <RotationSpeed>400</RotationSpeed>
-      <UpDownSpeed>175</UpDownSpeed>
       <FloatHeight>125</FloatHeight>
     </SunMonster>
 		
 	<BileMonster>
       <EntityTag>BileMonster</EntityTag>
       <Speed>230</Speed>
+      <SpawnSpeed>250</SpawnSpeed>
+      <DeathSpeed>400</DeathSpeed>
       <AnimationSpeed>0.08</AnimationSpeed>
       <FrameCount>3</FrameCount>
       <MoveDistanceLimit>420</MoveDistanceLimit>
       <ActionDelayTime>1</ActionDelayTime> <!-- this will be how quickly he moves -->
       <RotationSpeed>400</RotationSpeed>
-      <UpDownSpeed>175</UpDownSpeed>
       <FloatHeight>125</FloatHeight>
       <BileObjectLimit>4</BileObjectLimit>
       <BuildUpDelayTimeLimit>2.5</BuildUpDelayTimeLimit>
@@ -66,25 +69,25 @@
     <GroundCannonMonster>
       <EntityTag>GroundCannonMonster</EntityTag>
       <FrameCount>1</FrameCount>
+      <SpawnSpeed>250</SpawnSpeed>
+      <DeathSpeed>400</DeathSpeed>
       <RotationSpeed>350</RotationSpeed>
-      <UpDownSpeed>175</UpDownSpeed>
 	  <ActionDelayTime>3.5</ActionDelayTime>
       <GroundOffset>45</GroundOffset>
       <BoundOffset>40</BoundOffset>
 	  <BulletYOffset>75</BulletYOffset>	
-<!--      <BulletStartYPos>725</BulletStartYPos> old level design-->
     </GroundCannonMonster>
 
     <FlyingCannonMonster>
       <EntityTag>FlyingCannonMonster</EntityTag>
       <FrameCount>2</FrameCount>
       <RotationSpeed>350</RotationSpeed>
-      <UpDownSpeed>175</UpDownSpeed>
+      <SpawnSpeed>250</SpawnSpeed>
+      <DeathSpeed>400</DeathSpeed>
       <ActionDelayTime>3.5</ActionDelayTime>    
       <AnimationSpeed>0.05</AnimationSpeed> 
       <BoundOffset>40</BoundOffset>     
-      <FloatHeight>150</FloatHeight> 
-<!--	  <BulletStartYPos>575</BulletStartYPos> old level design-->
+      <FloatHeight>165</FloatHeight> 
 	  <BulletYOffset>35</BulletYOffset>	
 	  <BounceHeight>12</BounceHeight>
 	  <BounceSpeed>125</BounceSpeed>		
@@ -93,36 +96,39 @@
 	<SpikeMonster>
       <EntityTag>SpikeMonster</EntityTag>
       <Speed>180</Speed>
+      <SpawnSpeed>250</SpawnSpeed>
+      <DeathSpeed>400</DeathSpeed>
+      <RotationSpeed>350</RotationSpeed>
+      <AttackSpeed>280</AttackSpeed>
       <FrameCount>3</FrameCount>
       <MoveDistanceLimit>150</MoveDistanceLimit>
       <ActionDelayTime>10</ActionDelayTime>
-	  <AttackDelayTime>1.2</AttackDelayTime>		
-      <RotationSpeed>350</RotationSpeed>
-      <UpDownSpeed>175</UpDownSpeed>
-	  <AttackSpeed>280</AttackSpeed>
+      <AttackDelayTime>1.2</AttackDelayTime>        
 	  <FloatHeight>275</FloatHeight>
     </SpikeMonster>
 		
 	<DashMonster>	
 	  <EntityTag>DashMonster></EntityTag>
 	  <Speed>450</Speed>
-	  <FrameCount>3</FrameCount>
-	  <ActionDelayTime>3</ActionDelayTime>
-	  <RotationSpeed>350</RotationSpeed>
-	  <UpDownSpeed>175</UpDownSpeed>
-	  <AnimationSpeed>0.04</AnimationSpeed>		
+      <SpawnSpeed>250</SpawnSpeed>
+      <DeathSpeed>400</DeathSpeed>
+      <RotationSpeed>350</RotationSpeed>
+      <AnimationSpeed>0.04</AnimationSpeed>     
+      <FrameCount>3</FrameCount>
+      <ActionDelayTime>3</ActionDelayTime>
 	  <GroundOffset>8</GroundOffset>	
 	  <BoundOffset>40</BoundOffset>		
 	</DashMonster>	
 
     <UndergroundMonster>
       <EntityTag>UndergroundMonster</EntityTag>
-      <AnimationSpeed>0.08</AnimationSpeed>
       <FrameCount>1</FrameCount>
       <MoveDistanceLimit>150</MoveDistanceLimit>
       <ActionDelayTime>1.5</ActionDelayTime>
+      <AnimationSpeed>0.08</AnimationSpeed>
       <RotationSpeed>550</RotationSpeed>
-      <UpDownSpeed>275</UpDownSpeed>
+      <SpawnSpeed>275</SpawnSpeed>
+      <DeathSpeed>400</DeathSpeed>
       <InitialVelocity>-15</InitialVelocity>
       <Gravity>0.48</Gravity> 
       <VelocityWeakenValue>0.60</VelocityWeakenValue> <!-- before monster hits ground, velocity will be lessened so player has more warning -->

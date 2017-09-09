@@ -9,12 +9,13 @@ namespace TheAdventuresOf
 		{
 			entityTag = blockMonster.entityTag;
 			speed = blockMonster.speed;
+            spawnSpeed = blockMonster.spawnSpeed;
+            deathSpeed = blockMonster.deathSpeed;
 			animationSpeed = blockMonster.animationSpeed;
 			frameCount = blockMonster.frameCount;
 			moveDistanceLimit = blockMonster.moveDistanceLimit;
 			actionDelayTime = blockMonster.actionDelayTime;
 			rotationSpeed = blockMonster.rotationSpeed;
-			upDownSpeed = blockMonster.upDownSpeed;
 
 			monsterTexture = AssetManager.Instance.blockMonsterTexture;
 		}
@@ -53,7 +54,7 @@ namespace TheAdventuresOf
 		{
 			if (positionVector.Y > groundLevel)
 			{
-				MoveUpDown(gameTime, UP);
+                MoveUpDown(gameTime, UP, spawnSpeed);
 			}
 			else if ((moveLeft && rotation > 0) || (moveRight && rotation < 0))
 			{

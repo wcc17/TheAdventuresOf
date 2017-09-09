@@ -33,12 +33,13 @@ namespace TheAdventuresOf
         {
             entityTag = bileMonster.entityTag;
             speed = bileMonster.speed;
+            spawnSpeed = bileMonster.spawnSpeed;
+            deathSpeed = bileMonster.deathSpeed;
             animationSpeed = bileMonster.animationSpeed;
             frameCount = bileMonster.frameCount;
             moveDistanceLimit = bileMonster.moveDistanceLimit;
             actionDelayTime = bileMonster.actionDelayTime;
             rotationSpeed = bileMonster.rotationSpeed;
-            upDownSpeed = bileMonster.upDownSpeed;
 
             monsterTexture = AssetManager.Instance.bileMonsterTexture;
         }
@@ -77,7 +78,7 @@ namespace TheAdventuresOf
         {
             if (positionVector.Y < groundLevel)
             {
-                MoveUpDown(gameTime, DOWN);
+                MoveUpDown(gameTime, DOWN, spawnSpeed);
             }
             else
             {

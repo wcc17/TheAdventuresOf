@@ -17,10 +17,11 @@ namespace TheAdventuresOf
         {
             entityTag = dashMonster.entityTag;
             speed = dashMonster.speed;
+            spawnSpeed = dashMonster.spawnSpeed;
+            deathSpeed = dashMonster.deathSpeed;
             frameCount = dashMonster.frameCount;
             actionDelayTime = dashMonster.actionDelayTime;
             rotationSpeed = dashMonster.rotationSpeed;
-            upDownSpeed = dashMonster.upDownSpeed;
             animationSpeed = dashMonster.animationSpeed;
 
             monsterTexture = AssetManager.Instance.dashMonsterTexture;
@@ -69,7 +70,7 @@ namespace TheAdventuresOf
         {
             if (positionVector.Y > groundLevel)
             {
-                MoveUpDown(gameTime, UP);
+                MoveUpDown(gameTime, UP, spawnSpeed);
             }
             else if ((moveLeft && rotation > 0) || (moveRight && rotation < 0))
             {
