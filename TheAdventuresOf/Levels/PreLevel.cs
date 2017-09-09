@@ -11,10 +11,11 @@ namespace TheAdventuresOf
         public static float textThreshold;
         public static float textX;
         public static float textY;
+        public static float preLevelCharX;
+        public static string preLevelCharText;
 
-        public bool textAdded;
+        public bool textAdded; //to prevent text from being added more than once
 
-        public float preLevelCharX;
         Vector2 preLevelCharacterPositionVector;
 
         public PreLevel(Texture2D levelTexture) : base(levelTexture: levelTexture) { }
@@ -38,7 +39,7 @@ namespace TheAdventuresOf
                 if(!textAdded)
                 {
                     textAdded = true;
-                    TextManager.Instance.AddOrUpdateText(textX, textY, "Can I have your sword when you die?", PRE_LEVEL_TEXT_INDEX);
+                    TextManager.Instance.AddOrUpdateText(textX, textY, preLevelCharText, PRE_LEVEL_TEXT_INDEX);
                 }
             }
 

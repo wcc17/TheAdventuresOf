@@ -8,6 +8,7 @@
 	<LeftBoundWidth>0</LeftBoundWidth>
     <RightBoundWidth>1920</RightBoundWidth>
 	<PreLevelCharX>1560</PreLevelCharX>
+    <PreLevelCharText>Can I have your sword when you die?</PreLevelCharText>
     <TextX>1100</TextX>
 	<TextY>500</TextY>
     <TextThreshold>400</TextThreshold>
@@ -19,6 +20,9 @@
 	<RightBoundWidth>1920</RightBoundWidth>
     <StoreLevelCharX>1600</StoreLevelCharX>
 	<StoreLevelCharY>320</StoreLevelCharY>
+    <StoreLevelCharTextX>1500</StoreLevelCharTextX>
+    <StoreLevelCharTextY>200</StoreLevelCharTextY>
+	<StoreLevelCharText>Welcome!</StoreLevelCharText>
     <LevelText>
         <Text>
             <Value>This is item 1</Value>
@@ -52,20 +56,20 @@
 	<LeftBoundWidth>250</LeftBoundWidth>
     <RightBoundWidth>230</RightBoundWidth>
 	
-    <!-- real -->
+    <!-- real 
 	<Tier1Score>4000</Tier1Score>
     <Tier2Score>6000</Tier2Score>
     <Tier3Score>11000</Tier3Score>
     <Tier4Score>20000</Tier4Score>
     <Tier5Score>35000</Tier5Score>
+		-->
 
-	<!-- test
+	<!-- test-->
 	<Tier1Score>50</Tier1Score>
     <Tier2Score>100</Tier2Score>
     <Tier3Score>150</Tier3Score>
     <Tier4Score>200</Tier4Score>
     <Tier5Score>250</Tier5Score>
-		-->
 		
 	<MaxTier>5</MaxTier>
 

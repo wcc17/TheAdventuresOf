@@ -9,6 +9,9 @@ namespace TheAdventuresOf
     {
         public static float storeLevelCharX;
         public static float storeLevelCharY;
+        public static float storeLevelCharTextX;
+        public static float storeLevelCharTextY;
+        public static string storeLevelCharText;
         public static List<Text> texts;
         Vector2 storeLevelCharacterPositionVector;
 
@@ -23,7 +26,7 @@ namespace TheAdventuresOf
 
             //TODO: get rid of hardcoded info
             PlayerManager.Instance.SetPlayerX(100);
-            TextManager.Instance.AddOrUpdateText(1500, 200, "Welcome ;)", 1);
+            TextManager.Instance.AddOrUpdateText(storeLevelCharTextX, storeLevelCharTextY, storeLevelCharText, 1); //item text is using 0 for index
         }
 
         public override void Draw(SpriteBatch spriteBatch)
