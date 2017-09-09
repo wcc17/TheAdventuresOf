@@ -14,12 +14,13 @@ namespace TheAdventuresOf
         public void SetUndergroundMonsterData(UndergroundMonster undergroundMonster) {
             entityTag = undergroundMonster.entityTag;
             speed = undergroundMonster.speed;
+            spawnSpeed = undergroundMonster.spawnSpeed;
+            deathSpeed = undergroundMonster.deathSpeed;
             animationSpeed = undergroundMonster.animationSpeed;
             frameCount = undergroundMonster.frameCount;
             moveDistanceLimit = undergroundMonster.moveDistanceLimit;
             actionDelayTime = undergroundMonster.actionDelayTime;
             rotationSpeed = undergroundMonster.rotationSpeed;
-            upDownSpeed = undergroundMonster.upDownSpeed;
 
             monsterTexture = AssetManager.Instance.undergroundMonsterTexture;
         }
@@ -62,7 +63,7 @@ namespace TheAdventuresOf
         public override void HandleDeath(GameTime gameTime) {
             if (positionVector.Y < ScreenManager.FULL_SCREEN_HEIGHT + entityHeight)
             {
-                MoveUpDown(gameTime, DOWN);
+                MoveUpDown(gameTime, DOWN, deathSpeed);
             }
             else
             {

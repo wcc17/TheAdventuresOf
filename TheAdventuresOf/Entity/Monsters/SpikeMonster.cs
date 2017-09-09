@@ -24,11 +24,12 @@ namespace TheAdventuresOf
         {
             entityTag = spikeMonster.entityTag;
             speed = spikeMonster.speed;
+            spawnSpeed = spikeMonster.spawnSpeed;
+            deathSpeed = spikeMonster.deathSpeed;
             frameCount = spikeMonster.frameCount;
             moveDistanceLimit = spikeMonster.moveDistanceLimit;
             actionDelayTime = spikeMonster.actionDelayTime;
             rotationSpeed = spikeMonster.rotationSpeed;
-            upDownSpeed = spikeMonster.upDownSpeed;
             attackSpeed = spikeMonster.attackSpeed;
 
             monsterTexture = AssetManager.Instance.spikeMonsterTexture;
@@ -66,7 +67,7 @@ namespace TheAdventuresOf
         {
             if(positionVector.Y < groundLevel) 
             {
-                MoveUpDown(gameTime, DOWN);
+                MoveUpDown(gameTime, DOWN, spawnSpeed);
             }
             else 
             {

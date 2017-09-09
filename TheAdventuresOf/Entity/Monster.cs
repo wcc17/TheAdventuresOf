@@ -10,9 +10,10 @@ namespace TheAdventuresOf
 		public static int DOWN = 1;
 		public float groundLevel;
 
+        public float spawnSpeed;
+        public float deathSpeed;
 		public int moveDistanceLimit;
 		public float actionDelayTime;
-		public float upDownSpeed;
 		public bool isSpawning;
 
 		public TimeSpan timeDelayed = TimeSpan.FromSeconds(0);
@@ -122,7 +123,7 @@ namespace TheAdventuresOf
             }
             else if (positionVector.Y < ScreenManager.FULL_SCREEN_HEIGHT + this.entityHeight)
             {
-                MoveUpDown(gameTime, DOWN);
+                MoveUpDown(gameTime, DOWN, deathSpeed);
             }
             else
             {
@@ -263,15 +264,12 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public virtual void MoveUpDown(GameTime gameTime, int direction)
+		public virtual void MoveUpDown(GameTime gameTime, int direction, float speed)
 		{
-			float distanceToMove = (upDownSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
-			if (direction == UP)
-			{
+			float distanceToMove = (speed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+			if (direction == UP) {
 				positionVector.Y -= distanceToMove;
-			}
-			else
-			{
+			} else {
 				positionVector.Y += distanceToMove;
 			}
 		}

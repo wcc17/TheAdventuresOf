@@ -12,12 +12,13 @@ namespace TheAdventuresOf
 		{
 			entityTag = sunMonster.entityTag;
 			speed = sunMonster.speed;
+            spawnSpeed = sunMonster.spawnSpeed;
+            deathSpeed = sunMonster.deathSpeed;
 			animationSpeed = sunMonster.animationSpeed;
 			frameCount = sunMonster.frameCount;
 			moveDistanceLimit = sunMonster.moveDistanceLimit;
 			actionDelayTime = sunMonster.actionDelayTime;
 			rotationSpeed = sunMonster.rotationSpeed;
-			upDownSpeed = sunMonster.upDownSpeed;
 
 			monsterTexture = AssetManager.Instance.sunMonsterTexture;
 		}
@@ -36,7 +37,7 @@ namespace TheAdventuresOf
 		{
 			if (positionVector.Y < groundLevel)
 			{
-				MoveUpDown(gameTime, DOWN);
+				MoveUpDown(gameTime, DOWN, spawnSpeed);
 			}
 			else
 			{

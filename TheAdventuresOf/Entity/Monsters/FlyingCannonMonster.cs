@@ -12,7 +12,8 @@ namespace TheAdventuresOf
             entityTag = flyingCannonMonster.entityTag;
             frameCount = flyingCannonMonster.frameCount;
             rotationSpeed = flyingCannonMonster.rotationSpeed;
-            upDownSpeed = flyingCannonMonster.upDownSpeed;
+            spawnSpeed = flyingCannonMonster.spawnSpeed;
+            deathSpeed = flyingCannonMonster.deathSpeed;
             actionDelayTime = flyingCannonMonster.actionDelayTime;
             bulletYOffset = flyingCannonMonster.bulletYOffset;
             animationSpeed = flyingCannonMonster.animationSpeed;
@@ -55,7 +56,7 @@ namespace TheAdventuresOf
         public override void HandleSpawn(GameTime gameTime) {
             
             if (positionVector.Y < groundLevel) {
-                MoveUpDown(gameTime, DOWN);
+                MoveUpDown(gameTime, DOWN, spawnSpeed);
             } else {
                 //just to ensure the monster is where its supposed to be
                 positionVector.Y = groundLevel;
