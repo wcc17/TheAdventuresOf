@@ -12,6 +12,7 @@
     <TextX>1100</TextX>
 	<TextY>500</TextY>
     <TextThreshold>400</TextThreshold>
+	<PlayerStartX>280</PlayerStartX>
   </PreLevel>
 
   <StoreLevel>
@@ -23,6 +24,7 @@
     <StoreLevelCharTextX>1500</StoreLevelCharTextX>
     <StoreLevelCharTextY>200</StoreLevelCharTextY>
 	<StoreLevelCharText>Welcome!</StoreLevelCharText>
+    <PlayerStartX>100</PlayerStartX>
     <LevelText>
         <Text>
             <Value>This is item 1</Value>
@@ -53,6 +55,7 @@
 	
   <LevelOne>
 	<GroundLevel>555</GroundLevel>
+	<PlayerStartX>280</PlayerStartX>
 	<LeftBoundWidth>250</LeftBoundWidth>
     <RightBoundWidth>230</RightBoundWidth>
 	

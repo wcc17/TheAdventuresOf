@@ -6,7 +6,6 @@ namespace TheAdventuresOf
 {
     public class PreLevel : BaseLevel
     {
-        //TODO: all (or most of) of this should be loaded from XML
         public const int PRE_LEVEL_TEXT_INDEX = 0;
         public static float textThreshold;
         public static float textX;

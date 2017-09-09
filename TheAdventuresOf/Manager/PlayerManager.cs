@@ -28,11 +28,11 @@ namespace TheAdventuresOf
             this.level = level;
 
             player = XmlImporter.LoadPlayerInformation();
-            //TODO: startX should be loaded in level xml
-            player.InitializePlayer(280f,
+            player.InitializePlayer(level.playerStartX,
                                     level.groundLevel,
                                     AssetManager.Instance.playerTexture.Width / player.frameCount,
                                     AssetManager.Instance.playerTexture.Height);
+
         }
 
         public void Update(GameTime gameTime, GameController gameController)
@@ -64,10 +64,10 @@ namespace TheAdventuresOf
             player.CheckCollisionMonster(monster);
         }
 
-        //TODO: REMOVE THIS AFTER SETTING PLAYERX IN XML 
         public void SetPlayerX(float X)
         {
             player.positionVector.X = X;
+            player.UpdateEntityBounds();
         }
     }
 }

@@ -81,6 +81,7 @@ namespace TheAdventuresOf
             XElement preLevelElement = levelElement.Element("PreLevel");
 
             preLevel.groundLevel = (float)preLevelElement.Element("GroundLevel");
+            preLevel.playerStartX = (float)preLevelElement.Element("PlayerStartX");
             preLevel.leftBoundWidth = (int)preLevelElement.Element("LeftBoundWidth");
             preLevel.rightBoundWidth = (int)preLevelElement.Element("RightBoundWidth");
             PreLevel.preLevelCharX = (float)preLevelElement.Element("PreLevelCharX");
@@ -95,6 +96,7 @@ namespace TheAdventuresOf
             XElement storeLevelElement = levelElement.Element("StoreLevel");
 
             storeLevel.groundLevel = (float)storeLevelElement.Element("GroundLevel");
+            storeLevel.playerStartX = (float)storeLevelElement.Element("PlayerStartX");
             storeLevel.leftBoundWidth = (int)storeLevelElement.Element("LeftBoundWidth");
             storeLevel.rightBoundWidth = (int)storeLevelElement.Element("RightBoundWidth");
             StoreLevel.storeLevelCharX = (float)storeLevelElement.Element("StoreLevelCharX");
@@ -132,6 +134,7 @@ namespace TheAdventuresOf
             tierElements.Add(levelOneElement.Element("Tier5"));
 
 			level.groundLevel = (float)levelOneElement.Element("GroundLevel");
+            level.playerStartX = (float)levelOneElement.Element("PlayerStartX");
 			level.leftBoundWidth = (int)levelOneElement.Element("LeftBoundWidth");
 			level.rightBoundWidth = (int)levelOneElement.Element("RightBoundWidth");
 
