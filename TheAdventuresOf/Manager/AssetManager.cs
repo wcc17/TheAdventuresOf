@@ -58,6 +58,12 @@ namespace TheAdventuresOf
 
         public static string filePath;
 
+        //xbox related stuff
+        string level1String;
+        string preLevelString;
+        string storeLevelString;
+        bool loadOnScreenController;
+
         public static AssetManager Instance
         {
             get
@@ -72,15 +78,23 @@ namespace TheAdventuresOf
 
         private AssetManager()
         {
-            //TODO: should limit the preprocessor directives to this constructor method.
-            //for xbox assets, just add xbox to the filename string. This may involve renaming xbox assets.
-            //TODO: stop including xbox in the name of the asset, just name it the same as the iOS one and we won't have this problem? will be harder to tell apart though
+            
 #if __ANDROID__
-            filePath = androidFilePath;
-            //#endif
-            //#if __IOS__
+            filePath = androidFilePath; 
 #else
-			filePath = iosFilePath;
+            filePath = iosFilePath; //windows uses ios file path for now
+#endif
+
+#if __IOS__ || __ANROID__
+            level1String = "level1background_1080p.png";
+            preLevelString = "pre_level1_background_1080p.png";
+            storeLevelString = "store_level_1080p.png";
+            loadOnScreenController = true;
+#else
+            level1String = "level1background_xbox_1080p.png";
+            preLevelString = "pre_level1_background_xbox_1080p.png";
+            storeLevelString = store_level_xbox_1080p.png";
+            loadOnScreenController = false;
 #endif
         }
 
@@ -111,13 +125,11 @@ namespace TheAdventuresOf
             }
         }
 
-        public void LoadGameAssets(GraphicsDevice graphicsDevice)
-        {
+        public void LoadPlayerAssets(GraphicsDevice graphicsDevice) {
             String playerFilePath = filePath + "Player/";
             String gameFilePath = filePath + "Game/";
 
             //player textures
-            //TODO: should have its own "LoadPlayerAssets" method
             using (var stream = TitleContainer.OpenStream(playerFilePath + "character_1080p.png"))
             {
                 playerTexture = Texture2D.FromStream(graphicsDevice, stream);
@@ -126,6 +138,11 @@ namespace TheAdventuresOf
             {
                 swordTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
+        }
+
+        public void LoadGameAssets(GraphicsDevice graphicsDevice) {
+            String playerFilePath = filePath + "Player/";
+            String gameFilePath = filePath + "Game/";
 
             //game textures
             using (var stream = TitleContainer.OpenStream(gameFilePath + "heart_1080p.png"))
@@ -137,24 +154,24 @@ namespace TheAdventuresOf
                 emptyHeartTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
-#if __IOS__ || __ANDROID__
-            using (var stream = TitleContainer.OpenStream(gameFilePath + "controller_1080p.png"))
-            {
-                controllerTexture = Texture2D.FromStream(graphicsDevice, stream);
+            if(loadOnScreenController) {
+                using (var stream = TitleContainer.OpenStream(gameFilePath + "controller_1080p.png"))
+                {
+                    controllerTexture = Texture2D.FromStream(graphicsDevice, stream);
+                }
+                using (var stream = TitleContainer.OpenStream(gameFilePath + "leftarrow_1080p.png"))
+                {
+                    leftArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+                }
+                using (var stream = TitleContainer.OpenStream(gameFilePath + "rightarrow_1080p.png"))
+                {
+                    rightArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+                }
+                using (var stream = TitleContainer.OpenStream(gameFilePath + "uparrow_1080p.png"))
+                {
+                    upArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+                }
             }
-            using (var stream = TitleContainer.OpenStream(gameFilePath + "leftarrow_1080p.png"))
-            {
-                leftArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
-            using (var stream = TitleContainer.OpenStream(gameFilePath + "rightarrow_1080p.png"))
-            {
-                rightArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
-            using (var stream = TitleContainer.OpenStream(gameFilePath + "uparrow_1080p.png"))
-            {
-                upArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
-#endif
         }
 
         //TODO: eventually add logic for reloading textures based on what level the player is on 
@@ -164,12 +181,6 @@ namespace TheAdventuresOf
             string monsterFilePath = filePath + "Monster/";
             string projectileFilePath = filePath + "Projectile/";
 
-            string level1String;
-#if __IOS__ || __ANDROID__
-            level1String = "level1background_1080p.png";
-#else
-            level1String = "level1background_xbox_1080p.png";
-#endif
             using (var stream = TitleContainer.OpenStream(levelFilePath + level1String))
             {
                 levelTexture = Texture2D.FromStream(graphicsDevice, stream);
@@ -231,17 +242,10 @@ namespace TheAdventuresOf
                 preLevelCharacterTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
-#if __IOS__ || __ANDROID__
-            using (var stream = TitleContainer.OpenStream(preLevelFilePath + "pre_level1_background_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(preLevelFilePath + preLevelString))
             {
                 preLevelTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-#else
-            using (var stream = TitleContainer.OpenStream(preLevelFilePath + "pre_level1_background_xbox_1080p.png"))
-            {
-                preLevelTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
-#endif
 
         }
 
@@ -252,17 +256,10 @@ namespace TheAdventuresOf
                 storeLevelCharacterTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
-#if __IOS__ || __ANDROID__
-            using (var stream = TitleContainer.OpenStream(storeLevelFilePath + "store_level_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(storeLevelFilePath + storeLevelString))
             {
                 storeLevelTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-#else
-            using (var stream = TitleContainer.OpenStream(storeLevelFilePath + "store_level_xbox_1080p.png"))
-            {
-                storeLevelTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
-#endif
         }
 
         public void DisposePreLevelAssets() {
