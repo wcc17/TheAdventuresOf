@@ -11,7 +11,7 @@ namespace TheAdventuresOf
         public static float textPositionOffset;
         public bool isActive = true;
 
-        public int index; //TODO: DO I NEED THIS?
+        public int index;
         public float alpha = 1.0f;
         public Vector2 positionVector;          //where text shows up
         public float startX, endX; //where player needs to be for text to show (if applicable)
