@@ -14,6 +14,7 @@ namespace TheAdventuresOf
         public int leftBoundWidth;
         public int rightBoundWidth;
         public float groundLevel;
+        public float playerStartX;
 
         public Texture2D levelTexture;
 

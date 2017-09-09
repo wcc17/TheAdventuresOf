@@ -21,18 +21,13 @@ namespace TheAdventuresOf
         public override void InitializeLevel()
         {
             base.InitializeLevel();
-
             storeLevelCharacterPositionVector = new Vector2(storeLevelCharX, storeLevelCharY);
-
-            //TODO: get rid of hardcoded info
-            PlayerManager.Instance.SetPlayerX(100);
             TextManager.Instance.AddOrUpdateText(storeLevelCharTextX, storeLevelCharTextY, storeLevelCharText, 1); //item text is using 0 for index
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);
-
             spriteBatch.Draw(AssetManager.Instance.storeLevelCharacterTexture, storeLevelCharacterPositionVector);
         }
 

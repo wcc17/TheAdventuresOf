@@ -341,16 +341,16 @@ namespace TheAdventuresOf
 
 		public override void UpdateEntityBounds() {
 			base.UpdateEntityBounds();
-			UpdateSwordBounds();
-            UpdateCollisionBounds();
+			updateSwordBounds();
+            updateCollisionBounds();
 		}
 
-		public void UpdateSwordBounds() {
+		void updateSwordBounds() {
 			swordBounds.X = (int)swordPositionVector.X;
 			swordBounds.Y = (int)swordPositionVector.Y;
 		}
 
-        public void UpdateCollisionBounds() {
+        void updateCollisionBounds() {
             collisionBounds.X = entityBounds.X + collisionOffset;
             collisionBounds.Y = entityBounds.Y + collisionOffset;
         }
