@@ -57,17 +57,14 @@ namespace TheAdventuresOf
 
         public override void CheckCollisionWithBounds(Entity entity)
         {
-            //base.CheckCollisionWithBounds(entity);
+            if (leftSideBounds.Intersects(entity.entityBounds))
+            {
+                entity.HandleLevelBoundCollision(Entity.LEFT, leftBoundWidth);
+            }
         }
 
-        public override void CheckPlayerCollisionWithMonster(Monster monster)
-        {
-            //base.CheckPlayerCollisionWithMonster(monster);
-        }
+        public override void CheckPlayerCollisionWithMonster(Monster monster) { }
 
-        public override void CheckPlayerCollisionProjectile(Projectile proj)
-        {
-            //base.CheckPlayerCollisionProjectile(proj);
-        }
+        public override void CheckPlayerCollisionProjectile(Projectile proj) { }
     }
 }
