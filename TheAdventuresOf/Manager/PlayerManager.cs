@@ -4,7 +4,6 @@ using Microsoft.Xna.Framework;
 
 namespace TheAdventuresOf
 {
-    //TODO: most methods on this singleton be static probably?
     public class PlayerManager
     {
         private static PlayerManager instance;
@@ -54,6 +53,10 @@ namespace TheAdventuresOf
         public float GetPlayerWidth() 
         {
             return player.entityWidth;    
+        }
+
+        public Rectangle GetPlayerBounds() {
+            return player.entityBounds;
         }
 
         public void CheckPlayerCollisionProjectile(Projectile proj) {

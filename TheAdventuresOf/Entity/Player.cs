@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -229,6 +230,8 @@ namespace TheAdventuresOf
                         monster.isDying = true;
                         ScoringManager.Instance.HandleMonsterKill(monster);
                     }
+
+                    CoinManager.Instance.AddCoin(monster.positionVector.X);
                 }
                 else if (collisionBounds.Intersects(monster.entityBounds))
                 {

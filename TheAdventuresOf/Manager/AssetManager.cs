@@ -30,6 +30,9 @@ namespace TheAdventuresOf
         public Texture2D leftArrowButtonTexture;
         public Texture2D rightArrowButtonTexture;
         public Texture2D upArrowButtonTexture;
+        public Texture2D bronzeCoinTexture;
+        public Texture2D silverCoinTexture;
+        public Texture2D goldCoinTexture;
         public SpriteFont font;
 
         //prelevel textures
@@ -152,6 +155,18 @@ namespace TheAdventuresOf
             using (var stream = TitleContainer.OpenStream(gameFilePath + "emptyheart_1080p.png"))
             {
                 emptyHeartTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_gold_1080p.png"))
+            {
+                goldCoinTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_silver_1080p.png"))
+            {
+                silverCoinTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_bronze_1080p.png"))
+            {
+                bronzeCoinTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
             if(loadOnScreenController) {
@@ -306,6 +321,9 @@ namespace TheAdventuresOf
             leftArrowButtonTexture.Dispose();
             rightArrowButtonTexture.Dispose();
             upArrowButtonTexture.Dispose();
+            bronzeCoinTexture.Dispose();
+            silverCoinTexture.Dispose();
+            goldCoinTexture.Dispose();
 
             playerTexture.Dispose();
             swordTexture.Dispose();
