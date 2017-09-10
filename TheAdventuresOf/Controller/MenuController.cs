@@ -16,9 +16,6 @@ namespace TheAdventuresOf
         public override void InitializeController() {
             base.InitializeController();
 
-            //TODO: load this information in XML file
-            playButtonPositionVector = new Vector2(200, 700);
-
             playButton = new Button(AssetManager.Instance.menuPlayButtonTexture.Width,
                                     AssetManager.Instance.menuPlayButtonTexture.Height,
                                     playButtonPositionVector.X,
