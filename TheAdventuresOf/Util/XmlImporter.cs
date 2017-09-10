@@ -44,6 +44,7 @@ namespace TheAdventuresOf
 		{
 			XElement gameElement = gameDocument.Element("Game");
             XElement gameControllerElement = gameElement.Element("GameController");
+            XElement coinElement = gameElement.Element("Coin");
 
 			var controllerX = (float)gameControllerElement.Element("ControllerX");
 			var controllerY = (float)gameControllerElement.Element("ControllerY");
@@ -73,6 +74,9 @@ namespace TheAdventuresOf
             ScoringManager.undergroundMonsterScore = (int)scoringElement.Element("UndergroundMonster");
             ScoringManager.totalScoreTextX = (float)scoringElement.Element("TotalScoreTextX");
             ScoringManager.totalScoreTextY = (float)scoringElement.Element("TotalScoreTextY");
+
+            CoinManager.coinOffset = (float)coinElement.Element("CoinOffset");
+            Coin.coinDropSpeed = (float)coinElement.Element("CoinDropSpeed");
 		}
 
         public static void LoadMainMenuInformation() {
@@ -162,12 +166,15 @@ namespace TheAdventuresOf
             level.tierMonsterLimits.Add(MonsterManager.SPIKE_MONSTER, LoadTierMonsterLimits("SpikeMonsterLimit", tierElements));
             level.tierMonsterLimits.Add(MonsterManager.DASH_MONSTER, LoadTierMonsterLimits("DashMonsterLimit", tierElements));
             level.tierMonsterLimits.Add(MonsterManager.UNDERGROUND_MONSTER, LoadTierMonsterLimits("UndergroundMonsterLimit", tierElements));
-
             level.maxTier = (int)levelOneElement.Element("MaxTier");
             
             level.spawnDelayTime = (float)levelElement.Element("SpawnDelayTime");
-            //TODO: get rid of this here and elsewhere
+
+
+            //TODO: get rid of this here and elsewhere. not sure if i need this
             level.delayCannonSpawnTimerLimit = (float)levelElement.Element("DelayCannonSpawnTimeLimit");
+
+            CoinManager.Instance.UpdateGroundLevel(level.groundLevel + CoinManager.coinOffset);
 
 			LoadMonsterInformation(level);
 		}

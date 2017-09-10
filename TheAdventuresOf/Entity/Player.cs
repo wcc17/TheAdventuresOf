@@ -231,7 +231,7 @@ namespace TheAdventuresOf
                         ScoringManager.Instance.HandleMonsterKill(monster);
                     }
 
-                    CoinManager.Instance.AddCoin(monster.positionVector.X);
+                    CoinManager.Instance.AddCoin(monster.positionVector.X, monster.positionVector.Y);
                 }
                 else if (collisionBounds.Intersects(monster.entityBounds))
                 {

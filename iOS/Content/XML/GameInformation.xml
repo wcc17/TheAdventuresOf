@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Game>
+	<Coin>
+      <CoinOffset>40</CoinOffset>
+	  <CoinDropSpeed>300</CoinDropSpeed>
+	  <CoinFloatSpeed>500</CoinFloatSpeed>
+	</Coin>
+	
 	<GameController>
 		<ControllerX>0</ControllerX>
 		<ControllerY>850</ControllerY>
