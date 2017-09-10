@@ -10,6 +10,7 @@
 		<UpButtonX>1650</UpButtonX>
 		<UpButtonY>865</UpButtonY>
 	</GameController>
+	
 	<Scoring>
 		<TextFloatSpeed>100</TextFloatSpeed>
 		<TextDisappearSpeed>1.2</TextDisappearSpeed>

@@ -43,17 +43,16 @@ namespace TheAdventuresOf
 		public static void LoadGameInformation()
 		{
 			XElement gameElement = gameDocument.Element("Game");
-			XElement controllerElement = gameElement.Element("GameController");
+            XElement gameControllerElement = gameElement.Element("GameController");
 
-			var controllerX = (float)controllerElement.Element("ControllerX");
-			var controllerY = (float)controllerElement.Element("ControllerY");
-			var leftButtonX = (float)controllerElement.Element("LeftButtonX");
-			var leftButtonY = (float)controllerElement.Element("LeftButtonY");
-			var rightButtonX = (float)controllerElement.Element("RightButtonX");
-			var rightButtonY = (float)controllerElement.Element("RightButtonY");
-			var upButtonX = (float)controllerElement.Element("UpButtonX");
-			var upButtonY = (float)controllerElement.Element("UpButtonY");
-
+			var controllerX = (float)gameControllerElement.Element("ControllerX");
+			var controllerY = (float)gameControllerElement.Element("ControllerY");
+			var leftButtonX = (float)gameControllerElement.Element("LeftButtonX");
+			var leftButtonY = (float)gameControllerElement.Element("LeftButtonY");
+			var rightButtonX = (float)gameControllerElement.Element("RightButtonX");
+			var rightButtonY = (float)gameControllerElement.Element("RightButtonY");
+			var upButtonX = (float)gameControllerElement.Element("UpButtonX");
+			var upButtonY = (float)gameControllerElement.Element("UpButtonY");
 			GameController.controllerPositionVector = new Vector2(controllerX, controllerY);
 			GameController.leftButtonPositionVector = new Vector2(leftButtonX, leftButtonY);
 			GameController.rightButtonPositionVector = new Vector2(rightButtonX, rightButtonY);
@@ -75,6 +74,15 @@ namespace TheAdventuresOf
             ScoringManager.totalScoreTextX = (float)scoringElement.Element("TotalScoreTextX");
             ScoringManager.totalScoreTextY = (float)scoringElement.Element("TotalScoreTextY");
 		}
+
+        public static void LoadMainMenuInformation() {
+            XElement levelElement = levelDocument.Element("Level");
+            XElement mainMenuElement = levelElement.Element("MainMenu");
+
+            var playButtonX = (float)mainMenuElement.Element("PlayButtonX");
+            var playButtonY = (float)mainMenuElement.Element("PlayButtonY");
+            MenuController.playButtonPositionVector = new Vector2(playButtonX, playButtonY);
+        }
 
         public static void LoadPreLevelInformation(PreLevel preLevel) {
             XElement levelElement = levelDocument.Element("Level");

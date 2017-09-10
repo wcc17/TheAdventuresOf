@@ -293,14 +293,10 @@ namespace TheAdventuresOf
 
             bulletTexture.Dispose();
             bileTexture.Dispose();
-		}
 
-        //TODO: should handle disposing of music in MusicManager
-        public void DisposeMusic() {
-            //MusicManager will probably only delete 1 song at a time
-            //this is a placeholder so I see the TODO
-            //levelOneMusic.Dispose(); gum
-        }
+            //TODO: need to dispose of level music
+            //levelOneSong.Dispose();
+		}
 
         //TODO: this needs to be called somewhere
         public void DisposeGameAssets() {

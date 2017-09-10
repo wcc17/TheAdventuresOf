@@ -4,9 +4,6 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TheAdventuresOf
 {
-    //TODO: see previous commits for when Button class used the originVector during drawing
-    //will only need this if I want to go back to using one texture for the buttons
-    //rather than rotating them myself and saving them as such
 	public class Button
 	{
 		Rectangle buttonBounds;

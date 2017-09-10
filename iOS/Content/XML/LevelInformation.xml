@@ -3,6 +3,11 @@
   <SpawnDelayTime>1</SpawnDelayTime>
   <DelayCannonSpawnTimeLimit>4</DelayCannonSpawnTimeLimit>
 
+  <MainMenu>
+    <PlayButtonX>200</PlayButtonX>
+    <PlayButtonY>700</PlayButtonY>
+  </MainMenu>
+
   <PreLevel>
     <GroundLevel>555</GroundLevel>
 	<LeftBoundWidth>0</LeftBoundWidth>

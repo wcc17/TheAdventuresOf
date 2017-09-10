@@ -66,6 +66,8 @@ namespace TheAdventuresOf
 
             gameState = MENU_STATE;
 
+            XmlImporter.LoadMainMenuInformation();
+
             currentController = new MenuController();
             currentController.InitializeController();
         }
