@@ -44,8 +44,8 @@ namespace TheAdventuresOf
 		public override void Update(GameTime gameTime, GameController gameController)
 		{
             base.Update(gameTime, gameController);
-
             monsterManager.Update(gameTime);
+            CoinManager.Instance.Update();
 
             if(ScoringManager.score > tierScores[currentTier] && currentTier < (maxTier-1)) {
                 currentTier = currentTier + 1;
@@ -64,6 +64,7 @@ namespace TheAdventuresOf
             //Draw monsters
             monsterManager.DrawMonsters(spriteBatch);
 
+            CoinManager.Instance.Draw(spriteBatch);
 		}
 	}
 }

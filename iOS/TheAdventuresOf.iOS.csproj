@@ -138,6 +138,9 @@
     <BundleResource Include="Content\XML\GameInformation.xml" />
     <BundleResource Include="Content\XML\LevelInformation.xml" />
     <BundleResource Include="Content\XML\ProjectileInformation.xml" />
+    <BundleResource Include="Content\Game\coin_bronze_1080p.png" />
+    <BundleResource Include="Content\Game\coin_gold_1080p.png" />
+    <BundleResource Include="Content\Game\coin_silver_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
