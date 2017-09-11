@@ -22,6 +22,7 @@ namespace TheAdventuresOf
             this.groundLevel = baseGroundLevel;
 
             //adjust for coins being different sizes so that they all sit on the ground at the same place
+            //the gold coin sits perfectly on the ground. The other two have to be adjusted a little bit relative to it
             switch(coinValue) {
                 case BRONZE_COIN_AMOUNT:
                     this.groundLevel += (AssetManager.Instance.goldCoinTexture.Height - AssetManager.Instance.bronzeCoinTexture.Height);
@@ -39,6 +40,9 @@ namespace TheAdventuresOf
         public void Update(GameTime gameTime) {
             if(positionVector.Y < groundLevel) {
                 positionVector.Y += (float)(coinDropSpeed * gameTime.ElapsedGameTime.TotalSeconds);
+                bounds.Y = (int)positionVector.Y;
+            } else if(positionVector.Y > groundLevel) {
+                positionVector.Y = groundLevel;
                 bounds.Y = (int)positionVector.Y;
             }
         }
