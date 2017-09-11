@@ -7,14 +7,21 @@ namespace TheAdventuresOf
 {
     public class CoinManager
     {
-        public static float coinOffset;
-
         private static CoinManager instance;
 
         List<Coin> coinsToRemove; //so I'm not making a new list every frame
         List<Coin> coins;
         int coinTotal;
         float groundLevel;
+        Random rand;
+
+		public static float coinYOffset;
+        public static int coinXSpacing;
+
+        //TODO: should I be changing these from level to level?
+        public static int randomCoinLimitBronze;
+        public static int randomCoinLimitSilver;
+        public static int randomCoinLimitGold;
 
         public static CoinManager Instance {
             get {
@@ -25,27 +32,43 @@ namespace TheAdventuresOf
                 return instance;
             }
         }
+
         private CoinManager() {
             coins = new List<Coin>();
             coinsToRemove = new List<Coin>();
+            rand = new Random();
         }
 
         //TODO: this should eventually take in monster and increase oddds a little for certain monsters
-        public void AddCoin(float x, float y) {
+        public void AddCoins(float x, float y) {
+            int numberOfCoins = rand.Next(5); //0 - 4 coins dropped
 
+            for (int i = 0; i < numberOfCoins; i++) {
+				int randomCoinValue = rand.Next(1, 11); //get numbers 1-10 
 
-            //need to get random amount of coins
-            //need to get random distribution of coins
-            int coinValue = 9;
-            coins.Add(new Coin(x, y, AssetManager.Instance.bronzeCoinTexture.Width, AssetManager.Instance.bronzeCoinTexture.Height, 1, groundLevel));
-            coins.Add(new Coin(x, y, AssetManager.Instance.silverCoinTexture.Width, AssetManager.Instance.silverCoinTexture.Height, 3, groundLevel));
-            coins.Add(new Coin(x, y, AssetManager.Instance.goldCoinTexture.Width, AssetManager.Instance.goldCoinTexture.Height, 5, groundLevel));
-            coinTotal += coinValue;
+				//move the next coin over a little bit so its easy to tell the different coins on the ground
+                int coinX = ((int)x + (i * coinXSpacing)); 
+
+                if(randomCoinValue <= randomCoinLimitBronze) {
+                    coins.Add(new Coin(coinX, y, AssetManager.Instance.bronzeCoinTexture.Width,
+                                       AssetManager.Instance.bronzeCoinTexture.Height, 
+                                       Coin.BRONZE_COIN_AMOUNT, groundLevel));
+                } else if(randomCoinValue <= randomCoinLimitSilver) {
+                    coins.Add(new Coin(coinX, y, AssetManager.Instance.silverCoinTexture.Width,
+                                       AssetManager.Instance.silverCoinTexture.Height,
+                                       Coin.SILVER_COIN_AMOUNT, groundLevel));
+                } else if(randomCoinValue <= randomCoinLimitGold) {
+                    coins.Add(new Coin(coinX, y, AssetManager.Instance.goldCoinTexture.Width,
+                                       AssetManager.Instance.goldCoinTexture.Height,
+                                       Coin.GOLD_COIN_AMOUNT, groundLevel));
+                }
+            }
         }
 
         public void checkCollisionWithPlayer(Rectangle playerBounds) {
             foreach(Coin coin in coins) {
                 if(coin.bounds.Intersects(playerBounds)) {
+                    coinTotal += coin.coinValue;
                     coinsToRemove.Add(coin);
                 }
             }

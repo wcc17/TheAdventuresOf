@@ -45,6 +45,7 @@ namespace TheAdventuresOf
 			XElement gameElement = gameDocument.Element("Game");
             XElement gameControllerElement = gameElement.Element("GameController");
             XElement coinElement = gameElement.Element("Coin");
+            XElement coinManagerElement = gameElement.Element("CoinManager");
 
 			var controllerX = (float)gameControllerElement.Element("ControllerX");
 			var controllerY = (float)gameControllerElement.Element("ControllerY");
@@ -75,7 +76,11 @@ namespace TheAdventuresOf
             ScoringManager.totalScoreTextX = (float)scoringElement.Element("TotalScoreTextX");
             ScoringManager.totalScoreTextY = (float)scoringElement.Element("TotalScoreTextY");
 
-            CoinManager.coinOffset = (float)coinElement.Element("CoinOffset");
+            CoinManager.coinYOffset = (float)coinManagerElement.Element("CoinYOffset");
+            CoinManager.coinXSpacing = (int)coinManagerElement.Element("CoinXSpacing");
+            CoinManager.randomCoinLimitBronze = (int)coinManagerElement.Element("RandomCoinLimitBronze");
+            CoinManager.randomCoinLimitSilver = (int)coinManagerElement.Element("RandomCoinLimitSilver");
+            CoinManager.randomCoinLimitGold = (int)coinManagerElement.Element("RandomCoinLimitGold");
             Coin.coinDropSpeed = (float)coinElement.Element("CoinDropSpeed");
 		}
 
@@ -174,7 +179,7 @@ namespace TheAdventuresOf
             //TODO: get rid of this here and elsewhere. not sure if i need this
             level.delayCannonSpawnTimerLimit = (float)levelElement.Element("DelayCannonSpawnTimeLimit");
 
-            CoinManager.Instance.UpdateGroundLevel(level.groundLevel + CoinManager.coinOffset);
+            CoinManager.Instance.UpdateGroundLevel(level.groundLevel + CoinManager.coinYOffset);
 
 			LoadMonsterInformation(level);
 		}
