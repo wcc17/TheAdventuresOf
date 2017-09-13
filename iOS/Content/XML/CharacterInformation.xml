@@ -9,8 +9,8 @@
     <RightSwordOffset>1</RightSwordOffset>
     <SwordYOffset>40</SwordYOffset>
     <FrameCount>2</FrameCount>
-    <InitialMaxHealth>3</InitialMaxHealth>
-    <InvincibilityTime>3</InvincibilityTime>
+    <InitialMaxHealth>100</InitialMaxHealth>
+    <InvincibilityTime>1.5</InvincibilityTime>
     <KnockBackDistanceLimit>45</KnockBackDistanceLimit>
     <KnockBackSpeed>850</KnockBackSpeed>
     <RotationSpeed>500</RotationSpeed>

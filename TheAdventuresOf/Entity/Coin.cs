@@ -28,7 +28,7 @@ namespace TheAdventuresOf
                     this.groundLevel += (AssetManager.Instance.goldCoinTexture.Height - AssetManager.Instance.bronzeCoinTexture.Height);
                     break;
                 case SILVER_COIN_AMOUNT:
-                    this.groundLevel += (AssetManager.Instance.goldCoinTexture.Height - AssetManager.Instance.bronzeCoinTexture.Height);
+                    this.groundLevel += (AssetManager.Instance.goldCoinTexture.Height - AssetManager.Instance.silverCoinTexture.Height);
                     break;
             }
 

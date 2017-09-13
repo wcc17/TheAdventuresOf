@@ -28,7 +28,8 @@ namespace TheAdventuresOf
 
 		public int maxHealth;
 		public int health;
-		Vector2 heartPositionVector;
+		Vector2 healthPositionVector;
+        Rectangle healthBarFillSourceRectangle;
 
 		bool isInvincible;
 		TimeSpan invincibilityTimer = TimeSpan.FromSeconds(0);
@@ -57,7 +58,12 @@ namespace TheAdventuresOf
 			                            AssetManager.Instance.swordTexture.Height);
 
 			health = maxHealth;
-			heartPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH - ((AssetManager.Instance.heartTexture.Width + 20) * health), 10);
+            //TODO: this 20 and 10 should be loaded from XML!!!111
+            healthPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH - (AssetManager.Instance.progressBarTexture.Width + 20), 10);
+            healthBarFillSourceRectangle = new Rectangle(0, 
+                                                         0, 
+                                                         AssetManager.Instance.progressBarFillTexture.Width, 
+                                                         AssetManager.Instance.progressBarFillTexture.Height);
 
 			moveRight = true;
 
@@ -253,7 +259,10 @@ namespace TheAdventuresOf
 
 		void handlePlayerTakingDamage(Entity entity)
 		{
-			//health--;
+            //TODO: different monsters should do different amounts of damage
+			health -= 5;
+
+            recalculateHealthBarFill();
 
 			if (health > 0)
 			{
@@ -273,6 +282,16 @@ namespace TheAdventuresOf
 				isDying = true;
 			}
 		}
+
+        void recalculateHealthBarFill() {
+            Logger.Instance.AddOrUpdateValue("Health: ", health.ToString());
+
+            int fullWidth = AssetManager.Instance.progressBarFillTexture.Width;
+            int remainingHealth = maxHealth - health;
+            int newWidth = fullWidth - (remainingHealth * (fullWidth / maxHealth));
+
+            healthBarFillSourceRectangle.Width = newWidth;
+        }
 
 		public override void HandleAnimation(GameTime gameTime)
 		{
@@ -413,25 +432,10 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public void DrawHealth(SpriteBatch spriteBatch)
-		{
-			int emptyHearts = maxHealth - health;
-			for (int i = 3; i >= 1; i--)
-			{
-				if (i > emptyHearts)
-				{
-					spriteBatch.Draw(AssetManager.Instance.heartTexture,
-								 	 new Vector2(heartPositionVector.X + (i * AssetManager.Instance.heartTexture.Width),
-											 heartPositionVector.Y));
-				}
-				else 
-				{
-					spriteBatch.Draw(AssetManager.Instance.emptyHeartTexture,
-									 new Vector2(heartPositionVector.X + (i * AssetManager.Instance.emptyHeartTexture.Width),
-												 heartPositionVector.Y));
-				}
-			}
-		}
+        public void DrawHealth(SpriteBatch spriteBatch) {
+			spriteBatch.Draw(AssetManager.Instance.progressBarFillTexture, healthPositionVector, sourceRectangle: healthBarFillSourceRectangle);
+            spriteBatch.Draw(AssetManager.Instance.progressBarTexture, healthPositionVector);
+        }
 	}
 }
 

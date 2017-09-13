@@ -1,10 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Game>
 	<Coin>
-      <CoinOffset>40</CoinOffset>
-	  <CoinDropSpeed>300</CoinDropSpeed>
-	  <CoinFloatSpeed>500</CoinFloatSpeed>
+	    <CoinDropSpeed>275</CoinDropSpeed>
+	    <CoinFloatSpeed>500</CoinFloatSpeed>
 	</Coin>
+	<CoinManager>
+        <CoinXSpacing>25</CoinXSpacing>
+	    <CoinYOffset>45</CoinYOffset>
+		
+		<!-- TODO: should I be changing these level to level? If so they should be in another xml file with the levels -->
+	    <RandomCoinLimitBronze>6</RandomCoinLimitBronze>
+		<RandomCoinLimitSilver>9</RandomCoinLimitSilver>  
+		<RandomCoinLimitGold>10</RandomCoinLimitGold>  
+	</CoinManager>
+		
 	
 	<GameController>
 		<ControllerX>0</ControllerX>
