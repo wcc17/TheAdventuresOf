@@ -77,8 +77,20 @@ namespace TheAdventuresOf
             coinsToRemove.Clear();
         }
 
-        public void Update(GameTime gameTime) {
+        //TODO: look here if performance starts to get bad
+        public void checkCollisionWithLevel(Rectangle levelBoundsLeft, Rectangle levelBoundsRight) {
+            foreach(Coin coin in coins) {
+                if(coin.bounds.Intersects(levelBoundsLeft)) {
+                    coin.positionVector.X = levelBoundsLeft.X;   
+                } else if(coin.bounds.Intersects(levelBoundsRight)) {
+                    coin.positionVector.X = levelBoundsRight.X - coin.bounds.Width;
+                }
+            }
+        }
+
+        public void Update(GameTime gameTime, Rectangle levelBoundsLeft, Rectangle levelBoundsRight) {
             checkCollisionWithPlayer(PlayerManager.Instance.GetPlayerBounds());
+            checkCollisionWithLevel(levelBoundsLeft, levelBoundsRight);
 
             foreach(Coin coin in coins) {
                 coin.Update(gameTime);

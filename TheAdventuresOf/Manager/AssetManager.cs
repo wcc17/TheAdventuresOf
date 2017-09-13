@@ -25,8 +25,8 @@ namespace TheAdventuresOf
         //game textures
         public Texture2D controllerTexture;
         public Texture2D swordTexture;
-        public Texture2D heartTexture;
-        public Texture2D emptyHeartTexture;
+        public Texture2D progressBarTexture;
+        public Texture2D progressBarFillTexture;
         public Texture2D leftArrowButtonTexture;
         public Texture2D rightArrowButtonTexture;
         public Texture2D upArrowButtonTexture;
@@ -147,15 +147,15 @@ namespace TheAdventuresOf
             String playerFilePath = filePath + "Player/";
             String gameFilePath = filePath + "Game/";
 
-            //game textures
-            using (var stream = TitleContainer.OpenStream(gameFilePath + "heart_1080p.png"))
-            {
-                heartTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
-            using (var stream = TitleContainer.OpenStream(gameFilePath + "emptyheart_1080p.png"))
-            {
-                emptyHeartTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
+			//game textures
+			using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_1080p.png"))
+			{
+                progressBarTexture = Texture2D.FromStream(graphicsDevice, stream);
+			}
+			using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_fill_1080p.png"))
+			{
+				progressBarFillTexture = Texture2D.FromStream(graphicsDevice, stream);
+			}
             using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_gold_1080p.png"))
             {
                 goldCoinTexture = Texture2D.FromStream(graphicsDevice, stream);
@@ -316,8 +316,8 @@ namespace TheAdventuresOf
         //TODO: this needs to be called somewhere
         public void DisposeGameAssets() {
             controllerTexture.Dispose();
-            heartTexture.Dispose();
-            emptyHeartTexture.Dispose();
+            progressBarTexture.Dispose();
+            progressBarFillTexture.Dispose();
             leftArrowButtonTexture.Dispose();
             rightArrowButtonTexture.Dispose();
             upArrowButtonTexture.Dispose();

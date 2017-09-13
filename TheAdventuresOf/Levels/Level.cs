@@ -45,7 +45,7 @@ namespace TheAdventuresOf
 		{
             base.Update(gameTime, gameController);
             monsterManager.Update(gameTime);
-            CoinManager.Instance.Update(gameTime);
+            CoinManager.Instance.Update(gameTime, leftSideBounds, rightSideBounds);
 
             if(ScoringManager.score > tierScores[currentTier] && currentTier < (maxTier-1)) {
                 currentTier = currentTier + 1;
