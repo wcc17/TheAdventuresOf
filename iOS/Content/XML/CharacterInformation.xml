@@ -10,6 +10,8 @@
     <SwordYOffset>40</SwordYOffset>
     <FrameCount>2</FrameCount>
     <InitialMaxHealth>100</InitialMaxHealth>
+	<HealthBarXOffset>20</HealthBarXOffset>
+    <HealthBarY>10</HealthBarY>
     <InvincibilityTime>1.5</InvincibilityTime>
     <KnockBackDistanceLimit>45</KnockBackDistanceLimit>
     <KnockBackSpeed>850</KnockBackSpeed>
