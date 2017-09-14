@@ -223,6 +223,8 @@ namespace TheAdventuresOf
 			player.swordYOffset = (float)playerElement.Element("SwordYOffset");
 			player.frameCount = (int)playerElement.Element("FrameCount");
 			player.maxHealth = (int)playerElement.Element("InitialMaxHealth");
+            player.healthBarXOffset = (float)playerElement.Element("HealthBarXOffset");
+            player.healthBarY = (float)playerElement.Element("HealthBarY");
 			player.invincibilityTime = (double)playerElement.Element("InvincibilityTime");
 			player.knockBackDistanceLimit = (float)playerElement.Element("KnockBackDistanceLimit");
 			player.knockBackSpeed = (int)playerElement.Element("KnockBackSpeed");

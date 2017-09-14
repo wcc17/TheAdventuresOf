@@ -28,6 +28,8 @@ namespace TheAdventuresOf
 
 		public int maxHealth;
 		public int health;
+        public float healthBarXOffset;
+        public float healthBarY;
 		Vector2 healthPositionVector;
         Rectangle healthBarFillSourceRectangle;
 
@@ -58,10 +60,8 @@ namespace TheAdventuresOf
 			                            AssetManager.Instance.swordTexture.Height);
 
 			health = maxHealth;
-            //TODO: this 20 and 10 should be loaded from XML!!!111
-            healthPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH - (AssetManager.Instance.progressBarTexture.Width + 20), 10);
-            healthBarFillSourceRectangle = new Rectangle(0, 
-                                                         0, 
+            healthPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH - (AssetManager.Instance.progressBarTexture.Width + healthBarXOffset), healthBarY);
+            healthBarFillSourceRectangle = new Rectangle(0, 0, 
                                                          AssetManager.Instance.progressBarFillTexture.Width, 
                                                          AssetManager.Instance.progressBarFillTexture.Height);
 
