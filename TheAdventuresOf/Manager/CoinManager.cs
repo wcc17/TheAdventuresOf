@@ -11,6 +11,8 @@ namespace TheAdventuresOf
 
         List<Coin> coinsToRemove; //so I'm not making a new list every frame
         List<Coin> coins;
+        Vector2 coinCountSymbolPositionVector;
+        Vector2 coinCountPositionVector;
         int coinTotal;
         float groundLevel;
         Random rand;
@@ -37,6 +39,10 @@ namespace TheAdventuresOf
             coins = new List<Coin>();
             coinsToRemove = new List<Coin>();
             rand = new Random();
+
+            //TODO: hardcoded, need to load from XML. Atleast the starting point, then adjust as the number gets larger
+            coinCountSymbolPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH - 300, 100);
+            coinCountPositionVector = new Vector2(coinCountSymbolPositionVector.X + AssetManager.Instance.goldCoinTexture.Width, 100);
         }
 
         //TODO: this should eventually take in monster and increase oddds a little for certain monsters
@@ -109,15 +115,19 @@ namespace TheAdventuresOf
             foreach(Coin coin in coins) {
                 coin.Update(gameTime);
             }
-
-            Logger.Instance.AddOrUpdateValue("Total Coins: ", coinTotal.ToString());
-            Logger.WriteToConsole("number of coins on field: " + coins.Count);
         }
 
         public void Draw(SpriteBatch spriteBatch) {
             foreach(Coin coin in coins) {
                 coin.Draw(spriteBatch);
             }
+
+            drawCoinCount(spriteBatch);
+        }
+
+        void drawCoinCount(SpriteBatch spriteBatch) {
+            spriteBatch.Draw(AssetManager.Instance.goldCoinTexture, coinCountSymbolPositionVector);
+            spriteBatch.DrawString(AssetManager.Instance.font, " x " + coinTotal, coinCountPositionVector, Color.White);
         }
 
         public void UpdateGroundLevel(float newGroundLevel) {
@@ -125,3 +135,4 @@ namespace TheAdventuresOf
         }
     }
 }
+

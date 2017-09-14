@@ -88,7 +88,7 @@ namespace TheAdventuresOf
         }
 
         public void Draw(SpriteBatch spriteBatch) {
-            spriteBatch.DrawString(AssetManager.Instance.font, score.ToString(), totalScorePositionVector, Color.White);
+            spriteBatch.DrawString(AssetManager.Instance.font, "Score: " + score.ToString(), totalScorePositionVector, Color.White);
 
             foreach (ScoreText scoreText in activeScoreText) {
                 scoreText.Draw(spriteBatch);
