@@ -41,7 +41,21 @@ namespace TheAdventuresOf
 
         //TODO: this should eventually take in monster and increase oddds a little for certain monsters
         public void AddCoins(float x, float y) {
-            int numberOfCoins = rand.Next(5); //0 - 4 coins dropped
+            int numCoinDist = rand.Next(11); //0 - 10
+            int numberOfCoins = 0;
+
+            //TODO: xml import? idk, its easy to understand and won't be made much easier by using xml. but revisit once anyway
+            if(numCoinDist < 3) {
+                numberOfCoins = 0;
+            } else if(numCoinDist < 6) {
+                numberOfCoins = 1;
+            } else if(numCoinDist < 8) {
+                numberOfCoins = 2;
+            } else if(numCoinDist < 9) {
+                numberOfCoins = 3;
+            } else if(numCoinDist < 10) {
+                numberOfCoins = 4;
+            }
 
             for (int i = 0; i < numberOfCoins; i++) {
 				int randomCoinValue = rand.Next(1, 11); //get numbers 1-10 
