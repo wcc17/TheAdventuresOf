@@ -81,6 +81,9 @@ namespace TheAdventuresOf
             CoinManager.randomCoinLimitBronze = (int)coinManagerElement.Element("RandomCoinLimitBronze");
             CoinManager.randomCoinLimitSilver = (int)coinManagerElement.Element("RandomCoinLimitSilver");
             CoinManager.randomCoinLimitGold = (int)coinManagerElement.Element("RandomCoinLimitGold");
+            CoinManager.coinCountSymbolXOffset = (float)coinManagerElement.Element("CoinCountSymbolXOffset");
+            CoinManager.coinCountSymbolY = (float)coinManagerElement.Element("CoinCountSymbolY");
+            CoinManager.coinCountY = (float)coinManagerElement.Element("CoinCountY");
             Coin.coinDropSpeed = (float)coinElement.Element("CoinDropSpeed");
 		}
 

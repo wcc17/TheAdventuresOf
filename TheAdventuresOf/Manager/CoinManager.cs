@@ -19,6 +19,9 @@ namespace TheAdventuresOf
 
 		public static float coinYOffset;
         public static int coinXSpacing;
+        public static float coinCountSymbolXOffset;
+        public static float coinCountSymbolY;
+        public static float coinCountY;
 
         //TODO: should I be changing these from level to level?
         public static int randomCoinLimitBronze;
@@ -40,9 +43,8 @@ namespace TheAdventuresOf
             coinsToRemove = new List<Coin>();
             rand = new Random();
 
-            //TODO: hardcoded, need to load from XML. Atleast the starting point, then adjust as the number gets larger
-            coinCountSymbolPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH - 300, 100);
-            coinCountPositionVector = new Vector2(coinCountSymbolPositionVector.X + AssetManager.Instance.goldCoinTexture.Width, 100);
+            coinCountSymbolPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH - coinCountSymbolXOffset, coinCountSymbolY);
+            coinCountPositionVector = new Vector2(coinCountSymbolPositionVector.X + AssetManager.Instance.goldCoinTexture.Width, coinCountY);
         }
 
         //TODO: this should eventually take in monster and increase oddds a little for certain monsters
@@ -50,7 +52,12 @@ namespace TheAdventuresOf
             int numCoinDist = rand.Next(11); //0 - 10
             int numberOfCoins = 0;
 
-            //TODO: xml import? idk, its easy to understand and won't be made much easier by using xml. but revisit once anyway
+            /**
+             * Skipping XML importing for this for now. Relatively easy to understand
+             * and may be made more complicated by assigning variable names.
+             * Just making it less likely for a high number of coins to spawn.
+             * 0 coins is most likely, then 1 coin, etc.
+             **/
             if(numCoinDist < 3) {
                 numberOfCoins = 0;
             } else if(numCoinDist < 6) {
@@ -85,7 +92,7 @@ namespace TheAdventuresOf
             }
         }
 
-        public void checkCollisionWithPlayer(Rectangle playerBounds) {
+        public void CheckCollisionWithPlayer(Rectangle playerBounds) {
             foreach(Coin coin in coins) {
                 if(coin.bounds.Intersects(playerBounds)) {
                     coinTotal += coin.coinValue;
@@ -98,7 +105,7 @@ namespace TheAdventuresOf
         }
 
         //TODO: look here if performance starts to get bad
-        public void checkCollisionWithLevel(Rectangle levelBoundsLeft, Rectangle levelBoundsRight) {
+        public void CheckCollisionWithLevel(Rectangle levelBoundsLeft, Rectangle levelBoundsRight) {
             foreach(Coin coin in coins) {
                 if(coin.bounds.Intersects(levelBoundsLeft)) {
                     coin.positionVector.X = levelBoundsLeft.X;   
@@ -108,10 +115,7 @@ namespace TheAdventuresOf
             }
         }
 
-        public void Update(GameTime gameTime, Rectangle levelBoundsLeft, Rectangle levelBoundsRight) {
-            checkCollisionWithPlayer(PlayerManager.Instance.GetPlayerBounds());
-            checkCollisionWithLevel(levelBoundsLeft, levelBoundsRight);
-
+        public void Update(GameTime gameTime) {
             foreach(Coin coin in coins) {
                 coin.Update(gameTime);
             }
