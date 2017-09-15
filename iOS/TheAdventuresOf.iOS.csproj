@@ -105,7 +105,6 @@
   <ItemGroup>
     <BundleResource Include="GameThumbnail.png" />
     <BundleResource Include="Content\Level\level1background_1080p.png" />
-    <BundleResource Include="Content\Game\arrow_1080p.png" />
     <BundleResource Include="Content\Game\controller_1080p.png" />
     <BundleResource Include="Content\Game\emptyheart_1080p.png" />
     <BundleResource Include="Content\Game\heart_1080p.png" />
