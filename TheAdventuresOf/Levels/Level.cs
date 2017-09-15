@@ -45,7 +45,6 @@ namespace TheAdventuresOf
 		{
             base.Update(gameTime, gameController);
             monsterManager.Update(gameTime);
-            CoinManager.Instance.Update(gameTime, leftSideBounds, rightSideBounds);
 
             if(ScoringManager.score > tierScores[currentTier] && currentTier < (maxTier-1)) {
                 currentTier = currentTier + 1;
@@ -57,14 +56,18 @@ namespace TheAdventuresOf
             }
 		}
 
+        //not using base.Draw so that player can be drawn after monster
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-            base.Draw(spriteBatch);
-            
+            //Draw level
+            spriteBatch.Draw(levelTexture, levelPositionVector);
+
             //Draw monsters
             monsterManager.DrawMonsters(spriteBatch);
 
-            CoinManager.Instance.Draw(spriteBatch);
+            //Draw player
+            PlayerManager.Instance.Draw(spriteBatch);
+            
 		}
 	}
 }

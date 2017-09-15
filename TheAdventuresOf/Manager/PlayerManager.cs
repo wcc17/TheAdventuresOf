@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 
 namespace TheAdventuresOf
 {
+    /** Handles player logic and anything tied to the player **/
     public class PlayerManager
     {
         private static PlayerManager instance;
@@ -37,11 +38,16 @@ namespace TheAdventuresOf
         public void Update(GameTime gameTime, GameController gameController)
         {
             player.UpdatePlayer(gameTime, gameController);
+            CoinManager.Instance.Update(gameTime);
+
             level.CheckCollisionWithBounds(player);
+            CoinManager.Instance.CheckCollisionWithLevel(level.leftSideBounds, level.rightSideBounds);
+            CoinManager.Instance.CheckCollisionWithPlayer(player.entityBounds);
         }
 
         public void Draw(SpriteBatch spriteBatch) 
         {
+            CoinManager.Instance.Draw(spriteBatch);
             player.Draw(spriteBatch, AssetManager.Instance.playerTexture);
         }
 

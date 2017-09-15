@@ -7,6 +7,10 @@
 	<CoinManager>
         <CoinXSpacing>25</CoinXSpacing>
 	    <CoinYOffset>45</CoinYOffset>
+        
+		<CoinCountSymbolXOffset>300</CoinCountSymbolXOffset>
+		<CoinCountSymbolY>100</CoinCountSymbolY>
+		<CoinCountY>100</CoinCountY>
 		
 		<!-- TODO: should I be changing these level to level? If so they should be in another xml file with the levels -->
 	    <RandomCoinLimitBronze>6</RandomCoinLimitBronze>
