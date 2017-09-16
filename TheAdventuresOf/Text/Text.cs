@@ -6,6 +6,8 @@ namespace TheAdventuresOf
 {
     public class Text
     {
+        public Color color;
+
         public static float textDisappearSpeed;
         public static float textFontScale;
         public static float textPositionOffset;
@@ -25,6 +27,8 @@ namespace TheAdventuresOf
             this.index = index; //not always needed (for scoring espec)
             this.startX = startX;
             this.endX = endX;
+
+            color = Color.White;
         }
 
         public virtual void Update(GameTime gameTime) { }
@@ -32,7 +36,7 @@ namespace TheAdventuresOf
         public void Draw(SpriteBatch spriteBatch) {
             spriteBatch.DrawString(AssetManager.Instance.font,
                                    text, positionVector,
-                                   Color.White * alpha, 0, new Vector2(0,0), 
+                                   color * alpha, 0, new Vector2(0,0), 
                                    textFontScale, SpriteEffects.None, 0);
         }
     }
