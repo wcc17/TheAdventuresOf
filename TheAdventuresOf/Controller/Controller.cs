@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -33,13 +34,27 @@ namespace TheAdventuresOf
             }
         }
 
+        public virtual void HandleInputMobile(List<Point> points)
+        {
+            if (points.Count > 0)
+            {
+                for (int i = 0; i < points.Count; i++)
+                {
+                    //TODO: is checking multitouch limit necessary? Its already being checked in ScreenManager.GetTouchInput
+                    if (i < ScreenManager.MULTI_TOUCH_LIMIT)
+                    {
+                        HandleSingleInput(points[i]);
+                    }
+                }
+            }
+        }
+
+        public virtual void HandleInput(List<Point> points) { }
         public virtual void ResetButtonPressedValues(){ }
-        public virtual void HandleInput(Point point) { }
         public virtual void HandleImpacts() { }
         public virtual void Draw(SpriteBatch spriteBatch) { }
-        public virtual void HandleInputMobile(Point point) { }
+        public virtual void HandleSingleInput(Point point) { } 
         public virtual void HandleInputWindows() { }
         public virtual void Update(GameTime gameTime) { }
-        public virtual void HandleNoInput() { }
     }
 }

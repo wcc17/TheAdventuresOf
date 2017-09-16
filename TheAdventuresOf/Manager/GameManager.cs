@@ -15,9 +15,9 @@ namespace TheAdventuresOf
         public const int LOAD_STATE = 4;
         public const int STORE_LEVEL_STATE = 5;
 
-        Vector2 basePositionVector = new Vector2(0, 0);
+        Vector2 basePositionVector;
+        Vector2 pausedTextVector;
 
-        bool isPaused;
         int nextGameState = -1;
         int gameState = SPLASH_STATE;
         GraphicsDevice graphicsDevice;
@@ -39,6 +39,10 @@ namespace TheAdventuresOf
             this.graphicsDevice = graphicsDevice;
             this.contentManager = contentManager;
             this.musicManager = new MusicManager(gameState);
+
+            basePositionVector = new Vector2(0, 0);
+            //TODO: load offset from XML
+            pausedTextVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH / 2 - 40, ScreenManager.FULL_SCREEN_HEIGHT / 2);
         }
 
         public void LoadContent() {
@@ -145,7 +149,7 @@ namespace TheAdventuresOf
             musicManager.Update(gameTime);
 
             if(gameState != SPLASH_STATE && gameState != LOAD_STATE) {
-                screenManager.Update(gameTime, currentController);
+                screenManager.Update(currentController);
             }
 
             switch(gameState) {
@@ -200,15 +204,18 @@ namespace TheAdventuresOf
         }
 
         void updateLevel(GameTime gameTime, bool isGameActive) {
+            GameController gameController = (GameController)currentController;
+
+            //TODO: this currently isn't doing anything when game is no longer active. 
             if(!isGameActive) {
-                isPaused = true;
+                gameController.isPaused = true;
             }
 
-            if (((GameController) currentController).pauseButtonPressed) {
-                isPaused = !isPaused;
+            if (gameController.pauseButtonPressed) {
+                gameController.isPaused = !gameController.isPaused;
             }
 
-            if(!isPaused) {
+            if(!gameController.isPaused) {
                 switch(gameState) {
                     case PRE_LEVEL_STATE:
                         updatePreLevel(gameTime);
@@ -311,13 +318,7 @@ namespace TheAdventuresOf
                     break;
             }
 
-            //TODO: not for production
             Logger.Instance.DrawToScreen(spriteBatch);
-
-            if (isPaused)
-            {
-                spriteBatch.Draw(AssetManager.Instance.pauseBackgroundTexture, basePositionVector);
-            }
 
             spriteBatch.End();
         }
@@ -345,6 +346,12 @@ namespace TheAdventuresOf
 
             //Draw score related stuff
             TextManager.Instance.Draw(spriteBatch);
+
+            if (((GameController)currentController).isPaused)
+            {
+                spriteBatch.Draw(AssetManager.Instance.pauseBackgroundTexture, basePositionVector);
+                spriteBatch.DrawString(AssetManager.Instance.font, "Paused.", pausedTextVector, Color.White);
+            }
         }
 
         void drawLoadScreen()

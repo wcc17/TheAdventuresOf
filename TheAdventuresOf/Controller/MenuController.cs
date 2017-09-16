@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -22,16 +23,15 @@ namespace TheAdventuresOf
                                     playButtonPositionVector.Y);
         }
 
-        public override void HandleInput(Point point) {
+        public override void HandleInput(List<Point> points) {
             #if __IOS__ || __ANDROID__
-                HandleInputMobile(point);
+                HandleInputMobile(points);
             #else
                 HandleInputWindows();
             #endif
         }
 
-        public override void HandleInputMobile(Point point)
-        {
+        public override void HandleSingleInput(Point point) {
             if (playButton.IsPressed(point))
             {
                 isButtonPressed = true;

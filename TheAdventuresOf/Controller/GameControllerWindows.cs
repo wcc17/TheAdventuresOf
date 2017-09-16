@@ -12,7 +12,7 @@ namespace TheAdventuresOf
             base.InitializeController();
         }
 
-        public override void HandleInput(Point point) {
+        public override void HandleInput(List<Point> points) {
            
             if (GamePad.GetState(PlayerIndex.One).DPad.Left == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Left))
             {
