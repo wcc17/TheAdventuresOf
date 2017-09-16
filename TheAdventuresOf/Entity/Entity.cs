@@ -32,6 +32,8 @@ namespace TheAdventuresOf
 		public bool moveRight;
 		public bool isMoving;
 
+        public int damage;
+
 		public Color tintColor = Color.White;
 
 		public void InitializeEntity(float startX, float startY)
