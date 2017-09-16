@@ -130,11 +130,12 @@
       <AnimationSpeed>0.08</AnimationSpeed>
       <RotationSpeed>550</RotationSpeed>
       <SpawnSpeed>275</SpawnSpeed>
-      <DeathSpeed>400</DeathSpeed>
+      <DeathSpeed>450</DeathSpeed>
       <InitialVelocity>-15</InitialVelocity>
       <Gravity>0.48</Gravity> 
       <VelocityWeakenValue>0.60</VelocityWeakenValue> <!-- before monster hits ground, velocity will be lessened so player has more warning -->
       <RotationVelocityLimit>-10</RotationVelocityLimit> <!-- when this limit is hit, rotation will begin in air -->
+	  <FadeSpeed>1.0</FadeSpeed>
     </UndergroundMonster>
 		
   </Monsters>
