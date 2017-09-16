@@ -111,7 +111,7 @@
 		
 	<DashMonster>	
 	  <EntityTag>DashMonster></EntityTag>
-	  <Speed>450</Speed>
+	  <Speed>500</Speed>
       <SpawnSpeed>250</SpawnSpeed>
       <DeathSpeed>400</DeathSpeed>
       <RotationSpeed>350</RotationSpeed>
