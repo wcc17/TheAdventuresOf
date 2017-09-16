@@ -90,6 +90,16 @@ namespace TheAdventuresOf
             Coin.coinDropSpeed = (float)coinElement.Element("CoinDropSpeed");
 		}
 
+        public static GameManager LoadGameManagerInformation(GameManager gameManager) {
+            XElement gameElement = gameDocument.Element("Game");
+            XElement gameManagerElement = gameElement.Element("GameManager");
+
+            gameManager.splashTimeLimit = (float)gameManagerElement.Element("SplashTimeLimit");
+            gameManager.pausedTextVectorXOffset = (float)gameManagerElement.Element("PausedTextVectorXOffset");
+
+            return gameManager;
+        }
+
         public static void LoadMainMenuInformation() {
             XElement levelElement = levelDocument.Element("Level");
             XElement mainMenuElement = levelElement.Element("MainMenu");

@@ -18,6 +18,10 @@
 		<RandomCoinLimitGold>10</RandomCoinLimitGold>  
 	</CoinManager>
 		
+	<GameManager>
+        <SplashTimeLimit>2.5</SplashTimeLimit>
+		<PausedTextVectorXOffset>40</PausedTextVectorXOffset>
+	</GameManager>
 	
 	<GameController>
 		<ControllerX>0</ControllerX>
