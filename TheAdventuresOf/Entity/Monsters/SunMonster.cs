@@ -19,6 +19,7 @@ namespace TheAdventuresOf
 			moveDistanceLimit = sunMonster.moveDistanceLimit;
 			actionDelayTime = sunMonster.actionDelayTime;
 			rotationSpeed = sunMonster.rotationSpeed;
+            damage = sunMonster.damage;
 
 			monsterTexture = AssetManager.Instance.sunMonsterTexture;
 		}

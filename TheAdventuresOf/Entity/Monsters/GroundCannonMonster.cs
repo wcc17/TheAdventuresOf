@@ -19,6 +19,7 @@ namespace TheAdventuresOf
             bulletYOffset = groundCannonMonster.bulletYOffset;
             spawnSpeed = groundCannonMonster.spawnSpeed;
             deathSpeed = groundCannonMonster.deathSpeed;
+            damage = groundCannonMonster.damage;
 
             leftSideX = groundCannonMonster.leftSideX;
             rightSideX = groundCannonMonster.rightSideX;

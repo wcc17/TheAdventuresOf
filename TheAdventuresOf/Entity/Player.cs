@@ -259,9 +259,7 @@ namespace TheAdventuresOf
 
 		void handlePlayerTakingDamage(Entity entity)
 		{
-            //TODO: different monsters should do different amounts of damage
-			health -= 5;
-
+            health -= entity.damage;
             recalculateHealthBarFill();
 
 			if (health > 0)

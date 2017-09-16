@@ -31,6 +31,7 @@ namespace TheAdventuresOf
             actionDelayTime = spikeMonster.actionDelayTime;
             rotationSpeed = spikeMonster.rotationSpeed;
             attackSpeed = spikeMonster.attackSpeed;
+            damage = spikeMonster.damage;
 
             monsterTexture = AssetManager.Instance.spikeMonsterTexture;
         }

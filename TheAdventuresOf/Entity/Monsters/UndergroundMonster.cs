@@ -24,6 +24,7 @@ namespace TheAdventuresOf
             moveDistanceLimit = undergroundMonster.moveDistanceLimit;
             actionDelayTime = undergroundMonster.actionDelayTime;
             rotationSpeed = undergroundMonster.rotationSpeed;
+            damage = undergroundMonster.damage;
 
             monsterTexture = AssetManager.Instance.undergroundMonsterTexture;
         }

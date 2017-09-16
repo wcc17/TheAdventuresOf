@@ -16,6 +16,7 @@ namespace TheAdventuresOf
 			moveDistanceLimit = blockMonster.moveDistanceLimit;
 			actionDelayTime = blockMonster.actionDelayTime;
 			rotationSpeed = blockMonster.rotationSpeed;
+            damage = blockMonster.damage;
 
 			monsterTexture = AssetManager.Instance.blockMonsterTexture;
 		}
