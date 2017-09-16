@@ -9,7 +9,10 @@ namespace TheAdventuresOf
         public static float gravity;
         public static float velocityWeakenValue;
         public static float rotationVelocityLimit;
+        public static float fadeSpeed;
+
         float velocity;
+        float alpha;
 
         public void SetUndergroundMonsterData(UndergroundMonster undergroundMonster) {
             entityTag = undergroundMonster.entityTag;
@@ -29,6 +32,7 @@ namespace TheAdventuresOf
             moveRight = true; //monster won't be drawn without this, doesnt affect current monster
             isSpawning = false; //just to be safe in case changes are made
             delayAction = false;
+            alpha = 1.0f;
         }
 
         public override void Update(GameTime gameTime, bool buttonPressed = false) {
@@ -63,6 +67,7 @@ namespace TheAdventuresOf
         public override void HandleDeath(GameTime gameTime) {
             if (positionVector.Y < ScreenManager.FULL_SCREEN_HEIGHT + entityHeight)
             {
+                handleFadeOut(gameTime);
                 MoveUpDown(gameTime, DOWN, deathSpeed);
             }
             else
@@ -104,6 +109,12 @@ namespace TheAdventuresOf
             velocity = initialVelocity;
             rotation = 180 * (float)(Math.PI / 180);
             isMoving = true;
+        }
+
+        void handleFadeOut(GameTime gameTime)
+        {
+            alpha -= (fadeSpeed * ((float)gameTime.ElapsedGameTime.TotalSeconds));
+            tintColor = Color.White * alpha;
         }
 
     }

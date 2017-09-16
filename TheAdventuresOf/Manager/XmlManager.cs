@@ -477,6 +477,7 @@ namespace TheAdventuresOf
             undergroundMonster.spawnSpeed = (float)undergroundMonsterElement.Element("SpawnSpeed");
             undergroundMonster.deathSpeed = (float)undergroundMonsterElement.Element("DeathSpeed");
 
+            UndergroundMonster.fadeSpeed = (float)undergroundMonsterElement.Element("FadeSpeed");
             UndergroundMonster.initialVelocity = (float)undergroundMonsterElement.Element("InitialVelocity");
             UndergroundMonster.gravity = (float)undergroundMonsterElement.Element("Gravity");
             UndergroundMonster.velocityWeakenValue = (float)undergroundMonsterElement.Element("VelocityWeakenValue");
