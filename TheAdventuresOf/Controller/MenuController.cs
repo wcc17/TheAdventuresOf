@@ -25,9 +25,9 @@ namespace TheAdventuresOf
 
         public override void HandleInput(List<Point> points) {
             #if __IOS__ || __ANDROID__
-                HandleInputMobile(points);
+                base.HandleInput(points);
             #else
-                HandleInputWindows();
+                HandleInputWindows(points);
             #endif
         }
 
@@ -39,7 +39,7 @@ namespace TheAdventuresOf
             }
         }
 
-        public override void HandleInputWindows()
+        public void HandleInputWindows()
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Enter))
             {

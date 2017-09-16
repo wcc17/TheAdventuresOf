@@ -34,8 +34,7 @@ namespace TheAdventuresOf
             }
         }
 
-        public virtual void HandleInputMobile(List<Point> points)
-        {
+        public virtual void HandleInput(List<Point> points) {
             if (points.Count > 0)
             {
                 for (int i = 0; i < points.Count; i++)
@@ -49,12 +48,10 @@ namespace TheAdventuresOf
             }
         }
 
-        public virtual void HandleInput(List<Point> points) { }
         public virtual void ResetButtonPressedValues(){ }
         public virtual void HandleImpacts() { }
         public virtual void Draw(SpriteBatch spriteBatch) { }
         public virtual void HandleSingleInput(Point point) { } 
-        public virtual void HandleInputWindows() { }
         public virtual void Update(GameTime gameTime) { }
     }
 }
