@@ -10,7 +10,7 @@ namespace TheAdventuresOf
 		public const float FULL_SCREEN_WIDTH = 1920f;
 		public const float FULL_SCREEN_HEIGHT = 1080f;
 
-		public const int multiTouchLimit = 2;
+		public const int MULTI_TOUCH_LIMIT = 2;
 
 		public Matrix scaleMatrix { get; set; }
 
@@ -34,13 +34,13 @@ namespace TheAdventuresOf
 			return matrix;
 		}
 
-		public void Update(GameTime gameTime, Controller controller)
+		public void Update(Controller controller)
 		{
-			HandleInput(gameTime, controller);
+			HandleInput(controller);
 		}
 
         //TODO: gameTime shouldn't be passed here 
-        public void HandleInput(GameTime gameTime, Controller controller)
+        public void HandleInput(Controller controller)
         {
             //reset the controller
             controller.ResetButtonPressedValues();
@@ -57,23 +57,12 @@ namespace TheAdventuresOf
         private void handleInputMobile(Controller controller)
         {
             List<Point> touchPoints = GetTouchInput();
-            if (touchPoints.Count > 0)
-            {
-                for (int i = 0; i < touchPoints.Count; i++)
-                {
-                    if (i < multiTouchLimit)
-                    {
-                        controller.HandleInput(touchPoints[i]);
-                    }
-                }
-            } else {
-                controller.HandleNoInput();
-            }
+            controller.HandleInput(touchPoints);
         }
 
         private void handleInputWindows(Controller controller)
         {
-            controller.HandleInput(new Point());
+            controller.HandleInput(new List<Point>());
         }
 
 		private List<Point> GetTouchInput()
@@ -85,7 +74,7 @@ namespace TheAdventuresOf
 			{
 				for (int i = 0; i < touchCollection.Count; i++)
 				{
-					if (i < multiTouchLimit)
+					if (i < MULTI_TOUCH_LIMIT)
 					{
 						//these return as float, but area always either .0 or .9998 or something like that. 
 						Point originalPoint = new Point((int)touchCollection[i].Position.X, (int)touchCollection[i].Position.Y);

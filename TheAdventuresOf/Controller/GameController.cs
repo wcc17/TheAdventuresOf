@@ -14,6 +14,8 @@ namespace TheAdventuresOf
         public bool jumpButtonPressed;
         public bool pauseButtonPressed;
 
+        public bool isPaused;
+
         public override void InitializeController() {
             base.InitializeController();
         }
