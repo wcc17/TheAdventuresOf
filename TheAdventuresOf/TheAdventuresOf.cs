@@ -30,6 +30,7 @@ namespace TheAdventuresOf
 		protected override void Initialize()
 		{
             gameManager = new GameManager(this.GraphicsDevice, Content);
+            gameManager = XmlManager.LoadGameManagerInformation(gameManager);
 			base.Initialize();
 		}
 

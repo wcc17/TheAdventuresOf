@@ -30,8 +30,8 @@ namespace TheAdventuresOf
 
         Controller currentController;
 
-        //TODO: load this information in an XML file
-        float splashTimeLimit = 2.5f;
+        public float splashTimeLimit;
+        public float pausedTextVectorXOffset;
         Timer splashTimer;
 
         public GameManager(GraphicsDevice graphicsDevice, ContentManager contentManager)
@@ -41,8 +41,7 @@ namespace TheAdventuresOf
             this.musicManager = new MusicManager(gameState);
 
             basePositionVector = new Vector2(0, 0);
-            //TODO: load offset from XML
-            pausedTextVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH / 2 - 40, ScreenManager.FULL_SCREEN_HEIGHT / 2);
+            pausedTextVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH / 2 - pausedTextVectorXOffset, ScreenManager.FULL_SCREEN_HEIGHT / 2);
         }
 
         public void LoadContent() {
@@ -182,7 +181,7 @@ namespace TheAdventuresOf
                 //no need to get load screen involved
                 loadMainMenu();
 
-                //need to throw away splash texture and information after this
+                //TODO: need to throw away splash texture and information after this
             }
         }
 
