@@ -35,16 +35,8 @@ namespace TheAdventuresOf
         }
 
         public virtual void HandleInput(List<Point> points) {
-            if (points.Count > 0)
-            {
-                for (int i = 0; i < points.Count; i++)
-                {
-                    //TODO: is checking multitouch limit necessary? Its already being checked in ScreenManager.GetTouchInput
-                    if (i < ScreenManager.MULTI_TOUCH_LIMIT)
-                    {
-                        HandleSingleInput(points[i]);
-                    }
-                }
+            foreach(Point point in points) {
+                HandleSingleInput(point);
             }
         }
 
