@@ -23,6 +23,7 @@ namespace TheAdventuresOf
             actionDelayTime = dashMonster.actionDelayTime;
             rotationSpeed = dashMonster.rotationSpeed;
             animationSpeed = dashMonster.animationSpeed;
+            damage = dashMonster.damage;
 
             monsterTexture = AssetManager.Instance.dashMonsterTexture;
         }

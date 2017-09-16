@@ -83,7 +83,7 @@ namespace TheAdventuresOf
             }
         }
 
-		public void Reset(string entityTag, float speed, float startX, float startY,
+		public void Reset(string entityTag, float speed, int damage, float startX, float startY,
                           float rotationSpeed, float fadeSpeed, bool moveLeft, 
                           bool moveRight, float monsterWidth)
 		{
@@ -100,6 +100,7 @@ namespace TheAdventuresOf
             this.fadeSpeed = fadeSpeed;
 			this.moveLeft = moveLeft;
 			this.moveRight = moveRight;
+            this.damage = damage;
 
 			positionVector.Y = startY;
             positionVector.X = startX + monsterWidth;

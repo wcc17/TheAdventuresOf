@@ -21,6 +21,7 @@ namespace TheAdventuresOf
             rightSideX = flyingCannonMonster.rightSideX;
             bounceHeight = flyingCannonMonster.bounceHeight;
             bounceSpeed = flyingCannonMonster.bounceSpeed;
+            damage = flyingCannonMonster.damage;
             monsterTexture = AssetManager.Instance.flyingCannonMonsterTexture;
         }
 

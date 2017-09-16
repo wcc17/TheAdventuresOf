@@ -18,6 +18,7 @@ namespace TheAdventuresOf
         public static string bileEntityTag;
         public static float bileSpeed;
         public static float bileFadeSpeed;
+        public static int bileDamage;
 
         bool delayBuildup = true; //wait to start building up
         bool isThrowing = false; //is actually tossing bile object
@@ -40,6 +41,7 @@ namespace TheAdventuresOf
             moveDistanceLimit = bileMonster.moveDistanceLimit;
             actionDelayTime = bileMonster.actionDelayTime;
             rotationSpeed = bileMonster.rotationSpeed;
+            damage = bileMonster.damage;
 
             monsterTexture = AssetManager.Instance.bileMonsterTexture;
         }
@@ -263,7 +265,8 @@ namespace TheAdventuresOf
             bile.positionVector.Y = positionVector.Y;
             bile.originVector.X = positionVector.X;
             bile.originVector.Y = positionVector.Y;
-            bile.isActive = true; 
+            bile.isActive = true;
+            bile.damage = bileDamage;
 
             activeBileObjects.Add(bile);
         }

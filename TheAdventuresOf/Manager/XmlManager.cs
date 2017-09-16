@@ -259,6 +259,7 @@ namespace TheAdventuresOf
             blockMonster.moveDistanceLimit = (int)blockMonsterElement.Element("MoveDistanceLimit");
             blockMonster.actionDelayTime = (float)blockMonsterElement.Element("ActionDelayTime");
             blockMonster.rotationSpeed = (float)blockMonsterElement.Element("RotationSpeed");
+            blockMonster.damage = (int)blockMonsterElement.Element("Damage");
 
 			return blockMonster;
 		}
@@ -280,6 +281,7 @@ namespace TheAdventuresOf
             sunMonster.moveDistanceLimit = (int)sunMonsterElement.Element("MoveDistanceLimit");
             sunMonster.actionDelayTime = (float)sunMonsterElement.Element("ActionDelayTime");
             sunMonster.rotationSpeed = (float)sunMonsterElement.Element("RotationSpeed");
+            sunMonster.damage = (int)sunMonsterElement.Element("Damage");
 
 			SunMonster.floatHeight = (float)sunMonsterElement.Element("FloatHeight");
 
@@ -303,6 +305,7 @@ namespace TheAdventuresOf
             bileMonster.moveDistanceLimit = (int)bileMonsterElement.Element("MoveDistanceLimit");
             bileMonster.actionDelayTime = (float)bileMonsterElement.Element("ActionDelayTime");
             bileMonster.rotationSpeed = (float)bileMonsterElement.Element("RotationSpeed");
+            bileMonster.damage = (int)bileMonsterElement.Element("Damage");
 
 			BileMonster.bileObjectLimit = (float)bileMonsterElement.Element("BileObjectLimit");
             BileMonster.floatHeight = (float)bileMonsterElement.Element("FloatHeight");
@@ -316,6 +319,7 @@ namespace TheAdventuresOf
 			BileMonster.bileEntityTag = (string)bileElement.Element("EntityTag");
 			BileMonster.bileSpeed = (float)bileElement.Element("Speed");
             BileMonster.bileFadeSpeed = (float)bileElement.Element("FadeSpeed");
+            BileMonster.bileDamage = (int)bileElement.Element("Damage");
             Bile.timeToLive = (float)bileElement.Element("TimeToLive");
             Bile.distance = (float)bileElement.Element("Distance");
             Bile.groundOffset = (float)bileElement.Element("GroundOffset");
@@ -341,6 +345,7 @@ namespace TheAdventuresOf
             BaseCannonMonster.bulletSpeed = (float)bulletElement.Element("Speed");
             BaseCannonMonster.initialBulletRotationSpeed = (float)bulletElement.Element("RotationSpeed");
             BaseCannonMonster.initialBulletFadeSpeed = (float)bulletElement.Element("FadeSpeed");
+            BaseCannonMonster.bulletDamage = (int)bulletElement.Element("Damage");
         }
 
 		public static GroundCannonMonster LoadCannonMonsterInformation(int rightBoundWidth, int leftBoundWidth)
@@ -359,6 +364,7 @@ namespace TheAdventuresOf
 			groundCannonMonster.actionDelayTime = (float)cannonMonsterElement.Element("ActionDelayTime");
             groundCannonMonster.boundOffset = (float)cannonMonsterElement.Element("BoundOffset");
             groundCannonMonster.bulletYOffset = (float)cannonMonsterElement.Element("BulletYOffset");
+            groundCannonMonster.damage = (int)cannonMonsterElement.Element("Damage");
 
             GroundCannonMonster.groundOffset = (float)cannonMonsterElement.Element("GroundOffset");
 
@@ -391,6 +397,7 @@ namespace TheAdventuresOf
             flyingCannonMonster.boundOffset = (float)flyingCannonMonsterElement.Element("BoundOffset");
             flyingCannonMonster.bounceHeight = (float)flyingCannonMonsterElement.Element("BounceHeight");
             flyingCannonMonster.bounceSpeed = (float)flyingCannonMonsterElement.Element("BounceSpeed");
+            flyingCannonMonster.damage = (int)flyingCannonMonsterElement.Element("Damage");
 
             FlyingCannonMonster.floatHeight = (float)flyingCannonMonsterElement.Element("FloatHeight");
 
@@ -423,6 +430,7 @@ namespace TheAdventuresOf
             spikeMonster.deathSpeed = (float)spikeMonsterElement.Element("DeathSpeed");
             spikeMonster.actionDelayTime = (float)spikeMonsterElement.Element("ActionDelayTime");
             spikeMonster.attackSpeed = (float)spikeMonsterElement.Element("AttackSpeed");
+            spikeMonster.damage = (int)spikeMonsterElement.Element("Damage");
 
             SpikeMonster.floatHeight = (float)spikeMonsterElement.Element("FloatHeight");
             SpikeMonster.attackDelayTime = (float)spikeMonsterElement.Element("AttackDelayTime");
@@ -446,6 +454,7 @@ namespace TheAdventuresOf
             dashMonster.actionDelayTime = (float)dashMonsterElement.Element("ActionDelayTime");
             dashMonster.rotationSpeed = (float)dashMonsterElement.Element("RotationSpeed");
             dashMonster.animationSpeed = (float)dashMonsterElement.Element("AnimationSpeed");
+            dashMonster.damage = (int)dashMonsterElement.Element("Damage");
 
             DashMonster.groundOffset = (float)dashMonsterElement.Element("GroundOffset");
             DashMonster.boundOffset = (float)dashMonsterElement.Element("BoundOffset");
@@ -476,6 +485,7 @@ namespace TheAdventuresOf
             undergroundMonster.rotationSpeed = (float)undergroundMonsterElement.Element("RotationSpeed");
             undergroundMonster.spawnSpeed = (float)undergroundMonsterElement.Element("SpawnSpeed");
             undergroundMonster.deathSpeed = (float)undergroundMonsterElement.Element("DeathSpeed");
+            undergroundMonster.damage = (int)undergroundMonsterElement.Element("Damage");
 
             UndergroundMonster.fadeSpeed = (float)undergroundMonsterElement.Element("FadeSpeed");
             UndergroundMonster.initialVelocity = (float)undergroundMonsterElement.Element("InitialVelocity");

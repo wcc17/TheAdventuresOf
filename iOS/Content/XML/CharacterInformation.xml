@@ -31,6 +31,7 @@
       <MoveDistanceLimit>150</MoveDistanceLimit>
       <ActionDelayTime>1.5</ActionDelayTime>
       <RotationSpeed>350</RotationSpeed>
+	  <Damage>1</Damage>
     </BlockMonster>
 		
     <SunMonster>
@@ -44,6 +45,7 @@
       <ActionDelayTime>1.5</ActionDelayTime>
       <RotationSpeed>400</RotationSpeed>
       <FloatHeight>125</FloatHeight>
+	  <Damage>1</Damage>
     </SunMonster>
 		
 	<BileMonster>
@@ -61,6 +63,7 @@
       <BuildUpDelayTimeLimit>2.5</BuildUpDelayTimeLimit>
 	  <BuildUpTimeLimit>2</BuildUpTimeLimit>	
 	  <ThrowTimeLimit>1.2</ThrowTimeLimit>	
+	  <Damage>2</Damage>
     </BileMonster>
 
     <BaseCannonMonster>
@@ -78,6 +81,7 @@
       <GroundOffset>45</GroundOffset>
       <BoundOffset>40</BoundOffset>
 	  <BulletYOffset>75</BulletYOffset>	
+	  <Damage>3</Damage>	
     </GroundCannonMonster>
 
     <FlyingCannonMonster>
@@ -92,7 +96,8 @@
       <FloatHeight>165</FloatHeight> 
 	  <BulletYOffset>35</BulletYOffset>	
 	  <BounceHeight>12</BounceHeight>
-	  <BounceSpeed>125</BounceSpeed>		
+	  <BounceSpeed>125</BounceSpeed>	
+	  <Damage>3</Damage>
     </FlyingCannonMonster>  
 		
 	<SpikeMonster>
@@ -107,6 +112,7 @@
       <ActionDelayTime>10</ActionDelayTime>
       <AttackDelayTime>1.2</AttackDelayTime>        
 	  <FloatHeight>275</FloatHeight>
+	  <Damage>8</Damage>	
     </SpikeMonster>
 		
 	<DashMonster>	
@@ -119,7 +125,8 @@
       <FrameCount>3</FrameCount>
       <ActionDelayTime>3</ActionDelayTime>
 	  <GroundOffset>8</GroundOffset>	
-	  <BoundOffset>40</BoundOffset>		
+	  <BoundOffset>40</BoundOffset>	
+	  <Damage>5</Damage>
 	</DashMonster>	
 
     <UndergroundMonster>
@@ -136,6 +143,7 @@
       <VelocityWeakenValue>0.60</VelocityWeakenValue> <!-- before monster hits ground, velocity will be lessened so player has more warning -->
       <RotationVelocityLimit>-10</RotationVelocityLimit> <!-- when this limit is hit, rotation will begin in air -->
 	  <FadeSpeed>1.0</FadeSpeed>
+	  <Damage>4</Damage>	
     </UndergroundMonster>
 		
   </Monsters>
