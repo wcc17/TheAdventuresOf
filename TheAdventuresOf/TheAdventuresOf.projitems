@@ -13,11 +13,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controller\GameControllerWindows.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\VibrationController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\TextManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ScoreText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TheAdventuresOf.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\FrameRate.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AnimationFrame.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Animation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\BlockMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\GroundCannonMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\SunMonster.cs" />
@@ -47,7 +44,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controller\GameControllerMobile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\MenuController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\ScoringManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Text.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\Logger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Levels\BaseLevel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Levels\MainMenu.cs" />
@@ -58,6 +54,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Coin.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\CoinManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\XmlManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Text\DamageText.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Text\FloatingText.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Text\ScoreText.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Text\Text.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Animation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\AnimationFrame.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />
@@ -65,5 +67,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Entity\Monsters\" />
     <Folder Include="$(MSBuildThisFileDirectory)Entity\Projectiles\" />
     <Folder Include="$(MSBuildThisFileDirectory)Levels\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Text\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Animation\" />
   </ItemGroup>
 </Project>
