@@ -45,10 +45,8 @@ namespace TheAdventuresOf
         //so even though leftButton is pressed, we might be looking at the rightButton point
         //so this function will think leftButton is NOT being pressed
 		public override void HandleInput(List<Point> points) {
-            //base.HandleInputMobile(points);
-
             if(!pauseAlreadyPressed) {
-                base.HandleInputMobile(points);
+                base.HandleInput(points);
             } else if(points.Count <= 0){
                 handleNoInput();
             }
