@@ -29,19 +29,10 @@ namespace TheAdventuresOf
             if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Space))
             {
                 isButtonPressed = true;
-                upButtonPressed = true;
+                jumpButtonPressed = true;
             }
-        }
 
-        public override void ResetButtonPressedValues()
-        {
-            isButtonPressed = false;
-            leftButtonPressed = false;
-            rightButtonPressed = false;
-            upButtonPressed = false;
+            //TODO: handle pause button on windows
         }
-
-        //handleimpacts
-        //draw
     }
 }
