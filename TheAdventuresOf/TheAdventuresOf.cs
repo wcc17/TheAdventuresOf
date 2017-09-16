@@ -18,7 +18,7 @@ namespace TheAdventuresOf
 			graphics = new GraphicsDeviceManager(this);
 
 			Content.RootDirectory = "Content";
-			XmlImporter.GetXMLInformation();
+            XmlManager.GetXMLInformation();
 		}
 
 		/// <summary>
@@ -49,14 +49,13 @@ namespace TheAdventuresOf
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Update(GameTime gameTime)
 		{
-			// For Mobile devices, this logic will close the Game when the Back button is pressed
-			// Exit() is obsolete on iOS
-			#if !__IOS__ && !__TVOS__
+            // For Mobile devices, this logic will close the Game when the Back button is pressed
+            // Exit() is obsolete on iOS
+#if !__IOS__ && !__TVOS__
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 				Exit();
-			#endif
-
-            gameManager.Update(gameTime);
+#endif
+            gameManager.Update(gameTime, this.IsActive);
 			base.Update(gameTime);
 		}
 

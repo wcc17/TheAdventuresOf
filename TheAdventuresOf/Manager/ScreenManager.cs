@@ -66,6 +66,8 @@ namespace TheAdventuresOf
                         controller.HandleInput(touchPoints[i]);
                     }
                 }
+            } else {
+                controller.HandleNoInput();
             }
         }
 

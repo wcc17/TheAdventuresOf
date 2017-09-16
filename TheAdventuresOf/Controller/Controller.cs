@@ -39,5 +39,7 @@ namespace TheAdventuresOf
         public virtual void Draw(SpriteBatch spriteBatch) { }
         public virtual void HandleInputMobile(Point point) { }
         public virtual void HandleInputWindows() { }
+        public virtual void Update(GameTime gameTime) { }
+        public virtual void HandleNoInput() { }
     }
 }

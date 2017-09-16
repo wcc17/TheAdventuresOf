@@ -29,10 +29,12 @@ namespace TheAdventuresOf
         public Texture2D progressBarFillTexture;
         public Texture2D leftArrowButtonTexture;
         public Texture2D rightArrowButtonTexture;
-        public Texture2D upArrowButtonTexture;
+        public Texture2D jumpButtonTexture;
+        public Texture2D pauseButtonTexture;
         public Texture2D bronzeCoinTexture;
         public Texture2D silverCoinTexture;
         public Texture2D goldCoinTexture;
+        public Texture2D pauseBackgroundTexture;
         public SpriteFont font;
 
         //prelevel textures
@@ -96,7 +98,7 @@ namespace TheAdventuresOf
 #else
             level1String = "level1background_xbox_1080p.png";
             preLevelString = "pre_level1_background_xbox_1080p.png";
-            storeLevelString = store_level_xbox_1080p.png";
+            storeLevelString = "store_level_xbox_1080p.png";
             loadOnScreenController = false;
 #endif
         }
@@ -148,43 +150,40 @@ namespace TheAdventuresOf
             String gameFilePath = filePath + "Game/";
 
 			//game textures
-			using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_1080p.png"))
-			{
+			using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_1080p.png")) {
                 progressBarTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
-			using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_fill_1080p.png"))
-			{
+			using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_fill_1080p.png")) {
 				progressBarFillTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
-            using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_gold_1080p.png"))
-            {
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_gold_1080p.png")) {
                 goldCoinTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_silver_1080p.png"))
-            {
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_silver_1080p.png")) {
                 silverCoinTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_bronze_1080p.png"))
-            {
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_bronze_1080p.png")) {
                 bronzeCoinTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "pause_background_1080p.png")) {
+                pauseBackgroundTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
             if(loadOnScreenController) {
-                using (var stream = TitleContainer.OpenStream(gameFilePath + "controller_1080p.png"))
-                {
+                using (var stream = TitleContainer.OpenStream(gameFilePath + "controller_1080p.png")) {
                     controllerTexture = Texture2D.FromStream(graphicsDevice, stream);
                 }
-                using (var stream = TitleContainer.OpenStream(gameFilePath + "leftarrow_1080p.png"))
-                {
+                using (var stream = TitleContainer.OpenStream(gameFilePath + "leftarrow_1080p.png")) {
                     leftArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
                 }
-                using (var stream = TitleContainer.OpenStream(gameFilePath + "rightarrow_1080p.png"))
-                {
+                using (var stream = TitleContainer.OpenStream(gameFilePath + "rightarrow_1080p.png")) {
                     rightArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
                 }
-                using (var stream = TitleContainer.OpenStream(gameFilePath + "uparrow_1080p.png"))
-                {
-                    upArrowButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+                using (var stream = TitleContainer.OpenStream(gameFilePath + "button_1080p.png")) {
+                    jumpButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+                }
+                using (var stream = TitleContainer.OpenStream(gameFilePath + "pause_1080p.png")) {
+                    pauseButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
                 }
             }
         }
@@ -320,7 +319,10 @@ namespace TheAdventuresOf
             progressBarFillTexture.Dispose();
             leftArrowButtonTexture.Dispose();
             rightArrowButtonTexture.Dispose();
-            upArrowButtonTexture.Dispose();
+            jumpButtonTexture.Dispose();
+            pauseButtonTexture.Dispose();
+            pauseBackgroundTexture.Dispose();
+
             bronzeCoinTexture.Dispose();
             silverCoinTexture.Dispose();
             goldCoinTexture.Dispose();

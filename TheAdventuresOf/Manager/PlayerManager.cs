@@ -27,7 +27,7 @@ namespace TheAdventuresOf
         public void InitializePlayerManager(BaseLevel level) {
             this.level = level;
 
-            player = XmlImporter.LoadPlayerInformation();
+            player = XmlManager.LoadPlayerInformation();
             player.InitializePlayer(level.playerStartX,
                                     level.groundLevel,
                                     AssetManager.Instance.playerTexture.Width / player.frameCount,

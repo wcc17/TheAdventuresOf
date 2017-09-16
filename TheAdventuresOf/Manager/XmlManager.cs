@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace TheAdventuresOf
 {
-	public static class XmlImporter
+	public static class XmlManager
 	{
 		public const string androidFilePath = "Assets/Content/";
 		public const string iosFilePath = "Content/";
@@ -53,12 +53,15 @@ namespace TheAdventuresOf
 			var leftButtonY = (float)gameControllerElement.Element("LeftButtonY");
 			var rightButtonX = (float)gameControllerElement.Element("RightButtonX");
 			var rightButtonY = (float)gameControllerElement.Element("RightButtonY");
-			var upButtonX = (float)gameControllerElement.Element("UpButtonX");
-			var upButtonY = (float)gameControllerElement.Element("UpButtonY");
-			GameController.controllerPositionVector = new Vector2(controllerX, controllerY);
-			GameController.leftButtonPositionVector = new Vector2(leftButtonX, leftButtonY);
-			GameController.rightButtonPositionVector = new Vector2(rightButtonX, rightButtonY);
-			GameController.upButtonPositionVector = new Vector2(upButtonX, upButtonY);
+			var jumpButtonX = (float)gameControllerElement.Element("JumpButtonX");
+			var jumpButtonY = (float)gameControllerElement.Element("JumpButtonY");
+            var pauseButtonX = (float)gameControllerElement.Element("PauseButtonX");
+            var pauseButtonY = (float)gameControllerElement.Element("PauseButtonY");
+			GameControllerMobile.controllerPositionVector = new Vector2(controllerX, controllerY);
+			GameControllerMobile.leftButtonPositionVector = new Vector2(leftButtonX, leftButtonY);
+			GameControllerMobile.rightButtonPositionVector = new Vector2(rightButtonX, rightButtonY);
+			GameControllerMobile.jumpButtonPositionVector = new Vector2(jumpButtonX, jumpButtonY);
+            GameControllerMobile.pauseButtonPositionVector = new Vector2(pauseButtonX, pauseButtonY);
 
             XElement scoringElement = gameElement.Element("Scoring");
             ScoreText.textFloatSpeed = (float)scoringElement.Element("TextFloatSpeed");
@@ -360,7 +363,7 @@ namespace TheAdventuresOf
             GroundCannonMonster.groundOffset = (float)cannonMonsterElement.Element("GroundOffset");
 
             //needing to use AssetManager.level here might not work later on with multiple levels. 
-            //Will need to be sure that the new level is always loaded before XmlImporter is used
+            //Will need to be sure that the new level is always loaded before XmlManager is used
             //TODO: ensure that level graphc assets are loaded before xml importing happens on a new level
             float rightSideBound = AssetManager.Instance.levelTexture.Width - rightBoundWidth;
             groundCannonMonster.leftSideX = leftBoundWidth + groundCannonMonster.boundOffset;
@@ -392,7 +395,7 @@ namespace TheAdventuresOf
             FlyingCannonMonster.floatHeight = (float)flyingCannonMonsterElement.Element("FloatHeight");
 
             //needing to use AssetManager.level here might not work later on with multiple levels. 
-            //Will need to be sure that the new level is always loaded before XmlImporter is used
+            //Will need to be sure that the new level is always loaded before XmlManager is used
             //TODO: ensure that level graphc assets are loaded before xml importing happens on a new level
             float rightSideBound = AssetManager.Instance.levelTexture.Width - rightBoundWidth;
             flyingCannonMonster.leftSideX = leftBoundWidth + flyingCannonMonster.boundOffset;
@@ -448,7 +451,7 @@ namespace TheAdventuresOf
             DashMonster.boundOffset = (float)dashMonsterElement.Element("BoundOffset");
 
             //needing to use AssetManager.level here might not work later on with multiple levels. 
-            //Will need to be sure that the new level is always loaded before XmlImporter is used
+            //Will need to be sure that the new level is always loaded before XmlManager is used
             //TODO: ensure that level graphc assets are loaded before xml importing happens on a new level
             float rightSideBound = AssetManager.Instance.levelTexture.Width - rightBoundWidth;
             DashMonster.leftSideX = leftBoundWidth + DashMonster.boundOffset;

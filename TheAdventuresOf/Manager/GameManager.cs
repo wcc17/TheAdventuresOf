@@ -17,6 +17,7 @@ namespace TheAdventuresOf
 
         Vector2 basePositionVector = new Vector2(0, 0);
 
+        bool isPaused;
         int nextGameState = -1;
         int gameState = SPLASH_STATE;
         GraphicsDevice graphicsDevice;
@@ -66,7 +67,7 @@ namespace TheAdventuresOf
 
             gameState = MENU_STATE;
 
-            XmlImporter.LoadMainMenuInformation();
+            XmlManager.LoadMainMenuInformation();
 
             currentController = new MenuController();
             currentController.InitializeController();
@@ -75,7 +76,7 @@ namespace TheAdventuresOf
         //really just to make it easier to skip prelevel while testing if i want to
         void loadCommonLevelAssets() {
             AssetManager.Instance.LoadGameAssets(graphicsDevice);
-            XmlImporter.LoadGameInformation();
+            XmlManager.LoadGameInformation();
 
             #if __IOS__ || __ANDROID__
                 currentController = new GameControllerMobile();
@@ -93,7 +94,7 @@ namespace TheAdventuresOf
             AssetManager.Instance.LoadPreLevelAssets(graphicsDevice);
 
             currentLevel = new PreLevel(AssetManager.Instance.preLevelTexture);
-            XmlImporter.LoadPreLevelInformation((PreLevel)currentLevel);
+            XmlManager.LoadPreLevelInformation((PreLevel)currentLevel);
         }
 
         void loadStoreLevelAssets() {
@@ -103,7 +104,7 @@ namespace TheAdventuresOf
             AssetManager.Instance.LoadStoreLevelAssets(graphicsDevice);
 
             currentLevel = new StoreLevel(AssetManager.Instance.storeLevelTexture);
-            XmlImporter.LoadStoreLevelInformation((StoreLevel)currentLevel);
+            XmlManager.LoadStoreLevelInformation((StoreLevel)currentLevel);
         }
 
         //only load level assets. will eventually have switch for level number
@@ -115,7 +116,7 @@ namespace TheAdventuresOf
 
             currentLevel = new Level(AssetManager.Instance.levelTexture);
 
-            XmlImporter.LoadLevelInformation((Level)currentLevel);
+            XmlManager.LoadLevelInformation((Level)currentLevel);
         }
 
         void loadPreLevel()
@@ -139,7 +140,7 @@ namespace TheAdventuresOf
         }
 
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, bool isGameActive)
         {
             musicManager.Update(gameTime);
 
@@ -154,17 +155,13 @@ namespace TheAdventuresOf
                 case MENU_STATE:
                     updateMenu(gameTime);
                     break;
-                case PRE_LEVEL_STATE:
-                    updatePreLevel(gameTime);
-                    break;
-                case LEVEL_STATE:
-                    updateLevel(gameTime);
-                    break;
-                case STORE_LEVEL_STATE:
-                    updateStoreLevel(gameTime);
-                    break;
                 case LOAD_STATE:
                     updateLoadState(gameTime);
+                    break;
+                case PRE_LEVEL_STATE :
+                case STORE_LEVEL_STATE:
+                case LEVEL_STATE:
+                    updateLevel(gameTime, isGameActive);
                     break;
             }
 
@@ -202,6 +199,29 @@ namespace TheAdventuresOf
             }
         }
 
+        void updateLevel(GameTime gameTime, bool isGameActive) {
+            if(!isGameActive) {
+                isPaused = true;
+            }
+
+            if (((GameController) currentController).pauseButtonPressed) {
+                isPaused = !isPaused;
+            }
+
+            if(!isPaused) {
+                switch(gameState) {
+                    case PRE_LEVEL_STATE:
+                        updatePreLevel(gameTime);
+                        break;
+                    case LEVEL_STATE:
+                        updateGameLevel(gameTime);
+                        break;
+                    case STORE_LEVEL_STATE:
+                        updateStoreLevel(gameTime);
+                        break;
+                }
+            }
+        }
         void updatePreLevel(GameTime gameTime) {
             currentLevel.Update(gameTime, (GameController)currentController);
 
@@ -215,7 +235,7 @@ namespace TheAdventuresOf
 
         }
 
-        void updateLevel(GameTime gameTime) {
+        void updateGameLevel(GameTime gameTime) {
             currentLevel.Update(gameTime, (GameController) currentController);
 
             TextManager.Instance.Update(gameTime);
@@ -291,7 +311,13 @@ namespace TheAdventuresOf
                     break;
             }
 
+            //TODO: not for production
             Logger.Instance.DrawToScreen(spriteBatch);
+
+            if (isPaused)
+            {
+                spriteBatch.Draw(AssetManager.Instance.pauseBackgroundTexture, basePositionVector);
+            }
 
             spriteBatch.End();
         }

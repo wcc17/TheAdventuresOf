@@ -98,7 +98,7 @@ namespace TheAdventuresOf
 		{
 			if (!isDying)
 			{
-                HandleJump(gameTime, gameController.upButtonPressed);
+                HandleJump(gameTime, gameController.jumpButtonPressed);
 
 				//reset isMoving before checking again to see if player is still moving
 				isMoving = false;
@@ -309,9 +309,9 @@ namespace TheAdventuresOf
 			}
 		}
 
-		public void HandleJump(GameTime gameTime, bool isUpButtonPressed)
+		public void HandleJump(GameTime gameTime, bool isjumpButtonPressed)
 		{
-			if (isUpButtonPressed)
+			if (isjumpButtonPressed)
 			{
 				hasJumped = true;
 			}

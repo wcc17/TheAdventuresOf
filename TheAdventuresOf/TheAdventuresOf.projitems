@@ -18,7 +18,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Util\FrameRate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AnimationFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Animation.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Util\XmlImporter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\BlockMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\GroundCannonMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\SunMonster.cs" />
@@ -58,6 +57,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\UndergroundMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Coin.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\CoinManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\XmlManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

@@ -110,7 +110,6 @@
     <BundleResource Include="Content\Game\heart_1080p.png" />
     <BundleResource Include="Content\Game\leftarrow_1080p.png" />
     <BundleResource Include="Content\Game\rightarrow_1080p.png" />
-    <BundleResource Include="Content\Game\uparrow_1080p.png" />
     <BundleResource Include="Content\Menu\mainmenu_1080p.png" />
     <BundleResource Include="Content\Menu\mainmenu_playbutton_1080p.png" />
     <BundleResource Include="Content\Menu\splash_1080p.png" />
@@ -142,6 +141,9 @@
     <BundleResource Include="Content\Game\coin_silver_1080p.png" />
     <BundleResource Include="Content\Game\progressbar_1080p.png" />
     <BundleResource Include="Content\Game\progressbar_fill_1080p.png" />
+    <BundleResource Include="Content\Game\button_1080p.png" />
+    <BundleResource Include="Content\Game\pause_1080p.png" />
+    <BundleResource Include="Content\Game\pause_background_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
