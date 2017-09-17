@@ -6,7 +6,7 @@
 		<GroundOffset>55</GroundOffset>
 		<TimeToLive>7</TimeToLive>
 		<FadeSpeed>0.6</FadeSpeed>
-		<Damage>3</Damage>
+		<Damage>30</Damage>
 		
 		<!-- The smaller the value, the further it will go. 
 		     Think of the a in a quadratic function (y = ax^2 + b).
@@ -18,6 +18,6 @@
 		<Speed>400</Speed>
 		<RotationSpeed>1000</RotationSpeed>
 		<FadeSpeed>1.3</FadeSpeed>
-		<Damage>3</Damage>
+		<Damage>30</Damage>
 	</Bullet>
 </Projectiles>
