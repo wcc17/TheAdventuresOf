@@ -17,6 +17,13 @@ namespace TheAdventuresOf
         public static float coinDropSpeed;
         float groundLevel;
 
+        public static float coinFloatSpeed;
+        public static float coinFloatLimit;
+        public static float coinFadeSpeed;
+        public bool coinPickedUp;
+        public bool isActive;
+        public float alpha;
+
         public Coin(float x, float y, int width, int height, int coinValue, float baseGroundLevel)
         {
             this.groundLevel = baseGroundLevel;
@@ -35,15 +42,27 @@ namespace TheAdventuresOf
             positionVector = new Vector2(x, y);
             bounds = new Rectangle((int)x, (int)y, width, height);
             this.coinValue = coinValue;
+
+            alpha = 1.0f;
+            isActive = true;
         }
 
         public void Update(GameTime gameTime) {
-            if(positionVector.Y < groundLevel) {
-                positionVector.Y += (float)(coinDropSpeed * gameTime.ElapsedGameTime.TotalSeconds);
-                bounds.Y = (int)positionVector.Y;
-            } else if(positionVector.Y > groundLevel) {
-                positionVector.Y = groundLevel;
-                bounds.Y = (int)positionVector.Y;
+            if(!coinPickedUp) {
+                if (positionVector.Y < groundLevel) {
+                    positionVector.Y += (float)(coinDropSpeed * gameTime.ElapsedGameTime.TotalSeconds);
+                    bounds.Y = (int)positionVector.Y;
+                } else if (positionVector.Y > groundLevel) {
+                    positionVector.Y = groundLevel;
+                    bounds.Y = (int)positionVector.Y;
+                }
+            } else {
+                positionVector.Y -= (float)(coinFloatSpeed * gameTime.ElapsedGameTime.TotalSeconds);
+                alpha -= (float)(coinFadeSpeed * gameTime.ElapsedGameTime.TotalSeconds);
+
+                if(positionVector.Y <= (PlayerManager.Instance.GetPlayerPosition().Y - coinFloatLimit)) {
+                    isActive = false;
+                }
             }
         }
 
@@ -65,9 +84,7 @@ namespace TheAdventuresOf
             }
 
             if (coinTexture != null) {
-                spriteBatch.Draw(coinTexture, positionVector);
-            } else {
-                Console.WriteLine("THIS SHOULD NOT BE HAPPENING");
+                spriteBatch.Draw(coinTexture, positionVector, color: Color.White * alpha);
             }
         }
     }

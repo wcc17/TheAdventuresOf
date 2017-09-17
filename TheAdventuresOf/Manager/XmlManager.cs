@@ -87,6 +87,9 @@ namespace TheAdventuresOf
             CoinManager.coinCountSymbolY = (float)coinManagerElement.Element("CoinCountSymbolY");
             CoinManager.coinCountY = (float)coinManagerElement.Element("CoinCountY");
             Coin.coinDropSpeed = (float)coinElement.Element("CoinDropSpeed");
+            Coin.coinFloatSpeed = (float)coinElement.Element("CoinFloatSpeed");
+            Coin.coinFloatLimit = (float)coinElement.Element("CoinFloatLimit");
+            Coin.coinFadeSpeed = (float)coinElement.Element("CoinFadeSpeed");
 		}
 
         public static GameManager LoadGameManagerInformation(GameManager gameManager) {
