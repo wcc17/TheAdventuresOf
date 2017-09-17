@@ -22,7 +22,7 @@ namespace TheAdventuresOf
         {
             base.InitializeLevel();
             storeLevelCharacterPositionVector = new Vector2(storeLevelCharX, storeLevelCharY);
-            TextManager.Instance.AddOrUpdateText(storeLevelCharTextX, storeLevelCharTextY, storeLevelCharText, 1); //item text is using 0 for index
+            TextManager.Instance.AddOrUpdateIndexedText(storeLevelCharTextX, storeLevelCharTextY, storeLevelCharText, 1); //item text is using 0 for index
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -49,7 +49,7 @@ namespace TheAdventuresOf
 
             foreach (Text text in texts) {
                 if(text.startX <= playerX && text.endX > playerX) {
-                    TextManager.Instance.AddOrUpdateText(text);
+                    TextManager.Instance.AddOrUpdateIndexedText(text);
                     break;
                 }
             }

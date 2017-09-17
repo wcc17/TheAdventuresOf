@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace TheAdventuresOf
 {
-    public class ScoreText : FloatingText
+    public class ScoreText : Text
     {
         public ScoreText(float startX, float startY, string text, int index) : base(startX, startY, text, index) {
             color = Color.White;

@@ -9,7 +9,8 @@ namespace TheAdventuresOf
     public class TextManager
     {
         private static TextManager instance;
-        SortedDictionary<int, Text> activeText;
+        SortedDictionary<int, Text> activeIndexedText;
+        List<Text> activeText;
 
         public static TextManager Instance {
             get
@@ -24,49 +25,68 @@ namespace TheAdventuresOf
 
         private TextManager()
         {
-            activeText = new SortedDictionary<int, Text>();
+            activeText = new List<Text>();
+            activeIndexedText = new SortedDictionary<int, Text>();
         }
 
-        public void AddOrUpdateText(float x, float y, string stringText, int index)
+        public void AddOrUpdateIndexedText(float x, float y, string stringText, int index)
         {
             Text text = new Text(x, y, stringText, index);
-            AddOrUpdateText(text);
+            AddOrUpdateIndexedText(text);
         }
 
-        public void AddOrUpdateText(Text text) {
-            if(!activeText.ContainsKey(text.index)) {
-                activeText.Add(text.index, text);
+        public void AddOrUpdateIndexedText(Text text) {
+            if(!activeIndexedText.ContainsKey(text.index)) {
+                activeIndexedText.Add(text.index, text);
             } else {
-                activeText[text.index] = text;
+                activeIndexedText[text.index] = text;
             }
+        }
+
+        public void AddText(Text text) {
+            activeText.Add(text);
         }
 
         public void RemoveText(int index)
         {
-            if(activeText.ContainsKey(index))
+            if(activeIndexedText.ContainsKey(index))
             {
-                activeText.Remove(index);
+                activeIndexedText.Remove(index);
             }
         }
 
         public void RemoveAllText()
         {
-            activeText.Clear();
+            activeIndexedText.Clear();
         }
         
         public void Update(GameTime gameTime)
         {
-            ScoringManager.Instance.Update(gameTime);
+            foreach (Text text in activeText)
+            {
+                text.Update(gameTime);
+            }
+
+            activeText.RemoveAll(inactiveScoreText => inactiveScoreText.isActive == false);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            ScoringManager.Instance.Draw(spriteBatch);
-
-            foreach (Text activeText in activeText.Values)
+            foreach (Text text in activeIndexedText.Values)
             {
-                activeText.Draw(spriteBatch);
+                text.Draw(spriteBatch);
             }
+
+            foreach (Text text in activeText)
+            {
+                text.Draw(spriteBatch);
+            }
+        }
+
+        //TODO: this needs to be called at the end of levesl
+        public void ClearText() {
+            activeIndexedText.Clear();
+            activeText.Clear();
         }
 
     }

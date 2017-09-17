@@ -34,14 +34,23 @@ namespace TheAdventuresOf
         public float pausedTextVectorXOffset;
         Timer splashTimer;
 
+        //score related position stuff
+        public float totalScoreTextX;
+        public float totalScoreTextY;
+        static Vector2 totalScorePositionVector;
+
         public GameManager(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {
             this.graphicsDevice = graphicsDevice;
             this.contentManager = contentManager;
             this.musicManager = new MusicManager(gameState);
+        }
 
+        //to be called after loading XML information
+        public void Initialize() {
             basePositionVector = new Vector2(0, 0);
             pausedTextVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH / 2 - pausedTextVectorXOffset, ScreenManager.FULL_SCREEN_HEIGHT / 2);
+            totalScorePositionVector = new Vector2(totalScoreTextX, totalScoreTextY);
         }
 
         public void LoadContent() {
@@ -343,8 +352,13 @@ namespace TheAdventuresOf
             //Draw controller and buttons
             currentController.Draw(spriteBatch);
 
-            //Draw score related stuff
+            //Draw text related stuff
             TextManager.Instance.Draw(spriteBatch);
+
+            //Draw total score
+            spriteBatch.DrawString(AssetManager.Instance.font, 
+                                   "Score: " + ScoringManager.Instance.score.ToString(), 
+                                   totalScorePositionVector, Color.White);
 
             if (((GameController)currentController).isPaused)
             {

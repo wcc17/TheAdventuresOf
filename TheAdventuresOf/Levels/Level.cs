@@ -46,11 +46,11 @@ namespace TheAdventuresOf
             base.Update(gameTime, gameController);
             monsterManager.Update(gameTime);
 
-            if(ScoringManager.score > tierScores[currentTier] && currentTier < (maxTier-1)) {
+            if(ScoringManager.Instance.score > tierScores[currentTier] && currentTier < (maxTier-1)) {
                 currentTier = currentTier + 1;
             }
 
-            if(currentTier == (maxTier-1) && ScoringManager.score > tierScores[currentTier]) {
+            if(currentTier == (maxTier-1) && ScoringManager.Instance.score > tierScores[currentTier]) {
                 ScoringManager.Instance.ClearScores();
                 nextLevel = true;
             }

@@ -64,7 +64,8 @@ namespace TheAdventuresOf
             GameControllerMobile.pauseButtonPositionVector = new Vector2(pauseButtonX, pauseButtonY);
 
             XElement scoringElement = gameElement.Element("Scoring");
-            ScoreText.textFloatSpeed = (float)scoringElement.Element("TextFloatSpeed");
+
+            Text.textFloatSpeed = (float)scoringElement.Element("TextFloatSpeed");
             Text.textDisappearSpeed = (float)scoringElement.Element("TextDisappearSpeed");
             Text.textFontScale = (float)scoringElement.Element("TextFontScale");
             Text.textPositionOffset = (float)scoringElement.Element("TextPositionOffset");
@@ -76,8 +77,6 @@ namespace TheAdventuresOf
             ScoringManager.flyingCannonMonsterScore = (int)scoringElement.Element("FlyingCannonMonster");
             ScoringManager.spikeMonsterScore = (int)scoringElement.Element("SpikeMonster");
             ScoringManager.undergroundMonsterScore = (int)scoringElement.Element("UndergroundMonster");
-            ScoringManager.totalScoreTextX = (float)scoringElement.Element("TotalScoreTextX");
-            ScoringManager.totalScoreTextY = (float)scoringElement.Element("TotalScoreTextY");
 
             CoinManager.coinYOffset = (float)coinManagerElement.Element("CoinYOffset");
             CoinManager.coinXSpacing = (int)coinManagerElement.Element("CoinXSpacing");
@@ -96,6 +95,8 @@ namespace TheAdventuresOf
 
             gameManager.splashTimeLimit = (float)gameManagerElement.Element("SplashTimeLimit");
             gameManager.pausedTextVectorXOffset = (float)gameManagerElement.Element("PausedTextVectorXOffset");
+            gameManager.totalScoreTextX = (float)gameManagerElement.Element("TotalScoreTextX");
+            gameManager.totalScoreTextY = (float)gameManagerElement.Element("TotalScoreTextY");
 
             return gameManager;
         }
