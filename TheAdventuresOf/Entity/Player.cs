@@ -262,6 +262,9 @@ namespace TheAdventuresOf
             health -= entity.damage;
             recalculateHealthBarFill();
 
+            DamageText damageText = new DamageText(positionVector.X, positionVector.Y, entity.damage.ToString(), -1);
+            TextManager.Instance.AddText(damageText);
+
 			if (health > 0)
 			{
 				isInvincible = true;
