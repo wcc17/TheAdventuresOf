@@ -94,14 +94,13 @@ namespace TheAdventuresOf
 
         public void CheckCollisionWithPlayer(Rectangle playerBounds) {
             foreach(Coin coin in coins) {
-                if(coin.bounds.Intersects(playerBounds)) {
+                if(!coin.coinPickedUp && coin.bounds.Intersects(playerBounds)) {
                     coinTotal += coin.coinValue;
-                    coinsToRemove.Add(coin);
+
+                    coin.positionVector.Y = PlayerManager.Instance.GetPlayerPosition().Y;
+                    coin.coinPickedUp = true;
                 }
             }
-
-            coins.RemoveAll(c => coinsToRemove.Contains(c));
-            coinsToRemove.Clear();
         }
 
         //TODO: look here if performance starts to get bad
@@ -118,7 +117,16 @@ namespace TheAdventuresOf
         public void Update(GameTime gameTime) {
             foreach(Coin coin in coins) {
                 coin.Update(gameTime);
+
+                if(!coin.isActive) {
+                    coinsToRemove.Add(coin);
+                }
             }
+
+            coins.RemoveAll(c => coinsToRemove.Contains(c));
+            coinsToRemove.Clear();
+
+            Logger.Instance.AddOrUpdateValue("ScreenCoins", coins.Count.ToString());
         }
 
         public void Draw(SpriteBatch spriteBatch) {

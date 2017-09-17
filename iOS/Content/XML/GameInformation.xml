@@ -2,8 +2,11 @@
 <Game>
 	<Coin>
 	    <CoinDropSpeed>275</CoinDropSpeed>
-	    <CoinFloatSpeed>500</CoinFloatSpeed>
+	    <CoinFloatSpeed>400</CoinFloatSpeed>
+		<CoinFloatLimit>100</CoinFloatLimit>
+		<CoinFadeSpeed>1</CoinFadeSpeed>
 	</Coin>
+	
 	<CoinManager>
         <CoinXSpacing>25</CoinXSpacing>
 	    <CoinYOffset>45</CoinYOffset>

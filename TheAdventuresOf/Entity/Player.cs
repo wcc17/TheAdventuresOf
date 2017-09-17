@@ -287,11 +287,11 @@ namespace TheAdventuresOf
         void recalculateHealthBarFill() {
             Logger.Instance.AddOrUpdateValue("Health: ", health.ToString());
 
-            int fullWidth = AssetManager.Instance.progressBarFillTexture.Width;
-            int remainingHealth = maxHealth - health;
-            int newWidth = fullWidth - (remainingHealth * (fullWidth / maxHealth));
+            float fullWidth = AssetManager.Instance.progressBarFillTexture.Width;
+            float remainingHealth = maxHealth - health;
+            float newWidth = fullWidth - (remainingHealth * (fullWidth / maxHealth));
 
-            healthBarFillSourceRectangle.Width = newWidth;
+            healthBarFillSourceRectangle.Width = (int)newWidth;
         }
 
 		public override void HandleAnimation(GameTime gameTime)
