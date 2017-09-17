@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace TheAdventuresOf
 {
-    public class DamageText : FloatingText
+    public class DamageText : Text
     {
         public DamageText(float startX, float startY, string text, int index) : base(startX, startY, text, index) {
             color = Color.Red;

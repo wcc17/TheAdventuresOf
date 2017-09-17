@@ -38,7 +38,7 @@ namespace TheAdventuresOf
                 if(!textAdded)
                 {
                     textAdded = true;
-                    TextManager.Instance.AddOrUpdateText(textX, textY, preLevelCharText, PRE_LEVEL_TEXT_INDEX);
+                    TextManager.Instance.AddOrUpdateIndexedText(textX, textY, preLevelCharText, PRE_LEVEL_TEXT_INDEX);
                 }
             }
 

@@ -21,6 +21,8 @@
 	<GameManager>
         <SplashTimeLimit>2.5</SplashTimeLimit>
 		<PausedTextVectorXOffset>40</PausedTextVectorXOffset>
+		<TotalScoreTextX>1625</TotalScoreTextX>
+        <TotalScoreTextY>50</TotalScoreTextY>
 	</GameManager>
 	
 	<GameController>
@@ -51,8 +53,6 @@
 		<FlyingCannonMonster>350</FlyingCannonMonster>
 		<SpikeMonster>250</SpikeMonster>
 		<UndergroundMonster>400</UndergroundMonster>
-		<TotalScoreTextX>1625</TotalScoreTextX>
-		<TotalScoreTextY>50</TotalScoreTextY>
     </Scoring>		
 
 </Game>

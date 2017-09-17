@@ -8,6 +8,7 @@ namespace TheAdventuresOf
     {
         public Color color;
 
+        public static float textFloatSpeed;
         public static float textDisappearSpeed;
         public static float textFontScale;
         public static float textPositionOffset;
@@ -24,14 +25,21 @@ namespace TheAdventuresOf
             positionVector = new Vector2(x-textPositionOffset, y);
             this.text = text;
 
-            this.index = index; //not always needed (for scoring espec)
+            this.index = index;
             this.startX = startX;
             this.endX = endX;
 
             color = Color.White;
         }
 
-        public virtual void Update(GameTime gameTime) { }
+        public virtual void Update(GameTime gameTime)
+        {
+            alpha -= (float)(gameTime.ElapsedGameTime.TotalSeconds * textDisappearSpeed);
+            if (alpha <= 0.0f)
+            {
+                isActive = false;
+            }
+        }
 
         public void Draw(SpriteBatch spriteBatch) {
             spriteBatch.DrawString(AssetManager.Instance.font,

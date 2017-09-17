@@ -9,8 +9,7 @@ namespace TheAdventuresOf
     {
         private static ScoringManager instance;
 
-        public static int score;
-        public static float textFloatSpeed;
+        public int score;
         public static int blockMonsterScore;
         public static int sunMonsterScore;
         public static int bileMonsterScore;
@@ -19,12 +18,6 @@ namespace TheAdventuresOf
         public static int flyingCannonMonsterScore;
         public static int spikeMonsterScore;
         public static int undergroundMonsterScore;
-        public static float totalScoreTextX;
-        public static float totalScoreTextY;
-
-        static Vector2 totalScorePositionVector;
-
-        List<ScoreText> activeScoreText;
 
         public static ScoringManager Instance {
             get
@@ -37,10 +30,7 @@ namespace TheAdventuresOf
             }
         }
 
-        private ScoringManager() {
-            activeScoreText = new List<ScoreText>();
-            totalScorePositionVector = new Vector2(totalScoreTextX, totalScoreTextY);
-        }
+        private ScoringManager() { }
 
         public void HandleMonsterKill(Monster monster) {
 
@@ -76,28 +66,12 @@ namespace TheAdventuresOf
             //generate a new ScoringText object
             float scoreTextX = monster.positionVector.X + monster.entityBounds.Width / 2;
             ScoreText newScoreText = new ScoreText(scoreTextX, monster.groundLevel, pointsEarned.ToString(), 0);
-            activeScoreText.Add(newScoreText);
-        }
 
-        public void Update(GameTime gameTime) {
-            foreach (ScoreText scoreText in activeScoreText) {
-                scoreText.Update(gameTime);
-            }
-
-            activeScoreText.RemoveAll(inactiveScoreText => inactiveScoreText.isActive == false);
-        }
-
-        public void Draw(SpriteBatch spriteBatch) {
-            spriteBatch.DrawString(AssetManager.Instance.font, "Score: " + score.ToString(), totalScorePositionVector, Color.White);
-
-            foreach (ScoreText scoreText in activeScoreText) {
-                scoreText.Draw(spriteBatch);
-            }
+            TextManager.Instance.AddText(newScoreText);
         }
 
         public void ClearScores() {
             score = 0;
-            activeScoreText.Clear();
         }
     }
 }

@@ -31,6 +31,7 @@ namespace TheAdventuresOf
 		{
             gameManager = new GameManager(this.GraphicsDevice, Content);
             gameManager = XmlManager.LoadGameManagerInformation(gameManager);
+            gameManager.Initialize();
 			base.Initialize();
 		}
 

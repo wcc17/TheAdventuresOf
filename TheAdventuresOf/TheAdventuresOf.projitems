@@ -55,7 +55,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Manager\CoinManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\XmlManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Text\DamageText.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Text\FloatingText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Text\ScoreText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Text\Text.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Animation\Animation.cs" />
