@@ -242,9 +242,6 @@ namespace TheAdventuresOf
 			player.rightSwordOffset = (float)playerElement.Element("RightSwordOffset");
 			player.swordYOffset = (float)playerElement.Element("SwordYOffset");
 			player.frameCount = (int)playerElement.Element("FrameCount");
-			player.maxHealth = (int)playerElement.Element("InitialMaxHealth");
-            player.healthBarXOffset = (float)playerElement.Element("HealthBarXOffset");
-            player.healthBarY = (float)playerElement.Element("HealthBarY");
 			player.invincibilityTime = (double)playerElement.Element("InvincibilityTime");
 			player.knockBackDistanceLimit = (float)playerElement.Element("KnockBackDistanceLimit");
 			player.knockBackSpeed = (int)playerElement.Element("KnockBackSpeed");
@@ -252,6 +249,11 @@ namespace TheAdventuresOf
             player.initialJumpVelocity = (float)playerElement.Element("InitialJumpVelocity");
             player.jumpGravity = (float)playerElement.Element("JumpGravity");
             player.collisionOffset = (int)playerElement.Element("CollisionOffset");
+            player.maxHealth = (int)playerElement.Element("InitialMaxHealth");
+            player.healthBarXOffset = (float)playerElement.Element("HealthBarXOffset");
+            player.healthBarY = (float)playerElement.Element("HealthBarY");
+            player.healthTextPositionXOffset = (float)playerElement.Element("HealthTextPositionXOffset");
+            player.healthTextPositionYOffset = (float)playerElement.Element("HealthTextPositionYOffset");
 
             return player;
 		}
