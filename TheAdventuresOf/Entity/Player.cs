@@ -30,8 +30,12 @@ namespace TheAdventuresOf
 		public int health;
         public float healthBarXOffset;
         public float healthBarY;
+        public float healthTextPositionXOffset;
+        public float healthTextPositionYOffset;
 		Vector2 healthPositionVector;
+        Vector2 healthTextPositionVector;
         Rectangle healthBarFillSourceRectangle;
+        Vector2 zeroPositionVector = new Vector2(0, 0);
 
 		bool isInvincible;
 		TimeSpan invincibilityTimer = TimeSpan.FromSeconds(0);
@@ -64,6 +68,8 @@ namespace TheAdventuresOf
             healthBarFillSourceRectangle = new Rectangle(0, 0, 
                                                          AssetManager.Instance.progressBarFillTexture.Width, 
                                                          AssetManager.Instance.progressBarFillTexture.Height);
+            healthTextPositionVector = new Vector2(healthPositionVector.X + healthTextPositionXOffset,
+                                                   healthPositionVector.Y + healthTextPositionYOffset);
 
 			moveRight = true;
 
@@ -262,7 +268,7 @@ namespace TheAdventuresOf
             health -= entity.damage;
             recalculateHealthBarFill();
 
-            DamageText damageText = new DamageText(positionVector.X, positionVector.Y, entity.damage.ToString(), -1);
+            DamageText damageText = new DamageText(positionVector.X, positionVector.Y, "-" + entity.damage.ToString(), -1);
             TextManager.Instance.AddText(damageText);
 
 			if (health > 0)
@@ -436,6 +442,15 @@ namespace TheAdventuresOf
         public void DrawHealth(SpriteBatch spriteBatch) {
 			spriteBatch.Draw(AssetManager.Instance.progressBarFillTexture, healthPositionVector, sourceRectangle: healthBarFillSourceRectangle);
             spriteBatch.Draw(AssetManager.Instance.progressBarTexture, healthPositionVector);
+            spriteBatch.DrawString(AssetManager.Instance.font, 
+                                   health + "/" + maxHealth, 
+                                   healthTextPositionVector, 
+                                   Color.Black, 
+                                   0, 
+                                   zeroPositionVector, 
+                                   0.5f, 
+                                   SpriteEffects.None, 
+                                   0);
         }
 	}
 }
