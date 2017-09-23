@@ -21,10 +21,6 @@ namespace TheAdventuresOf
 			monsterTexture = AssetManager.Instance.blockMonsterTexture;
 		}
 
-        public override void DetermineSpawnType() {
-            spawnType = 0;
-        }
-
         public override void InitializeAnimation() 
         {
             base.InitializeAnimation();

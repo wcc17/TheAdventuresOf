@@ -35,11 +35,6 @@ namespace TheAdventuresOf
             currentAnimation = movingAnimation;
         }
 
-        public override void DetermineSpawnType()
-        {
-            spawnType = 0;
-        }
-
         public override void InitializeAnimation()
         {
             //first frame is the stand animation, but its the second frame in the run animation

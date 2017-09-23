@@ -81,10 +81,10 @@ namespace TheAdventuresOf
 
 		public override void InitializeAnimation()
 		{
-			//TODO: fix this characterWidth - 1. Theres a black bar appearing on the first frame that I can't get rid of
-			//for now, the fix is to do characterWidth - 1, but thats not the greatest solution.
-			//the character will probably need to be redrawn, but I'm not going to mess with it for now
-			walkAnimation = new Animation();
+            //TODO: fix this entityWidth - 1. Theres a black bar appearing on the first frame that I can't get rid of
+            //for now, the fix is to do entityWidth - 1, but thats not the greatest solution.
+            //the character will probably need to be redrawn, but I'm not going to mess with it for now
+            walkAnimation = new Animation();
 			walkAnimation.AddFrame(new Rectangle(0, 0, entityWidth - 1, entityHeight),
 			                       TimeSpan.FromSeconds(animationSpeed));
 			walkAnimation.AddFrame(new Rectangle(entityWidth, 0, entityWidth - 1, entityHeight), 
