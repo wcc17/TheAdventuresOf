@@ -40,7 +40,6 @@ namespace TheAdventuresOf
             if (PlayerManager.Instance.GetPlayerPosition().X > rightBoundWidth)
             {
                 nextLevel = true;
-                TextManager.Instance.RemoveAllText();
             }
         }
 
