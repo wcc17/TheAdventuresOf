@@ -58,6 +58,7 @@ namespace TheAdventuresOf
         public void RemoveAllText()
         {
             activeIndexedText.Clear();
+            activeText.Clear();
         }
         
         public void Update(GameTime gameTime)

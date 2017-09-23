@@ -24,6 +24,7 @@ namespace TheAdventuresOf
         {
             levelPositionVector = new Vector2(0, 0);
             this.levelTexture = levelTexture;
+            TextManager.Instance.RemoveAllText();
         }
 
         public virtual void InitializeLevel() {
