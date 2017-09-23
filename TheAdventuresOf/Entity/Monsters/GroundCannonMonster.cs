@@ -33,11 +33,6 @@ namespace TheAdventuresOf
             bullet.isActive = true;
         }
 
-        public override void DetermineSpawnType()
-        {
-            spawnType = 0;
-        }
-
         public override void InitializeSpawn()
         {
             base.InitializeSpawn();

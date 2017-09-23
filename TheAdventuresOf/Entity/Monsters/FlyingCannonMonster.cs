@@ -85,17 +85,5 @@ namespace TheAdventuresOf
 
             ChooseSide(existingCannonMonster);
         }
-
-        public override void DetermineSpawnType() {
-            //if(moveRight) { //spawning on leftSideX
-            //    spawnType = SPAWN_LEFT;
-            //} else {        //spawning on rightSideX
-            //    spawnType = SPAWN_RIGHT;
-            //}
-
-            //TODO: flyingCannonMonster currently cannot spawn from either side because of the random side choosing method
-            spawnType = 1;
-        }
-
     }
 }

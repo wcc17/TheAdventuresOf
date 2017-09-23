@@ -41,7 +41,6 @@ namespace TheAdventuresOf
 
         public virtual void InitializeSpawn() {
             Reset();
-            DetermineSpawnType();
         }
 
         public virtual void InitializeMonster()
@@ -107,32 +106,6 @@ namespace TheAdventuresOf
 
             UpdateEntityBounds();
 		}
-
-        public virtual void DetermineSpawnType() {
-            spawnType = rand.Next(1, 4);
-
-            //NOTE: if left or right is chosen, positionVector.Y and positionVector.X are being set twice upon init
-            //its the easiest way to do this without a huge refactor for such a small detail
-            //will stay in ongoing note
-            if(spawnType == SPAWN_LEFT || spawnType == SPAWN_RIGHT) {
-                positionVector.Y = groundLevel;
-
-                if(spawnType == SPAWN_LEFT) {
-                    moveLeft = true;
-                    positionVector.X = 0 - this.entityWidth;
-                } else {
-                    moveRight = true;
-                    positionVector.X = ScreenManager.FULL_SCREEN_WIDTH + this.entityWidth;
-                }
-
-                DetermineSpawnXLimit();
-            }
-        }
-
-        public virtual void DetermineSpawnXLimit() {
-            //TODO: need offsets here. don't want monster to spawn right at either edge of the screen
-            spawnXLimit = rand.Next(0, (int)ScreenManager.FULL_SCREEN_WIDTH - this.entityWidth);
-        }
 
         public virtual void HandleSpawn(GameTime gameTime) {
             switch(spawnType) {

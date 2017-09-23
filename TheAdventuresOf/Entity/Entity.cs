@@ -40,6 +40,10 @@ namespace TheAdventuresOf
 
 		public Color tintColor = Color.White;
 
+        public void InitializeEntity(int entityWidth, int entityHeight) {
+            InitializeEntity(0f, 0f, entityWidth, entityHeight);    
+        }
+
 		public void InitializeEntity(float startX, float startY, int entityWidth, int entityHeight)
 		{
 			positionVector = new Vector2(startX, startY);

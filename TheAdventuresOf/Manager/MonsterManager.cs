@@ -252,42 +252,55 @@ namespace TheAdventuresOf
 			}
 		}
 
-        ////TODO: all spawn*Monster methods should be moved to a MonsterSpawner class.
-        //public void DetermineSpawnType(Monster monster)
-        //{
-        //    int spawnType = rand.Next(1, 4);
+        //TODO: all spawn*Monster methods should be moved to a MonsterSpawner class.
+        public Monster DetermineSpawnTypeRandom(Monster monster)
+        {
+            int spawnType = rand.Next(1, 4);
+            return DetermineSpawnType(monster, spawnType);
+        }
 
-        //    //NOTE: if left or right is chosen, positionVector.Y and positionVector.X are being set twice upon init
-        //    //its the easiest way to do this without a huge refactor for such a small detail
-        //    //will stay in ongoing note
-        //    if (spawnType == Monster.SPAWN_LEFT || spawnType == Monster.SPAWN_RIGHT)
-        //    {
-        //        //TODO: should this be here or elsewhere
-        //        monster.positionVector.Y = groundLevel;
+        public Monster DetermineSpawnType(Monster monster, int spawnType) {
 
-        //        if (spawnType == Monster.SPAWN_LEFT)
-        //        {
-        //            moveLeft = true;
-        //            positionVector.X = 0 - this.entityWidth;
-        //        }
-        //        else
-        //        {
-        //            moveRight = true;
-        //            positionVector.X = ScreenManager.FULL_SCREEN_WIDTH + this.entityWidth;
-        //        }
+            if (spawnType == Monster.SPAWN_LEFT || spawnType == Monster.SPAWN_RIGHT) {
+                monster.positionVector.Y = monster.groundLevel;
+                monster.spawnXLimit = DetermineSpawnXLimit(monster);
 
-        //        DetermineSpawnXLimit();
-        //    }
+                if (spawnType == Monster.SPAWN_LEFT)
+                {
+                    monster.moveLeft = true;
+                    monster.positionVector.X = 0 - monster.entityWidth;
+                }
+                else
+                {
+                    monster.moveRight = true;
+                    monster.positionVector.X = ScreenManager.FULL_SCREEN_WIDTH + monster.entityWidth;
+                }
 
-        //    monster.spawnType = spawnType;
-        //    monster.spawnXLimit = DetermineSpawnXLimit();
-        //}
+            } else if(spawnType == Monster.SPAWN_TOP || spawnType == Monster.SPAWN_BOTTOM) {
+                monster.positionVector.X = getRandomXLocation(monster.entityWidth);
 
-        //public float DetermineSpawnXLimit()
-        //{
-        //    //TODO: need offsets here. don't want monster to spawn right at either edge of the screen
-        //    return rand.Next(0, (int)ScreenManager.FULL_SCREEN_WIDTH - this.entityWidth);
-        //}
+                if (spawnType == Monster.SPAWN_TOP) {
+                    monster.positionVector.Y = 0 - monster.entityHeight;
+                } else {
+                    monster.positionVector.Y = ScreenManager.FULL_SCREEN_HEIGHT + monster.entityHeight;
+                }
+            } 
+
+            monster.spawnType = spawnType;
+            monster.UpdateEntityBounds(); //so that the new position sticks
+            return monster;
+        }
+
+        public int DetermineSpawnXLimit(Monster monster)
+        {
+            if(monster is SpikeMonster) {
+                return (int)PlayerManager.Instance.GetPlayerPosition().X;
+            }
+
+            //TODO: need offsets here. don't want monster to spawn right at either edge of the screen
+            int randomX = rand.Next(0, (int)ScreenManager.FULL_SCREEN_WIDTH - monster.entityWidth);
+            return randomX;
+        }
 
 		void spawnBlockMonster()
 		{
@@ -295,10 +308,9 @@ namespace TheAdventuresOf
 
 			blockMonster.SetBlockMonsterData(level.blockMonster);
 			blockMonster.groundLevel = level.groundLevel;
-			blockMonster.InitializeEntity(getRandomXLocation(AssetManager.Instance.blockMonsterTexture.Width),
-											 ScreenManager.FULL_SCREEN_HEIGHT + AssetManager.Instance.blockMonsterTexture.Height,
-											 AssetManager.Instance.blockMonsterTexture.Width / blockMonster.frameCount,
-											 AssetManager.Instance.blockMonsterTexture.Height);
+            blockMonster.InitializeEntity(AssetManager.Instance.blockMonsterTexture.Width / blockMonster.frameCount,
+                                          AssetManager.Instance.blockMonsterTexture.Height);
+            blockMonster = (BlockMonster) DetermineSpawnType(blockMonster, Monster.SPAWN_BOTTOM);
 			blockMonster.InitializeSpawn();
 
 			monsters.Add(blockMonster);
@@ -312,10 +324,9 @@ namespace TheAdventuresOf
 
 			sunMonster.SetSunMonsterData(level.sunMonster);
 			sunMonster.groundLevel = level.groundLevel - SunMonster.floatHeight;
-			sunMonster.InitializeEntity(getRandomXLocation(AssetManager.Instance.sunMonsterTexture.Width),
-										   0 - AssetManager.Instance.sunMonsterTexture.Height,
-										   AssetManager.Instance.sunMonsterTexture.Width / sunMonster.frameCount,
-										   AssetManager.Instance.sunMonsterTexture.Height);
+			sunMonster.InitializeEntity(AssetManager.Instance.sunMonsterTexture.Width / sunMonster.frameCount,
+										AssetManager.Instance.sunMonsterTexture.Height);
+            sunMonster = (SunMonster)DetermineSpawnTypeRandom(sunMonster);
 			sunMonster.InitializeSpawn();
 
 			monsters.Add(sunMonster);
@@ -329,10 +340,9 @@ namespace TheAdventuresOf
 
 			bileMonster.SetBileMonsterData(level.bileMonster);
 			bileMonster.groundLevel = level.groundLevel - BileMonster.floatHeight;
-			bileMonster.InitializeEntity(getRandomXLocation(AssetManager.Instance.bileMonsterTexture.Width),
-											0 - AssetManager.Instance.bileMonsterTexture.Height,
-											AssetManager.Instance.bileMonsterTexture.Width / bileMonster.frameCount,
-											AssetManager.Instance.bileMonsterTexture.Height);
+			bileMonster.InitializeEntity(AssetManager.Instance.bileMonsterTexture.Width / bileMonster.frameCount,
+										 AssetManager.Instance.bileMonsterTexture.Height);
+            bileMonster = (BileMonster)DetermineSpawnTypeRandom(bileMonster);
 			bileMonster.InitializeSpawn();
 
 			monsters.Add(bileMonster);
@@ -384,10 +394,9 @@ namespace TheAdventuresOf
 
             spikeMonster.SetSpikeMonsterData(level.spikeMonster);
             spikeMonster.groundLevel = level.groundLevel - SpikeMonster.floatHeight;
-            spikeMonster.InitializeEntity(getRandomXLocation(AssetManager.Instance.spikeMonsterTexture.Width),
-                                             0 - AssetManager.Instance.spikeMonsterTexture.Height,
-                                             AssetManager.Instance.spikeMonsterTexture.Width / spikeMonster.frameCount,
-                                             AssetManager.Instance.spikeMonsterTexture.Height);
+            spikeMonster.InitializeEntity(AssetManager.Instance.spikeMonsterTexture.Width / spikeMonster.frameCount,
+                                          AssetManager.Instance.spikeMonsterTexture.Height);
+            spikeMonster = (SpikeMonster)DetermineSpawnTypeRandom(spikeMonster);
             spikeMonster.InitializeSpawn();
 
             monsters.Add(spikeMonster);
@@ -401,10 +410,9 @@ namespace TheAdventuresOf
 
             dashMonster.SetDashMonsterData(level.dashMonster);
             dashMonster.groundLevel = level.groundLevel + DashMonster.groundOffset;
-            dashMonster.InitializeEntity(getRandomXLocation(AssetManager.Instance.dashMonsterTexture.Width),
-                                            ScreenManager.FULL_SCREEN_HEIGHT + AssetManager.Instance.dashMonsterTexture.Height,
-                                            AssetManager.Instance.dashMonsterTexture.Width / dashMonster.frameCount,
-                                            AssetManager.Instance.dashMonsterTexture.Height);
+            dashMonster.InitializeEntity(AssetManager.Instance.dashMonsterTexture.Width / dashMonster.frameCount,
+                                         AssetManager.Instance.dashMonsterTexture.Height);
+            dashMonster = (DashMonster)DetermineSpawnType(dashMonster, Monster.SPAWN_BOTTOM);
             dashMonster.InitializeSpawn();
 
             monsters.Add(dashMonster);

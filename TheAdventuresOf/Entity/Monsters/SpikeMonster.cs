@@ -47,11 +47,6 @@ namespace TheAdventuresOf
             delayAction = true;
         }
 
-        public override void DetermineSpawnXLimit()
-        {
-            spawnXLimit = PlayerManager.Instance.GetPlayerPosition().X;
-        }
-
         public override void InitializeAnimation()
         {
             base.InitializeAnimation();
