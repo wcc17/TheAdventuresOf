@@ -4,7 +4,7 @@
 	    <CoinDropSpeed>275</CoinDropSpeed>
 	    <CoinFloatSpeed>400</CoinFloatSpeed>
 		<CoinFloatLimit>100</CoinFloatLimit>
-		<CoinFadeSpeed>1</CoinFadeSpeed>
+		<CoinFadeSpeed>1.3</CoinFadeSpeed>
 	</Coin>
 	
 	<CoinManager>

@@ -48,7 +48,7 @@ namespace TheAdventuresOf
 
         public override void InitializeSpawn()
         {
-            Reset();
+            base.InitializeSpawn();
 
             //assuming that new X position is set in main Update function for now
             ChooseRandomDirection();
@@ -74,18 +74,6 @@ namespace TheAdventuresOf
                                                   0,
                                                   entityWidth,
                                                   entityHeight), TimeSpan.FromSeconds(animationSpeed));
-        }
-
-        public override void HandleSpawn(GameTime gameTime)
-        {
-            if (positionVector.Y < groundLevel)
-            {
-                MoveUpDown(gameTime, DOWN, spawnSpeed);
-            }
-            else
-            {
-                InitializeMonster();
-            }
         }
 
         public override void HandleDeath(GameTime gameTime)

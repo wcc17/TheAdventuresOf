@@ -53,7 +53,7 @@
 	<BileMonster>
       <EntityTag>BileMonster</EntityTag>
       <Speed>230</Speed>
-      <SpawnSpeed>250</SpawnSpeed>
+      <SpawnSpeed>270</SpawnSpeed>
       <DeathSpeed>400</DeathSpeed>
       <AnimationSpeed>0.08</AnimationSpeed>
       <FrameCount>3</FrameCount>
@@ -105,7 +105,7 @@
 	<SpikeMonster>
       <EntityTag>SpikeMonster</EntityTag>
       <Speed>180</Speed>
-      <SpawnSpeed>250</SpawnSpeed>
+      <SpawnSpeed>320</SpawnSpeed>
       <DeathSpeed>400</DeathSpeed>
       <RotationSpeed>350</RotationSpeed>
       <AttackSpeed>280</AttackSpeed>

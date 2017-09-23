@@ -38,13 +38,18 @@ namespace TheAdventuresOf
 
         public override void InitializeSpawn()
         {
-            Reset();
+            base.InitializeSpawn();
 
             //doesn't really matter what direction, just need one to draw 
             moveLeft = true; 
             isSpawning = true;
             isAttacking = false;
             delayAction = true;
+        }
+
+        public override void DetermineSpawnXLimit()
+        {
+            spawnXLimit = PlayerManager.Instance.GetPlayerPosition().X;
         }
 
         public override void InitializeAnimation()
@@ -62,18 +67,6 @@ namespace TheAdventuresOf
                                                    0,
                                                    entityWidth,
                                                    entityHeight), TimeSpan.FromSeconds(animationSpeed));
-        }
-
-        public override void HandleSpawn(GameTime gameTime) 
-        {
-            if(positionVector.Y < groundLevel) 
-            {
-                MoveUpDown(gameTime, DOWN, spawnSpeed);
-            }
-            else 
-            {
-                InitializeMonster();
-            }
         }
 
         public override void Update(GameTime gameTime, bool buttonPressed = false) 

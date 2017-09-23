@@ -153,7 +153,6 @@ namespace TheAdventuresOf
 
         public void Update(GameTime gameTime) {
             HandleSpawnMonsters(gameTime);
-            //TODO: WHY AM I PASSING LEVEL HERE? we already keep a level variable
             UpdateMonsters(gameTime);
 
             Logger.Instance.AddOrUpdateValue("Tier", (level.currentTier+1).ToString());
@@ -396,40 +395,6 @@ namespace TheAdventuresOf
 
             undergroundMonsterCount++;
         }
-
-        //TODO: this should be retooled for all monsters
-        //maybe get rid of the delay timer and just add a short delay
-        //before a new monster can be delayed
-        //ultimately the goal is to prevent new monsters from spawning
-        //DIRECTLY after old monsters die.
-		//void handleGroundCannonMonsterSpawn()
-		//{
-		//	//if the timer is past the limit
-		//	//randomly choose whether to spawn a new cannon monster or not
-		//	if (delayCannonSpawnTimer.Seconds > level.delayCannonSpawnTimerLimit)
-		//	{
-		//		//Logger.WriteToConsole("Cannon monster timer limit passed");
-
-		//		canSpawnCannonMonster = true;
-		//		delayCannonSpawnTimer = TimeSpan.FromSeconds(0);
-		//	}
-
-		//	if (canSpawnCannonMonster)
-		//	{
-		//		//Logger.WriteToConsole("Could spawn monster");
-
-		//		if (rand.Next(0, 2) == 0)
-		//		{
-		//			//Logger.WriteToConsole("Spawning monster");
-		//			spawnCannonMonster();
-		//		}
-		//		else {
-		//			//Logger.WriteToConsole("Decided not to spawn monster");
-		//		}
-
-		//		canSpawnCannonMonster = false;
-		//	}
-		//}
 	}
 }
 

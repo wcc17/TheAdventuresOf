@@ -21,6 +21,10 @@ namespace TheAdventuresOf
 			monsterTexture = AssetManager.Instance.blockMonsterTexture;
 		}
 
+        public override void DetermineSpawnType() {
+            spawnType = 0;
+        }
+
         public override void InitializeAnimation() 
         {
             base.InitializeAnimation();
@@ -34,7 +38,7 @@ namespace TheAdventuresOf
 
 		public override void InitializeSpawn()
 		{
-			Reset();
+			base.InitializeSpawn();
 
 			//assuming that new X position is set in main Update function for now
 			ChooseRandomDirection();
@@ -49,22 +53,6 @@ namespace TheAdventuresOf
 			}
 
 			isSpawning = true;
-		}
-
-		public override void HandleSpawn(GameTime gameTime)
-		{
-			if (positionVector.Y > groundLevel)
-			{
-                MoveUpDown(gameTime, UP, spawnSpeed);
-			}
-			else if ((moveLeft && rotation > 0) || (moveRight && rotation < 0))
-			{
-				Rotate(gameTime);
-			}
-			else
-			{
-				InitializeMonster();
-			}
 		}
 
 		public override void HandleAnimation(GameTime gameTime)
