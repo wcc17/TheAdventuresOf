@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TheAdventuresOf
 {
-	public class Monster : Character
+	public class Monster : Entity
 	{
 		public static int UP = 0;
 		public static int DOWN = 1;
@@ -21,6 +21,7 @@ namespace TheAdventuresOf
         public float deathSpeed;
 		public int moveDistanceLimit;
 		public float actionDelayTime;
+        public bool isSpawning;
 
 		public TimeSpan timeDelayed = TimeSpan.FromSeconds(0);
 		public bool delayAction;
@@ -196,7 +197,9 @@ namespace TheAdventuresOf
 
         public override void HandleLevelBoundCollision(int direction, int boundX)
         {
-            base.HandleLevelBoundCollision(direction, boundX);
+            if(!isSpawning) {
+                base.HandleLevelBoundCollision(direction, boundX);
+            }
         }
 
         public virtual void HandleDelay(GameTime gameTime)
