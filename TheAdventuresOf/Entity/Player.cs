@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace TheAdventuresOf
 {
-	public class Player : Character
+	public class Player : Entity
 	{
 		public float groundLevel;
 
@@ -52,7 +52,7 @@ namespace TheAdventuresOf
 
 		public void InitializePlayer(float startX, float startY, int playerWidth, int playerHeight)
 		{
-			base.InitializeCharacter(startX, startY, playerWidth, playerHeight);
+            base.InitializeEntity(startX, startY, playerWidth, playerHeight);
 
 			groundLevel = startY;
 

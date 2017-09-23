@@ -2,15 +2,19 @@
 using Microsoft.Xna.Framework.Graphics;
 namespace TheAdventuresOf
 {
-	/**
-	 * Entity class covers basic movement and what direction to face.
-	 * Just using this class to keep certain entities (projectiles)
-	 * as simple as possible while reusing the code for other more
-	 * complicated entities.
-	 * 
-	 **/
 	public class Entity
 	{
+        public Vector2 originVector;
+
+        public bool isDying;
+        public bool isDead;
+
+        public float animationSpeed;
+        public int frameCount;
+        public Animation baseAnimation;
+        public Animation walkAnimation;
+        public Animation currentAnimation;
+
         public static float RIGHT_ANGLE_RADIANS = (90 * MathHelper.Pi) / 180;
 		public string entityTag = "Entity";
 
@@ -31,15 +35,26 @@ namespace TheAdventuresOf
 		public bool moveLeft;
 		public bool moveRight;
 		public bool isMoving;
-        public bool isSpawning;
 
         public int damage;
 
 		public Color tintColor = Color.White;
 
-		public void InitializeEntity(float startX, float startY)
+		public void InitializeEntity(float startX, float startY, int entityWidth, int entityHeight)
 		{
 			positionVector = new Vector2(startX, startY);
+
+            this.entityWidth = entityWidth;
+            this.entityHeight = entityHeight;
+
+            originVector = new Vector2(this.entityWidth / 2,
+                                       entityHeight / 2);
+
+            entityBounds = new Rectangle((int)positionVector.X,
+                                            (int)positionVector.Y,
+                                            entityWidth,
+                                            entityHeight);
+            InitializeAnimation();
 		}
 
 		public virtual void UpdateEntityBounds()
@@ -75,10 +90,38 @@ namespace TheAdventuresOf
 			}
 		}
 
+        public virtual void Draw(SpriteBatch spriteBatch, Texture2D texture)
+        {
+            //get current frame for animations
+            var sourceRectangle = currentAnimation.CurrentRectangle;
+
+            if (moveRight)
+            {
+                spriteBatch.Draw(texture,
+                                 new Vector2(positionVector.X + originVector.X, positionVector.Y + originVector.Y),
+                                 sourceRectangle: sourceRectangle,
+                                 color: tintColor,
+                                 rotation: rotation,
+                                 effects: SpriteEffects.None,
+                                 origin: originVector);
+            }
+            else if (moveLeft)
+            {
+                spriteBatch.Draw(texture,
+                                 new Vector2(positionVector.X + originVector.X, positionVector.Y + originVector.Y),
+                                 sourceRectangle: sourceRectangle,
+                                 color: tintColor,
+                                 rotation: rotation,
+                                 effects: SpriteEffects.FlipHorizontally,
+                                 origin: originVector);
+            }
+        }
+
+        public virtual void InitializeAnimation() { }
+        public virtual void HandleAnimation(GameTime gameTime) { }
 		public virtual void Update(GameTime gameTime, bool buttonPressed = false) { }
 		public virtual void Move(GameTime gameTime, int direction) { }
 		public virtual void HandleMovement(GameTime gameTime) { }
-		public virtual void Draw(SpriteBatch spriteBatch, Texture2D texture) { }
 	}
 }
 

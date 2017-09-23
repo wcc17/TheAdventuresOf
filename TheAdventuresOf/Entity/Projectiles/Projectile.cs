@@ -13,8 +13,6 @@ namespace TheAdventuresOf
 
 		public override void Draw(SpriteBatch spriteBatch, Texture2D texture)
 		{
-			base.Draw(spriteBatch, texture);
-
 			if (moveLeft)
 			{
 				spriteBatch.Draw(texture, 

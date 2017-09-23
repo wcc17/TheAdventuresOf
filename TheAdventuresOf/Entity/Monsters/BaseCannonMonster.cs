@@ -30,7 +30,11 @@ namespace TheAdventuresOf
             if (bullet == null)
             {
                 bullet = new Bullet();
-                bullet.InitializeEntity(0, 0); //x pos will be set by cannon monster
+
+                //x pos will be set by cannon monster
+                bullet.InitializeEntity(0, 0, 
+                                        AssetManager.Instance.bulletTexture.Width, 
+                                        AssetManager.Instance.bulletTexture.Height);
             }
 
             bullet.Reset(bulletEntityTag, bulletSpeed, bulletDamage, positionVector.X, 
