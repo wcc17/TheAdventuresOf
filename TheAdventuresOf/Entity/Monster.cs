@@ -10,11 +10,17 @@ namespace TheAdventuresOf
 		public static int DOWN = 1;
 		public float groundLevel;
 
+        public int spawnType;
+        public const int SPAWN_BOTTOM = 0;
+        public const int SPAWN_TOP = 1;
+        public const int SPAWN_LEFT = 2;
+        public const int SPAWN_RIGHT = 3;
+        public float spawnXLimit; //only used if spawning left or spawning right
+
         public float spawnSpeed;
         public float deathSpeed;
 		public int moveDistanceLimit;
 		public float actionDelayTime;
-		public bool isSpawning;
 
 		public TimeSpan timeDelayed = TimeSpan.FromSeconds(0);
 		public bool delayAction;
@@ -30,11 +36,14 @@ namespace TheAdventuresOf
         public float bounceSpeed;
         public int bounceUpDown = 1; //positive to go up, negative to go down
 
-        public virtual void InitializeSpawn() { }
-        public virtual void HandleSpawn(GameTime gameTime) { }
         public override void HandleAnimation(GameTime gameTime) { }
 
-        public void InitializeMonster()
+        public virtual void InitializeSpawn() {
+            Reset();
+            DetermineSpawnType();
+        }
+
+        public virtual void InitializeMonster()
         {
             rotation = 0;
             isSpawning = false;
@@ -97,6 +106,93 @@ namespace TheAdventuresOf
 
             UpdateEntityBounds();
 		}
+
+        public virtual void DetermineSpawnType() {
+            spawnType = rand.Next(1, 4);
+
+            //NOTE: if left or right is chosen, positionVector.Y and positionVector.X are being set twice upon init
+            //its the easiest way to do this without a huge refactor for such a small detail
+            //will stay in ongoing note
+            if(spawnType == SPAWN_LEFT || spawnType == SPAWN_RIGHT) {
+                positionVector.Y = groundLevel;
+
+                if(spawnType == SPAWN_LEFT) {
+                    moveLeft = true;
+                    positionVector.X = 0 - this.entityWidth;
+                } else {
+                    moveRight = true;
+                    positionVector.X = ScreenManager.FULL_SCREEN_WIDTH + this.entityWidth;
+                }
+
+                DetermineSpawnXLimit();
+            }
+        }
+
+        public virtual void DetermineSpawnXLimit() {
+            //TODO: need offsets here. don't want monster to spawn right at either edge of the screen
+            spawnXLimit = rand.Next(0, (int)ScreenManager.FULL_SCREEN_WIDTH - this.entityWidth);
+        }
+
+        public virtual void HandleSpawn(GameTime gameTime) {
+            switch(spawnType) {
+                case SPAWN_BOTTOM:
+                    HandleSpawnBottom(gameTime);
+                    break;
+                case SPAWN_TOP:
+                    HandleSpawnTop(gameTime);
+                    break;
+                case SPAWN_LEFT:
+                    HandleSpawnLeft(gameTime);
+                    break;
+                case SPAWN_RIGHT:
+                    HandleSpawnRight(gameTime);
+                    break;
+            }
+        }
+
+        public virtual void HandleSpawnTop(GameTime gameTime) {
+            if (positionVector.Y < groundLevel)
+            {
+                MoveUpDown(gameTime, DOWN, spawnSpeed);
+            }
+            else
+            {
+                InitializeMonster();
+            }
+        }
+
+        public virtual void HandleSpawnBottom(GameTime gameTime) {
+            if (positionVector.Y > groundLevel)
+            {
+                MoveUpDown(gameTime, UP, spawnSpeed);
+            }
+            else if ((moveLeft && rotation > 0) || (moveRight && rotation < 0))
+            {
+                Rotate(gameTime);
+            }
+            else
+            {
+                InitializeMonster();
+            }
+        }
+
+        public virtual void HandleSpawnLeft(GameTime gameTime) {
+            if (positionVector.X < spawnXLimit) {
+                float distanceToMove = (spawnSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                positionVector.X += distanceToMove;
+            } else {
+                InitializeMonster();
+            }
+        }
+
+        public virtual void HandleSpawnRight(GameTime gameTime) {
+            if(positionVector.X > spawnXLimit) {
+                float distanceToMove = (spawnSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+                positionVector.X -= distanceToMove;
+            } else {
+                InitializeMonster();
+            }
+        }
 
         public override void HandleLevelBoundCollision(int direction, int boundX)
         {

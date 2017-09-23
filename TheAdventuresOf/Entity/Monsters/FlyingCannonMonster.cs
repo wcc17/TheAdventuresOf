@@ -25,9 +25,20 @@ namespace TheAdventuresOf
             monsterTexture = AssetManager.Instance.flyingCannonMonsterTexture;
         }
 
+        public override void InitializeMonster() {
+            base.InitializeMonster();
+
+            //just to ensure the monster is where its supposed to be
+            positionVector.Y = groundLevel;
+
+            //since spawning is complete, monster is rdy. want him to shoot immediately
+            //if not, add delayAction = true to InitializeSpawn to stop this
+            bullet.isActive = true;
+        }
+
         public override void InitializeSpawn()
         {
-            Reset();
+            base.InitializeSpawn();
 
             isSpawning = true;
 
@@ -54,25 +65,10 @@ namespace TheAdventuresOf
             base.Update(gameTime, false);
         }
 
-        public override void HandleSpawn(GameTime gameTime) {
-            
-            if (positionVector.Y < groundLevel) {
-                MoveUpDown(gameTime, DOWN, spawnSpeed);
-            } else {
-                //just to ensure the monster is where its supposed to be
-                positionVector.Y = groundLevel;
-
-                InitializeMonster();
-
-                //since spawning is complete, monster is rdy. want him to shoot immediately
-                //if not, add delayAction = true to InitializeSpawn to stop this
-                bullet.isActive = true;
-            }
-        }
-
         public override void HandleAnimation(GameTime gameTime) {
             currentAnimation.Update(gameTime);
 
+            //TODO: why is this here?
             //if(!isSpawning) {
                 HandleBounce(gameTime);
             //}
@@ -89,5 +85,17 @@ namespace TheAdventuresOf
 
             ChooseSide(existingCannonMonster);
         }
+
+        public override void DetermineSpawnType() {
+            //if(moveRight) { //spawning on leftSideX
+            //    spawnType = SPAWN_LEFT;
+            //} else {        //spawning on rightSideX
+            //    spawnType = SPAWN_RIGHT;
+            //}
+
+            //TODO: flyingCannonMonster currently cannot spawn from either side because of the random side choosing method
+            spawnType = 1;
+        }
+
     }
 }

@@ -28,6 +28,18 @@ namespace TheAdventuresOf
             monsterTexture = AssetManager.Instance.dashMonsterTexture;
         }
 
+        public override void InitializeMonster() {
+            base.InitializeMonster();
+
+            ForceAction();
+            currentAnimation = movingAnimation;
+        }
+
+        public override void DetermineSpawnType()
+        {
+            spawnType = 0;
+        }
+
         public override void InitializeAnimation()
         {
             //first frame is the stand animation, but its the second frame in the run animation
@@ -50,7 +62,7 @@ namespace TheAdventuresOf
 
         public override void InitializeSpawn()
         {
-            Reset();
+            base.InitializeSpawn();
 
             //assuming that new X position is set in main Update function for now
             ChooseRandomDirection();
@@ -65,24 +77,6 @@ namespace TheAdventuresOf
             }
 
             isSpawning = true;
-        }
-
-        public override void HandleSpawn(GameTime gameTime)
-        {
-            if (positionVector.Y > groundLevel)
-            {
-                MoveUpDown(gameTime, UP, spawnSpeed);
-            }
-            else if ((moveLeft && rotation > 0) || (moveRight && rotation < 0))
-            {
-                Rotate(gameTime);
-            }
-            else
-            {
-                InitializeMonster();
-                ForceAction();
-                currentAnimation = movingAnimation;
-            }
         }
 
         public override void Update(GameTime gameTime, bool buttonPressed = false) 

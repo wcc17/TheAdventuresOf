@@ -212,8 +212,6 @@ namespace TheAdventuresOf
             }
         }
 
-
-
         //no reason to check collision with level bounds here
         public override void HandleLevelBoundCollision(int direction, int boundX) { }
     }

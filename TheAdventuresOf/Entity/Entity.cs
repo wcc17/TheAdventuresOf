@@ -31,6 +31,7 @@ namespace TheAdventuresOf
 		public bool moveLeft;
 		public bool moveRight;
 		public bool isMoving;
+        public bool isSpawning;
 
         public int damage;
 
