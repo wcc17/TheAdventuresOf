@@ -192,12 +192,7 @@ namespace TheAdventuresOf
             level.tierMonsterLimits.Add(MonsterManager.DASH_MONSTER, LoadTierMonsterLimits("DashMonsterLimit", tierElements));
             level.tierMonsterLimits.Add(MonsterManager.UNDERGROUND_MONSTER, LoadTierMonsterLimits("UndergroundMonsterLimit", tierElements));
             level.maxTier = (int)levelOneElement.Element("MaxTier");
-            
             level.spawnDelayTime = (float)levelElement.Element("SpawnDelayTime");
-
-
-            //TODO: get rid of this here and elsewhere. not sure if i need this
-            level.delayCannonSpawnTimerLimit = (float)levelElement.Element("DelayCannonSpawnTimeLimit");
 
             CoinManager.Instance.UpdateGroundLevel(level.groundLevel + CoinManager.coinYOffset);
 
@@ -384,13 +379,6 @@ namespace TheAdventuresOf
 
             GroundCannonMonster.groundOffset = (float)cannonMonsterElement.Element("GroundOffset");
 
-            //needing to use AssetManager.level here might not work later on with multiple levels. 
-            //Will need to be sure that the new level is always loaded before XmlManager is used
-            //TODO: ensure that level graphc assets are loaded before xml importing happens on a new level
-            float rightSideBound = AssetManager.Instance.levelTexture.Width - rightBoundWidth;
-            groundCannonMonster.leftSideX = leftBoundWidth + groundCannonMonster.boundOffset;
-            groundCannonMonster.rightSideX = rightSideBound - AssetManager.Instance.cannonMonsterTexture.Width - groundCannonMonster.boundOffset;
-
 			return groundCannonMonster;
 		}
 
@@ -416,15 +404,6 @@ namespace TheAdventuresOf
             flyingCannonMonster.damage = (int)flyingCannonMonsterElement.Element("Damage");
 
             FlyingCannonMonster.floatHeight = (float)flyingCannonMonsterElement.Element("FloatHeight");
-
-            //needing to use AssetManager.level here might not work later on with multiple levels. 
-            //Will need to be sure that the new level is always loaded before XmlManager is used
-            //TODO: ensure that level graphc assets are loaded before xml importing happens on a new level
-            float rightSideBound = AssetManager.Instance.levelTexture.Width - rightBoundWidth;
-            flyingCannonMonster.leftSideX = leftBoundWidth + flyingCannonMonster.boundOffset;
-            flyingCannonMonster.rightSideX = rightSideBound 
-                - (AssetManager.Instance.flyingCannonMonsterTexture.Width / flyingCannonMonster.frameCount) 
-                - flyingCannonMonster.boundOffset;
 
             return flyingCannonMonster;
         }
@@ -474,13 +453,6 @@ namespace TheAdventuresOf
 
             DashMonster.groundOffset = (float)dashMonsterElement.Element("GroundOffset");
             DashMonster.boundOffset = (float)dashMonsterElement.Element("BoundOffset");
-
-            //needing to use AssetManager.level here might not work later on with multiple levels. 
-            //Will need to be sure that the new level is always loaded before XmlManager is used
-            //TODO: ensure that level graphc assets are loaded before xml importing happens on a new level
-            float rightSideBound = AssetManager.Instance.levelTexture.Width - rightBoundWidth;
-            DashMonster.leftSideX = leftBoundWidth + DashMonster.boundOffset;
-            DashMonster.rightSideX = rightSideBound - (AssetManager.Instance.dashMonsterTexture.Width / dashMonster.frameCount) - DashMonster.boundOffset;
 
             return dashMonster;
         }

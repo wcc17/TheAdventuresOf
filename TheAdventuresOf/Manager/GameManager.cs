@@ -288,7 +288,6 @@ namespace TheAdventuresOf
             {
                 switch (nextGameState)
                 {
-                    //TODO: will I eventually have more levels here? kind of meaningless to switch for just the level state
                     case PRE_LEVEL_STATE:
                         loadPreLevel();
                         break;

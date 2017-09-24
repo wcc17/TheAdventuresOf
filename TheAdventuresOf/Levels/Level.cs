@@ -27,7 +27,6 @@ namespace TheAdventuresOf
         public UndergroundMonster undergroundMonster;
 
 		public float spawnDelayTime; //time before another monster can be spawned
-		public float delayCannonSpawnTimerLimit; //time before spawning another groundCannonMonster is considered
 
 		public static MonsterManager monsterManager;
 
@@ -39,6 +38,8 @@ namespace TheAdventuresOf
 		{
             base.InitializeLevel();
 			monsterManager = new MonsterManager(this);
+
+            loadMonsterLevelInformation();
 		}
 
 		public override void Update(GameTime gameTime, GameController gameController)
@@ -69,6 +70,27 @@ namespace TheAdventuresOf
             PlayerManager.Instance.Draw(spriteBatch);
             
 		}
+
+        //load any extra monster information dependent on the current level
+        //this assumes that assets have already been loaded for level and for monsters
+        void loadMonsterLevelInformation() {
+			float rightSideBound = AssetManager.Instance.levelTexture.Width - rightBoundWidth;
+
+			flyingCannonMonster.leftSideX = leftBoundWidth + flyingCannonMonster.boundOffset;
+			flyingCannonMonster.rightSideX = rightSideBound
+				- (AssetManager.Instance.flyingCannonMonsterTexture.Width / flyingCannonMonster.frameCount)
+				- flyingCannonMonster.boundOffset;
+
+			DashMonster.leftSideX = leftBoundWidth + DashMonster.boundOffset;
+			DashMonster.rightSideX = rightSideBound 
+                - (AssetManager.Instance.dashMonsterTexture.Width / dashMonster.frameCount) 
+                - DashMonster.boundOffset;
+
+			groundCannonMonster.leftSideX = leftBoundWidth + groundCannonMonster.boundOffset;
+			groundCannonMonster.rightSideX = rightSideBound 
+                - AssetManager.Instance.cannonMonsterTexture.Width 
+                - groundCannonMonster.boundOffset;
+        }
 	}
 }
 

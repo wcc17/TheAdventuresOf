@@ -38,10 +38,6 @@ namespace TheAdventuresOf
 		TimeSpan spawnTimer = TimeSpan.FromSeconds(0);
 		bool canSpawn = false;
 
-        //TODO: are these even used anymore? or am i just keeping while i keep the commented method at the bottom
-		TimeSpan delayCannonSpawnTimer = TimeSpan.FromSeconds(0);
-		bool canSpawnCannonMonster = true;
-
 		public MonsterManager(Level level)
 		{
 			monsters = new List<Monster>();
@@ -227,9 +223,6 @@ namespace TheAdventuresOf
 				monsters.RemoveAll(m => monstersToRemove.Contains(m)); //removes all monsters in monstersToRemove from monsters list
 				monstersToRemove.Clear();
 			}
-
-			//update cannon monster spawn timer 
-			delayCannonSpawnTimer = delayCannonSpawnTimer.Add(gameTime.ElapsedGameTime);
 		}
 
 		public void DrawMonsters(SpriteBatch spriteBatch)
