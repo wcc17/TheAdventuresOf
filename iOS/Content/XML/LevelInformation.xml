@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Level>
   <SpawnDelayTime>1</SpawnDelayTime>
-  <DelayCannonSpawnTimeLimit>4</DelayCannonSpawnTimeLimit>
 
   <MainMenu>
     <PlayButtonX>200</PlayButtonX>

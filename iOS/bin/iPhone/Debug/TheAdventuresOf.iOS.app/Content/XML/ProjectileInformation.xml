@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Projectiles>
     <Bile>
-        <Speed>300</Speed>
+        <EntityTag>Bile</EntityTag>
+        <Speed>320</Speed>
+		<GroundOffset>55</GroundOffset>
+		<TimeToLive>7</TimeToLive>
+		<FadeSpeed>0.6</FadeSpeed>
+		<Damage>30</Damage>
+		
+		<!-- The smaller the value, the further it will go. 
+		     Think of the a in a quadratic function (y = ax^2 + b).
+             Will have to increase speed as Distance gets smaller. -->
+		<Distance>0.06</Distance>
     </Bile>
     <Bullet>
+        <EntityTag>Bullet</EntityTag>
 		<Speed>400</Speed>
+		<RotationSpeed>1000</RotationSpeed>
+		<FadeSpeed>1.3</FadeSpeed>
+		<Damage>30</Damage>
 	</Bullet>
 </Projectiles>
