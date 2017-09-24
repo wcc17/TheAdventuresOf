@@ -3,15 +3,7 @@
     <Bile>
         <EntityTag>Bile</EntityTag>
         <Speed>320</Speed>
-        
-        <!-- TODO: this is a bad way to do this -->
-        <!-- level ground level does not work here,
-            because the ground level assumes that something
-            will be drawn from the top left corner down. -->
-        <!-- <GroundLevel>740</GroundLevel> old level design -->
-<!--        <GroundLevel>605</GroundLevel>-->
 		<GroundOffset>55</GroundOffset>
-		
 		<TimeToLive>10</TimeToLive>
 		<FadeSpeed>0.8</FadeSpeed>
 		

@@ -39,7 +39,6 @@ namespace TheAdventuresOf
 			HandleInput(controller);
 		}
 
-        //TODO: gameTime shouldn't be passed here 
         public void HandleInput(Controller controller)
         {
             //reset the controller

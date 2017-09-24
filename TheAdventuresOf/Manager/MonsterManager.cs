@@ -210,9 +210,7 @@ namespace TheAdventuresOf
 
 				if (monster.isDead)
 				{
-					//TODO: NEEEEED to make sure that garbage collection removes these objects after removal
-					//especially if i'm not going to use an object pool
-					//level.monsters.Remove(monster);
+					//TODO: good place to look at in the event of performance issues
 					monstersToRemove.Add(monster);
 					UpdateMonsterCount(monster);
 				}
