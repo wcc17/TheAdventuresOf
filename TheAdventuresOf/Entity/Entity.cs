@@ -9,6 +9,9 @@ namespace TheAdventuresOf
         public bool isDying;
         public bool isDead;
 
+		//so that we can tell if level bounds are being hit even if we're not adjusting the entities position
+		public bool isCollidingWithLevelBounds; 
+
         public float animationSpeed;
         public int frameCount;
         public Animation baseAnimation;

@@ -236,13 +236,14 @@ namespace TheAdventuresOf
             if(!monster.isDying && !monster.isDead) {
                 if (swordBounds.Intersects(monster.entityBounds))
                 {
+                    //TODO: consider moving this if condition to the outside if statement above this one
                     //spike monster can't be killed by the sword
                     if(!(monster is SpikeMonster)) {
                         monster.isDying = true;
                         ScoringManager.Instance.HandleMonsterKill(monster);
                     }
 
-                    CoinManager.Instance.AddCoins(monster.positionVector.X, monster.positionVector.Y);
+                    monster.HandleCoinDropOnDeath();
                 }
                 else if (collisionBounds.Intersects(monster.entityBounds))
                 {
