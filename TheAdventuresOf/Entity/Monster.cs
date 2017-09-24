@@ -170,7 +170,7 @@ namespace TheAdventuresOf
 
         public override void HandleLevelBoundCollision(int direction, int boundX)
         {
-            if(!isSpawning) {
+            if(!isSpawning && !isDying) {
                 base.HandleLevelBoundCollision(direction, boundX);
             }
         }
