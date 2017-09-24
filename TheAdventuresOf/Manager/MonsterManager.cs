@@ -288,8 +288,11 @@ namespace TheAdventuresOf
                 return (int)PlayerManager.Instance.GetPlayerPosition().X;
             }
 
-            //TODO: need offsets here. don't want monster to spawn right at either edge of the screen
-            int randomX = rand.Next(0, (int)ScreenManager.FULL_SCREEN_WIDTH - monster.entityWidth);
+            //plus/minus 1 just to move monster over a little bit so it doesn't look like it "teleports"
+            int randomX = rand.Next(level.leftBoundWidth + 1, 
+                                    (int)ScreenManager.FULL_SCREEN_WIDTH 
+                                    - level.rightBoundWidth 
+                                    - monster.entityWidth - 1);
             return randomX;
         }
 
