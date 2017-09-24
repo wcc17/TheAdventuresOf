@@ -203,21 +203,9 @@ namespace TheAdventuresOf
             }
         }
 
-        public override void HandleMovement(GameTime gameTime)
+		//TODO: magic number? this method has way too many of them
+		public virtual void HandleShake(GameTime gameTime)
         {
-            if (moveLeft)
-            {
-                Move(gameTime, LEFT);
-            }
-            else if (moveRight)
-            {
-                Move(gameTime, RIGHT);
-            }
-        }
-
-        public virtual void HandleShake(GameTime gameTime)
-        {
-            //TODO: magic number, do I want in XML or nah?
             float shakeDistance = 300 * (float)gameTime.ElapsedGameTime.TotalSeconds;
             shakeAmt += shakeDistance;
 
@@ -318,22 +306,16 @@ namespace TheAdventuresOf
             }
         }
 
-        //TODO: why does this take in an int for direction? We have moveLeft and moveRight
-        //TODO: I don't think I want this here, I would rather each monster override (pretty much what I'm doing already)
-		public override void Move(GameTime gameTime, int direction)
+		public override void HandleMovement(GameTime gameTime)
 		{
 			float distanceToMove = (speed * (float)gameTime.ElapsedGameTime.TotalSeconds);
-			switch (direction)
-			{
-				case LEFT:
-					positionVector.X -= distanceToMove;
-					distanceMoved += distanceToMove;
-					break;
-				case RIGHT:
-					positionVector.X += distanceToMove;
-					distanceMoved += distanceToMove;
-					break;
-			}
+            if (moveLeft) {
+				positionVector.X -= distanceToMove;
+				distanceMoved += distanceToMove;
+            } else if(moveRight) {
+				positionVector.X += distanceToMove;
+				distanceMoved += distanceToMove;
+            }
 		}
 
 		public virtual void MoveUpDown(GameTime gameTime, int direction, float speed)

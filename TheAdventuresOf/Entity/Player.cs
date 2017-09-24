@@ -234,7 +234,6 @@ namespace TheAdventuresOf
 		public void CheckCollisionMonster(Monster monster)
 		{
             if(!monster.isDying && !monster.isDead) {
-                //TODO: should this be an if/else if statement? or two ifs?
                 if (swordBounds.Intersects(monster.entityBounds))
                 {
                     //spike monster can't be killed by the sword

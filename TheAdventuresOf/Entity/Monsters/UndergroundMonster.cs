@@ -102,8 +102,6 @@ namespace TheAdventuresOf
         }
 
         void prepareAttack() {
-            //TODO: if its never hitting the player, could try to "predict" players steps by seeing what direction hes going in
-            //and attacking a few steps ahead of him
             float playerX = PlayerManager.Instance.GetPlayerPosition().X;
             positionVector.X = playerX;
 

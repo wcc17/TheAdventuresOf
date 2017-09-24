@@ -83,12 +83,5 @@ namespace TheAdventuresOf
                 text.Draw(spriteBatch);
             }
         }
-
-        //TODO: this needs to be called at the end of levesl
-        public void ClearText() {
-            activeIndexedText.Clear();
-            activeText.Clear();
-        }
-
     }
 }
