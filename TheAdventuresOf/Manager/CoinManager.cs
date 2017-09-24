@@ -107,9 +107,13 @@ namespace TheAdventuresOf
         public void CheckCollisionWithLevel(Rectangle levelBoundsLeft, Rectangle levelBoundsRight) {
             foreach(Coin coin in coins) {
                 if(coin.bounds.Intersects(levelBoundsLeft)) {
-                    coin.positionVector.X = levelBoundsLeft.X;   
+                    coin.positionVector.X = levelBoundsLeft.Width;
+                    coin.bounds.X = (int)coin.positionVector.X;
                 } else if(coin.bounds.Intersects(levelBoundsRight)) {
-                    coin.positionVector.X = levelBoundsRight.X - coin.bounds.Width;
+                    coin.positionVector.X = ScreenManager.FULL_SCREEN_WIDTH 
+                        - levelBoundsRight.Width 
+                        - coin.bounds.Width;
+                    coin.bounds.X = (int)coin.positionVector.X;
                 }
             }
         }

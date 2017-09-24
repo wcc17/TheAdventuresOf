@@ -168,6 +168,21 @@ namespace TheAdventuresOf
             }
         }
 
+		public virtual void MoveUpDown(GameTime gameTime, int direction, float speed)
+		{
+			float distanceToMove = (speed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+			if (direction == UP)
+			{
+				positionVector.Y -= distanceToMove;
+			}
+			else
+			{
+				positionVector.Y += distanceToMove;
+			}
+
+            UpdateEntityBounds();
+		}
+
         public override void HandleLevelBoundCollision(int direction, int boundX)
         {
             if(!isSpawning && !isDying) {
@@ -201,6 +216,15 @@ namespace TheAdventuresOf
             {
                 isDead = true;
             }
+        }
+
+        public void HandleCoinDropOnDeath() {
+			//it would look weird if coins just appeared on the level when either of these monsters died
+            if (!(this is SpikeMonster) 
+                && !(this is UndergroundMonster) 
+                && !isCollidingWithLevelBounds) {
+				CoinManager.Instance.AddCoins(positionVector.X, positionVector.Y);
+			}
         }
 
 		//TODO: magic number? this method has way too many of them
@@ -316,16 +340,6 @@ namespace TheAdventuresOf
 				positionVector.X += distanceToMove;
 				distanceMoved += distanceToMove;
             }
-		}
-
-		public virtual void MoveUpDown(GameTime gameTime, int direction, float speed)
-		{
-			float distanceToMove = (speed * (float)gameTime.ElapsedGameTime.TotalSeconds);
-			if (direction == UP) {
-				positionVector.Y -= distanceToMove;
-			} else {
-				positionVector.Y += distanceToMove;
-			}
 		}
 
         //TODO: Action is the wrong word everywhere. Should be ForceMovement and delayMovement

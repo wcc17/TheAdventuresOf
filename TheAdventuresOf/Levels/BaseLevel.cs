@@ -48,13 +48,17 @@ namespace TheAdventuresOf
 
         public virtual void CheckCollisionWithBounds(Entity entity)
         {
+            entity.isCollidingWithLevelBounds = false;
+
             if (leftSideBounds.Intersects(entity.entityBounds))
             {
+                entity.isCollidingWithLevelBounds = true;
                 entity.HandleLevelBoundCollision(Entity.LEFT, leftBoundWidth);
             }
 
             if (rightSideBounds.Intersects(entity.entityBounds))
             {
+                entity.isCollidingWithLevelBounds = true;
                 entity.HandleLevelBoundCollision(Entity.RIGHT, levelTexture.Width - rightBoundWidth);
             }
         }
