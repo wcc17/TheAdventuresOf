@@ -375,6 +375,8 @@ namespace TheAdventuresOf
                                               ScreenManager.FULL_SCREEN_HEIGHT + AssetManager.Instance.cannonMonsterTexture.Height,
                                               AssetManager.Instance.cannonMonsterTexture.Width / groundCannonMonster.frameCount,
                                               AssetManager.Instance.cannonMonsterTexture.Height);
+
+            groundCannonMonster.spawnType = Monster.SPAWN_BOTTOM; //is default, but want to be explicit here
             groundCannonMonster.InitializeSpawn();
 
             monsters.Add(groundCannonMonster);
@@ -394,6 +396,7 @@ namespace TheAdventuresOf
                                                     AssetManager.Instance.flyingCannonMonsterTexture.Width / flyingCannonMonster.frameCount,
                                                     AssetManager.Instance.flyingCannonMonsterTexture.Height);
 
+            flyingCannonMonster.spawnType = Monster.SPAWN_TOP;
             flyingCannonMonster.InitializeSpawn();
 
             monsters.Add(flyingCannonMonster);
