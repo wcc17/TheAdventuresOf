@@ -156,7 +156,7 @@ namespace TheAdventuresOf
         {
             if (delayAction) 
             {
-                //TODO: magic number, do I want in XML or nah? just distance from player where idle animation is used
+                //TODO: magic number, want in XML? just distance from player where idle animation is used
                 if ( (positionVector.X < (playerX - 35)) || (positionVector.X > (playerX + 35)) )
                 {   
                     currentAnimation = movingAnimation;
