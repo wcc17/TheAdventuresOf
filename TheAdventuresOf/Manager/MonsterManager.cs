@@ -6,8 +6,8 @@ using System.Threading;
 
 namespace TheAdventuresOf
 {
-	public class MonsterManager
-	{
+    public class MonsterManager
+    {
         public const int BLOCK_MONSTER = 0;
         public const int SUN_MONSTER = 1;
         public const int GROUND_CANNON_MONSTER = 2;
@@ -17,81 +17,81 @@ namespace TheAdventuresOf
         public const int FLYING_CANNON_MONSTER = 6;
         public const int UNDERGROUND_MONSTER = 7;
 
-		public Level level;
+        public Level level;
 
-		public int blockMonsterCount;
-		public int sunMonsterCount;
-		public int groundCannonMonsterCount;
-		public int bileMonsterCount;
+        public int blockMonsterCount;
+        public int sunMonsterCount;
+        public int groundCannonMonsterCount;
+        public int bileMonsterCount;
         public int spikeMonsterCount;
         public int dashMonsterCount;
         public int flyingCannonMonsterCount;
         public int undergroundMonsterCount;
         public int monsterCount;
 
-		public static List<Monster> monsters;
-		public List<Monster> monstersToRemove;
+        public static List<Monster> monsters;
+        public List<Monster> monstersToRemove;
         List<int> availableMonsters;
 
-		static Random rand = new Random();
+        static Random rand = new Random();
 
-		TimeSpan spawnTimer = TimeSpan.FromSeconds(0);
-		bool canSpawn = false;
+        TimeSpan spawnTimer = TimeSpan.FromSeconds(0);
+        bool canSpawn = false;
 
-		public MonsterManager(Level level)
-		{
-			monsters = new List<Monster>();
+        public MonsterManager(Level level)
+        {
+            monsters = new List<Monster>();
 
             //just trying to avoid creating new lists every other frame or whatever
             monstersToRemove = new List<Monster>();
             availableMonsters = new List<int>(); 
 
-			this.level = level;
-		}
+            this.level = level;
+        }
 
-		int getRandomXLocation(float characterWidth)
-		{
-			//character width is necessary to make sure we don't spawn a monster (x is the top left corner) on top of a boundary
-			//when generating a random number, it goes up to the second number - 1, which is why we include + 1
-			int X = rand.Next(level.leftSideBounds.Width, 
-					  AssetManager.Instance.levelTexture.Width - level.rightSideBounds.Width - (int)characterWidth + 1);
+        int getRandomXLocation(float characterWidth)
+        {
+            //character width is necessary to make sure we don't spawn a monster (x is the top left corner) on top of a boundary
+            //when generating a random number, it goes up to the second number - 1, which is why we include + 1
+            int X = rand.Next(level.leftSideBounds.Width, 
+                      AssetManager.Instance.levelTexture.Width - level.rightSideBounds.Width - (int)characterWidth + 1);
 
-			return X;
-		}
+            return X;
+        }
 
-		void handleSpawnDelay(GameTime gameTime)
-		{
-			spawnTimer = spawnTimer.Add(gameTime.ElapsedGameTime);
-			if (spawnTimer.Seconds > level.spawnDelayTime)
-			{
-				//will allow monsters to spawn, then next frame the timer will start adding up again
-				canSpawn = true;
-				spawnTimer = TimeSpan.FromSeconds(0);
-			}
-		}
+        void handleSpawnDelay(GameTime gameTime)
+        {
+            spawnTimer = spawnTimer.Add(gameTime.ElapsedGameTime);
+            if (spawnTimer.Seconds > level.spawnDelayTime)
+            {
+                //will allow monsters to spawn, then next frame the timer will start adding up again
+                canSpawn = true;
+                spawnTimer = TimeSpan.FromSeconds(0);
+            }
+        }
 
-        //TODO: this method alone is reason enough to move spawning info to its own Manager	
-		public void HandleSpawnMonsters(GameTime gameTime)
-		{
-			handleSpawnDelay(gameTime);
+        //TODO: this method alone is reason enough to move spawning info to its own Manager    
+        public void HandleSpawnMonsters(GameTime gameTime)
+        {
+            handleSpawnDelay(gameTime);
 
-			if (canSpawn)
-			{
+            if (canSpawn)
+            {
                 availableMonsters.Clear();
 
-				//spawn new monsters if needed
+                //spawn new monsters if needed
                 if (blockMonsterCount < level.tierMonsterLimits[BLOCK_MONSTER][level.currentTier]) {
                     availableMonsters.Add(BLOCK_MONSTER);
-				}
-				if (sunMonsterCount < level.tierMonsterLimits[SUN_MONSTER][level.currentTier]) {
+                }
+                if (sunMonsterCount < level.tierMonsterLimits[SUN_MONSTER][level.currentTier]) {
                     availableMonsters.Add(SUN_MONSTER);
-				}
+                }
                 if (groundCannonMonsterCount < level.tierMonsterLimits[GROUND_CANNON_MONSTER][level.currentTier]) {
                     availableMonsters.Add(GROUND_CANNON_MONSTER);
-				}
+                }
                 if (bileMonsterCount < level.tierMonsterLimits[BILE_MONSTER][level.currentTier]) {
                     availableMonsters.Add(BILE_MONSTER);
-				}
+                }
                 if (spikeMonsterCount < level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier]) {
                     availableMonsters.Add(SPIKE_MONSTER);
                 }
@@ -145,7 +145,7 @@ namespace TheAdventuresOf
 
                 canSpawn = false;
             }
-		}
+        }
 
         public void Update(GameTime gameTime) {
             HandleSpawnMonsters(gameTime);
@@ -163,16 +163,16 @@ namespace TheAdventuresOf
             Logger.Instance.AddOrUpdateValue("UGround Limit: ", level.tierMonsterLimits[UNDERGROUND_MONSTER][level.currentTier].ToString());
         }
 
-		public void UpdateMonsterCount(Monster monster) {
-			if (monster is BlockMonster) {
-				blockMonsterCount--;
-			} else if (monster is SunMonster) {
-				sunMonsterCount--;
-			} else if (monster is GroundCannonMonster) {
+        public void UpdateMonsterCount(Monster monster) {
+            if (monster is BlockMonster) {
+                blockMonsterCount--;
+            } else if (monster is SunMonster) {
+                sunMonsterCount--;
+            } else if (monster is GroundCannonMonster) {
                 groundCannonMonsterCount--;
-			} else if (monster is BileMonster) {
-				bileMonsterCount--;
-			} else if (monster is SpikeMonster) {
+            } else if (monster is BileMonster) {
+                bileMonsterCount--;
+            } else if (monster is SpikeMonster) {
                 spikeMonsterCount--;
             } else if (monster is DashMonster) {
                 dashMonsterCount--;
@@ -183,21 +183,21 @@ namespace TheAdventuresOf
             }
 
             monsterCount--;
-		}
+        }
 
-		public void UpdateMonsters(GameTime gameTime)
-		{
-			//update each monster and remove them if they're dead
-			foreach (Monster monster in monsters)
-			{
+        public void UpdateMonsters(GameTime gameTime)
+        {
+            //update each monster and remove them if they're dead
+            foreach (Monster monster in monsters)
+            {
                 //these methods go first so that monster can update in reaction to them
-				level.CheckCollisionWithBounds(monster);
+                level.CheckCollisionWithBounds(monster);
                 level.CheckPlayerCollisionWithMonster(monster);
 
                 if (monster is BaseCannonMonster)
-				{
+                {
                     level.CheckPlayerCollisionProjectile(((BaseCannonMonster)monster).bullet);
-				}
+                }
                 if (monster is BileMonster) 
                 {
                     foreach (Bile bile in ((BileMonster) monster).activeBileObjects) 
@@ -206,47 +206,64 @@ namespace TheAdventuresOf
                     }
                 }
 
-				monster.Update(gameTime);
+                monster.Update(gameTime);
 
-				if (monster.isDead)
-				{
-					//TODO: good place to look at in the event of performance issues
-					monstersToRemove.Add(monster);
-					UpdateMonsterCount(monster);
-				}
-			}
+                if (monster.isDead)
+                {
+                    //TODO: good place to look at in the event of performance issues
+                    monstersToRemove.Add(monster);
+                    UpdateMonsterCount(monster);
+                }
+            }
 
-			if (monstersToRemove.Count > 0)
-			{
-				monsters.RemoveAll(m => monstersToRemove.Contains(m)); //removes all monsters in monstersToRemove from monsters list
-				monstersToRemove.Clear();
-			}
-		}
+            if (monstersToRemove.Count > 0)
+            {
+                monsters.RemoveAll(m => monstersToRemove.Contains(m)); //removes all monsters in monstersToRemove from monsters list
+                monstersToRemove.Clear();
+            }
+        }
 
-		public void DrawMonsters(SpriteBatch spriteBatch)
-		{
-			foreach (Monster monster in monsters)
-			{
-				if ( !(monster is GroundCannonMonster) )
-				{
-					monster.Draw(spriteBatch);
-				}
-			}
+        public void DrawMonsters(SpriteBatch spriteBatch)
+        {
+            foreach (Monster monster in monsters)
+            {
+                if ( !(monster is GroundCannonMonster) )
+                {
+                    monster.Draw(spriteBatch);
+                }
+            }
 
             //TODO: there needs to be a better way to do this. Theres no reason to 
             //TODO: loop through all of the monsters again just to get the GroundCannonMonster
             //TODO: also am not doing it for the FlyingCannonMonster
-			//GroundCannonMonster should always be drawn last so that bullet is always on top of other monsters
-			foreach (Monster monster in monsters.FindAll(m => m is GroundCannonMonster))
-			{
-				monster.Draw(spriteBatch);
-			}
-		}
+            //GroundCannonMonster should always be drawn last so that bullet is always on top of other monsters
+            foreach (Monster monster in monsters.FindAll(m => m is GroundCannonMonster))
+            {
+                monster.Draw(spriteBatch);
+            }
+        }
 
         //TODO: all spawn*Monster methods should be moved to a MonsterSpawner class.
         public Monster DetermineSpawnTypeRandom(Monster monster)
         {
-            int spawnType = rand.Next(1, 4);
+            //25% left
+            //25% right
+            //50% top
+            int randNo = rand.Next(0, 4);
+            int spawnType = Monster.SPAWN_TOP;
+            switch(randNo) {
+                case 0:
+                    spawnType = Monster.SPAWN_LEFT;
+                    break;
+                case 1:
+                    spawnType = Monster.SPAWN_RIGHT;
+                    break;
+                case 2:
+                case 3:
+                    spawnType = Monster.SPAWN_TOP;
+                    break;
+            }
+
             return DetermineSpawnType(monster, spawnType);
         }
 
@@ -296,72 +313,72 @@ namespace TheAdventuresOf
             return randomX;
         }
 
-		void spawnBlockMonster()
-		{
-			BlockMonster blockMonster = new BlockMonster();
+        void spawnBlockMonster()
+        {
+            BlockMonster blockMonster = new BlockMonster();
 
-			blockMonster.SetBlockMonsterData(level.blockMonster);
-			blockMonster.groundLevel = level.groundLevel;
+            blockMonster.SetBlockMonsterData(level.blockMonster);
+            blockMonster.groundLevel = level.groundLevel;
             blockMonster.InitializeEntity(AssetManager.Instance.blockMonsterTexture.Width / blockMonster.frameCount,
                                           AssetManager.Instance.blockMonsterTexture.Height);
             blockMonster = (BlockMonster) DetermineSpawnType(blockMonster, Monster.SPAWN_BOTTOM);
-			blockMonster.InitializeSpawn();
+            blockMonster.InitializeSpawn();
 
-			monsters.Add(blockMonster);
+            monsters.Add(blockMonster);
 
-			blockMonsterCount++;
-		}
+            blockMonsterCount++;
+        }
 
-		void spawnSunMonster()
-		{
-			SunMonster sunMonster = new SunMonster();
+        void spawnSunMonster()
+        {
+            SunMonster sunMonster = new SunMonster();
 
-			sunMonster.SetSunMonsterData(level.sunMonster);
-			sunMonster.groundLevel = level.groundLevel - SunMonster.floatHeight;
-			sunMonster.InitializeEntity(AssetManager.Instance.sunMonsterTexture.Width / sunMonster.frameCount,
-										AssetManager.Instance.sunMonsterTexture.Height);
+            sunMonster.SetSunMonsterData(level.sunMonster);
+            sunMonster.groundLevel = level.groundLevel - SunMonster.floatHeight;
+            sunMonster.InitializeEntity(AssetManager.Instance.sunMonsterTexture.Width / sunMonster.frameCount,
+                                        AssetManager.Instance.sunMonsterTexture.Height);
             sunMonster = (SunMonster)DetermineSpawnTypeRandom(sunMonster);
-			sunMonster.InitializeSpawn();
+            sunMonster.InitializeSpawn();
 
-			monsters.Add(sunMonster);
+            monsters.Add(sunMonster);
 
-			sunMonsterCount++;
-		}
+            sunMonsterCount++;
+        }
 
-		void spawnBileMonster()
-		{
-			BileMonster bileMonster = new BileMonster();
+        void spawnBileMonster()
+        {
+            BileMonster bileMonster = new BileMonster();
 
-			bileMonster.SetBileMonsterData(level.bileMonster);
-			bileMonster.groundLevel = level.groundLevel - BileMonster.floatHeight;
-			bileMonster.InitializeEntity(AssetManager.Instance.bileMonsterTexture.Width / bileMonster.frameCount,
-										 AssetManager.Instance.bileMonsterTexture.Height);
+            bileMonster.SetBileMonsterData(level.bileMonster);
+            bileMonster.groundLevel = level.groundLevel - BileMonster.floatHeight;
+            bileMonster.InitializeEntity(AssetManager.Instance.bileMonsterTexture.Width / bileMonster.frameCount,
+                                         AssetManager.Instance.bileMonsterTexture.Height);
             bileMonster = (BileMonster)DetermineSpawnTypeRandom(bileMonster);
-			bileMonster.InitializeSpawn();
+            bileMonster.InitializeSpawn();
 
-			monsters.Add(bileMonster);
+            monsters.Add(bileMonster);
 
-			bileMonsterCount++;
-		}
+            bileMonsterCount++;
+        }
 
-		void spawnGroundCannonMonster()
-		{
-			GroundCannonMonster groundCannonMonster = new GroundCannonMonster();
+        void spawnGroundCannonMonster()
+        {
+            GroundCannonMonster groundCannonMonster = new GroundCannonMonster();
 
-			groundCannonMonster.SetCannonMonsterData(level.groundCannonMonster);
-			groundCannonMonster.groundLevel = level.groundLevel - GroundCannonMonster.groundOffset;
-			//random side of the level is chosen here. if a cannon monster already exists there, it will be handled here
+            groundCannonMonster.SetCannonMonsterData(level.groundCannonMonster);
+            groundCannonMonster.groundLevel = level.groundLevel - GroundCannonMonster.groundOffset;
+            //random side of the level is chosen here. if a cannon monster already exists there, it will be handled here
             groundCannonMonster.ChooseRandomSide(groundCannonMonsterCount, monsters);
-			groundCannonMonster.InitializeEntity(groundCannonMonster.positionVector.X,
-											  ScreenManager.FULL_SCREEN_HEIGHT + AssetManager.Instance.cannonMonsterTexture.Height,
-											  AssetManager.Instance.cannonMonsterTexture.Width / groundCannonMonster.frameCount,
-											  AssetManager.Instance.cannonMonsterTexture.Height);
-			groundCannonMonster.InitializeSpawn();
+            groundCannonMonster.InitializeEntity(groundCannonMonster.positionVector.X,
+                                              ScreenManager.FULL_SCREEN_HEIGHT + AssetManager.Instance.cannonMonsterTexture.Height,
+                                              AssetManager.Instance.cannonMonsterTexture.Width / groundCannonMonster.frameCount,
+                                              AssetManager.Instance.cannonMonsterTexture.Height);
+            groundCannonMonster.InitializeSpawn();
 
-			monsters.Add(groundCannonMonster);
+            monsters.Add(groundCannonMonster);
 
-			groundCannonMonsterCount++;
-		}
+            groundCannonMonsterCount++;
+        }
 
         void spawnFlyingCannonMonster()
         {
@@ -431,6 +448,6 @@ namespace TheAdventuresOf
 
             undergroundMonsterCount++;
         }
-	}
+    }
 }
 
