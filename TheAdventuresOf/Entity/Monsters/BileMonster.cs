@@ -50,8 +50,9 @@ namespace TheAdventuresOf
         {
             base.InitializeSpawn();
 
-            //assuming that new X position is set in main Update function for now
-            ChooseRandomDirection();
+            if(spawnType == SPAWN_TOP) {
+                ChooseRandomDirection();
+            }
 
             isSpawning = true;
             delayAction = true;
