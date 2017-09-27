@@ -40,8 +40,14 @@ namespace TheAdventuresOf
         {
             base.InitializeSpawn();
 
-            //doesn't really matter what direction, just need one to draw 
-            moveLeft = true; 
+            //moveLeft or moveRight will only both be false if SPAWN_TOP is used
+            if(spawnType == SPAWN_TOP) {
+                moveLeft = true; 
+            } else {
+                //if spawning from left or right, spike monster should be facing left or right
+                currentAnimation = movingAnimation;
+            }
+
             isSpawning = true;
             isAttacking = false;
             delayAction = true;
@@ -84,6 +90,7 @@ namespace TheAdventuresOf
                 }
                 else 
                 {
+                    //TODO: error correction offsets? magic number, put in XML
                     //these small offsets (-3 and +3) keeps monster from not being able to decide whether to go left or right
                     if (entityCenter < (playerCenter - 3))
                     {

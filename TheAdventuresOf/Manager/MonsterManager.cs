@@ -275,12 +275,14 @@ namespace TheAdventuresOf
 
                 if (spawnType == Monster.SPAWN_LEFT)
                 {
-                    monster.moveLeft = true;
+                    monster.moveLeft = false;
+                    monster.moveRight = true;
                     monster.positionVector.X = 0 - monster.entityWidth;
                 }
                 else
                 {
-                    monster.moveRight = true;
+                    monster.moveLeft = true;
+                    monster.moveRight = false;
                     monster.positionVector.X = ScreenManager.FULL_SCREEN_WIDTH + monster.entityWidth;
                 }
 
