@@ -66,13 +66,16 @@ namespace TheAdventuresOf
         }
 
         public override void HandleDeath(GameTime gameTime) {
-            if (positionVector.Y < ScreenManager.FULL_SCREEN_HEIGHT + entityHeight)
-            {
-                handleFadeOut(gameTime);
-                MoveUpDown(gameTime, DOWN, deathSpeed);
+            //rotate while fading
+            if(rotation > 0) {
+                Rotate(gameTime);
+            } else {
+                rotation = 0;
             }
-            else
-            {
+
+            handleFadeOut(gameTime);
+
+            if (alpha < 0) {
                 isDead = true;
             }
         }
