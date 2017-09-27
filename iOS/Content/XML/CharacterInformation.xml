@@ -104,7 +104,7 @@
 		
 	<SpikeMonster>
       <EntityTag>SpikeMonster</EntityTag>
-      <Speed>180</Speed>
+      <Speed>190</Speed>
       <SpawnSpeed>320</SpawnSpeed>
       <DeathSpeed>400</DeathSpeed>
       <RotationSpeed>350</RotationSpeed>
