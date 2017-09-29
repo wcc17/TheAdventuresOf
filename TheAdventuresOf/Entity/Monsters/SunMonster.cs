@@ -24,6 +24,24 @@ namespace TheAdventuresOf
 			monsterTexture = AssetManager.Instance.sunMonsterTexture;
 		}
 
+        public override void InitializeAnimation() {
+            baseAnimation = new Animation();
+            baseAnimation.AddFrame(new Rectangle(0,
+                                                 0,
+                                                 entityWidth,
+                                                 entityHeight), TimeSpan.FromSeconds(animationSpeed));
+            baseAnimation.AddFrame(new Rectangle(entityWidth,
+                                                 0,
+                                                 entityWidth,
+                                                 entityHeight), TimeSpan.FromSeconds(animationSpeed));
+            baseAnimation.AddFrame(new Rectangle(entityWidth*2,
+                                                 0,
+                                                 entityWidth,
+                                                 entityHeight), TimeSpan.FromSeconds(animationSpeed));
+
+            currentAnimation = baseAnimation;
+        }
+
 		public override void InitializeSpawn()
 		{
 			base.InitializeSpawn();
@@ -35,6 +53,11 @@ namespace TheAdventuresOf
 
 			isSpawning = true;
 		}
+
+        public override void Update(GameTime gameTime, bool buttonPressed = false) {
+            currentAnimation.Update(gameTime);
+            base.Update(gameTime, buttonPressed);
+        }
 	}
 }
 
