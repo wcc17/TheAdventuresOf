@@ -103,7 +103,6 @@
     <None Include="Content\Game\arial.spritefont" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="GameThumbnail.png" />
     <BundleResource Include="Content\Level\level1background_1080p.png" />
     <BundleResource Include="Content\Game\controller_1080p.png" />
     <BundleResource Include="Content\Game\emptyheart_1080p.png" />
@@ -151,6 +150,27 @@
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\splash_iphone6plus.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\GameThumbnail.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_1024.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_512.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_256.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_128.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_64.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_32.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_16.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_167.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_152.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_180.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_60.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_20.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app_icon_29.png" />
   </ItemGroup>
   <Import Project="..\TheAdventuresOf\TheAdventuresOf.projitems" Label="Shared" Condition="Exists('..\TheAdventuresOf\TheAdventuresOf.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

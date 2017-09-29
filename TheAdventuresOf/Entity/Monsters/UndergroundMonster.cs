@@ -76,7 +76,9 @@ namespace TheAdventuresOf
             handleFadeOut(gameTime);
 
             if (alpha < 0) {
+                //TODO: NEED TO MAKE SURE HES ACTUALLY DYING
                 isDead = true;
+                Console.WriteLine("im dead im dead im dead");
             }
         }
 
