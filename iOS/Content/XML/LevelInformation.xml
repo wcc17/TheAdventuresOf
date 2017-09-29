@@ -80,10 +80,10 @@
 		
 	<MaxTier>5</MaxTier>
 
-	<!-- TODO: these numbers are inaccurate after adding SwoopMonster -->
-	<Tier1> <!--14-->
+    <!-- sunMonster and swoopMonster numbers need to be fixed after testing swoopMonster -->
+	<Tier1> <!--15-->
       <BlockMonsterLimit>       6</BlockMonsterLimit>
-      <SunMonsterLimit>         5</SunMonsterLimit>
+      <SunMonsterLimit>         3</SunMonsterLimit>
       <GroundCannonMonsterLimit>0</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        3</BileMonsterLimit>
@@ -93,9 +93,9 @@
 	  <SwoopMonsterLimit>       3</SwoopMonsterLimit>
 	</Tier1>
 		
-    <Tier2> <!--15-->
+    <Tier2> <!--16-->
 	  <BlockMonsterLimit>       6</BlockMonsterLimit>
-      <SunMonsterLimit>         4</SunMonsterLimit>
+      <SunMonsterLimit>         2</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        3</BileMonsterLimit>
@@ -105,9 +105,9 @@
 	  <SwoopMonsterLimit>       3</SwoopMonsterLimit>
 	</Tier2>
 		
-    <Tier3> <!--16-->
+    <Tier3> <!--17-->
 	  <BlockMonsterLimit>       6</BlockMonsterLimit>
-      <SunMonsterLimit>         5</SunMonsterLimit>
+      <SunMonsterLimit>         3</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        2</BileMonsterLimit>
@@ -117,9 +117,9 @@
       <SwoopMonsterLimit>       3</SwoopMonsterLimit>
 	</Tier3>
 		
-    <Tier4> <!--17-->
+    <Tier4> <!--18-->
 	  <BlockMonsterLimit>       5</BlockMonsterLimit>
-      <SunMonsterLimit>         4</SunMonsterLimit>
+      <SunMonsterLimit>         2</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>1</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        3</BileMonsterLimit>
@@ -129,9 +129,9 @@
 	  <SwoopMonsterLimit>       3</SwoopMonsterLimit>
 	</Tier4>
 		
-    <Tier5> <!--19-->
+    <Tier5> <!--20-->
 	  <BlockMonsterLimit>       5</BlockMonsterLimit>
-      <SunMonsterLimit>         4</SunMonsterLimit>
+      <SunMonsterLimit>         2</SunMonsterLimit>
       <GroundCannonMonsterLimit>2</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>1</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        3</BileMonsterLimit>
