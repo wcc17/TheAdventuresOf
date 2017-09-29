@@ -42,7 +42,7 @@
       <SpawnSpeed>250</SpawnSpeed>
       <DeathSpeed>400</DeathSpeed>
       <AnimationSpeed>0.08</AnimationSpeed>
-      <FrameCount>1</FrameCount>
+      <FrameCount>3</FrameCount>
       <MoveDistanceLimit>300</MoveDistanceLimit>
       <ActionDelayTime>1.5</ActionDelayTime>
       <RotationSpeed>400</RotationSpeed>
