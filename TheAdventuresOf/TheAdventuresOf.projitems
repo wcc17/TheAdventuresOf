@@ -58,6 +58,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Text\Text.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Animation\Animation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Animation\AnimationFrame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\SwoopMonster.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

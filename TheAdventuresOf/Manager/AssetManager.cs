@@ -56,6 +56,7 @@ namespace TheAdventuresOf
         public Texture2D dashMonsterTexture;
         public Texture2D flyingCannonMonsterTexture;
         public Texture2D undergroundMonsterTexture;
+        public Texture2D swoopMonsterTexture;
         public Song levelOneSong;
 
         public Texture2D bulletTexture;
@@ -232,6 +233,10 @@ namespace TheAdventuresOf
             {
                 undergroundMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
+            using (var stream = TitleContainer.OpenStream(monsterFilePath + "swoopmonster_1080p.png")) 
+            {
+                swoopMonsterTexture = Texture2D.FromStream(graphicsDevice, stream);    
+            }
 
             //projectiles
             using (var stream = TitleContainer.OpenStream(projectileFilePath + "bullet_1080p.png"))
@@ -304,6 +309,7 @@ namespace TheAdventuresOf
             dashMonsterTexture.Dispose();
             flyingCannonMonsterTexture.Dispose();
             undergroundMonsterTexture.Dispose();
+            swoopMonsterTexture.Dispose();
 
             bulletTexture.Dispose();
             bileTexture.Dispose();

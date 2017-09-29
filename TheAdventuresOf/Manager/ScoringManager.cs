@@ -18,6 +18,7 @@ namespace TheAdventuresOf
         public static int flyingCannonMonsterScore;
         public static int spikeMonsterScore;
         public static int undergroundMonsterScore;
+        public static int swoopMonsterScore;
 
         public static ScoringManager Instance {
             get
@@ -36,6 +37,7 @@ namespace TheAdventuresOf
 
             int pointsEarned = 0;
 
+            //TODO: should this be all ifs, if/else, or can i somehow use switch?
             if(monster is BlockMonster) {
                 pointsEarned = blockMonsterScore;
             }
@@ -59,6 +61,9 @@ namespace TheAdventuresOf
             }
             if(monster is UndergroundMonster) {
                 pointsEarned = undergroundMonsterScore;
+            }
+            if(monster is SwoopMonster) {
+                pointsEarned = swoopMonsterScore;
             }
 
             score += pointsEarned;

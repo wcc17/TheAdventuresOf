@@ -25,6 +25,7 @@ namespace TheAdventuresOf
         public DashMonster dashMonster;
         public FlyingCannonMonster flyingCannonMonster;
         public UndergroundMonster undergroundMonster;
+        public SwoopMonster swoopMonster;
 
 		public float spawnDelayTime; //time before another monster can be spawned
 

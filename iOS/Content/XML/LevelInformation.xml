@@ -80,6 +80,7 @@
 		
 	<MaxTier>5</MaxTier>
 
+	<!-- TODO: these numbers are inaccurate after adding SwoopMonster -->
 	<Tier1> <!--14-->
       <BlockMonsterLimit>       6</BlockMonsterLimit>
       <SunMonsterLimit>         5</SunMonsterLimit>
@@ -89,6 +90,7 @@
       <SpikeMonsterLimit>       0</SpikeMonsterLimit>    
       <DashMonsterLimit>        0</DashMonsterLimit>
 	  <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
+	  <SwoopMonsterLimit>       3</SwoopMonsterLimit>
 	</Tier1>
 		
     <Tier2> <!--15-->
@@ -100,6 +102,7 @@
       <SpikeMonsterLimit>       1</SpikeMonsterLimit>    
       <DashMonsterLimit>        0</DashMonsterLimit>
       <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
+	  <SwoopMonsterLimit>       3</SwoopMonsterLimit>
 	</Tier2>
 		
     <Tier3> <!--16-->
@@ -111,6 +114,7 @@
       <SpikeMonsterLimit>       1</SpikeMonsterLimit>    
       <DashMonsterLimit>        0</DashMonsterLimit>
 	  <UndergroundMonsterLimit> 1</UndergroundMonsterLimit>
+      <SwoopMonsterLimit>       3</SwoopMonsterLimit>
 	</Tier3>
 		
     <Tier4> <!--17-->
@@ -122,6 +126,7 @@
       <SpikeMonsterLimit>       1</SpikeMonsterLimit>    
       <DashMonsterLimit>        1</DashMonsterLimit>
 	  <UndergroundMonsterLimit> 1</UndergroundMonsterLimit>
+	  <SwoopMonsterLimit>       3</SwoopMonsterLimit>
 	</Tier4>
 		
     <Tier5> <!--19-->
@@ -133,6 +138,7 @@
       <SpikeMonsterLimit>       1</SpikeMonsterLimit>    
       <DashMonsterLimit>        2</DashMonsterLimit>
 	  <UndergroundMonsterLimit> 1</UndergroundMonsterLimit>
+	  <SwoopMonsterLimit>       3</SwoopMonsterLimit>
 	</Tier5>
   </LevelOne>
 </Level>

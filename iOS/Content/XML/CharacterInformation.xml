@@ -147,6 +147,20 @@
 	  <FadeSpeed>1.0</FadeSpeed>
 	  <Damage>40</Damage>	
     </UndergroundMonster>
+
+	<SwoopMonster>
+      <EntityTag>SwoopMonster</EntityTag>
+      <Speed>230</Speed>
+      <SpawnSpeed>250</SpawnSpeed>
+      <DeathSpeed>400</DeathSpeed>
+      <AnimationSpeed>0.08</AnimationSpeed>
+      <FrameCount>1</FrameCount>
+      <MoveDistanceLimit>300</MoveDistanceLimit>
+      <ActionDelayTime>1.5</ActionDelayTime>
+      <RotationSpeed>400</RotationSpeed>
+      <FloatHeight>125</FloatHeight>
+      <Damage>40</Damage>
+    </SwoopMonster>
 		
   </Monsters>
 </Characters>
