@@ -42,7 +42,8 @@
         <PauseButtonX>900</PauseButtonX>
         <PauseButtonY>915</PauseButtonY>
 	</GameController>
-	
+
+	<!--TODO: look into different monster scoring, is it where I want it to be? -->
 	<Scoring>
 		<TextFloatSpeed>100</TextFloatSpeed>
 		<TextDisappearSpeed>1.2</TextDisappearSpeed>
@@ -56,6 +57,7 @@
 		<FlyingCannonMonster>350</FlyingCannonMonster>
 		<SpikeMonster>250</SpikeMonster>
 		<UndergroundMonster>400</UndergroundMonster>
+		<SwoopMonster>350</SwoopMonster>
     </Scoring>		
 
 </Game>

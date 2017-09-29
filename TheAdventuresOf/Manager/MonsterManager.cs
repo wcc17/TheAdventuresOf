@@ -16,6 +16,7 @@ namespace TheAdventuresOf
         public const int DASH_MONSTER = 5;
         public const int FLYING_CANNON_MONSTER = 6;
         public const int UNDERGROUND_MONSTER = 7;
+        public const int SWOOP_MONSTER = 8;
 
         public Level level;
 
@@ -27,6 +28,7 @@ namespace TheAdventuresOf
         public int dashMonsterCount;
         public int flyingCannonMonsterCount;
         public int undergroundMonsterCount;
+        public int swoopMonsterCount;
         public int monsterCount;
 
         public static List<Monster> monsters;
@@ -104,6 +106,9 @@ namespace TheAdventuresOf
                 if (undergroundMonsterCount < level.tierMonsterLimits[UNDERGROUND_MONSTER][level.currentTier]) {
                     availableMonsters.Add(UNDERGROUND_MONSTER);
                 }
+                if (swoopMonsterCount < level.tierMonsterLimits[SWOOP_MONSTER][level.currentTier]) {
+                    availableMonsters.Add(SWOOP_MONSTER);
+                }
 
                 //if(availableMonsters.Count > 0) {
 
@@ -112,7 +117,6 @@ namespace TheAdventuresOf
                 foreach(int monsterToSpawn in availableMonsters) {
                     
                     switch (monsterToSpawn) {
-                        
                         case BLOCK_MONSTER:
                             spawnBlockMonster();
                             break;
@@ -138,6 +142,9 @@ namespace TheAdventuresOf
                         case UNDERGROUND_MONSTER:
                             spawnUndergroundMonster();
                             break;
+                        case SWOOP_MONSTER:
+                            spawnSwoopMonster();
+                            break;
                     }
 
                     monsterCount++;
@@ -161,9 +168,11 @@ namespace TheAdventuresOf
             Logger.Instance.AddOrUpdateValue("Spike Limit: ", level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier].ToString());
             Logger.Instance.AddOrUpdateValue("Dash Limit: ", level.tierMonsterLimits[DASH_MONSTER][level.currentTier].ToString());
             Logger.Instance.AddOrUpdateValue("UGround Limit: ", level.tierMonsterLimits[UNDERGROUND_MONSTER][level.currentTier].ToString());
+            Logger.Instance.AddOrUpdateValue("Swoop Limit: ", level.tierMonsterLimits[SWOOP_MONSTER][level.currentTier].ToString());
         }
 
         public void UpdateMonsterCount(Monster monster) {
+            //TODO: all if statements or else if? can I do a switch by any chance?
             if (monster is BlockMonster) {
                 blockMonsterCount--;
             } else if (monster is SunMonster) {
@@ -180,6 +189,8 @@ namespace TheAdventuresOf
                 flyingCannonMonsterCount--;
             } else if (monster is UndergroundMonster) {
                 undergroundMonsterCount--;   
+            } else if(monster is SwoopMonster) {
+                swoopMonsterCount--;
             }
 
             monsterCount--;
@@ -452,6 +463,21 @@ namespace TheAdventuresOf
             monsters.Add(undergroundMonster);
 
             undergroundMonsterCount++;
+        }
+
+        void spawnSwoopMonster() {
+            SwoopMonster swoopMonster = new SwoopMonster();
+
+            swoopMonster.SetSwoopMonsterData(level.swoopMonster);
+            swoopMonster.groundLevel = level.groundLevel - SwoopMonster.floatHeight;
+            swoopMonster.InitializeEntity(AssetManager.Instance.swoopMonsterTexture.Width / swoopMonster.frameCount,
+                                          AssetManager.Instance.swoopMonsterTexture.Height);
+            swoopMonster = (SwoopMonster)DetermineSpawnTypeRandom(swoopMonster);
+            swoopMonster.InitializeSpawn();
+
+            monsters.Add(swoopMonster);
+
+            swoopMonsterCount++;
         }
     }
 }

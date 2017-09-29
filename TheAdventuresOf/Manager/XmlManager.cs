@@ -77,6 +77,7 @@ namespace TheAdventuresOf
             ScoringManager.flyingCannonMonsterScore = (int)scoringElement.Element("FlyingCannonMonster");
             ScoringManager.spikeMonsterScore = (int)scoringElement.Element("SpikeMonster");
             ScoringManager.undergroundMonsterScore = (int)scoringElement.Element("UndergroundMonster");
+            ScoringManager.swoopMonsterScore = (int)scoringElement.Element("SwoopMonster");
 
             CoinManager.coinYOffset = (float)coinManagerElement.Element("CoinYOffset");
             CoinManager.coinXSpacing = (int)coinManagerElement.Element("CoinXSpacing");
@@ -191,6 +192,7 @@ namespace TheAdventuresOf
             level.tierMonsterLimits.Add(MonsterManager.SPIKE_MONSTER, LoadTierMonsterLimits("SpikeMonsterLimit", tierElements));
             level.tierMonsterLimits.Add(MonsterManager.DASH_MONSTER, LoadTierMonsterLimits("DashMonsterLimit", tierElements));
             level.tierMonsterLimits.Add(MonsterManager.UNDERGROUND_MONSTER, LoadTierMonsterLimits("UndergroundMonsterLimit", tierElements));
+            level.tierMonsterLimits.Add(MonsterManager.SWOOP_MONSTER, LoadTierMonsterLimits("SwoopMonsterLimit", tierElements));
             level.maxTier = (int)levelOneElement.Element("MaxTier");
             level.spawnDelayTime = (float)levelElement.Element("SpawnDelayTime");
 
@@ -217,6 +219,7 @@ namespace TheAdventuresOf
             level.spikeMonster = LoadSpikeMonsterInformation();
             level.dashMonster = LoadDashMonsterInformation(level.rightBoundWidth, level.leftBoundWidth);
             level.undergroundMonster = LoadUndergroundMonsterInformation();
+            level.swoopMonster = LoadSwoopMonsterInformation();
 
             LoadBaseCannonMonsterInformation();
             level.groundCannonMonster = LoadCannonMonsterInformation(level.rightBoundWidth, level.leftBoundWidth);
@@ -482,6 +485,30 @@ namespace TheAdventuresOf
             UndergroundMonster.rotationVelocityLimit = (float)undergroundMonsterElement.Element("RotationVelocityLimit");
 
             return undergroundMonster;
+        }
+
+        public static SwoopMonster LoadSwoopMonsterInformation()
+        {
+            SwoopMonster swoopMonster = new SwoopMonster();
+
+            XElement charactersElement = characterDocument.Element("Characters");
+            XElement monstersElement = charactersElement.Element("Monsters");
+            XElement swoopMonsterElement = monstersElement.Element("SwoopMonster");
+
+            swoopMonster.entityTag = (string)swoopMonsterElement.Element("EntityTag");
+            swoopMonster.speed = (float)swoopMonsterElement.Element("Speed");
+            swoopMonster.spawnSpeed = (float)swoopMonsterElement.Element("SpawnSpeed");
+            swoopMonster.deathSpeed = (float)swoopMonsterElement.Element("DeathSpeed");
+            swoopMonster.animationSpeed = (float)swoopMonsterElement.Element("AnimationSpeed");
+            swoopMonster.frameCount = (int)swoopMonsterElement.Element("FrameCount");
+            swoopMonster.moveDistanceLimit = (int)swoopMonsterElement.Element("MoveDistanceLimit");
+            swoopMonster.actionDelayTime = (float)swoopMonsterElement.Element("ActionDelayTime");
+            swoopMonster.rotationSpeed = (float)swoopMonsterElement.Element("RotationSpeed");
+            swoopMonster.damage = (int)swoopMonsterElement.Element("Damage");
+
+            SwoopMonster.floatHeight = (float)swoopMonsterElement.Element("FloatHeight");
+
+            return swoopMonster;
         }
 	}
 }

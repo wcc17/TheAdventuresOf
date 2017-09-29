@@ -143,6 +143,7 @@
     <BundleResource Include="Content\Game\button_1080p.png" />
     <BundleResource Include="Content\Game\pause_1080p.png" />
     <BundleResource Include="Content\Game\pause_background_1080p.png" />
+    <BundleResource Include="Content\Monster\swoopmonster_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
