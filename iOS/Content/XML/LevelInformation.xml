@@ -81,16 +81,17 @@
 	<MaxTier>5</MaxTier>
 
     <!-- sunMonster and swoopMonster numbers need to be fixed after testing swoopMonster -->
+		
 	<Tier1> <!--15-->
-      <BlockMonsterLimit>       6</BlockMonsterLimit>
-      <SunMonsterLimit>         3</SunMonsterLimit>
+      <BlockMonsterLimit>       0</BlockMonsterLimit>
+      <SunMonsterLimit>         0</SunMonsterLimit>
       <GroundCannonMonsterLimit>0</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
-      <BileMonsterLimit>        3</BileMonsterLimit>
+      <BileMonsterLimit>        0</BileMonsterLimit>
       <SpikeMonsterLimit>       0</SpikeMonsterLimit>    
       <DashMonsterLimit>        0</DashMonsterLimit>
 	  <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
-	  <SwoopMonsterLimit>       3</SwoopMonsterLimit>
+	  <SwoopMonsterLimit>       1</SwoopMonsterLimit>
 	</Tier1>
 		
     <Tier2> <!--16-->

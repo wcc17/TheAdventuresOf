@@ -507,6 +507,10 @@ namespace TheAdventuresOf
             swoopMonster.damage = (int)swoopMonsterElement.Element("Damage");
 
             SwoopMonster.floatHeight = (float)swoopMonsterElement.Element("FloatHeight");
+            SwoopMonster.swoopDelayLimit = (float)swoopMonsterElement.Element("SwoopDelayLimit");
+            SwoopMonster.swoopArcScale = (float)swoopMonsterElement.Element("SwoopArcScale");
+            SwoopMonster.swoopArcWidth = (float)swoopMonsterElement.Element("SwoopArcWidth");
+            SwoopMonster.swoopArcSpeed = (float)swoopMonsterElement.Element("SwoopArcSpeed");
 
             return swoopMonster;
         }

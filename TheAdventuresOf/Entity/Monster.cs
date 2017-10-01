@@ -25,7 +25,7 @@ namespace TheAdventuresOf
 
 		public TimeSpan timeDelayed = TimeSpan.FromSeconds(0);
 		public bool delayAction;
-		float distanceMoved;
+		public float distanceMoved;
 
 		public Random rand = new Random();
 
@@ -73,7 +73,7 @@ namespace TheAdventuresOf
 				else
 				{
 					//stop movement if necessary
-                    //TODO: this probably belongs in the HandleMovement method. investigate what monster is even using this
+                    //TODO: this probably belongs in the HandleMovement method.
 					if (distanceMoved > moveDistanceLimit)
 					{
 						distanceMoved = 0;
@@ -190,6 +190,7 @@ namespace TheAdventuresOf
             }
         }
 
+        //TODO: replace with timer!
         public virtual void HandleDelay(GameTime gameTime)
         {
             timeDelayed = timeDelayed.Add(gameTime.ElapsedGameTime);
@@ -300,7 +301,7 @@ namespace TheAdventuresOf
                 ChooseRandomDirection();
             }
             else if (rand.Next(0, 5) > 1) {
-                moveTowardPlayer();
+                MoveTowardPlayer();
             } else {
                 Logger.WriteToConsole("No direction chosen");
             }
@@ -319,14 +320,16 @@ namespace TheAdventuresOf
         }
 
         //move in the direction of the player depending on what side of the player they're on
-        private void moveTowardPlayer() {
-            if (PlayerManager.Instance.GetPlayerPosition().X >= this.positionVector.X) {
+        //TODO: BileMonster should use this method instead of what its currently doing 
+        public virtual void MoveTowardPlayer() {
+            if (PlayerManager.Instance.GetPlayerPosition().X > positionVector.X) {
                 moveRight = true;
                 moveLeft = false;
-            }
-            else {
+            } else if(PlayerManager.Instance.GetPlayerPosition().X < positionVector.X) {
                 moveRight = false;
                 moveLeft = true;
+            } else {
+                ChooseRandomDirection();
             }
         }
 

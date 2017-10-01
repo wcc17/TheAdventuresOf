@@ -85,7 +85,6 @@ namespace TheAdventuresOf
             currentController.InitializeController();
         }
 
-        //really just to make it easier to skip prelevel while testing if i want to
         void loadCommonLevelAssets() {
             AssetManager.Instance.LoadGameAssets(graphicsDevice);
             XmlManager.LoadGameInformation();
@@ -199,15 +198,15 @@ namespace TheAdventuresOf
 
             if(mainMenu.proceedToNextState) {
                 gameState = LOAD_STATE;
-                nextGameState = PRE_LEVEL_STATE;
-                //nextGameState = LEVEL_STATE;
+                //nextGameState = PRE_LEVEL_STATE;
+                nextGameState = LEVEL_STATE;
 
                 AssetManager.Instance.DisposeMenuAssets();
 
                 //load level assets for nextGameState
                 loadCommonLevelAssets();
-                //loadLevelAssets();
-                loadPreLevelAssets();
+                loadLevelAssets();
+                //loadPreLevelAssets();
             }
         }
 
