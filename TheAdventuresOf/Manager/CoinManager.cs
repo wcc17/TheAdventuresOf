@@ -147,6 +147,11 @@ namespace TheAdventuresOf
         public void UpdateGroundLevel(float newGroundLevel) {
             this.groundLevel = newGroundLevel;
         }
+
+        public void RemoveAllCoins() {
+            coinsToRemove.Clear();
+            coins.Clear();
+        }
     }
 }
 
