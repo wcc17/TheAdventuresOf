@@ -17,6 +17,7 @@ namespace TheAdventuresOf
 			actionDelayTime = blockMonster.actionDelayTime;
 			rotationSpeed = blockMonster.rotationSpeed;
             damage = blockMonster.damage;
+            fadeSpeed = blockMonster.fadeSpeed;
 
 			monsterTexture = AssetManager.Instance.blockMonsterTexture;
 		}

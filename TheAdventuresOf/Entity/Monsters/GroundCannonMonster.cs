@@ -20,6 +20,7 @@ namespace TheAdventuresOf
             spawnSpeed = groundCannonMonster.spawnSpeed;
             deathSpeed = groundCannonMonster.deathSpeed;
             damage = groundCannonMonster.damage;
+            fadeSpeed = groundCannonMonster.fadeSpeed;
 
             leftSideX = groundCannonMonster.leftSideX;
             rightSideX = groundCannonMonster.rightSideX;

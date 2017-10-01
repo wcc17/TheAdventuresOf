@@ -32,6 +32,7 @@ namespace TheAdventuresOf
             rotationSpeed = swoopMonster.rotationSpeed;
             damage = swoopMonster.damage;
             invincibilityTimeLimit = swoopMonster.invincibilityTimeLimit;
+            fadeSpeed = swoopMonster.fadeSpeed;
 
             monsterTexture = AssetManager.Instance.swoopMonsterTexture;
             swoopDelayTimer = new Timer(swoopDelayLimit);
