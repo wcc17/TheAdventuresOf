@@ -158,8 +158,12 @@
       <MoveDistanceLimit>300</MoveDistanceLimit>
       <ActionDelayTime>1.5</ActionDelayTime>
       <RotationSpeed>400</RotationSpeed>
-      <FloatHeight>125</FloatHeight>
+      <FloatHeight>225</FloatHeight>
       <Damage>40</Damage>
+	  <SwoopDelayLimit>5</SwoopDelayLimit>
+	  <SwoopArcScale>90</SwoopArcScale> <!--arcScale here to scale the cosY value (ex. if arcScale=100, -1 to 1 goes to -100 to 100). higher number means tip goes further down-->
+	  <SwoopArcWidth>400</SwoopArcWidth> <!--a higher number for arcWidth makes it wider-->
+	  <SwoopArcSpeed>6</SwoopArcSpeed> <!--a higher number for arcSpeed makes the whole "swoop" happen faster-->
     </SwoopMonster>
 		
   </Monsters>

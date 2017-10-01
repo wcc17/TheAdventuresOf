@@ -1,9 +1,23 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
+
 namespace TheAdventuresOf
 {
     public class SwoopMonster : Monster
     {
+        //cosX 0 to -6.5 is one full "arc" that we're looking for (the swoop)
+        const double COS_X_LIMIT = -6.5;
+
         public static float floatHeight;
+        public static float swoopDelayLimit;
+        public static float swoopArcScale;
+        public static float swoopArcWidth;
+        public static float swoopArcSpeed;
+
+        bool delaySwoop;
+        Timer swoopDelayTimer;
+        double cosX;
+        int directionMultiplier = 1;
 
         public void SetSwoopMonsterData(SwoopMonster swoopMonster)
         {
@@ -19,6 +33,7 @@ namespace TheAdventuresOf
             damage = swoopMonster.damage;
 
             monsterTexture = AssetManager.Instance.swoopMonsterTexture;
+            swoopDelayTimer = new Timer(swoopDelayLimit);
         }
 
         public override void InitializeSpawn() {
@@ -30,6 +45,97 @@ namespace TheAdventuresOf
             }
 
             isSpawning = true;
+            delayAction = true;
+            delaySwoop = true;
+        }
+
+        public override void Update(GameTime gameTime, bool buttonPressed = false) {
+            /**
+             * if not spawning or dying, should be moving toward player or not moving at all
+             * should be more likely to move toward player
+             * every now and then, stop movement decisions and "swoop"
+             * if "swooping", movement should not happen again until its over
+             * should also not be updating timer for movement
+             * NOTE: trying out seperate if statements for now. it will work better for this specific monster
+             */
+
+            //delayAction is for movement
+            if(!isDying && (!delayAction || !delaySwoop) && !isSpawning) {
+                HandleMovement(gameTime);
+            } 
+
+            if ((delayAction || delaySwoop) && !isDying && !isSpawning) {
+                //only increase delayAction timer if monster is currently not "swooping"
+                if(delayAction && delaySwoop) {
+                    HandleDelay(gameTime);
+                }
+
+                if(delaySwoop) {
+                    handleSwoopDelay(gameTime);
+                }
+            } 
+
+            if(isDying) {
+                isSpawning = false;
+                HandleDeath(gameTime);
+            } else if (isSpawning) {
+                HandleSpawn(gameTime);    
+            }
+
+            UpdateEntityBounds();
+            
+        }
+
+        public override void HandleMovement(GameTime gameTime) {
+            if(!delaySwoop) {
+                handleSwoop(gameTime);
+            } else {
+                handleMove(gameTime);
+            }
+        }
+
+        void handleMove(GameTime gameTime) {
+            if(distanceMoved > moveDistanceLimit) {
+                distanceMoved = 0;
+                delayAction = true;
+                isMoving = false;
+            }
+
+            if(!isMoving) {
+                MoveTowardPlayer();
+                isMoving = true;
+            }
+
+            base.HandleMovement(gameTime);
+            if (moveLeft) {
+                directionMultiplier = -1;
+            } else {
+                directionMultiplier = 1;
+            }
+        }
+
+        void handleSwoop(GameTime gameTime) {
+            double cosY = Math.Cos(cosX);
+            cosX -= (swoopArcSpeed * gameTime.ElapsedGameTime.TotalSeconds);
+
+            positionVector.X += (swoopArcWidth * (float)gameTime.ElapsedGameTime.TotalSeconds) * directionMultiplier;
+            positionVector.Y = groundLevel + (float)((-cosY * swoopArcScale) + swoopArcScale);
+
+            if ((int)Math.Floor(cosX) <= COS_X_LIMIT) {
+                cosX = 0;
+                delaySwoop = true;
+                positionVector.Y = groundLevel;
+            }
+        }
+
+        void handleSwoopDelay(GameTime gameTime)
+        {
+            bool timeUp = swoopDelayTimer.IsTimeUp(gameTime.ElapsedGameTime);
+            if (timeUp)
+            {
+                swoopDelayTimer.Reset();
+                delaySwoop = false;
+            }
         }
     }
 }

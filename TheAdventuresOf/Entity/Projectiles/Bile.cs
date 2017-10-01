@@ -8,7 +8,7 @@ namespace TheAdventuresOf
         public static float timeToLive;
         public static float distance;
         public static float groundOffset;
-        public Vector2 originVector = new Vector2();
+        public Vector2 originVector = new Vector2(); //TODO: this is already in Entity. should be called originalPosVector or something since its the projectile's original position
         public float groundLevel;
 
         bool isFalling;
