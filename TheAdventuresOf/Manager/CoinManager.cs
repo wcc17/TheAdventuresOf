@@ -49,7 +49,7 @@ namespace TheAdventuresOf
 
         //TODO: this should eventually take in monster and increase oddds a little for certain monsters
         public void AddCoins(float x, float y) {
-            int numCoinDist = rand.Next(11); //0 - 10
+            int numCoinDist = rand.Next(10); //0 - 9
             int numberOfCoins = 0;
 
             /**
@@ -58,16 +58,14 @@ namespace TheAdventuresOf
              * Just making it less likely for a high number of coins to spawn.
              * 0 coins is most likely, then 1 coin, etc.
              **/
-            if(numCoinDist < 3) {
+            if(numCoinDist < 4) { //0, 1, 2, 3
                 numberOfCoins = 0;
-            } else if(numCoinDist < 6) {
+            } else if(numCoinDist < 7) { //4, 5, 6
                 numberOfCoins = 1;
-            } else if(numCoinDist < 8) {
+            } else if(numCoinDist < 9) { //7, 8
                 numberOfCoins = 2;
-            } else if(numCoinDist < 9) {
+            } else if(numCoinDist == 9) { //9
                 numberOfCoins = 3;
-            } else if(numCoinDist < 10) {
-                numberOfCoins = 4;
             }
 
             for (int i = 0; i < numberOfCoins; i++) {
