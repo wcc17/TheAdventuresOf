@@ -31,6 +31,7 @@ namespace TheAdventuresOf
             actionDelayTime = swoopMonster.actionDelayTime;
             rotationSpeed = swoopMonster.rotationSpeed;
             damage = swoopMonster.damage;
+            invincibilityTimeLimit = swoopMonster.invincibilityTimeLimit;
 
             monsterTexture = AssetManager.Instance.swoopMonsterTexture;
             swoopDelayTimer = new Timer(swoopDelayLimit);
@@ -73,7 +74,11 @@ namespace TheAdventuresOf
                 if(delaySwoop) {
                     handleSwoopDelay(gameTime);
                 }
-            } 
+            }
+
+            if(!isDying && !isSpawning) {
+                HandleInvincibility(gameTime);
+            }
 
             if(isDying) {
                 isSpawning = false;

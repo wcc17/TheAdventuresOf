@@ -37,9 +37,8 @@ namespace TheAdventuresOf
         Rectangle healthBarFillSourceRectangle;
         Vector2 zeroPositionVector = new Vector2(0, 0);
 
-		bool isInvincible;
+        //TODO: this should be a Timer, not a TimeSpan. the dealing with this is nasty.  Could also be in Entity class
 		TimeSpan invincibilityTimer = TimeSpan.FromSeconds(0);
-		public double invincibilityTime;
 
 		float transparency = 1;
 		int transparencyMultiplier = -1;
@@ -234,7 +233,7 @@ namespace TheAdventuresOf
 		public void CheckCollisionMonster(Monster monster)
 		{
             if(!monster.isDying && !monster.isDead) {
-                if (swordBounds.Intersects(monster.entityBounds))
+                if (swordBounds.Intersects(monster.entityBounds) && !monster.isInvincible)
                 {
                     //TODO: consider moving this if condition to the outside if statement above this one
                     //spike monster can't be killed by the sword
@@ -247,13 +246,17 @@ namespace TheAdventuresOf
                 }
                 else if (collisionBounds.Intersects(monster.entityBounds))
                 {
-                    if (!isInvincible)
+                    if (!isInvincible) //if player isn't invincible
                     {
                         if(monster is SpikeMonster) {
                             Logger.WriteToConsole("Player took damage from SpikeMonster");
                             ((SpikeMonster) monster).didDamagePlayer = true;
                         }
 
+                        //don't restart timer if its already started
+                        if( (monster is SwoopMonster || monster is DashMonster) && !monster.isInvincible) {
+                            monster.StartInvincibility();
+                        }
 
                         Logger.WriteToConsole("player took damage from monster");
                         handlePlayerTakingDamage(monster);
@@ -274,7 +277,7 @@ namespace TheAdventuresOf
 			if (health > 0)
 			{
 				isInvincible = true;
-				invincibilityTimer = TimeSpan.FromSeconds(invincibilityTime);
+				invincibilityTimer = TimeSpan.FromSeconds(invincibilityTimeLimit);
 
 				//check for bile - it shouldn't affect knock back direction because its just sitting on the ground
 				if(!(entity is Bile)) {

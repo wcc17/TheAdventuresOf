@@ -41,6 +41,9 @@ namespace TheAdventuresOf
 
         public int damage;
 
+        public bool isInvincible;
+        public double invincibilityTimeLimit;
+
 		public Color tintColor = Color.White;
 
         public void InitializeEntity(int entityWidth, int entityHeight) {

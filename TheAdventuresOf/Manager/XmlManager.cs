@@ -240,7 +240,7 @@ namespace TheAdventuresOf
 			player.rightSwordOffset = (float)playerElement.Element("RightSwordOffset");
 			player.swordYOffset = (float)playerElement.Element("SwordYOffset");
 			player.frameCount = (int)playerElement.Element("FrameCount");
-			player.invincibilityTime = (double)playerElement.Element("InvincibilityTime");
+			player.invincibilityTimeLimit = (double)playerElement.Element("InvincibilityTime");
 			player.knockBackDistanceLimit = (float)playerElement.Element("KnockBackDistanceLimit");
 			player.knockBackSpeed = (int)playerElement.Element("KnockBackSpeed");
 			player.rotationSpeed = (int)playerElement.Element("RotationSpeed");
@@ -453,6 +453,7 @@ namespace TheAdventuresOf
             dashMonster.rotationSpeed = (float)dashMonsterElement.Element("RotationSpeed");
             dashMonster.animationSpeed = (float)dashMonsterElement.Element("AnimationSpeed");
             dashMonster.damage = (int)dashMonsterElement.Element("Damage");
+            dashMonster.invincibilityTimeLimit = (float)dashMonsterElement.Element("InvincibilityTimeLimit");
 
             DashMonster.groundOffset = (float)dashMonsterElement.Element("GroundOffset");
             DashMonster.boundOffset = (float)dashMonsterElement.Element("BoundOffset");
@@ -505,6 +506,7 @@ namespace TheAdventuresOf
             swoopMonster.actionDelayTime = (float)swoopMonsterElement.Element("ActionDelayTime");
             swoopMonster.rotationSpeed = (float)swoopMonsterElement.Element("RotationSpeed");
             swoopMonster.damage = (int)swoopMonsterElement.Element("Damage");
+            swoopMonster.invincibilityTimeLimit = (float)swoopMonsterElement.Element("InvincibilityTimeLimit");
 
             SwoopMonster.floatHeight = (float)swoopMonsterElement.Element("FloatHeight");
             SwoopMonster.swoopDelayLimit = (float)swoopMonsterElement.Element("SwoopDelayLimit");
