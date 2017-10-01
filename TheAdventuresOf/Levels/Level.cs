@@ -33,6 +33,7 @@ namespace TheAdventuresOf
 
         public Level(Texture2D levelTexture) : base(levelTexture: levelTexture) {
             currentTier = TIER_1;
+            CoinManager.Instance.RemoveAllCoins();
 		}
 
 		public override void InitializeLevel()
