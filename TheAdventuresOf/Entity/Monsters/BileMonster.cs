@@ -42,6 +42,7 @@ namespace TheAdventuresOf
             actionDelayTime = bileMonster.actionDelayTime;
             rotationSpeed = bileMonster.rotationSpeed;
             damage = bileMonster.damage;
+            fadeSpeed = bileMonster.fadeSpeed;
 
             monsterTexture = AssetManager.Instance.bileMonsterTexture;
         }

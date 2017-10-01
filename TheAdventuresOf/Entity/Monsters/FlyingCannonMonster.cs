@@ -22,6 +22,8 @@ namespace TheAdventuresOf
             bounceHeight = flyingCannonMonster.bounceHeight;
             bounceSpeed = flyingCannonMonster.bounceSpeed;
             damage = flyingCannonMonster.damage;
+            fadeSpeed = flyingCannonMonster.fadeSpeed;
+
             monsterTexture = AssetManager.Instance.flyingCannonMonsterTexture;
         }
 

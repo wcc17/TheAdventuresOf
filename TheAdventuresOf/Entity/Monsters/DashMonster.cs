@@ -25,6 +25,7 @@ namespace TheAdventuresOf
             animationSpeed = dashMonster.animationSpeed;
             damage = dashMonster.damage;
             invincibilityTimeLimit = dashMonster.invincibilityTimeLimit;
+            fadeSpeed = dashMonster.fadeSpeed;
 
             monsterTexture = AssetManager.Instance.dashMonsterTexture;
         }

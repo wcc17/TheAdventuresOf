@@ -32,6 +32,7 @@ namespace TheAdventuresOf
             rotationSpeed = spikeMonster.rotationSpeed;
             attackSpeed = spikeMonster.attackSpeed;
             damage = spikeMonster.damage;
+            fadeSpeed = spikeMonster.fadeSpeed;
 
             monsterTexture = AssetManager.Instance.spikeMonsterTexture;
         }

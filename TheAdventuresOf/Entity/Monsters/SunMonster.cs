@@ -20,6 +20,7 @@ namespace TheAdventuresOf
 			actionDelayTime = sunMonster.actionDelayTime;
 			rotationSpeed = sunMonster.rotationSpeed;
             damage = sunMonster.damage;
+            fadeSpeed = sunMonster.fadeSpeed;
 
 			monsterTexture = AssetManager.Instance.sunMonsterTexture;
 		}

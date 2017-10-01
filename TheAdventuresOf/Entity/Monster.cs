@@ -6,8 +6,8 @@ namespace TheAdventuresOf
 {
 	public class Monster : Entity
 	{
-		public static int UP = 0;
-		public static int DOWN = 1;
+        public const int UP = 0;
+        public const int DOWN = 1;
 		public float groundLevel;
 
         public int spawnType;
@@ -36,6 +36,9 @@ namespace TheAdventuresOf
         public float bounceHeight;
         public float bounceSpeed;
         public int bounceUpDown = 1; //positive to go up, negative to go down
+
+        public float alpha = 1.0f;
+        public float fadeSpeed;
 
         Timer invincibilityTimer;
 
@@ -220,6 +223,18 @@ namespace TheAdventuresOf
             {
                 isDead = true;
             }
+
+            //TODO: should we go ahead and kill off monster when alpha is below 0?
+            //TODO: check out BileMonster before doing this
+            HandleFadeOut(gameTime);
+        }
+
+        public void HandleFadeOut(GameTime gameTime)
+        {
+            if(alpha >= 0) {
+                alpha -= (fadeSpeed * ((float)gameTime.ElapsedGameTime.TotalSeconds));
+                tintColor = Color.White * alpha;
+            }
         }
 
         public void HandleCoinDropOnDeath() {
@@ -389,6 +404,7 @@ namespace TheAdventuresOf
 			delayAction = false;
 			distanceMoved = 0;
 			timeDelayed = TimeSpan.FromSeconds(0);
+            alpha = 1.0f;
 		}
 	}
 }
