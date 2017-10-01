@@ -91,6 +91,7 @@ namespace TheAdventuresOf
             Coin.coinFloatSpeed = (float)coinElement.Element("CoinFloatSpeed");
             Coin.coinFloatLimit = (float)coinElement.Element("CoinFloatLimit");
             Coin.coinFadeSpeed = (float)coinElement.Element("CoinFadeSpeed");
+            Coin.coinDisappearTimeLimit = (float)coinElement.Element("CoinDisappearTimeLimit");
 		}
 
         public static GameManager LoadGameManagerInformation(GameManager gameManager) {
