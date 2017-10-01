@@ -24,6 +24,10 @@ namespace TheAdventuresOf
         public bool isActive;
         public float alpha;
 
+        public static float coinDisappearTimeLimit;
+        Timer coinDisappearTimer = new Timer(coinDisappearTimeLimit);
+        bool coinShouldDisappear;
+
         public Coin(float x, float y, int width, int height, int coinValue, float baseGroundLevel)
         {
             this.groundLevel = baseGroundLevel;
@@ -48,22 +52,57 @@ namespace TheAdventuresOf
         }
 
         public void Update(GameTime gameTime) {
-            if(!coinPickedUp) {
-                if (positionVector.Y < groundLevel) {
-                    positionVector.Y += (float)(coinDropSpeed * gameTime.ElapsedGameTime.TotalSeconds);
-                    bounds.Y = (int)positionVector.Y;
-                } else if (positionVector.Y > groundLevel) {
-                    positionVector.Y = groundLevel;
-                    bounds.Y = (int)positionVector.Y;
-                }
+            //if coin not picked up, drop the coin to the ground (or move it up to the ground)
+            //if coin not picked up and timer has changed coinShouldDisappear to true, start fading out coin, then make inactive
+            //if coin picked up, fade out above players head, then make inactive
+            if(!coinPickedUp && !coinShouldDisappear) {
+                handleCoinOnGround(gameTime);
+            } else if(!coinPickedUp && coinShouldDisappear) {
+                handleCoinDisappear(gameTime);
             } else {
-                positionVector.Y -= (float)(coinFloatSpeed * gameTime.ElapsedGameTime.TotalSeconds);
-                alpha -= (float)(coinFadeSpeed * gameTime.ElapsedGameTime.TotalSeconds);
-
-                if(positionVector.Y <= (PlayerManager.Instance.GetPlayerPosition().Y - coinFloatLimit)) {
-                    isActive = false;
-                }
+                handleCoinPickedUp(gameTime);
             }
+        }
+
+        void handleCoinOnGround(GameTime gameTime) {
+            if (positionVector.Y < groundLevel)
+            {
+                positionVector.Y += (float)(coinDropSpeed * gameTime.ElapsedGameTime.TotalSeconds);
+                bounds.Y = (int)positionVector.Y;
+            }
+            else if (positionVector.Y > groundLevel)
+            {
+                positionVector.Y = groundLevel;
+                bounds.Y = (int)positionVector.Y;
+            }
+
+            handleCoinDisappearDelay(gameTime);
+        }
+
+        void handleCoinDisappear(GameTime gameTime) {
+            handleFadeOut(gameTime);
+        }
+
+        void handleCoinPickedUp(GameTime gameTime) {
+            handleFadeOut(gameTime);
+            positionVector.Y -= (float)(coinFloatSpeed * gameTime.ElapsedGameTime.TotalSeconds);
+
+            if (positionVector.Y <= (PlayerManager.Instance.GetPlayerPosition().Y - coinFloatLimit))
+            {
+                isActive = false;
+            }
+        }
+
+        void handleCoinDisappearDelay(GameTime gameTime)
+        {
+            bool timeUp = coinDisappearTimer.IsTimeUp(gameTime.ElapsedGameTime);
+            if(timeUp) {
+                coinShouldDisappear = true;
+            }
+        }
+
+        void handleFadeOut(GameTime gameTime) {
+            alpha -= (float)(coinFadeSpeed * gameTime.ElapsedGameTime.TotalSeconds);
         }
 
         public void Draw(SpriteBatch spriteBatch) {
