@@ -24,6 +24,7 @@ namespace TheAdventuresOf
             rotationSpeed = dashMonster.rotationSpeed;
             animationSpeed = dashMonster.animationSpeed;
             damage = dashMonster.damage;
+            invincibilityTimeLimit = dashMonster.invincibilityTimeLimit;
 
             monsterTexture = AssetManager.Instance.dashMonsterTexture;
         }
@@ -93,6 +94,10 @@ namespace TheAdventuresOf
             else if(isSpawning)
             {
                 HandleSpawn(gameTime);
+            }
+
+            if(!isDying && !isSpawning) {
+                HandleInvincibility(gameTime);
             }
 
             UpdateEntityBounds();

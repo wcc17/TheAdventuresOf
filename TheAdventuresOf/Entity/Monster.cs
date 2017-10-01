@@ -37,6 +37,8 @@ namespace TheAdventuresOf
         public float bounceSpeed;
         public int bounceUpDown = 1; //positive to go up, negative to go down
 
+        Timer invincibilityTimer;
+
         public override void HandleAnimation(GameTime gameTime) { }
 
         public virtual void InitializeSpawn() {
@@ -48,6 +50,7 @@ namespace TheAdventuresOf
             rotation = 0;
             isSpawning = false;
             currentAnimation = baseAnimation;
+            invincibilityTimer = new Timer((float)invincibilityTimeLimit);
         }
 
         public override void InitializeAnimation()
@@ -344,6 +347,23 @@ namespace TheAdventuresOf
 				distanceMoved += distanceToMove;
             }
 		}
+
+        public void StartInvincibility() {
+            isInvincible = true;
+            Console.WriteLine(entityTag + " is now invincible");
+        }
+
+        public void HandleInvincibility(GameTime gameTime) {
+            if(isInvincible) {
+                bool timeUp = invincibilityTimer.IsTimeUp(gameTime.ElapsedGameTime);
+                if (timeUp) {
+                    isInvincible = false;
+                    invincibilityTimer.Reset();
+
+                    Console.WriteLine(entityTag + "is no longer invincible");
+                } 
+            }
+        }
 
         //TODO: Action is the wrong word everywhere. Should be ForceMovement and delayMovement
         /**
