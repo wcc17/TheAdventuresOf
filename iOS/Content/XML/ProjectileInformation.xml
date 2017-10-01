@@ -5,7 +5,7 @@
         <Speed>320</Speed>
 		<GroundOffset>55</GroundOffset>
 		<TimeToLive>7</TimeToLive>
-		<FadeSpeed>0.6</FadeSpeed>
+		<FadeSpeed>3.0</FadeSpeed>
 		<Damage>30</Damage>
 		
 		<!-- The smaller the value, the further it will go. 
