@@ -101,7 +101,7 @@ namespace TheAdventuresOf
             else
             {
                 //if we don't check this, buildUpDelay will end and cause throw animation to occur even when dying or dead
-                if (!isDying && !isDead) {
+                if (!isDying && !isDead && !isSpawning) {
                     //check if monster is ready to throw, so he can throw on the next frame
                     handleBuildUpDelay(gameTime);
                 }
@@ -159,7 +159,7 @@ namespace TheAdventuresOf
                 delayBuildup = false;
                 buildupDelayTimer.Reset();
 
-                if(PlayerManager.Instance.GetPlayerPosition().X >= this.positionVector.X) {
+                if(PlayerManager.Instance.GetPlayerPosition().X >= positionVector.X) {
                     moveRight = true;
                     moveLeft = false;
                 } else {
