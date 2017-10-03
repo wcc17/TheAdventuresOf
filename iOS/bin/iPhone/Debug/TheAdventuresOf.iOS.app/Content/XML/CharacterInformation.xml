@@ -34,6 +34,7 @@
       <ActionDelayTime>1.5</ActionDelayTime>
       <RotationSpeed>350</RotationSpeed>
 	  <Damage>10</Damage>
+	  <FadeSpeed>1.2</FadeSpeed>
     </BlockMonster>
 		
     <SunMonster>
@@ -42,12 +43,13 @@
       <SpawnSpeed>250</SpawnSpeed>
       <DeathSpeed>400</DeathSpeed>
       <AnimationSpeed>0.08</AnimationSpeed>
-      <FrameCount>1</FrameCount>
+      <FrameCount>3</FrameCount>
       <MoveDistanceLimit>300</MoveDistanceLimit>
       <ActionDelayTime>1.5</ActionDelayTime>
       <RotationSpeed>400</RotationSpeed>
       <FloatHeight>125</FloatHeight>
 	  <Damage>10</Damage>
+	  <FadeSpeed>1.2</FadeSpeed>
     </SunMonster>
 		
 	<BileMonster>
@@ -66,6 +68,7 @@
 	  <BuildUpTimeLimit>2</BuildUpTimeLimit>	
 	  <ThrowTimeLimit>1.2</ThrowTimeLimit>	
 	  <Damage>20</Damage>
+	  <FadeSpeed>1.2</FadeSpeed>
     </BileMonster>
 
     <BaseCannonMonster>
@@ -84,6 +87,7 @@
       <BoundOffset>40</BoundOffset>
 	  <BulletYOffset>75</BulletYOffset>	
 	  <Damage>30</Damage>	
+	  <FadeSpeed>1.2</FadeSpeed>
     </GroundCannonMonster>
 
     <FlyingCannonMonster>
@@ -100,11 +104,12 @@
 	  <BounceHeight>12</BounceHeight>
 	  <BounceSpeed>125</BounceSpeed>	
 	  <Damage>30</Damage>
+	  <FadeSpeed>1.2</FadeSpeed>
     </FlyingCannonMonster>  
 		
 	<SpikeMonster>
       <EntityTag>SpikeMonster</EntityTag>
-      <Speed>180</Speed>
+      <Speed>190</Speed>
       <SpawnSpeed>320</SpawnSpeed>
       <DeathSpeed>400</DeathSpeed>
       <RotationSpeed>350</RotationSpeed>
@@ -115,6 +120,7 @@
       <AttackDelayTime>1.2</AttackDelayTime>        
 	  <FloatHeight>275</FloatHeight>
 	  <Damage>80</Damage>	
+	  <FadeSpeed>1.2</FadeSpeed>
     </SpikeMonster>
 		
 	<DashMonster>	
@@ -129,6 +135,8 @@
 	  <GroundOffset>8</GroundOffset>	
 	  <BoundOffset>40</BoundOffset>	
 	  <Damage>50</Damage>
+	  <InvincibilityTimeLimit>0.7</InvincibilityTimeLimit>
+	  <FadeSpeed>1.2</FadeSpeed>
 	</DashMonster>	
 
     <UndergroundMonster>
@@ -144,9 +152,29 @@
       <Gravity>0.48</Gravity> 
       <VelocityWeakenValue>0.60</VelocityWeakenValue> <!-- before monster hits ground, velocity will be lessened so player has more warning -->
       <RotationVelocityLimit>-10</RotationVelocityLimit> <!-- when this limit is hit, rotation will begin in air -->
-	  <FadeSpeed>1.0</FadeSpeed>
-	  <Damage>40</Damage>	
+      <Damage>40</Damage>   
+      <FadeSpeed>1.2</FadeSpeed>
     </UndergroundMonster>
+
+	<SwoopMonster>
+      <EntityTag>SwoopMonster</EntityTag>
+      <Speed>230</Speed>
+      <SpawnSpeed>250</SpawnSpeed>
+      <DeathSpeed>400</DeathSpeed>
+      <AnimationSpeed>0.08</AnimationSpeed>
+      <FrameCount>1</FrameCount>
+      <MoveDistanceLimit>300</MoveDistanceLimit>
+      <ActionDelayTime>1.5</ActionDelayTime>
+      <RotationSpeed>400</RotationSpeed>
+      <FloatHeight>195</FloatHeight>
+      <Damage>40</Damage>
+	  <SwoopDelayLimit>5</SwoopDelayLimit>
+	  <SwoopArcScale>85</SwoopArcScale> <!--arcScale here to scale the cosY value (ex. if arcScale=100, -1 to 1 goes to -100 to 100). higher number means tip goes further down-->
+	  <SwoopArcWidth>400</SwoopArcWidth> <!--a higher number for arcWidth makes it wider-->
+	  <SwoopArcSpeed>6</SwoopArcSpeed> <!--a higher number for arcSpeed makes the whole "swoop" happen faster-->
+	  <InvincibilityTimeLimit>0.4</InvincibilityTimeLimit>
+	  <FadeSpeed>1.2</FadeSpeed>
+    </SwoopMonster>
 		
   </Monsters>
 </Characters>
