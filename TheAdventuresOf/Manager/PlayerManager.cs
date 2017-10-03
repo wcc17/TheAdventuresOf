@@ -38,9 +38,12 @@ namespace TheAdventuresOf
         public void Update(GameTime gameTime, GameController gameController)
         {
             player.UpdatePlayer(gameTime, gameController);
-            CoinManager.Instance.Update(gameTime);
 
-            level.CheckCollisionWithBounds(player);
+            if(!player.isSpawning) {
+                level.CheckCollisionWithBounds(player);
+            }
+
+            CoinManager.Instance.Update(gameTime);
             CoinManager.Instance.CheckCollisionWithLevel(level.leftSideBounds, level.rightSideBounds);
             CoinManager.Instance.CheckCollisionWithPlayer(player.entityBounds);
         }

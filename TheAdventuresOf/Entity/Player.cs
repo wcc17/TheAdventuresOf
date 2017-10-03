@@ -52,10 +52,18 @@ namespace TheAdventuresOf
 		public void InitializePlayer(float startX, float startY, int playerWidth, int playerHeight)
 		{
             base.InitializeEntity(startX, startY, playerWidth, playerHeight);
+            groundLevel = startY;
 
-			groundLevel = startY;
-
-			swordPositionVector = new Vector2(startX + playerWidth - rightSwordOffset, startY + swordYOffset);
+            //if (shouldInitializeSpawn) {
+                initialPositionVector = new Vector2();
+                initialPositionVector = positionVector;
+                positionVector.X = spawnStartX;
+                positionVector.Y = spawnStartY;
+                isSpawning = true;
+                swordPositionVector = new Vector2(spawnStartX + playerWidth - rightSwordOffset, spawnStartY + swordYOffset);
+            //} else {
+            //    swordPositionVector = new Vector2(spawnStartX + playerWidth - rightSwordOffset, spawnStartY + swordYOffset);
+            //}
 
 			swordBounds = new Rectangle((int)swordPositionVector.X, 
 			                            (int)swordPositionVector.Y, 
@@ -101,7 +109,7 @@ namespace TheAdventuresOf
 
 		public void UpdatePlayer(GameTime gameTime, GameController gameController)
 		{
-			if (!isDying)
+			if (!isDying && !isSpawning)
 			{
                 HandleJump(gameTime, gameController.jumpButtonPressed);
 
@@ -129,10 +137,11 @@ namespace TheAdventuresOf
                 }
 
 				HandleAnimation(gameTime);
-			}
-			else {
+			} else if(isDying && !isSpawning) {
 				HandleDeath(gameTime);
-			}
+            } else if(isSpawning) {
+                handleSpawn(gameTime);
+            }
 
             UpdateEntityBounds();
 		}
@@ -265,6 +274,42 @@ namespace TheAdventuresOf
                 } 
             }
 		}
+
+        public bool isSpawning;
+        public Vector2 initialPositionVector; //save position given by XML
+        public static float spawnStartX = -85;
+        public static float spawnStartY = 475;
+        public static float spawnXLimit = 220;
+        public static float spawnRotationSpeed = 15;
+        void handleSpawn(GameTime gameTime)
+        {
+            Console.WriteLine("X: " + positionVector.X);
+            Console.WriteLine("Y: " + positionVector.Y);
+            Console.WriteLine("R: " + rotation);
+            Console.WriteLine("----------------------");
+
+            //no matter what, update sword position
+            UpdateSwordPosition();
+            Move(gameTime, RIGHT);
+            HandleAnimation(gameTime);
+
+            if(positionVector.X >= spawnXLimit) {
+                HandleJump(gameTime, true);
+
+                //handle rotate
+                rotation += spawnRotationSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (positionVector.Y >= groundLevel)
+                {
+                    positionVector = initialPositionVector;
+                    UpdateSwordPosition();
+                    UpdateEntityBounds();
+
+                    rotation = 0;
+                    isSpawning = false;
+                }
+            }
+        }
 
 		void handlePlayerTakingDamage(Entity entity)
 		{
