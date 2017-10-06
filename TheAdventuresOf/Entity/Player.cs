@@ -49,22 +49,32 @@ namespace TheAdventuresOf
 		public float knockBackDistanceLimit;
 		public int knockBackSpeed;
 
-		public void InitializePlayer(float startX, float startY, int playerWidth, int playerHeight)
+		public bool isSpawning;
+		public Vector2 initialPositionVector; //save position given by XML
+		public float spawnStartX;
+		public float spawnStartY;
+		public float spawnXLimit;
+		public float spawnRotationSpeed;
+		public float spawnFlipLimitDegrees;
+		float spawnFlipLimitRadians;
+		float totalRotation = 0;
+
+		public void InitializePlayer(float startX, float startY, int playerWidth, int playerHeight, bool useSpawnAnimation)
 		{
             base.InitializeEntity(startX, startY, playerWidth, playerHeight);
             groundLevel = startY;
 
-            //if (shouldInitializeSpawn) {
+            //prepare spawning
+            if (useSpawnAnimation) {
+                spawnFlipLimitRadians = spawnFlipLimitDegrees * (float)(Math.PI / 180);
                 initialPositionVector = new Vector2();
                 initialPositionVector = positionVector;
                 positionVector.X = spawnStartX;
                 positionVector.Y = spawnStartY;
                 isSpawning = true;
-                swordPositionVector = new Vector2(spawnStartX + playerWidth - rightSwordOffset, spawnStartY + swordYOffset);
-            //} else {
-            //    swordPositionVector = new Vector2(spawnStartX + playerWidth - rightSwordOffset, spawnStartY + swordYOffset);
-            //}
+            }
 
+            swordPositionVector = new Vector2(positionVector.X + playerWidth - rightSwordOffset, positionVector.Y + swordYOffset);
 			swordBounds = new Rectangle((int)swordPositionVector.X, 
 			                            (int)swordPositionVector.Y, 
 			                            AssetManager.Instance.swordTexture.Width, 
@@ -275,19 +285,8 @@ namespace TheAdventuresOf
             }
 		}
 
-        public bool isSpawning;
-        public Vector2 initialPositionVector; //save position given by XML
-        public static float spawnStartX = -85;
-        public static float spawnStartY = 475;
-        public static float spawnXLimit = 220;
-        public static float spawnRotationSpeed = 15;
         void handleSpawn(GameTime gameTime)
         {
-            Console.WriteLine("X: " + positionVector.X);
-            Console.WriteLine("Y: " + positionVector.Y);
-            Console.WriteLine("R: " + rotation);
-            Console.WriteLine("----------------------");
-
             //no matter what, update sword position
             UpdateSwordPosition();
             Move(gameTime, RIGHT);
@@ -296,10 +295,9 @@ namespace TheAdventuresOf
             if(positionVector.X >= spawnXLimit) {
                 HandleJump(gameTime, true);
 
-                //handle rotate
-                rotation += spawnRotationSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                handleSpawnRotation(gameTime);
 
-                if (positionVector.Y >= groundLevel)
+				if (positionVector.Y >= groundLevel)
                 {
                     positionVector = initialPositionVector;
                     UpdateSwordPosition();
@@ -309,6 +307,23 @@ namespace TheAdventuresOf
                     isSpawning = false;
                 }
             }
+        }
+
+        void handleSpawnRotation(GameTime gameTime) {
+            if (totalRotation < spawnFlipLimitRadians) {
+				//handle rotate
+				float radiansToRotate = spawnRotationSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+				totalRotation += radiansToRotate;
+
+                //make sure we don't go over the limit before checking for limit in next frame
+                if((rotation + radiansToRotate) > spawnFlipLimitRadians) {
+                    rotation += (spawnFlipLimitRadians - rotation);
+                } else {
+					rotation += radiansToRotate;
+                }
+			} else {
+				rotation = 0;
+			}
         }
 
 		void handlePlayerTakingDamage(Entity entity)

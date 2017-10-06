@@ -18,9 +18,9 @@ namespace TheAdventuresOf
         public StoreLevel(Texture2D levelTexture) : base(levelTexture: levelTexture) { }
 
 
-        public override void InitializeLevel()
+        public override void InitializeLevel(bool usePlayerSpawnAnimation)
         {
-            base.InitializeLevel();
+            base.InitializeLevel(usePlayerSpawnAnimation);
             storeLevelCharacterPositionVector = new Vector2(storeLevelCharX, storeLevelCharY);
             TextManager.Instance.AddOrUpdateIndexedText(storeLevelCharTextX, storeLevelCharTextY, storeLevelCharText, 1); //item text is using 0 for index
         }

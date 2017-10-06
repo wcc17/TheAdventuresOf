@@ -51,16 +51,6 @@ namespace TheAdventuresOf
             this.level = level;
         }
 
-        int getRandomXLocation(float characterWidth)
-        {
-            //character width is necessary to make sure we don't spawn a monster (x is the top left corner) on top of a boundary
-            //when generating a random number, it goes up to the second number - 1, which is why we include + 1
-            int X = rand.Next(level.leftSideBounds.Width, 
-                      AssetManager.Instance.levelTexture.Width - level.rightSideBounds.Width - (int)characterWidth + 1);
-
-            return X;
-        }
-
         void handleSpawnDelay(GameTime gameTime)
         {
             spawnTimer = spawnTimer.Add(gameTime.ElapsedGameTime);
@@ -124,7 +114,6 @@ namespace TheAdventuresOf
                             spawnSunMonster();
                             break;
                         case GROUND_CANNON_MONSTER:
-                            //handleGroundCannonMonsterSpawn();
                             spawnGroundCannonMonster();
                             break;
                         case BILE_MONSTER:
@@ -255,7 +244,7 @@ namespace TheAdventuresOf
         }
 
         //TODO: all spawn*Monster methods should be moved to a MonsterSpawner class.
-        public Monster DetermineSpawnTypeRandom(Monster monster)
+        Monster determineSpawnTypeRandom(Monster monster)
         {
             //25% left
             //25% right
@@ -275,66 +264,91 @@ namespace TheAdventuresOf
                     break;
             }
 
-            return HandleSpawnType(monster, spawnType);
+            return handleSpawnType(monster, spawnType);
         }
 
-        public Monster HandleSpawnType(Monster monster, int spawnType) {
+        /**
+         * Call the appropriate spawning method (top/bottom or left/right)
+         */
+        Monster handleSpawnType(Monster monster, int spawnType) {
 
-            if (spawnType == Monster.SPAWN_LEFT 
-                    || spawnType == Monster.SPAWN_RIGHT) {
-
-                monster.positionVector.Y = monster.groundLevel;
-                monster.spawnXLimit = DetermineSpawnXLimit(monster, spawnType);
-
-                if (spawnType == Monster.SPAWN_LEFT) {
-                    monster.moveLeft = false;
-                    monster.moveRight = true;
-                    monster.positionVector.X = 0 - monster.entityWidth;
-                } else {
-                    monster.moveLeft = true;
-                    monster.moveRight = false;
-                    monster.positionVector.X = ScreenManager.FULL_SCREEN_WIDTH + monster.entityWidth;
-                }
-
-            } else if(spawnType == Monster.SPAWN_TOP 
-                        || spawnType == Monster.SPAWN_BOTTOM) {
-                
-                monster.positionVector.X = getRandomXLocation(monster.entityWidth);
-
-                if (spawnType == Monster.SPAWN_TOP) {
-                    monster.positionVector.Y = 0 - monster.entityHeight;
-                } else {
-                    monster.positionVector.Y = ScreenManager.FULL_SCREEN_HEIGHT + monster.entityHeight;
-                }
-            } 
+            if(spawnType == Monster.SPAWN_TOP || spawnType == Monster.SPAWN_BOTTOM) {
+                handleTopBottomSpawn(monster, spawnType);                
+            } else {
+                handleSideSpawn(monster, spawnType);   
+            }
 
             monster.spawnType = spawnType;
             monster.UpdateEntityBounds(); //so that the new position sticks
             return monster;
         }
 
-        public int DetermineSpawnXLimit(Monster monster, int spawnType)
-        {
+        /**
+         * When monster is spawning from the top or the bottom of the screen
+         */
+        void handleTopBottomSpawn(Monster monster, int spawnType) {
+            monster.positionVector.X = getRandomXLocation(monster.entityWidth, 
+                                                          level.leftBoundWidth, 
+                                                          (int)(ScreenManager.FULL_SCREEN_WIDTH - level.rightBoundWidth));
+
+            if (spawnType == Monster.SPAWN_TOP) {
+                monster.positionVector.Y = 0 - monster.entityHeight;
+            } else {
+                monster.positionVector.Y = ScreenManager.FULL_SCREEN_HEIGHT + monster.entityHeight;
+            }
+        }
+
+        /**
+         * When monster is spawning from the left or right side of the screen
+         */
+        void handleSideSpawn(Monster monster, int spawnType) {
+            monster.moveLeft = false;
+            monster.moveRight = false;
+            monster.positionVector.Y = monster.groundLevel;
+            monster.spawnXLimit = determineSpawnXLimit(monster, spawnType);
+
+            if (spawnType == Monster.SPAWN_LEFT) {
+                monster.moveRight = true;
+                monster.positionVector.X = 0 - monster.entityWidth;
+            } else {
+                monster.moveLeft = true;
+                monster.positionVector.X = ScreenManager.FULL_SCREEN_WIDTH + monster.entityWidth;
+            }
+        }
+
+        /**
+         * Responsible for giving a monster a random X location to end up at
+         * after its done spawning. Will check other monsters X positions at the 
+         * time of spawning to try to ensure that the new monster won't end up
+         * at the same spot
+         */
+        int getRandomXLocation(int characterWidth, int leftSideXLimit, int rightSideXLimit) {
+
+            //character width is necessary to make sure we don't spawn a monster (x is the top left corner) on top of a boundary
+            //when generating a random number, it goes up to the second number - 1, which is why we include + 1
+            return rand.Next(leftSideXLimit, rightSideXLimit - (characterWidth + 1));
+        }
+
+        int determineSpawnXLimit(Monster monster, int spawnType) {
             if(monster is SpikeMonster) {
                 return (int)PlayerManager.Instance.GetPlayerPosition().X;
             }
 
-            //assuming that only SPAWN_LEFT and SPAWN_RIGHT will be passed to this method
             //only let monsters go to the half of the screen they spawn on
-            int randomX;
+            int leftSideXLimit;
+            int rightSideXLimit;
             if(spawnType == Monster.SPAWN_LEFT) {
-                //plus/minus 1 just to move monster over a little bit so it doesn't look like it "teleports"
-                randomX = rand.Next(level.leftBoundWidth + 1,
-                                        (int)ScreenManager.FULL_SCREEN_WIDTH / 2
-                                        - monster.entityWidth - 1);
+                leftSideXLimit = level.leftBoundWidth + 1;
+                rightSideXLimit = (int)(ScreenManager.FULL_SCREEN_WIDTH / 2) 
+                                 - monster.entityWidth;
             } else {
-                randomX = rand.Next((int)ScreenManager.FULL_SCREEN_WIDTH / 2,
-                                        (int)ScreenManager.FULL_SCREEN_WIDTH
+                leftSideXLimit = (int)(ScreenManager.FULL_SCREEN_WIDTH / 2);
+                rightSideXLimit = (int)ScreenManager.FULL_SCREEN_WIDTH
                                         - level.rightBoundWidth
-                                        - monster.entityWidth - 1);
+                                        - monster.entityWidth;
             }
 
-            return randomX;
+            return getRandomXLocation(monster.entityWidth, leftSideXLimit, rightSideXLimit);
         }
 
         void spawnBlockMonster()
@@ -345,7 +359,7 @@ namespace TheAdventuresOf
             blockMonster.groundLevel = level.groundLevel;
             blockMonster.InitializeEntity(AssetManager.Instance.blockMonsterTexture.Width / blockMonster.frameCount,
                                           AssetManager.Instance.blockMonsterTexture.Height);
-            blockMonster = (BlockMonster) HandleSpawnType(blockMonster, Monster.SPAWN_BOTTOM);
+            blockMonster = (BlockMonster) handleSpawnType(blockMonster, Monster.SPAWN_BOTTOM);
             blockMonster.InitializeSpawn();
 
             monsters.Add(blockMonster);
@@ -361,7 +375,7 @@ namespace TheAdventuresOf
             sunMonster.groundLevel = level.groundLevel - SunMonster.floatHeight;
             sunMonster.InitializeEntity(AssetManager.Instance.sunMonsterTexture.Width / sunMonster.frameCount,
                                         AssetManager.Instance.sunMonsterTexture.Height);
-            sunMonster = (SunMonster)DetermineSpawnTypeRandom(sunMonster);
+            sunMonster = (SunMonster)determineSpawnTypeRandom(sunMonster);
             sunMonster.InitializeSpawn();
 
             monsters.Add(sunMonster);
@@ -377,7 +391,7 @@ namespace TheAdventuresOf
             bileMonster.groundLevel = level.groundLevel - BileMonster.floatHeight;
             bileMonster.InitializeEntity(AssetManager.Instance.bileMonsterTexture.Width / bileMonster.frameCount,
                                          AssetManager.Instance.bileMonsterTexture.Height);
-            bileMonster = (BileMonster)DetermineSpawnTypeRandom(bileMonster);
+            bileMonster = (BileMonster)determineSpawnTypeRandom(bileMonster);
             bileMonster.InitializeSpawn();
 
             monsters.Add(bileMonster);
@@ -434,7 +448,7 @@ namespace TheAdventuresOf
             spikeMonster.groundLevel = level.groundLevel - SpikeMonster.floatHeight;
             spikeMonster.InitializeEntity(AssetManager.Instance.spikeMonsterTexture.Width / spikeMonster.frameCount,
                                           AssetManager.Instance.spikeMonsterTexture.Height);
-            spikeMonster = (SpikeMonster)DetermineSpawnTypeRandom(spikeMonster);
+            spikeMonster = (SpikeMonster)determineSpawnTypeRandom(spikeMonster);
             spikeMonster.InitializeSpawn();
 
             monsters.Add(spikeMonster);
@@ -450,7 +464,7 @@ namespace TheAdventuresOf
             dashMonster.groundLevel = level.groundLevel + DashMonster.groundOffset;
             dashMonster.InitializeEntity(AssetManager.Instance.dashMonsterTexture.Width / dashMonster.frameCount,
                                          AssetManager.Instance.dashMonsterTexture.Height);
-            dashMonster = (DashMonster)HandleSpawnType(dashMonster, Monster.SPAWN_BOTTOM);
+            dashMonster = (DashMonster)handleSpawnType(dashMonster, Monster.SPAWN_BOTTOM);
             dashMonster.InitializeSpawn();
 
             monsters.Add(dashMonster);
@@ -483,13 +497,73 @@ namespace TheAdventuresOf
             swoopMonster.groundLevel = level.groundLevel - SwoopMonster.floatHeight;
             swoopMonster.InitializeEntity(AssetManager.Instance.swoopMonsterTexture.Width / swoopMonster.frameCount,
                                           AssetManager.Instance.swoopMonsterTexture.Height);
-            swoopMonster = (SwoopMonster)DetermineSpawnTypeRandom(swoopMonster);
+            swoopMonster = (SwoopMonster)determineSpawnTypeRandom(swoopMonster);
             swoopMonster.InitializeSpawn();
 
             monsters.Add(swoopMonster);
 
             swoopMonsterCount++;
         }
+
+   //     void getLeastUsedZone(int leftSideXLimit, int rightSideXLimit) {
+			////the area we have to work with
+			//int spawnAreaWidth = rightSideXLimit - leftSideXLimit;
+
+			////how many "zones" we should check to see if monsters are there
+			//int numberOfZones = 6; //TODO: Magic number
+			//if (spawnAreaWidth > (ScreenManager.FULL_SCREEN_WIDTH / 2))
+			//{
+			//	numberOfZones /= 2;
+			//}
+
+			//int zoneWidth = spawnAreaWidth / numberOfZones;
+			//int[] zoneMonsterCounts = new int[numberOfZones];
+			//foreach (Monster monster in monsters)
+			//{
+			//	if (!monster.isSpawning && !monster.isDead && !monster.isDying)
+			//	{
+			//		int monsterZone = (int)monster.positionVector.X / zoneWidth;
+
+			//		//check to ensure the monster is within the zones we currently care about
+			//		if (monsterZone < numberOfZones)
+			//		{
+			//			zoneMonsterCounts[monsterZone]++;
+			//		}
+			//	}
+			//}
+
+			////get the zone with the least amount of monsters in it
+			//int leastMonsterZone = int.MaxValue;
+			//int highestMonsterZone = int.MinValue;
+			//for (int i = 0; i < zoneMonsterCounts.Length; i++)
+			//{
+			//	if (zoneMonsterCounts[i] < leastMonsterZone)
+			//	{
+			//		leastMonsterZone = i;
+			//	}
+
+			//	if (zoneMonsterCounts[i] > highestMonsterZone)
+			//	{
+			//		highestMonsterZone = i;
+			//	}
+			//}
+
+			////if the highest monster zone is 0, then so is the lowest, so we don't need new limits
+			//if (zoneMonsterCounts[highestMonsterZone] != 0)
+			//{
+			//	//figure out leftSideX and rightSideX of the chosen zone
+			//	leftSideXLimit = (leastMonsterZone * zoneWidth);
+			//	rightSideXLimit = (leastMonsterZone * zoneWidth) + zoneWidth;
+			//	Console.WriteLine("break here tho");
+			//}
+
+			//Console.WriteLine("------------------------");
+			//Console.WriteLine("least: " + leastMonsterZone);
+			//Console.WriteLine("most: " + highestMonsterZone);
+			//Console.WriteLine("leftSideLimit: " + leftSideXLimit);
+			//Console.WriteLine("rightSideLimit: " + rightSideXLimit);
+			//Console.WriteLine("------------------------");
+        //}
     }
 }
 

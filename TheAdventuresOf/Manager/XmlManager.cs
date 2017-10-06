@@ -251,11 +251,18 @@ namespace TheAdventuresOf
             player.initialJumpVelocity = (float)playerElement.Element("InitialJumpVelocity");
             player.jumpGravity = (float)playerElement.Element("JumpGravity");
             player.collisionOffset = (int)playerElement.Element("CollisionOffset");
+
             player.maxHealth = (int)playerElement.Element("InitialMaxHealth");
             player.healthBarXOffset = (float)playerElement.Element("HealthBarXOffset");
             player.healthBarY = (float)playerElement.Element("HealthBarY");
             player.healthTextPositionXOffset = (float)playerElement.Element("HealthTextPositionXOffset");
             player.healthTextPositionYOffset = (float)playerElement.Element("HealthTextPositionYOffset");
+
+            player.spawnStartX = (float)playerElement.Element("SpawnStartX");
+            player.spawnStartY = (float)playerElement.Element("SpawnStartY");
+            player.spawnXLimit = (float)playerElement.Element("SpawnXLimit");
+            player.spawnRotationSpeed = (float)playerElement.Element("SpawnRotationSpeed");
+            player.spawnFlipLimitDegrees = (float)playerElement.Element("SpawnFlipLimitDegrees");
 
             return player;
 		}

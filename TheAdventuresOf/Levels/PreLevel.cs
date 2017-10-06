@@ -19,8 +19,8 @@ namespace TheAdventuresOf
 
         public PreLevel(Texture2D levelTexture) : base(levelTexture: levelTexture) { }
 
-        public override void InitializeLevel() {
-            base.InitializeLevel();
+        public override void InitializeLevel(bool usePlayerSpawnAnimation) {
+            base.InitializeLevel(usePlayerSpawnAnimation);
 
             preLevelCharacterPositionVector = new Vector2(preLevelCharX, groundLevel);
         }

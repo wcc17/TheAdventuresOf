@@ -24,14 +24,15 @@ namespace TheAdventuresOf
         private PlayerManager() { }
 
         /** NOTE: THIS MUST BE CALLED FIRST and manually **/
-        public void InitializePlayerManager(BaseLevel level) {
+        public void InitializePlayerManager(BaseLevel level, bool usePlayerSpawnAnimation) {
             this.level = level;
 
             player = XmlManager.LoadPlayerInformation();
             player.InitializePlayer(level.playerStartX,
                                     level.groundLevel,
                                     AssetManager.Instance.playerTexture.Width / player.frameCount,
-                                    AssetManager.Instance.playerTexture.Height);
+                                    AssetManager.Instance.playerTexture.Height,
+                                    usePlayerSpawnAnimation);
 
         }
 
