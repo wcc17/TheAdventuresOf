@@ -107,8 +107,8 @@ namespace TheAdventuresOf
                 isMoving = false;
             }
 
+            MoveTowardPlayer();
             if(!isMoving) {
-                MoveTowardPlayer();
                 isMoving = true;
             }
 
