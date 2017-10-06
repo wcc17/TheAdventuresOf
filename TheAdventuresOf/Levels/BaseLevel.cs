@@ -27,11 +27,11 @@ namespace TheAdventuresOf
             TextManager.Instance.RemoveAllText();
         }
 
-        public virtual void InitializeLevel() {
+        public virtual void InitializeLevel(bool usePlayerSpawnAnimation) {
             leftSideBounds = new Rectangle(0, 0, leftBoundWidth, levelTexture.Height);
             rightSideBounds = new Rectangle(levelTexture.Width - rightBoundWidth, 0, rightBoundWidth, levelTexture.Height);
 
-            PlayerManager.Instance.InitializePlayerManager(this);
+            PlayerManager.Instance.InitializePlayerManager(this, usePlayerSpawnAnimation);
         }
 
         public virtual void Update(GameTime gameTime, GameController gameController) {

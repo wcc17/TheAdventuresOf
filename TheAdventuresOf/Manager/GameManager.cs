@@ -8,6 +8,8 @@ namespace TheAdventuresOf
 {
     public class GameManager
     {
+        public const bool USE_PLAYER_SPAWN_ANIMATION = true;
+        public const bool NO_PLAYER_SPAWN_ANIMATION = false;
         public const int SPLASH_STATE = 0;
         public const int MENU_STATE = 1;
         public const int PRE_LEVEL_STATE = 2;
@@ -132,20 +134,20 @@ namespace TheAdventuresOf
 
         void loadPreLevel()
         {
-            currentLevel.InitializeLevel();
+            currentLevel.InitializeLevel(NO_PLAYER_SPAWN_ANIMATION);
 
             gameState = PRE_LEVEL_STATE;
         }
 
         void loadLevel()
         {
-            currentLevel.InitializeLevel();
+            currentLevel.InitializeLevel(USE_PLAYER_SPAWN_ANIMATION);
 
             gameState = LEVEL_STATE;
         }
 
         void loadStoreLevel() {
-            currentLevel.InitializeLevel();
+            currentLevel.InitializeLevel(NO_PLAYER_SPAWN_ANIMATION);
 
             gameState = STORE_LEVEL_STATE;
         }
@@ -198,15 +200,15 @@ namespace TheAdventuresOf
 
             if(mainMenu.proceedToNextState) {
                 gameState = LOAD_STATE;
-                //nextGameState = PRE_LEVEL_STATE;
-                nextGameState = LEVEL_STATE;
+                nextGameState = PRE_LEVEL_STATE;
+                //nextGameState = LEVEL_STATE;
 
                 AssetManager.Instance.DisposeMenuAssets();
 
                 //load level assets for nextGameState
                 loadCommonLevelAssets();
-                loadLevelAssets();
-                //loadPreLevelAssets();
+                //loadLevelAssets();
+                loadPreLevelAssets();
             }
         }
 

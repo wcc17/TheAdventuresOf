@@ -36,9 +36,9 @@ namespace TheAdventuresOf
             CoinManager.Instance.RemoveAllCoins();
 		}
 
-		public override void InitializeLevel()
+		public override void InitializeLevel(bool usePlayerSpawnAnimation)
 		{
-            base.InitializeLevel();
+            base.InitializeLevel(usePlayerSpawnAnimation);
 			monsterManager = new MonsterManager(this);
 
             loadMonsterLevelInformation();
