@@ -44,6 +44,8 @@ namespace TheAdventuresOf
 
             //Draw player
             PlayerManager.Instance.Draw(spriteBatch);
+
+            HealthManager.Instance.Draw(spriteBatch);
         }
 
         public virtual void CheckCollisionWithBounds(Entity entity)

@@ -26,17 +26,6 @@ namespace TheAdventuresOf
         public float jumpGravity;
         float velocityY;
 
-		public int maxHealth;
-		public int health;
-        public float healthBarXOffset;
-        public float healthBarY;
-        public float healthTextPositionXOffset;
-        public float healthTextPositionYOffset;
-		Vector2 healthPositionVector;
-        Vector2 healthTextPositionVector;
-        Rectangle healthBarFillSourceRectangle;
-        Vector2 zeroPositionVector = new Vector2(0, 0);
-
         //TODO: this should be a Timer, not a TimeSpan. the dealing with this is nasty.  Could also be in Entity class
 		TimeSpan invincibilityTimer = TimeSpan.FromSeconds(0);
 
@@ -79,14 +68,6 @@ namespace TheAdventuresOf
 			                            (int)swordPositionVector.Y, 
 			                            AssetManager.Instance.swordTexture.Width, 
 			                            AssetManager.Instance.swordTexture.Height);
-
-			health = maxHealth;
-            healthPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH - (AssetManager.Instance.progressBarTexture.Width + healthBarXOffset), healthBarY);
-            healthBarFillSourceRectangle = new Rectangle(0, 0, 
-                                                         AssetManager.Instance.progressBarFillTexture.Width, 
-                                                         AssetManager.Instance.progressBarFillTexture.Height);
-            healthTextPositionVector = new Vector2(healthPositionVector.X + healthTextPositionXOffset,
-                                                   healthPositionVector.Y + healthTextPositionYOffset);
 
 			moveRight = true;
 
@@ -328,13 +309,12 @@ namespace TheAdventuresOf
 
 		void handlePlayerTakingDamage(Entity entity)
 		{
-            health -= entity.damage;
-            recalculateHealthBarFill();
+            HealthManager.Instance.DecreaseHealthByAmount(entity.damage);
 
             DamageText damageText = new DamageText(positionVector.X, positionVector.Y, "-" + entity.damage.ToString(), -1);
             TextManager.Instance.AddText(damageText);
 
-			if (health > 0)
+            if (HealthManager.Instance.GetHealth() > 0)
 			{
 				isInvincible = true;
 				invincibilityTimer = TimeSpan.FromSeconds(invincibilityTimeLimit);
@@ -352,16 +332,6 @@ namespace TheAdventuresOf
 				isDying = true;
 			}
 		}
-
-        void recalculateHealthBarFill() {
-            Logger.Instance.AddOrUpdateValue("Health: ", health.ToString());
-
-            float fullWidth = AssetManager.Instance.progressBarFillTexture.Width;
-            float remainingHealth = maxHealth - health;
-            float newWidth = fullWidth - (remainingHealth * (fullWidth / maxHealth));
-
-            healthBarFillSourceRectangle.Width = (int)newWidth;
-        }
 
 		public override void HandleAnimation(GameTime gameTime)
 		{
@@ -486,7 +456,6 @@ namespace TheAdventuresOf
 								 color: tintColor,
 								 rotation: rotation);
 				}
-				DrawHealth(spriteBatch);
 			}
 			else if (moveLeft)
 			{
@@ -498,23 +467,8 @@ namespace TheAdventuresOf
 								 color: tintColor,
 								 rotation: rotation);
 				}
-				DrawHealth(spriteBatch);
 			}
 		}
-
-        public void DrawHealth(SpriteBatch spriteBatch) {
-			spriteBatch.Draw(AssetManager.Instance.progressBarFillTexture, healthPositionVector, sourceRectangle: healthBarFillSourceRectangle);
-            spriteBatch.Draw(AssetManager.Instance.progressBarTexture, healthPositionVector);
-            spriteBatch.DrawString(AssetManager.Instance.font, 
-                                   health + "/" + maxHealth, 
-                                   healthTextPositionVector, 
-                                   Color.Black, 
-                                   0, 
-                                   zeroPositionVector, 
-                                   0.5f, 
-                                   SpriteEffects.None, 
-                                   0);
-        }
 	}
 }
 
