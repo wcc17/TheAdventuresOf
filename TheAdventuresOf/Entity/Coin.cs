@@ -55,13 +55,20 @@ namespace TheAdventuresOf
             //if coin not picked up, drop the coin to the ground (or move it up to the ground)
             //if coin not picked up and timer has changed coinShouldDisappear to true, start fading out coin, then make inactive
             //if coin picked up, fade out above players head, then make inactive
-            if(!coinPickedUp && !coinShouldDisappear) {
+            if(!coinPickedUp) {
                 handleCoinOnGround(gameTime);
-            } else if(!coinPickedUp && coinShouldDisappear) {
-                handleCoinDisappear(gameTime);
             } else {
                 handleCoinPickedUp(gameTime);
             }
+
+            if(coinShouldDisappear) {
+                handleCoinDisappear(gameTime);
+            }
+        }
+
+        public void CoinPickedUp() {
+            coinPickedUp = true;
+            alpha = 1.0f; //in case it already started to disappear
         }
 
         void handleCoinOnGround(GameTime gameTime) {
@@ -76,7 +83,9 @@ namespace TheAdventuresOf
                 bounds.Y = (int)positionVector.Y;
             }
 
-            handleCoinDisappearDelay(gameTime);
+            if(!coinShouldDisappear) {
+                handleCoinDisappearDelay(gameTime);
+            }
         }
 
         void handleCoinDisappear(GameTime gameTime) {
@@ -87,8 +96,7 @@ namespace TheAdventuresOf
             handleFadeOut(gameTime);
             positionVector.Y -= (float)(coinFloatSpeed * gameTime.ElapsedGameTime.TotalSeconds);
 
-            if (positionVector.Y <= (PlayerManager.Instance.GetPlayerPosition().Y - coinFloatLimit))
-            {
+            if (positionVector.Y <= (PlayerManager.Instance.GetPlayerPosition().Y - coinFloatLimit)) {
                 isActive = false;
             }
         }
@@ -103,6 +111,10 @@ namespace TheAdventuresOf
 
         void handleFadeOut(GameTime gameTime) {
             alpha -= (float)(coinFadeSpeed * gameTime.ElapsedGameTime.TotalSeconds);
+
+            if(alpha <= 0) {
+                isActive = false;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch) {
