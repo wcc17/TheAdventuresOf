@@ -59,7 +59,15 @@
 		<SpikeMonster>250</SpikeMonster>
 		<UndergroundMonster>400</UndergroundMonster>
 		<SwoopMonster>350</SwoopMonster>
-    </Scoring>		
+    </Scoring>	
+
+	<Health>
+		<InitialMaxHealth>1000</InitialMaxHealth>
+        <HealthBarXOffset>20</HealthBarXOffset>
+        <HealthBarY>10</HealthBarY>
+        <HealthTextPositionXOffset>10</HealthTextPositionXOffset>
+        <HealthTextPositionYOffset>8</HealthTextPositionYOffset>
+    </Health>
 
 </Game>
 

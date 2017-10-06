@@ -46,6 +46,8 @@ namespace TheAdventuresOf
             XElement gameControllerElement = gameElement.Element("GameController");
             XElement coinElement = gameElement.Element("Coin");
             XElement coinManagerElement = gameElement.Element("CoinManager");
+            XElement scoringElement = gameElement.Element("Scoring");
+            XElement healthElement = gameElement.Element("Health");
 
 			var controllerX = (float)gameControllerElement.Element("ControllerX");
 			var controllerY = (float)gameControllerElement.Element("ControllerY");
@@ -62,9 +64,8 @@ namespace TheAdventuresOf
 			GameControllerMobile.rightButtonPositionVector = new Vector2(rightButtonX, rightButtonY);
 			GameControllerMobile.jumpButtonPositionVector = new Vector2(jumpButtonX, jumpButtonY);
             GameControllerMobile.pauseButtonPositionVector = new Vector2(pauseButtonX, pauseButtonY);
-
-            XElement scoringElement = gameElement.Element("Scoring");
-
+    
+            //TODO: should be in its own method
             Text.textFloatSpeed = (float)scoringElement.Element("TextFloatSpeed");
             Text.textDisappearSpeed = (float)scoringElement.Element("TextDisappearSpeed");
             Text.textFontScale = (float)scoringElement.Element("TextFontScale");
@@ -79,6 +80,7 @@ namespace TheAdventuresOf
             ScoringManager.undergroundMonsterScore = (int)scoringElement.Element("UndergroundMonster");
             ScoringManager.swoopMonsterScore = (int)scoringElement.Element("SwoopMonster");
 
+            //TODO: should be in its own method
             CoinManager.coinYOffset = (float)coinManagerElement.Element("CoinYOffset");
             CoinManager.coinXSpacing = (int)coinManagerElement.Element("CoinXSpacing");
             CoinManager.randomCoinLimitBronze = (int)coinManagerElement.Element("RandomCoinLimitBronze");
@@ -92,6 +94,13 @@ namespace TheAdventuresOf
             Coin.coinFloatLimit = (float)coinElement.Element("CoinFloatLimit");
             Coin.coinFadeSpeed = (float)coinElement.Element("CoinFadeSpeed");
             Coin.coinDisappearTimeLimit = (float)coinElement.Element("CoinDisappearTimeLimit");
+
+            //TODO: should be in its own method
+            HealthManager.maxHealth = (int)healthElement.Element("InitialMaxHealth");
+            HealthManager.healthBarXOffset = (float)healthElement.Element("HealthBarXOffset");
+            HealthManager.healthBarY = (float)healthElement.Element("HealthBarY");
+            HealthManager.healthTextPositionXOffset = (float)healthElement.Element("HealthTextPositionXOffset");
+            HealthManager.healthTextPositionYOffset = (float)healthElement.Element("HealthTextPositionYOffset");
 		}
 
         public static GameManager LoadGameManagerInformation(GameManager gameManager) {
@@ -200,8 +209,6 @@ namespace TheAdventuresOf
             level.maxTier = (int)levelOneElement.Element("MaxTier");
             level.spawnDelayTime = (float)levelElement.Element("SpawnDelayTime");
 
-            CoinManager.Instance.UpdateGroundLevel(level.groundLevel + CoinManager.coinYOffset);
-
 			LoadMonsterInformation(level);
 		}
 
@@ -251,12 +258,6 @@ namespace TheAdventuresOf
             player.initialJumpVelocity = (float)playerElement.Element("InitialJumpVelocity");
             player.jumpGravity = (float)playerElement.Element("JumpGravity");
             player.collisionOffset = (int)playerElement.Element("CollisionOffset");
-
-            player.maxHealth = (int)playerElement.Element("InitialMaxHealth");
-            player.healthBarXOffset = (float)playerElement.Element("HealthBarXOffset");
-            player.healthBarY = (float)playerElement.Element("HealthBarY");
-            player.healthTextPositionXOffset = (float)playerElement.Element("HealthTextPositionXOffset");
-            player.healthTextPositionYOffset = (float)playerElement.Element("HealthTextPositionYOffset");
 
             player.spawnStartX = (float)playerElement.Element("SpawnStartX");
             player.spawnStartY = (float)playerElement.Element("SpawnStartY");

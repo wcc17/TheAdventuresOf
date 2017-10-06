@@ -17,12 +17,6 @@
     <JumpGravity>0.45</JumpGravity> 
     <CollisionOffset>4</CollisionOffset>
 		
-    <InitialMaxHealth>1000</InitialMaxHealth>
-    <HealthBarXOffset>20</HealthBarXOffset>
-    <HealthBarY>10</HealthBarY>
-	<HealthTextPositionXOffset>10</HealthTextPositionXOffset>
-    <HealthTextPositionYOffset>8</HealthTextPositionYOffset>
-
 	<SpawnStartX>-85</SpawnStartX>
     <SpawnStartY>475</SpawnStartY>
 	<SpawnXLimit>220</SpawnXLimit>

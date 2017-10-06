@@ -90,6 +90,8 @@ namespace TheAdventuresOf
         void loadCommonLevelAssets() {
             AssetManager.Instance.LoadGameAssets(graphicsDevice);
             XmlManager.LoadGameInformation();
+            CoinManager.Instance.Initialize();
+            HealthManager.Instance.Initialize();
 
             #if __IOS__ || __ANDROID__
                 currentController = new GameControllerMobile();
@@ -130,6 +132,7 @@ namespace TheAdventuresOf
             currentLevel = new Level(AssetManager.Instance.levelTexture);
 
             XmlManager.LoadLevelInformation((Level)currentLevel);
+            CoinManager.Instance.UpdateGroundLevel(((Level)currentLevel).groundLevel + CoinManager.coinYOffset);
         }
 
         void loadPreLevel()

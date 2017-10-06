@@ -38,7 +38,9 @@ namespace TheAdventuresOf
             }
         }
 
-        private CoinManager() {
+        private CoinManager() { }
+
+        public void Initialize() {
             coins = new List<Coin>();
             coinsToRemove = new List<Coin>();
             rand = new Random();
