@@ -98,7 +98,7 @@ namespace TheAdventuresOf
                     coinTotal += coin.coinValue;
 
                     coin.positionVector.Y = PlayerManager.Instance.GetPlayerPosition().Y;
-                    coin.coinPickedUp = true;
+                    coin.CoinPickedUp();
                 }
             }
         }
