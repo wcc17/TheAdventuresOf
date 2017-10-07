@@ -94,6 +94,9 @@ namespace TheAdventuresOf
             Coin.coinFloatLimit = (float)coinElement.Element("CoinFloatLimit");
             Coin.coinFadeSpeed = (float)coinElement.Element("CoinFadeSpeed");
             Coin.coinDisappearTimeLimit = (float)coinElement.Element("CoinDisappearTimeLimit");
+            Coin.coinFlickerSpeed = (float)coinElement.Element("CoinFlickerSpeed");
+            Coin.coinFlickerLimit = (float)coinElement.Element("CoinFlickerLimit");
+            Coin.coinFlickerIncreaseAmount = (float)coinElement.Element("CoinFlickerIncreaseAmount");
 
             //TODO: should be in its own method
             HealthManager.maxHealth = (int)healthElement.Element("InitialMaxHealth");

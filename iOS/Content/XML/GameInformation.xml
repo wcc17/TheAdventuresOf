@@ -5,6 +5,9 @@
 	    <CoinFloatSpeed>400</CoinFloatSpeed>
 		<CoinFloatLimit>100</CoinFloatLimit>
 		<CoinFadeSpeed>1.3</CoinFadeSpeed>
+		<CoinFlickerSpeed>6</CoinFlickerSpeed>
+		<CoinFlickerLimit>25</CoinFlickerLimit>
+		<CoinFlickerIncreaseAmount>1</CoinFlickerIncreaseAmount>
 		<CoinDisappearTimeLimit>4</CoinDisappearTimeLimit>
 	</Coin>
 	
