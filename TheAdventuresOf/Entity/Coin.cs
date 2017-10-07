@@ -10,23 +10,28 @@ namespace TheAdventuresOf
         public const int SILVER_COIN_AMOUNT = 3;
         public const int GOLD_COIN_AMOUNT = 5;
 
-        public int coinValue;
-        public Vector2 positionVector;
-        public Rectangle bounds;
-
         public static float coinDropSpeed;
-        float groundLevel;
-
         public static float coinFloatSpeed;
         public static float coinFloatLimit;
         public static float coinFadeSpeed;
+        public static float coinFlickerSpeed;
+        public static float coinFlickerLimit; //should be an odd number so that coin fades out one last time
+        public static float coinFlickerIncreaseAmount;
+        public static float coinDisappearTimeLimit;
+
+        public int coinValue;
+        public Vector2 positionVector;
+        public Rectangle bounds;
         public bool coinPickedUp;
         public bool isActive;
         public float alpha;
 
-        public static float coinDisappearTimeLimit;
         Timer coinDisappearTimer = new Timer(coinDisappearTimeLimit);
         bool coinShouldDisappear;
+        int flickerMultiplier = -1;
+        int flickerCounter = 0;
+        float groundLevel;
+        float deltaCoinFlickerSpeed;
 
         public Coin(float x, float y, int width, int height, int coinValue, float baseGroundLevel)
         {
@@ -49,6 +54,9 @@ namespace TheAdventuresOf
 
             alpha = 1.0f;
             isActive = true;
+
+            //so we don't have to keep resetting original coinFlickerSpeed in coinManager. I hate that
+            deltaCoinFlickerSpeed = coinFlickerSpeed;
         }
 
         public void Update(GameTime gameTime) {
@@ -62,7 +70,7 @@ namespace TheAdventuresOf
             }
 
             if(coinShouldDisappear) {
-                handleCoinDisappear(gameTime);
+                handleCoinFlicker(gameTime);
             }
         }
 
@@ -88,12 +96,21 @@ namespace TheAdventuresOf
             }
         }
 
-        void handleCoinDisappear(GameTime gameTime) {
-            handleFadeOut(gameTime);
+        void handleCoinFlicker(GameTime gameTime) {
+            alpha += ((float)(deltaCoinFlickerSpeed * gameTime.ElapsedGameTime.TotalSeconds) * flickerMultiplier);
+            if (alpha <= 0 || alpha >= 1) {
+                deltaCoinFlickerSpeed += coinFlickerIncreaseAmount;
+                flickerMultiplier *= -1;
+                flickerCounter++;
+
+                if(flickerCounter >= coinFlickerLimit) {
+                    isActive = false;
+                }
+            }
         }
 
         void handleCoinPickedUp(GameTime gameTime) {
-            handleFadeOut(gameTime);
+            alpha -= (float)(coinFadeSpeed * gameTime.ElapsedGameTime.TotalSeconds);
             positionVector.Y -= (float)(coinFloatSpeed * gameTime.ElapsedGameTime.TotalSeconds);
 
             if (positionVector.Y <= (PlayerManager.Instance.GetPlayerPosition().Y - coinFloatLimit)) {
@@ -106,14 +123,6 @@ namespace TheAdventuresOf
             bool timeUp = coinDisappearTimer.IsTimeUp(gameTime.ElapsedGameTime);
             if(timeUp) {
                 coinShouldDisappear = true;
-            }
-        }
-
-        void handleFadeOut(GameTime gameTime) {
-            alpha -= (float)(coinFadeSpeed * gameTime.ElapsedGameTime.TotalSeconds);
-
-            if(alpha <= 0) {
-                isActive = false;
             }
         }
 
