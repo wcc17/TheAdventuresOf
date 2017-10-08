@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Level>
+  <MainMenu>
+    <PlayButtonX>200</PlayButtonX>
+    <PlayButtonY>700</PlayButtonY>
+  </MainMenu>
+
+  <PreLevel>
+    <GroundLevel>555</GroundLevel>
+	<LeftBoundWidth>0</LeftBoundWidth>
+    <RightBoundWidth>1920</RightBoundWidth>
+	<PreLevelCharX>1560</PreLevelCharX>
+    <PreLevelCharText>Can I have your sword when you die?</PreLevelCharText>
+    <TextX>1100</TextX>
+	<TextY>500</TextY>
+    <TextThreshold>400</TextThreshold>
+	<PlayerStartX>280</PlayerStartX>
+  </PreLevel>
+
+  <StoreLevel>
+	<GroundLevel>685</GroundLevel>
+    <LeftBoundWidth>0</LeftBoundWidth>
+	<RightBoundWidth>1920</RightBoundWidth>
+    <StoreLevelCharX>1600</StoreLevelCharX>
+	<StoreLevelCharY>320</StoreLevelCharY>
+    <StoreLevelCharTextX>1500</StoreLevelCharTextX>
+    <StoreLevelCharTextY>200</StoreLevelCharTextY>
+	<StoreLevelCharText>Welcome!</StoreLevelCharText>
+    <PlayerStartX>100</PlayerStartX>
+    <LevelText>
+        <Text>
+            <Value>This is item 1</Value>
+            <Index>0</Index>
+            <StartX>260</StartX>
+            <EndX>540</EndX>
+			<TextX>320</TextX>
+            <TextY>400</TextY>
+        </Text>
+		<Text>
+            <Value>This is item 2</Value>
+            <Index>0</Index>
+            <StartX>670</StartX>
+            <EndX>955</EndX>
+			<TextX>730</TextX>
+            <TextY>400</TextY>
+        </Text>
+		<Text>
+            <Value>This is item 3</Value>
+            <Index>0</Index>
+            <StartX>1080</StartX>
+            <EndX>1365</EndX>
+			<TextX>1140</TextX>
+            <TextY>400</TextY>
+        </Text>
+	</LevelText>
+  </StoreLevel>
+</Level>

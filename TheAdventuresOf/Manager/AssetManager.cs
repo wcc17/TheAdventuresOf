@@ -65,8 +65,6 @@ namespace TheAdventuresOf
         public static string filePath;
 
         //xbox related stuff
-        string level1String;
-        string preLevelString;
         string storeLevelString;
         bool loadOnScreenController;
 
@@ -92,17 +90,14 @@ namespace TheAdventuresOf
 #endif
 
 #if __IOS__ || __ANROID__
-            level1String = "level1background_1080p.png";
-            preLevelString = "pre_level1_background_1080p.png";
             storeLevelString = "store_level_1080p.png";
             loadOnScreenController = true;
 #else
-            level1String = "level1background_xbox_1080p.png";
-            preLevelString = "pre_level1_background_xbox_1080p.png";
             storeLevelString = "store_level_xbox_1080p.png";
             loadOnScreenController = false;
 #endif
         }
+
 
         public void LoadSplashAssets(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {
@@ -189,14 +184,13 @@ namespace TheAdventuresOf
             }
         }
 
-        //TODO: eventually add logic for reloading textures based on what level the player is on 
-        public void LoadLevelAssets(GraphicsDevice graphicsDevice, ContentManager contentManager)
+        public void LoadLevelAssets(GraphicsDevice graphicsDevice, ContentManager contentManager, int levelNumber)
         {
             string levelFilePath = filePath + "Level/";
-            string monsterFilePath = filePath + "Monster/";
+            string monsterFilePath = filePath + "Monster/Level" + levelNumber + "/";
             string projectileFilePath = filePath + "Projectile/";
 
-            using (var stream = TitleContainer.OpenStream(levelFilePath + level1String))
+            using (var stream = TitleContainer.OpenStream(levelFilePath + getLevelString(levelNumber)))
             {
                 levelTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
@@ -252,16 +246,16 @@ namespace TheAdventuresOf
             levelOneSong = contentManager.Load<Song>("Level/level1_music");
         }
 
-        public void LoadPreLevelAssets(GraphicsDevice graphicsDevice)
+        public void LoadPreLevelAssets(GraphicsDevice graphicsDevice, int levelNumber)
         {
             string preLevelFilePath = filePath + "PreLevel/";
 
-            using (var stream = TitleContainer.OpenStream(preLevelFilePath + "pre_level1_character_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(preLevelFilePath + "pre_level" + levelNumber + "character_1080p.png"))
             {
                 preLevelCharacterTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
-            using (var stream = TitleContainer.OpenStream(preLevelFilePath + preLevelString))
+            using (var stream = TitleContainer.OpenStream(preLevelFilePath + getPreLevelString(levelNumber)))
             {
                 preLevelTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
@@ -335,6 +329,31 @@ namespace TheAdventuresOf
 
             playerTexture.Dispose();
             swordTexture.Dispose();
+        }
+
+        string getPreLevelString(int levelNumber) {
+            string preLevelString = "pre_level" + levelNumber + "background_";
+
+#if __IOS__ || __ANROID__
+            preLevelString += "1080p.png";
+#else
+            preLevelString += "xbox_1080p.png";
+#endif
+
+            return preLevelString;
+        }
+
+        string getLevelString(int levelNumber)
+        {
+            string levelString = "level" + levelNumber + "background_";
+
+#if __IOS__ || __ANROID__
+            levelString += "1080p.png";
+#else
+            levelString += "xbox_1080p.png";
+#endif
+
+            return levelString;
         }
 	}
 }
