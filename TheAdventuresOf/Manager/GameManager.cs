@@ -20,6 +20,7 @@ namespace TheAdventuresOf
         Vector2 basePositionVector;
         Vector2 pausedTextVector;
 
+        int levelNumber = 1;
         int nextGameState = -1;
         int gameState = SPLASH_STATE;
         GraphicsDevice graphicsDevice;
@@ -106,7 +107,7 @@ namespace TheAdventuresOf
             Logger.WriteToConsole("Load PreLevel Assets");
 
             AssetManager.Instance.LoadPlayerAssets(graphicsDevice);
-            AssetManager.Instance.LoadPreLevelAssets(graphicsDevice);
+            AssetManager.Instance.LoadPreLevelAssets(graphicsDevice, levelNumber);
 
             currentLevel = new PreLevel(AssetManager.Instance.preLevelTexture);
             XmlManager.LoadPreLevelInformation((PreLevel)currentLevel);
@@ -127,11 +128,11 @@ namespace TheAdventuresOf
             Logger.WriteToConsole("Load Level assets");
 
             AssetManager.Instance.LoadPlayerAssets(graphicsDevice);
-            AssetManager.Instance.LoadLevelAssets(graphicsDevice, contentManager);
+            AssetManager.Instance.LoadLevelAssets(graphicsDevice, contentManager, levelNumber);
 
             currentLevel = new Level(AssetManager.Instance.levelTexture);
 
-            XmlManager.LoadLevelInformation((Level)currentLevel);
+            XmlManager.LoadLevelInformation((Level)currentLevel, levelNumber);
             CoinManager.Instance.UpdateGroundLevel(((Level)currentLevel).groundLevel + CoinManager.coinYOffset);
         }
 
@@ -274,6 +275,7 @@ namespace TheAdventuresOf
             if(currentLevel.nextLevel) {
                 gameState = LOAD_STATE;
                 nextGameState = PRE_LEVEL_STATE;
+                levelNumber++;
 
                 AssetManager.Instance.DisposeStoreAssets();
                 loadPreLevelAssets();

@@ -17,7 +17,7 @@ namespace TheAdventuresOf
 		public static XDocument gameDocument;
 		public static XDocument characterDocument;
 		public static XDocument projectileDocument;
-		public static XDocument levelDocument;
+        public static XDocument specialLevelDocument;
 
 		public static void GetXMLInformation()
 		{
@@ -32,12 +32,12 @@ namespace TheAdventuresOf
 			Stream gameDocumentStream = TitleContainer.OpenStream(filePath + "XML/GameInformation.xml");
 			Stream characterDocumentStream = TitleContainer.OpenStream(filePath + "XML/CharacterInformation.xml");
 			Stream projectileDocumentStream = TitleContainer.OpenStream(filePath + "XML/ProjectileInformation.xml");
-			Stream levelDocumentStream = TitleContainer.OpenStream(filePath + "XML/LevelInformation.xml");
+			Stream specialLevelDocumentStream = TitleContainer.OpenStream(filePath + "XML/SpecialLevelInformation.xml");
 
 			gameDocument = XDocument.Load(gameDocumentStream);
 			characterDocument = XDocument.Load(characterDocumentStream);
 			projectileDocument = XDocument.Load(projectileDocumentStream);
-			levelDocument = XDocument.Load(levelDocumentStream);
+			specialLevelDocument = XDocument.Load(specialLevelDocumentStream);
 		}
 
 		public static void LoadGameInformation()
@@ -119,8 +119,8 @@ namespace TheAdventuresOf
         }
 
         public static void LoadMainMenuInformation() {
-            XElement levelElement = levelDocument.Element("Level");
-            XElement mainMenuElement = levelElement.Element("MainMenu");
+            XElement specialLevelElement = specialLevelDocument.Element("Level");
+            XElement mainMenuElement = specialLevelElement.Element("MainMenu");
 
             var playButtonX = (float)mainMenuElement.Element("PlayButtonX");
             var playButtonY = (float)mainMenuElement.Element("PlayButtonY");
@@ -128,8 +128,8 @@ namespace TheAdventuresOf
         }
 
         public static void LoadPreLevelInformation(PreLevel preLevel) {
-            XElement levelElement = levelDocument.Element("Level");
-            XElement preLevelElement = levelElement.Element("PreLevel");
+            XElement specialLevelElement = specialLevelDocument.Element("Level");
+            XElement preLevelElement = specialLevelElement.Element("PreLevel");
 
             preLevel.groundLevel = (float)preLevelElement.Element("GroundLevel");
             preLevel.playerStartX = (float)preLevelElement.Element("PlayerStartX");
@@ -143,8 +143,8 @@ namespace TheAdventuresOf
         }
 
         public static void LoadStoreLevelInformation(StoreLevel storeLevel) {
-            XElement levelElement = levelDocument.Element("Level");
-            XElement storeLevelElement = levelElement.Element("StoreLevel");
+            XElement specialLevelElement = specialLevelDocument.Element("Level");
+            XElement storeLevelElement = specialLevelElement.Element("StoreLevel");
 
             storeLevel.groundLevel = (float)storeLevelElement.Element("GroundLevel");
             storeLevel.playerStartX = (float)storeLevelElement.Element("PlayerStartX");
@@ -173,31 +173,33 @@ namespace TheAdventuresOf
             StoreLevel.texts = texts;
         }
 
-		public static void LoadLevelInformation(Level level) {
-			XElement levelElement = levelDocument.Element("Level");
-			XElement levelOneElement = levelElement.Element("LevelOne");
+		public static void LoadLevelInformation(Level level, int levelNumber) {
+            Stream levelXDocumentStream = TitleContainer.OpenStream(filePath + "XML/Level/Level" + levelNumber + "Information.xml");
+
+            XDocument levelXDocument = XDocument.Load(levelXDocumentStream);
+			XElement levelXElement = levelXDocument.Element("Level");
 
             List<XElement> tierElements = new List<XElement>();
-            tierElements.Add(levelOneElement.Element("Tier1"));
-            tierElements.Add(levelOneElement.Element("Tier2"));
-            tierElements.Add(levelOneElement.Element("Tier3"));
-            tierElements.Add(levelOneElement.Element("Tier4"));
-            tierElements.Add(levelOneElement.Element("Tier5"));
+            tierElements.Add(levelXElement.Element("Tier1"));
+            tierElements.Add(levelXElement.Element("Tier2"));
+            tierElements.Add(levelXElement.Element("Tier3"));
+            tierElements.Add(levelXElement.Element("Tier4"));
+            tierElements.Add(levelXElement.Element("Tier5"));
 
-			level.groundLevel = (float)levelOneElement.Element("GroundLevel");
-            level.playerStartX = (float)levelOneElement.Element("PlayerStartX");
-			level.leftBoundWidth = (int)levelOneElement.Element("LeftBoundWidth");
-			level.rightBoundWidth = (int)levelOneElement.Element("RightBoundWidth");
+			level.groundLevel = (float)levelXElement.Element("GroundLevel");
+            level.playerStartX = (float)levelXElement.Element("PlayerStartX");
+			level.leftBoundWidth = (int)levelXElement.Element("LeftBoundWidth");
+			level.rightBoundWidth = (int)levelXElement.Element("RightBoundWidth");
 
             //TODO: having Level.TIER_X is dumb. Not used anywhere else but here.
             //idea: need a way to iterate through tiers in Level xml. That way any level can have any number of tiers
             //need to revisit when i'm ready to really sort that out
             level.tierScores = new Dictionary<int, int>();
-            level.tierScores.Add(Level.TIER_1, (int)levelOneElement.Element("Tier1Score"));
-            level.tierScores.Add(Level.TIER_2, (int)levelOneElement.Element("Tier2Score"));
-            level.tierScores.Add(Level.TIER_3, (int)levelOneElement.Element("Tier3Score"));
-            level.tierScores.Add(Level.TIER_4, (int)levelOneElement.Element("Tier4Score"));
-            level.tierScores.Add(Level.TIER_5, (int)levelOneElement.Element("Tier5Score"));
+            level.tierScores.Add(Level.TIER_1, (int)levelXElement.Element("Tier1Score"));
+            level.tierScores.Add(Level.TIER_2, (int)levelXElement.Element("Tier2Score"));
+            level.tierScores.Add(Level.TIER_3, (int)levelXElement.Element("Tier3Score"));
+            level.tierScores.Add(Level.TIER_4, (int)levelXElement.Element("Tier4Score"));
+            level.tierScores.Add(Level.TIER_5, (int)levelXElement.Element("Tier5Score"));
 
             level.tierMonsterLimits = new Dictionary<int, List<int>>();
             level.tierMonsterLimits.Add(MonsterManager.BLOCK_MONSTER, LoadTierMonsterLimits("BlockMonsterLimit", tierElements));
@@ -209,8 +211,8 @@ namespace TheAdventuresOf
             level.tierMonsterLimits.Add(MonsterManager.DASH_MONSTER, LoadTierMonsterLimits("DashMonsterLimit", tierElements));
             level.tierMonsterLimits.Add(MonsterManager.UNDERGROUND_MONSTER, LoadTierMonsterLimits("UndergroundMonsterLimit", tierElements));
             level.tierMonsterLimits.Add(MonsterManager.SWOOP_MONSTER, LoadTierMonsterLimits("SwoopMonsterLimit", tierElements));
-            level.maxTier = (int)levelOneElement.Element("MaxTier");
-            level.spawnDelayTime = (float)levelElement.Element("SpawnDelayTime");
+            level.maxTier = (int)levelXElement.Element("MaxTier");
+            level.spawnDelayTime = (float)levelXElement.Element("SpawnDelayTime");
 
 			LoadMonsterInformation(level);
 		}
