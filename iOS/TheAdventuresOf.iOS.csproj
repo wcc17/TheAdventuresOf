@@ -114,7 +114,6 @@
     <BundleResource Include="Content\Menu\splash_1080p.png" />
     <BundleResource Include="Content\Menu\splash_iphone6plus.png" />
     <BundleResource Include="Content\Menu\splash_iphone6splus_old.png" />
-    <BundleResource Include="Content\Player\character_1080p.png" />
     <BundleResource Include="Content\Player\sword_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level1background_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level1character_1080p.png" />
@@ -157,6 +156,8 @@
     <BundleResource Include="Content\Monster\Level2\undergroundmonster_1080p.png" />
     <BundleResource Include="Content\XML\Level\Level1Information.xml" />
     <BundleResource Include="Content\XML\Level\Level2Information.xml" />
+    <BundleResource Include="Content\Player\level1_character_1080p.png" />
+    <BundleResource Include="Content\Player\level2_character_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
