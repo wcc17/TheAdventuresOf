@@ -126,16 +126,16 @@ namespace TheAdventuresOf
             }
         }
 
-        public void LoadPlayerAssets(GraphicsDevice graphicsDevice) {
-            String playerFilePath = filePath + "Player/";
-            String gameFilePath = filePath + "Game/";
+        public void LoadPlayerAssets(GraphicsDevice graphicsDevice, int levelNumber) {
+            String playerFilePath = filePath + "Player/level" + levelNumber + "_";
+            String swordFilePath = filePath + "Player/";
 
             //player textures
             using (var stream = TitleContainer.OpenStream(playerFilePath + "character_1080p.png"))
             {
                 playerTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(playerFilePath + "sword_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(swordFilePath + "sword_1080p.png"))
             {
                 swordTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
