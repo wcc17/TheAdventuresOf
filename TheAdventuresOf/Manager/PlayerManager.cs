@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 
 namespace TheAdventuresOf
 {
@@ -11,6 +12,8 @@ namespace TheAdventuresOf
 
         private static Player player { get; set; }
         BaseLevel level;
+
+        List<Accessory> accessories;
 
         public static PlayerManager Instance {
             get {
@@ -34,11 +37,17 @@ namespace TheAdventuresOf
                                     AssetManager.Instance.playerTexture.Height,
                                     usePlayerSpawnAnimation);
 
+            accessories = new List<Accessory>();
+
         }
 
         public void Update(GameTime gameTime, GameController gameController)
         {
             player.UpdatePlayer(gameTime, gameController);
+
+            foreach(Accessory accessory in accessories) {
+                accessory.Update(gameTime, player.positionVector);
+            }
 
             if(!player.isSpawning) {
                 level.CheckCollisionWithBounds(player);
@@ -53,6 +62,10 @@ namespace TheAdventuresOf
         {
             CoinManager.Instance.Draw(spriteBatch);
             player.Draw(spriteBatch, AssetManager.Instance.playerTexture);
+
+            foreach (Accessory accessory in accessories) {
+                accessory.Draw(spriteBatch);
+            }
         }
 
         public Vector2 GetPlayerPosition() 
@@ -81,6 +94,12 @@ namespace TheAdventuresOf
         {
             player.positionVector.X = X;
             player.UpdateEntityBounds();
+        }
+
+        //TODO: this will probably be removed when accessories are all the way into the game
+        public void AddAccessory(Texture2D accessoryTexture) {
+            Accessory accessory = new Accessory(accessoryTexture, player.positionVector);
+            accessories.Add(accessory);
         }
     }
 }

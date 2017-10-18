@@ -158,6 +158,7 @@
     <BundleResource Include="Content\XML\Level\Level2Information.xml" />
     <BundleResource Include="Content\Player\level1_character_1080p.png" />
     <BundleResource Include="Content\Player\level2_character_1080p.png" />
+    <BundleResource Include="Content\Player\level2_character_helmet_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

@@ -147,6 +147,12 @@ namespace TheAdventuresOf
         {
             currentLevel.InitializeLevel(USE_PLAYER_SPAWN_ANIMATION);
 
+            //TODO: move this logic elsewhere once accessories are completely in the game
+            //TODO: should also be loaded in prelevel
+            if(levelNumber == 2) {
+                PlayerManager.Instance.AddAccessory(AssetManager.Instance.helmetTexture);
+            }
+
             gameState = LEVEL_STATE;
         }
 

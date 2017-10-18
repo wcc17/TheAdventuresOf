@@ -20,7 +20,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\SunMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Entity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monster.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Entity\Player.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Projectiles\Bullet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Projectiles\Bile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\BileMonster.cs" />
@@ -60,6 +59,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Animation\AnimationFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\SwoopMonster.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\HealthManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Player\Player.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Player\Accessory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />
@@ -69,5 +70,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Levels\" />
     <Folder Include="$(MSBuildThisFileDirectory)Text\" />
     <Folder Include="$(MSBuildThisFileDirectory)Animation\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Entity\Player\" />
   </ItemGroup>
 </Project>
