@@ -24,7 +24,6 @@ namespace TheAdventuresOf
 
         //game textures
         public Texture2D controllerTexture;
-        public Texture2D swordTexture;
         public Texture2D progressBarTexture;
         public Texture2D progressBarFillTexture;
         public Texture2D leftArrowButtonTexture;
@@ -45,8 +44,12 @@ namespace TheAdventuresOf
         public Texture2D storeLevelCharacterTexture;
         public Texture2D storeLevelTexture;
 
-        //level textures
+        //player textures
         public Texture2D playerTexture;
+        public Texture2D swordTexture; //TODO: should just be another accessory
+        public Texture2D helmetTexture; //TODO: should just be another accessory
+
+        //level textures
         public Texture2D levelTexture;
         public Texture2D blockMonsterTexture;
         public Texture2D sunMonsterTexture;
@@ -135,9 +138,15 @@ namespace TheAdventuresOf
             {
                 playerTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
+            //TODO: accessories should be loaded with assistance from XML
             using (var stream = TitleContainer.OpenStream(swordFilePath + "sword_1080p.png"))
             {
                 swordTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            //TODO: swordFilePath should have a different name
+            using (var stream = TitleContainer.OpenStream(swordFilePath + "level2_character_helmet_1080p.png"))
+            {
+                helmetTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
         }
 
@@ -327,7 +336,9 @@ namespace TheAdventuresOf
             silverCoinTexture.Dispose();
             goldCoinTexture.Dispose();
 
+            //TODO: these should be disposed in every level
             playerTexture.Dispose();
+            helmetTexture.Dispose();
             swordTexture.Dispose();
         }
 
