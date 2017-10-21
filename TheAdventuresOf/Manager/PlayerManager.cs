@@ -47,7 +47,7 @@ namespace TheAdventuresOf
             player.UpdatePlayer(gameTime, gameController);
 
             foreach(Accessory accessory in accessories) {
-                accessory.Update(player.positionVector, player.entityWidth, player.entityHeight, player.rotation, player.moveLeft);
+                accessory.Update(player.positionVector, player.entityWidth, player.entityHeight, player.rotation, player.moveLeft, player.transparency);
             }
 
             if(!player.isSpawning) {
