@@ -44,7 +44,7 @@ namespace TheAdventuresOf
 
             isSpawning = true;
 
-            initializeBullet();
+            InitializeBullet();
         }
 
         public override void InitializeAnimation() 
@@ -69,23 +69,12 @@ namespace TheAdventuresOf
 
         public override void HandleAnimation(GameTime gameTime) {
             currentAnimation.Update(gameTime);
-
-            //TODO: why is this here?
-            //if(!isSpawning) {
-                HandleBounce(gameTime);
-            //}
+            HandleBounce(gameTime);
         }
 
-        public void ChooseRandomSide(int cannonMonsterCount, List<Monster> monsters)
+        public override BaseCannonMonster FindExistingCannonMonster(List<Monster> monsters)
         {
-            FlyingCannonMonster existingCannonMonster = null;
-
-            if (cannonMonsterCount > 0)
-            {
-                existingCannonMonster = (FlyingCannonMonster)monsters.Find(cm => (cm is FlyingCannonMonster));
-            }
-
-            ChooseSide(existingCannonMonster);
-        }
+            return ((FlyingCannonMonster)monsters.Find(cm => (cm is FlyingCannonMonster)));
+        } 
     }
 }

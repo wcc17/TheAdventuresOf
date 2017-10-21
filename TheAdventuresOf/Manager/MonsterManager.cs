@@ -22,14 +22,15 @@ namespace TheAdventuresOf
 
         public int blockMonsterCount;
         public int sunMonsterCount;
-        public int groundCannonMonsterCount;
         public int bileMonsterCount;
         public int spikeMonsterCount;
         public int dashMonsterCount;
-        public int flyingCannonMonsterCount;
         public int undergroundMonsterCount;
         public int swoopMonsterCount;
         public int monsterCount;
+        public int groundCannonMonsterCount;
+        public int flyingCannonMonsterCount;
+        public int baseCannonMonsterCount;
 
         public static List<Monster> monsters;
         public List<Monster> monstersToRemove;
@@ -168,6 +169,7 @@ namespace TheAdventuresOf
                 sunMonsterCount--;
             } else if (monster is GroundCannonMonster) {
                 groundCannonMonsterCount--;
+                baseCannonMonsterCount--;
             } else if (monster is BileMonster) {
                 bileMonsterCount--;
             } else if (monster is SpikeMonster) {
@@ -176,6 +178,7 @@ namespace TheAdventuresOf
                 dashMonsterCount--;
             } else if (monster is FlyingCannonMonster) {
                 flyingCannonMonsterCount--;
+                baseCannonMonsterCount--;
             } else if (monster is UndergroundMonster) {
                 undergroundMonsterCount--;   
             } else if(monster is SwoopMonster) {
@@ -406,7 +409,7 @@ namespace TheAdventuresOf
             groundCannonMonster.SetCannonMonsterData(level.groundCannonMonster);
             groundCannonMonster.groundLevel = level.groundLevel - GroundCannonMonster.groundOffset;
             //random side of the level is chosen here. if a cannon monster already exists there, it will be handled here
-            groundCannonMonster.ChooseRandomSide(groundCannonMonsterCount, monsters);
+            groundCannonMonster.ChooseRandomSide(baseCannonMonsterCount, groundCannonMonsterCount, monsters);
             groundCannonMonster.InitializeEntity(groundCannonMonster.positionVector.X,
                                               ScreenManager.FULL_SCREEN_HEIGHT + AssetManager.Instance.cannonMonsterTexture.Height,
                                               AssetManager.Instance.cannonMonsterTexture.Width / groundCannonMonster.frameCount,
@@ -418,6 +421,7 @@ namespace TheAdventuresOf
             monsters.Add(groundCannonMonster);
 
             groundCannonMonsterCount++;
+            baseCannonMonsterCount++;
         }
 
         void spawnFlyingCannonMonster()
@@ -426,7 +430,7 @@ namespace TheAdventuresOf
 
             flyingCannonMonster.SetFlyingCannonMonsterData(level.flyingCannonMonster);
             flyingCannonMonster.groundLevel = level.groundLevel - FlyingCannonMonster.floatHeight;
-            flyingCannonMonster.ChooseRandomSide(flyingCannonMonsterCount, monsters);
+            flyingCannonMonster.ChooseRandomSide(baseCannonMonsterCount, flyingCannonMonsterCount, monsters);
             flyingCannonMonster.InitializeEntity(flyingCannonMonster.positionVector.X,
                                                     0 - AssetManager.Instance.flyingCannonMonsterTexture.Height,
                                                     AssetManager.Instance.flyingCannonMonsterTexture.Width / flyingCannonMonster.frameCount,
@@ -438,6 +442,7 @@ namespace TheAdventuresOf
             monsters.Add(flyingCannonMonster);
 
             flyingCannonMonsterCount++;
+            baseCannonMonsterCount++;
         }
 
         void spawnSpikeMonster() 
@@ -504,66 +509,6 @@ namespace TheAdventuresOf
 
             swoopMonsterCount++;
         }
-
-   //     void getLeastUsedZone(int leftSideXLimit, int rightSideXLimit) {
-			////the area we have to work with
-			//int spawnAreaWidth = rightSideXLimit - leftSideXLimit;
-
-			////how many "zones" we should check to see if monsters are there
-			//int numberOfZones = 6; //TODO: Magic number
-			//if (spawnAreaWidth > (ScreenManager.FULL_SCREEN_WIDTH / 2))
-			//{
-			//	numberOfZones /= 2;
-			//}
-
-			//int zoneWidth = spawnAreaWidth / numberOfZones;
-			//int[] zoneMonsterCounts = new int[numberOfZones];
-			//foreach (Monster monster in monsters)
-			//{
-			//	if (!monster.isSpawning && !monster.isDead && !monster.isDying)
-			//	{
-			//		int monsterZone = (int)monster.positionVector.X / zoneWidth;
-
-			//		//check to ensure the monster is within the zones we currently care about
-			//		if (monsterZone < numberOfZones)
-			//		{
-			//			zoneMonsterCounts[monsterZone]++;
-			//		}
-			//	}
-			//}
-
-			////get the zone with the least amount of monsters in it
-			//int leastMonsterZone = int.MaxValue;
-			//int highestMonsterZone = int.MinValue;
-			//for (int i = 0; i < zoneMonsterCounts.Length; i++)
-			//{
-			//	if (zoneMonsterCounts[i] < leastMonsterZone)
-			//	{
-			//		leastMonsterZone = i;
-			//	}
-
-			//	if (zoneMonsterCounts[i] > highestMonsterZone)
-			//	{
-			//		highestMonsterZone = i;
-			//	}
-			//}
-
-			////if the highest monster zone is 0, then so is the lowest, so we don't need new limits
-			//if (zoneMonsterCounts[highestMonsterZone] != 0)
-			//{
-			//	//figure out leftSideX and rightSideX of the chosen zone
-			//	leftSideXLimit = (leastMonsterZone * zoneWidth);
-			//	rightSideXLimit = (leastMonsterZone * zoneWidth) + zoneWidth;
-			//	Console.WriteLine("break here tho");
-			//}
-
-			//Console.WriteLine("------------------------");
-			//Console.WriteLine("least: " + leastMonsterZone);
-			//Console.WriteLine("most: " + highestMonsterZone);
-			//Console.WriteLine("leftSideLimit: " + leftSideXLimit);
-			//Console.WriteLine("rightSideLimit: " + rightSideXLimit);
-			//Console.WriteLine("------------------------");
-        //}
     }
 }
 

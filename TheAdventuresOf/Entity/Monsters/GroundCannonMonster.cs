@@ -49,19 +49,13 @@ namespace TheAdventuresOf
 
             isSpawning = true;
 
-            initializeBullet();
+            InitializeBullet();
         }
 
-        public void ChooseRandomSide(int cannonMonsterCount, List<Monster> monsters) {
-
-            GroundCannonMonster existingCannonMonster = null;
-
-            if(cannonMonsterCount > 0) {
-                existingCannonMonster = (GroundCannonMonster)monsters.Find(cm => (cm is GroundCannonMonster));
-            }
-
-            ChooseSide(existingCannonMonster);
-        }
+        public override BaseCannonMonster FindExistingCannonMonster(List<Monster> monsters)
+        {
+            return ((GroundCannonMonster)monsters.Find(cm => (cm is GroundCannonMonster)));
+        } 
 	}
 }
 

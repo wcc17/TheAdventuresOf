@@ -25,7 +25,10 @@ namespace TheAdventuresOf
         public static float recoilDistance;
         public bool isRecoil;
 
-        public void initializeBullet()
+        public bool isLeftSide = false;
+        public bool isRightSide = false;
+
+        public void InitializeBullet()
         {
             if (bullet == null)
             {
@@ -105,7 +108,7 @@ namespace TheAdventuresOf
                 }
 
                 //reset bullet
-                initializeBullet();
+                InitializeBullet();
             }
         }
 
@@ -216,7 +219,23 @@ namespace TheAdventuresOf
             }
         }
 
+        //TODO: as of now can only have one of any kind of cannon monster per side of level at any time
+        //if i want one of each kind of cannon monster to be on each side, adjust here
+        public void ChooseRandomSide(int cannonMonsterCount, int childCannonMonsterCount, List<Monster> monsters) {
+            BaseCannonMonster existingCannonMonster = null;
+
+            //if(cannonMonsterCount > 0) {
+            //  existingCannonMonster = (BaseCannonMonster)monsters.Find(cm => (cm is BaseCannonMonster));
+            //}
+            if(childCannonMonsterCount > 0) {
+                existingCannonMonster = FindExistingCannonMonster(monsters);
+            }
+
+            ChooseSide(existingCannonMonster);
+        }
+
         //no reason to check collision with level bounds here
         public override void HandleLevelBoundCollision(int direction, int boundX) { }
+        public virtual BaseCannonMonster FindExistingCannonMonster(List<Monster> monsters) { return null; }
     }
 }
