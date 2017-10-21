@@ -122,6 +122,8 @@ namespace TheAdventuresOf
             AssetManager.Instance.LoadPlayerAssets(graphicsDevice, levelNumber);
             AssetManager.Instance.LoadStoreLevelAssets(graphicsDevice);
 
+            loadPlayerAccessories();
+
             currentLevel = new StoreLevel(AssetManager.Instance.storeLevelTexture);
             XmlManager.LoadStoreLevelInformation((StoreLevel)currentLevel);
         }

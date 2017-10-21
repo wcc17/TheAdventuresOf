@@ -13,13 +13,6 @@ namespace TheAdventuresOf
         Rectangle collisionBounds;
         public int collisionOffset;
 
-		public Rectangle swordBounds;
-		public float leftSwordOffset;
-		public float rightSwordOffset;
-		public float swordYOffset;
-
-		Vector2 swordPositionVector;
-
 		public bool hasJumped;
 		public bool isJumping;
         public float initialJumpVelocity;
@@ -63,11 +56,6 @@ namespace TheAdventuresOf
                 isSpawning = true;
             }
 
-            swordPositionVector = new Vector2(positionVector.X + playerWidth - rightSwordOffset, positionVector.Y + swordYOffset);
-			swordBounds = new Rectangle((int)swordPositionVector.X, 
-			                            (int)swordPositionVector.Y, 
-			                            AssetManager.Instance.swordTexture.Width, 
-			                            AssetManager.Instance.swordTexture.Height);
 
 			moveRight = true;
 
@@ -200,7 +188,6 @@ namespace TheAdventuresOf
 			}
 
 			positionVector.X += (addOrSubtract * (float)distance);
-			UpdateSwordPosition();
 
 			if (knockBackDistance > knockBackDistanceLimit)
 			{
@@ -213,13 +200,12 @@ namespace TheAdventuresOf
 		public override void HandleLevelBoundCollision(int direction, int boundX)
 		{
 			base.HandleLevelBoundCollision(direction, boundX);
-			UpdateSwordPosition();
 		}
 
-        public void CheckCollisionProjectile(Projectile proj) 
+        public void CheckCollisionProjectile(Projectile proj, bool projectileDamagedPlayer) 
         {
-             
-            if (collisionBounds.Intersects(proj.entityBounds)) 
+            //TODO: as of right now projectiles don't damage the player when they hit the sword. is that what i want?
+            if (collisionBounds.Intersects(proj.entityBounds) || projectileDamagedPlayer) 
             {
                 if (!isInvincible && proj.isActive) 
                 {
@@ -230,21 +216,25 @@ namespace TheAdventuresOf
             }    
         }
 
-		public void CheckCollisionMonster(Monster monster)
+
+		public void CheckCollisionMonster(Monster monster, bool accessoryDamagedMonster, bool monsterDamagedAccessory)
 		{
-            if(!monster.isDying && !monster.isDead) {
-                if (swordBounds.Intersects(monster.entityBounds) && !monster.isInvincible)
-                {
-                    //TODO: consider moving this if condition to the outside if statement above this one
-                    //spike monster can't be killed by the sword
-                    if(!(monster is SpikeMonster)) {
+            if(monsterDamagedAccessory) {
+                Console.WriteLine("hello");    
+            }
+
+            if(!monster.isDying && !monster.isDead && !monster.isInvincible) {
+                if(accessoryDamagedMonster) {
+
+                    if (!(monster is SpikeMonster))
+                    {
                         monster.isDying = true;
                         ScoringManager.Instance.HandleMonsterKill(monster);
                     }
 
                     monster.HandleCoinDropOnDeath();
-                }
-                else if (collisionBounds.Intersects(monster.entityBounds))
+
+                } else if (collisionBounds.Intersects(monster.entityBounds) || monsterDamagedAccessory)
                 {
                     if (!isInvincible) //if player isn't invincible
                     {
@@ -268,8 +258,6 @@ namespace TheAdventuresOf
 
         void handleSpawn(GameTime gameTime)
         {
-            //no matter what, update sword position
-            UpdateSwordPosition();
             Move(gameTime, RIGHT);
             HandleAnimation(gameTime);
 
@@ -281,7 +269,6 @@ namespace TheAdventuresOf
 				if (positionVector.Y >= groundLevel)
                 {
                     positionVector = initialPositionVector;
-                    UpdateSwordPosition();
                     UpdateEntityBounds();
 
                     rotation = 0;
@@ -397,19 +384,11 @@ namespace TheAdventuresOf
 					positionVector.X += (speed * (float)gameTime.ElapsedGameTime.TotalSeconds);
 					break;
 			}
-
-			UpdateSwordPosition();
 		}
 
 		public override void UpdateEntityBounds() {
 			base.UpdateEntityBounds();
-			updateSwordBounds();
             updateCollisionBounds();
-		}
-
-		void updateSwordBounds() {
-			swordBounds.X = (int)swordPositionVector.X;
-			swordBounds.Y = (int)swordPositionVector.Y;
 		}
 
         void updateCollisionBounds() {
@@ -417,23 +396,10 @@ namespace TheAdventuresOf
             collisionBounds.Y = entityBounds.Y + collisionOffset;
         }
 
-		public void UpdateSwordPosition()
-		{
-			if (moveLeft)
-			{
-				swordPositionVector.X = positionVector.X - entityWidth - leftSwordOffset;
-			}
-			else if (moveRight)
-			{
-				swordPositionVector.X = positionVector.X + entityWidth - rightSwordOffset;
-			}
-		}
-
 		public void Jump(GameTime gameTime)
 		{
             velocityY += (jumpGravity);
             positionVector.Y += (velocityY);
-            swordPositionVector.Y = positionVector.Y + swordYOffset;
 
 			//if we're falling and we hit the ground, stop jumping and reset the jump speed
             if (((int)positionVector.Y >= (int)groundLevel))// && variableJumpSpeed < 0)
@@ -446,28 +412,6 @@ namespace TheAdventuresOf
 		public override void Draw(SpriteBatch spriteBatch, Texture2D texture)
 		{
 			base.Draw(spriteBatch, texture);
-
-			if (moveRight)
-			{
-				if (!isDying && !isDead)
-				{
-					spriteBatch.Draw(AssetManager.Instance.swordTexture,
-								 swordPositionVector,
-								 color: tintColor,
-								 rotation: rotation);
-				}
-			}
-			else if (moveLeft)
-			{
-				if (!isDying && !isDead)
-				{
-					spriteBatch.Draw(AssetManager.Instance.swordTexture,
-								 swordPositionVector,
-								 effects: SpriteEffects.FlipHorizontally,
-								 color: tintColor,
-								 rotation: rotation);
-				}
-			}
 		}
 	}
 }

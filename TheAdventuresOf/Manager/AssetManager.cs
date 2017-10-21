@@ -48,7 +48,7 @@ namespace TheAdventuresOf
         //player textures
         public Texture2D playerTexture;
 
-        public Texture2D swordTexture; //TODO: should just be another accessory
+        //accessory textures
         Dictionary<String, Texture2D> accessoryTextures;
 
 
@@ -134,17 +134,11 @@ namespace TheAdventuresOf
 
         public void LoadPlayerAssets(GraphicsDevice graphicsDevice, int levelNumber) {
             String playerFilePath = filePath + "Player/level" + levelNumber + "_";
-            String swordFilePath = filePath + "Player/";
 
             //player textures
             using (var stream = TitleContainer.OpenStream(playerFilePath + "character_1080p.png"))
             {
                 playerTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
-            //TODO: accessories should be loaded with assistance from XML
-            using (var stream = TitleContainer.OpenStream(swordFilePath + "sword_1080p.png"))
-            {
-                swordTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
         }
 
@@ -361,7 +355,6 @@ namespace TheAdventuresOf
 
             //TODO: these should be disposed in every level
             playerTexture.Dispose();
-            swordTexture.Dispose();
         }
 
         string getPreLevelString(int levelNumber) {
