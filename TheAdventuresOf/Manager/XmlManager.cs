@@ -397,6 +397,7 @@ namespace TheAdventuresOf
 
             BaseCannonMonster.recoilDistance = (float)baseCannonMonsterElement.Element("RecoilDistance");
             BaseCannonMonster.recoilSpeed = (float)baseCannonMonsterElement.Element("RecoilSpeed");
+            BaseCannonMonster.shootCountLimit = (int)baseCannonMonsterElement.Element("ShootCountLimit");
 
             //load projectile info here
             XElement projectilesElement = projectileDocument.Element("Projectiles");
