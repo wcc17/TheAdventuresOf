@@ -28,6 +28,10 @@ namespace TheAdventuresOf
         public bool isLeftSide = false;
         public bool isRightSide = false;
 
+        public static float shootCountLimit;
+        int shootCount = 0;
+        bool didHitShootCountLimit = false;
+
         public void InitializeBullet()
         {
             if (bullet == null)
@@ -57,6 +61,12 @@ namespace TheAdventuresOf
                 {
                     isShooting = true;
                     isRecoil = true;
+                    shootCount++;
+
+                    if(shootCount >= shootCountLimit) {
+                        didHitShootCountLimit = true;
+                        isDying = true;
+                    }
                 }
             }
             else if (delayAction && !isDying && !isSpawning)
@@ -76,7 +86,11 @@ namespace TheAdventuresOf
                     HandleShoot(gameTime);
                 }
 
-                HandleDeath(gameTime);
+                if(didHitShootCountLimit) {
+                    HandleDespawn(gameTime);
+                } else {
+                    HandleDeath(gameTime);
+                }
             }
             else if (isSpawning)
             {
@@ -219,11 +233,10 @@ namespace TheAdventuresOf
             }
         }
 
-        //TODO: as of now can only have one of any kind of cannon monster per side of level at any time
-        //if i want one of each kind of cannon monster to be on each side, adjust here
         public void ChooseRandomSide(int cannonMonsterCount, int childCannonMonsterCount, List<Monster> monsters) {
             BaseCannonMonster existingCannonMonster = null;
 
+            //to have only one of any type of cannonMonster on one side at a time, uncomment, and comment out other part
             //if(cannonMonsterCount > 0) {
             //  existingCannonMonster = (BaseCannonMonster)monsters.Find(cm => (cm is BaseCannonMonster));
             //}
@@ -232,6 +245,17 @@ namespace TheAdventuresOf
             }
 
             ChooseSide(existingCannonMonster);
+        }
+
+        public void HandleDespawn(GameTime gameTime) {
+            if (positionVector.Y < ScreenManager.FULL_SCREEN_HEIGHT + this.entityHeight)
+            {
+                MoveUpDown(gameTime, DOWN, deathSpeed);
+            } else {
+                isDead = true;
+            }
+
+            HandleFadeOut(gameTime);
         }
 
         //no reason to check collision with level bounds here

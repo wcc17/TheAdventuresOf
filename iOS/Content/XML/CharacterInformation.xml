@@ -52,6 +52,7 @@
     <BaseCannonMonster>
 	  <RecoilDistance>10</RecoilDistance>  
 	  <RecoilSpeed>165</RecoilSpeed>
+	  <ShootCountLimit>3</ShootCountLimit>
 	</BaseCannonMonster>		
 		
     <GroundCannonMonster>
