@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -46,8 +47,10 @@ namespace TheAdventuresOf
 
         //player textures
         public Texture2D playerTexture;
+
         public Texture2D swordTexture; //TODO: should just be another accessory
-        public Texture2D helmetTexture; //TODO: should just be another accessory
+        Dictionary<String, Texture2D> accessoryTextures;
+
 
         //level textures
         public Texture2D levelTexture;
@@ -143,10 +146,22 @@ namespace TheAdventuresOf
             {
                 swordTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            //TODO: swordFilePath should have a different name
-            using (var stream = TitleContainer.OpenStream(swordFilePath + "level2_character_helmet_1080p.png"))
-            {
-                helmetTexture = Texture2D.FromStream(graphicsDevice, stream);
+        }
+
+        public void LoadPlayerAccessoryAssets(GraphicsDevice graphicsDevice, List<Accessory> accessories) {
+            accessoryTextures = new Dictionary<string, Texture2D>();
+            String accessoryFilePath = filePath + "Player/";
+            String appendToEnd = "_1080p.png"; //TODO: eventually change this based on resolution of screen
+
+            foreach(Accessory accessory in accessories) {
+                String fullAccessoryFilePath = accessoryFilePath + accessory.name + appendToEnd;
+
+                Texture2D accessoryTexture;
+                using (var stream = TitleContainer.OpenStream(fullAccessoryFilePath)) {
+                    accessoryTexture = Texture2D.FromStream(graphicsDevice, stream);
+                }
+
+                accessoryTextures.Add(accessory.name, accessoryTexture);
             }
         }
 
@@ -284,6 +299,10 @@ namespace TheAdventuresOf
             }
         }
 
+        public Texture2D GetAccessoryTexture(string accessoryName) {
+            return accessoryTextures.GetValueOrDefault(accessoryName);
+        }
+
         public void DisposePreLevelAssets() {
             preLevelCharacterTexture.Dispose();
             preLevelTexture.Dispose();
@@ -319,6 +338,10 @@ namespace TheAdventuresOf
 
             //TODO: need to dispose of level music
             //levelOneSong.Dispose();
+
+            foreach(Texture2D accessoryTexture in accessoryTextures.Values) {
+                accessoryTexture.Dispose();
+            }
 		}
 
         //TODO: this needs to be called somewhere
@@ -338,7 +361,6 @@ namespace TheAdventuresOf
 
             //TODO: these should be disposed in every level
             playerTexture.Dispose();
-            helmetTexture.Dispose();
             swordTexture.Dispose();
         }
 

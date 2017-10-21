@@ -18,6 +18,7 @@ namespace TheAdventuresOf
 		public static XDocument characterDocument;
 		public static XDocument projectileDocument;
         public static XDocument specialLevelDocument;
+        public static XDocument playerDocument;
 
 		public static void GetXMLInformation()
 		{
@@ -33,11 +34,13 @@ namespace TheAdventuresOf
 			Stream characterDocumentStream = TitleContainer.OpenStream(filePath + "XML/CharacterInformation.xml");
 			Stream projectileDocumentStream = TitleContainer.OpenStream(filePath + "XML/ProjectileInformation.xml");
 			Stream specialLevelDocumentStream = TitleContainer.OpenStream(filePath + "XML/SpecialLevelInformation.xml");
+            Stream playerDocumentStream = TitleContainer.OpenStream(filePath + "XML/PlayerInformation.xml");
 
 			gameDocument = XDocument.Load(gameDocumentStream);
 			characterDocument = XDocument.Load(characterDocumentStream);
 			projectileDocument = XDocument.Load(projectileDocumentStream);
 			specialLevelDocument = XDocument.Load(specialLevelDocumentStream);
+            playerDocument = XDocument.Load(playerDocumentStream);
 		}
 
 		public static void LoadGameInformation()
@@ -246,32 +249,54 @@ namespace TheAdventuresOf
 		{
             Player player = new Player();
 
-			XElement charactersElement = characterDocument.Element("Characters");
-			XElement playerElement = charactersElement.Element("Player");
+			XElement playerElement = playerDocument.Element("Player");
+			XElement playerInformationElement = playerElement.Element("PlayerInformation");
 
-			player.entityTag = (string)playerElement.Element("EntityTag");
-			player.speed = (float)playerElement.Element("Speed");
-			player.animationSpeed = (float)playerElement.Element("AnimationSpeed");
-			player.leftSwordOffset = (float)playerElement.Element("LeftSwordOffset");
-			player.rightSwordOffset = (float)playerElement.Element("RightSwordOffset");
-			player.swordYOffset = (float)playerElement.Element("SwordYOffset");
-			player.frameCount = (int)playerElement.Element("FrameCount");
-			player.invincibilityTimeLimit = (double)playerElement.Element("InvincibilityTime");
-			player.knockBackDistanceLimit = (float)playerElement.Element("KnockBackDistanceLimit");
-			player.knockBackSpeed = (int)playerElement.Element("KnockBackSpeed");
-			player.rotationSpeed = (int)playerElement.Element("RotationSpeed");
-            player.initialJumpVelocity = (float)playerElement.Element("InitialJumpVelocity");
-            player.jumpGravity = (float)playerElement.Element("JumpGravity");
-            player.collisionOffset = (int)playerElement.Element("CollisionOffset");
+			player.entityTag = (string)playerInformationElement.Element("EntityTag");
+			player.speed = (float)playerInformationElement.Element("Speed");
+			player.animationSpeed = (float)playerInformationElement.Element("AnimationSpeed");
+			player.leftSwordOffset = (float)playerInformationElement.Element("LeftSwordOffset");
+			player.rightSwordOffset = (float)playerInformationElement.Element("RightSwordOffset");
+			player.swordYOffset = (float)playerInformationElement.Element("SwordYOffset");
+			player.frameCount = (int)playerInformationElement.Element("FrameCount");
+			player.invincibilityTimeLimit = (double)playerInformationElement.Element("InvincibilityTime");
+			player.knockBackDistanceLimit = (float)playerInformationElement.Element("KnockBackDistanceLimit");
+			player.knockBackSpeed = (int)playerInformationElement.Element("KnockBackSpeed");
+			player.rotationSpeed = (int)playerInformationElement.Element("RotationSpeed");
+            player.initialJumpVelocity = (float)playerInformationElement.Element("InitialJumpVelocity");
+            player.jumpGravity = (float)playerInformationElement.Element("JumpGravity");
+            player.collisionOffset = (int)playerInformationElement.Element("CollisionOffset");
 
-            player.spawnStartX = (float)playerElement.Element("SpawnStartX");
-            player.spawnStartY = (float)playerElement.Element("SpawnStartY");
-            player.spawnXLimit = (float)playerElement.Element("SpawnXLimit");
-            player.spawnRotationSpeed = (float)playerElement.Element("SpawnRotationSpeed");
-            player.spawnFlipLimitDegrees = (float)playerElement.Element("SpawnFlipLimitDegrees");
+            player.spawnStartX = (float)playerInformationElement.Element("SpawnStartX");
+            player.spawnStartY = (float)playerInformationElement.Element("SpawnStartY");
+            player.spawnXLimit = (float)playerInformationElement.Element("SpawnXLimit");
+            player.spawnRotationSpeed = (float)playerInformationElement.Element("SpawnRotationSpeed");
+            player.spawnFlipLimitDegrees = (float)playerInformationElement.Element("SpawnFlipLimitDegrees");
 
             return player;
 		}
+
+        public static List<Accessory> LoadPlayerAccessories(int levelNumber) {
+            XElement playerElement = playerDocument.Element("Player");
+            XElement playerLevelElement = playerElement.Element("PlayerLevelInformation");
+
+            XElement levelElement = playerLevelElement.Element("Level" + levelNumber);
+
+            List<Accessory> accessories = new List<Accessory>();
+            foreach(XElement accessoryElement in levelElement.Elements("Accessory")) {
+                String accessoryName = (string)accessoryElement.Element("Name");
+
+                Accessory accessory = new Accessory(accessoryName);
+                accessory.baseXOffset = (int)accessoryElement.Element("BaseXOffset");
+                accessory.xOffset = (float)accessoryElement.Element("XOffset");
+                accessory.yOffset = (float)accessoryElement.Element("YOffset");
+                accessory.originPosition = (int)accessoryElement.Element("OriginPosition"); //TODO: EVENTUALLY WANT TO BE LOADING A STRING HERE TO TRANSLATE TO ENUM
+
+                accessories.Add(accessory);
+            }
+
+            return accessories;
+        }
 
 		public static BlockMonster LoadBlockMonsterInformation()
 		{
