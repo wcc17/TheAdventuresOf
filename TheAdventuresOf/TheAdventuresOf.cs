@@ -67,6 +67,8 @@ namespace TheAdventuresOf
 		/// <param name="gameTime">Provides a snapshot of timing values.</param>
 		protected override void Draw(GameTime gameTime)
 		{
+            graphics.GraphicsDevice.Clear(Color.Black);
+
             gameManager.Draw(gameTime);
 
 			base.Draw(gameTime);
