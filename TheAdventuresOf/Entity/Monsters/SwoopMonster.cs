@@ -100,6 +100,48 @@ namespace TheAdventuresOf
             }
         }
 
+        public override void MoveTowardPlayer() {
+            base.MoveTowardPlayer();
+            directionMultiplier = (moveLeft) ? -1 : 1;
+        }
+
+        public float playerTrailDistance = 100;
+        public float trailXOffset = 10;
+        void trailPlayer()
+        {
+            float playerX = PlayerManager.Instance.GetPlayerPosition().X;
+            float playerWidth = PlayerManager.Instance.GetPlayerWidth();
+
+            float trailX = 0;
+            if (PlayerManager.Instance.IsMoveLeft()) {
+                trailX = playerX + playerWidth + playerTrailDistance;
+            } else if(PlayerManager.Instance.IsMoveRight()) {
+                trailX = playerX - playerTrailDistance - entityWidth;
+            }
+            changeDirectionDuringPlayerTrail(trailX);
+
+        }
+
+        void changeDirectionDuringPlayerTrail(float trailX) {
+            if (positionVector.X > (trailX + trailXOffset) || positionVector.X < (trailX - trailXOffset))
+            {
+                if (positionVector.X > (trailX + trailXOffset))
+                {
+                    moveLeft = true;
+                    moveRight = false;
+                }
+                else if (positionVector.X < (trailX - trailXOffset))
+                {
+                    moveLeft = false;
+                    moveRight = true;
+                }
+            }
+            else
+            {
+                ChooseRandomDirection();
+            }
+        }
+
         void handleMove(GameTime gameTime) {
             if(distanceMoved > moveDistanceLimit) {
                 distanceMoved = 0;
@@ -113,11 +155,6 @@ namespace TheAdventuresOf
             }
 
             base.HandleMovement(gameTime);
-            if (moveLeft) {
-                directionMultiplier = -1;
-            } else {
-                directionMultiplier = 1;
-            }
         }
 
         void handleSwoop(GameTime gameTime) {
@@ -141,6 +178,7 @@ namespace TheAdventuresOf
             {
                 swoopDelayTimer.Reset();
                 delaySwoop = false;
+                MoveTowardPlayer();
             }
         }
     }

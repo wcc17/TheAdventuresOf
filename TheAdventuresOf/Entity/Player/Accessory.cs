@@ -42,9 +42,9 @@ namespace TheAdventuresOf
 
         public void Update(Vector2 playerPosition, float playerWidth, 
                            float playerHeight, float playerRotation, bool moveLeft, 
-                           float playerTransparency) {
+                           Color playerTintColor) {
             //match players transparency
-            tintColor = Color.White * playerTransparency;
+            tintColor = playerTintColor;
 
             //match players rotation
             rotation = playerRotation;

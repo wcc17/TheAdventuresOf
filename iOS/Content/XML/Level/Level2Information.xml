@@ -7,7 +7,7 @@
 	<SpawnDelayTime>1</SpawnDelayTime>
     
     <!-- real -->
-    <Tier1Score>4000</Tier1Score>
+    <Tier1Score>40000</Tier1Score>
     <Tier2Score>6000</Tier2Score>
     <Tier3Score>11000</Tier3Score>
     <Tier4Score>20000</Tier4Score>
@@ -25,15 +25,15 @@
 
     <!-- these numbers are innacurate for now-->
     <Tier1> <!--15-->
-      <BlockMonsterLimit>       5</BlockMonsterLimit>
-      <SunMonsterLimit>         3</SunMonsterLimit>
+      <BlockMonsterLimit>       0</BlockMonsterLimit>
+      <SunMonsterLimit>         0</SunMonsterLimit>
       <GroundCannonMonsterLimit>0</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
-      <BileMonsterLimit>        2</BileMonsterLimit>
+      <BileMonsterLimit>        0</BileMonsterLimit>
       <SpikeMonsterLimit>       0</SpikeMonsterLimit>    
       <DashMonsterLimit>        0</DashMonsterLimit>
       <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
-      <SwoopMonsterLimit>       0</SwoopMonsterLimit>
+      <SwoopMonsterLimit>       1</SwoopMonsterLimit>
     </Tier1>
         
     <Tier2> <!--16-->
