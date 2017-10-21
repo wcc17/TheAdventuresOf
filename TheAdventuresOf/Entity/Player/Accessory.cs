@@ -6,13 +6,15 @@ namespace TheAdventuresOf
 {
     public class Accessory
     {
-        public const int CENTER = 0;
-        public const int LEFT_CENTER = 1; //for moving right
-        public const int RIGHT_CENTER = -1; //for moving left
+        public enum OriginPosition {
+            CENTER = 0,
+            LEFT_CENTER = 1,
+            RIGHT_CENTER = 2
+        }
 
         //because the center of the player's body isn't exactly the center of the texture
+        public OriginPosition originPosition;
         public int baseXOffset;
-        public int originPosition;
         public float xOffset;
         public float yOffset;
         public bool doesDamage;
@@ -74,7 +76,7 @@ namespace TheAdventuresOf
 
             //now we'll use the accessory offsets to get the center point where we want the center of the accessory to sitn before rotation is applied
             float baseAccessoryPositionX = playerOriginVector.X + (xOffset * directionMultiplier);
-            if (moveLeft && originPosition != CENTER) {
+            if (moveLeft && originPosition != OriginPosition.CENTER) {
                 baseAccessoryPositionX -= accessoryBounds.Width;
             }
             Vector2 baseAccessoryPositionVector = new Vector2(baseAccessoryPositionX, playerOriginVector.Y + yOffset);
@@ -97,13 +99,13 @@ namespace TheAdventuresOf
             //Add more positions as necessary
             switch (originPosition)
             {
-                case RIGHT_CENTER:
+                case OriginPosition.RIGHT_CENTER:
                     originVector = new Vector2(accessoryBounds.Width, accessoryTexture.Height / 2);
                     break;
-                case LEFT_CENTER:
+                case OriginPosition.LEFT_CENTER:
                     originVector = new Vector2(0, accessoryTexture.Height / 2);
                     break;
-                case CENTER:
+                case OriginPosition.CENTER:
                     originVector = new Vector2(accessoryTexture.Width / 2, accessoryTexture.Height / 2);
                     break;
             }

@@ -39,19 +39,17 @@
                 <BaseXOffset>-3</BaseXOffset>
                 <XOffset>-40</XOffset>
                 <YOffset>15</YOffset>
-                <OriginPosition>1</OriginPosition>
+                <OriginPosition>LEFT_CENTER</OriginPosition>
                 <DoesDamage>true</DoesDamage>
                 <TakesDamage>false</TakesDamage>
             </Accessory>
 			
-    	    <!--public const int CENTER = 0;
-            public const int LEFT_CENTER = 1;-->
     	    <Accessory>
                 <Name>level2_character_hat</Name>
     		    <BaseXOffset>-3</BaseXOffset>
     		    <XOffset>0</XOffset>
     		    <YOffset>-30</YOffset>
-    		    <OriginPosition>0</OriginPosition>
+    		    <OriginPosition>CENTER</OriginPosition>
 				<DoesDamage>false</DoesDamage>
                 <TakesDamage>false</TakesDamage>
             </Accessory>

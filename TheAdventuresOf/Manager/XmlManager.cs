@@ -287,9 +287,11 @@ namespace TheAdventuresOf
                 accessory.baseXOffset = (int)accessoryElement.Element("BaseXOffset");
                 accessory.xOffset = (float)accessoryElement.Element("XOffset");
                 accessory.yOffset = (float)accessoryElement.Element("YOffset");
-                accessory.originPosition = (int)accessoryElement.Element("OriginPosition"); //TODO: EVENTUALLY WANT TO BE LOADING A STRING HERE TO TRANSLATE TO ENUM
                 accessory.doesDamage = (bool)accessoryElement.Element("DoesDamage");
                 accessory.takesDamage = (bool)accessoryElement.Element("TakesDamage");
+
+                string originPosition = (string)accessoryElement.Element("OriginPosition");
+                accessory.originPosition = (Accessory.OriginPosition) Enum.Parse(typeof(Accessory.OriginPosition), originPosition);
 
                 accessories.Add(accessory);
             }
@@ -562,6 +564,8 @@ namespace TheAdventuresOf
             SwoopMonster.swoopArcScale = (float)swoopMonsterElement.Element("SwoopArcScale");
             SwoopMonster.swoopArcWidth = (float)swoopMonsterElement.Element("SwoopArcWidth");
             SwoopMonster.swoopArcSpeed = (float)swoopMonsterElement.Element("SwoopArcSpeed");
+            SwoopMonster.playerTrailDistance = (float)swoopMonsterElement.Element("PlayerTrailDistance");
+            SwoopMonster.trailXOffset = (float)swoopMonsterElement.Element("TrailXOffset");
 
             return swoopMonster;
         }
