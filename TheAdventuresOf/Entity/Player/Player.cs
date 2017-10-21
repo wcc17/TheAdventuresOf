@@ -22,7 +22,7 @@ namespace TheAdventuresOf
         //TODO: this should be a Timer, not a TimeSpan. the dealing with this is nasty.  Could also be in Entity class
 		TimeSpan invincibilityTimer = TimeSpan.FromSeconds(0);
 
-		float transparency = 1;
+		public float transparency = 1;
 		int transparencyMultiplier = -1;
 
 		bool isKnockedBackLeft;
@@ -219,10 +219,6 @@ namespace TheAdventuresOf
 
 		public void CheckCollisionMonster(Monster monster, bool accessoryDamagedMonster, bool monsterDamagedAccessory)
 		{
-            if(monsterDamagedAccessory) {
-                Console.WriteLine("hello");    
-            }
-
             if(!monster.isDying && !monster.isDead && !monster.isInvincible) {
                 if(accessoryDamagedMonster) {
 

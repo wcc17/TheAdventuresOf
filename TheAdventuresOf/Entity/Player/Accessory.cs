@@ -24,6 +24,8 @@ namespace TheAdventuresOf
         Vector2 originVector;
         Rectangle accessoryBounds;
         float rotation;
+        SpriteEffects spriteEffect;
+        Color tintColor;
 
         public Accessory(string name)
         {
@@ -38,7 +40,12 @@ namespace TheAdventuresOf
             accessoryBounds = new Rectangle(0, 0, accessoryTexture.Width, accessoryTexture.Height);
         }
 
-        public void Update(Vector2 playerPosition, float playerWidth, float playerHeight, float playerRotation, bool moveLeft) {
+        public void Update(Vector2 playerPosition, float playerWidth, 
+                           float playerHeight, float playerRotation, bool moveLeft, 
+                           float playerTransparency) {
+            //match players transparency
+            tintColor = Color.White * playerTransparency;
+
             //match players rotation
             rotation = playerRotation;
 
@@ -46,12 +53,7 @@ namespace TheAdventuresOf
         }
 
         public void Draw(SpriteBatch spriteBatch, bool moveLeft) {
-            SpriteEffects spriteEffect = SpriteEffects.None;
-            if (moveLeft) {
-                spriteEffect = SpriteEffects.FlipHorizontally;
-            }
-
-            spriteBatch.Draw(accessoryTexture, positionVector, effects: spriteEffect, color: Color.White, rotation: rotation, origin: originVector);
+            spriteBatch.Draw(accessoryTexture, positionVector, effects: spriteEffect, color: tintColor, rotation: rotation, origin: originVector);
         }
 
         public bool CheckAccessoryCollision(Rectangle monsterBounds) {
@@ -63,6 +65,7 @@ namespace TheAdventuresOf
         }
 
         void setPosition(Vector2 playerPosition, float playerWidth, float playerHeight, bool moveLeft) {
+            spriteEffect = moveLeft ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
             int directionMultiplier = (moveLeft) ? 1 : -1;
 
             //playerPosition is the top left corner of the player
