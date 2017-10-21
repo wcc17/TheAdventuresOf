@@ -255,9 +255,6 @@ namespace TheAdventuresOf
 			player.entityTag = (string)playerInformationElement.Element("EntityTag");
 			player.speed = (float)playerInformationElement.Element("Speed");
 			player.animationSpeed = (float)playerInformationElement.Element("AnimationSpeed");
-			player.leftSwordOffset = (float)playerInformationElement.Element("LeftSwordOffset");
-			player.rightSwordOffset = (float)playerInformationElement.Element("RightSwordOffset");
-			player.swordYOffset = (float)playerInformationElement.Element("SwordYOffset");
 			player.frameCount = (int)playerInformationElement.Element("FrameCount");
 			player.invincibilityTimeLimit = (double)playerInformationElement.Element("InvincibilityTime");
 			player.knockBackDistanceLimit = (float)playerInformationElement.Element("KnockBackDistanceLimit");
@@ -291,6 +288,8 @@ namespace TheAdventuresOf
                 accessory.xOffset = (float)accessoryElement.Element("XOffset");
                 accessory.yOffset = (float)accessoryElement.Element("YOffset");
                 accessory.originPosition = (int)accessoryElement.Element("OriginPosition"); //TODO: EVENTUALLY WANT TO BE LOADING A STRING HERE TO TRANSLATE TO ENUM
+                accessory.doesDamage = (bool)accessoryElement.Element("DoesDamage");
+                accessory.takesDamage = (bool)accessoryElement.Element("TakesDamage");
 
                 accessories.Add(accessory);
             }

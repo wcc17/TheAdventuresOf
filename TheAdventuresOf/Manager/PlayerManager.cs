@@ -65,7 +65,7 @@ namespace TheAdventuresOf
             player.Draw(spriteBatch, AssetManager.Instance.playerTexture);
 
             foreach (Accessory accessory in accessories) {
-                accessory.Draw(spriteBatch);
+                accessory.Draw(spriteBatch, player.moveLeft);
             }
         }
 
@@ -84,11 +84,30 @@ namespace TheAdventuresOf
         }
 
         public void CheckPlayerCollisionProjectile(Projectile proj) {
-            player.CheckCollisionProjectile(proj);
+            bool projectileDamagedPlayer = false;
+            foreach(Accessory accessory in accessories) {
+                if (accessory.takesDamage) {
+                    projectileDamagedPlayer = accessory.CheckAccessoryCollision(proj.entityBounds);
+                    break;
+                }
+            }
+
+            player.CheckCollisionProjectile(proj, projectileDamagedPlayer);
         }
 
         public void CheckPlayerCollisionWithMonster(Monster monster) {
-            player.CheckCollisionMonster(monster);
+            bool accessoryDamagedMonster = false;
+            bool monsterDamagedAccessory = false;
+
+            foreach(Accessory accessory in accessories) {
+                if(accessory.doesDamage) {
+                    accessoryDamagedMonster = accessory.CheckAccessoryCollision(monster.entityBounds);
+                } else if(accessory.takesDamage) {
+                    monsterDamagedAccessory = accessory.CheckAccessoryCollision(monster.entityBounds);
+                }
+            }
+
+            player.CheckCollisionMonster(monster, accessoryDamagedMonster, monsterDamagedAccessory);
         }
 
         public void SetPlayerX(float X)
