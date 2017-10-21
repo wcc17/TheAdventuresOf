@@ -47,7 +47,7 @@ namespace TheAdventuresOf
             player.UpdatePlayer(gameTime, gameController);
 
             foreach(Accessory accessory in accessories) {
-                accessory.Update(player.positionVector, player.entityWidth, player.entityHeight, player.rotation, player.moveLeft, player.transparency);
+                accessory.Update(player.positionVector, player.entityWidth, player.entityHeight, player.rotation, player.moveLeft, player.tintColor);
             }
 
             if(!player.isSpawning) {
@@ -81,6 +81,14 @@ namespace TheAdventuresOf
 
         public Rectangle GetPlayerBounds() {
             return player.entityBounds;
+        }
+
+        public bool IsMoveLeft() {
+            return player.moveLeft;
+        }
+
+        public bool IsMoveRight() {
+            return player.moveRight;
         }
 
         public void CheckPlayerCollisionProjectile(Projectile proj) {

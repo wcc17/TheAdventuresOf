@@ -221,15 +221,16 @@ namespace TheAdventuresOf
 
             if(mainMenu.proceedToNextState) {
                 gameState = LOAD_STATE;
-                nextGameState = PRE_LEVEL_STATE;
-                //nextGameState = LEVEL_STATE;
+                //nextGameState = PRE_LEVEL_STATE;
+                levelNumber = 2;
+                nextGameState = LEVEL_STATE;
 
                 AssetManager.Instance.DisposeMenuAssets();
 
                 //load level assets for nextGameState
                 loadCommonLevelAssets();
-                //loadLevelAssets();
-                loadPreLevelAssets();
+                loadLevelAssets();
+                //loadPreLevelAssets();
             }
         }
 
