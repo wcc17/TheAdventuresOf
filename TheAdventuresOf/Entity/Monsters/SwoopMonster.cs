@@ -13,6 +13,8 @@ namespace TheAdventuresOf
         public static float swoopArcScale;
         public static float swoopArcWidth;
         public static float swoopArcSpeed;
+        public static float playerTrailDistance;
+        public static float trailXOffset;
 
         bool delaySwoop;
         Timer swoopDelayTimer;
@@ -105,8 +107,6 @@ namespace TheAdventuresOf
             directionMultiplier = (moveLeft) ? -1 : 1;
         }
 
-        public float playerTrailDistance = 100;
-        public float trailXOffset = 10;
         void trailPlayer()
         {
             float playerX = PlayerManager.Instance.GetPlayerPosition().X;

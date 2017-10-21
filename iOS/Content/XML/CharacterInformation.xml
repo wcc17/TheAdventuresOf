@@ -152,6 +152,8 @@
 	  <SwoopArcSpeed>4.5</SwoopArcSpeed> <!--a higher number for arcSpeed makes the whole "swoop" happen faster-->
 	  <InvincibilityTimeLimit>0.4</InvincibilityTimeLimit>
 	  <FadeSpeed>1.2</FadeSpeed>
+      <PlayerTrailDistance>100</PlayerTrailDistance>
+	  <TrailXOffset>10</TrailXOffset>
     </SwoopMonster>
 		
   </Monsters>
