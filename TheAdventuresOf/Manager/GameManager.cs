@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -109,6 +110,8 @@ namespace TheAdventuresOf
             AssetManager.Instance.LoadPlayerAssets(graphicsDevice, levelNumber);
             AssetManager.Instance.LoadPreLevelAssets(graphicsDevice, levelNumber);
 
+            loadPlayerAccessories();
+
             currentLevel = new PreLevel(AssetManager.Instance.preLevelTexture);
             XmlManager.LoadPreLevelInformation((PreLevel)currentLevel);
         }
@@ -130,10 +133,23 @@ namespace TheAdventuresOf
             AssetManager.Instance.LoadPlayerAssets(graphicsDevice, levelNumber);
             AssetManager.Instance.LoadLevelAssets(graphicsDevice, contentManager, levelNumber);
 
+            loadPlayerAccessories();
+
             currentLevel = new Level(AssetManager.Instance.levelTexture);
 
             XmlManager.LoadLevelInformation((Level)currentLevel, levelNumber);
             CoinManager.Instance.UpdateGroundLevel(((Level)currentLevel).groundLevel + CoinManager.coinYOffset);
+        }
+
+        void loadPlayerAccessories() {
+            List<Accessory> playerAccessories = XmlManager.LoadPlayerAccessories(levelNumber);
+            AssetManager.Instance.LoadPlayerAccessoryAssets(graphicsDevice, playerAccessories);
+
+            foreach(Accessory accessory in playerAccessories) {
+                accessory.InitializeTexture(AssetManager.Instance.GetAccessoryTexture(accessory.name));
+            }
+
+            PlayerManager.Instance.SetPlayerAccessories(playerAccessories);
         }
 
         void loadPreLevel()
@@ -147,12 +163,6 @@ namespace TheAdventuresOf
         {
             currentLevel.InitializeLevel(USE_PLAYER_SPAWN_ANIMATION);
 
-            //TODO: move this logic elsewhere once accessories are completely in the game
-            //TODO: should also be loaded in prelevel
-            if(levelNumber == 2) {
-                PlayerManager.Instance.AddAccessory(AssetManager.Instance.helmetTexture);
-            }
-
             gameState = LEVEL_STATE;
         }
 
@@ -161,7 +171,6 @@ namespace TheAdventuresOf
 
             gameState = STORE_LEVEL_STATE;
         }
-
 
         public void Update(GameTime gameTime, bool isGameActive)
         {
@@ -181,7 +190,7 @@ namespace TheAdventuresOf
                 case LOAD_STATE:
                     updateLoadState(gameTime);
                     break;
-                case PRE_LEVEL_STATE :
+                case PRE_LEVEL_STATE:
                 case STORE_LEVEL_STATE:
                 case LEVEL_STATE:
                     updateLevel(gameTime, isGameActive);

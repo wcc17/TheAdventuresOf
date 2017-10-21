@@ -57,7 +57,7 @@ namespace TheAdventuresOf
             this.entityWidth = entityWidth;
             this.entityHeight = entityHeight;
 
-            originVector = new Vector2(this.entityWidth / 2,
+            originVector = new Vector2(entityWidth / 2,
                                        entityHeight / 2);
 
             entityBounds = new Rectangle((int)positionVector.X,

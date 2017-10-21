@@ -36,9 +36,10 @@ namespace TheAdventuresOf
                                     AssetManager.Instance.playerTexture.Width / player.frameCount,
                                     AssetManager.Instance.playerTexture.Height,
                                     usePlayerSpawnAnimation);
+        }
 
-            accessories = new List<Accessory>();
-
+        public void SetPlayerAccessories(List<Accessory> accessories) {
+            this.accessories = accessories;
         }
 
         public void Update(GameTime gameTime, GameController gameController)
@@ -46,7 +47,7 @@ namespace TheAdventuresOf
             player.UpdatePlayer(gameTime, gameController);
 
             foreach(Accessory accessory in accessories) {
-                accessory.Update(gameTime, player.positionVector);
+                accessory.Update(player.positionVector, player.entityWidth, player.entityHeight, player.rotation, player.moveLeft);
             }
 
             if(!player.isSpawning) {
@@ -94,12 +95,6 @@ namespace TheAdventuresOf
         {
             player.positionVector.X = X;
             player.UpdateEntityBounds();
-        }
-
-        //TODO: this will probably be removed when accessories are all the way into the game
-        public void AddAccessory(Texture2D accessoryTexture) {
-            Accessory accessory = new Accessory(accessoryTexture, player.positionVector);
-            accessories.Add(accessory);
         }
     }
 }

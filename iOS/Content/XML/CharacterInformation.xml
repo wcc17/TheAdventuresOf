@@ -1,29 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Characters>
-  <Player>
-    <EntityTag>Player</EntityTag>
-    <Speed>265</Speed>
-    <AnimationSpeed>0.08</AnimationSpeed>
-    <!-- these just make it easier to put the sword where it needs to be -->
-    <LeftSwordOffset>25</LeftSwordOffset>
-    <RightSwordOffset>1</RightSwordOffset>
-    <SwordYOffset>40</SwordYOffset>
-    <FrameCount>2</FrameCount>
-    <InvincibilityTime>1.5</InvincibilityTime>
-    <KnockBackDistanceLimit>45</KnockBackDistanceLimit>
-    <KnockBackSpeed>850</KnockBackSpeed>
-    <RotationSpeed>500</RotationSpeed>
-    <InitialJumpVelocity>-12.5</InitialJumpVelocity>
-    <JumpGravity>0.45</JumpGravity> 
-    <CollisionOffset>4</CollisionOffset>
-		
-	<SpawnStartX>-85</SpawnStartX>
-    <SpawnStartY>475</SpawnStartY>
-	<SpawnXLimit>220</SpawnXLimit>
-    <SpawnRotationSpeed>15</SpawnRotationSpeed>
-	<SpawnFlipLimitDegrees>720</SpawnFlipLimitDegrees>
-	
-  </Player>
   <Monsters>
     <BlockMonster>
       <EntityTag>BlockMonster</EntityTag>

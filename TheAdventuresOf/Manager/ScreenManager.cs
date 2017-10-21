@@ -71,14 +71,14 @@ namespace TheAdventuresOf
 
 			if (touchCollection.Count > 0)
 			{
-				for (int i = 0; i < touchCollection.Count; i++)
-				{
-					if (i < MULTI_TOUCH_LIMIT)
-					{
-						//these return as float, but area always either .0 or .9998 or something like that. 
-						Point originalPoint = new Point((int)touchCollection[i].Position.X, (int)touchCollection[i].Position.Y);
-						Point scaledPoint = GetScaledTouchInput(originalPoint);
-						
+                for (int i = 0; i < touchCollection.Count; i++)
+                {
+                    if (i < MULTI_TOUCH_LIMIT)
+                    {
+                        //these return as float, but area always either .0 or .9998 or something like that. 
+                        Point originalPoint = new Point((int)touchCollection[i].Position.X, (int)touchCollection[i].Position.Y);
+                        Point scaledPoint = GetScaledTouchInput(originalPoint);
+
 						touchPoints.Add(scaledPoint);
 					}
 				}
