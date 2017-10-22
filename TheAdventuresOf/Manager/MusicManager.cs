@@ -9,10 +9,6 @@ namespace TheAdventuresOf
 
     public class MusicManager
     {
-        bool repeatDelay; //delay between song repeats
-        Timer repeatTimer;
-        float repeatTimeLimit = 2.0f; //TODO: THIS SHOULD BE LOADED IN XML
-
         public bool changingSongs;
         public int gameState;
 
@@ -21,12 +17,10 @@ namespace TheAdventuresOf
 
         public MusicManager(int gameState)
         {
-            repeatTimer = new Timer(repeatTimeLimit);
-
             //default is 0 (splash screen), but I'd rather set it explicitly
             this.gameState = gameState;
 
-            //MediaPlayer.IsRepeating = true; uncomment this if i get rid of the repeatDelay timer
+            MediaPlayer.IsRepeating = true; 
             MediaPlayer.MediaStateChanged += HandleMediaStateChange;
         }
 
@@ -57,7 +51,7 @@ namespace TheAdventuresOf
         public void Update(GameTime gameTime) {
             if(currentSong != null) { //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
                 HandleMusicVolume(gameTime);
-                HandleRepeatDelay(gameTime);
+                //HandleRepeatDelay(gameTime);
             }
         }
 
@@ -79,26 +73,8 @@ namespace TheAdventuresOf
             }
         }
 
-        public void HandleRepeatDelay(GameTime gameTime) {
-            if(repeatDelay && !changingSongs) {
-                bool timeUp = repeatTimer.IsTimeUp(gameTime.ElapsedGameTime);
-                if (timeUp)
-                {
-                    repeatTimer.Reset();
-                    repeatDelay = false;
-
-                    MediaPlayer.Play(currentSong);
-                }
-            }
-        }
-
         public void HandleMediaStateChange(object sender, EventArgs e) {
             Logger.WriteToConsole("Media State Changed");
-            if(MediaPlayer.State == MediaState.Stopped && !changingSongs) {
-                repeatDelay = true;
-            }
         }
-
-
     }
 }

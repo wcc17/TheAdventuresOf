@@ -62,11 +62,14 @@ namespace TheAdventuresOf
 			var jumpButtonY = (float)gameControllerElement.Element("JumpButtonY");
             var pauseButtonX = (float)gameControllerElement.Element("PauseButtonX");
             var pauseButtonY = (float)gameControllerElement.Element("PauseButtonY");
+            var quitButtonX = (float)gameControllerElement.Element("QuitButtonX");
+            var quitButtonY = (float)gameControllerElement.Element("QuitButtonY");
 			GameControllerMobile.controllerPositionVector = new Vector2(controllerX, controllerY);
 			GameControllerMobile.leftButtonPositionVector = new Vector2(leftButtonX, leftButtonY);
 			GameControllerMobile.rightButtonPositionVector = new Vector2(rightButtonX, rightButtonY);
 			GameControllerMobile.jumpButtonPositionVector = new Vector2(jumpButtonX, jumpButtonY);
             GameControllerMobile.pauseButtonPositionVector = new Vector2(pauseButtonX, pauseButtonY);
+            GameControllerMobile.quitButtonPositionVector = new Vector2(quitButtonX, quitButtonY);
     
             //TODO: should be in its own method
             Text.textFloatSpeed = (float)scoringElement.Element("TextFloatSpeed");

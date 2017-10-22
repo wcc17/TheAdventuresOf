@@ -13,6 +13,7 @@ namespace TheAdventuresOf
         public bool rightButtonPressed;
         public bool jumpButtonPressed;
         public bool pauseButtonPressed;
+        public bool quitButtonPressed;
 
         public bool isPaused;
 
@@ -32,6 +33,7 @@ namespace TheAdventuresOf
             rightButtonPressed = false;
             jumpButtonPressed = false;
             pauseButtonPressed = false;
+            quitButtonPressed = false;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace TheAdventuresOf
     public class ChooseLevelMenu
     {
         //TODO: HARDCODED NUMBER
-        public Timer buttonDelayTimer = new Timer(0.5f);
+        public Timer buttonDelayTimer = new Timer(0.2f);
         public bool disableButtonPress;
 
         public bool proceedToMainMenuState;
