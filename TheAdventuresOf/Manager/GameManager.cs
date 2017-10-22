@@ -145,6 +145,7 @@ namespace TheAdventuresOf
                                         AssetManager.Instance.rightArrowButtonTexture,
                                         AssetManager.Instance.jumpButtonTexture,
                                         AssetManager.Instance.pauseButtonTexture,
+                                        AssetManager.Instance.quitButtonTexture,
                                         AssetManager.Instance.controllerTexture);
 
             }
@@ -270,6 +271,9 @@ namespace TheAdventuresOf
             mainMenu.Update(gameTime, (MainMenuController) currentController);
 
             if(mainMenu.proceedToGameState) {
+                //TODO: after implenting save games, this will need to change
+                //right now we're just starting a new game everytime we press play on the menu
+                currentLevelNumber = levelNumberMin;
                 prepareLevelState(PRE_LEVEL_STATE);
             } else if(mainMenu.proceedToChooseLevelState) {
                 gameState = LOAD_STATE;
@@ -341,8 +345,13 @@ namespace TheAdventuresOf
                         updateStoreLevel(gameTime);
                         break;
                 }
+            } else {
+                if(gameController.quitButtonPressed) {
+                    handleQuitToMenu();
+                }
             }
         }
+
         void updatePreLevel(GameTime gameTime) {
             currentLevel.Update(gameTime, (GameController)currentController);
 
@@ -409,6 +418,31 @@ namespace TheAdventuresOf
                         break;
                 }
             }
+        }
+
+        /**
+         * Called when player hits "Quit" in the pause menu during any type of level
+         */
+        void handleQuitToMenu() {
+            gameState = LOAD_STATE;
+            nextGameState = SPLASH_STATE;
+
+            switch (gameState)
+            {
+                case PRE_LEVEL_STATE:
+                    AssetManager.Instance.DisposePreLevelAssets();
+                    break;
+                case LEVEL_STATE:
+                    AssetManager.Instance.DisposeLevelAssets();
+                    break;
+                case STORE_LEVEL_STATE:
+                    AssetManager.Instance.DisposeStoreAssets();
+                    break;
+            }
+            AssetManager.Instance.DisposeGameAssets();
+
+            //loadMainMenu();
+            loadSplashScreen();
         }
 
         public void Draw(GameTime gameTime) {

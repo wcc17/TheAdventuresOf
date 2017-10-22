@@ -166,6 +166,7 @@
     <BundleResource Include="Content\Menu\choose\choosemenu_leftarrow_1080p.png" />
     <BundleResource Include="Content\Menu\choose\choosemenu_rightarrow_1080p.png" />
     <BundleResource Include="Content\Menu\choose\choosemenu_backarrow_1080p.png" />
+    <BundleResource Include="Content\Game\quit_button_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

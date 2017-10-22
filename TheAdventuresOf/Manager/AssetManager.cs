@@ -43,6 +43,7 @@ namespace TheAdventuresOf
         public Texture2D silverCoinTexture;
         public Texture2D goldCoinTexture;
         public Texture2D pauseBackgroundTexture;
+        public Texture2D quitButtonTexture;
         public SpriteFont font;
 
         //prelevel textures
@@ -245,6 +246,9 @@ namespace TheAdventuresOf
                 using (var stream = TitleContainer.OpenStream(gameFilePath + "pause_1080p.png")) {
                     pauseButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
                 }
+                using (var stream = TitleContainer.OpenStream(gameFilePath + "quit_button_1080p.png")) {
+                    quitButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+                }
             }
         }
 
@@ -398,7 +402,7 @@ namespace TheAdventuresOf
             }
 		}
 
-        //TODO: this needs to be called somewhere
+        //TODO: this needs to be called somewhere when exiting the game
         public void DisposeGameAssets() {
             controllerTexture.Dispose();
             progressBarTexture.Dispose();
@@ -408,6 +412,7 @@ namespace TheAdventuresOf
             jumpButtonTexture.Dispose();
             pauseButtonTexture.Dispose();
             pauseBackgroundTexture.Dispose();
+            quitButtonTexture.Dispose();
 
             bronzeCoinTexture.Dispose();
             silverCoinTexture.Dispose();

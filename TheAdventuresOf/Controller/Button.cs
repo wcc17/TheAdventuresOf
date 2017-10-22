@@ -77,10 +77,10 @@ namespace TheAdventuresOf
             buttonPositionVector.Y = initialPosY;
         }
 
-		public void Draw(SpriteBatch spriteBatch, Texture2D buttonTexture)
+		public void Draw(SpriteBatch spriteBatch, Texture2D buttonTexture, int layerDepth = 0)
 		{
             //spriteBatch.Draw(buttonTexture, buttonPositionVector, null, Color.White, rotation, originVector, 1, spriteEffects, 0);
-            spriteBatch.Draw(buttonTexture, buttonPositionVector, color: Color.White);
+            spriteBatch.Draw(buttonTexture, buttonPositionVector, color: Color.White, layerDepth: layerDepth);
 		}
 	}
 }
