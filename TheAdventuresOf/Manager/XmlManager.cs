@@ -125,9 +125,24 @@ namespace TheAdventuresOf
             XElement specialLevelElement = specialLevelDocument.Element("Level");
             XElement mainMenuElement = specialLevelElement.Element("MainMenu");
 
-            var playButtonX = (float)mainMenuElement.Element("PlayButtonX");
-            var playButtonY = (float)mainMenuElement.Element("PlayButtonY");
-            MenuController.playButtonPositionVector = new Vector2(playButtonX, playButtonY);
+            MainMenuController.playButtonX = (float)mainMenuElement.Element("PlayButtonX");
+            MainMenuController.playButtonY = (float)mainMenuElement.Element("PlayButtonY");
+            MainMenuController.chooseLevelButtonX = (float)mainMenuElement.Element("ChooseLevelButtonX");
+            MainMenuController.chooseLevelButtonY = (float)mainMenuElement.Element("ChooseLevelButtonY");
+        }
+
+        public static void LoadChooseLevelMenuInformation() {
+            XElement specialLevelElement = specialLevelDocument.Element("Level");
+            XElement chooseLevelMenuElement = specialLevelElement.Element("ChooseLevelMenu");
+
+            ChooseLevelMenuController.chooseButtonX = (float)chooseLevelMenuElement.Element("ChooseButtonX");
+            ChooseLevelMenuController.chooseButtonY = (float)chooseLevelMenuElement.Element("ChooseButtonY");
+            //ChooseLevelMenuController.rightButtonX = (float)chooseLevelMenuElement.Element("RightButtonX");
+            //ChooseLevelMenuController.rightButtonY = (float)chooseLevelMenuElement.Element("RightButtonY");
+            //ChooseLevelMenuController.leftButtonX = (float)chooseLevelMenuElement.Element("LeftButtonX");
+            //ChooseLevelMenuController.leftButtonY = (float)chooseLevelMenuElement.Element("LeftButtonY");
+            //ChooseLevelMenuController.backButtonX = (float)chooseLevelMenuElement.Element("BackButtonX");
+            //ChooseLevelMenuController.backButtonY = (float)chooseLevelMenuElement.Element("BackButtonY");
         }
 
         public static void LoadPreLevelInformation(PreLevel preLevel) {

@@ -17,6 +17,7 @@ namespace TheAdventuresOf
         public const int LEVEL_STATE = 3;
         public const int LOAD_STATE = 4;
         public const int STORE_LEVEL_STATE = 5;
+        public const int CHOOSE_LEVEL_STATE = 6;
 
         Vector2 basePositionVector;
         Vector2 pausedTextVector;
@@ -31,6 +32,7 @@ namespace TheAdventuresOf
         SpriteBatch spriteBatch;
         BaseLevel currentLevel = null;
         MainMenu mainMenu;
+        ChooseLevelMenu chooseLevelMenu;
 
         Controller currentController;
 
@@ -83,9 +85,24 @@ namespace TheAdventuresOf
 
             gameState = MENU_STATE;
 
+            currentController = new MainMenuController();
             XmlManager.LoadMainMenuInformation();
+            ((MainMenuController)currentController)
+                .InitializeTextures(AssetManager.Instance.playButtonTexture,
+                                    AssetManager.Instance.chooseLevelButtonTexture);
+            currentController.InitializeController();
+        }
 
-            currentController = new MenuController();
+        void loadChooseLevelMenu() {
+            Logger.WriteToConsole("Load Choose Level Menu");
+            chooseLevelMenu = new ChooseLevelMenu();
+
+            gameState = CHOOSE_LEVEL_STATE;
+
+            currentController = new ChooseLevelMenuController();
+            XmlManager.LoadChooseLevelMenuInformation();
+            ((ChooseLevelMenuController)currentController)
+                .InitializeTextures(AssetManager.Instance.chooseButtonTexture);
             currentController.InitializeController();
         }
 
@@ -101,6 +118,15 @@ namespace TheAdventuresOf
                 currentController = new GameControllerWindows();
             #endif
 
+            if(currentController is GameControllerMobile) {
+                ((GameControllerMobile)currentController)
+                    .InitializeTextures(AssetManager.Instance.leftArrowButtonTexture,
+                                        AssetManager.Instance.rightArrowButtonTexture,
+                                        AssetManager.Instance.jumpButtonTexture,
+                                        AssetManager.Instance.pauseButtonTexture,
+                                        AssetManager.Instance.controllerTexture);
+
+            }
             currentController.InitializeController();
         }
 
@@ -187,7 +213,10 @@ namespace TheAdventuresOf
                     updateSplash(gameTime);
                     break;
                 case MENU_STATE:
-                    updateMenu(gameTime);
+                    updateMainMenu(gameTime);
+                    break;
+                case CHOOSE_LEVEL_STATE:
+                    updateChooseLevelMenu(gameTime);
                     break;
                 case LOAD_STATE:
                     updateLoadState(gameTime);
@@ -216,22 +245,33 @@ namespace TheAdventuresOf
             }
         }
 
-        void updateMenu(GameTime gameTime) {
-            mainMenu.Update(gameTime, (MenuController) currentController);
+        void updateMainMenu(GameTime gameTime) {
+            mainMenu.Update(gameTime, (MainMenuController) currentController);
 
-            if(mainMenu.proceedToNextState) {
+            if(mainMenu.proceedToGameState) {
                 gameState = LOAD_STATE;
                 //nextGameState = PRE_LEVEL_STATE;
                 levelNumber = 2;
                 nextGameState = LEVEL_STATE;
 
-                AssetManager.Instance.DisposeMenuAssets();
+                AssetManager.Instance.DisposeMainMenuAssets();
 
                 //load level assets for nextGameState
                 loadCommonLevelAssets();
                 loadLevelAssets();
                 //loadPreLevelAssets();
+            } else if(mainMenu.proceedToChooseLevelState) {
+                //TODO: should I load screen first?
+                gameState = LOAD_STATE;
+                nextGameState = CHOOSE_LEVEL_STATE;
+
+                //TODO: NEED TO DISPOSE THESE AT SOME POINT
+                AssetManager.Instance.LoadChooseLevelMenuAssets(graphicsDevice);
             }
+        }
+
+        void updateChooseLevelMenu(GameTime gameTime) {
+            chooseLevelMenu.Update(gameTime, (ChooseLevelMenuController) currentController);
         }
 
         void updateLevel(GameTime gameTime, bool isGameActive) {
@@ -321,6 +361,9 @@ namespace TheAdventuresOf
                     case STORE_LEVEL_STATE:
                         loadStoreLevel();
                         break;
+                    case CHOOSE_LEVEL_STATE:
+                        loadChooseLevelMenu();
+                        break;
                 }
             }
         }
@@ -333,7 +376,10 @@ namespace TheAdventuresOf
                     drawSplash();
                     break;
                 case MENU_STATE:
-                    drawMenu();
+                    drawMainMenu();
+                    break;
+                case CHOOSE_LEVEL_STATE:
+                    drawChooseLevelMenu();
                     break;
                 case PRE_LEVEL_STATE:
                     drawLevel();
@@ -359,11 +405,16 @@ namespace TheAdventuresOf
             spriteBatch.Draw(AssetManager.Instance.splashTexture, basePositionVector);
         }
 
-        void drawMenu()
+        void drawMainMenu()
         {
             mainMenu.Draw(spriteBatch);
 
             //draw play buttons, etc
+            currentController.Draw(spriteBatch);
+        }
+
+        void drawChooseLevelMenu() {
+            chooseLevelMenu.Draw(spriteBatch);
             currentController.Draw(spriteBatch);
         }
 

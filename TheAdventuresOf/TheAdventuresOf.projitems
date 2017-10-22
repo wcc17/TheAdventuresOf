@@ -9,8 +9,6 @@
     <Import_RootNamespace>TheAdventuresOf</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Controller\GameController.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controller\GameControllerWindows.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\VibrationController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\TextManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TheAdventuresOf.cs" />
@@ -39,8 +37,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Manager\ScreenManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\Button.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\Controller.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controller\GameControllerMobile.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controller\MenuController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\ScoringManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\Logger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Levels\BaseLevel.cs" />
@@ -61,6 +57,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Manager\HealthManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Player\Player.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Player\Accessory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Levels\ChooseLevelMenu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controller\MenuController\MenuController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controller\MenuController\MainMenuController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controller\MenuController\ChooseLevelMenuController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controller\GameController\GameController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controller\GameController\GameControllerMobile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controller\GameController\GameControllerWindows.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />
@@ -71,5 +74,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Text\" />
     <Folder Include="$(MSBuildThisFileDirectory)Animation\" />
     <Folder Include="$(MSBuildThisFileDirectory)Entity\Player\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controller\MenuController\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Controller\GameController\" />
   </ItemGroup>
 </Project>

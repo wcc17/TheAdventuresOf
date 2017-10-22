@@ -13,7 +13,7 @@ namespace TheAdventuresOf
 
 		float initialPosX, initialPosY;
 		float width, height;
- 		Vector2 buttonPositionVector;
+ 		public Vector2 buttonPositionVector;
 
         //if the button has already been pressed once (before it was being held down)
         public bool initialPressHappened;
