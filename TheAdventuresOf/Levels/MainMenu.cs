@@ -11,11 +11,13 @@ namespace TheAdventuresOf
         public bool proceedToGameState = false;
         public bool proceedToChooseLevelState = false;
 
-        public void LoadMenu(GraphicsDevice graphicsDevice) {
-            AssetManager.Instance.LoadMainMenuAssets(graphicsDevice);
+        public void LoadMenu() {
+            Console.WriteLine("Loading menu");
         }
 
         public void Update(GameTime gameTime, MainMenuController mainMenuController) {
+            mainMenuController.Update(gameTime);
+
             //checking this inside here isn't strictly necessary
             //but since we have to do that with level objects, it will be good
             //to just go ahead and do it here

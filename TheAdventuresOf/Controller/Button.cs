@@ -39,6 +39,17 @@ namespace TheAdventuresOf
 			InitializeBounds();
 		}
 
+        /**
+         * In case position of button has to be set after button is instantiated
+         * call this to reset the "initial" position of the button so that it can
+         * still animate correctly
+         */
+        public void ResetInitialPosition() {
+            this.initialPosX = buttonPositionVector.X;
+            this.initialPosY = buttonPositionVector.Y;
+            InitializeButton();
+        }
+
 		public void InitializeBounds()
 		{
 			buttonBounds = new Rectangle((int)initialPosX, (int)initialPosY, (int)width, (int)height);

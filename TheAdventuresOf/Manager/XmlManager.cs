@@ -135,14 +135,7 @@ namespace TheAdventuresOf
             XElement specialLevelElement = specialLevelDocument.Element("Level");
             XElement chooseLevelMenuElement = specialLevelElement.Element("ChooseLevelMenu");
 
-            ChooseLevelMenuController.chooseButtonX = (float)chooseLevelMenuElement.Element("ChooseButtonX");
-            ChooseLevelMenuController.chooseButtonY = (float)chooseLevelMenuElement.Element("ChooseButtonY");
-            //ChooseLevelMenuController.rightButtonX = (float)chooseLevelMenuElement.Element("RightButtonX");
-            //ChooseLevelMenuController.rightButtonY = (float)chooseLevelMenuElement.Element("RightButtonY");
-            //ChooseLevelMenuController.leftButtonX = (float)chooseLevelMenuElement.Element("LeftButtonX");
-            //ChooseLevelMenuController.leftButtonY = (float)chooseLevelMenuElement.Element("LeftButtonY");
-            //ChooseLevelMenuController.backButtonX = (float)chooseLevelMenuElement.Element("BackButtonX");
-            //ChooseLevelMenuController.backButtonY = (float)chooseLevelMenuElement.Element("BackButtonY");
+            ChooseLevelMenuController.buttonOffset = (float)chooseLevelMenuElement.Element("ButtonOffset");
         }
 
         public static void LoadPreLevelInformation(PreLevel preLevel) {

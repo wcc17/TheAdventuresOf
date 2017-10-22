@@ -26,6 +26,10 @@ namespace TheAdventuresOf
 
         //choose level menu textures
         public Texture2D chooseButtonTexture;
+        public Texture2D chooseLevelMenuLeftArrowTexture;
+        public Texture2D chooseLevelMenuRightArrowTexture;
+        public Texture2D chooseLevelMenuBackArrowTexture;
+        public List<Texture2D> chooseLevelPreviewTextures;
 
         //game textures
         public Texture2D controllerTexture;
@@ -140,12 +144,37 @@ namespace TheAdventuresOf
             }
         }
 
-        public void LoadChooseLevelMenuAssets(GraphicsDevice graphicsDevice) {
-            string menuFilePath = filePath + "Menu/";
+        public void LoadChooseLevelMenuAssets(GraphicsDevice graphicsDevice, int levelNumberLimit) {
+            string menuFilePath = filePath + "Menu/choose/";
 
-            using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_playbutton_1080p.png")) //TODO: CHANGE
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_choosebutton_1080p.png"))
             {
                 chooseButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_leftarrow_1080p.png"))
+            {
+                chooseLevelMenuLeftArrowTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_rightarrow_1080p.png"))
+            {
+                chooseLevelMenuRightArrowTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_backarrow_1080p.png"))
+            {
+                chooseLevelMenuBackArrowTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+
+            chooseLevelPreviewTextures = new List<Texture2D>();
+            for(int i = 1; i <= levelNumberLimit; i++) {
+                string fileName = "level" + i + "preview_1080p.png";
+
+                using (var stream = TitleContainer.OpenStream(menuFilePath + fileName))
+                {
+                    Texture2D previewTexture = Texture2D.FromStream(graphicsDevice, stream);
+                    previewTexture.Name = i.ToString();
+
+                    chooseLevelPreviewTextures.Add(previewTexture);
+                }
             }
         }
 
@@ -328,8 +357,17 @@ namespace TheAdventuresOf
             mainMenuSong.Dispose();
         }
 
+        //TODO: THIS IS NOT BEING CALLED ANYWHERE
         public void DisposeChooseLevelMenuAssets() {
             chooseButtonTexture.Dispose();
+            chooseLevelMenuBackArrowTexture.Dispose();
+            chooseLevelMenuRightArrowTexture.Dispose();
+            chooseLevelMenuLeftArrowTexture.Dispose();
+
+            foreach (Texture2D previewTexture in chooseLevelPreviewTextures)
+            {
+                previewTexture.Dispose();
+            }
         }
 
         public void DisposeStoreAssets() {
