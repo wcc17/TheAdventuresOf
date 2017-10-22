@@ -36,7 +36,7 @@ namespace TheAdventuresOf
 
             switch(gameState) {
                 case GameManager.SPLASH_STATE:
-                    currentSong = AssetManager.Instance.menuSong;
+                    currentSong = AssetManager.Instance.mainMenuSong;
                     MediaPlayer.Play(currentSong);
                     break;
                 case GameManager.PRE_LEVEL_STATE:

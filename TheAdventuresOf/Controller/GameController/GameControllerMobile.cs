@@ -20,23 +20,41 @@ namespace TheAdventuresOf
 
         bool pauseAlreadyPressed;
 
+        public Texture2D controllerTexture;
+        public Texture2D leftArrowButtonTexture;
+        public Texture2D rightArrowButtonTexture;
+        public Texture2D jumpButtonTexture;
+        public Texture2D pauseButtonTexture;
+
+        public void InitializeTextures(Texture2D leftArrowButtonTexture,
+                                      Texture2D rightArrowButtonTexture,
+                                      Texture2D jumpButtonTexture, 
+                                      Texture2D pauseButtonTexture,
+                                      Texture2D controllerTexture) {
+            this.leftArrowButtonTexture = leftArrowButtonTexture;
+            this.rightArrowButtonTexture = rightArrowButtonTexture;
+            this.jumpButtonTexture = jumpButtonTexture;
+            this.pauseButtonTexture = pauseButtonTexture;
+            this.controllerTexture = controllerTexture;
+        }
+
 		public override void InitializeController() {
             base.InitializeController();
 
-			leftButton = new Button(AssetManager.Instance.leftArrowButtonTexture.Width, 
-			                        AssetManager.Instance.leftArrowButtonTexture.Height, 
+			leftButton = new Button(leftArrowButtonTexture.Width, 
+			                        leftArrowButtonTexture.Height, 
 			                        leftButtonPositionVector.X, 
 			                        leftButtonPositionVector.Y);
-			rightButton = new Button(AssetManager.Instance.rightArrowButtonTexture.Width, 
-			                         AssetManager.Instance.rightArrowButtonTexture.Height, 
+			rightButton = new Button(rightArrowButtonTexture.Width, 
+			                         rightArrowButtonTexture.Height, 
 			                         rightButtonPositionVector.X, 
 			                         rightButtonPositionVector.Y);
-            jumpButton = new Button(AssetManager.Instance.jumpButtonTexture.Width, 
-			                      AssetManager.Instance.jumpButtonTexture.Height, 
+            jumpButton = new Button(jumpButtonTexture.Width, 
+			                      jumpButtonTexture.Height, 
 			                      jumpButtonPositionVector.X, 
 			                      jumpButtonPositionVector.Y);
-            pauseButton = new Button(AssetManager.Instance.pauseButtonTexture.Width,
-                                     AssetManager.Instance.pauseButtonTexture.Height,
+            pauseButton = new Button(pauseButtonTexture.Width,
+                                     pauseButtonTexture.Height,
                                      pauseButtonPositionVector.X,
                                      pauseButtonPositionVector.Y);
 		}
@@ -95,15 +113,15 @@ namespace TheAdventuresOf
 
 		public override void Draw(SpriteBatch spriteBatch)
 		{
-			spriteBatch.Draw(AssetManager.Instance.controllerTexture, controllerPositionVector);
+			spriteBatch.Draw(controllerTexture, controllerPositionVector);
 
             if(!isPaused) {
-                leftButton.Draw(spriteBatch, AssetManager.Instance.leftArrowButtonTexture);
-                rightButton.Draw(spriteBatch, AssetManager.Instance.rightArrowButtonTexture);
-                jumpButton.Draw(spriteBatch, AssetManager.Instance.jumpButtonTexture);
+                leftButton.Draw(spriteBatch, leftArrowButtonTexture);
+                rightButton.Draw(spriteBatch, rightArrowButtonTexture);
+                jumpButton.Draw(spriteBatch, jumpButtonTexture);
             }
 
-            pauseButton.Draw(spriteBatch, AssetManager.Instance.pauseButtonTexture);
+            pauseButton.Draw(spriteBatch, pauseButtonTexture);
 		}
 	}
 }

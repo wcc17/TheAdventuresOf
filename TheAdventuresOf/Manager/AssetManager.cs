@@ -18,10 +18,14 @@ namespace TheAdventuresOf
         //splash textures
         public Texture2D splashTexture;
 
-        //menu textures
-        public Texture2D menuTexture;
-        public Texture2D menuPlayButtonTexture;
-        public Song menuSong;
+        //main menu textures
+        public Texture2D mainMenuTexture;
+        public Texture2D playButtonTexture;
+        public Texture2D chooseLevelButtonTexture;
+        public Song mainMenuSong;
+
+        //choose level menu textures
+        public Texture2D chooseButtonTexture;
 
         //game textures
         public Texture2D controllerTexture;
@@ -115,20 +119,33 @@ namespace TheAdventuresOf
             }
 
             font = contentManager.Load<SpriteFont>("Game/arial");
-            menuSong = contentManager.Load<Song>("Menu/mainmenu_music");
+            mainMenuSong = contentManager.Load<Song>("Menu/mainmenu_music");
         }
 
-        public void LoadMenuAssets(GraphicsDevice graphicsDevice)
+        public void LoadMainMenuAssets(GraphicsDevice graphicsDevice)
         {
             string menuFilePath = filePath + "Menu/";
 
             using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_1080p.png"))
             {
-                menuTexture = Texture2D.FromStream(graphicsDevice, stream);
+                mainMenuTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
             using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_playbutton_1080p.png"))
             {
-                menuPlayButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+                playButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_playbutton_1080p.png")) //TODO: make a choose level button
+            {
+                chooseLevelButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+        }
+
+        public void LoadChooseLevelMenuAssets(GraphicsDevice graphicsDevice) {
+            string menuFilePath = filePath + "Menu/";
+
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_playbutton_1080p.png")) //TODO: CHANGE
+            {
+                chooseButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
         }
 
@@ -302,12 +319,17 @@ namespace TheAdventuresOf
             preLevelTexture.Dispose();
         }
 
-        public void DisposeMenuAssets() {
+        public void DisposeMainMenuAssets() {
             //splashTexture.Dispose(); TODO: not disposing right now because its used as load screen
-            menuTexture.Dispose();
-            menuPlayButtonTexture.Dispose();
+            mainMenuTexture.Dispose();
+            playButtonTexture.Dispose();
+            chooseLevelButtonTexture.Dispose();
 
-            menuSong.Dispose();
+            mainMenuSong.Dispose();
+        }
+
+        public void DisposeChooseLevelMenuAssets() {
+            chooseButtonTexture.Dispose();
         }
 
         public void DisposeStoreAssets() {

@@ -3,7 +3,14 @@
   <MainMenu>
     <PlayButtonX>200</PlayButtonX>
     <PlayButtonY>700</PlayButtonY>
+	<ChooseLevelButtonX>200</ChooseLevelButtonX>
+    <ChooseLevelButtonY>875</ChooseLevelButtonY>
   </MainMenu>
+
+  <ChooseLevelMenu>
+	<ChooseButtonX>200</ChooseButtonX>
+    <ChooseButtonY>900</ChooseButtonY>
+  </ChooseLevelMenu>
 
   <PreLevel>
     <GroundLevel>555</GroundLevel>
