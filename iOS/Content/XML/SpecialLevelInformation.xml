@@ -8,8 +8,7 @@
   </MainMenu>
 
   <ChooseLevelMenu>
-	<ChooseButtonX>200</ChooseButtonX>
-    <ChooseButtonY>900</ChooseButtonY>
+	<ButtonOffset>30</ButtonOffset>
   </ChooseLevelMenu>
 
   <PreLevel>
