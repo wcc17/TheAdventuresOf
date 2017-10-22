@@ -111,7 +111,7 @@ namespace TheAdventuresOf
 
         public void LoadSplashAssets(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {
-            string menuFilePath = filePath + "Menu/";
+            string menuFilePath = filePath + "Menu/splash/";
 
             using (var stream = TitleContainer.OpenStream(menuFilePath + "splash_1080p.png"))
             {
@@ -124,7 +124,7 @@ namespace TheAdventuresOf
 
         public void LoadMainMenuAssets(GraphicsDevice graphicsDevice)
         {
-            string menuFilePath = filePath + "Menu/";
+            string menuFilePath = filePath + "Menu/main/";
 
             using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_1080p.png"))
             {

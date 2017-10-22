@@ -97,10 +97,10 @@
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="Content\Level\level1_music.mp3" />
-    <None Include="Content\Menu\mainmenu_music.mp3" />
     <None Include="Content\PreLevel\.DS_Store" />
     <None Include="Content\StoreLevel\.DS_Store" />
     <None Include="Content\Game\arial.spritefont" />
+    <None Include="Content\Menu\mainmenu_music.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Content\Level\level1background_1080p.png" />
@@ -109,11 +109,6 @@
     <BundleResource Include="Content\Game\heart_1080p.png" />
     <BundleResource Include="Content\Game\leftarrow_1080p.png" />
     <BundleResource Include="Content\Game\rightarrow_1080p.png" />
-    <BundleResource Include="Content\Menu\mainmenu_1080p.png" />
-    <BundleResource Include="Content\Menu\mainmenu_playbutton_1080p.png" />
-    <BundleResource Include="Content\Menu\splash_1080p.png" />
-    <BundleResource Include="Content\Menu\splash_iphone6plus.png" />
-    <BundleResource Include="Content\Menu\splash_iphone6splus_old.png" />
     <BundleResource Include="Content\Player\sword_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level1background_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level1character_1080p.png" />
@@ -160,6 +155,13 @@
     <BundleResource Include="Content\Player\level2_character_1080p.png" />
     <BundleResource Include="Content\Player\level2_character_hat_1080p.png" />
     <BundleResource Include="Content\XML\PlayerInformation.xml" />
+    <BundleResource Include="Content\Menu\choose\level1preview_1080p.png" />
+    <BundleResource Include="Content\Menu\choose\level2preview_1080p.png" />
+    <BundleResource Include="Content\Menu\main\mainmenu_1080p.png" />
+    <BundleResource Include="Content\Menu\main\mainmenu_playbutton_1080p.png" />
+    <BundleResource Include="Content\Menu\splash\splash_1080p.png" />
+    <BundleResource Include="Content\Menu\splash\splash_iphone6plus.png" />
+    <BundleResource Include="Content\Menu\splash\splash_iphone6splus_old.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -193,6 +195,8 @@
     <Folder Include="Content\XML\Level\" />
     <Folder Include="Content\Monster\Level1\" />
     <Folder Include="Content\Monster\Level2\" />
+    <Folder Include="Content\Menu\main\" />
+    <Folder Include="Content\Menu\splash\" />
   </ItemGroup>
   <Import Project="..\TheAdventuresOf\TheAdventuresOf.projitems" Label="Shared" Condition="Exists('..\TheAdventuresOf\TheAdventuresOf.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
