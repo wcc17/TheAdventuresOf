@@ -228,7 +228,7 @@ namespace TheAdventuresOf
             level.maxTier = (int)levelXElement.Element("MaxTier");
             level.spawnDelayTime = (float)levelXElement.Element("SpawnDelayTime");
 
-			LoadMonsterInformation(level);
+            LoadMonsterInformation(level, levelNumber);
 		}
 
         //load a monster limit for each tier, for a given monsterLimit string
@@ -242,10 +242,10 @@ namespace TheAdventuresOf
             return monsterLimits;
         }
 
-        public static void LoadMonsterInformation(Level level) {
+        public static void LoadMonsterInformation(Level level, int currentLevelNumber) {
 			level.blockMonster = LoadBlockMonsterInformation();
 			level.sunMonster = LoadSunMonsterInformation();
-            level.bileMonster = LoadBileMonsterInformation(level.groundLevel);
+            level.bileMonster = LoadBileMonsterInformation(level.groundLevel, currentLevelNumber);
             level.spikeMonster = LoadSpikeMonsterInformation();
             level.dashMonster = LoadDashMonsterInformation(level.rightBoundWidth, level.leftBoundWidth);
             level.undergroundMonster = LoadUndergroundMonsterInformation();
@@ -358,7 +358,7 @@ namespace TheAdventuresOf
 			return sunMonster;
 		}
 
-		public static BileMonster LoadBileMonsterInformation(float groundLevel)
+		public static BileMonster LoadBileMonsterInformation(float groundLevel, int currentLevelNumber)
 		{
 			BileMonster bileMonster = new BileMonster();
 
@@ -393,7 +393,10 @@ namespace TheAdventuresOf
             BileMonster.bileDamage = (int)bileElement.Element("Damage");
             Bile.timeToLive = (float)bileElement.Element("TimeToLive");
             Bile.distance = (float)bileElement.Element("Distance");
-            Bile.groundOffset = (float)bileElement.Element("GroundOffset");
+
+            //load level specific ground offset for bile projectile
+            XElement groundOffsetElement = bileElement.Element("GroundOffset");
+            Bile.groundOffset = (float)groundOffsetElement.Element("Level" + currentLevelNumber);
 
             BileMonster.bileGroundLevel = groundLevel;
 
