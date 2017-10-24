@@ -161,13 +161,14 @@
     <BundleResource Include="Content\Menu\splash\splash_1080p.png" />
     <BundleResource Include="Content\Menu\splash\splash_iphone6plus.png" />
     <BundleResource Include="Content\Menu\splash\splash_iphone6splus_old.png" />
-    <BundleResource Include="Content\Menu\choose\choosemenu_choosebutton_1080p.png" />
     <BundleResource Include="Content\Menu\choose\choosemenu_leftarrow_1080p.png" />
     <BundleResource Include="Content\Menu\choose\choosemenu_rightarrow_1080p.png" />
     <BundleResource Include="Content\Menu\choose\choosemenu_backarrow_1080p.png" />
     <BundleResource Include="Content\Game\quit_button_1080p.png" />
     <BundleResource Include="Content\Projectile\level1_bile_1080p.png" />
     <BundleResource Include="Content\Projectile\level2_bile_1080p.png" />
+    <BundleResource Include="Content\Menu\choose\choosemenu_playbutton_1080p.png" />
+    <BundleResource Include="Content\Menu\main\mainmenu_chooselevelbutton_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

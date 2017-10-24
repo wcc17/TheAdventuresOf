@@ -139,7 +139,7 @@ namespace TheAdventuresOf
             {
                 playButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_playbutton_1080p.png")) //TODO: make a choose level button
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_chooselevelbutton_1080p.png"))
             {
                 chooseLevelButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
@@ -148,7 +148,7 @@ namespace TheAdventuresOf
         public void LoadChooseLevelMenuAssets(GraphicsDevice graphicsDevice, int levelNumberLimit) {
             string menuFilePath = filePath + "Menu/choose/";
 
-            using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_choosebutton_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_playbutton_1080p.png"))
             {
                 chooseButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
@@ -361,15 +361,13 @@ namespace TheAdventuresOf
             mainMenuSong.Dispose();
         }
 
-        //TODO: THIS IS NOT BEING CALLED ANYWHERE
         public void DisposeChooseLevelMenuAssets() {
             chooseButtonTexture.Dispose();
             chooseLevelMenuBackArrowTexture.Dispose();
             chooseLevelMenuRightArrowTexture.Dispose();
             chooseLevelMenuLeftArrowTexture.Dispose();
 
-            foreach (Texture2D previewTexture in chooseLevelPreviewTextures)
-            {
+            foreach (Texture2D previewTexture in chooseLevelPreviewTextures) {
                 previewTexture.Dispose();
             }
         }
