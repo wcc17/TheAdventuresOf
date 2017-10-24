@@ -305,7 +305,7 @@ namespace TheAdventuresOf
             {
                 bulletTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(projectileFilePath + "bile_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(projectileFilePath + "level" + levelNumber + "_bile_1080p.png"))
             {
                 bileTexture = Texture2D.FromStream(graphicsDevice, stream);
             }

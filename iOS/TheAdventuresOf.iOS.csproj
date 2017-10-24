@@ -112,7 +112,6 @@
     <BundleResource Include="Content\Player\sword_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level1background_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level1character_1080p.png" />
-    <BundleResource Include="Content\Projectile\bile_1080p.png" />
     <BundleResource Include="Content\Projectile\bullet_1080p.png" />
     <BundleResource Include="Content\StoreLevel\store_level_1080p.png" />
     <BundleResource Include="Content\StoreLevel\store_level_character_1080p.png" />
@@ -167,6 +166,8 @@
     <BundleResource Include="Content\Menu\choose\choosemenu_rightarrow_1080p.png" />
     <BundleResource Include="Content\Menu\choose\choosemenu_backarrow_1080p.png" />
     <BundleResource Include="Content\Game\quit_button_1080p.png" />
+    <BundleResource Include="Content\Projectile\level1_bile_1080p.png" />
+    <BundleResource Include="Content\Projectile\level2_bile_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
