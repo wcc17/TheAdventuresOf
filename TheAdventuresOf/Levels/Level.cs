@@ -27,7 +27,8 @@ namespace TheAdventuresOf
         public UndergroundMonster undergroundMonster;
         public SwoopMonster swoopMonster;
 
-		public float spawnDelayTime; //time before another monster can be spawned
+		public float masterSpawnDelayTime; //time before another monster of any kind can be spawned
+        public Dictionary<int, float> spawnDelayTimes; //an individual spawn delay time for each monster
 
 		public static MonsterManager monsterManager;
 

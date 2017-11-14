@@ -226,7 +226,20 @@ namespace TheAdventuresOf
             level.tierMonsterLimits.Add(MonsterManager.UNDERGROUND_MONSTER, LoadTierMonsterLimits("UndergroundMonsterLimit", tierElements));
             level.tierMonsterLimits.Add(MonsterManager.SWOOP_MONSTER, LoadTierMonsterLimits("SwoopMonsterLimit", tierElements));
             level.maxTier = (int)levelXElement.Element("MaxTier");
-            level.spawnDelayTime = (float)levelXElement.Element("SpawnDelayTime");
+            level.masterSpawnDelayTime = (float)levelXElement.Element("MasterSpawnDelayTime");
+
+            //load individual spawn delay times for each monster
+            XElement spawnDelayTimeElement = levelXElement.Element("SpawnDelayTime");
+            level.spawnDelayTimes = new Dictionary<int, float>();
+            level.spawnDelayTimes.Add(MonsterManager.BLOCK_MONSTER, (float)spawnDelayTimeElement.Element("BlockMonster"));
+            level.spawnDelayTimes.Add(MonsterManager.SUN_MONSTER, (float)spawnDelayTimeElement.Element("SunMonster"));
+            level.spawnDelayTimes.Add(MonsterManager.GROUND_CANNON_MONSTER, (float)spawnDelayTimeElement.Element("GroundCannonMonster"));
+            level.spawnDelayTimes.Add(MonsterManager.FLYING_CANNON_MONSTER, (float)spawnDelayTimeElement.Element("FlyingCannonMonster"));
+            level.spawnDelayTimes.Add(MonsterManager.BILE_MONSTER, (float)spawnDelayTimeElement.Element("BileMonster"));
+            level.spawnDelayTimes.Add(MonsterManager.SPIKE_MONSTER, (float)spawnDelayTimeElement.Element("SpikeMonster"));
+            level.spawnDelayTimes.Add(MonsterManager.DASH_MONSTER, (float)spawnDelayTimeElement.Element("DashMonster"));
+            level.spawnDelayTimes.Add(MonsterManager.UNDERGROUND_MONSTER, (float)spawnDelayTimeElement.Element("UndergroundMonster"));
+            level.spawnDelayTimes.Add(MonsterManager.SWOOP_MONSTER, (float)spawnDelayTimeElement.Element("SwoopMonster"));
 
             LoadMonsterInformation(level, levelNumber);
 		}
