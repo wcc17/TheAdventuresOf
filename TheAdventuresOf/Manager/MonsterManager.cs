@@ -35,6 +35,8 @@ namespace TheAdventuresOf
         public static List<Monster> monsters;
         public List<Monster> monstersToRemove;
         List<int> availableMonsters;
+        Dictionary<int, Timer> monsterSpawnDelayTimers;
+        Dictionary<int, bool> canSpawnMonster;
 
         static Random rand = new Random();
 
@@ -50,12 +52,35 @@ namespace TheAdventuresOf
             availableMonsters = new List<int>(); 
 
             this.level = level;
+
+            monsterSpawnDelayTimers = new Dictionary<int, Timer>();
+            monsterSpawnDelayTimers.Add(BLOCK_MONSTER, new Timer(level.spawnDelayTimes[BLOCK_MONSTER]));
+            monsterSpawnDelayTimers.Add(SUN_MONSTER, new Timer(level.spawnDelayTimes[SUN_MONSTER]));
+            monsterSpawnDelayTimers.Add(GROUND_CANNON_MONSTER, new Timer(level.spawnDelayTimes[GROUND_CANNON_MONSTER]));
+            monsterSpawnDelayTimers.Add(BILE_MONSTER, new Timer(level.spawnDelayTimes[BILE_MONSTER]));
+            monsterSpawnDelayTimers.Add(SPIKE_MONSTER, new Timer(level.spawnDelayTimes[SPIKE_MONSTER]));
+            monsterSpawnDelayTimers.Add(DASH_MONSTER, new Timer(level.spawnDelayTimes[DASH_MONSTER]));
+            monsterSpawnDelayTimers.Add(FLYING_CANNON_MONSTER, new Timer(level.spawnDelayTimes[FLYING_CANNON_MONSTER]));
+            monsterSpawnDelayTimers.Add(UNDERGROUND_MONSTER, new Timer(level.spawnDelayTimes[UNDERGROUND_MONSTER]));
+            monsterSpawnDelayTimers.Add(SWOOP_MONSTER, new Timer(level.spawnDelayTimes[SWOOP_MONSTER]));
+
+            //start each monster being able to spawn so player isn't waiting at the begining of the game
+            canSpawnMonster = new Dictionary<int, bool>();
+            canSpawnMonster.Add(BLOCK_MONSTER, true);
+            canSpawnMonster.Add(SUN_MONSTER, true);
+            canSpawnMonster.Add(GROUND_CANNON_MONSTER, true);
+            canSpawnMonster.Add(BILE_MONSTER, true);
+            canSpawnMonster.Add(SPIKE_MONSTER, true);
+            canSpawnMonster.Add(DASH_MONSTER, true);
+            canSpawnMonster.Add(FLYING_CANNON_MONSTER, true);
+            canSpawnMonster.Add(UNDERGROUND_MONSTER, true);
+            canSpawnMonster.Add(SWOOP_MONSTER, true);
         }
 
-        void handleSpawnDelay(GameTime gameTime)
+        void handleMasterSpawnDelay(GameTime gameTime)
         {
             spawnTimer = spawnTimer.Add(gameTime.ElapsedGameTime);
-            if (spawnTimer.Seconds > level.spawnDelayTime)
+            if (spawnTimer.Seconds > level.masterSpawnDelayTime)
             {
                 //will allow monsters to spawn, then next frame the timer will start adding up again
                 canSpawn = true;
@@ -63,46 +88,74 @@ namespace TheAdventuresOf
             }
         }
 
+        void handleMonsterAvailability(GameTime gameTime) {
+            availableMonsters.Clear();
+
+            Logger.Instance.AddOrUpdateValue("BlockTimer", monsterSpawnDelayTimers[BLOCK_MONSTER].delayTime.ToString());
+            Logger.Instance.AddOrUpdateValue("SunTimer", monsterSpawnDelayTimers[SUN_MONSTER].delayTime.ToString());
+            Logger.Instance.AddOrUpdateValue("GroundTimer", monsterSpawnDelayTimers[GROUND_CANNON_MONSTER].delayTime.ToString());
+            Logger.Instance.AddOrUpdateValue("BileTimer", monsterSpawnDelayTimers[BILE_MONSTER].delayTime.ToString());
+            Logger.Instance.AddOrUpdateValue("SpikeTimer", monsterSpawnDelayTimers[SPIKE_MONSTER].delayTime.ToString());
+            Logger.Instance.AddOrUpdateValue("DashTimer", monsterSpawnDelayTimers[DASH_MONSTER].delayTime.ToString());
+            Logger.Instance.AddOrUpdateValue("FlyingTimer", monsterSpawnDelayTimers[FLYING_CANNON_MONSTER].delayTime.ToString());
+            Logger.Instance.AddOrUpdateValue("UndergroundTimer", monsterSpawnDelayTimers[UNDERGROUND_MONSTER].delayTime.ToString());
+            Logger.Instance.AddOrUpdateValue("SwoopTimer", monsterSpawnDelayTimers[SWOOP_MONSTER].delayTime.ToString());
+
+            foreach(KeyValuePair<int, Timer> pair in monsterSpawnDelayTimers) {
+                //TODO: IS it a waste to check timers for monsters who don't have a spawnDelayTime? Should every monster just have a base of 1 and then I can get rid of masterSpawnDelay?
+                if(pair.Value.IsTimeUp(gameTime.ElapsedGameTime)) {
+                    canSpawnMonster[pair.Key] = true;
+                    pair.Value.Reset(); //reset timer
+                }
+            }
+        }
+
         //TODO: this method alone is reason enough to move spawning info to its own Manager    
         public void HandleSpawnMonsters(GameTime gameTime)
         {
-            handleSpawnDelay(gameTime);
+            handleMasterSpawnDelay(gameTime);
+            handleMonsterAvailability(gameTime);
 
             if (canSpawn)
             {
-                availableMonsters.Clear();
-
-                //spawn new monsters if needed
-                if (blockMonsterCount < level.tierMonsterLimits[BLOCK_MONSTER][level.currentTier]) {
+                if (blockMonsterCount < level.tierMonsterLimits[BLOCK_MONSTER][level.currentTier])
+                {
                     availableMonsters.Add(BLOCK_MONSTER);
                 }
-                if (sunMonsterCount < level.tierMonsterLimits[SUN_MONSTER][level.currentTier]) {
+                if (sunMonsterCount < level.tierMonsterLimits[SUN_MONSTER][level.currentTier])
+                {
                     availableMonsters.Add(SUN_MONSTER);
                 }
-                if (groundCannonMonsterCount < level.tierMonsterLimits[GROUND_CANNON_MONSTER][level.currentTier]) {
+                if (groundCannonMonsterCount < level.tierMonsterLimits[GROUND_CANNON_MONSTER][level.currentTier])
+                {
                     availableMonsters.Add(GROUND_CANNON_MONSTER);
                 }
-                if (bileMonsterCount < level.tierMonsterLimits[BILE_MONSTER][level.currentTier]) {
+                if (bileMonsterCount < level.tierMonsterLimits[BILE_MONSTER][level.currentTier])
+                {
                     availableMonsters.Add(BILE_MONSTER);
                 }
-                if (spikeMonsterCount < level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier]) {
+                if (spikeMonsterCount < level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier])
+                {
                     availableMonsters.Add(SPIKE_MONSTER);
                 }
-                if (dashMonsterCount < level.tierMonsterLimits[DASH_MONSTER][level.currentTier]) {
+                if (dashMonsterCount < level.tierMonsterLimits[DASH_MONSTER][level.currentTier])
+                {
                     availableMonsters.Add(DASH_MONSTER);
                 }
-                if (flyingCannonMonsterCount < level.tierMonsterLimits[FLYING_CANNON_MONSTER][level.currentTier]) {
+                if (flyingCannonMonsterCount < level.tierMonsterLimits[FLYING_CANNON_MONSTER][level.currentTier])
+                {
                     availableMonsters.Add(FLYING_CANNON_MONSTER);
                 }
-                if (undergroundMonsterCount < level.tierMonsterLimits[UNDERGROUND_MONSTER][level.currentTier]) {
+                if (undergroundMonsterCount < level.tierMonsterLimits[UNDERGROUND_MONSTER][level.currentTier])
+                {
                     availableMonsters.Add(UNDERGROUND_MONSTER);
                 }
-                if (swoopMonsterCount < level.tierMonsterLimits[SWOOP_MONSTER][level.currentTier]) {
+                if (swoopMonsterCount < level.tierMonsterLimits[SWOOP_MONSTER][level.currentTier])
+                {
                     availableMonsters.Add(SWOOP_MONSTER);
                 }
 
                 //if(availableMonsters.Count > 0) {
-
                 //int randomMonsterIndex = rand.Next(0, availableMonsters.Count);
                 //int monsterToSpawn = availableMonsters[randomMonsterIndex];
                 foreach(int monsterToSpawn in availableMonsters) {
@@ -138,6 +191,7 @@ namespace TheAdventuresOf
                     }
 
                     monsterCount++;
+                    canSpawnMonster[monsterToSpawn] = false;
                 }
 
                 canSpawn = false;

@@ -4,7 +4,19 @@
     <GroundLevel>555</GroundLevel>
     <LeftBoundWidth>250</LeftBoundWidth>
     <RightBoundWidth>230</RightBoundWidth>
-	<SpawnDelayTime>1</SpawnDelayTime>
+	<MasterSpawnDelayTime>1</MasterSpawnDelayTime>
+
+	<SpawnDelayTime>
+	  <BlockMonster>       0</BlockMonster>
+      <SunMonster>         0</SunMonster>
+      <GroundCannonMonster>5</GroundCannonMonster>
+      <FlyingCannonMonster>5</FlyingCannonMonster>
+      <BileMonster>        0</BileMonster>
+      <SpikeMonster>       5</SpikeMonster>    
+      <DashMonster>        3</DashMonster>
+      <UndergroundMonster> 7</UndergroundMonster>
+      <SwoopMonster>       7</SwoopMonster>
+	</SpawnDelayTime>
     
     <!-- real -->
     <Tier1Score>4000</Tier1Score>
