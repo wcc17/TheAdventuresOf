@@ -6,6 +6,9 @@
     <RightBoundWidth>230</RightBoundWidth>
 	<MasterSpawnDelayTime>1</MasterSpawnDelayTime>
 
+	<!-- NOTE: if a monsterTierLimit is 1, the monster spawn timer will reset on death AND when a new one spawns (the new spawn one is essentially meaningless here?)
+	    otherwise, the timer only resets when a new monster is spawned, which means monsters can still essentially spawn one after another 
+	    functionality for monsters that have a limit > 1 hasn't changed much, but there still is a limit to how often a monster can spawn when they're not dying-->
 	<SpawnDelayTime>
 	  <BlockMonster>       0</BlockMonster>
       <SunMonster>         0</SunMonster>
