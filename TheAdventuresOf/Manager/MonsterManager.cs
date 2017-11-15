@@ -102,13 +102,27 @@ namespace TheAdventuresOf
             Logger.Instance.AddOrUpdateValue("SwoopTimer", monsterSpawnDelayTimers[SWOOP_MONSTER].delayTime.ToString());
 
             foreach(KeyValuePair<int, Timer> pair in monsterSpawnDelayTimers) {
-                //TODO: IS it a waste to check timers for monsters who don't have a spawnDelayTime? Should every monster just have a base of 1 and then I can get rid of masterSpawnDelay?
-                if(pair.Value.IsTimeUp(gameTime.ElapsedGameTime)) {
-                    canSpawnMonster[pair.Key] = true;
-                    pair.Value.Reset(); //reset timer
+                //don't check monsters that have a spawnDelay of 0
+                if(pair.Value.delayTimeLimit > 0) {
+                    if (pair.Value.IsTimeUp(gameTime.ElapsedGameTime))
+                    {
+                        canSpawnMonster[pair.Key] = true;
+                        //don't reset when time is up. only reset when the monster dies
+                    }
                 }
             }
+
+            /**
+             * NOTE: how the individual monsterSpawnDelayTimers work
+             * if theres no monsters on the field, one will spawn because canSpawnMonster is already true
+             * if one monster spawns, the canSpawnMonster will be set to false and the timer will reset
+             * if monster is still alive, timer will go off and new monster will spawn
+             * now no monsters can spawn as long as both are alive
+             * if one dies, another will be able to spawn immediately if we can have two or more of that monster on the field anyway
+             * if only one of that monster type should be on the field, then we reset his timer on death so that another can't spawn so quickly
+             * */
         }
+
 
         //TODO: this method alone is reason enough to move spawning info to its own Manager    
         public void HandleSpawnMonsters(GameTime gameTime)
@@ -118,39 +132,39 @@ namespace TheAdventuresOf
 
             if (canSpawn)
             {
-                if (blockMonsterCount < level.tierMonsterLimits[BLOCK_MONSTER][level.currentTier])
+                if ((blockMonsterCount < level.tierMonsterLimits[BLOCK_MONSTER][level.currentTier]) && canSpawnMonster[BLOCK_MONSTER])
                 {
                     availableMonsters.Add(BLOCK_MONSTER);
                 }
-                if (sunMonsterCount < level.tierMonsterLimits[SUN_MONSTER][level.currentTier])
+                if ((sunMonsterCount < level.tierMonsterLimits[SUN_MONSTER][level.currentTier]) && canSpawnMonster[SUN_MONSTER])
                 {
                     availableMonsters.Add(SUN_MONSTER);
                 }
-                if (groundCannonMonsterCount < level.tierMonsterLimits[GROUND_CANNON_MONSTER][level.currentTier])
+                if ((groundCannonMonsterCount < level.tierMonsterLimits[GROUND_CANNON_MONSTER][level.currentTier]) && canSpawnMonster[GROUND_CANNON_MONSTER])
                 {
                     availableMonsters.Add(GROUND_CANNON_MONSTER);
                 }
-                if (bileMonsterCount < level.tierMonsterLimits[BILE_MONSTER][level.currentTier])
+                if ((bileMonsterCount < level.tierMonsterLimits[BILE_MONSTER][level.currentTier]) && canSpawnMonster[BILE_MONSTER])
                 {
                     availableMonsters.Add(BILE_MONSTER);
                 }
-                if (spikeMonsterCount < level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier])
+                if ((spikeMonsterCount < level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier]) && canSpawnMonster[SPIKE_MONSTER])
                 {
                     availableMonsters.Add(SPIKE_MONSTER);
                 }
-                if (dashMonsterCount < level.tierMonsterLimits[DASH_MONSTER][level.currentTier])
+                if ((dashMonsterCount < level.tierMonsterLimits[DASH_MONSTER][level.currentTier]) && canSpawnMonster[DASH_MONSTER])
                 {
                     availableMonsters.Add(DASH_MONSTER);
                 }
-                if (flyingCannonMonsterCount < level.tierMonsterLimits[FLYING_CANNON_MONSTER][level.currentTier])
+                if ((flyingCannonMonsterCount < level.tierMonsterLimits[FLYING_CANNON_MONSTER][level.currentTier]) && canSpawnMonster[FLYING_CANNON_MONSTER])
                 {
                     availableMonsters.Add(FLYING_CANNON_MONSTER);
                 }
-                if (undergroundMonsterCount < level.tierMonsterLimits[UNDERGROUND_MONSTER][level.currentTier])
+                if ((undergroundMonsterCount < level.tierMonsterLimits[UNDERGROUND_MONSTER][level.currentTier]) && canSpawnMonster[UNDERGROUND_MONSTER])
                 {
                     availableMonsters.Add(UNDERGROUND_MONSTER);
                 }
-                if (swoopMonsterCount < level.tierMonsterLimits[SWOOP_MONSTER][level.currentTier])
+                if ((swoopMonsterCount < level.tierMonsterLimits[SWOOP_MONSTER][level.currentTier]) && canSpawnMonster[SWOOP_MONSTER])
                 {
                     availableMonsters.Add(SWOOP_MONSTER);
                 }
@@ -191,7 +205,12 @@ namespace TheAdventuresOf
                     }
 
                     monsterCount++;
-                    canSpawnMonster[monsterToSpawn] = false;
+
+                    //don't reset monsters that have a 0 spawnDelayTime. they can always spawn (at least in the context of spawnDelayTime)
+                    if(monsterSpawnDelayTimers[monsterToSpawn].delayTimeLimit > 0) {
+                        canSpawnMonster[monsterToSpawn] = false;
+                        monsterSpawnDelayTimers[monsterToSpawn].Reset();
+                    }
                 }
 
                 canSpawn = false;
@@ -215,6 +234,49 @@ namespace TheAdventuresOf
             Logger.Instance.AddOrUpdateValue("Swoop Limit: ", level.tierMonsterLimits[SWOOP_MONSTER][level.currentTier].ToString());
         }
 
+        //Updates whether a monster spawn timer should reset on death or not
+        public void UpdateMonsterAvailability(Monster monster) {
+
+            int monsterType = -1;
+            if (monster is BlockMonster) {
+                monsterType = BLOCK_MONSTER;
+            }
+            else if (monster is SunMonster) {
+                monsterType = SUN_MONSTER;
+            }
+            else if (monster is GroundCannonMonster) {
+                monsterType = GROUND_CANNON_MONSTER;
+            }
+            else if (monster is BileMonster) {
+                monsterType = BILE_MONSTER;
+            }
+            else if (monster is SpikeMonster) {
+                monsterType = SPIKE_MONSTER;
+            }
+            else if (monster is DashMonster) {
+                monsterType = DASH_MONSTER;
+            }
+            else if (monster is FlyingCannonMonster) {
+                monsterType = FLYING_CANNON_MONSTER;
+            }
+            else if (monster is UndergroundMonster) {
+                monsterType = UNDERGROUND_MONSTER;
+            }
+            else if (monster is SwoopMonster) {
+                monsterType = SWOOP_MONSTER;
+            }
+
+            if (monsterType != -1
+               && (monsterSpawnDelayTimers[monsterType].delayTimeLimit > 0) //don't bother checking monsters with no spawn delay
+               && (level.tierMonsterLimits[monsterType][level.currentTier] == 1)) {
+                //ONLY limit monster from spawning (by resetting the clock here) if only one type of this monster can be on the field at a time
+                //so if one just died, we want to wait the full amount for another to spawn
+                //if one just died and we can be putting two on the field, then we don't want to reset here because we want that second on the field
+                monsterSpawnDelayTimers[monsterType].Reset();
+                canSpawnMonster[monsterType] = false;
+            }
+        }
+
         public void UpdateMonsterCount(Monster monster) {
             //TODO: all if statements or else if? can I do a switch by any chance?
             if (monster is BlockMonster) {
@@ -234,7 +296,7 @@ namespace TheAdventuresOf
                 flyingCannonMonsterCount--;
                 baseCannonMonsterCount--;
             } else if (monster is UndergroundMonster) {
-                undergroundMonsterCount--;   
+                undergroundMonsterCount--;
             } else if(monster is SwoopMonster) {
                 swoopMonsterCount--;
             }
@@ -265,10 +327,10 @@ namespace TheAdventuresOf
 
                 monster.Update(gameTime);
 
-                if (monster.isDead)
-                {
+                if (monster.isDead) {
                     //TODO: good place to look at in the event of performance issues
                     monstersToRemove.Add(monster);
+                    UpdateMonsterAvailability(monster);
                     UpdateMonsterCount(monster);
                 }
             }
