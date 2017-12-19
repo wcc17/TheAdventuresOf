@@ -10,6 +10,8 @@
 		<GroundOffset>
             <Level1>55</Level1>
 			<Level2>40</Level2>
+            <Level3>40</Level3> <!-- CHECK THIS VALUE -->
+            <Level4>40</Level4> <!-- CHECK THIS VALUE -->
 		</GroundOffset>
 		
 		<!-- The smaller the value, the further it will go. 
