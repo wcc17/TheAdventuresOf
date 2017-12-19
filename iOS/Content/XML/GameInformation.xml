@@ -32,7 +32,7 @@
         <TotalScoreTextY>50</TotalScoreTextY>
 	</GameManager>
 
-	<!-- TODO: THIS WILL BE A NIGHTMARE WHEN CHANGING RESOLUTIONS -->
+	<!-- TODO: THIS WILL BE A NIGHTMARE WHEN CHANGING RESOLUTIONS?? probably not with the scaling stuff -->
 	<GameController>
 		<ControllerX>0</ControllerX>
 		<ControllerY>850</ControllerY>

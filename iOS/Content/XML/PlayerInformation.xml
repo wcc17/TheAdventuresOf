@@ -54,5 +54,39 @@
                 <TakesDamage>false</TakesDamage>
             </Accessory>
         </Level2>
+
+        <Level3>
+            <Accessory>
+                <Name>sword</Name>
+                <BaseXOffset>-3</BaseXOffset>
+                <XOffset>-40</XOffset>
+                <YOffset>15</YOffset>
+                <OriginPosition>LEFT_CENTER</OriginPosition>
+                <DoesDamage>true</DoesDamage>
+                <TakesDamage>false</TakesDamage>
+            </Accessory>
+            
+            <Accessory>
+                <Name>level3_character_hat</Name>
+                <BaseXOffset>-3</BaseXOffset>
+                <XOffset>0</XOffset>
+                <YOffset>-30</YOffset>
+                <OriginPosition>CENTER</OriginPosition>
+                <DoesDamage>false</DoesDamage>
+                <TakesDamage>false</TakesDamage>
+            </Accessory>
+        </Level3>
+
+        <Level4>
+            <Accessory>
+                <Name>sword</Name>
+                <BaseXOffset>-3</BaseXOffset>
+                <XOffset>-40</XOffset>
+                <YOffset>15</YOffset>
+                <OriginPosition>1</OriginPosition>
+                <DoesDamage>true</DoesDamage>
+                <TakesDamage>false</TakesDamage>
+            </Accessory>
+        </Level4>
     </PlayerLevelInformation>
  </Player>

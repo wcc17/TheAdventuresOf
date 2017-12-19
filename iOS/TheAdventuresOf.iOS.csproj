@@ -169,6 +169,37 @@
     <BundleResource Include="Content\Projectile\level2_bile_1080p.png" />
     <BundleResource Include="Content\Menu\choose\choosemenu_playbutton_1080p.png" />
     <BundleResource Include="Content\Menu\main\mainmenu_chooselevelbutton_1080p.png" />
+    <BundleResource Include="Content\PreLevel\pre_level3background_1080p.png" />
+    <BundleResource Include="Content\PreLevel\pre_level3character_1080p.png" />
+    <BundleResource Include="Content\Player\level3_character_1080p.png" />
+    <BundleResource Include="Content\Player\level3_character_hat_1080p.png" />
+    <BundleResource Include="Content\Projectile\level3_bile_1080p.png" />
+    <BundleResource Include="Content\Monster\Level3\bilemonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level3\blockmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level3\cannonmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level3\dashmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level3\flyingcannonmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level3\spikemonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level3\sunmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level3\swoopmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level3\undergroundmonster_1080p.png" />
+    <BundleResource Include="Content\Menu\choose\level3preview_1080p.png" />
+    <BundleResource Include="Content\Menu\choose\level4preview_1080p.png" />
+    <BundleResource Include="Content\Level\level3background_1080p.png" />
+    <BundleResource Include="Content\Level\level4background_1080p.png" />
+    <BundleResource Include="Content\Monster\Level4\bilemonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level4\blockmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level4\cannonmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level4\dashmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level4\flyingcannonmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level4\spikemonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level4\sunmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level4\swoopmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level4\undergroundmonster_1080p.png" />
+    <BundleResource Include="Content\Player\level4_character_1080p.png" />
+    <BundleResource Include="Content\XML\Level\Level4Information.xml" />
+    <BundleResource Include="Content\XML\Level\Level3Information.xml" />
+    <BundleResource Include="Content\Projectile\level4_bile_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -204,6 +235,7 @@
     <Folder Include="Content\Monster\Level2\" />
     <Folder Include="Content\Menu\main\" />
     <Folder Include="Content\Menu\splash\" />
+    <Folder Include="Content\Monster\Level4\" />
   </ItemGroup>
   <Import Project="..\TheAdventuresOf\TheAdventuresOf.projitems" Label="Shared" Condition="Exists('..\TheAdventuresOf\TheAdventuresOf.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
