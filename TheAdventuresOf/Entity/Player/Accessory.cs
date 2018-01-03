@@ -19,6 +19,7 @@ namespace TheAdventuresOf
         public float yOffset;
         public bool doesDamage;
         public bool takesDamage;
+        public bool drawBeforePlayer;
 
         public String name;
         Texture2D accessoryTexture;
