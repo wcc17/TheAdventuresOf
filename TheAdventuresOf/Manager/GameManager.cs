@@ -11,7 +11,7 @@ namespace TheAdventuresOf
     {
         //TODO: THIS SHOULD BE SET SOMEWHERE ELSE, NOT HARDCODED and probably shouldn't be static 
         public static int levelNumberMin = 1;
-        public static int levelNumberLimit = 4;
+        public static int levelNumberLimit = 5;
 
         public const bool USE_PLAYER_SPAWN_ANIMATION = true;
         public const bool NO_PLAYER_SPAWN_ANIMATION = false;

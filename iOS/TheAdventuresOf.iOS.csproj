@@ -101,6 +101,7 @@
     <None Include="Content\StoreLevel\.DS_Store" />
     <None Include="Content\Game\arial.spritefont" />
     <None Include="Content\Menu\mainmenu_music.mp3" />
+    <None Include="Content\Level\level5_music.mp3" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Content\Level\level1background_1080p.png" />
@@ -200,6 +201,25 @@
     <BundleResource Include="Content\XML\Level\Level4Information.xml" />
     <BundleResource Include="Content\XML\Level\Level3Information.xml" />
     <BundleResource Include="Content\Projectile\level4_bile_1080p.png" />
+    <BundleResource Include="Content\Level\level5background_1080p.png" />
+    <BundleResource Include="Content\Menu\choose\level5preview_1080p.png" />
+    <BundleResource Include="Content\Monster\Level5\bilemonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level5\blockmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level5\cannonmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level5\dashmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level5\flyingcannonmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level5\spikemonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level5\sunmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level5\swoopmonster_1080p.png" />
+    <BundleResource Include="Content\Monster\Level5\undergroundmonster_1080p.png" />
+    <BundleResource Include="Content\Player\level5_character_1080p.png" />
+    <BundleResource Include="Content\Player\level5_character_aura_1080p.png" />
+    <BundleResource Include="Content\Player\level5_character_hat_1080p.png" />
+    <BundleResource Include="Content\PreLevel\pre_level4character_1080p.png" />
+    <BundleResource Include="Content\PreLevel\pre_level5background_1080p.png" />
+    <BundleResource Include="Content\PreLevel\pre_level5character_1080p.png" />
+    <BundleResource Include="Content\Projectile\level5_bile_1080p.png" />
+    <BundleResource Include="Content\XML\Level\Level5Information.xml" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

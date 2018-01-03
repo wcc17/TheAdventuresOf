@@ -73,6 +73,7 @@ namespace TheAdventuresOf
         public Texture2D undergroundMonsterTexture;
         public Texture2D swoopMonsterTexture;
         public Song levelOneSong;
+        public Song levelFiveSong;
 
         public Texture2D bulletTexture;
         public Texture2D bileTexture;
@@ -312,6 +313,7 @@ namespace TheAdventuresOf
 
             //music
             levelOneSong = contentManager.Load<Song>("Level/level1_music");
+            levelFiveSong = contentManager.Load<Song>("Level/level5_music");
         }
 
         public void LoadPreLevelAssets(GraphicsDevice graphicsDevice, int levelNumber)
@@ -394,6 +396,7 @@ namespace TheAdventuresOf
 
             //TODO: need to dispose of level music
             //levelOneSong.Dispose();
+            //levelFiveSong.Dispose();
 
             foreach(Texture2D accessoryTexture in accessoryTextures.Values) {
                 accessoryTexture.Dispose();

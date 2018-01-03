@@ -39,7 +39,8 @@ namespace TheAdventuresOf
                     break;
                 case GameManager.LEVEL_STATE:
                     changingSongs = true;
-                    currentSong = AssetManager.Instance.levelOneSong;
+                    //currentSong = AssetManager.Instance.levelOneSong; //TODO:
+                    currentSong = AssetManager.Instance.levelFiveSong;
                     break;
                 case GameManager.STORE_LEVEL_STATE:
                     currentSong = null; //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
