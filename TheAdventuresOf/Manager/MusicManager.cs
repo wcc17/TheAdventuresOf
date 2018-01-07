@@ -24,7 +24,7 @@ namespace TheAdventuresOf
             MediaPlayer.MediaStateChanged += HandleMediaStateChange;
         }
 
-        public void ChangeState(int newGameState) {
+        public void ChangeState(int newGameState, int levelNumber) {
 
             gameState = newGameState;
 
@@ -39,8 +39,24 @@ namespace TheAdventuresOf
                     break;
                 case GameManager.LEVEL_STATE:
                     changingSongs = true;
-                    //currentSong = AssetManager.Instance.levelOneSong; //TODO:
-                    currentSong = AssetManager.Instance.levelFiveSong;
+                    switch(levelNumber)
+                    {
+                        case 1:
+                            currentSong = AssetManager.Instance.levelOneSong;
+                            break;
+                        case 2:
+                            currentSong = AssetManager.Instance.levelOneSong;
+                            break;
+                        case 3:
+                            currentSong = AssetManager.Instance.levelOneSong; //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
+                            break;
+                        case 4:
+                            currentSong = AssetManager.Instance.levelOneSong; //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
+                            break;
+                        case 5:
+                            currentSong = AssetManager.Instance.levelFiveSong; //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
+                            break;
+                    }
                     break;
                 case GameManager.STORE_LEVEL_STATE:
                     currentSong = null; //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway

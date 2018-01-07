@@ -282,6 +282,7 @@ namespace TheAdventuresOf
             level.flyingCannonMonster = LoadFlyingCannonMonsterInformation(level.rightBoundWidth, level.leftBoundWidth);
 		}
 
+        //TODO: i could dispose player texture right before loading the new one?
 		public static Player LoadPlayerInformation()
 		{
             Player player = new Player();
@@ -326,6 +327,7 @@ namespace TheAdventuresOf
                 accessory.yOffset = (float)accessoryElement.Element("YOffset");
                 accessory.doesDamage = (bool)accessoryElement.Element("DoesDamage");
                 accessory.takesDamage = (bool)accessoryElement.Element("TakesDamage");
+                accessory.drawBeforePlayer = (bool)accessoryElement.Element("DrawBeforePlayer");
 
                 string originPosition = (string)accessoryElement.Element("OriginPosition");
                 accessory.originPosition = (Accessory.OriginPosition) Enum.Parse(typeof(Accessory.OriginPosition), originPosition);

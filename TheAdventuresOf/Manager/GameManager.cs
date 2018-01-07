@@ -82,7 +82,7 @@ namespace TheAdventuresOf
             AssetManager.Instance.LoadSplashAssets(graphicsDevice, contentManager);
 
             gameState = SPLASH_STATE;
-            musicManager.ChangeState(gameState);
+            musicManager.ChangeState(gameState, currentLevelNumber);
 
             splashTimer = new Timer(splashTimeLimit);
         }
@@ -427,7 +427,7 @@ namespace TheAdventuresOf
             //if musicManager is still on the current state, change its state to prepare for the next
             if (musicManager.gameState != nextGameState)
             {
-                musicManager.ChangeState(nextGameState);
+                musicManager.ChangeState(nextGameState, currentLevelNumber);
             }
 
             //if musicManager is no longer changing a song, load the main menu
