@@ -15,6 +15,7 @@ namespace TheAdventuresOf
         public bool proceedToLevelState;
         public int currentLevelSelected = 1;
 
+        Vector2 levelPreviewOutlinePositionVector;
         Vector2 levelPreviewPositionVector;
         Vector2 basePositionVector;
         List<Texture2D> previewTextures;
@@ -29,6 +30,12 @@ namespace TheAdventuresOf
                 float previewTextureWidth = previewTextures[0].Width;
                 float previewTextureHeight = previewTextures[0].Height;
                 levelPreviewPositionVector = new Vector2((ScreenManager.FULL_SCREEN_WIDTH / 2) - (previewTextureWidth / 2), (ScreenManager.FULL_SCREEN_HEIGHT / 2) - (previewTextureHeight / 2));
+
+                float previewOutlineTextureWidth = AssetManager.Instance.chooseLevelPreviewOutlineTexture.Width;
+                float previewOutlineTextureHeight = AssetManager.Instance.chooseLevelPreviewOutlineTexture.Height;
+                float outlineWidthDiff = previewOutlineTextureWidth - previewTextureWidth;
+                float outlineHeightDiff = previewOutlineTextureHeight - previewTextureHeight;
+                levelPreviewOutlinePositionVector = new Vector2(levelPreviewPositionVector.X - (outlineWidthDiff / 2), levelPreviewPositionVector.Y - (outlineHeightDiff / 2));
             } catch (IndexOutOfRangeException e) {
                 Logger.WriteToConsole(e.ToString());
                 Logger.WriteToConsole("No preview textures loaded");
@@ -103,6 +110,7 @@ namespace TheAdventuresOf
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.GraphicsDevice.Clear(Color.White);
+            spriteBatch.Draw(AssetManager.Instance.chooseLevelPreviewOutlineTexture, levelPreviewOutlinePositionVector, Color.White);
             spriteBatch.Draw(currentPreviewTexture, levelPreviewPositionVector, Color.White);
         }
 

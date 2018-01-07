@@ -158,16 +158,13 @@ namespace TheAdventuresOf
                 switch (activeButtonIndex)
                 {
                     case PLAY_BUTTON_ACTIVE:
-                        activeButton = playButton;
-                        isActiveButtonArrow = false;
+                        activatePlayButton();
                         break;
                     case CHOOSE_LEVEL_BUTTON_ACTIVE:
-                        activeButton = chooseLevelButton;
-                        isActiveButtonArrow = false;
+                        activateChooseLevelButton();
                         break;
                 }
 
-                HandleButtonOutlinePositionChange();
                 gamePadButtonPressed = false;
             }
         }
@@ -204,6 +201,28 @@ namespace TheAdventuresOf
                 chooseLevelButtonPressed = true;
             }
 
+            if (CheckMouseInsideButton(mouseX, mouseY, playButton))
+            {
+                activatePlayButton();
+            }
+            if (CheckMouseInsideButton(mouseX, mouseY, chooseLevelButton))
+            {
+                activateChooseLevelButton();
+            }
+        }
+
+        private void activatePlayButton()
+        {
+            activeButton = playButton;
+            isActiveButtonArrow = false;
+            HandleButtonOutlinePositionChange();
+        }
+
+        private void activateChooseLevelButton()
+        {
+            activeButton = chooseLevelButton;
+            isActiveButtonArrow = false;
+            HandleButtonOutlinePositionChange();
         }
     }
 }

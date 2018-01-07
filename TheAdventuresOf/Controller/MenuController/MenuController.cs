@@ -41,6 +41,16 @@ namespace TheAdventuresOf
 
         public bool CheckButtonInputWindows(MouseState mouseState, float mouseX, float mouseY, Button button)
         {
+            if (mouseState.LeftButton == ButtonState.Pressed && oldState.LeftButton == ButtonState.Released)
+            {
+                return CheckMouseInsideButton(mouseX, mouseY, button);
+            }
+
+            return false;
+        }
+
+        public bool CheckMouseInsideButton(float mouseX, float mouseY, Button button)
+        {
             //scale mouseX and mouseY to whatever the current resolution is set to
             Point unscaledPoint = new Point((int)mouseX, (int)mouseY);
             Point scaledPoint = ScreenManager.GetScaledInputPoint(unscaledPoint);
@@ -53,18 +63,16 @@ namespace TheAdventuresOf
             //Logger.WriteToConsole("MouseY Scaled: " + mouseY);
             //Logger.WriteToConsole("-------------------------------");
 
-            if (mouseState.LeftButton == ButtonState.Pressed && oldState.LeftButton == ButtonState.Released)
+            if ((mouseX >= button.buttonPositionVector.X
+                    && mouseX <= (button.buttonPositionVector.X + button.buttonBounds.Width))
+                    && (mouseY >= button.buttonPositionVector.Y
+                    && mouseY <= (button.buttonPositionVector.Y + button.buttonBounds.Height)))
             {
-                if ((mouseX >= button.buttonPositionVector.X
-                        && mouseX <= (button.buttonPositionVector.X + button.buttonBounds.Width))
-                        && (mouseY >= button.buttonPositionVector.Y
-                        && mouseY <= (button.buttonPositionVector.Y + button.buttonBounds.Height)))
-                {
-                    return true;
-                }
+                return true;
             }
 
             return false;
+
         }
 
         public void HandleButtonOutlinePositionChange()

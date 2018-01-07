@@ -149,6 +149,7 @@
     <Content Include="Content\Menu\choose\level3preview_1080p.png" />
     <Content Include="Content\Menu\choose\level4preview_1080p.png" />
     <Content Include="Content\Menu\choose\level5preview_1080p.png" />
+    <Content Include="Content\Menu\choose\levelpreview_outline_1080p.png" />
     <Content Include="Content\Menu\mainmenu_music.mp3" />
     <Content Include="Content\Menu\main\mainmenu_1080p.png" />
     <Content Include="Content\Menu\main\mainmenu_arrowoutline_1080p.png" />

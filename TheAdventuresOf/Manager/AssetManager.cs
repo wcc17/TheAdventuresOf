@@ -29,6 +29,7 @@ namespace TheAdventuresOf
         public Texture2D chooseLevelMenuLeftArrowTexture;
         public Texture2D chooseLevelMenuRightArrowTexture;
         public Texture2D chooseLevelMenuBackArrowTexture;
+        public Texture2D chooseLevelPreviewOutlineTexture;
         public List<Texture2D> chooseLevelPreviewTextures;
 
         //used by both choose level menu and main menu
@@ -179,6 +180,11 @@ namespace TheAdventuresOf
             {
                 chooseLevelMenuBackArrowTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "levelpreview_outline_1080p.png"))
+            {
+                chooseLevelPreviewOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+
 #if !__IOS__ && !__ANDROID__
             using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_arrowoutline_1080p.png"))
             {
