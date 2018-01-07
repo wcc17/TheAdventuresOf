@@ -9,10 +9,10 @@ namespace TheAdventuresOf
 	{
 		public const float FULL_SCREEN_WIDTH = 1920f;
 		public const float FULL_SCREEN_HEIGHT = 1080f;
+		public static Matrix scaleMatrix { get; set; }
 
 		public const int MULTI_TOUCH_LIMIT = 2;
 
-		public Matrix scaleMatrix { get; set; }
 
 		//actual width and actual height are the values that the device thinks the screen should be, not what we want it to be
 		//so those weird scaled res for iphone 6s plus, etc.
@@ -77,7 +77,7 @@ namespace TheAdventuresOf
                     {
                         //these return as float, but area always either .0 or .9998 or something like that. 
                         Point originalPoint = new Point((int)touchCollection[i].Position.X, (int)touchCollection[i].Position.Y);
-                        Point scaledPoint = GetScaledTouchInput(originalPoint);
+                        Point scaledPoint = GetScaledInputPoint(originalPoint);
 
 						touchPoints.Add(scaledPoint);
 					}
@@ -86,7 +86,7 @@ namespace TheAdventuresOf
 			return touchPoints;
 		}
 
-		public Point GetScaledTouchInput(Point originalPoint)
+		public static Point GetScaledInputPoint(Point originalPoint)
 		{
 			var matrix = Matrix.Invert(scaleMatrix);
 			Point scaledPoint = Vector2.Transform(originalPoint.ToVector2(), matrix).ToPoint();

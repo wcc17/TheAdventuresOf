@@ -145,7 +145,11 @@ namespace TheAdventuresOf
             XElement specialLevelElement = specialLevelDocument.Element("Level");
             XElement preLevelElement = specialLevelElement.Element("PreLevel");
 
+#if __IOS__ || __ANDROID__
             preLevel.groundLevel = (float)preLevelElement.Element("GroundLevel");
+#else
+            preLevel.groundLevel = (float)preLevelElement.Element("WindowsGroundLevel");
+#endif
             preLevel.playerStartX = (float)preLevelElement.Element("PlayerStartX");
             preLevel.leftBoundWidth = (int)preLevelElement.Element("LeftBoundWidth");
             preLevel.rightBoundWidth = (int)preLevelElement.Element("RightBoundWidth");
@@ -160,7 +164,11 @@ namespace TheAdventuresOf
             XElement specialLevelElement = specialLevelDocument.Element("Level");
             XElement storeLevelElement = specialLevelElement.Element("StoreLevel");
 
+#if __IOS__ || __ANDROID__
             storeLevel.groundLevel = (float)storeLevelElement.Element("GroundLevel");
+#else
+            storeLevel.groundLevel = (float)storeLevelElement.Element("WindowsGroundLevel");
+#endif
             storeLevel.playerStartX = (float)storeLevelElement.Element("PlayerStartX");
             storeLevel.leftBoundWidth = (int)storeLevelElement.Element("LeftBoundWidth");
             storeLevel.rightBoundWidth = (int)storeLevelElement.Element("RightBoundWidth");
@@ -200,7 +208,11 @@ namespace TheAdventuresOf
             tierElements.Add(levelXElement.Element("Tier4"));
             tierElements.Add(levelXElement.Element("Tier5"));
 
-			level.groundLevel = (float)levelXElement.Element("GroundLevel");
+#if __IOS__ || __ANDROID__
+            level.groundLevel = (float)levelXElement.Element("GroundLevel");
+#else
+            level.groundLevel = (float)levelXElement.Element("WindowsGroundLevel");
+#endif
             level.playerStartX = (float)levelXElement.Element("PlayerStartX");
 			level.leftBoundWidth = (int)levelXElement.Element("LeftBoundWidth");
 			level.rightBoundWidth = (int)levelXElement.Element("RightBoundWidth");

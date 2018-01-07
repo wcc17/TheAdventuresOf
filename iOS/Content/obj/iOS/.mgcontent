@@ -4,9 +4,9 @@
   <Platform>iOS</Platform>
   <Config />
   <SourceFiles>
-    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Game/arial.spritefont</File>
-    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Level/level1_music.mp3</File>
-    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Level/level5_music.mp3</File>
-    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Menu/mainmenu_music.mp3</File>
+    <File>C:/Users/chris/Development/TheAdventuresOf/TheAdventuresOf.UWP/Content/Game/arial.spritefont</File>
+    <File>C:/Users/chris/Development/TheAdventuresOf/TheAdventuresOf.UWP/Content/Level/level1_music.mp3</File>
+    <File>C:/Users/chris/Development/TheAdventuresOf/TheAdventuresOf.UWP/Content/Level/level5_music.mp3</File>
+    <File>C:/Users/chris/Development/TheAdventuresOf/TheAdventuresOf.UWP/Content/Menu/mainmenu_music.mp3</File>
   </SourceFiles>
 </SourceFileCollection>

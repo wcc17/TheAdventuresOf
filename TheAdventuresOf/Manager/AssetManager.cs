@@ -31,6 +31,10 @@ namespace TheAdventuresOf
         public Texture2D chooseLevelMenuBackArrowTexture;
         public List<Texture2D> chooseLevelPreviewTextures;
 
+        //used by both choose level menu and main menu
+        public Texture2D arrowOutlineTexture;
+        public Texture2D buttonOutlineTexture;
+
         //game textures
         public Texture2D controllerTexture;
         public Texture2D progressBarTexture;
@@ -144,7 +148,17 @@ namespace TheAdventuresOf
             {
                 chooseLevelButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-        }
+#if !__IOS__ && !__ANDROID__
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_arrowoutline_1080p.png"))
+            {
+                arrowOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_buttonoutline_1080p.png"))
+            {
+                buttonOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+#endif
+    }
 
         public void LoadChooseLevelMenuAssets(GraphicsDevice graphicsDevice, int levelNumberLimit) {
             string menuFilePath = filePath + "Menu/choose/";
@@ -165,6 +179,16 @@ namespace TheAdventuresOf
             {
                 chooseLevelMenuBackArrowTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
+#if !__IOS__ && !__ANDROID__
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_arrowoutline_1080p.png"))
+            {
+                arrowOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_buttonoutline_1080p.png"))
+            {
+                buttonOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+#endif
 
             chooseLevelPreviewTextures = new List<Texture2D>();
             for(int i = 1; i <= levelNumberLimit; i++) {
@@ -227,7 +251,12 @@ namespace TheAdventuresOf
             using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_bronze_1080p.png")) {
                 bronzeCoinTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(gameFilePath + "pause_background_1080p.png")) {
+
+            string pauseBackgroundPath = "pause_background_1080p.png";
+#if !__IOS__ || !__ANDROID__
+            pauseBackgroundPath = "pause_background_xbox_1080p.png";
+#endif
+            using (var stream = TitleContainer.OpenStream(gameFilePath + pauseBackgroundPath)) {
                 pauseBackgroundTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
@@ -345,8 +374,23 @@ namespace TheAdventuresOf
             }
         }
 
+        /**
+         * TODO: for somer eason GetValueOrDefault isn't working on Windows
+         * I'm not sure it was correct anyway. This should return null if the texture doesn't exist and skip it in the calling method
+         * **/
         public Texture2D GetAccessoryTexture(string accessoryName) {
-            return accessoryTextures.GetValueOrDefault(accessoryName);
+#if __IOS__ || __ANDROID__
+                return accessoryTextures.GetValueOrDefault(accessoryName);
+#else
+                if(accessoryTextures.ContainsKey(accessoryName))
+                {
+                    return accessoryTextures[accessoryName];
+                } else
+                {
+                    return null;
+                }
+#endif
+
         }
 
         public void DisposePreLevelAssets() {
@@ -359,8 +403,12 @@ namespace TheAdventuresOf
             mainMenuTexture.Dispose();
             playButtonTexture.Dispose();
             chooseLevelButtonTexture.Dispose();
-
             mainMenuSong.Dispose();
+
+#if !__IOS__ && !__ANDROID__
+            arrowOutlineTexture.Dispose();
+            buttonOutlineTexture.Dispose();
+#endif  
         }
 
         public void DisposeChooseLevelMenuAssets() {
@@ -372,6 +420,11 @@ namespace TheAdventuresOf
             foreach (Texture2D previewTexture in chooseLevelPreviewTextures) {
                 previewTexture.Dispose();
             }
+
+#if !__IOS__ && !__ANDROID__
+            arrowOutlineTexture.Dispose();
+            buttonOutlineTexture.Dispose();
+#endif  
         }
 
         public void DisposeStoreAssets() {
