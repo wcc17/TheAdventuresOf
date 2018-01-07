@@ -6,7 +6,7 @@ namespace TheAdventuresOf
 {
 	public class Button
 	{
-		Rectangle buttonBounds;
+		public Rectangle buttonBounds;
 
         //float originalX, originalY; //used for saving original pos of button for animation
         float animationOffset = 3;

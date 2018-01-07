@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace TheAdventuresOf
 {
@@ -26,18 +27,25 @@ namespace TheAdventuresOf
         public bool backArrowButtonPressed;
         Texture2D backArrowButtonTexture;
 
+        Texture2D arrowOutlineTexture;
+        Texture2D buttonOutlineTexture;
+
         /**
          * Must be called before InitializeController()
          */
         public void InitializeTextures(Texture2D chooseButtonTexture,
                                        Texture2D backArrowButtonTexture,
-                                      Texture2D rightArrowButtonTexture,
-                                       Texture2D leftArrowButtonTexture)
+                                       Texture2D rightArrowButtonTexture,
+                                       Texture2D leftArrowButtonTexture,
+                                       Texture2D arrowOutlineTexture,
+                                       Texture2D buttonOutlineTexture)
         {
             this.chooseButtonTexture = chooseButtonTexture;
             this.rightArrowButtonTexture = rightArrowButtonTexture;
             this.leftArrowButtonTexture = leftArrowButtonTexture;
             this.backArrowButtonTexture = backArrowButtonTexture;
+            this.arrowOutlineTexture = arrowOutlineTexture;
+            this.buttonOutlineTexture = buttonOutlineTexture;
         }
 
         public override void InitializeController()
@@ -128,6 +136,34 @@ namespace TheAdventuresOf
             backArrowButton.Draw(spriteBatch, backArrowButtonTexture);
             rightArrowButton.Draw(spriteBatch, rightArrowButtonTexture);
             leftArrowButton.Draw(spriteBatch, leftArrowButtonTexture);
+        }
+
+        public override void HandleInputWindows()
+        {
+            MouseState mouseState = Mouse.GetState();
+            float mouseX = mouseState.X;
+            float mouseY = mouseState.Y;
+
+            if (CheckButtonInputWindows(mouseState, mouseX, mouseY, chooseButton))
+            {
+                isButtonPressed = true;
+                chooseButtonPressed = true;
+            }
+            if (CheckButtonInputWindows(mouseState, mouseX, mouseY, leftArrowButton))
+            {
+                isButtonPressed = true;
+                leftArrowButtonPressed = true;
+            }
+            if (CheckButtonInputWindows(mouseState, mouseX, mouseY, rightArrowButton))
+            {
+                isButtonPressed = true;
+                rightArrowButtonPressed = true;
+            }
+            if (CheckButtonInputWindows(mouseState, mouseX, mouseY, backArrowButton))
+            {
+                isButtonPressed = true;
+                backArrowButtonPressed = true;
+            }
         }
     }
 }

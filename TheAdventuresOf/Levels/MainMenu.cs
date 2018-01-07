@@ -12,7 +12,7 @@ namespace TheAdventuresOf
         public bool proceedToChooseLevelState = false;
 
         public void LoadMenu() {
-            Console.WriteLine("Loading menu");
+            Logger.WriteToConsole("Loading menu");
         }
 
         public void Update(GameTime gameTime, MainMenuController mainMenuController) {

@@ -30,8 +30,8 @@ namespace TheAdventuresOf
                 float previewTextureHeight = previewTextures[0].Height;
                 levelPreviewPositionVector = new Vector2((ScreenManager.FULL_SCREEN_WIDTH / 2) - (previewTextureWidth / 2), (ScreenManager.FULL_SCREEN_HEIGHT / 2) - (previewTextureHeight / 2));
             } catch (IndexOutOfRangeException e) {
-                Console.WriteLine(e);
-                Console.WriteLine("No preview textures loaded");
+                Logger.WriteToConsole(e.ToString());
+                Logger.WriteToConsole("No preview textures loaded");
             }
 
             basePositionVector = new Vector2(0, 0);

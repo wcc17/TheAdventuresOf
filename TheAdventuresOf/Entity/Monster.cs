@@ -365,7 +365,7 @@ namespace TheAdventuresOf
 
         public void StartInvincibility() {
             isInvincible = true;
-            Console.WriteLine(entityTag + " is now invincible");
+            Logger.WriteToConsole(entityTag + " is now invincible");
         }
 
         public void HandleInvincibility(GameTime gameTime) {
@@ -375,7 +375,7 @@ namespace TheAdventuresOf
                     isInvincible = false;
                     invincibilityTimer.Reset();
 
-                    Console.WriteLine(entityTag + "is no longer invincible");
+                    Logger.WriteToConsole(entityTag + "is no longer invincible");
                 } 
             }
         }

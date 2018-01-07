@@ -41,7 +41,10 @@ namespace TheAdventuresOf
         bool chooseLevelMenuAssetsLoaded;
         bool mainMenuAssetsLoaded;
 
+
         Controller currentController;
+
+        public bool showMouse = false;
 
         public float splashTimeLimit;
         public float pausedTextVectorXOffset;
@@ -77,6 +80,8 @@ namespace TheAdventuresOf
 
         void loadSplashScreen() {
             Logger.WriteToConsole("Load splash screen");
+
+            showMouse = false;
             AssetManager.Instance.LoadSplashAssets(graphicsDevice, contentManager);
 
             gameState = SPLASH_STATE;
@@ -87,6 +92,8 @@ namespace TheAdventuresOf
 
         void loadMainMenu() {
             Logger.WriteToConsole("Load Main Menu");
+
+            showMouse = true;
 
             if(!mainMenuAssetsLoaded) {
                 AssetManager.Instance.LoadMainMenuAssets(graphicsDevice);
@@ -108,6 +115,8 @@ namespace TheAdventuresOf
         void loadChooseLevelMenu() {
             Logger.WriteToConsole("Load Choose Level Menu");
 
+            showMouse = true;
+
             if(!chooseLevelMenuAssetsLoaded) {
                 AssetManager.Instance.LoadChooseLevelMenuAssets(graphicsDevice, levelNumberLimit);
             }
@@ -123,7 +132,9 @@ namespace TheAdventuresOf
                 .InitializeTextures(AssetManager.Instance.chooseButtonTexture,
                                     AssetManager.Instance.chooseLevelMenuBackArrowTexture,
                                     AssetManager.Instance.chooseLevelMenuRightArrowTexture,
-                                    AssetManager.Instance.chooseLevelMenuLeftArrowTexture);
+                                    AssetManager.Instance.chooseLevelMenuLeftArrowTexture,
+                                    AssetManager.Instance.arrowOutlineTexture,
+                                    AssetManager.Instance.buttonOutlineTexture);
             currentController.InitializeController();
         }
 
@@ -149,11 +160,14 @@ namespace TheAdventuresOf
                                         AssetManager.Instance.controllerTexture);
 
             }
+
             currentController.InitializeController();
         }
 
         void loadPreLevelAssets() {
             Logger.WriteToConsole("Load PreLevel Assets");
+
+            showMouse = false;
 
             AssetManager.Instance.LoadPlayerAssets(graphicsDevice, currentLevelNumber);
             AssetManager.Instance.LoadPreLevelAssets(graphicsDevice, currentLevelNumber);
@@ -167,6 +181,8 @@ namespace TheAdventuresOf
         void loadStoreLevelAssets() {
             Logger.WriteToConsole("Load StoreLevel Assets");
 
+            showMouse = false;
+
             AssetManager.Instance.LoadPlayerAssets(graphicsDevice, currentLevelNumber);
             AssetManager.Instance.LoadStoreLevelAssets(graphicsDevice);
 
@@ -179,6 +195,8 @@ namespace TheAdventuresOf
         //only load level assets. will eventually have switch for level number
         void loadLevelAssets() {
             Logger.WriteToConsole("Load Level assets");
+
+            showMouse = false;
 
             AssetManager.Instance.LoadPlayerAssets(graphicsDevice, currentLevelNumber);
             AssetManager.Instance.LoadLevelAssets(graphicsDevice, contentManager, currentLevelNumber);
@@ -196,9 +214,16 @@ namespace TheAdventuresOf
             AssetManager.Instance.LoadPlayerAccessoryAssets(graphicsDevice, playerAccessories);
 
             foreach(Accessory accessory in playerAccessories) {
-                accessory.InitializeTexture(AssetManager.Instance.GetAccessoryTexture(accessory.name));
+                Texture2D texture = AssetManager.Instance.GetAccessoryTexture(accessory.name);
+
+                if (texture != null)
+                {
+                    accessory.InitializeTexture(texture);
+                } 
             }
 
+            //remove all accessories who don't have a texture before passing to player
+            playerAccessories.RemoveAll(accessory => accessory.accessoryTexture == null);
             PlayerManager.Instance.SetPlayerAccessories(playerAccessories);
         }
 
@@ -446,7 +471,7 @@ namespace TheAdventuresOf
         }
 
         public void Draw(GameTime gameTime) {
-            spriteBatch.Begin(transformMatrix: screenManager.scaleMatrix);
+            spriteBatch.Begin(transformMatrix: ScreenManager.scaleMatrix);
 
             switch(gameState) {
                 case SPLASH_STATE:

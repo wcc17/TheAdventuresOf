@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace TheAdventuresOf
 {
@@ -20,7 +22,7 @@ namespace TheAdventuresOf
         public Button chooseLevelButton;
         public bool chooseLevelButtonPressed;
         Texture2D chooseLevelButtonTexture;
-
+        
         /**
          * Must be called before InitializeController()
          */
@@ -75,6 +77,24 @@ namespace TheAdventuresOf
             playButton.Draw(spriteBatch, playButtonTexture);
 
             chooseLevelButton.Draw(spriteBatch, chooseLevelButtonTexture);
+        }
+
+        public override void HandleInputWindows()
+        {
+            MouseState mouseState = Mouse.GetState();
+            float mouseX = mouseState.X;
+            float mouseY = mouseState.Y;
+
+            if (CheckButtonInputWindows(mouseState, mouseX, mouseY, playButton)) {
+                isButtonPressed = true;
+                playButtonPressed = true;
+            }
+
+            if (CheckButtonInputWindows(mouseState, mouseX, mouseY, chooseLevelButton))
+            {
+                isButtonPressed = true;
+                chooseLevelButtonPressed = true;
+            }
         }
     }
 }

@@ -19,15 +19,19 @@ namespace TheAdventuresOf
 
 			Content.RootDirectory = "Content";
             XmlManager.GetXMLInformation();
-		}
 
-		/// <summary>
-		/// Allows the game to perform any initialization it needs to before starting to run.
-		/// This is where it can query for any required services and load any non-graphic
-		/// related content.  Calling base.Initialize will enumerate through any components
-		/// and initialize them as well.
-		/// </summary>
-		protected override void Initialize()
+#if !__IOS__ && !__TVOS__ && !__ANDROID__
+            graphics.IsFullScreen = true;
+#endif
+        }
+
+        /// <summary>
+        /// Allows the game to perform any initialization it needs to before starting to run.
+        /// This is where it can query for any required services and load any non-graphic
+        /// related content.  Calling base.Initialize will enumerate through any components
+        /// and initialize them as well.
+        /// </summary>
+        protected override void Initialize()
 		{
             gameManager = new GameManager(this.GraphicsDevice, Content);
             gameManager = XmlManager.LoadGameManagerInformation(gameManager);
@@ -58,7 +62,18 @@ namespace TheAdventuresOf
 				Exit();
 #endif
             gameManager.Update(gameTime, this.IsActive);
-			base.Update(gameTime);
+
+#if !__IOS__ && !__TVOS__ && !__ANDROID__
+            if(gameManager.showMouse)
+            {
+                IsMouseVisible = true;
+            } else
+            {
+                IsMouseVisible = false;
+            }
+#endif
+
+            base.Update(gameTime);
 		}
 
 		/// <summary>

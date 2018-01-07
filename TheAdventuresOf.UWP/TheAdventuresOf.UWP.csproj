@@ -107,12 +107,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\arial.spritefont">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Content\sword_1080p.png.OLD">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="Content\Game\arial.spritefont" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -122,105 +117,126 @@
     <None Include="TheAdventuresOf.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bilemonster_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\bile_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\blockmonster_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\bullet_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\cannonmonster_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\character_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\controller_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\dashmonster_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\emptyheart_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\flyingcannonmonster_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\heart_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\leftarrow_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\level1background_xbox_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\level1_music.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Menu\mainmenu_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Menu\mainmenu_music.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Menu\mainmenu_playbutton_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Menu\splash_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Menu\splash_iphone6plus.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Menu\splash_iphone6splus_old.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PreLevel\pre_level1_background_xbox_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\PreLevel\pre_level1_character_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\rightarrow_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\spikemonster_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\StoreLevel\store_level_character_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\StoreLevel\store_level_xbox_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\sunmonster_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\sword_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\uparrow_1080p.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\XML\CharacterInformation.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\XML\GameInformation.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\XML\LevelInformation.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\XML\ProjectileInformation.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Content\Game\button_1080p.png" />
+    <Content Include="Content\Game\coin_bronze_1080p.png" />
+    <Content Include="Content\Game\coin_gold_1080p.png" />
+    <Content Include="Content\Game\coin_silver_1080p.png" />
+    <Content Include="Content\Game\controller_1080p.png" />
+    <Content Include="Content\Game\emptyheart_1080p.png" />
+    <Content Include="Content\Game\heart_1080p.png" />
+    <Content Include="Content\Game\leftarrow_1080p.png" />
+    <Content Include="Content\Game\pause_1080p.png" />
+    <Content Include="Content\Game\pause_background_xbox_1080p.png" />
+    <Content Include="Content\Game\progressbar_1080p.png" />
+    <Content Include="Content\Game\progressbar_fill_1080p.png" />
+    <Content Include="Content\Game\quit_button_1080p.png" />
+    <Content Include="Content\Game\rightarrow_1080p.png" />
+    <Content Include="Content\Level\level1background_xbox_1080p.png" />
+    <Content Include="Content\Level\level1_music.mp3" />
+    <Content Include="Content\Level\level2background_xbox_1080p.png" />
+    <Content Include="Content\Level\level3background_xbox_1080p.png" />
+    <Content Include="Content\Level\level4background_xbox_1080p.png" />
+    <Content Include="Content\Level\level5background_xbox_1080p.png" />
+    <Content Include="Content\Level\level5_music.mp3" />
+    <Content Include="Content\Menu\choose\choosemenu_backarrow_1080p.png" />
+    <Content Include="Content\Menu\choose\choosemenu_leftarrow_1080p.png" />
+    <Content Include="Content\Menu\choose\choosemenu_playbutton_1080p.png" />
+    <Content Include="Content\Menu\choose\choosemenu_rightarrow_1080p.png" />
+    <Content Include="Content\Menu\choose\level1preview_1080p.png" />
+    <Content Include="Content\Menu\choose\level2preview_1080p.png" />
+    <Content Include="Content\Menu\choose\level3preview_1080p.png" />
+    <Content Include="Content\Menu\choose\level4preview_1080p.png" />
+    <Content Include="Content\Menu\choose\level5preview_1080p.png" />
+    <Content Include="Content\Menu\mainmenu_music.mp3" />
+    <Content Include="Content\Menu\main\mainmenu_1080p.png" />
+    <Content Include="Content\Menu\main\mainmenu_chooselevelbutton_1080p.png" />
+    <Content Include="Content\Menu\main\mainmenu_playbutton_1080p.png" />
+    <Content Include="Content\Menu\splash\splash_1080p.png" />
+    <Content Include="Content\Menu\splash\splash_iphone6plus.png" />
+    <Content Include="Content\Menu\splash\splash_iphone6splus_old.png" />
+    <Content Include="Content\Monster\Level1\bilemonster_1080p.png" />
+    <Content Include="Content\Monster\Level1\blockmonster_1080p.png" />
+    <Content Include="Content\Monster\Level1\cannonmonster_1080p.png" />
+    <Content Include="Content\Monster\Level1\dashmonster_1080p.png" />
+    <Content Include="Content\Monster\Level1\flyingcannonmonster_1080p.png" />
+    <Content Include="Content\Monster\Level1\spikemonster_1080p.png" />
+    <Content Include="Content\Monster\Level1\sunmonster_1080p.png" />
+    <Content Include="Content\Monster\Level1\swoopmonster_1080p.png" />
+    <Content Include="Content\Monster\Level1\undergroundmonster_1080p.png" />
+    <Content Include="Content\Monster\Level2\bilemonster_1080p.png" />
+    <Content Include="Content\Monster\Level2\blockmonster_1080p.png" />
+    <Content Include="Content\Monster\Level2\cannonmonster_1080p.png" />
+    <Content Include="Content\Monster\Level2\dashmonster_1080p.png" />
+    <Content Include="Content\Monster\Level2\flyingcannonmonster_1080p.png" />
+    <Content Include="Content\Monster\Level2\spikemonster_1080p.png" />
+    <Content Include="Content\Monster\Level2\sunmonster_1080p.png" />
+    <Content Include="Content\Monster\Level2\swoopmonster_1080p.png" />
+    <Content Include="Content\Monster\Level2\undergroundmonster_1080p.png" />
+    <Content Include="Content\Monster\Level3\bilemonster_1080p.png" />
+    <Content Include="Content\Monster\Level3\blockmonster_1080p.png" />
+    <Content Include="Content\Monster\Level3\cannonmonster_1080p.png" />
+    <Content Include="Content\Monster\Level3\dashmonster_1080p.png" />
+    <Content Include="Content\Monster\Level3\flyingcannonmonster_1080p.png" />
+    <Content Include="Content\Monster\Level3\spikemonster_1080p.png" />
+    <Content Include="Content\Monster\Level3\sunmonster_1080p.png" />
+    <Content Include="Content\Monster\Level3\swoopmonster_1080p.png" />
+    <Content Include="Content\Monster\Level3\undergroundmonster_1080p.png" />
+    <Content Include="Content\Monster\Level4\bilemonster_1080p.png" />
+    <Content Include="Content\Monster\Level4\blockmonster_1080p.png" />
+    <Content Include="Content\Monster\Level4\cannonmonster_1080p.png" />
+    <Content Include="Content\Monster\Level4\dashmonster_1080p.png" />
+    <Content Include="Content\Monster\Level4\flyingcannonmonster_1080p.png" />
+    <Content Include="Content\Monster\Level4\spikemonster_1080p.png" />
+    <Content Include="Content\Monster\Level4\sunmonster_1080p.png" />
+    <Content Include="Content\Monster\Level4\swoopmonster_1080p.png" />
+    <Content Include="Content\Monster\Level4\undergroundmonster_1080p.png" />
+    <Content Include="Content\Monster\Level5\bilemonster_1080p.png" />
+    <Content Include="Content\Monster\Level5\blockmonster_1080p.png" />
+    <Content Include="Content\Monster\Level5\cannonmonster_1080p.png" />
+    <Content Include="Content\Monster\Level5\dashmonster_1080p.png" />
+    <Content Include="Content\Monster\Level5\flyingcannonmonster_1080p.png" />
+    <Content Include="Content\Monster\Level5\spikemonster_1080p.png" />
+    <Content Include="Content\Monster\Level5\sunmonster_1080p.png" />
+    <Content Include="Content\Monster\Level5\swoopmonster_1080p.png" />
+    <Content Include="Content\Monster\Level5\undergroundmonster_1080p.png" />
+    <Content Include="Content\Player\level1_character_1080p.png" />
+    <Content Include="Content\Player\level2_character_1080p.png" />
+    <Content Include="Content\Player\level2_character_hat_1080p.png" />
+    <Content Include="Content\Player\level3_character_1080p.png" />
+    <Content Include="Content\Player\level3_character_hat_1080p.png" />
+    <Content Include="Content\Player\level4_character_1080p.png" />
+    <Content Include="Content\Player\level5_character_1080p.png" />
+    <Content Include="Content\Player\level5_character_aura_1080p.png" />
+    <Content Include="Content\Player\level5_character_hat_1080p.png" />
+    <Content Include="Content\Player\sword_1080p.png" />
+    <Content Include="Content\PreLevel\pre_level1background_xbox_1080p.png" />
+    <Content Include="Content\PreLevel\pre_level1character_1080p.png" />
+    <Content Include="Content\PreLevel\pre_level2background_xbox_1080p.png" />
+    <Content Include="Content\PreLevel\pre_level2character_1080p.png" />
+    <Content Include="Content\PreLevel\pre_level3background_xbox_1080p.png" />
+    <Content Include="Content\PreLevel\pre_level3character_1080p.png" />
+    <Content Include="Content\PreLevel\pre_level4background_xbox_1080p.png" />
+    <Content Include="Content\PreLevel\pre_level4character_1080p.png" />
+    <Content Include="Content\PreLevel\pre_level5background_xbox_1080p.png" />
+    <Content Include="Content\PreLevel\pre_level5character_1080p.png" />
+    <Content Include="Content\Projectile\bullet_1080p.png" />
+    <Content Include="Content\Projectile\level1_bile_1080p.png" />
+    <Content Include="Content\Projectile\level2_bile_1080p.png" />
+    <Content Include="Content\Projectile\level3_bile_1080p.png" />
+    <Content Include="Content\Projectile\level4_bile_1080p.png" />
+    <Content Include="Content\Projectile\level5_bile_1080p.png" />
+    <Content Include="Content\StoreLevel\store_level_character_1080p.png" />
+    <Content Include="Content\StoreLevel\store_level_xbox_1080p.png" />
+    <Content Include="Content\XML\CharacterInformation.xml" />
+    <Content Include="Content\XML\GameInformation.xml" />
+    <Content Include="Content\XML\Level\Level1Information.xml" />
+    <Content Include="Content\XML\Level\Level2Information.xml" />
+    <Content Include="Content\XML\Level\Level3Information.xml" />
+    <Content Include="Content\XML\Level\Level4Information.xml" />
+    <Content Include="Content\XML\Level\Level5Information.xml" />
+    <Content Include="Content\XML\PlayerInformation.xml" />
+    <Content Include="Content\XML\ProjectileInformation.xml" />
+    <Content Include="Content\XML\SpecialLevelInformation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

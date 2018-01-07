@@ -22,7 +22,7 @@ namespace TheAdventuresOf
         public bool drawBeforePlayer;
 
         public String name;
-        Texture2D accessoryTexture;
+        public Texture2D accessoryTexture;
         Vector2 positionVector;
         Vector2 originVector;
         Rectangle accessoryBounds;
