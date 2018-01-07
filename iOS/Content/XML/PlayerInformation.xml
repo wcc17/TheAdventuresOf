@@ -98,7 +98,7 @@
                 <OriginPosition>1</OriginPosition>
                 <DoesDamage>true</DoesDamage>
                 <TakesDamage>false</TakesDamage>
-                <DrawBeforePlayer>false></DrawBeforePlayer>
+                <DrawBeforePlayer>false</DrawBeforePlayer>
             </Accessory>
             <Accessory>
                 <Name>level5_character_hat</Name>
@@ -108,7 +108,17 @@
                 <OriginPosition>CENTER</OriginPosition>
                 <DoesDamage>false</DoesDamage>
                 <TakesDamage>false</TakesDamage>
-                <DrawBeforePlayer>false></DrawBeforePlayer>
+                <DrawBeforePlayer>false</DrawBeforePlayer>
+            </Accessory>
+            <Accessory>
+                <Name>level5_character_wings</Name>
+                <BaseXOffset>-3</BaseXOffset>
+                <XOffset>0</XOffset>
+                <YOffset>0</YOffset>
+                <OriginPosition>CENTER</OriginPosition>
+                <DoesDamage>false</DoesDamage>
+                <TakesDamage>false</TakesDamage>
+                <DrawBeforePlayer>false</DrawBeforePlayer>
             </Accessory>
             <!--<Accessory>
                 <Name>level5_character_aura</Name>

@@ -18,7 +18,8 @@ namespace TheAdventuresOf
         public bool isActiveArrowFlipped = false;
         public bool canPressButton = true;
 
-        public override void InitializeController() {
+        public override void InitializeController()
+        {
             base.InitializeController();
         }
 
@@ -28,12 +29,13 @@ namespace TheAdventuresOf
             this.buttonOutlineTexture = buttonOutlineTexture;
         }
 
-        public override void HandleInput(List<Point> points) {
-            #if __IOS__ || __ANDROID__
-                base.HandleInput(points);
-            #else
+        public override void HandleInput(List<Point> points)
+        {
+#if __IOS__ || __ANDROID__
+            base.HandleInput(points);
+#else
                 HandleInputWindows();
-            #endif
+#endif
         }
 
         public bool CheckButtonInputWindows(MouseState mouseState, float mouseX, float mouseY, Button button)
@@ -43,10 +45,11 @@ namespace TheAdventuresOf
 
         public void HandleButtonOutlinePositionChange()
         {
-            if(isActiveButtonArrow)
+            if (isActiveButtonArrow)
             {
                 currentOutlineTexture = arrowOutlineTexture;
-            } else
+            }
+            else
             {
                 currentOutlineTexture = buttonOutlineTexture;
             }
@@ -62,7 +65,8 @@ namespace TheAdventuresOf
         public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);
-            
+
+#if !__IOS__ && !__ANDROID__
             SpriteEffects flipTexture = SpriteEffects.None;
             if(isActiveArrowFlipped)
             {
@@ -70,6 +74,7 @@ namespace TheAdventuresOf
             }
 
             spriteBatch.Draw(currentOutlineTexture, outlinePositionVector, color: Color.White, effects: flipTexture);
+#endif
         }
 
         public virtual void HandleInputWindows() { }

@@ -42,7 +42,8 @@ namespace TheAdventuresOf
             this.chooseLevelButtonTexture = chooseLevelButtonTexture;
         }
 
-        public override void InitializeController() {
+        public override void InitializeController()
+        {
             base.InitializeController();
 
             playButton = new Button(playButtonTexture.Width,
@@ -55,10 +56,12 @@ namespace TheAdventuresOf
                                            chooseLevelButtonX,
                                            chooseLevelButtonY);
 
+#if !__IOS__ && !__ANDROID__
             activeButton = playButton;
             isActiveButtonArrow = false;
             isActiveArrowFlipped = false;
             HandleButtonOutlinePositionChange();
+#endif
         }
 
         public override void HandleSingleInput(Point point)
