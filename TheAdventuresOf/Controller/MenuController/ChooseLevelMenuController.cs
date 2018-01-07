@@ -81,10 +81,12 @@ namespace TheAdventuresOf
             leftArrowButton.buttonPositionVector.Y = (ScreenManager.FULL_SCREEN_HEIGHT / 2) - (rightArrowButtonTexture.Height / 2);
             leftArrowButton.ResetInitialPosition();
 
+#if !__IOS__ && !__ANDROID__
             activeButton = rightArrowButton;
             isActiveButtonArrow = true;
             isActiveArrowFlipped = true;
             HandleButtonOutlinePositionChange();
+#endif
         }
 
         public override void HandleSingleInput(Point point)

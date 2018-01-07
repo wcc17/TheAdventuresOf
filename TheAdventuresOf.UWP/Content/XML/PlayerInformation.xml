@@ -14,7 +14,7 @@
         <CollisionOffset>6</CollisionOffset>
             
         <SpawnStartX>-85</SpawnStartX>
-        <SpawnStartY>595</SpawnStartY>
+        <SpawnStartY>475</SpawnStartY>
         <SpawnXLimit>220</SpawnXLimit>
         <SpawnRotationSpeed>15</SpawnRotationSpeed>
         <SpawnFlipLimitDegrees>720</SpawnFlipLimitDegrees>
@@ -35,7 +35,7 @@
         </Level1>
 
         <Level2>
-			    <Accessory>
+		  <Accessory>
             <Name>sword</Name>
             <BaseXOffset>-3</BaseXOffset>
             <XOffset>-40</XOffset>

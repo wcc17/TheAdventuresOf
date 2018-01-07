@@ -259,7 +259,7 @@ namespace TheAdventuresOf
             }
 
             string pauseBackgroundPath = "pause_background_1080p.png";
-#if !__IOS__ || !__ANDROID__
+#if !__IOS__ && !__ANDROID__
             pauseBackgroundPath = "pause_background_xbox_1080p.png";
 #endif
             using (var stream = TitleContainer.OpenStream(gameFilePath + pauseBackgroundPath)) {
