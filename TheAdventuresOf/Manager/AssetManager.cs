@@ -265,8 +265,13 @@ namespace TheAdventuresOf
             using (var stream = TitleContainer.OpenStream(gameFilePath + pauseBackgroundPath)) {
                 pauseBackgroundTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "quit_button_1080p.png"))
+            {
+                quitButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
 
-            if(loadOnScreenController) {
+
+            if (loadOnScreenController) {
                 using (var stream = TitleContainer.OpenStream(gameFilePath + "controller_1080p.png")) {
                     controllerTexture = Texture2D.FromStream(graphicsDevice, stream);
                 }
@@ -281,9 +286,6 @@ namespace TheAdventuresOf
                 }
                 using (var stream = TitleContainer.OpenStream(gameFilePath + "pause_1080p.png")) {
                     pauseButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
-                }
-                using (var stream = TitleContainer.OpenStream(gameFilePath + "quit_button_1080p.png")) {
-                    quitButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
                 }
             }
         }
@@ -464,13 +466,15 @@ namespace TheAdventuresOf
 
         //TODO: this needs to be called somewhere when exiting the game
         public void DisposeGameAssets() {
+#if __IOS__ || __ANDROID__
             controllerTexture.Dispose();
-            progressBarTexture.Dispose();
-            progressBarFillTexture.Dispose();
             leftArrowButtonTexture.Dispose();
             rightArrowButtonTexture.Dispose();
             jumpButtonTexture.Dispose();
             pauseButtonTexture.Dispose();
+#endif
+            progressBarTexture.Dispose();
+            progressBarFillTexture.Dispose();
             pauseBackgroundTexture.Dispose();
             quitButtonTexture.Dispose();
 

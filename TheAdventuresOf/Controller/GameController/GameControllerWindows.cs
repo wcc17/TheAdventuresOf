@@ -3,16 +3,30 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace TheAdventuresOf
 {
     class GameControllerWindows : GameController {
 
+        public static Vector2 quitButtonPositionVector;
+        Texture2D quitButtonTexture;
+        Button quitButton;
         bool enterKeyPressed = false; //different from pauseButtonPressed to keep track of the enter keys last state
         ButtonState previousPauseButtonState = ButtonState.Released;
 
+        public void InitializeTextures(Texture2D quitButtonTexture)
+        {
+            this.quitButtonTexture = quitButtonTexture;
+        }
+
         public override void InitializeController() {
             base.InitializeController();
+
+            quitButton = new Button(quitButtonTexture.Width,
+                                                    quitButtonTexture.Height,
+                                                    quitButtonPositionVector.X,
+                                                    quitButtonPositionVector.Y);
         }
 
         public override void HandleInput(List<Point> points)
@@ -62,12 +76,31 @@ namespace TheAdventuresOf
                         handlePause();
                     }
                 }
+
+                //if already paused, and a button is pressed, quit to menu.
+                //TODO: need a confirmation message here before returning to menu
+                MouseState mouseState = Mouse.GetState();
+                if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed 
+                    || CheckButtonClicked(Mouse.GetState(), mouseState.X, mouseState.Y, quitButton))
+                {
+                    isButtonPressed = true;
+                    quitButtonPressed = true;
+                }
             }
 
             //remember current gamepad and keybaord state
             previousPauseButtonState = GamePad.GetState(PlayerIndex.One).Buttons.Start;
             enterKeyPressed = Keyboard.GetState().IsKeyDown(Keys.Enter);
 
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            base.Draw(spriteBatch);
+            if(isPaused)
+            {
+                spriteBatch.Draw(quitButtonTexture, quitButtonPositionVector, Color.White);
+            }
         }
 
         private void handlePause()

@@ -8,9 +8,6 @@ namespace TheAdventuresOf
 {
     public class MenuController : Controller
     {
-        //used to determine first time mouse button is clicked
-        private MouseState oldState;
-
         //these are only used on Windows
         Texture2D arrowOutlineTexture;
         Texture2D buttonOutlineTexture;
@@ -41,38 +38,7 @@ namespace TheAdventuresOf
 
         public bool CheckButtonInputWindows(MouseState mouseState, float mouseX, float mouseY, Button button)
         {
-            if (mouseState.LeftButton == ButtonState.Pressed && oldState.LeftButton == ButtonState.Released)
-            {
-                return CheckMouseInsideButton(mouseX, mouseY, button);
-            }
-
-            return false;
-        }
-
-        public bool CheckMouseInsideButton(float mouseX, float mouseY, Button button)
-        {
-            //scale mouseX and mouseY to whatever the current resolution is set to
-            Point unscaledPoint = new Point((int)mouseX, (int)mouseY);
-            Point scaledPoint = ScreenManager.GetScaledInputPoint(unscaledPoint);
-            mouseX = scaledPoint.X;
-            mouseY = scaledPoint.Y;
-
-            //Logger.WriteToConsole("-------------------------------");
-            //Logger.WriteToConsole("button (x, y): (" + button.buttonPositionVector.X + ", " + button.buttonPositionVector.Y + ")");
-            //Logger.WriteToConsole("MouseX Scaled: " + mouseX);
-            //Logger.WriteToConsole("MouseY Scaled: " + mouseY);
-            //Logger.WriteToConsole("-------------------------------");
-
-            if ((mouseX >= button.buttonPositionVector.X
-                    && mouseX <= (button.buttonPositionVector.X + button.buttonBounds.Width))
-                    && (mouseY >= button.buttonPositionVector.Y
-                    && mouseY <= (button.buttonPositionVector.Y + button.buttonBounds.Height)))
-            {
-                return true;
-            }
-
-            return false;
-
+            return CheckButtonClicked(mouseState, mouseX, mouseY, button);
         }
 
         public void HandleButtonOutlinePositionChange()
