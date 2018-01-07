@@ -8,6 +8,12 @@ namespace TheAdventuresOf
 {
     public class MainMenuController : MenuController
     {
+        public const int PLAY_BUTTON_ACTIVE = 0;
+        public const int CHOOSE_LEVEL_BUTTON_ACTIVE = 1;
+        public const int ACTIVE_BUTTON_INDEX_MIN = 0;
+        public const int ACTIVE_BUTTON_INDEX_MAX = 1;
+        int activeButtonIndex = 0;
+
         public static float playButtonX;
         public static float playButtonY;
         public static float chooseLevelButtonX;
@@ -26,9 +32,12 @@ namespace TheAdventuresOf
         /**
          * Must be called before InitializeController()
          */
-        public void InitializeTextures(Texture2D playButtonTexture, 
-                                       Texture2D chooseLevelButtonTexture)
+        public  void InitializeTextures(Texture2D playButtonTexture, 
+                                       Texture2D chooseLevelButtonTexture,
+                                       Texture2D arrowOutlineTexture,
+                                       Texture2D buttonOutlineTexture)
         {
+            InitializeOutlineTextures(arrowOutlineTexture, buttonOutlineTexture);
             this.playButtonTexture = playButtonTexture;
             this.chooseLevelButtonTexture = chooseLevelButtonTexture;
         }
@@ -45,6 +54,11 @@ namespace TheAdventuresOf
                                            chooseLevelButtonTexture.Height,
                                            chooseLevelButtonX,
                                            chooseLevelButtonY);
+
+            activeButton = playButton;
+            isActiveButtonArrow = false;
+            isActiveArrowFlipped = false;
+            HandleButtonOutlinePositionChange();
         }
 
         public override void HandleSingleInput(Point point)
@@ -73,6 +87,8 @@ namespace TheAdventuresOf
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            base.Draw(spriteBatch);
+
             //Draw player button
             playButton.Draw(spriteBatch, playButtonTexture);
 
@@ -81,11 +97,103 @@ namespace TheAdventuresOf
 
         public override void HandleInputWindows()
         {
+            HandleInputWindowsController();
+            HandleInputWindowsMouse();
+        }
+
+        public override void HandleInputWindowsController()
+        {
+            if(canPressButton)
+            {
+                HandleInputWindowsController_CanPressButton();
+            } else
+            {
+                HandleInputWindowsController_WaitForRelease();
+            }
+            
+        }
+
+        public override void HandleInputWindowsController_CanPressButton()
+        {
+            bool gamePadButtonPressed = false;
+            if (GamePad.GetState(PlayerIndex.One).DPad.Down == ButtonState.Pressed)
+            {
+                activeButtonIndex++;
+                if (activeButtonIndex > ACTIVE_BUTTON_INDEX_MAX)
+                {
+                    activeButtonIndex = ACTIVE_BUTTON_INDEX_MAX;
+                }
+
+                gamePadButtonPressed = true;
+                canPressButton = false;
+            }
+            if (GamePad.GetState(PlayerIndex.One).DPad.Up == ButtonState.Pressed)
+            {
+                activeButtonIndex--;
+                if (activeButtonIndex < ACTIVE_BUTTON_INDEX_MIN)
+                {
+                    activeButtonIndex = ACTIVE_BUTTON_INDEX_MIN;
+                }
+                gamePadButtonPressed = true;
+                canPressButton = false;
+            }
+            if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed)
+            {
+                gamePadButtonPressed = false;
+                switch (activeButtonIndex)
+                {
+                    case PLAY_BUTTON_ACTIVE:
+                        isButtonPressed = true;
+                        playButtonPressed = true;
+                        break;
+                    case CHOOSE_LEVEL_BUTTON_ACTIVE:
+                        isButtonPressed = true;
+                        chooseLevelButtonPressed = true;
+                        break;
+                }
+            }
+
+            if (gamePadButtonPressed)
+            {
+                switch (activeButtonIndex)
+                {
+                    case PLAY_BUTTON_ACTIVE:
+                        activeButton = playButton;
+                        isActiveButtonArrow = false;
+                        break;
+                    case CHOOSE_LEVEL_BUTTON_ACTIVE:
+                        activeButton = chooseLevelButton;
+                        isActiveButtonArrow = false;
+                        break;
+                }
+
+                HandleButtonOutlinePositionChange();
+                gamePadButtonPressed = false;
+            }
+        }
+
+        public override void HandleInputWindowsController_WaitForRelease()
+        {
+            bool upButtonPressedAndReleased = (activeButtonIndex == PLAY_BUTTON_ACTIVE)
+                && GamePad.GetState(PlayerIndex.One).DPad.Up == ButtonState.Released;
+            bool downButtonPressedAndReleased = (activeButtonIndex == CHOOSE_LEVEL_BUTTON_ACTIVE)
+                && GamePad.GetState(PlayerIndex.One).DPad.Down == ButtonState.Released;
+
+            if(upButtonPressedAndReleased
+                || downButtonPressedAndReleased)
+            {
+                canPressButton = true;
+            }
+        }
+
+        public override void HandleInputWindowsMouse()
+        {
             MouseState mouseState = Mouse.GetState();
             float mouseX = mouseState.X;
             float mouseY = mouseState.Y;
 
-            if (CheckButtonInputWindows(mouseState, mouseX, mouseY, playButton)) {
+            if (CheckButtonInputWindows(mouseState, mouseX, mouseY, playButton))
+            {
                 isButtonPressed = true;
                 playButtonPressed = true;
             }
@@ -95,6 +203,7 @@ namespace TheAdventuresOf
                 isButtonPressed = true;
                 chooseLevelButtonPressed = true;
             }
+
         }
     }
 }

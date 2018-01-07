@@ -138,7 +138,9 @@
     <Content Include="Content\Level\level4background_xbox_1080p.png" />
     <Content Include="Content\Level\level5background_xbox_1080p.png" />
     <Content Include="Content\Level\level5_music.mp3" />
+    <Content Include="Content\Menu\choose\choosemenu_arrowoutline_1080p.png" />
     <Content Include="Content\Menu\choose\choosemenu_backarrow_1080p.png" />
+    <Content Include="Content\Menu\choose\choosemenu_buttonoutline_1080p.png" />
     <Content Include="Content\Menu\choose\choosemenu_leftarrow_1080p.png" />
     <Content Include="Content\Menu\choose\choosemenu_playbutton_1080p.png" />
     <Content Include="Content\Menu\choose\choosemenu_rightarrow_1080p.png" />
@@ -149,6 +151,8 @@
     <Content Include="Content\Menu\choose\level5preview_1080p.png" />
     <Content Include="Content\Menu\mainmenu_music.mp3" />
     <Content Include="Content\Menu\main\mainmenu_1080p.png" />
+    <Content Include="Content\Menu\main\mainmenu_arrowoutline_1080p.png" />
+    <Content Include="Content\Menu\main\mainmenu_buttonoutline_1080p.png" />
     <Content Include="Content\Menu\main\mainmenu_chooselevelbutton_1080p.png" />
     <Content Include="Content\Menu\main\mainmenu_playbutton_1080p.png" />
     <Content Include="Content\Menu\splash\splash_1080p.png" />

@@ -11,8 +11,24 @@ namespace TheAdventuresOf
         //used to determine first time mouse button is clicked
         private MouseState oldState;
 
+        //these are only used on Windows
+        Texture2D arrowOutlineTexture;
+        Texture2D buttonOutlineTexture;
+        Texture2D currentOutlineTexture;
+        public Vector2 outlinePositionVector;
+        public Button activeButton = null;
+        public bool isActiveButtonArrow = false;
+        public bool isActiveArrowFlipped = false;
+        public bool canPressButton = true;
+
         public override void InitializeController() {
             base.InitializeController();
+        }
+
+        public void InitializeOutlineTextures(Texture2D arrowOutlineTexture, Texture2D buttonOutlineTexture)
+        {
+            this.arrowOutlineTexture = arrowOutlineTexture;
+            this.buttonOutlineTexture = buttonOutlineTexture;
         }
 
         public override void HandleInput(List<Point> points) {
@@ -22,8 +38,6 @@ namespace TheAdventuresOf
                 HandleInputWindows();
             #endif
         }
-
-        public virtual void HandleInputWindows() { }
 
         public bool CheckButtonInputWindows(MouseState mouseState, float mouseX, float mouseY, Button button)
         {
@@ -52,5 +66,42 @@ namespace TheAdventuresOf
 
             return false;
         }
+
+        public void HandleButtonOutlinePositionChange()
+        {
+            if(isActiveButtonArrow)
+            {
+                currentOutlineTexture = arrowOutlineTexture;
+            } else
+            {
+                currentOutlineTexture = buttonOutlineTexture;
+            }
+
+            float activeButtonX = activeButton.buttonPositionVector.X;
+            float activeButtonY = activeButton.buttonPositionVector.Y;
+            float widthDiff = activeButton.buttonBounds.Width - currentOutlineTexture.Width;
+            float heightDiff = activeButton.buttonBounds.Height - currentOutlineTexture.Height;
+
+            outlinePositionVector = new Vector2(activeButtonX + (widthDiff / 2), activeButtonY + (heightDiff / 2));
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            base.Draw(spriteBatch);
+            
+            SpriteEffects flipTexture = SpriteEffects.None;
+            if(isActiveArrowFlipped)
+            {
+                flipTexture = SpriteEffects.FlipHorizontally;
+            }
+
+            spriteBatch.Draw(currentOutlineTexture, outlinePositionVector, color: Color.White, effects: flipTexture);
+        }
+
+        public virtual void HandleInputWindows() { }
+        public virtual void HandleInputWindowsController() { }
+        public virtual void HandleInputWindowsController_WaitForRelease() { }
+        public virtual void HandleInputWindowsController_CanPressButton() { }
+        public virtual void HandleInputWindowsMouse() { }
     }
 }
