@@ -41,6 +41,8 @@ namespace TheAdventuresOf
 
         public void Update(GameTime gameTime, ChooseLevelMenuController chooseLevelMenuController)
         {
+            chooseLevelMenuController.Update(gameTime);
+
             if (!disableButtonPress)
             {
                 if (chooseLevelMenuController.chooseButtonPressed)

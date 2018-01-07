@@ -21,7 +21,8 @@ namespace TheAdventuresOf
             XmlManager.GetXMLInformation();
 
 #if !__IOS__ && !__TVOS__ && !__ANDROID__
-            graphics.IsFullScreen = true;
+            //TODO: keyboard is really weird in fullscreen mode
+            //graphics.IsFullScreen = true;
 #endif
         }
 

@@ -108,7 +108,9 @@ namespace TheAdventuresOf
             XmlManager.LoadMainMenuInformation();
             ((MainMenuController)currentController)
                 .InitializeTextures(AssetManager.Instance.playButtonTexture,
-                                    AssetManager.Instance.chooseLevelButtonTexture);
+                                    AssetManager.Instance.chooseLevelButtonTexture,
+                                    AssetManager.Instance.arrowOutlineTexture,
+                                    AssetManager.Instance.buttonOutlineTexture);
             currentController.InitializeController();
         }
 

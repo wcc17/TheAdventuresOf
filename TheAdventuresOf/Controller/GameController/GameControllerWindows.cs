@@ -8,64 +8,72 @@ namespace TheAdventuresOf
 {
     class GameControllerWindows : GameController {
 
-        bool pauseAlreadyPressed;
-        Texture2D buttonOutlineTexture;
-        Texture2D arrowOutlineTexture;
+        bool enterKeyPressed = false; //different from pauseButtonPressed to keep track of the enter keys last state
+        ButtonState previousPauseButtonState = ButtonState.Released;
 
         public override void InitializeController() {
             base.InitializeController();
         }
 
-        public void InitializeTextures()
-        {
-
-        }
-
         public override void HandleInput(List<Point> points)
         {
-            if(!pauseAlreadyPressed)
+            if (!isPaused)
             {
-                HandleInputGamePlay(points);
-            } else if(!isButtonPressed)
-            {
-                pauseAlreadyPressed = false;
-            }
-        }
-
-        public void HandleInputGamePlay(List<Point> points) {
-           
-            if(!isPaused)
-            {
+                //go left when one of the buttons is pressed
                 if (GamePad.GetState(PlayerIndex.One).DPad.Left == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Left))
                 {
                     isButtonPressed = true;
                     leftButtonPressed = true;
                 }
-
+                //go right when one of the buttons is pressed
                 if (GamePad.GetState(PlayerIndex.One).DPad.Right == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Right))
                 {
+                    Logger.WriteToConsole("keyboard state: " + Keyboard.GetState().IsKeyDown(Keys.Right));
+                    Logger.WriteToConsole("button state: " + (GamePad.GetState(PlayerIndex.One).DPad.Right == ButtonState.Pressed));
                     isButtonPressed = true;
                     rightButtonPressed = true;
                 }
-
+                //jump when one of these buttons is pressed
                 if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Space))
                 {
                     isButtonPressed = true;
                     jumpButtonPressed = true;
                 }
 
-                if (GamePad.GetState(PlayerIndex.One).Buttons.Start == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Enter))
+                //handle pause button
+                ButtonState pauseButtonState = GamePad.GetState(PlayerIndex.One).Buttons.Start;
+                bool enterKeyState = Keyboard.GetState().IsKeyDown(Keys.Enter);
+                if ((pauseButtonState == ButtonState.Pressed || enterKeyState == true) //make sure pause button is pressed
+                    && ((previousPauseButtonState == ButtonState.Released) && (enterKeyPressed == false))) //make sure both enter key and start button weren't pressed in last frame
                 {
-                    isButtonPressed = true;
-                    pauseButtonPressed = true;
+                    handlePause();
                 }
-            } else
-            {
-                //handle quit button
-            }
-            
 
-            //TODO: handle pause button on windows
+            }
+            else if (isPaused)
+            {
+                //check if gamepad button is pressed or if enter key is pressed
+                if ((GamePad.GetState(PlayerIndex.One).Buttons.Start == ButtonState.Pressed) || Keyboard.GetState().IsKeyDown(Keys.Enter))
+                {
+                    //make sure gamepad button and enter key wasn't pressed in the previous frame
+                    if (previousPauseButtonState == ButtonState.Released && enterKeyPressed == false)
+                    {
+                        //unpause
+                        handlePause();
+                    }
+                }
+            }
+
+            //remember current gamepad and keybaord state
+            previousPauseButtonState = GamePad.GetState(PlayerIndex.One).Buttons.Start;
+            enterKeyPressed = Keyboard.GetState().IsKeyDown(Keys.Enter);
+
+        }
+
+        private void handlePause()
+        {
+            isButtonPressed = true;
+            pauseButtonPressed = true;
         }
     }
 }

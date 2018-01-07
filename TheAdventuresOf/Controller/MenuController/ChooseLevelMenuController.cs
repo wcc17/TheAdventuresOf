@@ -27,9 +27,6 @@ namespace TheAdventuresOf
         public bool backArrowButtonPressed;
         Texture2D backArrowButtonTexture;
 
-        Texture2D arrowOutlineTexture;
-        Texture2D buttonOutlineTexture;
-
         /**
          * Must be called before InitializeController()
          */
@@ -40,12 +37,12 @@ namespace TheAdventuresOf
                                        Texture2D arrowOutlineTexture,
                                        Texture2D buttonOutlineTexture)
         {
+            InitializeOutlineTextures(arrowOutlineTexture, buttonOutlineTexture);
+
             this.chooseButtonTexture = chooseButtonTexture;
             this.rightArrowButtonTexture = rightArrowButtonTexture;
             this.leftArrowButtonTexture = leftArrowButtonTexture;
             this.backArrowButtonTexture = backArrowButtonTexture;
-            this.arrowOutlineTexture = arrowOutlineTexture;
-            this.buttonOutlineTexture = buttonOutlineTexture;
         }
 
         public override void InitializeController()
@@ -83,6 +80,11 @@ namespace TheAdventuresOf
             leftArrowButton.buttonPositionVector.X = buttonOffset;
             leftArrowButton.buttonPositionVector.Y = (ScreenManager.FULL_SCREEN_HEIGHT / 2) - (rightArrowButtonTexture.Height / 2);
             leftArrowButton.ResetInitialPosition();
+
+            activeButton = rightArrowButton;
+            isActiveButtonArrow = true;
+            isActiveArrowFlipped = true;
+            HandleButtonOutlinePositionChange();
         }
 
         public override void HandleSingleInput(Point point)
@@ -131,6 +133,8 @@ namespace TheAdventuresOf
 
         public override void Draw(SpriteBatch spriteBatch)
         {
+            base.Draw(spriteBatch);
+
             //Draw player button
             chooseButton.Draw(spriteBatch, chooseButtonTexture);
             backArrowButton.Draw(spriteBatch, backArrowButtonTexture);
@@ -139,6 +143,102 @@ namespace TheAdventuresOf
         }
 
         public override void HandleInputWindows()
+        {
+            HandleInputWindowsController();
+            HandleInputWindowsMouse();
+        }
+
+        public override void HandleInputWindowsController()
+        {
+            if(canPressButton)
+            {
+                HandleInputWindowsController_CanPressButton();
+            } else
+            {
+                HandleInputWindowsController_WaitForRelease();
+            }
+        }
+        
+        public override void HandleInputWindowsController_CanPressButton()
+        {
+            if (GamePad.GetState(PlayerIndex.One).DPad.Left == ButtonState.Pressed)
+            {
+                activeButton = leftArrowButton;
+                isActiveButtonArrow = true;
+                isActiveArrowFlipped = false;
+                HandleButtonOutlinePositionChange();
+                canPressButton = false;
+            }
+            if (GamePad.GetState(PlayerIndex.One).DPad.Right == ButtonState.Pressed)
+            {
+                activeButton = rightArrowButton;
+                isActiveButtonArrow = true;
+                isActiveArrowFlipped = true;
+                HandleButtonOutlinePositionChange();
+                canPressButton = false;
+            }
+            if (GamePad.GetState(PlayerIndex.One).DPad.Down == ButtonState.Pressed)
+            {
+                activeButton = chooseButton;
+                isActiveButtonArrow = false;
+                isActiveArrowFlipped = false;
+                HandleButtonOutlinePositionChange();
+                canPressButton = false;
+            }
+            if (GamePad.GetState(PlayerIndex.One).DPad.Up == ButtonState.Pressed)
+            {
+                activeButton = backArrowButton;
+                isActiveButtonArrow = true;
+                isActiveArrowFlipped = false;
+                HandleButtonOutlinePositionChange();
+                canPressButton = false;
+            }
+            if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed)
+            {
+                if (activeButton.Equals(leftArrowButton))
+                {
+                    isButtonPressed = true;
+                    leftArrowButtonPressed = true;
+                }
+                else if (activeButton.Equals(rightArrowButton))
+                {
+                    isButtonPressed = true;
+                    rightArrowButtonPressed = true;
+                }
+                else if (activeButton.Equals(backArrowButton))
+                {
+                    isButtonPressed = true;
+                    backArrowButtonPressed = true;
+                }
+                else if (activeButton.Equals(chooseButton))
+                {
+                    isButtonPressed = true;
+                    chooseButtonPressed = true;
+                }
+            }
+        }
+
+        public override void HandleInputWindowsController_WaitForRelease()
+        {
+            bool leftButtonPressedAndReleased = activeButton.Equals(leftArrowButton)
+                        && GamePad.GetState(PlayerIndex.One).DPad.Left == ButtonState.Released;
+            bool rightButtonPressedAndReleased = activeButton.Equals(rightArrowButton)
+                    && GamePad.GetState(PlayerIndex.One).DPad.Right == ButtonState.Released;
+            bool upButtonPressedAndReleased = activeButton.Equals(backArrowButton)
+                && GamePad.GetState(PlayerIndex.One).DPad.Up == ButtonState.Released;
+            bool downButtonPressedAndReleased = activeButton.Equals(chooseButton)
+                && GamePad.GetState(PlayerIndex.One).DPad.Up == ButtonState.Released;
+
+            if (leftButtonPressedAndReleased
+                || rightButtonPressedAndReleased
+                || upButtonPressedAndReleased
+                || downButtonPressedAndReleased)
+            {
+                canPressButton = true;
+            }
+        }
+
+        public override void HandleInputWindowsMouse()
         {
             MouseState mouseState = Mouse.GetState();
             float mouseX = mouseState.X;
