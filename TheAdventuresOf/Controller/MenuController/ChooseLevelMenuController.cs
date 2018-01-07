@@ -163,34 +163,22 @@ namespace TheAdventuresOf
         {
             if (GamePad.GetState(PlayerIndex.One).DPad.Left == ButtonState.Pressed)
             {
-                activeButton = leftArrowButton;
-                isActiveButtonArrow = true;
-                isActiveArrowFlipped = false;
-                HandleButtonOutlinePositionChange();
+                activateLeftArrowButton();
                 canPressButton = false;
             }
             if (GamePad.GetState(PlayerIndex.One).DPad.Right == ButtonState.Pressed)
             {
-                activeButton = rightArrowButton;
-                isActiveButtonArrow = true;
-                isActiveArrowFlipped = true;
-                HandleButtonOutlinePositionChange();
+                activateRightArrowButton();
                 canPressButton = false;
             }
             if (GamePad.GetState(PlayerIndex.One).DPad.Down == ButtonState.Pressed)
             {
-                activeButton = chooseButton;
-                isActiveButtonArrow = false;
-                isActiveArrowFlipped = false;
-                HandleButtonOutlinePositionChange();
+                activateChooseButton();
                 canPressButton = false;
             }
             if (GamePad.GetState(PlayerIndex.One).DPad.Up == ButtonState.Pressed)
             {
-                activeButton = backArrowButton;
-                isActiveButtonArrow = true;
-                isActiveArrowFlipped = false;
-                HandleButtonOutlinePositionChange();
+                activateBackArrowButton();
                 canPressButton = false;
             }
             if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed)
@@ -264,6 +252,55 @@ namespace TheAdventuresOf
                 isButtonPressed = true;
                 backArrowButtonPressed = true;
             }
+
+            if(CheckMouseInsideButton(mouseX, mouseY, chooseButton))
+            {
+                activateChooseButton();
+            }
+            if (CheckMouseInsideButton(mouseX, mouseY, leftArrowButton))
+            {
+                activateLeftArrowButton();
+            }
+            if (CheckMouseInsideButton(mouseX, mouseY, rightArrowButton))
+            {
+                activateRightArrowButton();
+            }
+            if (CheckMouseInsideButton(mouseX, mouseY, backArrowButton))
+            {
+                activateBackArrowButton();
+            }
+        }
+
+        private void activateChooseButton()
+        {
+            activeButton = chooseButton;
+            isActiveButtonArrow = false;
+            isActiveArrowFlipped = false;
+            HandleButtonOutlinePositionChange();
+        }
+
+        private void activateLeftArrowButton()
+        {
+            activeButton = leftArrowButton;
+            isActiveButtonArrow = true;
+            isActiveArrowFlipped = false;
+            HandleButtonOutlinePositionChange();
+        }
+
+        private void activateRightArrowButton()
+        {
+            activeButton = rightArrowButton;
+            isActiveButtonArrow = true;
+            isActiveArrowFlipped = true;
+            HandleButtonOutlinePositionChange();
+        }
+
+        private void activateBackArrowButton()
+        {
+            activeButton = backArrowButton;
+            isActiveButtonArrow = true;
+            isActiveArrowFlipped = false;
+            HandleButtonOutlinePositionChange();
         }
     }
 }
