@@ -62,10 +62,23 @@ namespace TheAdventuresOf
         public void Draw(SpriteBatch spriteBatch) 
         {
             CoinManager.Instance.Draw(spriteBatch);
+
+            foreach (Accessory accessory in accessories)
+            {
+                if(accessory.drawBeforePlayer)
+                {
+                    accessory.Draw(spriteBatch, player.moveLeft);
+                }
+            }
+
             player.Draw(spriteBatch, AssetManager.Instance.playerTexture);
 
-            foreach (Accessory accessory in accessories) {
-                accessory.Draw(spriteBatch, player.moveLeft);
+            foreach (Accessory accessory in accessories)
+            {
+                if(!accessory.drawBeforePlayer)
+                {
+                    accessory.Draw(spriteBatch, player.moveLeft);
+                }
             }
         }
 

@@ -213,6 +213,7 @@
     <Content Include="Content\Player\level5_character_1080p.png" />
     <Content Include="Content\Player\level5_character_aura_1080p.png" />
     <Content Include="Content\Player\level5_character_hat_1080p.png" />
+    <Content Include="Content\Player\level5_character_wings_1080p.png" />
     <Content Include="Content\Player\sword_1080p.png" />
     <Content Include="Content\PreLevel\pre_level1background_xbox_1080p.png" />
     <Content Include="Content\PreLevel\pre_level1character_1080p.png" />
