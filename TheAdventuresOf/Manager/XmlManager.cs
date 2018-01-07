@@ -70,6 +70,7 @@ namespace TheAdventuresOf
 			GameControllerMobile.jumpButtonPositionVector = new Vector2(jumpButtonX, jumpButtonY);
             GameControllerMobile.pauseButtonPositionVector = new Vector2(pauseButtonX, pauseButtonY);
             GameControllerMobile.quitButtonPositionVector = new Vector2(quitButtonX, quitButtonY);
+            GameControllerWindows.quitButtonPositionVector = new Vector2(quitButtonX, quitButtonY);
     
             //TODO: should be in its own method
             Text.textFloatSpeed = (float)scoringElement.Element("TextFloatSpeed");

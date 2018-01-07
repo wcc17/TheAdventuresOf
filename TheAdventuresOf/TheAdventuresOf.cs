@@ -9,6 +9,7 @@ namespace TheAdventuresOf
 	/// </summary>
 	public class TheAdventuresOf : Game
 	{
+        public static bool showMouse;
         GraphicsDeviceManager graphics;
         GameManager gameManager;
 
@@ -65,13 +66,7 @@ namespace TheAdventuresOf
             gameManager.Update(gameTime, this.IsActive);
 
 #if !__IOS__ && !__TVOS__ && !__ANDROID__
-            if(gameManager.showMouse)
-            {
-                IsMouseVisible = true;
-            } else
-            {
-                IsMouseVisible = false;
-            }
+            IsMouseVisible = showMouse;
 #endif
 
             base.Update(gameTime);

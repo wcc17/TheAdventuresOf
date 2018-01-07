@@ -41,10 +41,7 @@ namespace TheAdventuresOf
         bool chooseLevelMenuAssetsLoaded;
         bool mainMenuAssetsLoaded;
 
-
         Controller currentController;
-
-        public bool showMouse = false;
 
         public float splashTimeLimit;
         public float pausedTextVectorXOffset;
@@ -81,7 +78,7 @@ namespace TheAdventuresOf
         void loadSplashScreen() {
             Logger.WriteToConsole("Load splash screen");
 
-            showMouse = false;
+            TheAdventuresOf.showMouse = false;
             AssetManager.Instance.LoadSplashAssets(graphicsDevice, contentManager);
 
             gameState = SPLASH_STATE;
@@ -93,7 +90,7 @@ namespace TheAdventuresOf
         void loadMainMenu() {
             Logger.WriteToConsole("Load Main Menu");
 
-            showMouse = true;
+            TheAdventuresOf.showMouse = true;
 
             if(!mainMenuAssetsLoaded) {
                 AssetManager.Instance.LoadMainMenuAssets(graphicsDevice);
@@ -117,7 +114,7 @@ namespace TheAdventuresOf
         void loadChooseLevelMenu() {
             Logger.WriteToConsole("Load Choose Level Menu");
 
-            showMouse = true;
+            TheAdventuresOf.showMouse = true;
 
             if(!chooseLevelMenuAssetsLoaded) {
                 AssetManager.Instance.LoadChooseLevelMenuAssets(graphicsDevice, levelNumberLimit);
@@ -161,6 +158,9 @@ namespace TheAdventuresOf
                                         AssetManager.Instance.quitButtonTexture,
                                         AssetManager.Instance.controllerTexture);
 
+            } else if(currentController is GameControllerWindows)
+            {
+                ((GameControllerWindows)currentController).InitializeTextures(AssetManager.Instance.quitButtonTexture);
             }
 
             currentController.InitializeController();
@@ -169,7 +169,7 @@ namespace TheAdventuresOf
         void loadPreLevelAssets() {
             Logger.WriteToConsole("Load PreLevel Assets");
 
-            showMouse = false;
+            TheAdventuresOf.showMouse = false;
 
             AssetManager.Instance.LoadPlayerAssets(graphicsDevice, currentLevelNumber);
             AssetManager.Instance.LoadPreLevelAssets(graphicsDevice, currentLevelNumber);
@@ -183,7 +183,7 @@ namespace TheAdventuresOf
         void loadStoreLevelAssets() {
             Logger.WriteToConsole("Load StoreLevel Assets");
 
-            showMouse = false;
+            TheAdventuresOf.showMouse = false;
 
             AssetManager.Instance.LoadPlayerAssets(graphicsDevice, currentLevelNumber);
             AssetManager.Instance.LoadStoreLevelAssets(graphicsDevice);
@@ -198,7 +198,7 @@ namespace TheAdventuresOf
         void loadLevelAssets() {
             Logger.WriteToConsole("Load Level assets");
 
-            showMouse = false;
+            TheAdventuresOf.showMouse = false;
 
             AssetManager.Instance.LoadPlayerAssets(graphicsDevice, currentLevelNumber);
             AssetManager.Instance.LoadLevelAssets(graphicsDevice, contentManager, currentLevelNumber);
@@ -361,6 +361,8 @@ namespace TheAdventuresOf
             }
 
             if(!gameController.isPaused) {
+                TheAdventuresOf.showMouse = false;
+
                 switch(gameState) {
                     case PRE_LEVEL_STATE:
                         updatePreLevel(gameTime);
@@ -373,6 +375,8 @@ namespace TheAdventuresOf
                         break;
                 }
             } else {
+                TheAdventuresOf.showMouse = true;
+
                 if(gameController.quitButtonPressed) {
                     handleQuitToMenu();
                 }
