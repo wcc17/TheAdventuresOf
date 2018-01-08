@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Game>
 	<Coin>
-	    <CoinDropSpeed>275</CoinDropSpeed>
-	    <CoinFloatSpeed>400</CoinFloatSpeed>
+	  <CoinDropSpeed>275</CoinDropSpeed>
+	  <CoinFloatSpeed>400</CoinFloatSpeed>
 		<CoinFloatLimit>100</CoinFloatLimit>
 		<CoinFadeSpeed>1.3</CoinFadeSpeed>
 		<CoinFlickerSpeed>6</CoinFlickerSpeed>
@@ -12,24 +12,47 @@
 	</Coin>
 	
 	<CoinManager>
-        <CoinXSpacing>25</CoinXSpacing>
-	    <CoinYOffset>45</CoinYOffset>
-        
+    <CoinXSpacing>25</CoinXSpacing>
+	  <CoinYOffset>45</CoinYOffset>
 		<CoinCountSymbolXOffset>300</CoinCountSymbolXOffset>
 		<CoinCountSymbolY>100</CoinCountSymbolY>
 		<CoinCountY>100</CoinCountY>
-		
-		<!-- TODO: should I be changing these level to level? If so they should be in another xml file with the levels -->
-	    <RandomCoinLimitBronze>6</RandomCoinLimitBronze>
+	  <RandomCoinLimitBronze>6</RandomCoinLimitBronze>
 		<RandomCoinLimitSilver>9</RandomCoinLimitSilver>  
 		<RandomCoinLimitGold>10</RandomCoinLimitGold>  
 	</CoinManager>
+
+  <Heart>
+    <HeartDropSpeed>275</HeartDropSpeed>
+    <HeartFloatSpeed>400</HeartFloatSpeed>
+    <HeartFloatLimit>100</HeartFloatLimit>
+    <HeartFadeSpeed>1.3</HeartFadeSpeed>
+    <HeartFlickerSpeed>6</HeartFlickerSpeed>
+    <HeartFlickerLimit>25</HeartFlickerLimit>
+    <HeartFlickerIncreaseAmount>1</HeartFlickerIncreaseAmount>
+    <HeartDisappearTimeLimit>4</HeartDisappearTimeLimit>
+  </Heart>
+
+  <HeartManager>
+    <HeartXSpacing>25</HeartXSpacing>
+    <HeartYOffset>45</HeartYOffset>
+    <HeartCountSymbolXOffset>300</HeartCountSymbolXOffset>
+    <HeartCountSymbolY>100</HeartCountSymbolY>
+    <HeartCountY>100</HeartCountY>
+    
+    <HeartHealthValue>50</HeartHealthValue>
+    <SmallHeartHealthValue>10</SmallHeartHealthValue>
+    <SmallHeartChance>20</SmallHeartChance> <!-- whole number percent value. if 15, then 15% chance-->
+    <HeartChance>5</HeartChance>
+    <SmallHeartLimit>3</SmallHeartLimit>
+    <HeartLimit>1</HeartLimit>
+  </HeartManager>
 		
 	<GameManager>
-        <SplashTimeLimit>2.5</SplashTimeLimit>
+    <SplashTimeLimit>2.5</SplashTimeLimit>
 		<PausedTextVectorXOffset>40</PausedTextVectorXOffset>
 		<TotalScoreTextX>1625</TotalScoreTextX>
-        <TotalScoreTextY>50</TotalScoreTextY>
+    <TotalScoreTextY>50</TotalScoreTextY>
 	</GameManager>
 
 	<!-- TODO: THIS WILL BE A NIGHTMARE WHEN CHANGING RESOLUTIONS?? probably not with the scaling stuff -->
@@ -43,9 +66,9 @@
 		<UpButtonX>1650</UpButtonX>
 		<UpButtonY>865</UpButtonY>
 		<JumpButtonX>1650</JumpButtonX>
-        <JumpButtonY>865</JumpButtonY>
-        <PauseButtonX>900</PauseButtonX>
-        <PauseButtonY>915</PauseButtonY>
+    <JumpButtonY>865</JumpButtonY>
+    <PauseButtonX>900</PauseButtonX>
+    <PauseButtonY>915</PauseButtonY>
 		<QuitButtonX>700</QuitButtonX>
 		<QuitButtonY>300</QuitButtonY>
 	</GameController>
@@ -57,7 +80,7 @@
 		<TextFontScale> 0.70</TextFontScale>
 		<TextPositionOffset>20</TextPositionOffset>
 		<BlockMonster>100</BlockMonster>
-		<SunMonster>150</SunMonster>
+		<SunMonster>125</SunMonster>
 		<BileMonster>200</BileMonster>
 		<DashMonster>275</DashMonster>
 		<GroundCannonMonster>300</GroundCannonMonster>

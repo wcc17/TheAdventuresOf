@@ -222,6 +222,7 @@
     <BundleResource Include="Content\XML\Level\Level5Information.xml" />
     <BundleResource Include="Content\Menu\choose\levelpreview_outline_1080p.png" />
     <BundleResource Include="Content\Player\level5_character_wings_1080p.png" />
+    <BundleResource Include="Content\Game\heart_small_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
