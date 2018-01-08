@@ -49,6 +49,8 @@ namespace TheAdventuresOf
         public Texture2D goldCoinTexture;
         public Texture2D pauseBackgroundTexture;
         public Texture2D quitButtonTexture;
+        public Texture2D heartSmallTexture;
+        public Texture2D heartTexture;
         public SpriteFont font;
 
         //prelevel textures
@@ -256,6 +258,12 @@ namespace TheAdventuresOf
             }
             using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_bronze_1080p.png")) {
                 bronzeCoinTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "heart_1080p.png")) {
+                heartTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "heart_small_1080p.png")) {
+                heartSmallTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
             string pauseBackgroundPath = "pause_background_1080p.png";
@@ -481,6 +489,8 @@ namespace TheAdventuresOf
             bronzeCoinTexture.Dispose();
             silverCoinTexture.Dispose();
             goldCoinTexture.Dispose();
+            heartTexture.Dispose();
+            heartSmallTexture.Dispose();
 
             //TODO: these should be disposed in every level
             playerTexture.Dispose();

@@ -56,12 +56,16 @@ namespace TheAdventuresOf
 
             CoinManager.Instance.Update(gameTime);
             CoinManager.Instance.CheckCollisionWithLevel(level.leftSideBounds, level.rightSideBounds);
-            CoinManager.Instance.CheckCollisionWithPlayer(player.entityBounds);
+            CoinManager.Instance.CheckItemsCollisionWithPlayer(player.entityBounds);
+            HeartManager.Instance.Update(gameTime);
+            HeartManager.Instance.CheckCollisionWithLevel(level.leftSideBounds, level.rightSideBounds);
+            HeartManager.Instance.CheckItemsCollisionWithPlayer(player.entityBounds);
         }
 
         public void Draw(SpriteBatch spriteBatch) 
         {
             CoinManager.Instance.Draw(spriteBatch);
+            HeartManager.Instance.Draw(spriteBatch);
 
             foreach (Accessory accessory in accessories)
             {

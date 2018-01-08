@@ -10,7 +10,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Controller\VibrationController.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Item\Coin.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Item\Heart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Item\Item.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\ItemManagers\CoinManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\ItemManagers\HeartManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\ItemManagers\ItemManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\TextManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Text\HealthText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TheAdventuresOf.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Util\FrameRate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\BlockMonster.cs" />
@@ -45,8 +52,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Levels\PreLevel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Levels\StoreLevel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Monsters\UndergroundMonster.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Entity\Coin.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Manager\CoinManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\XmlManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Text\DamageText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Text\ScoreText.cs" />
@@ -67,11 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Entity\" />
     <Folder Include="$(MSBuildThisFileDirectory)Entity\Monsters\" />
     <Folder Include="$(MSBuildThisFileDirectory)Entity\Projectiles\" />
     <Folder Include="$(MSBuildThisFileDirectory)Levels\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Text\" />
     <Folder Include="$(MSBuildThisFileDirectory)Animation\" />
     <Folder Include="$(MSBuildThisFileDirectory)Entity\Player\" />
     <Folder Include="$(MSBuildThisFileDirectory)Controller\MenuController\" />

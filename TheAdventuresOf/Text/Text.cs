@@ -43,9 +43,14 @@ namespace TheAdventuresOf
 
         public void Draw(SpriteBatch spriteBatch) {
             spriteBatch.DrawString(AssetManager.Instance.font,
-                                   text, positionVector,
+                                   text, positionVector + new Vector2(-1 * textFontScale, -1 * textFontScale),
+                                   Color.Black * alpha, 0, new Vector2(0, 0),
+                                   textFontScale, SpriteEffects.None, 0);
+            spriteBatch.DrawString(AssetManager.Instance.font,
+                                   text, positionVector + new Vector2(1 * textFontScale, -1 * textFontScale),
                                    color * alpha, 0, new Vector2(0,0), 
                                    textFontScale, SpriteEffects.None, 0);
+
         }
     }
 }

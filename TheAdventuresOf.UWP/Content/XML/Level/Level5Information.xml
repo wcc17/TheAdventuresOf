@@ -1,102 +1,174 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Level>
-	<PlayerStartX>498</PlayerStartX> <!-- TODO: i want this moved to PlayerInformation.xml -->
-    <GroundLevel>565</GroundLevel>    
-    <WindowsGroundLevel>685</WindowsGroundLevel>
-    <LeftBoundWidth>235</LeftBoundWidth>
-    <RightBoundWidth>230</RightBoundWidth>
-	<MasterSpawnDelayTime>1</MasterSpawnDelayTime>
+  <PlayerStartX>498</PlayerStartX>
+  <!-- TODO: i want this moved to PlayerInformation.xml -->
+  <GroundLevel>555</GroundLevel>
+  <WindowsGroundLevel>675</WindowsGroundLevel>
+  <LeftBoundWidth>250</LeftBoundWidth>
+  <RightBoundWidth>230</RightBoundWidth>
+  <MasterSpawnDelayTime>1</MasterSpawnDelayTime>
 
-	<!-- NOTE: if a monsterTierLimit is 1, the monster spawn timer will reset on death AND when a new one spawns (the new spawn one is essentially meaningless here?)
-        otherwise, the timer only resets when a new monster is spawned, which means monsters can still essentially spawn one after another 
-        functionality for monsters that have a limit > 1 hasn't changed much, but there still is a limit to how often a monster can spawn when they're not dying-->
-    <SpawnDelayTime>
-      <BlockMonster>       0</BlockMonster>
-      <SunMonster>         0</SunMonster>
-      <GroundCannonMonster>5</GroundCannonMonster>
-      <FlyingCannonMonster>5</FlyingCannonMonster>
-      <BileMonster>        0</BileMonster>
-      <SpikeMonster>       5</SpikeMonster>    
-      <DashMonster>        3</DashMonster>
-      <UndergroundMonster> 7</UndergroundMonster>
-      <SwoopMonster>       7</SwoopMonster>
-    </SpawnDelayTime>
-    
-    <!-- real -->
-    <Tier1Score>4000</Tier1Score>
-    <Tier2Score>6000</Tier2Score>
-    <Tier3Score>11000</Tier3Score>
-    <Tier4Score>20000</Tier4Score>
-    <Tier5Score>35000</Tier5Score>
+  <!-- NOTE: if a monsterTierLimit is 1, the monster spawn timer will reset on death AND when a new one spawns (the new spawn one is essentially meaningless here?)
+	    otherwise, the timer only resets when a new monster is spawned, which means monsters can still essentially spawn one after another 
+	    functionality for monsters that have a limit < 1 hasn't changed much, but there still is a limit to how often a monster can spawn when they're not dying-->
+  <SpawnDelayTime>
+    <BlockMonster>       0</BlockMonster>
+    <SunMonster>         0</SunMonster>
+    <GroundCannonMonster>4</GroundCannonMonster>
+    <FlyingCannonMonster>5</FlyingCannonMonster>
+    <BileMonster>        0</BileMonster>
+    <SpikeMonster>       4</SpikeMonster>
+    <DashMonster>        10</DashMonster>
+    <UndergroundMonster> 15</UndergroundMonster>
+    <SwoopMonster>       15</SwoopMonster>
+  </SpawnDelayTime>
 
-    <!-- test
-    <Tier1Score>50</Tier1Score>
+  <!-- TODO: don't forget to speed up monster and player speeds before testing these tiers-->
+  <!-- NOTE: the last tier is effectively the "max score" that will end a level-->
+  <TierScores>
+    <Tier1>1500</Tier1>
+    <Tier2>3000</Tier2>
+    <Tier3>4500</Tier3>
+    <Tier4>6500</Tier4>
+    <Tier5>9000</Tier5>
+    <Tier6>13000</Tier6>
+    <Tier7>18000</Tier7>
+    <Tier8>22000</Tier8>
+    <Tier9>26000</Tier9>
+    <Tier10>36000</Tier10>
+  </TierScores>
+
+  <!-- test    <Tier1Score>50</Tier1Score>
     <Tier2Score>100</Tier2Score>
     <Tier3Score>150</Tier3Score>
     <Tier4Score>200</Tier4Score>
     <Tier5Score>250</Tier5Score>
-        -->
-        
-    <MaxTier>5</MaxTier>
+    -->
 
-    <!-- these numbers are innacurate for now-->
-    <Tier1> <!--15-->
-      <BlockMonsterLimit>       5</BlockMonsterLimit>
-      <SunMonsterLimit>         3</SunMonsterLimit>
+
+  <MonsterCountTiers>
+    <Tier1>
+      <!--16-->
+      <BlockMonsterLimit>       7</BlockMonsterLimit>
+      <SunMonsterLimit>         6</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
-      <FlyingCannonMonsterLimit>1</FlyingCannonMonsterLimit>
+      <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        2</BileMonsterLimit>
-      <SpikeMonsterLimit>       0</SpikeMonsterLimit>    
+      <SpikeMonsterLimit>       0</SpikeMonsterLimit>
       <DashMonsterLimit>        0</DashMonsterLimit>
       <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
       <SwoopMonsterLimit>       0</SwoopMonsterLimit>
     </Tier1>
-        
-    <Tier2> <!--16-->
-      <BlockMonsterLimit>       6</BlockMonsterLimit>
-      <SunMonsterLimit>         2</SunMonsterLimit>
+    <Tier2>
+      <!--19-->
+      <BlockMonsterLimit>       8</BlockMonsterLimit>
+      <SunMonsterLimit>         8</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        2</BileMonsterLimit>
-      <SpikeMonsterLimit>       1</SpikeMonsterLimit>    
+      <SpikeMonsterLimit>       0</SpikeMonsterLimit>
       <DashMonsterLimit>        0</DashMonsterLimit>
       <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
       <SwoopMonsterLimit>       0</SwoopMonsterLimit>
     </Tier2>
-        
-    <Tier3> <!--17-->
-      <BlockMonsterLimit>       6</BlockMonsterLimit>
-      <SunMonsterLimit>         3</SunMonsterLimit>
+    <Tier3>
+      <!--24-->
+      <!-- explosion of bile monster-->
+      <BlockMonsterLimit>       7</BlockMonsterLimit>
+      <SunMonsterLimit>         7</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
-      <BileMonsterLimit>        2</BileMonsterLimit>
-      <SpikeMonsterLimit>       1</SpikeMonsterLimit>    
+      <BileMonsterLimit>        8</BileMonsterLimit>
+      <SpikeMonsterLimit>       1</SpikeMonsterLimit>
       <DashMonsterLimit>        0</DashMonsterLimit>
-      <UndergroundMonsterLimit> 1</UndergroundMonsterLimit>
-      <SwoopMonsterLimit>       1</SwoopMonsterLimit>
+      <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
+      <SwoopMonsterLimit>       0</SwoopMonsterLimit>
     </Tier3>
-        
-    <Tier4> <!--18-->
-      <BlockMonsterLimit>       5</BlockMonsterLimit>
-      <SunMonsterLimit>         2</SunMonsterLimit>
+    <Tier4>
+      <!--23-->
+      <BlockMonsterLimit>       9</BlockMonsterLimit>
+      <SunMonsterLimit>         8</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
-      <FlyingCannonMonsterLimit>1</FlyingCannonMonsterLimit>
+      <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        3</BileMonsterLimit>
-      <SpikeMonsterLimit>       1</SpikeMonsterLimit>    
-      <DashMonsterLimit>        1</DashMonsterLimit>
-      <UndergroundMonsterLimit> 1</UndergroundMonsterLimit>
-      <SwoopMonsterLimit>       1</SwoopMonsterLimit>
+      <SpikeMonsterLimit>       1</SpikeMonsterLimit>
+      <DashMonsterLimit>        0</DashMonsterLimit>
+      <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
+      <SwoopMonsterLimit>       0</SwoopMonsterLimit>
     </Tier4>
-        
-    <Tier5> <!--20-->
-      <BlockMonsterLimit>       5</BlockMonsterLimit>
-      <SunMonsterLimit>         2</SunMonsterLimit>
-      <GroundCannonMonsterLimit>2</GroundCannonMonsterLimit>
-      <FlyingCannonMonsterLimit>1</FlyingCannonMonsterLimit>
+    <Tier5>
+      <!--24-->
+      <BlockMonsterLimit>       9</BlockMonsterLimit>
+      <SunMonsterLimit>         9</SunMonsterLimit>
+      <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
+      <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        3</BileMonsterLimit>
-      <SpikeMonsterLimit>       1</SpikeMonsterLimit>    
-      <DashMonsterLimit>        2</DashMonsterLimit>
-      <UndergroundMonsterLimit> 1</UndergroundMonsterLimit>
-      <SwoopMonsterLimit>       1</SwoopMonsterLimit>
+      <SpikeMonsterLimit>       1</SpikeMonsterLimit>
+      <DashMonsterLimit>        1</DashMonsterLimit>
+      <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
+      <SwoopMonsterLimit>       0</SwoopMonsterLimit>
     </Tier5>
-  </Level>
+    <Tier6>
+      <!--31-->
+      <!-- explosion of block and bile-->
+      <BlockMonsterLimit>       14</BlockMonsterLimit>
+      <SunMonsterLimit>         6</SunMonsterLimit>
+      <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
+      <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
+      <BileMonsterLimit>        8</BileMonsterLimit>
+      <SpikeMonsterLimit>       1</SpikeMonsterLimit>
+      <DashMonsterLimit>        1</DashMonsterLimit>
+      <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
+      <SwoopMonsterLimit>       0</SwoopMonsterLimit>
+    </Tier6>
+    <Tier7>
+      <!--26-->
+      <BlockMonsterLimit>       9</BlockMonsterLimit>
+      <SunMonsterLimit>         9</SunMonsterLimit>
+      <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
+      <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
+      <BileMonsterLimit>        3</BileMonsterLimit>
+      <SpikeMonsterLimit>       1</SpikeMonsterLimit>
+      <DashMonsterLimit>        2</DashMonsterLimit>
+      <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
+      <SwoopMonsterLimit>       0</SwoopMonsterLimit>
+    </Tier7>
+    <Tier8>
+      <!--27-->
+      <BlockMonsterLimit>       10</BlockMonsterLimit>
+      <SunMonsterLimit>         10</SunMonsterLimit>
+      <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
+      <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
+      <BileMonsterLimit>        3</BileMonsterLimit>
+      <SpikeMonsterLimit>       1</SpikeMonsterLimit>
+      <DashMonsterLimit>        2</DashMonsterLimit>
+      <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
+      <SwoopMonsterLimit>       0</SwoopMonsterLimit>
+    </Tier8>
+    <Tier9>
+      <!--38-->
+      <!-- explosion of sun, block, bile monster-->
+      <BlockMonsterLimit>       13</BlockMonsterLimit>
+      <SunMonsterLimit>         13</SunMonsterLimit>
+      <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
+      <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
+      <BileMonsterLimit>        8</BileMonsterLimit>
+      <SpikeMonsterLimit>       1</SpikeMonsterLimit>
+      <DashMonsterLimit>        2</DashMonsterLimit>
+      <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
+      <SwoopMonsterLimit>       0</SwoopMonsterLimit>
+    </Tier9>
+    <Tier10>
+      <!--32-->
+      <BlockMonsterLimit>       12</BlockMonsterLimit>
+      <SunMonsterLimit>         12</SunMonsterLimit>
+      <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
+      <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
+      <BileMonsterLimit>        4</BileMonsterLimit>
+      <SpikeMonsterLimit>       1</SpikeMonsterLimit>
+      <DashMonsterLimit>        2</DashMonsterLimit>
+      <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
+      <SwoopMonsterLimit>       0</SwoopMonsterLimit>
+    </Tier10>
+  </MonsterCountTiers>
+</Level>
