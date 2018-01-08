@@ -47,11 +47,7 @@ namespace TheAdventuresOf
 		{
 			XElement gameElement = gameDocument.Element("Game");
             XElement gameControllerElement = gameElement.Element("GameController");
-            XElement coinElement = gameElement.Element("Coin");
-            XElement coinManagerElement = gameElement.Element("CoinManager");
-            XElement scoringElement = gameElement.Element("Scoring");
-            XElement healthElement = gameElement.Element("Health");
-
+            
 			var controllerX = (float)gameControllerElement.Element("ControllerX");
 			var controllerY = (float)gameControllerElement.Element("ControllerY");
 			var leftButtonX = (float)gameControllerElement.Element("LeftButtonX");
@@ -71,12 +67,17 @@ namespace TheAdventuresOf
             GameControllerMobile.pauseButtonPositionVector = new Vector2(pauseButtonX, pauseButtonY);
             GameControllerMobile.quitButtonPositionVector = new Vector2(quitButtonX, quitButtonY);
             GameControllerWindows.quitButtonPositionVector = new Vector2(quitButtonX, quitButtonY);
-    
-            //TODO: should be in its own method
-            Text.textFloatSpeed = (float)scoringElement.Element("TextFloatSpeed");
-            Text.textDisappearSpeed = (float)scoringElement.Element("TextDisappearSpeed");
-            Text.textFontScale = (float)scoringElement.Element("TextFontScale");
-            Text.textPositionOffset = (float)scoringElement.Element("TextPositionOffset");
+
+            loadScoringManagerInformation(gameElement);
+            loadCoinManagerInformation(gameElement);
+            loadHealthManagerInformation(gameElement);
+            loadHeartManagerInformation(gameElement);
+		}
+
+        static void loadScoringManagerInformation(XElement gameElement)
+        {
+            XElement scoringElement = gameElement.Element("Scoring");
+
             ScoringManager.blockMonsterScore = (int)scoringElement.Element("BlockMonster");
             ScoringManager.sunMonsterScore = (int)scoringElement.Element("SunMonster");
             ScoringManager.bileMonsterScore = (int)scoringElement.Element("BileMonster");
@@ -87,7 +88,17 @@ namespace TheAdventuresOf
             ScoringManager.undergroundMonsterScore = (int)scoringElement.Element("UndergroundMonster");
             ScoringManager.swoopMonsterScore = (int)scoringElement.Element("SwoopMonster");
 
-            //TODO: should be in its own method
+            Text.textFloatSpeed = (float)scoringElement.Element("TextFloatSpeed");
+            Text.textDisappearSpeed = (float)scoringElement.Element("TextDisappearSpeed");
+            Text.textFontScale = (float)scoringElement.Element("TextFontScale");
+            Text.textPositionOffset = (float)scoringElement.Element("TextPositionOffset");
+        }
+
+        static void loadCoinManagerInformation(XElement gameElement)
+        {
+            XElement coinManagerElement = gameElement.Element("CoinManager");
+            XElement coinElement = gameElement.Element("Coin");
+
             CoinManager.coinYOffset = (float)coinManagerElement.Element("CoinYOffset");
             CoinManager.coinXSpacing = (int)coinManagerElement.Element("CoinXSpacing");
             CoinManager.randomCoinLimitBronze = (int)coinManagerElement.Element("RandomCoinLimitBronze");
@@ -96,22 +107,53 @@ namespace TheAdventuresOf
             CoinManager.coinCountSymbolXOffset = (float)coinManagerElement.Element("CoinCountSymbolXOffset");
             CoinManager.coinCountSymbolY = (float)coinManagerElement.Element("CoinCountSymbolY");
             CoinManager.coinCountY = (float)coinManagerElement.Element("CoinCountY");
-            Coin.coinDropSpeed = (float)coinElement.Element("CoinDropSpeed");
-            Coin.coinFloatSpeed = (float)coinElement.Element("CoinFloatSpeed");
-            Coin.coinFloatLimit = (float)coinElement.Element("CoinFloatLimit");
-            Coin.coinFadeSpeed = (float)coinElement.Element("CoinFadeSpeed");
-            Coin.coinDisappearTimeLimit = (float)coinElement.Element("CoinDisappearTimeLimit");
-            Coin.coinFlickerSpeed = (float)coinElement.Element("CoinFlickerSpeed");
-            Coin.coinFlickerLimit = (float)coinElement.Element("CoinFlickerLimit");
-            Coin.coinFlickerIncreaseAmount = (float)coinElement.Element("CoinFlickerIncreaseAmount");
+            CoinManager.coinDropSpeed = (float)coinElement.Element("CoinDropSpeed");
+            CoinManager.coinFloatSpeed = (float)coinElement.Element("CoinFloatSpeed");
+            CoinManager.coinFloatLimit = (float)coinElement.Element("CoinFloatLimit");
+            CoinManager.coinFadeSpeed = (float)coinElement.Element("CoinFadeSpeed");
+            CoinManager.coinDisappearTimeLimit = (float)coinElement.Element("CoinDisappearTimeLimit");
+            CoinManager.coinFlickerSpeed = (float)coinElement.Element("CoinFlickerSpeed");
+            CoinManager.coinFlickerLimit = (float)coinElement.Element("CoinFlickerLimit");
+            CoinManager.coinFlickerIncreaseAmount = (float)coinElement.Element("CoinFlickerIncreaseAmount");
+        }
 
-            //TODO: should be in its own method
+        static void loadHeartManagerInformation(XElement gameElement)
+        {
+            XElement heartManagerElement = gameElement.Element("HeartManager");
+            XElement heartElement = gameElement.Element("Heart");
+
+            HeartManager.heartYOffset = (float)heartManagerElement.Element("HeartYOffset");
+            HeartManager.heartXSpacing = (int)heartManagerElement.Element("HeartXSpacing");
+            HeartManager.heartCountSymbolXOffset = (float)heartManagerElement.Element("HeartCountSymbolXOffset");
+            HeartManager.heartCountSymbolY = (float)heartManagerElement.Element("HeartCountSymbolY");
+            HeartManager.heartCountY = (float)heartManagerElement.Element("HeartCountY");
+            HeartManager.heartHealthValue = (float)heartManagerElement.Element("HeartHealthValue");
+            HeartManager.smallHeartHealthValue = (float)heartManagerElement.Element("SmallHeartHealthValue");
+            HeartManager.heartChance = (float)heartManagerElement.Element("HeartChance");
+            HeartManager.smallHeartChance = (float)heartManagerElement.Element("SmallHeartChance");
+            HeartManager.smallHeartLimit = (float)heartManagerElement.Element("SmallHeartLimit");
+            HeartManager.heartLimit = (float)heartManagerElement.Element("HeartLimit");
+
+            HeartManager.heartDropSpeed = (float)heartElement.Element("HeartDropSpeed");
+            HeartManager.heartFloatSpeed = (float)heartElement.Element("HeartFloatSpeed");
+            HeartManager.heartFloatLimit = (float)heartElement.Element("HeartFloatLimit");
+            HeartManager.heartFadeSpeed = (float)heartElement.Element("HeartFadeSpeed");
+            HeartManager.heartDisappearTimeLimit = (float)heartElement.Element("HeartDisappearTimeLimit");
+            HeartManager.heartFlickerSpeed = (float)heartElement.Element("HeartFlickerSpeed");
+            HeartManager.heartFlickerLimit = (float)heartElement.Element("HeartFlickerLimit");
+            HeartManager.heartFlickerIncreaseAmount = (float)heartElement.Element("HeartFlickerIncreaseAmount");
+        }
+
+        static void loadHealthManagerInformation(XElement gameElement)
+        {
+            XElement healthElement = gameElement.Element("Health");
+
             HealthManager.maxHealth = (int)healthElement.Element("InitialMaxHealth");
             HealthManager.healthBarXOffset = (float)healthElement.Element("HealthBarXOffset");
             HealthManager.healthBarY = (float)healthElement.Element("HealthBarY");
             HealthManager.healthTextPositionXOffset = (float)healthElement.Element("HealthTextPositionXOffset");
             HealthManager.healthTextPositionYOffset = (float)healthElement.Element("HealthTextPositionYOffset");
-		}
+        }
 
         public static GameManager LoadGameManagerInformation(GameManager gameManager) {
             XElement gameElement = gameDocument.Element("Game");
@@ -202,13 +244,6 @@ namespace TheAdventuresOf
             XDocument levelXDocument = XDocument.Load(levelXDocumentStream);
 			XElement levelXElement = levelXDocument.Element("Level");
 
-            List<XElement> tierElements = new List<XElement>();
-            tierElements.Add(levelXElement.Element("Tier1"));
-            tierElements.Add(levelXElement.Element("Tier2"));
-            tierElements.Add(levelXElement.Element("Tier3"));
-            tierElements.Add(levelXElement.Element("Tier4"));
-            tierElements.Add(levelXElement.Element("Tier5"));
-
 #if __IOS__ || __ANDROID__
             level.groundLevel = (float)levelXElement.Element("GroundLevel");
 #else
@@ -218,16 +253,19 @@ namespace TheAdventuresOf
 			level.leftBoundWidth = (int)levelXElement.Element("LeftBoundWidth");
 			level.rightBoundWidth = (int)levelXElement.Element("RightBoundWidth");
 
-            //TODO: having Level.TIER_X is dumb. Not used anywhere else but here.
-            //idea: need a way to iterate through tiers in Level xml. That way any level can have any number of tiers
-            //need to revisit when i'm ready to really sort that out
-            level.tierScores = new Dictionary<int, int>();
-            level.tierScores.Add(Level.TIER_1, (int)levelXElement.Element("Tier1Score"));
-            level.tierScores.Add(Level.TIER_2, (int)levelXElement.Element("Tier2Score"));
-            level.tierScores.Add(Level.TIER_3, (int)levelXElement.Element("Tier3Score"));
-            level.tierScores.Add(Level.TIER_4, (int)levelXElement.Element("Tier4Score"));
-            level.tierScores.Add(Level.TIER_5, (int)levelXElement.Element("Tier5Score"));
+            int i = 0;
+            XElement tierScoresElement = levelXElement.Element("TierScores");
+            foreach(XElement element in tierScoresElement.Elements())
+            {
+                level.tierScores.Add(i++, (int)element);
+            }
 
+            //get max tiers depending on how many tiers are in the <TierScores> element in LevelInformation.xml
+            level.maxTier = level.tierScores.Count;
+
+            //MonsterCountTiers
+            XElement monsterCountTiersElement = levelXElement.Element("MonsterCountTiers");
+            List<XElement> tierElements = new List<XElement>(monsterCountTiersElement.Elements());
             level.tierMonsterLimits = new Dictionary<int, List<int>>();
             level.tierMonsterLimits.Add(MonsterManager.BLOCK_MONSTER, LoadTierMonsterLimits("BlockMonsterLimit", tierElements));
             level.tierMonsterLimits.Add(MonsterManager.SUN_MONSTER, LoadTierMonsterLimits("SunMonsterLimit", tierElements));
@@ -238,7 +276,6 @@ namespace TheAdventuresOf
             level.tierMonsterLimits.Add(MonsterManager.DASH_MONSTER, LoadTierMonsterLimits("DashMonsterLimit", tierElements));
             level.tierMonsterLimits.Add(MonsterManager.UNDERGROUND_MONSTER, LoadTierMonsterLimits("UndergroundMonsterLimit", tierElements));
             level.tierMonsterLimits.Add(MonsterManager.SWOOP_MONSTER, LoadTierMonsterLimits("SwoopMonsterLimit", tierElements));
-            level.maxTier = (int)levelXElement.Element("MaxTier");
             level.masterSpawnDelayTime = (float)levelXElement.Element("MasterSpawnDelayTime");
 
             //load individual spawn delay times for each monster
@@ -302,8 +339,12 @@ namespace TheAdventuresOf
             player.jumpGravity = (float)playerInformationElement.Element("JumpGravity");
             player.collisionOffset = (int)playerInformationElement.Element("CollisionOffset");
 
+#if __IOS__ || __ANDROID__
+            player.spawnStartY = (float)playerInformationElement.Element("SpawnStartYMobile");
+#else
+            player.spawnStartY = (float)playerInformationElement.Element("SpawnStartYWindows");
+#endif
             player.spawnStartX = (float)playerInformationElement.Element("SpawnStartX");
-            player.spawnStartY = (float)playerInformationElement.Element("SpawnStartY");
             player.spawnXLimit = (float)playerInformationElement.Element("SpawnXLimit");
             player.spawnRotationSpeed = (float)playerInformationElement.Element("SpawnRotationSpeed");
             player.spawnFlipLimitDegrees = (float)playerInformationElement.Element("SpawnFlipLimitDegrees");

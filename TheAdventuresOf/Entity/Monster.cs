@@ -242,7 +242,8 @@ namespace TheAdventuresOf
             if (!(this is SpikeMonster) 
                 && !(this is UndergroundMonster) 
                 && !isCollidingWithLevelBounds) {
-				CoinManager.Instance.AddCoins(positionVector.X, positionVector.Y);
+				CoinManager.Instance.AddItem(positionVector.X, positionVector.Y);
+                HeartManager.Instance.AddItem(positionVector.X, positionVector.Y);
 			}
         }
 

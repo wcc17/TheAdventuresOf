@@ -8,14 +8,8 @@ namespace TheAdventuresOf
     {
         public int maxTier;
         public int currentTier;
-        public static int TIER_1 = 0;
-        public static int TIER_2 = 1;
-        public static int TIER_3 = 2;
-        public static int TIER_4 = 3;
-        public static int TIER_5 = 4;
-
-        public Dictionary<int, int> tierScores;
         public Dictionary<int, List<int>> tierMonsterLimits;
+        public Dictionary<int, int> tierScores = new Dictionary<int, int>();
 
 		public BlockMonster blockMonster;
 		public SunMonster sunMonster;
@@ -33,9 +27,10 @@ namespace TheAdventuresOf
 		public static MonsterManager monsterManager;
 
         public Level(Texture2D levelTexture) : base(levelTexture: levelTexture) {
-            currentTier = TIER_1;
-            CoinManager.Instance.RemoveAllCoins();
-		}
+            currentTier = 0;
+            CoinManager.Instance.RemoveAllItems();
+            HeartManager.Instance.RemoveAllItems();
+        }
 
 		public override void InitializeLevel(bool usePlayerSpawnAnimation)
 		{

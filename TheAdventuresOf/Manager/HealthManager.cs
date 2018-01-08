@@ -42,7 +42,27 @@ namespace TheAdventuresOf
 
         public void DecreaseHealthByAmount(int amount) {
             health -= amount;
+            enforceHealthLimits();
             recalculateHealthBarFill();
+        }
+
+        public void IncreaseHealthByAmount(int amount)
+        {
+            health += amount;
+            enforceHealthLimits();
+            recalculateHealthBarFill();
+        }
+
+        void enforceHealthLimits()
+        {
+            if(health > maxHealth)
+            {
+                health = maxHealth;
+            }
+            else if(health < 0)
+            {
+                health = 0;
+            }
         }
 
         public int GetHealth() {

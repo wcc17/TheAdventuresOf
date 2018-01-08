@@ -141,6 +141,7 @@ namespace TheAdventuresOf
             AssetManager.Instance.LoadGameAssets(graphicsDevice);
             XmlManager.LoadGameInformation();
             CoinManager.Instance.Initialize();
+            HeartManager.Instance.Initialize();
             HealthManager.Instance.Initialize();
 
             #if __IOS__ || __ANDROID__
@@ -209,6 +210,7 @@ namespace TheAdventuresOf
 
             XmlManager.LoadLevelInformation((Level)currentLevel, currentLevelNumber);
             CoinManager.Instance.UpdateGroundLevel(((Level)currentLevel).groundLevel + CoinManager.coinYOffset);
+            HeartManager.Instance.UpdateGroundLevel(((Level)currentLevel).groundLevel + HeartManager.heartYOffset);
         }
 
         void loadPlayerAccessories() {
@@ -540,7 +542,12 @@ namespace TheAdventuresOf
             //Draw total score
             spriteBatch.DrawString(AssetManager.Instance.font, 
                                    "Score: " + ScoringManager.Instance.score.ToString(), 
-                                   totalScorePositionVector, Color.White);
+                                   totalScorePositionVector + new Vector2(-1, -1),
+                                   Color.Black);
+            spriteBatch.DrawString(AssetManager.Instance.font,
+                                   "Score: " + ScoringManager.Instance.score.ToString(),
+                                   totalScorePositionVector + new Vector2(1, -1),
+                                   Color.White);
 
             if (((GameController)currentController).isPaused)
             {

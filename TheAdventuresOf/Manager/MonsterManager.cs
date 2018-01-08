@@ -91,15 +91,15 @@ namespace TheAdventuresOf
         void handleMonsterAvailability(GameTime gameTime) {
             availableMonsters.Clear();
 
-            Logger.Instance.AddOrUpdateValue("BlockTimer", monsterSpawnDelayTimers[BLOCK_MONSTER].delayTime.ToString());
-            Logger.Instance.AddOrUpdateValue("SunTimer", monsterSpawnDelayTimers[SUN_MONSTER].delayTime.ToString());
-            Logger.Instance.AddOrUpdateValue("GroundTimer", monsterSpawnDelayTimers[GROUND_CANNON_MONSTER].delayTime.ToString());
-            Logger.Instance.AddOrUpdateValue("BileTimer", monsterSpawnDelayTimers[BILE_MONSTER].delayTime.ToString());
-            Logger.Instance.AddOrUpdateValue("SpikeTimer", monsterSpawnDelayTimers[SPIKE_MONSTER].delayTime.ToString());
-            Logger.Instance.AddOrUpdateValue("DashTimer", monsterSpawnDelayTimers[DASH_MONSTER].delayTime.ToString());
-            Logger.Instance.AddOrUpdateValue("FlyingTimer", monsterSpawnDelayTimers[FLYING_CANNON_MONSTER].delayTime.ToString());
-            Logger.Instance.AddOrUpdateValue("UndergroundTimer", monsterSpawnDelayTimers[UNDERGROUND_MONSTER].delayTime.ToString());
-            Logger.Instance.AddOrUpdateValue("SwoopTimer", monsterSpawnDelayTimers[SWOOP_MONSTER].delayTime.ToString());
+            //Logger.Instance.AddOrUpdateValue("BlockTimer", monsterSpawnDelayTimers[BLOCK_MONSTER].delayTime.ToString());
+            //Logger.Instance.AddOrUpdateValue("SunTimer", monsterSpawnDelayTimers[SUN_MONSTER].delayTime.ToString());
+            //Logger.Instance.AddOrUpdateValue("GroundTimer", monsterSpawnDelayTimers[GROUND_CANNON_MONSTER].delayTime.ToString());
+            //Logger.Instance.AddOrUpdateValue("BileTimer", monsterSpawnDelayTimers[BILE_MONSTER].delayTime.ToString());
+            //Logger.Instance.AddOrUpdateValue("SpikeTimer", monsterSpawnDelayTimers[SPIKE_MONSTER].delayTime.ToString());
+            //Logger.Instance.AddOrUpdateValue("DashTimer", monsterSpawnDelayTimers[DASH_MONSTER].delayTime.ToString());
+            //Logger.Instance.AddOrUpdateValue("FlyingTimer", monsterSpawnDelayTimers[FLYING_CANNON_MONSTER].delayTime.ToString());
+            //Logger.Instance.AddOrUpdateValue("UndergroundTimer", monsterSpawnDelayTimers[UNDERGROUND_MONSTER].delayTime.ToString());
+            //Logger.Instance.AddOrUpdateValue("SwoopTimer", monsterSpawnDelayTimers[SWOOP_MONSTER].delayTime.ToString());
 
             foreach(KeyValuePair<int, Timer> pair in monsterSpawnDelayTimers) {
                 //don't check monsters that have a spawnDelay of 0
@@ -221,17 +221,17 @@ namespace TheAdventuresOf
             HandleSpawnMonsters(gameTime);
             UpdateMonsters(gameTime);
 
-            Logger.Instance.AddOrUpdateValue("Tier", (level.currentTier+1).ToString());
-            Logger.Instance.AddOrUpdateValue("TierLimit", (level.tierScores[level.currentTier].ToString()));
-            Logger.Instance.AddOrUpdateValue("Block Limit: ", level.tierMonsterLimits[BLOCK_MONSTER][level.currentTier].ToString());
-            Logger.Instance.AddOrUpdateValue("Sun Limit: ", level.tierMonsterLimits[SUN_MONSTER][level.currentTier].ToString());
-            Logger.Instance.AddOrUpdateValue("GCannon Limit: ", level.tierMonsterLimits[GROUND_CANNON_MONSTER][level.currentTier].ToString());
-            Logger.Instance.AddOrUpdateValue("FCannon Limit: ", level.tierMonsterLimits[FLYING_CANNON_MONSTER][level.currentTier].ToString());
-            Logger.Instance.AddOrUpdateValue("Bile Limit: ", level.tierMonsterLimits[BILE_MONSTER][level.currentTier].ToString());
-            Logger.Instance.AddOrUpdateValue("Spike Limit: ", level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier].ToString());
-            Logger.Instance.AddOrUpdateValue("Dash Limit: ", level.tierMonsterLimits[DASH_MONSTER][level.currentTier].ToString());
-            Logger.Instance.AddOrUpdateValue("UGround Limit: ", level.tierMonsterLimits[UNDERGROUND_MONSTER][level.currentTier].ToString());
-            Logger.Instance.AddOrUpdateValue("Swoop Limit: ", level.tierMonsterLimits[SWOOP_MONSTER][level.currentTier].ToString());
+            //Logger.Instance.AddOrUpdateValue("Tier", (level.currentTier+1).ToString());
+            //Logger.Instance.AddOrUpdateValue("TierLimit", (level.tierScores[level.currentTier].ToString()));
+            //Logger.Instance.AddOrUpdateValue("Block Limit: ", level.tierMonsterLimits[BLOCK_MONSTER][level.currentTier].ToString());
+            //Logger.Instance.AddOrUpdateValue("Sun Limit: ", level.tierMonsterLimits[SUN_MONSTER][level.currentTier].ToString());
+            //Logger.Instance.AddOrUpdateValue("GCannon Limit: ", level.tierMonsterLimits[GROUND_CANNON_MONSTER][level.currentTier].ToString());
+            //Logger.Instance.AddOrUpdateValue("FCannon Limit: ", level.tierMonsterLimits[FLYING_CANNON_MONSTER][level.currentTier].ToString());
+            //Logger.Instance.AddOrUpdateValue("Bile Limit: ", level.tierMonsterLimits[BILE_MONSTER][level.currentTier].ToString());
+            //Logger.Instance.AddOrUpdateValue("Spike Limit: ", level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier].ToString());
+            //Logger.Instance.AddOrUpdateValue("Dash Limit: ", level.tierMonsterLimits[DASH_MONSTER][level.currentTier].ToString());
+            //Logger.Instance.AddOrUpdateValue("UGround Limit: ", level.tierMonsterLimits[UNDERGROUND_MONSTER][level.currentTier].ToString());
+            //Logger.Instance.AddOrUpdateValue("Swoop Limit: ", level.tierMonsterLimits[SWOOP_MONSTER][level.currentTier].ToString());
         }
 
         //Updates whether a monster spawn timer should reset on death or not

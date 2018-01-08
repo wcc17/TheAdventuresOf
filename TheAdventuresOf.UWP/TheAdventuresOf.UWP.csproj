@@ -124,6 +124,7 @@
     <Content Include="Content\Game\controller_1080p.png" />
     <Content Include="Content\Game\emptyheart_1080p.png" />
     <Content Include="Content\Game\heart_1080p.png" />
+    <Content Include="Content\Game\heart_small_1080p.png" />
     <Content Include="Content\Game\leftarrow_1080p.png" />
     <Content Include="Content\Game\pause_1080p.png" />
     <Content Include="Content\Game\pause_background_xbox_1080p.png" />
