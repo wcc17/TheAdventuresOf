@@ -220,22 +220,6 @@ namespace TheAdventuresOf
             StoreLevel.storeLevelCharTextX = (float)storeLevelElement.Element("StoreLevelCharTextX");
             StoreLevel.storeLevelCharTextY = (float)storeLevelElement.Element("StoreLevelCharTextY");
             StoreLevel.storeLevelCharText = (string)storeLevelElement.Element("StoreLevelCharText");
-
-            XElement levelTextElement = storeLevelElement.Element("LevelText");
-            List<Text> texts = new List<Text>();
-            foreach (XElement textElement in levelTextElement.Elements("Text")) {
-                string textString = (string)textElement.Element("Value");
-                int index = (int)textElement.Element("Index");
-                float startX = (float)textElement.Element("StartX");
-                float endX = (float)textElement.Element("EndX");
-                float textX = (float)textElement.Element("TextX");
-                float textY = (float)textElement.Element("TextY");
-
-                Text text = new Text(textX, textY, textString, index, startX, endX);
-                texts.Add(text);
-            }
-
-            StoreLevel.texts = texts;
         }
 
 		public static void LoadLevelInformation(Level level, int levelNumber) {

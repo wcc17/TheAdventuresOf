@@ -60,6 +60,12 @@ namespace TheAdventuresOf
         //store level textures
         public Texture2D storeLevelCharacterTexture;
         public Texture2D storeLevelTexture;
+        public Texture2D storeLevelSwordTexture;
+        public Texture2D storeLevelHeartTexture;
+        public Texture2D storeLevelShieldTexture;
+        public Texture2D storeLevelCoinTexture;
+        public Texture2D storeLevelBigBoxTexture;
+        public Texture2D storeLevelSmallBoxTexture;
 
         //player textures
         public Texture2D playerTexture;
@@ -87,7 +93,7 @@ namespace TheAdventuresOf
 
         public static string filePath;
 
-        //xbox related stuff
+        //xbox related stuff for the store level only
         string storeLevelString;
         bool loadOnScreenController;
 
@@ -110,14 +116,6 @@ namespace TheAdventuresOf
             filePath = androidFilePath; 
 #else
             filePath = iosFilePath; //windows uses ios file path for now
-#endif
-
-#if __IOS__ || __ANROID__
-            storeLevelString = "store_level_1080p.png";
-            loadOnScreenController = true;
-#else
-            storeLevelString = "store_level_xbox_1080p.png";
-            loadOnScreenController = false;
 #endif
         }
 
@@ -378,15 +376,43 @@ namespace TheAdventuresOf
         }
 
         public void LoadStoreLevelAssets(GraphicsDevice graphicsDevice) {
+            setupStoreLevel(); //sets file path for background based on OS
             string storeLevelFilePath = filePath + "StoreLevel/";
-
-            using (var stream = TitleContainer.OpenStream(storeLevelFilePath + "store_level_character_1080p.png")) {
-                storeLevelCharacterTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
 
             using (var stream = TitleContainer.OpenStream(storeLevelFilePath + storeLevelString))
             {
                 storeLevelTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+
+            using (var stream = TitleContainer.OpenStream(storeLevelFilePath + "store_level_character_1080p.png")) {
+                storeLevelCharacterTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(storeLevelFilePath + "heart_large_1080p.png"))
+            {
+                storeLevelHeartTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(storeLevelFilePath + "shield_1080p.png"))
+            {
+                storeLevelShieldTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(storeLevelFilePath + "big_box_1080p.png"))
+            {
+                storeLevelBigBoxTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(storeLevelFilePath + "small_box_1080p.png"))
+            {
+                storeLevelSmallBoxTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+
+            //it was either use game content folder or copy assets from the game folder into the store folder
+            //i went with this because it would be easier to keep track of assets when changes are made to them
+            using (var stream = TitleContainer.OpenStream(filePath + "Game/" + "coin_gold_1080p.png"))
+            {
+                storeLevelCoinTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(filePath + "Player/" + "sword_1080p.png"))
+            {
+                storeLevelSwordTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
         }
 
@@ -446,7 +472,13 @@ namespace TheAdventuresOf
         public void DisposeStoreAssets() {
             storeLevelTexture.Dispose();
             storeLevelCharacterTexture.Dispose();
-        }
+            storeLevelSwordTexture.Dispose();
+            storeLevelHeartTexture.Dispose();
+            storeLevelShieldTexture.Dispose();
+            storeLevelCoinTexture.Dispose();
+            storeLevelBigBoxTexture.Dispose();
+            storeLevelSmallBoxTexture.Dispose();
+    }
 
 		public void DisposeLevelAssets() {
 			levelTexture.Dispose();
@@ -520,6 +552,17 @@ namespace TheAdventuresOf
 
             return levelString;
         }
-	}
+
+        void setupStoreLevel()
+        {
+#if __IOS__ || __ANROID__
+            storeLevelString = "store_level_1080p.png";
+            loadOnScreenController = true;
+#else
+            storeLevelString = "store_level_xbox_1080p.png";
+            loadOnScreenController = false;
+#endif
+        }
+    }
 }
 
