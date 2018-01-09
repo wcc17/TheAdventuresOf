@@ -329,7 +329,8 @@ namespace TheAdventuresOf
         //called only after leaving main menu or chooselevel menu since they share so much code
         void prepareLevelState(int nextState) {
             gameState = LOAD_STATE;
-            nextGameState = nextState;
+            nextGameState = STORE_LEVEL_STATE; //TODO: comment out this line and uncomment the next
+            //nextGameState = nextState; 
 
             if (chooseLevelMenuAssetsLoaded) {
                 AssetManager.Instance.DisposeChooseLevelMenuAssets();
@@ -347,6 +348,8 @@ namespace TheAdventuresOf
                 loadPreLevelAssets();
             } else if(nextGameState == LEVEL_STATE) {
                 loadLevelAssets();
+            } else if(nextGameState == STORE_LEVEL_STATE) {
+                loadStoreLevelAssets(); //added for debugging even though this shouldn't happen
             }
         }
 

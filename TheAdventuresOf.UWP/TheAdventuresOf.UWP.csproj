@@ -216,6 +216,8 @@
     <Content Include="Content\Player\level5_character_hat_1080p.png" />
     <Content Include="Content\Player\level5_character_wings_1080p.png" />
     <Content Include="Content\Player\sword_1080p.png" />
+    <Content Include="Content\Player\sword_firstupgrade_1080p.png" />
+    <Content Include="Content\Player\sword_secondupgrade_1080p.png" />
     <Content Include="Content\PreLevel\pre_level1background_xbox_1080p.png" />
     <Content Include="Content\PreLevel\pre_level1character_1080p.png" />
     <Content Include="Content\PreLevel\pre_level2background_xbox_1080p.png" />
@@ -232,11 +234,17 @@
     <Content Include="Content\Projectile\level3_bile_1080p.png" />
     <Content Include="Content\Projectile\level4_bile_1080p.png" />
     <Content Include="Content\Projectile\level5_bile_1080p.png" />
+    <Content Include="Content\StoreLevel\big_box_1080p.png" />
+    <Content Include="Content\StoreLevel\heart_large_1080p.png" />
+    <Content Include="Content\StoreLevel\shield_1080p.png" />
+    <Content Include="Content\StoreLevel\small_box_1080p.png" />
     <Content Include="Content\StoreLevel\store_level_character_1080p.png" />
     <Content Include="Content\StoreLevel\store_level_xbox_1080p.png" />
     <Content Include="Content\XML\CharacterInformation.xml" />
     <Content Include="Content\XML\GameInformation.xml" />
-    <Content Include="Content\XML\Level\Level1Information.xml" />
+    <Content Include="Content\XML\Level\Level1Information.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\XML\Level\Level2Information.xml" />
     <Content Include="Content\XML\Level\Level3Information.xml" />
     <Content Include="Content\XML\Level\Level4Information.xml" />

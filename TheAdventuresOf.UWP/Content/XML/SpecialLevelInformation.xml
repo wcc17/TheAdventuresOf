@@ -35,31 +35,5 @@
     <StoreLevelCharTextY>200</StoreLevelCharTextY>
 	  <StoreLevelCharText>Welcome!</StoreLevelCharText>
     <PlayerStartX>100</PlayerStartX>
-    <LevelText>
-        <Text>
-            <Value>This is item 1</Value>
-            <Index>0</Index>
-            <StartX>260</StartX>
-            <EndX>540</EndX>
-			      <TextX>320</TextX>
-            <TextY>400</TextY>
-        </Text>
-		    <Text>
-            <Value>This is item 2</Value>
-            <Index>0</Index>
-            <StartX>670</StartX>
-            <EndX>955</EndX>
-			      <TextX>730</TextX>
-            <TextY>400</TextY>
-        </Text>
-		    <Text>
-            <Value>This is item 3</Value>
-            <Index>0</Index>
-            <StartX>1080</StartX>
-            <EndX>1365</EndX>
-			      <TextX>1140</TextX>
-            <TextY>400</TextY>
-        </Text>
-	</LevelText>
   </StoreLevel>
 </Level>

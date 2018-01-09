@@ -12,7 +12,6 @@ namespace TheAdventuresOf
         public static float storeLevelCharTextX;
         public static float storeLevelCharTextY;
         public static string storeLevelCharText;
-        public static List<Text> texts;
         Vector2 storeLevelCharacterPositionVector;
 
         public StoreLevel(Texture2D levelTexture) : base(levelTexture: levelTexture) { }
@@ -46,12 +45,12 @@ namespace TheAdventuresOf
         void manageStoreText() {
             float playerX = PlayerManager.Instance.GetPlayerPosition().X;
 
-            foreach (Text text in texts) {
-                if(text.startX <= playerX && text.endX > playerX) {
-                    TextManager.Instance.AddOrUpdateIndexedText(text);
-                    break;
-                }
-            }
+            //foreach (Text text in texts) {
+            //    if(text.startX <= playerX && text.endX > playerX) {
+            //        TextManager.Instance.AddOrUpdateIndexedText(text);
+            //        break;
+            //    }
+            //}
         }
 
         public override void CheckCollisionWithBounds(Entity entity)
