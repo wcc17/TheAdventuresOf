@@ -215,10 +215,6 @@ namespace TheAdventuresOf
             storeLevel.playerStartX = (float)storeLevelElement.Element("PlayerStartX");
             storeLevel.leftBoundWidth = (int)storeLevelElement.Element("LeftBoundWidth");
             storeLevel.rightBoundWidth = (int)storeLevelElement.Element("RightBoundWidth");
-            StoreLevel.storeLevelCharX = (float)storeLevelElement.Element("StoreLevelCharX");
-            StoreLevel.storeLevelCharY = (float)storeLevelElement.Element("StoreLevelCharY");
-            StoreLevel.storeLevelCharTextX = (float)storeLevelElement.Element("StoreLevelCharTextX");
-            StoreLevel.storeLevelCharTextY = (float)storeLevelElement.Element("StoreLevelCharTextY");
             StoreLevel.storeLevelCharText = (string)storeLevelElement.Element("StoreLevelCharText");
         }
 
