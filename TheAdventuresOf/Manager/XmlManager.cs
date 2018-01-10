@@ -216,6 +216,25 @@ namespace TheAdventuresOf
             storeLevel.leftBoundWidth = (int)storeLevelElement.Element("LeftBoundWidth");
             storeLevel.rightBoundWidth = (int)storeLevelElement.Element("RightBoundWidth");
             StoreLevel.storeLevelCharText = (string)storeLevelElement.Element("StoreLevelCharText");
+
+            XElement itemsElement = storeLevelElement.Element("Items");
+            List<XElement> itemElements = new List<XElement>(itemsElement.Elements("Item"));
+            foreach(XElement itemElement in itemElements)
+            {
+                int index = (int)itemElement.Element("Index");
+                string name = (string)itemElement.Element("Name");
+                int? cost = (int)itemElement.Element("Cost");
+
+                if (cost == null)
+                {
+                    XElement levelsElement = itemElement.Element("Levels");
+                    List<XElement> levelElements = new List<XElement>(levelsElement.Elements("Level"));
+                    foreach(XElement levelElement in levelElements)
+                    {
+
+                    }
+                }
+            }
         }
 
 		public static void LoadLevelInformation(Level level, int levelNumber) {
