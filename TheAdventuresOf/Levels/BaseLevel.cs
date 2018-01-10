@@ -49,6 +49,19 @@ namespace TheAdventuresOf
             HealthManager.Instance.Draw(spriteBatch);
         }
 
+        /**
+         * There are certain situations where we want to choose when we draw the level
+         * With this method we can still draw the important things (player, health, etc.)
+         * Then we can manually draw the level somewhere else. Example in StoreLevel.cs
+         **/
+        public void DrawWithoutLevel(SpriteBatch spriteBatch)
+        {
+            //Draw player
+            PlayerManager.Instance.Draw(spriteBatch);
+
+            HealthManager.Instance.Draw(spriteBatch);
+        }
+
         public virtual void CheckCollisionWithBounds(Entity entity)
         {
             entity.isCollidingWithLevelBounds = false;
