@@ -111,11 +111,17 @@ namespace TheAdventuresOf
 
         private AssetManager()
         {
-            
+
 #if __ANDROID__
             filePath = androidFilePath; 
 #else
             filePath = iosFilePath; //windows uses ios file path for now
+#endif
+
+#if __IOS__ || __ANDROID__
+            loadOnScreenController = true;
+#else
+            loadOnScreenController = false;
 #endif
         }
 
@@ -450,7 +456,7 @@ namespace TheAdventuresOf
 #if !__IOS__ && !__ANDROID__
             arrowOutlineTexture.Dispose();
             buttonOutlineTexture.Dispose();
-#endif  
+#endif
         }
 
         public void DisposeChooseLevelMenuAssets() {
@@ -466,7 +472,7 @@ namespace TheAdventuresOf
 #if !__IOS__ && !__ANDROID__
             arrowOutlineTexture.Dispose();
             buttonOutlineTexture.Dispose();
-#endif  
+#endif
         }
 
         public void DisposeStoreAssets() {
@@ -557,10 +563,8 @@ namespace TheAdventuresOf
         {
 #if __IOS__ || __ANROID__
             storeLevelString = "store_level_1080p.png";
-            loadOnScreenController = true;
 #else
             storeLevelString = "store_level_xbox_1080p.png";
-            loadOnScreenController = false;
 #endif
         }
     }

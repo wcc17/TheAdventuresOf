@@ -31,7 +31,7 @@ namespace TheAdventuresOf
             switch(gameState) {
                 case GameManager.SPLASH_STATE:
                     currentSong = AssetManager.Instance.mainMenuSong;
-                    //MediaPlayer.Play(currentSong); TODO
+                    MediaPlayer.Play(currentSong); //TODO: comment out to stop music
                     break;
                 case GameManager.PRE_LEVEL_STATE:
                     currentSong = null; //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
@@ -86,7 +86,7 @@ namespace TheAdventuresOf
 
                 MediaPlayer.Volume = volume;
 
-                //MediaPlayer.Play(currentSong); TODO:
+                MediaPlayer.Play(currentSong); //TODO: comment to stop music
             }
         }
 
