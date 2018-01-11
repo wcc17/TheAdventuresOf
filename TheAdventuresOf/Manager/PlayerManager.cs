@@ -108,6 +108,11 @@ namespace TheAdventuresOf
             return player.moveRight;
         }
 
+        public bool IsPlayerJumping()
+        {
+            return player.isJumping;
+        }
+
         public void CheckPlayerCollisionProjectile(Projectile proj) {
             bool projectileDamagedPlayer = false;
             foreach(Accessory accessory in accessories) {

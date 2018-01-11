@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\chris\.Rider2017.3\system\resharper-host\local\Transient\ReSharperHost\v11\SolutionCaches\_TheAdventuresOf.965121205.00" t="ExcludeRecursive" />
+    <e p="C:\Users\chris\Development\TheAdventuresOf" t="IncludeFlat">
+      <e p="Android\TheAdventuresOf.Droid.csproj" t="IncludeRecursive" />
+      <e p="iOS\TheAdventuresOf.iOS.csproj" t="IncludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="TheAdventuresOf" t="IncludeRecursive">
+        <e p="Animation" t="Include">
+          <e p="Animation.cs" t="Include" />
+          <e p="AnimationFrame.cs" t="Include" />
+        </e>
+        <e p="Controller" t="Include">
+          <e p="Button.cs" t="Include" />
+          <e p="Controller.cs" t="Include" />
+          <e p="GameController" t="Include">
+            <e p="GameController.cs" t="Include" />
+            <e p="GameControllerMobile.cs" t="Include" />
+            <e p="GameControllerWindows.cs" t="Include" />
+          </e>
+          <e p="MenuController" t="Include">
+            <e p="ChooseLevelMenuController.cs" t="Include" />
+            <e p="MainMenuController.cs" t="Include" />
+            <e p="MenuController.cs" t="Include" />
+          </e>
+          <e p="VibrationController.cs" t="Include" />
+        </e>
+        <e p="Entity" t="Include">
+          <e p="Entity.cs" t="Include" />
+          <e p="Item" t="Include">
+            <e p="Coin.cs" t="Include" />
+            <e p="Heart.cs" t="Include" />
+            <e p="Item.cs" t="Include" />
+          </e>
+          <e p="Monster.cs" t="Include" />
+          <e p="Monsters" t="Include">
+            <e p="BaseCannonMonster.cs" t="Include" />
+            <e p="BileMonster.cs" t="Include" />
+            <e p="BlockMonster.cs" t="Include" />
+            <e p="DashMonster.cs" t="Include" />
+            <e p="FlyingCannonMonster.cs" t="Include" />
+            <e p="GroundCannonMonster.cs" t="Include" />
+            <e p="SpikeMonster.cs" t="Include" />
+            <e p="SunMonster.cs" t="Include" />
+            <e p="SwoopMonster.cs" t="Include" />
+            <e p="UndergroundMonster.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
+            <e p="Accessory.cs" t="Include" />
+            <e p="Player.cs" t="Include" />
+          </e>
+          <e p="Projectiles" t="Include">
+            <e p="Bile.cs" t="Include" />
+            <e p="Bullet.cs" t="Include" />
+            <e p="Projectile.cs" t="Include" />
+          </e>
+          <e p="Prop" t="Include">
+            <e p="Prop.cs" t="Include" />
+            <e p="PropItem.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Levels" t="Include">
+          <e p="BaseLevel.cs" t="Include" />
+          <e p="ChooseLevelMenu.cs" t="Include" />
+          <e p="Level.cs" t="Include" />
+          <e p="MainMenu.cs" t="Include" />
+          <e p="PreLevel.cs" t="Include" />
+          <e p="StoreLevel.cs" t="Include" />
+        </e>
+        <e p="Manager" t="Include">
+          <e p="AssetManager.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
+          <e p="HealthManager.cs" t="Include" />
+          <e p="ItemManagers" t="Include">
+            <e p="CoinManager.cs" t="Include" />
+            <e p="HeartManager.cs" t="Include" />
+            <e p="ItemManager.cs" t="Include" />
+          </e>
+          <e p="MonsterManager.cs" t="Include" />
+          <e p="MusicManager.cs" t="Include" />
+          <e p="PlayerManager.cs" t="Include" />
+          <e p="ScoringManager.cs" t="Include" />
+          <e p="ScreenManager.cs" t="Include" />
+          <e p="TextManager.cs" t="Include" />
+          <e p="XmlManager.cs" t="Include" />
+        </e>
+        <e p="MonsterSpawner.cs" t="Include" />
+        <e p="Text" t="Include">
+          <e p="DamageText.cs" t="Include" />
+          <e p="HealthText.cs" t="Include" />
+          <e p="ScoreText.cs" t="Include" />
+          <e p="Text.cs" t="Include" />
+        </e>
+        <e p="TheAdventuresOf.cs" t="Include" />
+        <e p="TheAdventuresOf.projitems" t="Include" />
+        <e p="TheAdventuresOf.shproj" t="IncludeRecursive" />
+        <e p="Util" t="Include">
+          <e p="FrameRate.cs" t="Include" />
+          <e p="Logger.cs" t="Include" />
+          <e p="ObjectPool.cs" t="Include" />
+          <e p="Timer.cs" t="Include" />
+        </e>
+      </e>
+      <e p="TheAdventuresOf.sln" t="IncludeFlat" />
+      <e p="TheAdventuresOf.UWP\TheAdventuresOf.UWP.csproj" t="IncludeRecursive" />
+    </e>
+  </component>
+</project>

@@ -7,17 +7,35 @@ namespace TheAdventuresOf
 {
     public class StoreLevel : BaseLevel
     {
+        //these must match whats in SpecialLevelInformation
+        public const string HEART_PROP_ITEM = "Health Refill";
+        public const string SHIELD_PROP_ITEM = "Shield Refill";
+        public const string SWORD_PROP_ITEM = "Sword Upgrade";
+        public const string SOLD_OUT = "Sold Out!";
+
         public static string storeLevelCharText;
+        public static SortedDictionary<int, PropItem> storeLevelPropItems;
 
         //TODO: im not sure if these should be set here or not. it doesn't make a ton of sense for xml loading either though
-        int groundOffset = 20; //so that the lines of the boxes don't perfectly line up with the lines of characters, etc
+        //TODO: especially groundOffset could be a fraction of the screen height instead of hard coded
         int textXOffset = 100;
         int textYOffset = 50;
         int numberOfSmallBoxes = 3;
-
+        float groundOffset = ScreenManager.FULL_SCREEN_HEIGHT * 0.018f; //so that the lines of the boxes don't perfectly line up with the lines of characters, etc
+        float smallPropYOffset = ScreenManager.FULL_SCREEN_HEIGHT * 0.15f; //offset the items x% of the screen height from the boxes
+        float costYOffset = ScreenManager.FULL_SCREEN_HEIGHT * 0.13f;
+        float coinXOffset = ScreenManager.FULL_SCREEN_WIDTH * 0.035f;
+        float soldOutTextXOffset = ScreenManager.FULL_SCREEN_WIDTH * 0.025f;
+        bool shouldDrawCost = false;
+        int costToDraw = 0;
+        int costTextIndex = 543; //just a random number to ensure this text is unique. TODO: if i start doing this more it should be loaded from XML
+        int activePropItemIndex = -1;
+        Vector2 costPositionVector = new Vector2();
+        Vector2 coinPositionVector = new Vector2();
         List<Prop> smallBoxProps = new List<Prop>();
         Prop largeBoxProp;
         Prop storeLevelCharacterProp;
+        Texture2D coinTexture = AssetManager.Instance.storeLevelCoinTexture;
 
         public StoreLevel(Texture2D levelTexture) : base(levelTexture: levelTexture) { }
 
@@ -26,6 +44,7 @@ namespace TheAdventuresOf
             base.InitializeLevel(usePlayerSpawnAnimation);
             initializeBoxPositions();
             initializeStoreLevelCharacter();
+            initializeStoreLevelPropItems();
 
             //initialize character text above storelevel character
             TextManager.Instance.AddOrUpdateIndexedText(storeLevelCharacterProp.positionVector.X - textXOffset,
@@ -42,6 +61,12 @@ namespace TheAdventuresOf
             //draw props
             drawProps(spriteBatch);
 
+            //draw prop items
+            drawPropItems(spriteBatch);
+
+            //draw cost and coin texture
+            drawCost(spriteBatch);
+
             //draw other things that level should be drawing (player, health, etc)
             DrawWithoutLevel(spriteBatch);
         }
@@ -50,10 +75,12 @@ namespace TheAdventuresOf
         {
             base.Update(gameTime, gameController);
 
-            manageStoreText();
+            updatePropItem();
+            checkPlayerPurchase();
 
             if (PlayerManager.Instance.GetPlayerPosition().X > rightBoundWidth)
             {
+                TextManager.Instance.RemoveAllText();
                 nextLevel = true;
             }
         }
@@ -91,6 +118,11 @@ namespace TheAdventuresOf
             }
 
             //set up the single large box
+            initializeLargeBox(boxX, boxY, largeBoxTexture);
+        }
+
+        void initializeLargeBox(float boxX, float boxY, Texture2D largeBoxTexture)
+        {
             boxY = groundLevel - largeBoxTexture.Height + groundOffset;
             Vector2 largeBoxPropPositionVector = new Vector2(boxX, boxY);
             Rectangle largeBoxPropBounds = new Rectangle((int)boxX, (int)boxY, largeBoxTexture.Width, largeBoxTexture.Height);
@@ -113,6 +145,153 @@ namespace TheAdventuresOf
             storeLevelCharacterProp = new Prop(storeLevelCharacterPositionVector, storeLevelCharacterBounds, storeLevelCharacterTexture);
         }
 
+        void initializeStoreLevelPropItems()
+        {
+            foreach(PropItem propItem in storeLevelPropItems.Values)
+            {
+                switch(propItem.name)
+                {
+                    case HEART_PROP_ITEM:
+                        propItem.texture = AssetManager.Instance.storeLevelHeartTexture;
+                        setPropItemPosition(propItem, 0);
+                        break;
+                    case SHIELD_PROP_ITEM:
+                        propItem.texture = AssetManager.Instance.storeLevelShieldTexture;
+                        setPropItemPosition(propItem, 1);
+                        break;
+                    case SWORD_PROP_ITEM:
+                        propItem.texture = AssetManager.Instance.storeLevelSwordTexture;
+                        setPropItemPosition(propItem, 2);
+                        break;
+                }
+            }
+        }
+
+        void setPropItemPosition(PropItem propItem, int smallBoxIndex)
+        {
+            float propX = (smallBoxProps[smallBoxIndex].positionVector.X) 
+                + (smallBoxProps[smallBoxIndex].bounds.Width / 2) 
+                - (propItem.texture.Width / 2);
+            float propY = smallBoxProps[smallBoxIndex].positionVector.Y 
+                - smallPropYOffset
+                - propItem.texture.Height;
+
+            propItem.positionVector = new Vector2(propX, propY);
+        }
+
+        void updatePropItem()
+        {
+            shouldDrawCost = false;
+
+            for(int i = 0; i < smallBoxProps.Count; i++)
+            {
+                if(smallBoxProps[i].CheckCollision(PlayerManager.Instance.GetPlayerBounds()))
+                {
+                    int? cost = storeLevelPropItems[i].cost;
+                    if(cost == null)
+                    {
+                        //handle the sword upgrade stuff
+                    } else
+                    {
+                        updateCostAndCoinPositions((int)cost, i);
+                    }
+                }
+            }
+
+            if(!shouldDrawCost)
+            {
+                TextManager.Instance.RemoveText(costTextIndex);
+                shouldDrawCost = false;
+                activePropItemIndex = -1;
+            }
+            else if(!storeLevelPropItems[activePropItemIndex].isSoldOut)
+            {
+                TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X, costPositionVector.Y, "x" + costToDraw.ToString(), costTextIndex);
+            }
+            else if(storeLevelPropItems[activePropItemIndex].isSoldOut)
+            {
+                //again, the 200 is just getting a random index to store text at so nothing else bothers it
+                TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X - soldOutTextXOffset, costPositionVector.Y, SOLD_OUT, activePropItemIndex*200);
+            }
+        }
+
+        void updateCostAndCoinPositions(int cost, int index)
+        {
+            shouldDrawCost = true;
+            costToDraw = cost;
+
+            costPositionVector.X = (smallBoxProps[index].positionVector.X)
+                + (smallBoxProps[index].bounds.Width / 2);
+            costPositionVector.Y = smallBoxProps[index].positionVector.Y
+                - costYOffset;
+
+            coinPositionVector.X = costPositionVector.X - coinXOffset;
+            coinPositionVector.Y = costPositionVector.Y;
+
+            activePropItemIndex = index;
+        }
+
+        void checkPlayerPurchase()
+        {
+            if(activePropItemIndex > -1)
+            {
+                //TODO: check if item is sold out before checking if player is jumping
+                //TODO: make sure we're buying the item we expect to be buying
+                //its possible for this if to be hit again after the item is sold while the player is still jumping, so be sure its not already sold out
+                if(PlayerManager.Instance.IsPlayerJumping() && !storeLevelPropItems[activePropItemIndex].isSoldOut)
+                {
+                    purchaseItem();
+                }
+            }
+        }
+
+        void purchaseItem()
+        {
+            if(CoinManager.Instance.GetCoinTotal() >= storeLevelPropItems[activePropItemIndex].cost)
+            {
+                int? cost = storeLevelPropItems[activePropItemIndex].cost;
+                if(cost != null)
+                {
+                    CoinManager.Instance.SubtractFromCoins((int)cost);
+                } else
+                {
+                    //figure out the sword upgrade stuff
+                }
+
+                storeLevelPropItems[activePropItemIndex].isSoldOut = true;
+                TextManager.Instance.RemoveText(costTextIndex);
+
+                applyPurchasedItem();
+            }
+        }
+
+        void applyPurchasedItem()
+        {
+            switch(storeLevelPropItems[activePropItemIndex].name)
+            {
+                case HEART_PROP_ITEM:
+                    HealthManager.Instance.RestoreAllHealth();
+                    break;
+                case SHIELD_PROP_ITEM:
+                    //TODO: implement shield
+                    break;
+                case SWORD_PROP_ITEM:
+                    //TODO: implement sword upgrades
+                    break;
+            }
+        }
+
+        void drawCost(SpriteBatch spriteBatch)
+        {
+            if(shouldDrawCost)
+            {
+                if(!storeLevelPropItems[activePropItemIndex].isSoldOut)
+                {
+                    spriteBatch.Draw(coinTexture, coinPositionVector);
+                }
+            }
+        }
+
         void drawProps(SpriteBatch spriteBatch)
         {
             foreach(Prop prop in smallBoxProps)
@@ -124,25 +303,15 @@ namespace TheAdventuresOf
             storeLevelCharacterProp.Draw(spriteBatch);
         }
 
-        void manageStoreText()
+        void drawPropItems(SpriteBatch spriteBatch)
         {
-            //there can only be as many items as there are small boxes
-            Rectangle playerBounds = PlayerManager.Instance.GetPlayerBounds();
-
-            for(int i = 0; i < 2; i++)
+            foreach(PropItem propItem in storeLevelPropItems.Values)
             {
-                if (smallBoxProps[i].CheckCollision(playerBounds))
+                if(!propItem.isSoldOut)
                 {
-                    //show price for item
+                    propItem.Draw(spriteBatch);
                 }
             }
-
-            //foreach (Text text in texts) {
-            //    if(text.startX <= playerX && text.endX > playerX) {
-            //        TextManager.Instance.AddOrUpdateIndexedText(text);
-            //        break;
-            //    }
-            //}
         }
 
         public override void CheckPlayerCollisionWithMonster(Monster monster) { }

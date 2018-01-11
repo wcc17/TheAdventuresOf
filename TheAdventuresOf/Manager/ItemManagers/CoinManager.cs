@@ -13,6 +13,8 @@ namespace TheAdventuresOf
         Vector2 coinCountPositionVector;
         Random rand;
         int coinTotal;
+        int amountToAdd;
+        int amountToSubtract;
 
 		public static float coinYOffset;
         public static int coinXSpacing;
@@ -44,6 +46,8 @@ namespace TheAdventuresOf
 
         public override void Initialize() {
             base.Initialize();
+
+            //coinTotal = 20000;
 
             rand = new Random();
             coinCountSymbolPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH - coinCountSymbolXOffset, coinCountSymbolY);
@@ -104,7 +108,7 @@ namespace TheAdventuresOf
         {
             base.HandleItemPickedUp(item);
             Coin coin = (Coin)item;
-            coinTotal += coin.coinValue;
+            amountToAdd = coin.coinValue;
         }
 
         public override void Update(GameTime gameTime)
@@ -118,8 +122,30 @@ namespace TheAdventuresOf
             drawCoinCount(spriteBatch);
         }
 
+        public int GetCoinTotal()
+        {
+            return coinTotal;
+        }
+
+        public void SubtractFromCoins(int amount)
+        {
+            amountToSubtract = amount;
+        }
+
         void drawCoinCount(SpriteBatch spriteBatch)
         {
+            if(amountToSubtract > 0)
+            {
+                coinTotal--;
+                amountToSubtract--;
+            }
+
+            if(amountToAdd > 0)
+            {
+                coinTotal++;
+                amountToAdd--;
+            }
+
             spriteBatch.Draw(AssetManager.Instance.goldCoinTexture, coinCountSymbolPositionVector);
             spriteBatch.DrawString(AssetManager.Instance.font, " x " + coinTotal, coinCountPositionVector, Color.White);
         }

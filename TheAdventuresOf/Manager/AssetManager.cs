@@ -387,7 +387,7 @@ namespace TheAdventuresOf
             using (var stream = TitleContainer.OpenStream(storeLevelFilePath + "store_level_character_1080p.png")) {
                 storeLevelCharacterTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(storeLevelFilePath + "heart_large_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(storeLevelFilePath + "heart_1080p.png"))
             {
                 storeLevelHeartTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
