@@ -42,9 +42,9 @@
     
     <HeartHealthValue>50</HeartHealthValue>
     <SmallHeartHealthValue>10</SmallHeartHealthValue>
-    <SmallHeartChance>20</SmallHeartChance> <!-- whole number percent value. if 15, then 15% chance-->
-    <HeartChance>5</HeartChance>
-    <SmallHeartLimit>3</SmallHeartLimit>
+    <SmallHeartChance>5</SmallHeartChance> <!-- whole number percent value. if 15, then 15% chance-->
+    <HeartChance>1</HeartChance>
+    <SmallHeartLimit>2</SmallHeartLimit>
     <HeartLimit>1</HeartLimit>
   </HeartManager>
 		
