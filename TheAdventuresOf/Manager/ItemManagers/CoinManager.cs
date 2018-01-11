@@ -108,12 +108,13 @@ namespace TheAdventuresOf
         {
             base.HandleItemPickedUp(item);
             Coin coin = (Coin)item;
-            amountToAdd = coin.coinValue;
+            amountToAdd += coin.coinValue;
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            updateCoinAmount();
             Logger.Instance.AddOrUpdateValue("ScreenCoins", items.Count.ToString());
         }
 
@@ -129,23 +130,26 @@ namespace TheAdventuresOf
 
         public void SubtractFromCoins(int amount)
         {
-            amountToSubtract = amount;
+            amountToSubtract += amount;
         }
 
-        void drawCoinCount(SpriteBatch spriteBatch)
+        void updateCoinAmount()
         {
-            if(amountToSubtract > 0)
+            if (amountToSubtract > 0)
             {
                 coinTotal--;
                 amountToSubtract--;
             }
 
-            if(amountToAdd > 0)
+            if (amountToAdd > 0)
             {
                 coinTotal++;
                 amountToAdd--;
             }
+        }
 
+        void drawCoinCount(SpriteBatch spriteBatch)
+        {
             spriteBatch.Draw(AssetManager.Instance.goldCoinTexture, coinCountSymbolPositionVector);
             spriteBatch.DrawString(AssetManager.Instance.font, " x " + coinTotal, coinCountPositionVector, Color.White);
         }
