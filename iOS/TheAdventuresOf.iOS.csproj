@@ -223,6 +223,10 @@
     <BundleResource Include="Content\Menu\choose\levelpreview_outline_1080p.png" />
     <BundleResource Include="Content\Player\level5_character_wings_1080p.png" />
     <BundleResource Include="Content\Game\heart_small_1080p.png" />
+    <BundleResource Include="Content\StoreLevel\big_box_1080p.png" />
+    <BundleResource Include="Content\StoreLevel\heart_1080p.png" />
+    <BundleResource Include="Content\StoreLevel\shield_1080p.png" />
+    <BundleResource Include="Content\StoreLevel\small_box_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
