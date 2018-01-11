@@ -13,7 +13,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Item\Coin.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Item\Heart.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity\Item\Item.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Entity\Prop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Prop\Prop.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity\Prop\PropItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\ItemManagers\CoinManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\ItemManagers\HeartManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\ItemManagers\ItemManager.cs" />

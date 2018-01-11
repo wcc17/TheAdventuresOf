@@ -34,33 +34,25 @@
 
     <Items>
       <Item>
-        <Index>0</Index>
         <Name>Health Refill</Name>
         <Cost>100</Cost>
       </Item>
       <Item>
-        <Index>1</Index>
         <Name>Shield Refill</Name>
         <Cost>300</Cost>
       </Item>
       <Item>
-        <Index>2</Index>
         <Name>Sword Upgrade</Name>
-        <!-- player will have a "swordLevelIndex" that starts at 0. 
-             the player can buy a sword that has a levelIndex of swordLevelIndex+1
-             that is the upgrade that will be shown when the player  enters the store.
-             if player.swordLevelIndex = 2 (or a maxLevelIndex we set somewhere)
-             then sold out should display instead of a sword-->
-        <Levels>
-          <Level>
-            <LevelIndex>1</LevelIndex>
-            <LevelCost>500</LevelCost>
-          </Level>
-          <Level>
-            <LevelIndex>2</LevelIndex>
-            <LevelCost>700</LevelCost>
-          </Level>
-        </Levels>
+        <TieredCosts>
+          <TieredCost>
+            <Index>1</Index>
+            <Cost>500</Cost>
+          </TieredCost>
+          <TieredCost>
+            <Index>2</Index>
+            <Cost>700</Cost>
+          </TieredCost>
+        </TieredCosts>
       </Item>
     </Items>
   </StoreLevel>

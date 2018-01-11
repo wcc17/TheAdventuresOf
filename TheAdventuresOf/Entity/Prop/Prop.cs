@@ -10,7 +10,7 @@ namespace TheAdventuresOf
     {
         public Vector2 positionVector;
         public Rectangle bounds;
-        Texture2D texture;
+        public Texture2D texture;
 
         public Prop() { }
 

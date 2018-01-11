@@ -11,13 +11,11 @@ namespace TheAdventuresOf
 {
     public class PropItem : Prop
     {
-        string name;
-        int? cost;
+        public string name;
+        public int? cost; //may be null if itemCosts is not
+        public SortedDictionary<int, int> itemCosts; //may be null if cost is not
+        public bool isSoldOut = false;
 
-        public PropItem(string name, int? cost = null) : base()
-        {
-            this.name = name;
-            this.cost = cost;
-        }
+        public PropItem() { }
     }
 }

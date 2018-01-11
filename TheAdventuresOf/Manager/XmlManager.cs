@@ -217,24 +217,55 @@ namespace TheAdventuresOf
             storeLevel.rightBoundWidth = (int)storeLevelElement.Element("RightBoundWidth");
             StoreLevel.storeLevelCharText = (string)storeLevelElement.Element("StoreLevelCharText");
 
+            loadPropItems(storeLevelElement);
+        }
+
+        private static void loadPropItems(XElement storeLevelElement)
+        {
             XElement itemsElement = storeLevelElement.Element("Items");
             List<XElement> itemElements = new List<XElement>(itemsElement.Elements("Item"));
-            foreach(XElement itemElement in itemElements)
+            SortedDictionary<int, PropItem> storeLevelPropItems = new SortedDictionary<int, PropItem>();
+            int index = 0;
+            foreach (XElement itemElement in itemElements)
             {
-                int index = (int)itemElement.Element("Index");
-                string name = (string)itemElement.Element("Name");
-                int? cost = (int)itemElement.Element("Cost");
+                PropItem propItem = new PropItem();
+                propItem.name = (string)itemElement.Element("Name");
+
+                //cost may be null. catch the exception the xml loading will throw and continue with the null value
+                int? cost;
+                try
+                {
+                    cost = (int)itemElement.Element("Cost");
+
+                }
+                catch(ArgumentNullException e)
+                {
+                    cost = null;
+                }
 
                 if (cost == null)
                 {
-                    XElement levelsElement = itemElement.Element("Levels");
-                    List<XElement> levelElements = new List<XElement>(levelsElement.Elements("Level"));
-                    foreach(XElement levelElement in levelElements)
+                    XElement tieredCostsElement = itemElement.Element("TieredCosts");
+                    List<XElement> tieredCostElements = new List<XElement>(tieredCostsElement.Elements("TieredCost"));
+                    SortedDictionary<int, int> itemCosts = new SortedDictionary<int, int>();
+                    foreach (XElement tieredCostElement in tieredCostElements)
                     {
-
+                        int costIndex = (int)tieredCostElement.Element("Index");
+                        int tieredCost = (int)tieredCostElement.Element("Cost");
+                        itemCosts.Add(costIndex, tieredCost);
                     }
+
+                    propItem.itemCosts = itemCosts;
                 }
+                else
+                {
+                    propItem.cost = cost;
+                }
+
+                storeLevelPropItems.Add(index++, propItem);
             }
+
+            StoreLevel.storeLevelPropItems = storeLevelPropItems;
         }
 
 		public static void LoadLevelInformation(Level level, int levelNumber) {

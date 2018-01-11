@@ -53,6 +53,12 @@ namespace TheAdventuresOf
             recalculateHealthBarFill();
         }
 
+        public void RestoreAllHealth()
+        {
+            health = maxHealth;
+            recalculateHealthBarFill();
+        }
+
         void enforceHealthLimits()
         {
             if(health > maxHealth)
