@@ -70,7 +70,7 @@ namespace TheAdventuresOf
 
             loadScoringManagerInformation(gameElement);
             loadCoinManagerInformation(gameElement);
-            loadHealthManagerInformation(gameElement);
+            loadProgressBarManagerInformation(gameElement);
             loadHeartManagerInformation(gameElement);
 		}
 
@@ -144,15 +144,27 @@ namespace TheAdventuresOf
             HeartManager.heartFlickerIncreaseAmount = (float)heartElement.Element("HeartFlickerIncreaseAmount");
         }
 
-        static void loadHealthManagerInformation(XElement gameElement)
+        static void loadProgressBarManagerInformation(XElement gameElement)
         {
-            XElement healthElement = gameElement.Element("Health");
+            XElement progressBarElement = gameElement.Element("ProgressBar");
+            XElement healthElement = progressBarElement.Element("Health");
+            XElement shieldElement = progressBarElement.Element("Shield");
 
-            HealthManager.maxHealth = (int)healthElement.Element("InitialMaxHealth");
-            HealthManager.healthBarXOffset = (float)healthElement.Element("HealthBarXOffset");
-            HealthManager.healthBarY = (float)healthElement.Element("HealthBarY");
-            HealthManager.healthTextPositionXOffset = (float)healthElement.Element("HealthTextPositionXOffset");
-            HealthManager.healthTextPositionYOffset = (float)healthElement.Element("HealthTextPositionYOffset");
+            HealthShieldManager.Instance.InitializeHealthManager(
+                (int)healthElement.Element("MaxValue"),
+                (float)healthElement.Element("BarXOffset"),
+                (float)healthElement.Element("BarY"),
+                (float)healthElement.Element("TextPositionXOffset"),
+                (float)healthElement.Element("TextPositionYOffset"),
+                (string)healthElement.Element("ValueText"));
+
+            HealthShieldManager.Instance.InitializeShieldManager(
+                (int)shieldElement.Element("MaxValue"),
+                (float)shieldElement.Element("BarXOffset"),
+                (float)shieldElement.Element("BarY"),
+                (float)shieldElement.Element("TextPositionXOffset"),
+                (float)shieldElement.Element("TextPositionYOffset"),
+                (string)shieldElement.Element("ValueText"));
         }
 
         public static GameManager LoadGameManagerInformation(GameManager gameManager) {

@@ -38,8 +38,10 @@ namespace TheAdventuresOf
 
         //game textures
         public Texture2D controllerTexture;
-        public Texture2D progressBarTexture;
-        public Texture2D progressBarFillTexture;
+        public Texture2D progressBarHealthTexture;
+        public Texture2D progressBarFillHealthTexture;
+        public Texture2D progressBarShieldTexture;
+        public Texture2D progressBarFillShieldTexture;
         public Texture2D leftArrowButtonTexture;
         public Texture2D rightArrowButtonTexture;
         public Texture2D jumpButtonTexture;
@@ -248,12 +250,20 @@ namespace TheAdventuresOf
             String gameFilePath = filePath + "Game/";
 
 			//game textures
-			using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_1080p.png")) {
-                progressBarTexture = Texture2D.FromStream(graphicsDevice, stream);
+			using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_health_1080p.png")) {
+                progressBarHealthTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
-			using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_fill_1080p.png")) {
-				progressBarFillTexture = Texture2D.FromStream(graphicsDevice, stream);
+			using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_fill_health_1080p.png")) {
+				progressBarFillHealthTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_shield_1080p.png"))
+            {
+                progressBarShieldTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_fill_shield_1080p.png"))
+            {
+                progressBarFillShieldTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
             using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_gold_1080p.png")) {
                 goldCoinTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
@@ -519,8 +529,10 @@ namespace TheAdventuresOf
             jumpButtonTexture.Dispose();
             pauseButtonTexture.Dispose();
 #endif
-            progressBarTexture.Dispose();
-            progressBarFillTexture.Dispose();
+            progressBarHealthTexture.Dispose();
+            progressBarShieldTexture.Dispose();
+            progressBarFillHealthTexture.Dispose();
+            progressBarFillShieldTexture.Dispose();
             pauseBackgroundTexture.Dispose();
             quitButtonTexture.Dispose();
 

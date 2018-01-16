@@ -37,6 +37,8 @@ namespace TheAdventuresOf
 
         public virtual void Update(GameTime gameTime, GameController gameController) {
             PlayerManager.Instance.Update(gameTime, gameController);
+
+            HealthShieldManager.Instance.Update();
         }
 
         public virtual void Draw(SpriteBatch spriteBatch) {
@@ -46,7 +48,7 @@ namespace TheAdventuresOf
             //Draw player
             PlayerManager.Instance.Draw(spriteBatch);
 
-            HealthManager.Instance.Draw(spriteBatch);
+            HealthShieldManager.Instance.Draw(spriteBatch);
         }
 
         /**
@@ -59,7 +61,7 @@ namespace TheAdventuresOf
             //Draw player
             PlayerManager.Instance.Draw(spriteBatch);
 
-            HealthManager.Instance.Draw(spriteBatch);
+            HealthShieldManager.Instance.Draw(spriteBatch);
         }
 
         public virtual void CheckCollisionWithBounds(Entity entity)

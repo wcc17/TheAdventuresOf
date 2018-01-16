@@ -50,7 +50,7 @@ namespace TheAdventuresOf
             //coinTotal = 20000;
 
             rand = new Random();
-            coinCountSymbolPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH - coinCountSymbolXOffset, coinCountSymbolY);
+            coinCountSymbolPositionVector = new Vector2(coinCountSymbolXOffset, coinCountSymbolY);
             coinCountPositionVector = new Vector2(coinCountSymbolPositionVector.X + AssetManager.Instance.goldCoinTexture.Width, coinCountY);
         }
 

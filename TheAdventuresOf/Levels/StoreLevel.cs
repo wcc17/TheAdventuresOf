@@ -270,10 +270,10 @@ namespace TheAdventuresOf
             switch(storeLevelPropItems[activePropItemIndex].name)
             {
                 case HEART_PROP_ITEM:
-                    HealthManager.Instance.RestoreAllHealth();
+                    HealthShieldManager.Instance.RestoreHealthToMax();
                     break;
                 case SHIELD_PROP_ITEM:
-                    //TODO: implement shield
+                    HealthShieldManager.Instance.RestoreShieldToMax();
                     break;
                 case SWORD_PROP_ITEM:
                     //TODO: implement sword upgrades
