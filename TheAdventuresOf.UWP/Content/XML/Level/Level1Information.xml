@@ -36,7 +36,8 @@
     <Tier10>36000</Tier10>
   </TierScores>
 
-  <!--<TierScores>
+  <!--
+  <TierScores>
     <Tier1>1</Tier1>
     <Tier2>2</Tier2>
     <Tier3>3</Tier3>
@@ -47,7 +48,8 @@
     <Tier8>8</Tier8>
     <Tier9>9</Tier9>
     <Tier10>200</Tier10>
-  </TierScores>-->
+  </TierScores>
+  -->
 
 
   <MonsterCountTiers>

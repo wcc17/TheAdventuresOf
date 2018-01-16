@@ -128,8 +128,10 @@
     <Content Include="Content\Game\leftarrow_1080p.png" />
     <Content Include="Content\Game\pause_1080p.png" />
     <Content Include="Content\Game\pause_background_xbox_1080p.png" />
-    <Content Include="Content\Game\progressbar_1080p.png" />
-    <Content Include="Content\Game\progressbar_fill_1080p.png" />
+    <Content Include="Content\Game\progressbar_fill_health_1080p.png" />
+    <Content Include="Content\Game\progressbar_fill_shield_1080p.png" />
+    <Content Include="Content\Game\progressbar_health_1080p.png" />
+    <Content Include="Content\Game\progressbar_shield_1080p.png" />
     <Content Include="Content\Game\quit_button_1080p.png" />
     <Content Include="Content\Game\rightarrow_1080p.png" />
     <Content Include="Content\Level\level1background_xbox_1080p.png" />

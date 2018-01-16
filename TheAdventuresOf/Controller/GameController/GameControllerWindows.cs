@@ -42,8 +42,6 @@ namespace TheAdventuresOf
                 //go right when one of the buttons is pressed
                 if (GamePad.GetState(PlayerIndex.One).DPad.Right == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Right))
                 {
-                    Logger.WriteToConsole("keyboard state: " + Keyboard.GetState().IsKeyDown(Keys.Right));
-                    Logger.WriteToConsole("button state: " + (GamePad.GetState(PlayerIndex.One).DPad.Right == ButtonState.Pressed));
                     isButtonPressed = true;
                     rightButtonPressed = true;
                 }

@@ -105,7 +105,7 @@ namespace TheAdventuresOf
             base.HandleItemPickedUp(item);
 
             Heart heart = (Heart)item;
-            HealthManager.Instance.IncreaseHealthByAmount(heart.healthValue);
+            HealthShieldManager.Instance.IncreaseHealthByAmount(heart.healthValue);
 
             HealthText healthText = new HealthText(PlayerManager.Instance.GetPlayerPosition().X, 
                 PlayerManager.Instance.GetPlayerPosition().Y, 
