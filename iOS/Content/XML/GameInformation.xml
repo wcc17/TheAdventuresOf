@@ -11,17 +11,6 @@
 		<CoinDisappearTimeLimit>4</CoinDisappearTimeLimit>
 	</Coin>
 	
-	<CoinManager>
-    <CoinXSpacing>25</CoinXSpacing>
-	  <CoinYOffset>45</CoinYOffset>
-		<CoinCountSymbolXOffset>300</CoinCountSymbolXOffset>
-		<CoinCountSymbolY>100</CoinCountSymbolY>
-		<CoinCountY>100</CoinCountY>
-	  <RandomCoinLimitBronze>6</RandomCoinLimitBronze>
-		<RandomCoinLimitSilver>9</RandomCoinLimitSilver>  
-		<RandomCoinLimitGold>10</RandomCoinLimitGold>  
-	</CoinManager>
-
   <Heart>
     <HeartDropSpeed>275</HeartDropSpeed>
     <HeartFloatSpeed>400</HeartFloatSpeed>
@@ -44,15 +33,15 @@
     <SmallHeartHealthValue>10</SmallHeartHealthValue>
     <SmallHeartChance>5</SmallHeartChance> <!-- whole number percent value. if 15, then 15% chance-->
     <HeartChance>1</HeartChance>
-    <SmallHeartLimit>3</SmallHeartLimit>
+    <SmallHeartLimit>2</SmallHeartLimit>
     <HeartLimit>1</HeartLimit>
   </HeartManager>
 		
 	<GameManager>
     <SplashTimeLimit>2.5</SplashTimeLimit>
 		<PausedTextVectorXOffset>40</PausedTextVectorXOffset>
-		<TotalScoreTextX>1625</TotalScoreTextX>
-    <TotalScoreTextY>50</TotalScoreTextY>
+		<TotalScoreTextX>20</TotalScoreTextX>
+    <TotalScoreTextY>5</TotalScoreTextY>
 	</GameManager>
 
 	<!-- TODO: THIS WILL BE A NIGHTMARE WHEN CHANGING RESOLUTIONS?? probably not with the scaling stuff -->
@@ -88,15 +77,37 @@
 		<SpikeMonster>250</SpikeMonster>
 		<UndergroundMonster>400</UndergroundMonster>
 		<SwoopMonster>350</SwoopMonster>
-    </Scoring>	
+  </Scoring>
+  
+  <CoinManager>
+    <CoinXSpacing>25</CoinXSpacing>
+	  <CoinYOffset>45</CoinYOffset>
+		<CoinCountSymbolXOffset>20</CoinCountSymbolXOffset>
+		<CoinCountSymbolY>50</CoinCountSymbolY>
+		<CoinCountY>50</CoinCountY>
+	  <RandomCoinLimitBronze>6</RandomCoinLimitBronze>
+		<RandomCoinLimitSilver>9</RandomCoinLimitSilver>  
+		<RandomCoinLimitGold>10</RandomCoinLimitGold>  
+	</CoinManager>
 
-	<Health>
-		<InitialMaxHealth>1000</InitialMaxHealth>
-        <HealthBarXOffset>20</HealthBarXOffset>
-        <HealthBarY>10</HealthBarY>
-        <HealthTextPositionXOffset>10</HealthTextPositionXOffset>
-        <HealthTextPositionYOffset>8</HealthTextPositionYOffset>
+  <ProgressBar>
+    <Health>
+      <MaxValue>1000</MaxValue>
+      <BarXOffset>20</BarXOffset>
+      <BarY>10</BarY>
+      <TextPositionXOffset>10</TextPositionXOffset>
+      <TextPositionYOffset>8</TextPositionYOffset>
+      <ValueText>Health</ValueText>
     </Health>
+    <Shield>
+      <MaxValue>500</MaxValue>
+      <BarXOffset>20</BarXOffset>
+      <BarY>50</BarY>
+      <TextPositionXOffset>10</TextPositionXOffset>
+      <TextPositionYOffset>8</TextPositionYOffset>
+      <ValueText>Shield</ValueText>
+    </Shield>
+  </ProgressBar>
 
 </Game>
 
