@@ -123,8 +123,6 @@
     <BundleResource Include="Content\Game\coin_bronze_1080p.png" />
     <BundleResource Include="Content\Game\coin_gold_1080p.png" />
     <BundleResource Include="Content\Game\coin_silver_1080p.png" />
-    <BundleResource Include="Content\Game\progressbar_1080p.png" />
-    <BundleResource Include="Content\Game\progressbar_fill_1080p.png" />
     <BundleResource Include="Content\Game\button_1080p.png" />
     <BundleResource Include="Content\Game\pause_1080p.png" />
     <BundleResource Include="Content\Game\pause_background_1080p.png" />
@@ -227,6 +225,10 @@
     <BundleResource Include="Content\StoreLevel\heart_1080p.png" />
     <BundleResource Include="Content\StoreLevel\shield_1080p.png" />
     <BundleResource Include="Content\StoreLevel\small_box_1080p.png" />
+    <BundleResource Include="Content\Game\progressbar_fill_health_1080p.png" />
+    <BundleResource Include="Content\Game\progressbar_fill_shield_1080p.png" />
+    <BundleResource Include="Content\Game\progressbar_health_1080p.png" />
+    <BundleResource Include="Content\Game\progressbar_shield_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
