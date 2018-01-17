@@ -8,12 +8,14 @@ namespace TheAdventuresOf
     /** Handles player logic and anything tied to the player **/
     public class PlayerManager
     {
-        private static PlayerManager instance;
+        //TODO: would probably rather load this from XML
+        public const int SWORD_LEVEL_LIMIT = 2;
+        static PlayerManager instance;
 
-        private static Player player { get; set; }
+        Player player { get; set; }
         BaseLevel level;
-
         List<Accessory> accessories;
+        int swordLevel = 0;
 
         public static PlayerManager Instance {
             get {
@@ -100,6 +102,10 @@ namespace TheAdventuresOf
             return player.entityBounds;
         }
 
+        public int GetSwordLevel() {
+            return swordLevel;
+        }
+
         public bool IsMoveLeft() {
             return player.moveLeft;
         }
@@ -111,6 +117,10 @@ namespace TheAdventuresOf
         public bool IsPlayerJumping()
         {
             return player.isJumping;
+        }
+
+        public bool HasHitSwordLevelLimit() {
+            return swordLevel < SWORD_LEVEL_LIMIT;
         }
 
         public void CheckPlayerCollisionProjectile(Projectile proj) {
@@ -144,6 +154,63 @@ namespace TheAdventuresOf
         {
             player.positionVector.X = X;
             player.UpdateEntityBounds();
+        }
+
+        public void LoadPlayerAccessoryAssets(GraphicsDevice graphicsDevice, List<Accessory> playerAccessories) {
+            accessories = playerAccessories;
+
+            UpdateSwordAccessoryName();
+
+            LoadAccessoryTextures(graphicsDevice);
+
+            //remove all accessories who don't have a texture before passing to player
+            accessories.RemoveAll(accessory => accessory.accessoryTexture == null);
+        }
+
+        public void UpdateSwordAccessoryName() 
+        {
+            //find the sword accessory and append the sword level var to it
+            foreach (Accessory accessory in accessories)
+            {
+                if (accessory.name.Equals("sword"))
+                {
+                    accessory.name = accessory.name + "_" + swordLevel;
+                    break;
+                }
+            }
+        }
+
+        public void LoadAccessoryTextures(GraphicsDevice graphicsDevice) 
+        {
+            Logger.WriteToConsole("SWORD LEVEL ON LEVEL LOAD: " + swordLevel);
+
+            AssetManager.Instance.LoadPlayerAccessoryAssets(graphicsDevice, accessories, SWORD_LEVEL_LIMIT, swordLevel);
+            foreach (Accessory accessory in accessories)
+            {
+                Texture2D texture = AssetManager.Instance.GetAccessoryTexture(accessory.name);
+
+                if (texture != null)
+                {
+                    accessory.InitializeTexture(texture);
+                }
+            }
+        }
+
+        /**
+         * Called by StoreLevel to upgrade sword
+         */
+        public void UpgradePlayerSword()
+        {
+            foreach(Accessory accessory in accessories) {
+                if(accessory.name.Equals("sword_" + swordLevel)) {
+                    swordLevel++;
+                    accessory.name = "sword_" + swordLevel;
+
+                    Texture2D texture = AssetManager.Instance.GetAccessoryTexture(accessory.name);
+                    accessory.InitializeTexture(texture);
+                    break;
+                }
+            }
         }
     }
 }

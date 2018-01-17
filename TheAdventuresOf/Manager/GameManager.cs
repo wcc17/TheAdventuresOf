@@ -75,6 +75,10 @@ namespace TheAdventuresOf
             loadSplashScreen();
         }
 
+        public void UpgradePlayerSword() {
+            PlayerManager.Instance.UpgradePlayerSword();
+        }
+
         void loadSplashScreen() {
             Logger.WriteToConsole("Load splash screen");
 
@@ -215,20 +219,7 @@ namespace TheAdventuresOf
 
         void loadPlayerAccessories() {
             List<Accessory> playerAccessories = XmlManager.LoadPlayerAccessories(currentLevelNumber);
-            AssetManager.Instance.LoadPlayerAccessoryAssets(graphicsDevice, playerAccessories);
-
-            foreach(Accessory accessory in playerAccessories) {
-                Texture2D texture = AssetManager.Instance.GetAccessoryTexture(accessory.name);
-
-                if (texture != null)
-                {
-                    accessory.InitializeTexture(texture);
-                } 
-            }
-
-            //remove all accessories who don't have a texture before passing to player
-            playerAccessories.RemoveAll(accessory => accessory.accessoryTexture == null);
-            PlayerManager.Instance.SetPlayerAccessories(playerAccessories);
+            PlayerManager.Instance.LoadPlayerAccessoryAssets(graphicsDevice, playerAccessories);
         }
 
         void loadPreLevel()

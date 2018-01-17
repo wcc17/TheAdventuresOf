@@ -228,21 +228,43 @@ namespace TheAdventuresOf
             }
         }
 
-        public void LoadPlayerAccessoryAssets(GraphicsDevice graphicsDevice, List<Accessory> accessories) {
+        public void LoadPlayerAccessoryAssets(GraphicsDevice graphicsDevice, List<Accessory> accessories, int swordLevelLimit, int currentSwordLevel) {
             accessoryTextures = new Dictionary<string, Texture2D>();
             String accessoryFilePath = filePath + "Player/";
-            String appendToEnd = "_1080p.png"; //TODO: eventually change this based on resolution of screen
+            String appendToEnd = "_1080p.png";
 
             foreach(Accessory accessory in accessories) {
-                String fullAccessoryFilePath = accessoryFilePath + accessory.name + appendToEnd;
-
-                Texture2D accessoryTexture;
-                using (var stream = TitleContainer.OpenStream(fullAccessoryFilePath)) {
-                    accessoryTexture = Texture2D.FromStream(graphicsDevice, stream);
+                if(accessory.name.Equals("sword_" + currentSwordLevel)) {
+                    loadSwordAccessoryAssets(graphicsDevice, accessory.name, accessoryFilePath, appendToEnd, swordLevelLimit);                   
+                } else {
+                    loadPlayerAccessoryAsset(graphicsDevice, accessory.name, accessoryFilePath, appendToEnd);
                 }
-
-                accessoryTextures.Add(accessory.name, accessoryTexture);
             }
+        }
+
+        /**
+         * Used to actually load the asset from the content folder based on accessory name
+         */
+        void loadPlayerAccessoryAsset(GraphicsDevice graphicsDevice, string accessoryName, string accessoryFilePath, string appendToEnd) {
+            String fullAccessoryFilePath = accessoryFilePath + accessoryName + appendToEnd;
+
+            Texture2D accessoryTexture;
+            using (var stream = TitleContainer.OpenStream(fullAccessoryFilePath))
+            {
+                accessoryTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+
+            accessoryTextures.Add(accessoryName, accessoryTexture);
+        }
+
+        /*
+         * Although there won't be an accessory object for each sword texture loaded, the textures will be loaded into memory so 
+         * that they can be used later on when the player upgrades his sword
+         */
+        void loadSwordAccessoryAssets(GraphicsDevice graphicsDevice, string accessoryName, string accessoryFilePath, string appendToEnd, int swordLevelLimit) {
+            for (int i = 0; i <= swordLevelLimit; i++) {
+                loadPlayerAccessoryAsset(graphicsDevice, "sword_" + i, accessoryFilePath, appendToEnd);
+            } 
         }
 
         public void LoadGameAssets(GraphicsDevice graphicsDevice) {
@@ -426,7 +448,7 @@ namespace TheAdventuresOf
             {
                 storeLevelCoinTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(filePath + "Player/" + "sword_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(filePath + "Player/" + "sword_0_1080p.png"))
             {
                 storeLevelSwordTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
@@ -544,6 +566,10 @@ namespace TheAdventuresOf
 
             //TODO: these should be disposed in every level
             playerTexture.Dispose();
+        }
+
+        public void DisposeAsset(Texture2D asset) {
+            asset.Dispose();
         }
 
         string getPreLevelString(int levelNumber) {

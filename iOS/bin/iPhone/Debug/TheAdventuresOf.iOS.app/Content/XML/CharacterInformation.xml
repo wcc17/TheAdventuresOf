@@ -1,142 +1,121 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Characters>
-  <Player>
-    <EntityTag>Player</EntityTag>
-    <Speed>265</Speed>
-    <AnimationSpeed>0.08</AnimationSpeed>
-    <!-- these just make it easier to put the sword where it needs to be -->
-    <LeftSwordOffset>25</LeftSwordOffset>
-    <RightSwordOffset>1</RightSwordOffset>
-    <SwordYOffset>40</SwordYOffset>
-    <FrameCount>2</FrameCount>
-    <InvincibilityTime>1.5</InvincibilityTime>
-    <KnockBackDistanceLimit>45</KnockBackDistanceLimit>
-    <KnockBackSpeed>850</KnockBackSpeed>
-    <RotationSpeed>500</RotationSpeed>
-    <InitialJumpVelocity>-12.5</InitialJumpVelocity>
-    <JumpGravity>0.45</JumpGravity> 
-    <CollisionOffset>4</CollisionOffset>
-    <InitialMaxHealth>1000</InitialMaxHealth>
-    <HealthBarXOffset>20</HealthBarXOffset>
-    <HealthBarY>10</HealthBarY>
-	<HealthTextPositionXOffset>10</HealthTextPositionXOffset>
-    <HealthTextPositionYOffset>8</HealthTextPositionYOffset>
-  </Player>
   <Monsters>
     <BlockMonster>
       <EntityTag>BlockMonster</EntityTag>
-      <Speed>200</Speed>
-      <SpawnSpeed>250</SpawnSpeed>
-      <DeathSpeed>400</DeathSpeed>
+      <Speed>300</Speed>
+      <SpawnSpeed>300</SpawnSpeed>
+      <DeathSpeed>450</DeathSpeed>
       <AnimationSpeed>0.08</AnimationSpeed>
       <FrameCount>2</FrameCount>
-      <MoveDistanceLimit>150</MoveDistanceLimit>
-      <ActionDelayTime>1.5</ActionDelayTime>
-      <RotationSpeed>350</RotationSpeed>
-	  <Damage>10</Damage>
-	  <FadeSpeed>1.2</FadeSpeed>
+      <MoveDistanceLimit>170</MoveDistanceLimit>
+      <ActionDelayTime>0.5</ActionDelayTime>
+      <RotationSpeed>400</RotationSpeed>
+	    <Damage>20</Damage>
+	    <FadeSpeed>1.4</FadeSpeed>
     </BlockMonster>
 		
     <SunMonster>
       <EntityTag>SunMonster</EntityTag>
-      <Speed>230</Speed>
-      <SpawnSpeed>250</SpawnSpeed>
-      <DeathSpeed>400</DeathSpeed>
-      <AnimationSpeed>0.08</AnimationSpeed>
+      <Speed>300</Speed>
+      <SpawnSpeed>300</SpawnSpeed>
+      <DeathSpeed>450</DeathSpeed>
+      <AnimationSpeed>0.07</AnimationSpeed>
       <FrameCount>3</FrameCount>
-      <MoveDistanceLimit>300</MoveDistanceLimit>
-      <ActionDelayTime>1.5</ActionDelayTime>
-      <RotationSpeed>400</RotationSpeed>
-      <FloatHeight>125</FloatHeight>
-	  <Damage>10</Damage>
-	  <FadeSpeed>1.2</FadeSpeed>
+      <MoveDistanceLimit>270</MoveDistanceLimit>
+      <ActionDelayTime>0.5</ActionDelayTime>
+      <RotationSpeed>450</RotationSpeed>
+      <FloatHeight>145</FloatHeight>
+	    <Damage>25</Damage>
+	    <FadeSpeed>1.4</FadeSpeed>
     </SunMonster>
 		
-	<BileMonster>
+	  <BileMonster>
       <EntityTag>BileMonster</EntityTag>
-      <Speed>230</Speed>
-      <SpawnSpeed>270</SpawnSpeed>
-      <DeathSpeed>400</DeathSpeed>
-      <AnimationSpeed>0.08</AnimationSpeed>
+      <Speed>330</Speed>
+      <SpawnSpeed>320</SpawnSpeed>
+      <DeathSpeed>450</DeathSpeed>
+      <AnimationSpeed>0.07</AnimationSpeed>
       <FrameCount>3</FrameCount>
-      <MoveDistanceLimit>420</MoveDistanceLimit>
-      <ActionDelayTime>1</ActionDelayTime> <!-- this will be how quickly he moves -->
-      <RotationSpeed>400</RotationSpeed>
-      <FloatHeight>125</FloatHeight>
+      <MoveDistanceLimit>370</MoveDistanceLimit>
+      <ActionDelayTime>0.7</ActionDelayTime> <!-- this will be how quickly he moves -->
+      <RotationSpeed>420</RotationSpeed>
+      <FloatHeight>145</FloatHeight>
       <BileObjectLimit>4</BileObjectLimit>
       <BuildUpDelayTimeLimit>2.5</BuildUpDelayTimeLimit>
-	  <BuildUpTimeLimit>2</BuildUpTimeLimit>	
-	  <ThrowTimeLimit>1.2</ThrowTimeLimit>	
-	  <Damage>20</Damage>
-	  <FadeSpeed>1.2</FadeSpeed>
+	    <BuildUpTimeLimit>2</BuildUpTimeLimit>	
+	    <ThrowTimeLimit>1.2</ThrowTimeLimit>	
+	    <Damage>40</Damage>
+	    <FadeSpeed>1.0</FadeSpeed>
     </BileMonster>
 
     <BaseCannonMonster>
-	  <RecoilDistance>10</RecoilDistance>  
-	  <RecoilSpeed>165</RecoilSpeed>
-	</BaseCannonMonster>		
+	    <RecoilDistance>10</RecoilDistance>  
+	    <RecoilSpeed>165</RecoilSpeed>
+	    <ShootCountLimit>3</ShootCountLimit>
+	  </BaseCannonMonster>		
 		
     <GroundCannonMonster>
       <EntityTag>GroundCannonMonster</EntityTag>
       <FrameCount>1</FrameCount>
-      <SpawnSpeed>250</SpawnSpeed>
-      <DeathSpeed>400</DeathSpeed>
-      <RotationSpeed>350</RotationSpeed>
-	  <ActionDelayTime>3.5</ActionDelayTime>
-      <GroundOffset>45</GroundOffset>
+      <SpawnSpeed>275</SpawnSpeed>
+      <DeathSpeed>450</DeathSpeed>
+      <RotationSpeed>400</RotationSpeed>
+	    <ActionDelayTime>3.5</ActionDelayTime>
+      <GroundOffset>38</GroundOffset>
       <BoundOffset>40</BoundOffset>
-	  <BulletYOffset>75</BulletYOffset>	
-	  <Damage>30</Damage>	
-	  <FadeSpeed>1.2</FadeSpeed>
+	    <BulletYOffset>75</BulletYOffset>	
+	    <Damage>40</Damage>	
+	    <FadeSpeed>1.2</FadeSpeed>
     </GroundCannonMonster>
 
     <FlyingCannonMonster>
       <EntityTag>FlyingCannonMonster</EntityTag>
       <FrameCount>2</FrameCount>
-      <RotationSpeed>350</RotationSpeed>
-      <SpawnSpeed>250</SpawnSpeed>
+      <RotationSpeed>400</RotationSpeed>
+      <SpawnSpeed>300</SpawnSpeed>
       <DeathSpeed>400</DeathSpeed>
       <ActionDelayTime>3.5</ActionDelayTime>    
       <AnimationSpeed>0.05</AnimationSpeed> 
       <BoundOffset>40</BoundOffset>     
-      <FloatHeight>165</FloatHeight> 
-	  <BulletYOffset>35</BulletYOffset>	
-	  <BounceHeight>12</BounceHeight>
-	  <BounceSpeed>125</BounceSpeed>	
-	  <Damage>30</Damage>
-	  <FadeSpeed>1.2</FadeSpeed>
+      <FloatHeight>180</FloatHeight> 
+	    <BulletYOffset>35</BulletYOffset>	
+	    <BounceHeight>12</BounceHeight>
+	    <BounceSpeed>145</BounceSpeed>	
+	    <Damage>60</Damage>
+	    <FadeSpeed>1.2</FadeSpeed>
     </FlyingCannonMonster>  
 		
 	<SpikeMonster>
       <EntityTag>SpikeMonster</EntityTag>
       <Speed>190</Speed>
-      <SpawnSpeed>320</SpawnSpeed>
+      <SpawnSpeed>340</SpawnSpeed>
       <DeathSpeed>400</DeathSpeed>
       <RotationSpeed>350</RotationSpeed>
       <AttackSpeed>280</AttackSpeed>
       <FrameCount>3</FrameCount>
       <MoveDistanceLimit>150</MoveDistanceLimit>
-      <ActionDelayTime>10</ActionDelayTime>
+      <ActionDelayTime>7</ActionDelayTime>
       <AttackDelayTime>1.2</AttackDelayTime>        
-	  <FloatHeight>275</FloatHeight>
-	  <Damage>80</Damage>	
-	  <FadeSpeed>1.2</FadeSpeed>
+	    <FloatHeight>325</FloatHeight>
+	    <Damage>100</Damage>	
+	    <FadeSpeed>1.2</FadeSpeed>
     </SpikeMonster>
 		
 	<DashMonster>	
 	  <EntityTag>DashMonster></EntityTag>
-	  <Speed>500</Speed>
-      <SpawnSpeed>250</SpawnSpeed>
-      <DeathSpeed>400</DeathSpeed>
-      <RotationSpeed>350</RotationSpeed>
+	  <Speed>550</Speed>
+      <SpawnSpeed>300</SpawnSpeed>
+      <DeathSpeed>450</DeathSpeed>
+      <RotationSpeed>400</RotationSpeed>
       <AnimationSpeed>0.04</AnimationSpeed>     
       <FrameCount>3</FrameCount>
       <ActionDelayTime>3</ActionDelayTime>
-	  <GroundOffset>8</GroundOffset>	
-	  <BoundOffset>40</BoundOffset>	
-	  <Damage>50</Damage>
-	  <InvincibilityTimeLimit>0.7</InvincibilityTimeLimit>
-	  <FadeSpeed>1.2</FadeSpeed>
+	    <GroundOffset>8</GroundOffset>	
+	    <BoundOffset>40</BoundOffset>	
+	    <Damage>60</Damage>
+	    <InvincibilityTimeLimit>0.7</InvincibilityTimeLimit>
+	    <FadeSpeed>1.4</FadeSpeed>
 	</DashMonster>	
 
     <UndergroundMonster>
@@ -152,28 +131,30 @@
       <Gravity>0.48</Gravity> 
       <VelocityWeakenValue>0.60</VelocityWeakenValue> <!-- before monster hits ground, velocity will be lessened so player has more warning -->
       <RotationVelocityLimit>-10</RotationVelocityLimit> <!-- when this limit is hit, rotation will begin in air -->
-      <Damage>40</Damage>   
+      <Damage>60</Damage>   
       <FadeSpeed>1.2</FadeSpeed>
     </UndergroundMonster>
 
 	<SwoopMonster>
       <EntityTag>SwoopMonster</EntityTag>
-      <Speed>230</Speed>
+      <Speed>330</Speed>
       <SpawnSpeed>250</SpawnSpeed>
       <DeathSpeed>400</DeathSpeed>
       <AnimationSpeed>0.08</AnimationSpeed>
       <FrameCount>1</FrameCount>
-      <MoveDistanceLimit>300</MoveDistanceLimit>
-      <ActionDelayTime>1.5</ActionDelayTime>
+      <MoveDistanceLimit>400</MoveDistanceLimit>
+      <ActionDelayTime>0.8</ActionDelayTime>
       <RotationSpeed>400</RotationSpeed>
-      <FloatHeight>195</FloatHeight>
-      <Damage>40</Damage>
-	  <SwoopDelayLimit>5</SwoopDelayLimit>
-	  <SwoopArcScale>85</SwoopArcScale> <!--arcScale here to scale the cosY value (ex. if arcScale=100, -1 to 1 goes to -100 to 100). higher number means tip goes further down-->
-	  <SwoopArcWidth>400</SwoopArcWidth> <!--a higher number for arcWidth makes it wider-->
-	  <SwoopArcSpeed>6</SwoopArcSpeed> <!--a higher number for arcSpeed makes the whole "swoop" happen faster-->
-	  <InvincibilityTimeLimit>0.4</InvincibilityTimeLimit>
-	  <FadeSpeed>1.2</FadeSpeed>
+      <FloatHeight>280</FloatHeight>
+      <Damage>50</Damage>
+	    <SwoopDelayLimit>3</SwoopDelayLimit>
+	    <SwoopArcScale>150</SwoopArcScale> <!--arcScale here to scale the cosY value (ex. if arcScale=100, -1 to 1 goes to -100 to 100). higher number means tip goes further down-->
+	    <SwoopArcWidth>620</SwoopArcWidth> <!--a higher number for arcWidth makes it wider-->
+	    <SwoopArcSpeed>3.6</SwoopArcSpeed> <!--a higher number for arcSpeed makes the whole "swoop" happen faster-->
+	    <InvincibilityTimeLimit>0.4</InvincibilityTimeLimit>
+	    <FadeSpeed>1.2</FadeSpeed>
+      <PlayerTrailDistance>100</PlayerTrailDistance>
+	    <TrailXOffset>40</TrailXOffset>
     </SwoopMonster>
 		
   </Monsters>
