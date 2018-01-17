@@ -38,12 +38,20 @@
     <Tier10>36000</Tier10>
   </TierScores>
 
-  <!-- test    <Tier1Score>50</Tier1Score>
-    <Tier2Score>100</Tier2Score>
-    <Tier3Score>150</Tier3Score>
-    <Tier4Score>200</Tier4Score>
-    <Tier5Score>250</Tier5Score>
-    -->
+  <!--
+  <TierScores>
+    <Tier1>1</Tier1>
+    <Tier2>2</Tier2>
+    <Tier3>3</Tier3>
+    <Tier4>4</Tier4>
+    <Tier5>5</Tier5>
+    <Tier6>6</Tier6>
+    <Tier7>7</Tier7>
+    <Tier8>8</Tier8>
+    <Tier9>9</Tier9>
+    <Tier10>200</Tier10>
+  </TierScores>
+  -->
 
 
   <MonsterCountTiers>
