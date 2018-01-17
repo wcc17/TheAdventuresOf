@@ -190,11 +190,12 @@ namespace TheAdventuresOf
                     int? cost = storeLevelPropItems[i].cost;
                     if(cost == null)
                     {
-                        //handle the sword upgrade stuff
-                    } else
-                    {
-                        updateCostAndCoinPositions((int)cost, i);
+                        if(!PlayerManager.Instance.HasHitSwordLevelLimit()) {
+                            cost = storeLevelPropItems[i].itemCosts[PlayerManager.Instance.GetSwordLevel() + 1]; //get the cost of the next sword level
+                        }
                     }
+
+                    updateCostAndCoinPositions((int)cost, i);
                 }
             }
 
@@ -235,8 +236,6 @@ namespace TheAdventuresOf
         {
             if(activePropItemIndex > -1)
             {
-                //TODO: check if item is sold out before checking if player is jumping
-                //TODO: make sure we're buying the item we expect to be buying
                 //its possible for this if to be hit again after the item is sold while the player is still jumping, so be sure its not already sold out
                 if(PlayerManager.Instance.IsPlayerJumping() && !storeLevelPropItems[activePropItemIndex].isSoldOut)
                 {
@@ -247,16 +246,16 @@ namespace TheAdventuresOf
 
         void purchaseItem()
         {
-            if(CoinManager.Instance.GetCoinTotal() >= storeLevelPropItems[activePropItemIndex].cost)
+            //have to retrieve the cost of the item before checking, in case null is returned by the storeLevelPropItem for its cost
+            int? cost = storeLevelPropItems[activePropItemIndex].cost;
+            if (cost == null)
             {
-                int? cost = storeLevelPropItems[activePropItemIndex].cost;
-                if(cost != null)
-                {
-                    CoinManager.Instance.SubtractFromCoins((int)cost);
-                } else
-                {
-                    //figure out the sword upgrade stuff
-                }
+                cost = storeLevelPropItems[activePropItemIndex].itemCosts[PlayerManager.Instance.GetSwordLevel() + 1]; //get the cost of the next sword level
+            }
+
+            if(CoinManager.Instance.GetCoinTotal() >= cost)
+            {
+                CoinManager.Instance.SubtractFromCoins((int)cost);
 
                 storeLevelPropItems[activePropItemIndex].isSoldOut = true;
                 TextManager.Instance.RemoveText(costTextIndex);
@@ -276,7 +275,7 @@ namespace TheAdventuresOf
                     HealthShieldManager.Instance.RestoreShieldToMax();
                     break;
                 case SWORD_PROP_ITEM:
-                    //TODO: implement sword upgrades
+                    PlayerManager.Instance.UpgradePlayerSword();
                     break;
             }
         }

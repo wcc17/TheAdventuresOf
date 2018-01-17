@@ -110,7 +110,6 @@
     <BundleResource Include="Content\Game\heart_1080p.png" />
     <BundleResource Include="Content\Game\leftarrow_1080p.png" />
     <BundleResource Include="Content\Game\rightarrow_1080p.png" />
-    <BundleResource Include="Content\Player\sword_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level1background_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level1character_1080p.png" />
     <BundleResource Include="Content\Projectile\bullet_1080p.png" />
@@ -229,6 +228,9 @@
     <BundleResource Include="Content\Game\progressbar_fill_shield_1080p.png" />
     <BundleResource Include="Content\Game\progressbar_health_1080p.png" />
     <BundleResource Include="Content\Game\progressbar_shield_1080p.png" />
+    <BundleResource Include="Content\Player\sword_0_1080p.png" />
+    <BundleResource Include="Content\Player\sword_1_1080p.png" />
+    <BundleResource Include="Content\Player\sword_2_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
