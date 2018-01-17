@@ -12,6 +12,7 @@ namespace TheAdventuresOf
         public const string SHIELD_PROP_ITEM = "Shield Refill";
         public const string SWORD_PROP_ITEM = "Sword Upgrade";
         public const string SOLD_OUT = "Sold Out!";
+        public const int NO_ACTIVE_ITEM = -1;
 
         public static string storeLevelCharText;
         public static SortedDictionary<int, PropItem> storeLevelPropItems;
@@ -29,7 +30,7 @@ namespace TheAdventuresOf
         bool shouldDrawCost = false;
         int costToDraw = 0;
         int costTextIndex = 543; //just a random number to ensure this text is unique. TODO: if i start doing this more it should be loaded from XML
-        int activePropItemIndex = -1;
+        int activePropItemIndex = NO_ACTIVE_ITEM;
         Vector2 costPositionVector = new Vector2();
         Vector2 coinPositionVector = new Vector2();
         List<Prop> smallBoxProps = new List<Prop>();
@@ -192,49 +193,62 @@ namespace TheAdventuresOf
                     {
                         if(!PlayerManager.Instance.HasHitSwordLevelLimit()) {
                             cost = storeLevelPropItems[i].itemCosts[PlayerManager.Instance.GetSwordLevel() + 1]; //get the cost of the next sword level
+                        } else
+                        {
+                            storeLevelPropItems[i].isSoldOut = true;
                         }
                     }
 
-                    updateCostAndCoinPositions((int)cost, i);
+
+                    if(!storeLevelPropItems[i].isSoldOut)
+                    {
+                        activePropItemIndex = i;
+                        updateCostAndCoinPositions((int)cost);
+                    }
+
+                    break;
                 }
             }
 
-            if(!shouldDrawCost)
+            //go ahead and post the sold out message if applicable
+            if(activePropItemIndex > NO_ACTIVE_ITEM)
+            {
+                if (storeLevelPropItems[activePropItemIndex].isSoldOut)
+                {
+                    //again, the 200 is just getting a random index to store text at so nothing else bothers it
+                    TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X - soldOutTextXOffset, costPositionVector.Y, SOLD_OUT, activePropItemIndex * 200);
+                }
+            }
+
+            if (!shouldDrawCost)
             {
                 TextManager.Instance.RemoveText(costTextIndex);
                 shouldDrawCost = false;
-                activePropItemIndex = -1;
+                activePropItemIndex = NO_ACTIVE_ITEM;
             }
             else if(!storeLevelPropItems[activePropItemIndex].isSoldOut)
             {
                 TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X, costPositionVector.Y, "x" + costToDraw.ToString(), costTextIndex);
             }
-            else if(storeLevelPropItems[activePropItemIndex].isSoldOut)
-            {
-                //again, the 200 is just getting a random index to store text at so nothing else bothers it
-                TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X - soldOutTextXOffset, costPositionVector.Y, SOLD_OUT, activePropItemIndex*200);
-            }
         }
 
-        void updateCostAndCoinPositions(int cost, int index)
+        void updateCostAndCoinPositions(int cost)
         {
             shouldDrawCost = true;
             costToDraw = cost;
 
-            costPositionVector.X = (smallBoxProps[index].positionVector.X)
-                + (smallBoxProps[index].bounds.Width / 2);
-            costPositionVector.Y = smallBoxProps[index].positionVector.Y
+            costPositionVector.X = (smallBoxProps[activePropItemIndex].positionVector.X)
+                + (smallBoxProps[activePropItemIndex].bounds.Width / 2);
+            costPositionVector.Y = smallBoxProps[activePropItemIndex].positionVector.Y
                 - costYOffset;
 
             coinPositionVector.X = costPositionVector.X - coinXOffset;
             coinPositionVector.Y = costPositionVector.Y;
-
-            activePropItemIndex = index;
         }
 
         void checkPlayerPurchase()
         {
-            if(activePropItemIndex > -1)
+            if(activePropItemIndex > NO_ACTIVE_ITEM)
             {
                 //its possible for this if to be hit again after the item is sold while the player is still jumping, so be sure its not already sold out
                 if(PlayerManager.Instance.IsPlayerJumping() && !storeLevelPropItems[activePropItemIndex].isSoldOut)

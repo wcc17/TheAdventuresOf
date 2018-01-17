@@ -120,7 +120,7 @@ namespace TheAdventuresOf
         }
 
         public bool HasHitSwordLevelLimit() {
-            return swordLevel < SWORD_LEVEL_LIMIT;
+            return swordLevel >= SWORD_LEVEL_LIMIT;
         }
 
         public void CheckPlayerCollisionProjectile(Projectile proj) {
