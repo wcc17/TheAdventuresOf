@@ -545,7 +545,7 @@ namespace TheAdventuresOf
 
             if (((GameController)currentController).isPaused)
             {
-                spriteBatch.Draw(AssetManager.Instance.pauseBackgroundTexture, basePositionVector);
+                spriteBatch.Draw(AssetManager.Instance.transparentBlackBackgroundTexture, basePositionVector);
                 spriteBatch.DrawString(AssetManager.Instance.font, "Paused.", pausedTextVector, Color.White);
             }
         }

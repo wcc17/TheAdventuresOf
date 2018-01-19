@@ -6,25 +6,26 @@ namespace TheAdventuresOf
 {
     public class Level : BaseLevel
     {
+        public static MonsterManager monsterManager;
+
         public int maxTier;
         public int currentTier;
-        public Dictionary<int, List<int>> tierMonsterLimits;
-        public Dictionary<int, int> tierScores = new Dictionary<int, int>();
-
-		public BlockMonster blockMonster;
-		public SunMonster sunMonster;
-		public GroundCannonMonster groundCannonMonster;
-		public BileMonster bileMonster;
+        public float masterSpawnDelayTime; //time before another monster of any kind can be spawned
+        public BlockMonster blockMonster;
+        public SunMonster sunMonster;
+        public GroundCannonMonster groundCannonMonster;
+        public BileMonster bileMonster;
         public SpikeMonster spikeMonster;
         public DashMonster dashMonster;
         public FlyingCannonMonster flyingCannonMonster;
         public UndergroundMonster undergroundMonster;
         public SwoopMonster swoopMonster;
-
-		public float masterSpawnDelayTime; //time before another monster of any kind can be spawned
+        public Dictionary<int, List<int>> tierMonsterLimits;
+        public Dictionary<int, int> tierScores = new Dictionary<int, int>();
         public Dictionary<int, float> spawnDelayTimes; //an individual spawn delay time for each monster
 
-		public static MonsterManager monsterManager;
+        ScoreStatOverlay scoreStatOverlay;
+        bool showScoreStatOverlay;
 
         public Level(Texture2D levelTexture) : base(levelTexture: levelTexture) {
             currentTier = 0;
@@ -42,16 +43,24 @@ namespace TheAdventuresOf
 
 		public override void Update(GameTime gameTime, GameController gameController)
 		{
-            base.Update(gameTime, gameController);
-            monsterManager.Update(gameTime);
+            if(!showScoreStatOverlay) {
+                base.Update(gameTime, gameController);
+                monsterManager.Update(gameTime);
 
-            if(ScoringManager.Instance.score > tierScores[currentTier] && currentTier < (maxTier-1)) {
-                currentTier = currentTier + 1;
-            }
+                if (ScoringManager.Instance.score > tierScores[currentTier] && currentTier < (maxTier - 1))
+                {
+                    currentTier = currentTier + 1;
+                }
 
-            if(currentTier == (maxTier-1) && ScoringManager.Instance.score > tierScores[currentTier]) {
-                ScoringManager.Instance.ClearScores();
-                nextLevel = true;
+                if (currentTier == (maxTier - 1) && ScoringManager.Instance.score > tierScores[currentTier])
+                {
+                    scoreStatOverlay = new ScoreStatOverlay(monsterManager);
+                    showScoreStatOverlay = true;
+
+                    //TODO: call this when player is ready to leave ScoreStatOverlay
+                    //ScoringManager.Instance.ClearScores();
+                    //nextLevel = true;
+                }
             }
 		}
 
@@ -61,13 +70,18 @@ namespace TheAdventuresOf
             //Draw level
             spriteBatch.Draw(levelTexture, levelPositionVector);
 
-            //Draw monsters
-            monsterManager.DrawMonsters(spriteBatch);
+            if(!showScoreStatOverlay) {
+                //Draw monsters
+                monsterManager.DrawMonsters(spriteBatch);
+                
+                //Draw player
+                PlayerManager.Instance.Draw(spriteBatch);
 
-            //Draw player
-            PlayerManager.Instance.Draw(spriteBatch);
-
-            HealthShieldManager.Instance.Draw(spriteBatch);
+                //Draw health and shield
+                HealthShieldManager.Instance.Draw(spriteBatch);
+            } else {
+                scoreStatOverlay.Draw(spriteBatch);
+            }
             
 		}
 

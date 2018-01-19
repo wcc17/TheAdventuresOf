@@ -124,7 +124,6 @@
     <BundleResource Include="Content\Game\coin_silver_1080p.png" />
     <BundleResource Include="Content\Game\button_1080p.png" />
     <BundleResource Include="Content\Game\pause_1080p.png" />
-    <BundleResource Include="Content\Game\pause_background_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level2character_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level2background_1080p.png" />
     <BundleResource Include="Content\Level\level2background_1080p.png" />
@@ -231,6 +230,7 @@
     <BundleResource Include="Content\Player\sword_0_1080p.png" />
     <BundleResource Include="Content\Player\sword_1_1080p.png" />
     <BundleResource Include="Content\Player\sword_2_1080p.png" />
+    <BundleResource Include="Content\Game\transparent_background_black_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
