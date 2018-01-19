@@ -72,6 +72,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controller\GameController\GameController.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\GameController\GameControllerMobile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\GameController\GameControllerWindows.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Overlay\ScoreStatOverlay.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />
@@ -82,5 +83,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Entity\Player\" />
     <Folder Include="$(MSBuildThisFileDirectory)Controller\MenuController\" />
     <Folder Include="$(MSBuildThisFileDirectory)Controller\GameController\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Overlay\" />
   </ItemGroup>
 </Project>

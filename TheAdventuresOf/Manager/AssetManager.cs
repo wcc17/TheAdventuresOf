@@ -49,7 +49,7 @@ namespace TheAdventuresOf
         public Texture2D bronzeCoinTexture;
         public Texture2D silverCoinTexture;
         public Texture2D goldCoinTexture;
-        public Texture2D pauseBackgroundTexture;
+        public Texture2D transparentBlackBackgroundTexture;
         public Texture2D quitButtonTexture;
         public Texture2D heartSmallTexture;
         public Texture2D heartTexture;
@@ -302,12 +302,12 @@ namespace TheAdventuresOf
                 heartSmallTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
-            string pauseBackgroundPath = "pause_background_1080p.png";
+            string transparentBackgroundTexturePath = "transparent_background_black_1080p.png";
 #if !__IOS__ && !__ANDROID__
-            pauseBackgroundPath = "pause_background_xbox_1080p.png";
+            transparentBackgroundTexturePath = "transparent_background_black_xbox_1080p.png";
 #endif
-            using (var stream = TitleContainer.OpenStream(gameFilePath + pauseBackgroundPath)) {
-                pauseBackgroundTexture = Texture2D.FromStream(graphicsDevice, stream);
+            using (var stream = TitleContainer.OpenStream(gameFilePath + transparentBackgroundTexturePath)) {
+                transparentBlackBackgroundTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
             using (var stream = TitleContainer.OpenStream(gameFilePath + "quit_button_1080p.png"))
             {
@@ -555,7 +555,7 @@ namespace TheAdventuresOf
             progressBarShieldTexture.Dispose();
             progressBarFillHealthTexture.Dispose();
             progressBarFillShieldTexture.Dispose();
-            pauseBackgroundTexture.Dispose();
+            transparentBlackBackgroundTexture.Dispose();
             quitButtonTexture.Dispose();
 
             bronzeCoinTexture.Dispose();

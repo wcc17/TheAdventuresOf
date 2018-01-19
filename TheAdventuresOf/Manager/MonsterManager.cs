@@ -470,26 +470,20 @@ namespace TheAdventuresOf
             return getRandomXLocation(monster.entityWidth, leftSideXLimit, rightSideXLimit);
         }
 
-        void spawnBlockMonster()
-        {
+        public BlockMonster GenerateBlockMonster() {
             BlockMonster blockMonster = new BlockMonster();
-
             blockMonster.SetBlockMonsterData(level.blockMonster);
             blockMonster.groundLevel = level.groundLevel;
             blockMonster.InitializeEntity(AssetManager.Instance.blockMonsterTexture.Width / blockMonster.frameCount,
                                           AssetManager.Instance.blockMonsterTexture.Height);
-            blockMonster = (BlockMonster) handleSpawnType(blockMonster, Monster.SPAWN_BOTTOM);
+            blockMonster = (BlockMonster)handleSpawnType(blockMonster, Monster.SPAWN_BOTTOM);
             blockMonster.InitializeSpawn();
 
-            monsters.Add(blockMonster);
-
-            blockMonsterCount++;
+            return blockMonster;
         }
 
-        void spawnSunMonster()
-        {
+        public SunMonster GenerateSunMonster() {
             SunMonster sunMonster = new SunMonster();
-
             sunMonster.SetSunMonsterData(level.sunMonster);
             sunMonster.groundLevel = level.groundLevel - SunMonster.floatHeight;
             sunMonster.InitializeEntity(AssetManager.Instance.sunMonsterTexture.Width / sunMonster.frameCount,
@@ -497,15 +491,11 @@ namespace TheAdventuresOf
             sunMonster = (SunMonster)determineSpawnTypeRandom(sunMonster);
             sunMonster.InitializeSpawn();
 
-            monsters.Add(sunMonster);
-
-            sunMonsterCount++;
+            return sunMonster;
         }
 
-        void spawnBileMonster()
-        {
+        public BileMonster GenerateBileMonster() {
             BileMonster bileMonster = new BileMonster();
-
             bileMonster.SetBileMonsterData(level.bileMonster);
             bileMonster.groundLevel = level.groundLevel - BileMonster.floatHeight;
             bileMonster.InitializeEntity(AssetManager.Instance.bileMonsterTexture.Width / bileMonster.frameCount,
@@ -513,15 +503,11 @@ namespace TheAdventuresOf
             bileMonster = (BileMonster)determineSpawnTypeRandom(bileMonster);
             bileMonster.InitializeSpawn();
 
-            monsters.Add(bileMonster);
-
-            bileMonsterCount++;
+            return bileMonster;
         }
 
-        void spawnGroundCannonMonster()
-        {
+        public GroundCannonMonster GenerateGroundCannonMonster() {
             GroundCannonMonster groundCannonMonster = new GroundCannonMonster();
-
             groundCannonMonster.SetCannonMonsterData(level.groundCannonMonster);
             groundCannonMonster.groundLevel = level.groundLevel - GroundCannonMonster.groundOffset;
             //random side of the level is chosen here. if a cannon monster already exists there, it will be handled here
@@ -534,16 +520,11 @@ namespace TheAdventuresOf
             groundCannonMonster.spawnType = Monster.SPAWN_BOTTOM; //is default, but want to be explicit here
             groundCannonMonster.InitializeSpawn();
 
-            monsters.Add(groundCannonMonster);
-
-            groundCannonMonsterCount++;
-            baseCannonMonsterCount++;
+            return groundCannonMonster;
         }
 
-        void spawnFlyingCannonMonster()
-        {
+        public FlyingCannonMonster GenerateFlyingCannonMonster() {
             FlyingCannonMonster flyingCannonMonster = new FlyingCannonMonster();
-
             flyingCannonMonster.SetFlyingCannonMonsterData(level.flyingCannonMonster);
             flyingCannonMonster.groundLevel = level.groundLevel - FlyingCannonMonster.floatHeight;
             flyingCannonMonster.ChooseRandomSide(baseCannonMonsterCount, flyingCannonMonsterCount, monsters);
@@ -554,17 +535,11 @@ namespace TheAdventuresOf
 
             flyingCannonMonster.spawnType = Monster.SPAWN_TOP;
             flyingCannonMonster.InitializeSpawn();
-
-            monsters.Add(flyingCannonMonster);
-
-            flyingCannonMonsterCount++;
-            baseCannonMonsterCount++;
+            return flyingCannonMonster;
         }
 
-        void spawnSpikeMonster() 
-        {
+        public SpikeMonster GenerateSpikeMonster() {
             SpikeMonster spikeMonster = new SpikeMonster();
-
             spikeMonster.SetSpikeMonsterData(level.spikeMonster);
             spikeMonster.groundLevel = level.groundLevel - SpikeMonster.floatHeight;
             spikeMonster.InitializeEntity(AssetManager.Instance.spikeMonsterTexture.Width / spikeMonster.frameCount,
@@ -572,15 +547,11 @@ namespace TheAdventuresOf
             spikeMonster = (SpikeMonster)determineSpawnTypeRandom(spikeMonster);
             spikeMonster.InitializeSpawn();
 
-            monsters.Add(spikeMonster);
-
-            spikeMonsterCount++;
+            return spikeMonster;
         }
 
-        void spawnDashMonster()
-        {
+        public DashMonster GenerateDashMonster() {
             DashMonster dashMonster = new DashMonster();
-
             dashMonster.SetDashMonsterData(level.dashMonster);
             dashMonster.groundLevel = level.groundLevel + DashMonster.groundOffset;
             dashMonster.InitializeEntity(AssetManager.Instance.dashMonsterTexture.Width / dashMonster.frameCount,
@@ -588,14 +559,11 @@ namespace TheAdventuresOf
             dashMonster = (DashMonster)handleSpawnType(dashMonster, Monster.SPAWN_BOTTOM);
             dashMonster.InitializeSpawn();
 
-            monsters.Add(dashMonster);
-
-            dashMonsterCount++;
+            return dashMonster;
         }
 
-        void spawnUndergroundMonster() {
+        public UndergroundMonster GenerateUndergroundMonster() {
             UndergroundMonster undergroundMonster = new UndergroundMonster();
-
             undergroundMonster.SetUndergroundMonsterData(level.undergroundMonster);
             undergroundMonster.groundLevel = level.groundLevel;
             undergroundMonster.InitializeEntity(PlayerManager.Instance.GetPlayerPosition().X,
@@ -606,14 +574,11 @@ namespace TheAdventuresOf
             //even though theres no true "spawn", just need to get him ready
             undergroundMonster.InitializeSpawn();
 
-            monsters.Add(undergroundMonster);
-
-            undergroundMonsterCount++;
+            return undergroundMonster;
         }
 
-        void spawnSwoopMonster() {
+        public SwoopMonster GenerateSwoopMonster() {
             SwoopMonster swoopMonster = new SwoopMonster();
-
             swoopMonster.SetSwoopMonsterData(level.swoopMonster);
             swoopMonster.groundLevel = level.groundLevel - SwoopMonster.floatHeight;
             swoopMonster.InitializeEntity(AssetManager.Instance.swoopMonsterTexture.Width / swoopMonster.frameCount,
@@ -621,8 +586,60 @@ namespace TheAdventuresOf
             swoopMonster = (SwoopMonster)determineSpawnTypeRandom(swoopMonster);
             swoopMonster.InitializeSpawn();
 
-            monsters.Add(swoopMonster);
+            return swoopMonster;
+        }
 
+        void spawnBlockMonster()
+        {
+            monsters.Add(GenerateBlockMonster());
+            blockMonsterCount++;
+        }
+
+        void spawnSunMonster()
+        {
+            monsters.Add(GenerateSunMonster());
+            sunMonsterCount++;
+        }
+
+        void spawnBileMonster()
+        {
+            monsters.Add(GenerateBileMonster());
+            bileMonsterCount++;
+        }
+
+        void spawnGroundCannonMonster()
+        {
+            monsters.Add(GenerateGroundCannonMonster());
+            groundCannonMonsterCount++;
+            baseCannonMonsterCount++;
+        }
+
+        void spawnFlyingCannonMonster()
+        {
+            monsters.Add(GenerateFlyingCannonMonster());
+            flyingCannonMonsterCount++;
+            baseCannonMonsterCount++;
+        }
+
+        void spawnSpikeMonster() 
+        {
+            monsters.Add(GenerateSpikeMonster());
+            spikeMonsterCount++;
+        }
+
+        void spawnDashMonster()
+        {
+            monsters.Add(GenerateDashMonster());
+            dashMonsterCount++;
+        }
+
+        void spawnUndergroundMonster() {
+            monsters.Add(GenerateUndergroundMonster());
+            undergroundMonsterCount++;
+        }
+
+        void spawnSwoopMonster() {
+            monsters.Add(GenerateSwoopMonster());
             swoopMonsterCount++;
         }
     }

@@ -20,6 +20,16 @@ namespace TheAdventuresOf
         public static int undergroundMonsterScore;
         public static int swoopMonsterScore;
 
+        public int blockMonstersKilled;
+        public int sunMonstersKilled;
+        public int bileMonstersKilled;
+        public int dashMonstersKilled;
+        public int groundCannonMonstersKilled;
+        public int flyingCannonMonstersKilled;
+        public int spikeMonstersKilled;
+        public int undergroundMonstersKilled;
+        public int swoopMonstersKilled;
+
         public static ScoringManager Instance {
             get
             {
@@ -37,33 +47,32 @@ namespace TheAdventuresOf
 
             int pointsEarned = 0;
 
-            //TODO: should this be all ifs, if/else, or can i somehow use switch?
             if(monster is BlockMonster) {
                 pointsEarned = blockMonsterScore;
-            }
-            if(monster is SunMonster) {
+                blockMonstersKilled++;
+            } else if(monster is SunMonster) {
                 pointsEarned = sunMonsterScore;
-            }
-            if(monster is BileMonster) {
+            } else if(monster is BileMonster) {
                 pointsEarned = bileMonsterScore;
-            }
-            if(monster is DashMonster) {
+                bileMonstersKilled++;
+            } else if(monster is DashMonster) {
                 pointsEarned = dashMonsterScore;
-            }
-            if(monster is GroundCannonMonster) {
+                dashMonstersKilled++;
+            } else if(monster is GroundCannonMonster) {
                 pointsEarned = groundCannonMonsterScore;
-            }
-            if(monster is FlyingCannonMonster) {
+                groundCannonMonstersKilled++;
+            } else if(monster is FlyingCannonMonster) {
                 pointsEarned = flyingCannonMonsterScore;
-            }
-            if(monster is SpikeMonster) {
+                flyingCannonMonstersKilled++;
+            } else if(monster is SpikeMonster) {
                 pointsEarned = spikeMonsterScore;
-            }
-            if(monster is UndergroundMonster) {
+                spikeMonstersKilled++;
+            } else if(monster is UndergroundMonster) {
                 pointsEarned = undergroundMonsterScore;
-            }
-            if(monster is SwoopMonster) {
+                undergroundMonstersKilled++;
+            } else if(monster is SwoopMonster) {
                 pointsEarned = swoopMonsterScore;
+                swoopMonstersKilled++;
             }
 
             score += pointsEarned;
@@ -78,5 +87,6 @@ namespace TheAdventuresOf
         public void ClearScores() {
             score = 0;
         }
+
     }
 }
