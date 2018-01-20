@@ -38,7 +38,7 @@
 		</data>
 		<key>.monotouch-32/Xamarin.iOS.aotdata.armv7</key>
 		<data>
-		8kLWVP3gyzT0PfJxDFxp7L8Xb/U=
+		FY7RjKWiIolh643xkCZ5s5Wwl2I=
 		</data>
 		<key>.monotouch-32/Xamarin.iOS.armv7.aotdata</key>
 		<data>
@@ -46,11 +46,11 @@
 		</data>
 		<key>.monotouch-32/Xamarin.iOS.dll</key>
 		<data>
-		x+e0QfiO1HI18lb4L7MyTV4wRuI=
+		L/yW3a2qFU9bH9rwYA92LAJdwq8=
 		</data>
 		<key>.monotouch-32/Xamarin.iOS.dll.mdb</key>
 		<data>
-		vyu1rL8iZ2vRgy+WhOus2PNFa6s=
+		ohljm/RbMVEwjiXqhU8VJTSXlYk=
 		</data>
 		<key>.monotouch-32/mscorlib.armv7.aotdata</key>
 		<data>
@@ -150,7 +150,7 @@
 		</data>
 		<key>.monotouch-64/Xamarin.iOS.aotdata.arm64</key>
 		<data>
-		j4NNA0ZN9PMIQVd7HSvmQSeE/GY=
+		9FME5S/KzAlPKbw4Wlp9qHENF4I=
 		</data>
 		<key>.monotouch-64/Xamarin.iOS.arm64.aotdata</key>
 		<data>
@@ -158,11 +158,11 @@
 		</data>
 		<key>.monotouch-64/Xamarin.iOS.dll</key>
 		<data>
-		uvpY76DvKHbbCvHchuVxPXXX0GI=
+		4Yu7BSaBVMiQi7JyRJI21R0RvG4=
 		</data>
 		<key>.monotouch-64/Xamarin.iOS.dll.mdb</key>
 		<data>
-		j03NF3p4HlryMdm68tCnUjkwncU=
+		Aea5Y7H1Z32yDYaPsyfvvtuQAX0=
 		</data>
 		<key>.monotouch-64/mscorlib.arm64.aotdata</key>
 		<data>
@@ -246,19 +246,11 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		ojvXrAeE/mhg7xGFJNKN6I5kExw=
-		</data>
-		<key>Content/Game/arial.spritefont</key>
-		<data>
-		Tf5uZdMqlF7ydCLO6ZnRSk7jwN8=
+		2HAz3tTRzeLySp8L8m2j9N+l2mc=
 		</data>
 		<key>Content/Game/arial.xnb</key>
 		<data>
-		W92DEz4OwZGU399HGg98GpwSk58=
-		</data>
-		<key>Content/Game/arrow_1080p.png</key>
-		<data>
-		im/ieFLBDRHARPyfd3bCU7p6p7o=
+		4B67vMUOMMb1nhF8gs/Q8xVEkh4=
 		</data>
 		<key>Content/Game/button_1080p.png</key>
 		<data>
@@ -300,18 +292,6 @@
 		<data>
 		mrxBmFGZcMD1KTuqL2mD/MUva0I=
 		</data>
-		<key>Content/Game/pause_background_1080p.png</key>
-		<data>
-		CUnri5RMy4PJ+ThhjuNk4EWnY5Y=
-		</data>
-		<key>Content/Game/progressbar_1080p.png</key>
-		<data>
-		lp4gfO7GS0N1V9SzFJUniJlOgnQ=
-		</data>
-		<key>Content/Game/progressbar_fill_1080p.png</key>
-		<data>
-		oR0LBHsbMrTgsayLoLj61uFDVFs=
-		</data>
 		<key>Content/Game/progressbar_fill_health_1080p.png</key>
 		<data>
 		oR0LBHsbMrTgsayLoLj61uFDVFs=
@@ -336,9 +316,9 @@
 		<data>
 		0NABDDwBZdT4aJPGEYZNCf1SN38=
 		</data>
-		<key>Content/Game/uparrow_1080p.png</key>
+		<key>Content/Game/transparent_background_black_1080p.png</key>
 		<data>
-		jiT3CWXKGUA0uvS9n6ggHUVVohQ=
+		CUnri5RMy4PJ+ThhjuNk4EWnY5Y=
 		</data>
 		<key>Content/Level/level1_music.m4a</key>
 		<data>
@@ -346,7 +326,7 @@
 		</data>
 		<key>Content/Level/level1_music.xnb</key>
 		<data>
-		ki17wufRghQMFNbPDYUsERq8ABk=
+		FwzyyLP4HY4C9NIojjBMn5GoAoQ=
 		</data>
 		<key>Content/Level/level1background_1080p.png</key>
 		<data>
@@ -370,7 +350,7 @@
 		</data>
 		<key>Content/Level/level5_music.xnb</key>
 		<data>
-		wOjJsI+4/efVwWc//DqaHrIYrkg=
+		CvZ5FiUXkgoVnDK2ahu3vDHAhU4=
 		</data>
 		<key>Content/Level/level5background_1080p.png</key>
 		<data>
@@ -428,21 +408,13 @@
 		<data>
 		7R+Z4eShPa41jxCV7QD0BQam78E=
 		</data>
-		<key>Content/Menu/mainmenu_1080p.png</key>
-		<data>
-		IWHbPY3cbjWq1Y5N5vEuOSe/Fwc=
-		</data>
 		<key>Content/Menu/mainmenu_music.m4a</key>
 		<data>
 		H2nfl/7mqxcqG4DPaAqxC9TY5Kc=
 		</data>
 		<key>Content/Menu/mainmenu_music.xnb</key>
 		<data>
-		jDi5GacvQU213yF4RcJAiKsoYVM=
-		</data>
-		<key>Content/Menu/mainmenu_playbutton_1080p.png</key>
-		<data>
-		7R+Z4eShPa41jxCV7QD0BQam78E=
+		KrvvYr12q7a01bIZAAsb3vhgcVY=
 		</data>
 		<key>Content/Menu/splash/splash_1080p.png</key>
 		<data>
@@ -456,17 +428,41 @@
 		<data>
 		gVfO5eLpQnW3iYv+cN9uM8Q56zA=
 		</data>
-		<key>Content/Menu/splash_1080p.png</key>
+		<key>Content/Monster/LEvel4/bilemonster_1080p.png</key>
 		<data>
-		MdfkdvLgA9Y/UrKfcm7POfPP7dk=
+		UMEZrMalMpxHPc4WbUKIt5EDldw=
 		</data>
-		<key>Content/Menu/splash_iphone6plus.png</key>
+		<key>Content/Monster/LEvel4/blockmonster_1080p.png</key>
 		<data>
-		efXSxdgQO5WFTkbnCuAZUJqJ7QE=
+		o4ak8iJ1jl9QgHNI4H6/BEbKu+g=
 		</data>
-		<key>Content/Menu/splash_iphone6splus_old.png</key>
+		<key>Content/Monster/LEvel4/cannonmonster_1080p.png</key>
 		<data>
-		gVfO5eLpQnW3iYv+cN9uM8Q56zA=
+		iS7w9dFdre1qRsVQfkpzwUg73Ko=
+		</data>
+		<key>Content/Monster/LEvel4/dashmonster_1080p.png</key>
+		<data>
+		Gz7+AjwVAPWt7qYfR2fzbL4WU5A=
+		</data>
+		<key>Content/Monster/LEvel4/flyingcannonmonster_1080p.png</key>
+		<data>
+		l/kD2wIO3G1/5IVc3WYaGhieuDU=
+		</data>
+		<key>Content/Monster/LEvel4/spikemonster_1080p.png</key>
+		<data>
+		Y1s2XXBB7T9wTUvD0JP6vcZ1t7s=
+		</data>
+		<key>Content/Monster/LEvel4/sunmonster_1080p.png</key>
+		<data>
+		W2DjVG87qdcwirPtflO33HcL5Wk=
+		</data>
+		<key>Content/Monster/LEvel4/swoopmonster_1080p.png</key>
+		<data>
+		fidfIsp/MWYHLn9r5KEaDP4MVRo=
+		</data>
+		<key>Content/Monster/LEvel4/undergroundmonster_1080p.png</key>
+		<data>
+		aIMUy9JsuOm8fDE2m6Z9m9eLilU=
 		</data>
 		<key>Content/Monster/Level1/bilemonster_1080p.png</key>
 		<data>
@@ -576,42 +572,6 @@
 		<data>
 		ZzlnXjQzHLXY8lzGvzK/NIT8NQw=
 		</data>
-		<key>Content/Monster/Level4/bilemonster_1080p.png</key>
-		<data>
-		UMEZrMalMpxHPc4WbUKIt5EDldw=
-		</data>
-		<key>Content/Monster/Level4/blockmonster_1080p.png</key>
-		<data>
-		o4ak8iJ1jl9QgHNI4H6/BEbKu+g=
-		</data>
-		<key>Content/Monster/Level4/cannonmonster_1080p.png</key>
-		<data>
-		iS7w9dFdre1qRsVQfkpzwUg73Ko=
-		</data>
-		<key>Content/Monster/Level4/dashmonster_1080p.png</key>
-		<data>
-		Gz7+AjwVAPWt7qYfR2fzbL4WU5A=
-		</data>
-		<key>Content/Monster/Level4/flyingcannonmonster_1080p.png</key>
-		<data>
-		l/kD2wIO3G1/5IVc3WYaGhieuDU=
-		</data>
-		<key>Content/Monster/Level4/spikemonster_1080p.png</key>
-		<data>
-		Y1s2XXBB7T9wTUvD0JP6vcZ1t7s=
-		</data>
-		<key>Content/Monster/Level4/sunmonster_1080p.png</key>
-		<data>
-		W2DjVG87qdcwirPtflO33HcL5Wk=
-		</data>
-		<key>Content/Monster/Level4/swoopmonster_1080p.png</key>
-		<data>
-		fidfIsp/MWYHLn9r5KEaDP4MVRo=
-		</data>
-		<key>Content/Monster/Level4/undergroundmonster_1080p.png</key>
-		<data>
-		aIMUy9JsuOm8fDE2m6Z9m9eLilU=
-		</data>
 		<key>Content/Monster/Level5/bilemonster_1080p.png</key>
 		<data>
 		hfjn2g7jv1I03n3ahe3khy9bcGw=
@@ -647,46 +607,6 @@
 		<key>Content/Monster/Level5/undergroundmonster_1080p.png</key>
 		<data>
 		jiQoQRVEQ8/t1+0pcfziEDtS+GA=
-		</data>
-		<key>Content/Monster/bilemonster_1080p.png</key>
-		<data>
-		zdFx7kwS3l1VMVWYBXHiDBfyQVo=
-		</data>
-		<key>Content/Monster/blockmonster_1080p.png</key>
-		<data>
-		++UxXuSnlXBWQ7JJDBCmlqlkZCM=
-		</data>
-		<key>Content/Monster/cannonmonster_1080p.png</key>
-		<data>
-		r/OtMT74yuv/1H5c7In9vcO+0Q8=
-		</data>
-		<key>Content/Monster/dashmonster_1080p.png</key>
-		<data>
-		tF1Gu/WaWnbBCKoRjXYCSzk/Kd0=
-		</data>
-		<key>Content/Monster/flyingcannonmonster_1080p.png</key>
-		<data>
-		3cv/XDtLXYVoOTErDoj4KhbRDvA=
-		</data>
-		<key>Content/Monster/spikemonster_1080p.png</key>
-		<data>
-		M1d+Mt9uT1ortBZ5KyrLCOyfWGI=
-		</data>
-		<key>Content/Monster/sunmonster_1080p.png</key>
-		<data>
-		xM7UJtiHPcSGh4KKGcIG9Mn/V2I=
-		</data>
-		<key>Content/Monster/swoopmonster_1080p.png</key>
-		<data>
-		n8EqycCF0omgsm7iPeHwGOC6A3w=
-		</data>
-		<key>Content/Monster/undergroundmonster_1080p.png</key>
-		<data>
-		oIwv3NdWbc+HYE9FakzjfK0o6GI=
-		</data>
-		<key>Content/Player/character_1080p.png</key>
-		<data>
-		J0IiTUyR8ZrvbinsB0Wr9KfW/9g=
 		</data>
 		<key>Content/Player/level1_character_1080p.png</key>
 		<data>
@@ -728,25 +648,21 @@
 		<data>
 		Kh8B3z1bsO4IcSdDqPUTKRp0Crc=
 		</data>
-		<key>Content/Player/sword_1080p.png</key>
+		<key>Content/Player/sword_0_1080p.png</key>
 		<data>
 		oDu0TFTbdLPnvQS14GaaN8IpH6M=
 		</data>
-		<key>Content/PreLevel/pre_level1_background_1080p.png</key>
+		<key>Content/Player/sword_1_1080p.png</key>
 		<data>
-		XmF4ZApfEcqhmV+cQQR6j/GsbEA=
+		i8+KMkadiHjdOWG5K2NqRh9ULRU=
 		</data>
-		<key>Content/PreLevel/pre_level1_character_1080p.png</key>
+		<key>Content/Player/sword_2_1080p.png</key>
 		<data>
-		vWFc1wCwxzXC7DluSgu9BDJWrs4=
+		aNI/HOV1gIVFIcHnprEPCOVzWSg=
 		</data>
 		<key>Content/PreLevel/pre_level1background_1080p.png</key>
 		<data>
 		pULgO63rlS84v1Ldlp2HTDVJVvQ=
-		</data>
-		<key>Content/PreLevel/pre_level1background_xbox_1080p.png</key>
-		<data>
-		kJDsl1JoPOs8Q0SBa+Ta5yA6zFg=
 		</data>
 		<key>Content/PreLevel/pre_level1character_1080p.png</key>
 		<data>
@@ -779,10 +695,6 @@
 		<key>Content/PreLevel/pre_level5character_1080p.png</key>
 		<data>
 		byT7YAaU/cqtrsKYxzW81agMtKQ=
-		</data>
-		<key>Content/Projectile/bile_1080p.png</key>
-		<data>
-		Lddhw92k2jdynHMdKZFULMQDQjo=
 		</data>
 		<key>Content/Projectile/bullet_1080p.png</key>
 		<data>
@@ -842,11 +754,11 @@
 		</data>
 		<key>Content/XML/Level/Level1Information.xml</key>
 		<data>
-		6B77TmHcS3I2PnUcDuDlfxi4n/s=
+		IABay5ViUUg5BbKbz7mAAKWTtWo=
 		</data>
 		<key>Content/XML/Level/Level2Information.xml</key>
 		<data>
-		QA9KCWQwQ6CJQD0hFM2pybUvxGI=
+		ZofD75oygusqzimRpY3j3O5x824=
 		</data>
 		<key>Content/XML/Level/Level3Information.xml</key>
 		<data>
@@ -866,7 +778,7 @@
 		</data>
 		<key>Content/XML/PlayerInformation.xml</key>
 		<data>
-		c86M6eB+s0BorCj58sk2R3Qgfd4=
+		dq7MDSJsLFerWOK6Vhbl1RqlMDs=
 		</data>
 		<key>Content/XML/ProjectileInformation.xml</key>
 		<data>
@@ -946,7 +858,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		cERpFjsOoye6fmvJYa3BafXzj/w=
+		SN66uGuEwMhPq7/TMIxnnIfx7Rg=
 		</data>
 		<key>LaunchImage-800-Landscape-736h@3x.png</key>
 		<data>
@@ -958,11 +870,11 @@
 		</data>
 		<key>Mono.Security.aotdata.arm64</key>
 		<data>
-		/dzf5clhF7IV5mMOiZarcNFhZlg=
+		9Cg10T0rtf5rwEoARewO0YK+wco=
 		</data>
 		<key>Mono.Security.aotdata.armv7</key>
 		<data>
-		hWHO7S3vp/GGoJhhVO5Qx2kHl/8=
+		LqpGDv39zSBpqROC4VYMoI55Ekk=
 		</data>
 		<key>Mono.Security.dll</key>
 		<data>
@@ -974,15 +886,15 @@
 		</data>
 		<key>MonoGame.Framework.aotdata.arm64</key>
 		<data>
-		hVKhleBA7aJ5peOyI16nlbKh3Vg=
+		OIoqZUvkkqO0KDMz5kg34FPo/kY=
 		</data>
 		<key>MonoGame.Framework.aotdata.armv7</key>
 		<data>
-		XS0bx0uMrLDpHqT/p9q3B63puEw=
+		zAS4S/MW3oL4+ixZJH73lpHuVWQ=
 		</data>
 		<key>MonoGame.Framework.dll</key>
 		<data>
-		bGp3KOijPuyi9b8YbKNVdj2sRHY=
+		AmEKirEjWdAPPJhdrI2yQd/D1lU=
 		</data>
 		<key>MonoTouchDebugConfiguration.txt</key>
 		<data>
@@ -994,15 +906,15 @@
 		</data>
 		<key>OpenTK-1.0.aotdata.arm64</key>
 		<data>
-		tuy36Z9Wqh6dOya0YodMIsQTZ0g=
+		w0IGP+/d7gZjevY7NMbqGMmixyc=
 		</data>
 		<key>OpenTK-1.0.aotdata.armv7</key>
 		<data>
-		z2HodOTMMlOTKzvKlSgfuUVvQZY=
+		wOeiFpWnTReVyHjAZw1O842ujyQ=
 		</data>
 		<key>OpenTK-1.0.dll</key>
 		<data>
-		S67wiy7wUJf9ej2vA1L5nJ7T7xU=
+		3yNEI16hC8GVANV9RZD7ZSEZWJM=
 		</data>
 		<key>OpenTK-1.0.dll.config</key>
 		<data>
@@ -1010,7 +922,7 @@
 		</data>
 		<key>OpenTK-1.0.pdb</key>
 		<data>
-		sr7WI0DFHBy/WlgMui1tKTe5pDs=
+		kTqE80/SFFqdes146xBcpnrt2Xw=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -1022,27 +934,27 @@
 		</data>
 		<key>System.Core.aotdata.arm64</key>
 		<data>
-		G3rWDBsGBM00doCTTo2VO/np7yg=
+		Ruw97CQdgDYQ1wOJ+wsoAhBWV1g=
 		</data>
 		<key>System.Core.aotdata.armv7</key>
 		<data>
-		Rj5f6naAaBdBhx2xxbpbaYIVBX0=
+		suv4Zo9iqp7a8tILShEjqvu+6+w=
 		</data>
 		<key>System.Core.dll</key>
 		<data>
-		EnLzIOkKKV77XoWh4Oqg6zWnIBQ=
+		4kAMmyj8Vle9OyXhKOa5HX5yRYM=
 		</data>
 		<key>System.Core.pdb</key>
 		<data>
-		078aru8PZVEAeMjZf1JckqLvYRg=
+		W18YXgUT1aYQt1Fx7pVI2NcWW9U=
 		</data>
 		<key>System.Runtime.Serialization.aotdata.arm64</key>
 		<data>
-		tu4hIOeklLGQNJP3Ap6bWwF09Bk=
+		ulWie1hka+SGVc8mH2ZhD3hiFdk=
 		</data>
 		<key>System.Runtime.Serialization.aotdata.armv7</key>
 		<data>
-		5E5xOfl8EPPDfZ0kenK9YJQCDNk=
+		lqUPJ0Gdifuys4MjkC5H2rKXYGA=
 		</data>
 		<key>System.Runtime.Serialization.dll</key>
 		<data>
@@ -1054,11 +966,11 @@
 		</data>
 		<key>System.Xml.Linq.aotdata.arm64</key>
 		<data>
-		6FWg6FcQNe695MuGDLZQVaRFvl4=
+		RyIQgE+jEHY11VIayR4b6+p0C5w=
 		</data>
 		<key>System.Xml.Linq.aotdata.armv7</key>
 		<data>
-		lxY2CkX9FWFsq7SzvzdVq51l+JE=
+		sSpRMq5L85lRvZUuZ5JKR5LszHg=
 		</data>
 		<key>System.Xml.Linq.dll</key>
 		<data>
@@ -1070,11 +982,11 @@
 		</data>
 		<key>System.Xml.aotdata.arm64</key>
 		<data>
-		7aMHWV0DQ4kQoecrHLXtaXIZnIM=
+		oPtX2pyMM1TZoqpAVTust1B0V74=
 		</data>
 		<key>System.Xml.aotdata.armv7</key>
 		<data>
-		yGZy2ui8lXS5Rla0G0ugvHlIq/M=
+		AfpJeujdZOFi2N3Dyiwob4EmiKE=
 		</data>
 		<key>System.Xml.dll</key>
 		<data>
@@ -1086,11 +998,11 @@
 		</data>
 		<key>System.aotdata.arm64</key>
 		<data>
-		sNfo05C3i35LvLVNr1mWFVtOjXg=
+		EYpZpwRqfwu1Mya/O7wjYJVECa0=
 		</data>
 		<key>System.aotdata.armv7</key>
 		<data>
-		Zw9lN0xgoUmsJz6YDgmUpPFkdho=
+		7DYS3Zdk9uiUnX+JaxBId8Lmd2w=
 		</data>
 		<key>System.dll</key>
 		<data>
@@ -1102,15 +1014,15 @@
 		</data>
 		<key>TheAdventuresOf.iOS.aotdata.arm64</key>
 		<data>
-		3CD68WDSWT4cSR4fNsZbxQUJsBU=
+		EAWelyb0FxJYYiY2NwQN3EaxcuY=
 		</data>
 		<key>TheAdventuresOf.iOS.aotdata.armv7</key>
 		<data>
-		IYM/jVJ3HemgSB11HlppooPOrLQ=
+		Sityqlk3TP5cZudJ04wTa08FDm4=
 		</data>
 		<key>TheAdventuresOf.iOS.exe</key>
 		<data>
-		D5tzyRiWyv+U1Oe4MCL2l0vignQ=
+		oLI08isw5le1iciNDunKvSMV/JI=
 		</data>
 		<key>TheAdventuresOf.iOS.exe.mdb</key>
 		<data>
@@ -1118,7 +1030,7 @@
 		</data>
 		<key>TheAdventuresOf.iOS.pdb</key>
 		<data>
-		XbHrHBOu3AFKcZ0Sv1Y117XHDpI=
+		KB4UX6mBEAEERvMDomlHWkTzv4g=
 		</data>
 		<key>archived-expanded-entitlements.xcent</key>
 		<data>
@@ -1126,75 +1038,75 @@
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		vNZYOrkNOOZvDuzZ6hVCvWFC0WM=
+		OUjJI1QlnIIDpr4TJod94fEDVJs=
 		</data>
 		<key>libMono.Security.dll.dylib</key>
 		<data>
-		/Ji9JfruA5V7n5EBc63gGw/lLMk=
+		2FTdl7wMH31ngXfcxq5wne/M4Rg=
 		</data>
 		<key>libMonoGame.Framework.dll.dylib</key>
 		<data>
-		dDM9JrVZxZH9f+4R2zol3/hzJvw=
+		36a8DODjB9iDfAdMYU9XGDWpAc8=
 		</data>
 		<key>libOpenTK-1.0.dll.dylib</key>
 		<data>
-		+NgAeKVPZ3Jxf/TZEJiAm2V/8rk=
+		voq1N0WRZVTAK45/Qv/evVMt6Bo=
 		</data>
 		<key>libSystem.Core.dll.dylib</key>
 		<data>
-		6M1E7St9NCnhkL1u1smynBK8ebo=
+		dgAzdurzQdj3Z0+Ei+/Uaj6ae0Y=
 		</data>
 		<key>libSystem.Runtime.Serialization.dll.dylib</key>
 		<data>
-		JpOcMEAAqh1rbTcGV+K5JFmaXf0=
+		qJzTe0r9cPtIJgCQNKFnUdIiy3Y=
 		</data>
 		<key>libSystem.Xml.Linq.dll.dylib</key>
 		<data>
-		wMZGdgZLYXwLe3iFmKsUwB1buRA=
+		AXJRYT04DpPnVsgk5Xu+8kbXz24=
 		</data>
 		<key>libSystem.Xml.dll.dylib</key>
 		<data>
-		xyzGlKGk3XwPyNilDgJUL9d+WZ0=
+		kh89C1SiAafAtsqASGKcve/hKuI=
 		</data>
 		<key>libSystem.dll.dylib</key>
 		<data>
-		xnE4SHVH6InI9R3DSxQW6iKBkLk=
+		Ldb3LoS/dQtviZCag3/sxNOBVEg=
 		</data>
 		<key>libTheAdventuresOf.iOS.exe.dylib</key>
 		<data>
-		bE4uCos7tWvS9beGb29qPvPFe7Q=
+		ncCWE/4q8KYInTVv2MAcFz7dMrs=
 		</data>
 		<key>libXamarin.iOS.dll.dylib</key>
 		<data>
-		HISGmtwxPOGGLibMoEQOpsQVAGk=
+		H1k1AeT0j1JP75FlhTTJi+6vmLY=
 		</data>
 		<key>libmonosgen-2.0.dylib</key>
 		<data>
-		eUSydqS6S9XePa5dlzzlk+wChCE=
+		xnKO+RkmbHuLEERf+4xY89DFEVg=
 		</data>
 		<key>libmscorlib.dll.dylib</key>
 		<data>
-		3ZgaezMyV5xOiX2fYRqV4aTlLe4=
+		JgmmidkYtwXr1q4yeNeZeZS7mOo=
 		</data>
 		<key>libxamarin-debug.dylib</key>
 		<data>
-		Aa+BIxcJzaczPQ6YBciaxIQagm0=
+		doYri27muEutwp+7pUDqG7DlMfI=
 		</data>
 		<key>mscorlib.aotdata.arm64</key>
 		<data>
-		0WFlc8q/sp5EkVdaa4M15c2J9Bg=
+		JZGYuS7riv0ESaCXjXw5GwhXr3M=
 		</data>
 		<key>mscorlib.aotdata.armv7</key>
 		<data>
-		TT4uQR8anludAxUJL3UcHCuvqnw=
+		qWvrGsJIrgYCRCTeSxRx+0EfhRo=
 		</data>
 		<key>mscorlib.dll</key>
 		<data>
-		5bDY9I9gmX0RwXcIaV8vZPf382o=
+		NBmDk9DO1DB6aG8qHOA3z5RXut4=
 		</data>
 		<key>mscorlib.pdb</key>
 		<data>
-		EUvWq6fvHTMmLHzcQhchb7FuYEQ=
+		6kEPTvvjuRb4Xcb1P6Sgt0JAxkQ=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -1366,11 +1278,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8kLWVP3gyzT0PfJxDFxp7L8Xb/U=
+			FY7RjKWiIolh643xkCZ5s5Wwl2I=
 			</data>
 			<key>hash2</key>
 			<data>
-			q5iwCxflk199g5fc7jYKtawq2MrRD3VqGl0GVDSVCFg=
+			QTRn83dhSKrNH/72CzwxicMU2ACu96TbeOQcWB2x9B4=
 			</data>
 		</dict>
 		<key>.monotouch-32/Xamarin.iOS.armv7.aotdata</key>
@@ -1388,22 +1300,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			x+e0QfiO1HI18lb4L7MyTV4wRuI=
+			L/yW3a2qFU9bH9rwYA92LAJdwq8=
 			</data>
 			<key>hash2</key>
 			<data>
-			tNtFrRnnpwzHADSYAFRLhBiwz9K4Zp83M8Bu7kgbT+U=
+			sOEyyULTei8K5JJ4vYTxPMKV9f3+DijELV2eJH4Lqi8=
 			</data>
 		</dict>
 		<key>.monotouch-32/Xamarin.iOS.dll.mdb</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vyu1rL8iZ2vRgy+WhOus2PNFa6s=
+			ohljm/RbMVEwjiXqhU8VJTSXlYk=
 			</data>
 			<key>hash2</key>
 			<data>
-			ee4MOChG/nwXcH6ytmLinz5CTv/ngw7OCPIjxvK9Z5M=
+			CmAAiE9NVeeLrxNsnWfL+7uakCfhm140grecskj8yWA=
 			</data>
 		</dict>
 		<key>.monotouch-32/mscorlib.armv7.aotdata</key>
@@ -1684,11 +1596,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			j4NNA0ZN9PMIQVd7HSvmQSeE/GY=
+			9FME5S/KzAlPKbw4Wlp9qHENF4I=
 			</data>
 			<key>hash2</key>
 			<data>
-			GvGW6GSIlGL8K01UCImEBO/Qfz0V6S+cPZGUTUmjxKU=
+			2DxE7GYoiaHTrgckFzkuN9RgzzufsppP+2DPDCzDv2E=
 			</data>
 		</dict>
 		<key>.monotouch-64/Xamarin.iOS.arm64.aotdata</key>
@@ -1706,22 +1618,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uvpY76DvKHbbCvHchuVxPXXX0GI=
+			4Yu7BSaBVMiQi7JyRJI21R0RvG4=
 			</data>
 			<key>hash2</key>
 			<data>
-			lYUEEucl2wXwjZo8w1nfzEwIA5zxPql/tbCDi6TS6Lk=
+			xSem7jCOntd7xWza35WQQVIGQ8UtWGpZP9Bm09B8sqQ=
 			</data>
 		</dict>
 		<key>.monotouch-64/Xamarin.iOS.dll.mdb</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			j03NF3p4HlryMdm68tCnUjkwncU=
+			Aea5Y7H1Z32yDYaPsyfvvtuQAX0=
 			</data>
 			<key>hash2</key>
 			<data>
-			BGWS0H5oqc6g8E1jY6i/gX+HjV2zpvFa1O+myHgakic=
+			myauzIM8xW5T1qIKdEz0ITR/7Wm+ctxXv/u5OOVpAN0=
 			</data>
 		</dict>
 		<key>.monotouch-64/mscorlib.arm64.aotdata</key>
@@ -1948,44 +1860,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ojvXrAeE/mhg7xGFJNKN6I5kExw=
+			2HAz3tTRzeLySp8L8m2j9N+l2mc=
 			</data>
 			<key>hash2</key>
 			<data>
-			g4j7PpWXouX595+NLGfzwo10PaE5g4EPQzPptQ26P54=
-			</data>
-		</dict>
-		<key>Content/Game/arial.spritefont</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Tf5uZdMqlF7ydCLO6ZnRSk7jwN8=
-			</data>
-			<key>hash2</key>
-			<data>
-			p1pHqHFu/AjLHqFI7LwQXQpCx8E83KXXyc85wQrdcSY=
+			ap/m1D6oB3oIU5Wr/lGaplOSBmTlqnodWsGQWFRpcRM=
 			</data>
 		</dict>
 		<key>Content/Game/arial.xnb</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			W92DEz4OwZGU399HGg98GpwSk58=
+			4B67vMUOMMb1nhF8gs/Q8xVEkh4=
 			</data>
 			<key>hash2</key>
 			<data>
-			RHOK0hkLLDhghdIpWTXSC0G8Dm48vf/mRqOmwYL8gjc=
-			</data>
-		</dict>
-		<key>Content/Game/arrow_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			im/ieFLBDRHARPyfd3bCU7p6p7o=
-			</data>
-			<key>hash2</key>
-			<data>
-			q8G9TXgg2MDDVbd0p8kAP4BN3776dcm3kWk1X6hbHb4=
+			Cpx0m0X6hbotbafy1jQGWxQRKvS7CdnB20nL7njH37g=
 			</data>
 		</dict>
 		<key>Content/Game/button_1080p.png</key>
@@ -2098,39 +1988,6 @@
 			/EyA9yEctfMnrdznW/qbKCuZLFW7GOihAFfTvF+Z70A=
 			</data>
 		</dict>
-		<key>Content/Game/pause_background_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			CUnri5RMy4PJ+ThhjuNk4EWnY5Y=
-			</data>
-			<key>hash2</key>
-			<data>
-			D0FhohqdTmKDkRQI+AqRqULNX45Ge8Hsz3tvDFLdeig=
-			</data>
-		</dict>
-		<key>Content/Game/progressbar_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			lp4gfO7GS0N1V9SzFJUniJlOgnQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			0JXSXWQHQ6kgHBaIwTbFuA/ypz0/U5Sk03oaSLLEVi8=
-			</data>
-		</dict>
-		<key>Content/Game/progressbar_fill_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			oR0LBHsbMrTgsayLoLj61uFDVFs=
-			</data>
-			<key>hash2</key>
-			<data>
-			hTy4+JLeJe9Q5/pWBFfB1XHCmsykKcWYziTQxCedu9s=
-			</data>
-		</dict>
 		<key>Content/Game/progressbar_fill_health_1080p.png</key>
 		<dict>
 			<key>hash</key>
@@ -2197,15 +2054,15 @@
 			0Bz20mRpi4dtBuWaRRGYUUQVEHUoo6FfB1r89cT+aws=
 			</data>
 		</dict>
-		<key>Content/Game/uparrow_1080p.png</key>
+		<key>Content/Game/transparent_background_black_1080p.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jiT3CWXKGUA0uvS9n6ggHUVVohQ=
+			CUnri5RMy4PJ+ThhjuNk4EWnY5Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			McyoHNaK0fhjF9DQWD/awXDZfWTLhMgZ5aQlOKdEUYM=
+			D0FhohqdTmKDkRQI+AqRqULNX45Ge8Hsz3tvDFLdeig=
 			</data>
 		</dict>
 		<key>Content/Level/level1_music.m4a</key>
@@ -2223,11 +2080,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ki17wufRghQMFNbPDYUsERq8ABk=
+			FwzyyLP4HY4C9NIojjBMn5GoAoQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			WV8+IuiKCsDvxwp4hxcTWsAIxbPm03nkErhHqv5YaL4=
+			a0S69dQK+guaeX6sB4T356jVLX++0N/r89RrzLth8IU=
 			</data>
 		</dict>
 		<key>Content/Level/level1background_1080p.png</key>
@@ -2289,11 +2146,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wOjJsI+4/efVwWc//DqaHrIYrkg=
+			CvZ5FiUXkgoVnDK2ahu3vDHAhU4=
 			</data>
 			<key>hash2</key>
 			<data>
-			Pc0BB0HlhIeyItwCKJ93MzXa8hYgiI9kR4nDnPPJdCE=
+			gMZEJ3E1lkZDUFNg5AFzw0X67DOsl6RvzzwLI+3thEE=
 			</data>
 		</dict>
 		<key>Content/Level/level5background_1080p.png</key>
@@ -2450,17 +2307,6 @@
 			4ccb14sYGLdud8q1sdZIEIG9D6jsQRp0S/NcN/6nZ/o=
 			</data>
 		</dict>
-		<key>Content/Menu/mainmenu_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			IWHbPY3cbjWq1Y5N5vEuOSe/Fwc=
-			</data>
-			<key>hash2</key>
-			<data>
-			I9t5Gcam41+mHnhetWSk5108pO0rxcgYuUAiyKG+sWg=
-			</data>
-		</dict>
 		<key>Content/Menu/mainmenu_music.m4a</key>
 		<dict>
 			<key>hash</key>
@@ -2476,22 +2322,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jDi5GacvQU213yF4RcJAiKsoYVM=
+			KrvvYr12q7a01bIZAAsb3vhgcVY=
 			</data>
 			<key>hash2</key>
 			<data>
-			ee9MBfKGvFR1/dvTw4VTIgNOwCVIAGv8nc/3CAlfMw8=
-			</data>
-		</dict>
-		<key>Content/Menu/mainmenu_playbutton_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			7R+Z4eShPa41jxCV7QD0BQam78E=
-			</data>
-			<key>hash2</key>
-			<data>
-			4ccb14sYGLdud8q1sdZIEIG9D6jsQRp0S/NcN/6nZ/o=
+			S2IHwHuciVOEMQ0ObFLq/y3tsQjSGjrvsQRwDQ59ock=
 			</data>
 		</dict>
 		<key>Content/Menu/splash/splash_1080p.png</key>
@@ -2527,37 +2362,103 @@
 			MitVqfg72Zpb6USxmazSdW1loPKgBuwQkHQsOfu7hjc=
 			</data>
 		</dict>
-		<key>Content/Menu/splash_1080p.png</key>
+		<key>Content/Monster/LEvel4/bilemonster_1080p.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MdfkdvLgA9Y/UrKfcm7POfPP7dk=
+			UMEZrMalMpxHPc4WbUKIt5EDldw=
 			</data>
 			<key>hash2</key>
 			<data>
-			fKS8zqu0LW1o4ndu8PMXQfZuplbgEYLoolcSLAwmdTY=
+			VzzLKLbNpjcmjxJvUv7f+yk3PPW3WdxEq4BY4+wJ3Ko=
 			</data>
 		</dict>
-		<key>Content/Menu/splash_iphone6plus.png</key>
+		<key>Content/Monster/LEvel4/blockmonster_1080p.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			efXSxdgQO5WFTkbnCuAZUJqJ7QE=
+			o4ak8iJ1jl9QgHNI4H6/BEbKu+g=
 			</data>
 			<key>hash2</key>
 			<data>
-			GtXrX1qgxkdcw9Fv3sf5DIfNh/3KN1/Zi4ClPuaqm1w=
+			Ob0RJVVBs+fjLNTgoMnG+ElqCqxpNoOZlK722n7Z/fA=
 			</data>
 		</dict>
-		<key>Content/Menu/splash_iphone6splus_old.png</key>
+		<key>Content/Monster/LEvel4/cannonmonster_1080p.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gVfO5eLpQnW3iYv+cN9uM8Q56zA=
+			iS7w9dFdre1qRsVQfkpzwUg73Ko=
 			</data>
 			<key>hash2</key>
 			<data>
-			MitVqfg72Zpb6USxmazSdW1loPKgBuwQkHQsOfu7hjc=
+			ut1NkjXdVq7Se++AKyoLPodxWq+Z6O5W3FcCE/5f48Y=
+			</data>
+		</dict>
+		<key>Content/Monster/LEvel4/dashmonster_1080p.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Gz7+AjwVAPWt7qYfR2fzbL4WU5A=
+			</data>
+			<key>hash2</key>
+			<data>
+			7sMBNxMRPMaVWyacBOcGdhzEh7VYWCsx1AVnjtwwYp4=
+			</data>
+		</dict>
+		<key>Content/Monster/LEvel4/flyingcannonmonster_1080p.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			l/kD2wIO3G1/5IVc3WYaGhieuDU=
+			</data>
+			<key>hash2</key>
+			<data>
+			Xy5/Y3bQCJMyuTQGESg+X35nZvR0DU348P0n8BiEKBw=
+			</data>
+		</dict>
+		<key>Content/Monster/LEvel4/spikemonster_1080p.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Y1s2XXBB7T9wTUvD0JP6vcZ1t7s=
+			</data>
+			<key>hash2</key>
+			<data>
+			9dOTjeo/0wlS5kwRqNX7yuL9OgcRD5/PEBrLh0fztZY=
+			</data>
+		</dict>
+		<key>Content/Monster/LEvel4/sunmonster_1080p.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			W2DjVG87qdcwirPtflO33HcL5Wk=
+			</data>
+			<key>hash2</key>
+			<data>
+			tPWeQ0u3Hfp8EeG+H4/9kGGJiztr2SVqeygtZOPB/+Y=
+			</data>
+		</dict>
+		<key>Content/Monster/LEvel4/swoopmonster_1080p.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			fidfIsp/MWYHLn9r5KEaDP4MVRo=
+			</data>
+			<key>hash2</key>
+			<data>
+			wz9sqBdmZLNPm44DXoMJTiiZ2s4QmkAjupz9gyfSLsY=
+			</data>
+		</dict>
+		<key>Content/Monster/LEvel4/undergroundmonster_1080p.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			aIMUy9JsuOm8fDE2m6Z9m9eLilU=
+			</data>
+			<key>hash2</key>
+			<data>
+			dmzakJ0+RQ6ta4sANcnmppK0mt6ztRzlFWnilJ4UfV8=
 			</data>
 		</dict>
 		<key>Content/Monster/Level1/bilemonster_1080p.png</key>
@@ -2857,105 +2758,6 @@
 			xvPHpwJWgGpM1uxbL94FoZyjR94QqJc6pzqEYAU5/lQ=
 			</data>
 		</dict>
-		<key>Content/Monster/Level4/bilemonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			UMEZrMalMpxHPc4WbUKIt5EDldw=
-			</data>
-			<key>hash2</key>
-			<data>
-			VzzLKLbNpjcmjxJvUv7f+yk3PPW3WdxEq4BY4+wJ3Ko=
-			</data>
-		</dict>
-		<key>Content/Monster/Level4/blockmonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			o4ak8iJ1jl9QgHNI4H6/BEbKu+g=
-			</data>
-			<key>hash2</key>
-			<data>
-			Ob0RJVVBs+fjLNTgoMnG+ElqCqxpNoOZlK722n7Z/fA=
-			</data>
-		</dict>
-		<key>Content/Monster/Level4/cannonmonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			iS7w9dFdre1qRsVQfkpzwUg73Ko=
-			</data>
-			<key>hash2</key>
-			<data>
-			ut1NkjXdVq7Se++AKyoLPodxWq+Z6O5W3FcCE/5f48Y=
-			</data>
-		</dict>
-		<key>Content/Monster/Level4/dashmonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Gz7+AjwVAPWt7qYfR2fzbL4WU5A=
-			</data>
-			<key>hash2</key>
-			<data>
-			7sMBNxMRPMaVWyacBOcGdhzEh7VYWCsx1AVnjtwwYp4=
-			</data>
-		</dict>
-		<key>Content/Monster/Level4/flyingcannonmonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			l/kD2wIO3G1/5IVc3WYaGhieuDU=
-			</data>
-			<key>hash2</key>
-			<data>
-			Xy5/Y3bQCJMyuTQGESg+X35nZvR0DU348P0n8BiEKBw=
-			</data>
-		</dict>
-		<key>Content/Monster/Level4/spikemonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Y1s2XXBB7T9wTUvD0JP6vcZ1t7s=
-			</data>
-			<key>hash2</key>
-			<data>
-			9dOTjeo/0wlS5kwRqNX7yuL9OgcRD5/PEBrLh0fztZY=
-			</data>
-		</dict>
-		<key>Content/Monster/Level4/sunmonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			W2DjVG87qdcwirPtflO33HcL5Wk=
-			</data>
-			<key>hash2</key>
-			<data>
-			tPWeQ0u3Hfp8EeG+H4/9kGGJiztr2SVqeygtZOPB/+Y=
-			</data>
-		</dict>
-		<key>Content/Monster/Level4/swoopmonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			fidfIsp/MWYHLn9r5KEaDP4MVRo=
-			</data>
-			<key>hash2</key>
-			<data>
-			wz9sqBdmZLNPm44DXoMJTiiZ2s4QmkAjupz9gyfSLsY=
-			</data>
-		</dict>
-		<key>Content/Monster/Level4/undergroundmonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			aIMUy9JsuOm8fDE2m6Z9m9eLilU=
-			</data>
-			<key>hash2</key>
-			<data>
-			dmzakJ0+RQ6ta4sANcnmppK0mt6ztRzlFWnilJ4UfV8=
-			</data>
-		</dict>
 		<key>Content/Monster/Level5/bilemonster_1080p.png</key>
 		<dict>
 			<key>hash</key>
@@ -3053,116 +2855,6 @@
 			<key>hash2</key>
 			<data>
 			Pcgx0tOqS/OfewBYbYWLyYKqD7dP18c1tAIJ465/lNg=
-			</data>
-		</dict>
-		<key>Content/Monster/bilemonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			zdFx7kwS3l1VMVWYBXHiDBfyQVo=
-			</data>
-			<key>hash2</key>
-			<data>
-			NLiyb0L4nM9BM8vryaTn03oih9em/qw4g5O8h8H3WOA=
-			</data>
-		</dict>
-		<key>Content/Monster/blockmonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			++UxXuSnlXBWQ7JJDBCmlqlkZCM=
-			</data>
-			<key>hash2</key>
-			<data>
-			mr00+ShOPbuhE8FV769drzYqCSXx1hvPszS+BDG6PlI=
-			</data>
-		</dict>
-		<key>Content/Monster/cannonmonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			r/OtMT74yuv/1H5c7In9vcO+0Q8=
-			</data>
-			<key>hash2</key>
-			<data>
-			QOdd0SLlIbj56cEkcMr96ATHwP+qKh53ThMW32vYZE8=
-			</data>
-		</dict>
-		<key>Content/Monster/dashmonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			tF1Gu/WaWnbBCKoRjXYCSzk/Kd0=
-			</data>
-			<key>hash2</key>
-			<data>
-			8RKelOhqokad2tj4I0uFxBY4AwZ1ZFixNOsVEeA4wzs=
-			</data>
-		</dict>
-		<key>Content/Monster/flyingcannonmonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			3cv/XDtLXYVoOTErDoj4KhbRDvA=
-			</data>
-			<key>hash2</key>
-			<data>
-			RnAj09ULcAmvTftTrs6cncmljevZp/7KfTf6S80atFA=
-			</data>
-		</dict>
-		<key>Content/Monster/spikemonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			M1d+Mt9uT1ortBZ5KyrLCOyfWGI=
-			</data>
-			<key>hash2</key>
-			<data>
-			LKTXHmVsIMFRhj0r61Qtyu9rtgDA2FsYIBKGVbadFNU=
-			</data>
-		</dict>
-		<key>Content/Monster/sunmonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			xM7UJtiHPcSGh4KKGcIG9Mn/V2I=
-			</data>
-			<key>hash2</key>
-			<data>
-			Dif8h28WM92HLtYZz2w1N7C2j8yF1Mqb90FFG2uhb7I=
-			</data>
-		</dict>
-		<key>Content/Monster/swoopmonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			n8EqycCF0omgsm7iPeHwGOC6A3w=
-			</data>
-			<key>hash2</key>
-			<data>
-			ypLVzoaGIUYH79WnlbGmL2o+ieTTWuTsMBPJIpsSMYo=
-			</data>
-		</dict>
-		<key>Content/Monster/undergroundmonster_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			oIwv3NdWbc+HYE9FakzjfK0o6GI=
-			</data>
-			<key>hash2</key>
-			<data>
-			sx5LjCTIgtd2LMU3XfXovAEvdszUgdLCTQVzqGmsleU=
-			</data>
-		</dict>
-		<key>Content/Player/character_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			J0IiTUyR8ZrvbinsB0Wr9KfW/9g=
-			</data>
-			<key>hash2</key>
-			<data>
-			o2UroXDdWaWYme9w/qGGkYpFTXei+m1cpAZGjsFZk9g=
 			</data>
 		</dict>
 		<key>Content/Player/level1_character_1080p.png</key>
@@ -3275,7 +2967,7 @@
 			8wA55m9R7GUn5MfLBJWCEix3HPqeDHlHPbS3fsDzEK0=
 			</data>
 		</dict>
-		<key>Content/Player/sword_1080p.png</key>
+		<key>Content/Player/sword_0_1080p.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
@@ -3286,26 +2978,26 @@
 			twlAOhpchr89a2ZsxFYQEfP28l5UjQKEqUpRz8gzRpg=
 			</data>
 		</dict>
-		<key>Content/PreLevel/pre_level1_background_1080p.png</key>
+		<key>Content/Player/sword_1_1080p.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XmF4ZApfEcqhmV+cQQR6j/GsbEA=
+			i8+KMkadiHjdOWG5K2NqRh9ULRU=
 			</data>
 			<key>hash2</key>
 			<data>
-			SW0ez9O3g9SeT1SCGdhLmOZCrvitQIP+r0arEcZRgN4=
+			xoupDxP1jV2uniDYzAWfHYfxQqvZcUVfe0CGaJ3dPgw=
 			</data>
 		</dict>
-		<key>Content/PreLevel/pre_level1_character_1080p.png</key>
+		<key>Content/Player/sword_2_1080p.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vWFc1wCwxzXC7DluSgu9BDJWrs4=
+			aNI/HOV1gIVFIcHnprEPCOVzWSg=
 			</data>
 			<key>hash2</key>
 			<data>
-			91gI77YQO5CDb/+6VwXHEB0CUD01Zb0clf+ExuVuLjE=
+			AY9+MQ6xYROW2e63c0UAQJ2J2uDDyp+LQ2gAdibIUII=
 			</data>
 		</dict>
 		<key>Content/PreLevel/pre_level1background_1080p.png</key>
@@ -3317,17 +3009,6 @@
 			<key>hash2</key>
 			<data>
 			l5FuT7H7AtGTAEaHkZYGA8i0wmMSjg0ew2YlDKKKD5Y=
-			</data>
-		</dict>
-		<key>Content/PreLevel/pre_level1background_xbox_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			kJDsl1JoPOs8Q0SBa+Ta5yA6zFg=
-			</data>
-			<key>hash2</key>
-			<data>
-			0WHLJIMs6cIYHlPeO+retqgYvcpRexwWisGTKN1SiO8=
 			</data>
 		</dict>
 		<key>Content/PreLevel/pre_level1character_1080p.png</key>
@@ -3416,17 +3097,6 @@
 			<key>hash2</key>
 			<data>
 			8iA2tK13EUJD3Km4G6KTHrzoU8Z63FiWotyNHBwP0qc=
-			</data>
-		</dict>
-		<key>Content/Projectile/bile_1080p.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Lddhw92k2jdynHMdKZFULMQDQjo=
-			</data>
-			<key>hash2</key>
-			<data>
-			VEFkcZ00D8naMh6RUp0SW1/sW4NOiAVJ7m8tcYrmQOc=
 			</data>
 		</dict>
 		<key>Content/Projectile/bullet_1080p.png</key>
@@ -3587,22 +3257,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6B77TmHcS3I2PnUcDuDlfxi4n/s=
+			IABay5ViUUg5BbKbz7mAAKWTtWo=
 			</data>
 			<key>hash2</key>
 			<data>
-			YHEDuMH0Nlz2YB2wSz8CzotHTIdtm1dsrhExz7rSt/o=
+			go4at/lCGgFEDA2njsEhX1a3s/HgkbV7e2uwGoo8qFw=
 			</data>
 		</dict>
 		<key>Content/XML/Level/Level2Information.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QA9KCWQwQ6CJQD0hFM2pybUvxGI=
+			ZofD75oygusqzimRpY3j3O5x824=
 			</data>
 			<key>hash2</key>
 			<data>
-			2vhyNwiYZYO1hwTg3hyGAMlpSDBbXBfnunV3jJo+TQw=
+			GNmiRO86kIFHqnADQnnG1EorxGw/JI7AVx7XetzsBH4=
 			</data>
 		</dict>
 		<key>Content/XML/Level/Level3Information.xml</key>
@@ -3653,11 +3323,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			c86M6eB+s0BorCj58sk2R3Qgfd4=
+			dq7MDSJsLFerWOK6Vhbl1RqlMDs=
 			</data>
 			<key>hash2</key>
 			<data>
-			mOK1qXZZUrjPWMH8a5u4+TwmdCvqaHUYHUt8kE9qfA4=
+			EIQamODqjHom3C6kSKWi9Wn8hITYrviD6Kbz2/GK5HI=
 			</data>
 		</dict>
 		<key>Content/XML/ProjectileInformation.xml</key>
@@ -3895,22 +3565,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/dzf5clhF7IV5mMOiZarcNFhZlg=
+			9Cg10T0rtf5rwEoARewO0YK+wco=
 			</data>
 			<key>hash2</key>
 			<data>
-			V3sR1HwDlFXHt97ODpAzJ9UPaNzAc1LWAhPIT74Byoc=
+			zXqMO3CM1NnuReiGF95PMTVP1qwpZmmTu239LKhO4UQ=
 			</data>
 		</dict>
 		<key>Mono.Security.aotdata.armv7</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hWHO7S3vp/GGoJhhVO5Qx2kHl/8=
+			LqpGDv39zSBpqROC4VYMoI55Ekk=
 			</data>
 			<key>hash2</key>
 			<data>
-			8bd7WFsoV8t/3EMFx0M9u5vR2Gbrk2e4B8Z9sO6fvSI=
+			/bqSVv6K/KyXPdPUpPmsLjFfoKeZxVF3Z18e68XmYIg=
 			</data>
 		</dict>
 		<key>Mono.Security.dll</key>
@@ -3939,33 +3609,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hVKhleBA7aJ5peOyI16nlbKh3Vg=
+			OIoqZUvkkqO0KDMz5kg34FPo/kY=
 			</data>
 			<key>hash2</key>
 			<data>
-			vfM4BBPcjUurPetDUwt5YIr+A/GWfgR9isCcFsJczFs=
+			qhU5qqsttFf4iXhWLrMfUI7kRBufkG9ZNUXEYgU5UnA=
 			</data>
 		</dict>
 		<key>MonoGame.Framework.aotdata.armv7</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XS0bx0uMrLDpHqT/p9q3B63puEw=
+			zAS4S/MW3oL4+ixZJH73lpHuVWQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			KCr6WPcgZyredQ4RHBcHNCr2+DSR9IvbzOKVe7rS4Yc=
+			tqAm9/cHVtI9jbhX2ssZJf6viuXSk+N9yI5eFA6cnbg=
 			</data>
 		</dict>
 		<key>MonoGame.Framework.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			bGp3KOijPuyi9b8YbKNVdj2sRHY=
+			AmEKirEjWdAPPJhdrI2yQd/D1lU=
 			</data>
 			<key>hash2</key>
 			<data>
-			hVvHTmYp74BF4WeF6Y4eKoIicNkE6c7HjdDpsqJ7/MA=
+			MULxY1iNxSeLsHq+EffgqbYX3Ma0YGYkmskSr+nXbTY=
 			</data>
 		</dict>
 		<key>MonoTouchDebugConfiguration.txt</key>
@@ -3994,33 +3664,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tuy36Z9Wqh6dOya0YodMIsQTZ0g=
+			w0IGP+/d7gZjevY7NMbqGMmixyc=
 			</data>
 			<key>hash2</key>
 			<data>
-			pYLvUQJoZNCFAf8eNncwhWBWbCbeIQ+BTFkKjNMKG8M=
+			H+4je+/tDFCI0XIPCGmkY0kVYf5SyBiIjcJquGV/LIs=
 			</data>
 		</dict>
 		<key>OpenTK-1.0.aotdata.armv7</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			z2HodOTMMlOTKzvKlSgfuUVvQZY=
+			wOeiFpWnTReVyHjAZw1O842ujyQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			mA42UC47n6hEJIJHqVf1B60sy9eoKPT3I7F2bcFmdPU=
+			wmMBM729tjz0bsf22e1GbzGSzp5b77tmk+T+t4qtZJw=
 			</data>
 		</dict>
 		<key>OpenTK-1.0.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			S67wiy7wUJf9ej2vA1L5nJ7T7xU=
+			3yNEI16hC8GVANV9RZD7ZSEZWJM=
 			</data>
 			<key>hash2</key>
 			<data>
-			T6l61LwV2OBNTtjf/IUcScUMa18SC43CfkdHH/qCJmc=
+			o/K86TRnfsW4jWmSOL0jfxJkErYCdxQCHZFZUDH8cyU=
 			</data>
 		</dict>
 		<key>OpenTK-1.0.dll.config</key>
@@ -4038,11 +3708,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sr7WI0DFHBy/WlgMui1tKTe5pDs=
+			kTqE80/SFFqdes146xBcpnrt2Xw=
 			</data>
 			<key>hash2</key>
 			<data>
-			8ZKyovWy98fAFYAS5p793QbrxEQH4HWtfgAAYgkagdA=
+			kMfr7q249xqBPMiEmBTK+6Iu0Re3d50wB0sLGabe4Do=
 			</data>
 		</dict>
 		<key>Settings.bundle/Root.plist</key>
@@ -4060,66 +3730,66 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			G3rWDBsGBM00doCTTo2VO/np7yg=
+			Ruw97CQdgDYQ1wOJ+wsoAhBWV1g=
 			</data>
 			<key>hash2</key>
 			<data>
-			gJmesEHj01m36iXzdoEosct4Q/uhiMAEHoOznPAUiKg=
+			k/gHmR9KV03yLyX49OdA3ZbpUdV1Gg/32ABF5EPRAzI=
 			</data>
 		</dict>
 		<key>System.Core.aotdata.armv7</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Rj5f6naAaBdBhx2xxbpbaYIVBX0=
+			suv4Zo9iqp7a8tILShEjqvu+6+w=
 			</data>
 			<key>hash2</key>
 			<data>
-			zVuaJVwtjs+3xS3M1WThPfmzsZVMa3TCKaWpgKxSLb4=
+			C/XJAYR0ze8P+lUIlWIWP1kM4ksAbpl45waDrJTYELY=
 			</data>
 		</dict>
 		<key>System.Core.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			EnLzIOkKKV77XoWh4Oqg6zWnIBQ=
+			4kAMmyj8Vle9OyXhKOa5HX5yRYM=
 			</data>
 			<key>hash2</key>
 			<data>
-			hr3UVbFVkOFmk2aruR4d6DoFUVGnI3IqN6bKeLgW6SU=
+			o+elfDPLoreszmBsto2lAjcNp//OPgZHamL6ZYdwadI=
 			</data>
 		</dict>
 		<key>System.Core.pdb</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			078aru8PZVEAeMjZf1JckqLvYRg=
+			W18YXgUT1aYQt1Fx7pVI2NcWW9U=
 			</data>
 			<key>hash2</key>
 			<data>
-			aIKfAtC7vxH9k5MLx/Lfkw9wprwTyjKYl1NNGr+kZEo=
+			u15U9+hkGcuuRBgtaKsR8UHszljbPXfYmYL4PG5jboE=
 			</data>
 		</dict>
 		<key>System.Runtime.Serialization.aotdata.arm64</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tu4hIOeklLGQNJP3Ap6bWwF09Bk=
+			ulWie1hka+SGVc8mH2ZhD3hiFdk=
 			</data>
 			<key>hash2</key>
 			<data>
-			1JHdmKAmXYiNQxX+wqGjLpVsCN7pqwWLwfjRoKip2aQ=
+			Dr6d80Oiphot67QoPlA247Vuf8Ia6hJMRmuRFq7O2mA=
 			</data>
 		</dict>
 		<key>System.Runtime.Serialization.aotdata.armv7</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5E5xOfl8EPPDfZ0kenK9YJQCDNk=
+			lqUPJ0Gdifuys4MjkC5H2rKXYGA=
 			</data>
 			<key>hash2</key>
 			<data>
-			NjrgfBWG7eCqrLmaQNtJ/HlQxq9b3hLedJLYv2LfaII=
+			H9W+cplZo/MC7M+43Lb09Ge9INJpLUV3qYR0eCazsPo=
 			</data>
 		</dict>
 		<key>System.Runtime.Serialization.dll</key>
@@ -4148,22 +3818,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			6FWg6FcQNe695MuGDLZQVaRFvl4=
+			RyIQgE+jEHY11VIayR4b6+p0C5w=
 			</data>
 			<key>hash2</key>
 			<data>
-			vZ7tZRpHmiZxZEhu6rdHteqMQpGu5b3OkwNYoL7P3ik=
+			2pmOOSxupxvJrh9HwCt7JspJoekXyhXJJrS7RRkHUQc=
 			</data>
 		</dict>
 		<key>System.Xml.Linq.aotdata.armv7</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lxY2CkX9FWFsq7SzvzdVq51l+JE=
+			sSpRMq5L85lRvZUuZ5JKR5LszHg=
 			</data>
 			<key>hash2</key>
 			<data>
-			Zf8zvrFZl1z3yRYZ++XMsYzwtcvDgA/6aA+e9ekPtaQ=
+			+OJ6tTtAdKqFCKndA/Dfi/0rNo4mNhLXiprAQHhVSuQ=
 			</data>
 		</dict>
 		<key>System.Xml.Linq.dll</key>
@@ -4192,22 +3862,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			7aMHWV0DQ4kQoecrHLXtaXIZnIM=
+			oPtX2pyMM1TZoqpAVTust1B0V74=
 			</data>
 			<key>hash2</key>
 			<data>
-			7hep9qs3qyifBUGJr7R47jQF2CSr3Mb2wiHgXYesxyI=
+			eVmP2veR79hrO9hB33hXfHkH3f8hOKKa1I2jTCIgh7U=
 			</data>
 		</dict>
 		<key>System.Xml.aotdata.armv7</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yGZy2ui8lXS5Rla0G0ugvHlIq/M=
+			AfpJeujdZOFi2N3Dyiwob4EmiKE=
 			</data>
 			<key>hash2</key>
 			<data>
-			4Hx2piTU798oII5ZU6ZXiZrov8u1nNGIo/bbVer/+z0=
+			qU6G2kC7toHosuvAcBnov196pi8OKyLuGRl1ITqiM9Q=
 			</data>
 		</dict>
 		<key>System.Xml.dll</key>
@@ -4236,22 +3906,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sNfo05C3i35LvLVNr1mWFVtOjXg=
+			EYpZpwRqfwu1Mya/O7wjYJVECa0=
 			</data>
 			<key>hash2</key>
 			<data>
-			hqmQh4wUPLbDsRxX/HeIG/q3YbojXIl6m0QOQ3DBndU=
+			XolZXWC/C1lOYyOpW/ZgpU1pMsa/0uU1sPJyYf0PIr8=
 			</data>
 		</dict>
 		<key>System.aotdata.armv7</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Zw9lN0xgoUmsJz6YDgmUpPFkdho=
+			7DYS3Zdk9uiUnX+JaxBId8Lmd2w=
 			</data>
 			<key>hash2</key>
 			<data>
-			rws6+I0dMoGFt+VUwraSLnRCeudlkpePVOLMXYgrtWU=
+			qYaZeKZezrpKhtL7+EoG6ihhydbpZdwfJgNPVfjyGo4=
 			</data>
 		</dict>
 		<key>System.dll</key>
@@ -4280,33 +3950,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3CD68WDSWT4cSR4fNsZbxQUJsBU=
+			EAWelyb0FxJYYiY2NwQN3EaxcuY=
 			</data>
 			<key>hash2</key>
 			<data>
-			P3/aHs5p5ndRzPI5p0A0aV6f/l2gmMTLNmU0BDJPsFk=
+			ahHw0Fe2bEQNcVGPmADXxsdMOX7mmUvo78IwhjFob+g=
 			</data>
 		</dict>
 		<key>TheAdventuresOf.iOS.aotdata.armv7</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			IYM/jVJ3HemgSB11HlppooPOrLQ=
+			Sityqlk3TP5cZudJ04wTa08FDm4=
 			</data>
 			<key>hash2</key>
 			<data>
-			X9AN/QZubzDK4mZrMIfR3ZlLQZtn8OyVHB3DaeEgEKA=
+			X8kCh9F5jBoj4i8g75PngGMl5A9OfWloVw+55GzDGEw=
 			</data>
 		</dict>
 		<key>TheAdventuresOf.iOS.exe</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			D5tzyRiWyv+U1Oe4MCL2l0vignQ=
+			oLI08isw5le1iciNDunKvSMV/JI=
 			</data>
 			<key>hash2</key>
 			<data>
-			VGoKXcskmRcJwwvjx32jY9I76K/CQdPPyJ6K667wVEw=
+			WYRUmN5iiYEEfIPZ7fAxyjDHi2DjRE6O4Tjki1c+mKs=
 			</data>
 		</dict>
 		<key>TheAdventuresOf.iOS.exe.mdb</key>
@@ -4324,11 +3994,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XbHrHBOu3AFKcZ0Sv1Y117XHDpI=
+			KB4UX6mBEAEERvMDomlHWkTzv4g=
 			</data>
 			<key>hash2</key>
 			<data>
-			ixMr1g1aFoyOz18RGnXrqeLIoxyAiRC69JLSSrLyhaU=
+			fMy9AhrQl14VS/wbeJYAxgWfXd3h8z8qOOwxxC/EU6w=
 			</data>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
@@ -4346,198 +4016,198 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			vNZYOrkNOOZvDuzZ6hVCvWFC0WM=
+			OUjJI1QlnIIDpr4TJod94fEDVJs=
 			</data>
 			<key>hash2</key>
 			<data>
-			S3wsBKDLek0yXwRT03zI9Mx+t1c89WHtFG9TP/xnWTU=
+			vRqNS3pIVKTUMGH9y6PXnKpZy0lE84vKIvbrI9Jjb8w=
 			</data>
 		</dict>
 		<key>libMono.Security.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/Ji9JfruA5V7n5EBc63gGw/lLMk=
+			2FTdl7wMH31ngXfcxq5wne/M4Rg=
 			</data>
 			<key>hash2</key>
 			<data>
-			ogw0HjFh761k3BkKn6Gjn0w0BT4jTLmEyTas7AivWi0=
+			zhfNsfwriFO3cn9vUyoLKsHwAm06bKfz1KJDE5jNGRQ=
 			</data>
 		</dict>
 		<key>libMonoGame.Framework.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			dDM9JrVZxZH9f+4R2zol3/hzJvw=
+			36a8DODjB9iDfAdMYU9XGDWpAc8=
 			</data>
 			<key>hash2</key>
 			<data>
-			zQyIogK7KvkXPnHn66cpqB4RYEYKtxct61GLFoK0xf0=
+			PP45yeqZHWivktUuKHvR0bQqhsavppZ7dtfPzRuOWgU=
 			</data>
 		</dict>
 		<key>libOpenTK-1.0.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+NgAeKVPZ3Jxf/TZEJiAm2V/8rk=
+			voq1N0WRZVTAK45/Qv/evVMt6Bo=
 			</data>
 			<key>hash2</key>
 			<data>
-			DxO/Ug7sclgsQh5ktbloU/AIeaR2ojLBlZjlkRWhmAM=
+			2CH9ut8LpY2ia3IHI12zjHOUh1N+ZjPlH+WBj+8Yzts=
 			</data>
 		</dict>
 		<key>libSystem.Core.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6M1E7St9NCnhkL1u1smynBK8ebo=
+			dgAzdurzQdj3Z0+Ei+/Uaj6ae0Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			JSJM0eBcIksfcWLi7+ZMhq1rWWfWhz3KSzT9Mnk8Oco=
+			gXfnZJ5OMhHV5GIGpR/VZuTwusPL+fi1gkWU6+N+jsM=
 			</data>
 		</dict>
 		<key>libSystem.Runtime.Serialization.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			JpOcMEAAqh1rbTcGV+K5JFmaXf0=
+			qJzTe0r9cPtIJgCQNKFnUdIiy3Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			adVVFXLw85feUs2LaCsO40/WE+Zdv4t73MLPI+xXXW4=
+			cVQQ0V2gmFvltiDFVjt7zGifPLV2Zd6SuqS5DeoWzCs=
 			</data>
 		</dict>
 		<key>libSystem.Xml.Linq.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			wMZGdgZLYXwLe3iFmKsUwB1buRA=
+			AXJRYT04DpPnVsgk5Xu+8kbXz24=
 			</data>
 			<key>hash2</key>
 			<data>
-			qgYWTx/HWFRAvHNbgXbFW4cVtfYjL1k79utqHFvjess=
+			ljQRjW6nSsTwNUBXx7+YWFJSW6w7cIrdfJ2mQlR7Lk8=
 			</data>
 		</dict>
 		<key>libSystem.Xml.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xyzGlKGk3XwPyNilDgJUL9d+WZ0=
+			kh89C1SiAafAtsqASGKcve/hKuI=
 			</data>
 			<key>hash2</key>
 			<data>
-			OZVWk5tx6TF7UOhkwOZWTsSjFi1LWP0Cq6NSBnPJy2U=
+			rRhx4tBDX/lg7ifC2Wd4E/FGaoAN8JrF2WJEfxWVzj4=
 			</data>
 		</dict>
 		<key>libSystem.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xnE4SHVH6InI9R3DSxQW6iKBkLk=
+			Ldb3LoS/dQtviZCag3/sxNOBVEg=
 			</data>
 			<key>hash2</key>
 			<data>
-			GAjo42CsrQ7Tn5NVUm4U7ZQXV7qxfuro8Mc4/Y8rb8c=
+			Hi21xD3rOllrbL8aIpUyOtgvH13MBfU6flVY8RsxG2I=
 			</data>
 		</dict>
 		<key>libTheAdventuresOf.iOS.exe.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			bE4uCos7tWvS9beGb29qPvPFe7Q=
+			ncCWE/4q8KYInTVv2MAcFz7dMrs=
 			</data>
 			<key>hash2</key>
 			<data>
-			Elqtm4Fk0JhIYXmPC4cLUClxZgbu+yFAZK+YakgJN+4=
+			vhxopxmh2Vfsdo19S+QbJNJc3qOAK8WaFr7ckCsOkzw=
 			</data>
 		</dict>
 		<key>libXamarin.iOS.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			HISGmtwxPOGGLibMoEQOpsQVAGk=
+			H1k1AeT0j1JP75FlhTTJi+6vmLY=
 			</data>
 			<key>hash2</key>
 			<data>
-			F7EI5ZBPt/9X73zvFXq/Bj/igm//VJWH4A7xC3eUQQY=
+			mIJfdVErPWTtDz53xmKvPHiBnYlUImdpY+3hmEs3mXU=
 			</data>
 		</dict>
 		<key>libmonosgen-2.0.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eUSydqS6S9XePa5dlzzlk+wChCE=
+			xnKO+RkmbHuLEERf+4xY89DFEVg=
 			</data>
 			<key>hash2</key>
 			<data>
-			u/hQYuTfKY6rRQ/vINY1tOi0h3NXy4Aoa1QBYbU6FaY=
+			kANh4UzD5qfmHegphfSXUy7/AXJ179Yd60xcFQy8Tgg=
 			</data>
 		</dict>
 		<key>libmscorlib.dll.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3ZgaezMyV5xOiX2fYRqV4aTlLe4=
+			JgmmidkYtwXr1q4yeNeZeZS7mOo=
 			</data>
 			<key>hash2</key>
 			<data>
-			0HsxchOcGVgZ3+F/giQieeB5Ki1S4WUAxyNh9yA3bBE=
+			EUbP8df+/vW6aGlq7Wt5pxucH8R/EKTZXpbCdw6xns4=
 			</data>
 		</dict>
 		<key>libxamarin-debug.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Aa+BIxcJzaczPQ6YBciaxIQagm0=
+			doYri27muEutwp+7pUDqG7DlMfI=
 			</data>
 			<key>hash2</key>
 			<data>
-			Xe/TlT1ClrPP6LUz0yVkhmhgxMQ4mqV4rgWJUZomGVc=
+			za977sW863u4RD8yoU2dn24Sqb+E0PVYpcPy1NZ9Ml0=
 			</data>
 		</dict>
 		<key>mscorlib.aotdata.arm64</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0WFlc8q/sp5EkVdaa4M15c2J9Bg=
+			JZGYuS7riv0ESaCXjXw5GwhXr3M=
 			</data>
 			<key>hash2</key>
 			<data>
-			LNhTWJ1TryNu+GXDVee2ANMA94GaogdZxgWyxs1/SY8=
+			2GSMb/I7UU+CraPM+cI1JVty6QY+SJGVLhJgyqlDU5k=
 			</data>
 		</dict>
 		<key>mscorlib.aotdata.armv7</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TT4uQR8anludAxUJL3UcHCuvqnw=
+			qWvrGsJIrgYCRCTeSxRx+0EfhRo=
 			</data>
 			<key>hash2</key>
 			<data>
-			QD14mAi0eGL1ds1gcLVvjdT7LxOcROaYcupepG5bgj4=
+			GsUbW8LFuo1XuJVrBO45loZoxfrZhXv2oVQXICvgjBI=
 			</data>
 		</dict>
 		<key>mscorlib.dll</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5bDY9I9gmX0RwXcIaV8vZPf382o=
+			NBmDk9DO1DB6aG8qHOA3z5RXut4=
 			</data>
 			<key>hash2</key>
 			<data>
-			nl0BbGt3STGIm7xophsyKPBh4AlvwyaI+2DY7U1xfyg=
+			BjqqAOvXj3++Oua0znT9JuHiAposZXt+irV+Fo4q83c=
 			</data>
 		</dict>
 		<key>mscorlib.pdb</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			EUvWq6fvHTMmLHzcQhchb7FuYEQ=
+			6kEPTvvjuRb4Xcb1P6Sgt0JAxkQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			IZC3vjIClpFWy3x5qQNqev6nskKKtp+hZCv+haU0pYk=
+			U8MM02HEO3StOYUwAql3U4xxng6Fe8042pBm/XWM6FE=
 			</data>
 		</dict>
 	</dict>

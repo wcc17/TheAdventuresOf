@@ -395,7 +395,7 @@ namespace TheAdventuresOf
 		public virtual void Draw(SpriteBatch spriteBatch)
 		{
 			base.Draw(spriteBatch, monsterTexture);
-		}
+        }
 
         public virtual void Reset()
 		{

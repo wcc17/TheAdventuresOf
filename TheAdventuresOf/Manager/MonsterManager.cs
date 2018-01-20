@@ -362,6 +362,11 @@ namespace TheAdventuresOf
             }
         }
 
+        public void ResetMonsters() {
+            monstersToRemove.Clear();
+            monsters.Clear();
+        }
+
         //TODO: all spawn*Monster methods should be moved to a MonsterSpawner class.
         Monster determineSpawnTypeRandom(Monster monster)
         {

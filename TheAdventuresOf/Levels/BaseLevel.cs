@@ -7,19 +7,21 @@ namespace TheAdventuresOf
 {
     public class BaseLevel
     {
-        public Vector2 levelPositionVector;
+        //Used to prevent accidental jumps or pauses at beginnings of levels 
+        //can consider using XML if need different values on different levels in the future
+		public const float DELAY_PLAYER_MOVEMENT_TIME_LIMIT = 0.2f;
 
+        public Vector2 levelPositionVector;
         public Rectangle leftSideBounds;
         public Rectangle rightSideBounds;
-
+		public Texture2D levelTexture;
         public int leftBoundWidth;
         public int rightBoundWidth;
         public float groundLevel;
         public float playerStartX;
+		public bool nextLevel;
 
-        public Texture2D levelTexture;
-
-        public bool nextLevel; //when its time to go to next level, set to true
+        Timer delayPlayerMovementTimer;
 
         public BaseLevel(Texture2D levelTexture)
         {
@@ -33,9 +35,16 @@ namespace TheAdventuresOf
             rightSideBounds = new Rectangle(levelTexture.Width - rightBoundWidth, 0, rightBoundWidth, levelTexture.Height);
 
             PlayerManager.Instance.InitializePlayerManager(this, usePlayerSpawnAnimation);
+
+            delayPlayerMovementTimer = new Timer(DELAY_PLAYER_MOVEMENT_TIME_LIMIT);
         }
 
         public virtual void Update(GameTime gameTime, GameController gameController) {
+            if (!delayPlayerMovementTimer.IsTimeUp(gameTime.ElapsedGameTime))
+            {
+                gameController.ResetButtonPressedValues();
+            }
+
             PlayerManager.Instance.Update(gameTime, gameController);
 
             HealthShieldManager.Instance.Update();
