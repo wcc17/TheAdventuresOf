@@ -127,6 +127,23 @@ namespace TheAdventuresOf
             }
         }
 
+        public virtual void DrawAtScale(SpriteBatch spriteBatch, Texture2D texture, float scale)
+        {
+            //get current frame for animations
+            var sourceRectangle = currentAnimation.CurrentRectangle;
+
+            //TODO: may need to check moveRight and moveLeft
+            spriteBatch.Draw(texture,
+                             new Vector2(positionVector.X + originVector.X, positionVector.Y + originVector.Y),
+                             sourceRectangle,
+                             tintColor,
+                             rotation,
+                             originVector,
+                             scale,
+                             SpriteEffects.None,
+                             0);
+        }
+
         public virtual void InitializeAnimation() { }
         public virtual void HandleAnimation(GameTime gameTime) { }
 		public virtual void Update(GameTime gameTime, bool buttonPressed = false) { }
