@@ -1,59 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Level>
-  <MainMenu>
-    <PlayButtonX>200</PlayButtonX>
-    <PlayButtonY>700</PlayButtonY>
-	<ChooseLevelButtonX>200</ChooseLevelButtonX>
-    <ChooseLevelButtonY>875</ChooseLevelButtonY>
-  </MainMenu>
-
-  <ChooseLevelMenu>
-	<ButtonOffset>30</ButtonOffset>
-  </ChooseLevelMenu>
-
-  <PreLevel>
-    <GroundLevel>555</GroundLevel>
-    <WindowsGroundLevel>555</WindowsGroundLevel>
-	  <LeftBoundWidth>0</LeftBoundWidth>
-    <RightBoundWidth>1920</RightBoundWidth>
-	  <PreLevelCharX>1560</PreLevelCharX>
-    <PreLevelCharText>Can I have your sword when you die?</PreLevelCharText>
-    <TextX>1100</TextX>
-	  <TextY>500</TextY>
-    <TextThreshold>400</TextThreshold>
-	  <PlayerStartX>280</PlayerStartX>
-  </PreLevel>
-
-  <StoreLevel>
-	  <GroundLevel>685</GroundLevel>
-    <WindowsGroundLevel>685</WindowsGroundLevel>
-    <LeftBoundWidth>0</LeftBoundWidth>
-	  <RightBoundWidth>1920</RightBoundWidth>
-	  <StoreLevelCharText>Jump to Buy Something!</StoreLevelCharText>
-    <PlayerStartX>100</PlayerStartX>
-
-    <Items>
-      <Item>
-        <Name>Health Refill</Name>
-        <Cost>100</Cost>
-      </Item>
-      <Item>
-        <Name>Shield Refill</Name>
-        <Cost>300</Cost>
-      </Item>
-      <Item>
-        <Name>Sword Upgrade</Name>
-        <TieredCosts>
-          <TieredCost>
-            <Index>1</Index>
-            <Cost>500</Cost>
-          </TieredCost>
-          <TieredCost>
-            <Index>2</Index>
-            <Cost>700</Cost>
-          </TieredCost>
-        </TieredCosts>
-      </Item>
-    </Items>
-  </StoreLevel>
+	<MainMenu>
+		<PlayButtonX>200</PlayButtonX>
+		<PlayButtonY>700</PlayButtonY>
+		<ChooseLevelButtonX>200</ChooseLevelButtonX>
+		<ChooseLevelButtonY>875</ChooseLevelButtonY>
+	</MainMenu>
+	<ChooseLevelMenu>
+		<ButtonOffset>30</ButtonOffset>
+	</ChooseLevelMenu>
+	<PreLevel>
+		<GroundLevel>555</GroundLevel>
+		<WindowsGroundLevel>555</WindowsGroundLevel>
+		<LeftBoundWidth>0</LeftBoundWidth>
+		<RightBoundWidth>1920</RightBoundWidth>
+		<PreLevelCharX>1560</PreLevelCharX>
+		<PreLevelCharText>Can I have your sword when you die?</PreLevelCharText>
+		<TextX>1100</TextX>
+		<TextY>500</TextY>
+		<TextThreshold>400</TextThreshold>
+		<PlayerStartX>280</PlayerStartX>
+	</PreLevel>
+	<StoreLevel>
+		<GroundLevel>685</GroundLevel>
+		<WindowsGroundLevel>685</WindowsGroundLevel>
+		<LeftBoundWidth>0</LeftBoundWidth>
+		<RightBoundWidth>1920</RightBoundWidth>
+		<StoreLevelCharText>Jump to Buy Something!</StoreLevelCharText>
+		<PlayerStartX>100</PlayerStartX>
+		<Items>
+			<Item>
+				<Name>Health Refill</Name>
+				<Cost>100</Cost>
+			</Item>
+			<Item>
+				<Name>Shield Refill</Name>
+				<Cost>300</Cost>
+			</Item>
+			<Item>
+				<Name>Sword Upgrade</Name>
+				<TieredCosts>
+					<TieredCost>
+						<Index>1</Index>
+						<Cost>500</Cost>
+					</TieredCost>
+					<TieredCost>
+						<Index>2</Index>
+						<Cost>700</Cost>
+					</TieredCost>
+				</TieredCosts>
+			</Item>
+		</Items>
+	</StoreLevel>
+    
+	<Overlay>
+		<ScoreStat>
+			<TotalScoreString>Total Score: </TotalScoreString>
+			<TotalKillString>Total Kill String: </TotalKillString>
+			<JumpToContinueString>Jump to continue!</JumpToContinueString>
+			<CountPositionXMultiplier>0.30</CountPositionXMultiplier>
+			<CountPositionYMultiplier>0.03</CountPositionYMultiplier>
+			<TotalScorePositionXMultiplier>0.60</TotalScorePositionXMultiplier>
+			<TotalScorePositionYMultiplier>0.25</TotalScorePositionYMultiplier>
+			<ContinueDelayTimeLimit>3.0</ContinueDelayTimeLimit>
+			<FontScale>0.90</FontScale>
+			<MonsterTextureScale>0.75</MonsterTextureScale>
+			<TotalKilledPositionYMultiplier>21.6</TotalKilledPositionYMultiplier>
+			<ContinueTextPositionYMultiplier>5.4</ContinueTextPositionYMultiplier>
+			<MonsterKillCountXMultiplier>17.45</MonsterKillCountXMultiplier>
+			<MonsterKillCountYMultiplier>54</MonsterKillCountYMultiplier>
+			<MonsterScoreXMultiplier>8</MonsterScoreXMultiplier>
+			<MonsterScoreYMultiplier>54</MonsterScoreYMultiplier>
+		</ScoreStat>
+	</Overlay>
 </Level>

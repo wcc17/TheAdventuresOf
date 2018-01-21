@@ -6,19 +6,49 @@ namespace TheAdventuresOf
 {
     public class ScoreStatOverlay
     {
-		MonsterManager monsterManager;
+        /**
+         * Note on multipliers:
+         * Multipliers are used to adjust position values relative to the 
+         * actual size of the screen in case one day I need to support higher
+         * resolutions. This eliminates hard coded values and still allows
+         * me to adjust positions via XML loading, just have to do a small amount
+         * of math based on current resolution:
+         * screen_width(orheight) / (x or y you want on screen) = multiplier
+         */
+        public static string totalScoreString;
+        public static string totalKillString;
+        public static string jumpToContinueString;
+        public static float countPositionXMultiplier;
+        public static float countPositionYMultiplier;
+        public static float totalScorePositionXMultiplier;
+        public static float totalScorePositionYMultiplier;
+		public static float continueDelayTimeLimit;
+		public static float fontScale;
+		public static float monsterTextureScale;
+        public static float totalKilledPositionYMultiplier;
+        public static float continueTextPositionYMultiplier;
+        public static float monsterKillCountXMultiplier;
+        public static float monsterKillCountYMultiplier;
+        public static float monsterScoreXMultiplier;
+        public static float monsterScoreYMultiplier;
+
+        float totalKilledPositionYOffset;
+        float continueTextPositionYOffset;
+        float monsterKillCountXOffset;
+        float monsterKillCountYOffset;
+        float monsterScoreXOffset;
+        float monsterScoreYOffset;
+
+        MonsterManager monsterManager;
         Vector2 positionVector = new Vector2(0, 0);
+        Vector2 zeroOriginVector = new Vector2(0, 0);
         Vector2 countPositionVector;
         Vector2 totalScorePositionVector;
         Vector2 totalKilledPositionVector;
-<<<<<<< HEAD
         Vector2 continueTextPositionVector;
+        Color fontColor = Color.White;
         bool showContinueText;
         Timer continueDelayTimer; //how long to wait before player can hit jump to go to next level
-=======
-        Vector2 continueButtonPositionVector;
-        Button continueButton;
->>>>>>> 969528e9a6eb389acf4c5859bd2e47a48bf39acc
         int totalMonstersKilled;
 
         BlockMonster blockMonster;
@@ -32,14 +62,26 @@ namespace TheAdventuresOf
         SwoopMonster swoopMonster;
 
         public ScoreStatOverlay(MonsterManager monsterManager) {
+            XmlManager.LoadScoreStatOverlayInformation();
             this.monsterManager = monsterManager;
-            countPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH * 0.30f, ScreenManager.FULL_SCREEN_HEIGHT * 0.03f);
-            totalScorePositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH * 0.60f, ScreenManager.FULL_SCREEN_HEIGHT * 0.25f);
-            totalKilledPositionVector = new Vector2(totalScorePositionVector.X, totalScorePositionVector.Y + 50);
-<<<<<<< HEAD
-			continueTextPositionVector = new Vector2(totalScorePositionVector.X,
-			                                         totalScorePositionVector.Y + 200);
-            continueDelayTimer = new Timer(3.0f); //TODO: XML
+			continueDelayTimer = new Timer(continueDelayTimeLimit);
+
+			totalKilledPositionYOffset = ScreenManager.FULL_SCREEN_HEIGHT / totalKilledPositionYMultiplier;
+			continueTextPositionYOffset = ScreenManager.FULL_SCREEN_HEIGHT / continueTextPositionYMultiplier;
+			monsterKillCountXOffset = ScreenManager.FULL_SCREEN_WIDTH / monsterKillCountXMultiplier;
+			monsterKillCountYOffset = ScreenManager.FULL_SCREEN_HEIGHT / monsterKillCountYMultiplier;
+			monsterScoreXOffset = ScreenManager.FULL_SCREEN_WIDTH / monsterScoreXMultiplier;
+			monsterScoreYOffset = ScreenManager.FULL_SCREEN_HEIGHT / monsterScoreYMultiplier;
+
+            countPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH * countPositionXMultiplier, 
+                                              ScreenManager.FULL_SCREEN_HEIGHT * countPositionYMultiplier);
+            totalScorePositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH * totalScorePositionXMultiplier, 
+                                                   ScreenManager.FULL_SCREEN_HEIGHT * totalScorePositionYMultiplier);
+            totalKilledPositionVector = new Vector2(totalScorePositionVector.X, 
+                                                    totalScorePositionVector.Y + totalKilledPositionYOffset);
+            continueTextPositionVector = new Vector2(totalScorePositionVector.X,
+                                                     totalScorePositionVector.Y + continueTextPositionYOffset);
+
             initializeMonsters();
             initializeKillTotal();
         }
@@ -51,26 +93,13 @@ namespace TheAdventuresOf
             }
 
             return false;
-=======
-            initializeMonsters();
-            initializeKillTotal();
-
-            continueButtonPositionVector = new Vector2(totalScorePositionVector.X,
-                                                       totalScorePositionVector.Y + 200);
-            continueButton = new Button(AssetManager.Instance.rightArrowButtonTexture.Width,
-                                       AssetManager.Instance.rightArrowButtonTexture.Height,
-                                       continueButtonPositionVector.X,
-                                       continueButtonPositionVector.Y);
->>>>>>> 969528e9a6eb389acf4c5859bd2e47a48bf39acc
         }
 
         /**
          * Drawing monsters just to show what the scores mean on the end of level overlay
          */
         void initializeMonsters() {
-            int yOffset = 0;
-
-            //TEST
+            //TEST VALUES
             ScoringManager.Instance.blockMonstersKilled = 27;
             ScoringManager.Instance.sunMonstersKilled = 100;
             ScoringManager.Instance.bileMonstersKilled = 46;
@@ -87,55 +116,35 @@ namespace TheAdventuresOf
 
             sunMonster = monsterManager.GenerateSunMonster();
             sunMonster.rotation = 0;
-            sunMonster.positionVector = new Vector2(countPositionVector.X, blockMonster.positionVector.Y + blockMonster.entityHeight + yOffset);
+            sunMonster.positionVector = new Vector2(countPositionVector.X, blockMonster.positionVector.Y + blockMonster.entityHeight);
 
             bileMonster = monsterManager.GenerateBileMonster();
             bileMonster.rotation = 0;
-            bileMonster.positionVector = new Vector2(countPositionVector.X, sunMonster.positionVector.Y + sunMonster.entityHeight + yOffset);
+            bileMonster.positionVector = new Vector2(countPositionVector.X, sunMonster.positionVector.Y + sunMonster.entityHeight);
 
             dashMonster = monsterManager.GenerateDashMonster();
             dashMonster.rotation = 0;
-            dashMonster.positionVector = new Vector2(countPositionVector.X, bileMonster.positionVector.Y + bileMonster.entityHeight + yOffset);
+            dashMonster.positionVector = new Vector2(countPositionVector.X, bileMonster.positionVector.Y + bileMonster.entityHeight);
 
             groundCannonMonster = monsterManager.GenerateGroundCannonMonster();
             groundCannonMonster.rotation = 0;
-            groundCannonMonster.positionVector = new Vector2(countPositionVector.X, dashMonster.positionVector.Y + dashMonster.entityHeight + yOffset);
+            groundCannonMonster.positionVector = new Vector2(countPositionVector.X, dashMonster.positionVector.Y + dashMonster.entityHeight);
 
             flyingCannonMonster = monsterManager.GenerateFlyingCannonMonster();
             flyingCannonMonster.rotation = 0;
-            flyingCannonMonster.positionVector = new Vector2(countPositionVector.X, groundCannonMonster.positionVector.Y + groundCannonMonster.entityHeight + yOffset);
+            flyingCannonMonster.positionVector = new Vector2(countPositionVector.X, groundCannonMonster.positionVector.Y + groundCannonMonster.entityHeight);
 
             spikeMonster = monsterManager.GenerateSpikeMonster();
             spikeMonster.rotation = 0;
-            spikeMonster.positionVector = new Vector2(countPositionVector.X, flyingCannonMonster.positionVector.Y + flyingCannonMonster.entityHeight + yOffset);
+            spikeMonster.positionVector = new Vector2(countPositionVector.X, flyingCannonMonster.positionVector.Y + flyingCannonMonster.entityHeight);
 
             undergroundMonster = monsterManager.GenerateUndergroundMonster();
             undergroundMonster.rotation = 0;
-            undergroundMonster.positionVector = new Vector2(countPositionVector.X, spikeMonster.positionVector.Y + spikeMonster.entityHeight + yOffset);
+            undergroundMonster.positionVector = new Vector2(countPositionVector.X, spikeMonster.positionVector.Y + spikeMonster.entityHeight);
 
             swoopMonster = monsterManager.GenerateSwoopMonster();
             swoopMonster.rotation = 0;
-            swoopMonster.positionVector = new Vector2(countPositionVector.X, undergroundMonster.positionVector.Y + undergroundMonster.entityHeight + yOffset);
-<<<<<<< HEAD
-=======
-        }
-
-        void initializeKillTotal() {
-            totalMonstersKilled = ScoringManager.Instance.blockMonstersKilled
-                            + ScoringManager.Instance.sunMonstersKilled
-                            + ScoringManager.Instance.bileMonstersKilled
-                            + ScoringManager.Instance.dashMonstersKilled
-                            + ScoringManager.Instance.groundCannonMonstersKilled
-                            + ScoringManager.Instance.flyingCannonMonstersKilled
-                            + ScoringManager.Instance.spikeMonstersKilled
-                            + ScoringManager.Instance.undergroundMonstersKilled
-                            + ScoringManager.Instance.swoopMonstersKilled;
-
-        }
-
-        public void Update(GameTime gameTime) {
-            
->>>>>>> 969528e9a6eb389acf4c5859bd2e47a48bf39acc
+            swoopMonster.positionVector = new Vector2(countPositionVector.X, undergroundMonster.positionVector.Y + undergroundMonster.entityHeight);
         }
 
         void initializeKillTotal() {
@@ -154,106 +163,98 @@ namespace TheAdventuresOf
         public void Draw(SpriteBatch spriteBatch) {
             spriteBatch.Draw(AssetManager.Instance.transparentBlackBackgroundTexture, positionVector);
 
-            int monsterIndex = 0;
-
             drawMonsterScore(spriteBatch, blockMonster, 
                              ScoringManager.blockMonsterScore, 
-                             ScoringManager.Instance.blockMonstersKilled, monsterIndex++);
+                             ScoringManager.Instance.blockMonstersKilled);
             drawMonsterScore(spriteBatch, sunMonster,
                              ScoringManager.sunMonsterScore,
-                             ScoringManager.Instance.sunMonstersKilled, monsterIndex++);
+                             ScoringManager.Instance.sunMonstersKilled);
             drawMonsterScore(spriteBatch, bileMonster,
                              ScoringManager.bileMonsterScore,
-                             ScoringManager.Instance.bileMonstersKilled, monsterIndex++);
+                             ScoringManager.Instance.bileMonstersKilled);
             drawMonsterScore(spriteBatch, sunMonster,
                              ScoringManager.sunMonsterScore,
-                             ScoringManager.Instance.sunMonstersKilled, monsterIndex++);
+                             ScoringManager.Instance.sunMonstersKilled);
             drawMonsterScore(spriteBatch, dashMonster,
                              ScoringManager.dashMonsterScore,
-                             ScoringManager.Instance.dashMonstersKilled, monsterIndex++);
+                             ScoringManager.Instance.dashMonstersKilled);
             drawMonsterScore(spriteBatch, groundCannonMonster,
                              ScoringManager.groundCannonMonsterScore,
-                             ScoringManager.Instance.groundCannonMonstersKilled, monsterIndex++);
+                             ScoringManager.Instance.groundCannonMonstersKilled);
             drawMonsterScore(spriteBatch, flyingCannonMonster,
                              ScoringManager.flyingCannonMonsterScore,
-                             ScoringManager.Instance.flyingCannonMonstersKilled, monsterIndex++);
+                             ScoringManager.Instance.flyingCannonMonstersKilled);
             drawMonsterScore(spriteBatch, spikeMonster,
                              ScoringManager.spikeMonsterScore,
-                             ScoringManager.Instance.spikeMonstersKilled, monsterIndex++);
+                             ScoringManager.Instance.spikeMonstersKilled);
             drawMonsterScore(spriteBatch, undergroundMonster,
                              ScoringManager.undergroundMonsterScore,
-                             ScoringManager.Instance.undergroundMonstersKilled, monsterIndex++);
+                             ScoringManager.Instance.undergroundMonstersKilled);
             drawMonsterScore(spriteBatch, swoopMonster,
                              ScoringManager.swoopMonsterScore,
-                             ScoringManager.Instance.swoopMonstersKilled, monsterIndex++);
+                             ScoringManager.Instance.swoopMonstersKilled);
 
             spriteBatch.DrawString(AssetManager.Instance.font,
-                                   "Total Score: " + ScoringManager.Instance.score,
+                                   totalScoreString + ScoringManager.Instance.score,
                                    totalScorePositionVector,
-                                   Color.White,
+                                   fontColor,
                                    0,
-                                   new Vector2(0, 0),
-                                   0.90f,
+                                   zeroOriginVector,
+                                   fontScale,
                                    SpriteEffects.None,
                                    0);
 
             spriteBatch.DrawString(AssetManager.Instance.font,
-                                   "Total Kills: " + totalMonstersKilled,
+                                   totalKillString + totalMonstersKilled,
                                    totalKilledPositionVector,
-                                   Color.White,
+                                   fontColor,
                                    0,
-                                   new Vector2(0, 0),
-                                   0.90f,
+                                   zeroOriginVector,
+                                   fontScale,
                                    SpriteEffects.None,
                                    0);
 
-<<<<<<< HEAD
             if(showContinueText) {
                 spriteBatch.DrawString(AssetManager.Instance.font,
-                                   "Jump to continue!",
-                                   continueTextPositionVector,
-                                   Color.White,
-                                   0,
-                                   new Vector2(0, 0),
-                                   0.90f,
-                                   SpriteEffects.None,
-                                   0);
+                                       jumpToContinueString,
+                                       continueTextPositionVector,
+                                       fontColor,
+                                       0,
+                                       zeroOriginVector,
+                                       fontScale,
+                                       SpriteEffects.None,
+                                       0);
             }
-=======
-            continueButton.Draw(spriteBatch, AssetManager.Instance.rightArrowButtonTexture);
->>>>>>> 969528e9a6eb389acf4c5859bd2e47a48bf39acc
         }
 
-        void drawMonsterScore(SpriteBatch spriteBatch, Monster monster, int monsterScore, int monsterKillCount, int monsterIndex) {
-            if(monsterKillCount > 0) {
-                monster.DrawAtScale(spriteBatch, monster.monsterTexture, 0.75f);
-                spriteBatch.DrawString(AssetManager.Instance.font,
-                                       " x " + monsterKillCount,
-                                       new Vector2(monster.positionVector.X
-                                                   + 110, monster.positionVector.Y + monster.entityHeight / 2 - 20),
-                                       Color.White,
-                                       0,
-                                       new Vector2(0, 0),
-                                       0.90f,
-                                       SpriteEffects.None,
-                                       0);
-                spriteBatch.DrawString(AssetManager.Instance.font,
-                                       " = " + monsterKillCount * monsterScore,
-                                       new Vector2(monster.positionVector.X
-                                                   + 240, monster.positionVector.Y + monster.entityHeight / 2 - 20),
-                                       Color.White,
-                                       0,
-                                       new Vector2(0, 0),
-                                       0.90f,
-                                       SpriteEffects.None,
-                                       0);
+        void drawMonsterScore(SpriteBatch spriteBatch, Monster monster, int monsterScore, int monsterKillCount) {
+            string killCountString = " x " + monsterKillCount;
+            string monsterScoreString = " = " + monsterKillCount * monsterScore;
 
-                /**
-                 * spriteBatch.DrawString(AssetManager.Instance.font,
-                                   text, positionVector + new Vector2(1 * textFontScale, -1 * textFontScale),
-                                   color * alpha, 0, new Vector2(0,0), 
-                                   textFontScale, SpriteEffects.None, 0);
-                                   **/
+            Vector2 killCountPositionVector = new Vector2(monster.positionVector.X + monsterKillCountXOffset,
+                                                          monster.positionVector.Y + (monster.entityHeight / 2) - monsterKillCountYOffset);
+            Vector2 scoreTotalPositionVector = new Vector2(monster.positionVector.X + monsterScoreXOffset,
+                                                           monster.positionVector.Y + (monster.entityHeight / 2) - monsterScoreYOffset);
+            if(monsterKillCount > 0) {
+                monster.DrawAtScale(spriteBatch, monster.monsterTexture, monsterTextureScale);
+                spriteBatch.DrawString(AssetManager.Instance.font,
+                                       killCountString,
+                                       killCountPositionVector,
+                                       fontColor,
+                                       0,
+                                       zeroOriginVector,
+                                       fontScale,
+                                       SpriteEffects.None,
+                                       0);
+                spriteBatch.DrawString(AssetManager.Instance.font,
+                                       monsterScoreString,
+                                       scoreTotalPositionVector,
+                                       fontColor,
+                                       0,
+                                       zeroOriginVector,
+                                       fontScale,
+                                       SpriteEffects.None,
+                                       0);
             }
         }
     }
