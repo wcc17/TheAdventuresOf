@@ -11,9 +11,14 @@ namespace TheAdventuresOf
         Vector2 countPositionVector;
         Vector2 totalScorePositionVector;
         Vector2 totalKilledPositionVector;
+<<<<<<< HEAD
         Vector2 continueTextPositionVector;
         bool showContinueText;
         Timer continueDelayTimer; //how long to wait before player can hit jump to go to next level
+=======
+        Vector2 continueButtonPositionVector;
+        Button continueButton;
+>>>>>>> 969528e9a6eb389acf4c5859bd2e47a48bf39acc
         int totalMonstersKilled;
 
         BlockMonster blockMonster;
@@ -31,6 +36,7 @@ namespace TheAdventuresOf
             countPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH * 0.30f, ScreenManager.FULL_SCREEN_HEIGHT * 0.03f);
             totalScorePositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH * 0.60f, ScreenManager.FULL_SCREEN_HEIGHT * 0.25f);
             totalKilledPositionVector = new Vector2(totalScorePositionVector.X, totalScorePositionVector.Y + 50);
+<<<<<<< HEAD
 			continueTextPositionVector = new Vector2(totalScorePositionVector.X,
 			                                         totalScorePositionVector.Y + 200);
             continueDelayTimer = new Timer(3.0f); //TODO: XML
@@ -45,6 +51,17 @@ namespace TheAdventuresOf
             }
 
             return false;
+=======
+            initializeMonsters();
+            initializeKillTotal();
+
+            continueButtonPositionVector = new Vector2(totalScorePositionVector.X,
+                                                       totalScorePositionVector.Y + 200);
+            continueButton = new Button(AssetManager.Instance.rightArrowButtonTexture.Width,
+                                       AssetManager.Instance.rightArrowButtonTexture.Height,
+                                       continueButtonPositionVector.X,
+                                       continueButtonPositionVector.Y);
+>>>>>>> 969528e9a6eb389acf4c5859bd2e47a48bf39acc
         }
 
         /**
@@ -99,6 +116,26 @@ namespace TheAdventuresOf
             swoopMonster = monsterManager.GenerateSwoopMonster();
             swoopMonster.rotation = 0;
             swoopMonster.positionVector = new Vector2(countPositionVector.X, undergroundMonster.positionVector.Y + undergroundMonster.entityHeight + yOffset);
+<<<<<<< HEAD
+=======
+        }
+
+        void initializeKillTotal() {
+            totalMonstersKilled = ScoringManager.Instance.blockMonstersKilled
+                            + ScoringManager.Instance.sunMonstersKilled
+                            + ScoringManager.Instance.bileMonstersKilled
+                            + ScoringManager.Instance.dashMonstersKilled
+                            + ScoringManager.Instance.groundCannonMonstersKilled
+                            + ScoringManager.Instance.flyingCannonMonstersKilled
+                            + ScoringManager.Instance.spikeMonstersKilled
+                            + ScoringManager.Instance.undergroundMonstersKilled
+                            + ScoringManager.Instance.swoopMonstersKilled;
+
+        }
+
+        public void Update(GameTime gameTime) {
+            
+>>>>>>> 969528e9a6eb389acf4c5859bd2e47a48bf39acc
         }
 
         void initializeKillTotal() {
@@ -170,6 +207,7 @@ namespace TheAdventuresOf
                                    SpriteEffects.None,
                                    0);
 
+<<<<<<< HEAD
             if(showContinueText) {
                 spriteBatch.DrawString(AssetManager.Instance.font,
                                    "Jump to continue!",
@@ -181,6 +219,9 @@ namespace TheAdventuresOf
                                    SpriteEffects.None,
                                    0);
             }
+=======
+            continueButton.Draw(spriteBatch, AssetManager.Instance.rightArrowButtonTexture);
+>>>>>>> 969528e9a6eb389acf4c5859bd2e47a48bf39acc
         }
 
         void drawMonsterScore(SpriteBatch spriteBatch, Monster monster, int monsterScore, int monsterKillCount, int monsterIndex) {
