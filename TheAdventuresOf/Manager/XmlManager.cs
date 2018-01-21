@@ -196,6 +196,29 @@ namespace TheAdventuresOf
             ChooseLevelMenuController.buttonOffset = (float)chooseLevelMenuElement.Element("ButtonOffset");
         }
 
+        public static void LoadScoreStatOverlayInformation() {
+            XElement specialLevelElement = specialLevelDocument.Element("Level");
+            XElement overlayElement = specialLevelElement.Element("Overlay");
+            XElement scoreStatOverlayElement = overlayElement.Element("ScoreStat");
+
+            ScoreStatOverlay.totalScoreString = (string)scoreStatOverlayElement.Element("TotalScoreString");
+            ScoreStatOverlay.totalKillString = (string)scoreStatOverlayElement.Element("TotalKillString");
+            ScoreStatOverlay.jumpToContinueString = (string)scoreStatOverlayElement.Element("JumpToContinueString");
+            ScoreStatOverlay.countPositionXMultiplier = (float)scoreStatOverlayElement.Element("CountPositionXMultiplier"); 
+            ScoreStatOverlay.countPositionYMultiplier = (float)scoreStatOverlayElement.Element("CountPositionYMultiplier"); 
+            ScoreStatOverlay.totalScorePositionXMultiplier = (float)scoreStatOverlayElement.Element("TotalScorePositionXMultiplier"); 
+            ScoreStatOverlay.totalScorePositionYMultiplier = (float)scoreStatOverlayElement.Element("TotalScorePositionYMultiplier"); 
+            ScoreStatOverlay.continueDelayTimeLimit = (float)scoreStatOverlayElement.Element("ContinueDelayTimeLimit"); 
+            ScoreStatOverlay.fontScale = (float)scoreStatOverlayElement.Element("FontScale"); 
+            ScoreStatOverlay.monsterTextureScale = (float)scoreStatOverlayElement.Element("MonsterTextureScale"); 
+            ScoreStatOverlay.totalKilledPositionYMultiplier = (float)scoreStatOverlayElement.Element("TotalKilledPositionYMultiplier"); 
+            ScoreStatOverlay.continueTextPositionYMultiplier = (float)scoreStatOverlayElement.Element("ContinueTextPositionYMultiplier"); 
+            ScoreStatOverlay.monsterKillCountXMultiplier = (float)scoreStatOverlayElement.Element("MonsterKillCountXMultiplier"); 
+            ScoreStatOverlay.monsterKillCountYMultiplier = (float)scoreStatOverlayElement.Element("MonsterKillCountYMultiplier"); 
+            ScoreStatOverlay.monsterScoreXMultiplier = (float)scoreStatOverlayElement.Element("MonsterScoreXMultiplier"); 
+            ScoreStatOverlay.monsterScoreYMultiplier = (float)scoreStatOverlayElement.Element("MonsterScoreYMultiplier"); 
+        }
+
         public static void LoadPreLevelInformation(PreLevel preLevel) {
             XElement specialLevelElement = specialLevelDocument.Element("Level");
             XElement preLevelElement = specialLevelElement.Element("PreLevel");

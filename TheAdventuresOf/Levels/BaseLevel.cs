@@ -9,7 +9,7 @@ namespace TheAdventuresOf
     {
         //Used to prevent accidental jumps or pauses at beginnings of levels 
         //can consider using XML if need different values on different levels in the future
-		public const float DELAY_PLAYER_MOVEMENT_TIME_LIMIT = 0.2f;
+		public const float DELAY_PLAYER_MOVEMENT_TIME_LIMIT = 0.4f;
 
         public Vector2 levelPositionVector;
         public Rectangle leftSideBounds;

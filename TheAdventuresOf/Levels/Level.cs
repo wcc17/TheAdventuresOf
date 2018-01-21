@@ -77,7 +77,7 @@ namespace TheAdventuresOf
 
                     showScoreStatOverlay = false;
                     ScoringManager.Instance.ClearScores();
-                    monsterManager.ClearMonsters();
+                    monsterManager.ResetMonsters();
                     nextLevel = true;
                 }
             }
