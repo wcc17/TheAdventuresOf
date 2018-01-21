@@ -44,25 +44,44 @@ namespace TheAdventuresOf
 		public override void Update(GameTime gameTime, GameController gameController)
 		{
             if(!showScoreStatOverlay) {
-                base.Update(gameTime, gameController);
-                monsterManager.Update(gameTime);
-
-                if (ScoringManager.Instance.score > tierScores[currentTier] && currentTier < (maxTier - 1))
-                {
-                    currentTier = currentTier + 1;
-                }
-
-                if (currentTier == (maxTier - 1) && ScoringManager.Instance.score > tierScores[currentTier])
-                {
-                    scoreStatOverlay = new ScoreStatOverlay(monsterManager);
-                    showScoreStatOverlay = true;
-
-                    //TODO: call this when player is ready to leave ScoreStatOverlay
-                    //ScoringManager.Instance.ClearScores();
-                    //nextLevel = true;
-                }
+                updateLevel(gameTime, gameController);
+            } else {
+                updateScoreStatOverlay(gameTime, gameController);
             }
 		}
+
+        void updateLevel(GameTime gameTime, GameController gameController) {
+            base.Update(gameTime, gameController);
+            monsterManager.Update(gameTime);
+
+            if (ScoringManager.Instance.score > tierScores[currentTier] && currentTier < (maxTier - 1))
+            {
+                currentTier = currentTier + 1;
+            }
+
+            if (currentTier == (maxTier - 1) && ScoringManager.Instance.score > tierScores[currentTier])
+            {
+                scoreStatOverlay = new ScoreStatOverlay(monsterManager);
+                showScoreStatOverlay = true;
+            }
+        }
+
+        void updateScoreStatOverlay(GameTime gameTime, GameController gameController) {
+            if (scoreStatOverlay.CanContinueToNextLevel(gameTime))
+            {
+                if (gameController.jumpButtonPressed)
+                {
+                    //reset jump button so player doesn't jump at beginning of store
+                    gameController.jumpButtonPressed = false;
+                    gameController.isButtonPressed = false;
+
+                    showScoreStatOverlay = false;
+                    ScoringManager.Instance.ClearScores();
+                    monsterManager.ClearMonsters();
+                    nextLevel = true;
+                }
+            }
+        }
 
         //not using base.Draw so that player can be drawn after monster
 		public override void Draw(SpriteBatch spriteBatch)

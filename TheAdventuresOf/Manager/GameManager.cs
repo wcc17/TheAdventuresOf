@@ -527,6 +527,12 @@ namespace TheAdventuresOf
             //Draw level related stuff (background and monsters)
             currentLevel.Draw(spriteBatch);
 
+            if (((GameController)currentController).isPaused)
+            {
+                spriteBatch.Draw(AssetManager.Instance.transparentBlackBackgroundTexture, basePositionVector);
+                spriteBatch.DrawString(AssetManager.Instance.font, "Paused.", pausedTextVector, Color.White);
+            }
+
             //Draw controller and buttons
             currentController.Draw(spriteBatch);
 
@@ -542,12 +548,6 @@ namespace TheAdventuresOf
                                    "Score: " + ScoringManager.Instance.score.ToString(),
                                    totalScorePositionVector + new Vector2(1, -1),
                                    Color.White);
-
-            if (((GameController)currentController).isPaused)
-            {
-                spriteBatch.Draw(AssetManager.Instance.transparentBlackBackgroundTexture, basePositionVector);
-                spriteBatch.DrawString(AssetManager.Instance.font, "Paused.", pausedTextVector, Color.White);
-            }
         }
 
         void drawLoadScreen()

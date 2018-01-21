@@ -115,7 +115,6 @@ namespace TheAdventuresOf
         }
 
         void changePreviewTexture() {
-            //coins.RemoveAll(c => coinsToRemove.Contains(c));
             currentPreviewTexture = previewTextures.Find(pT => pT.Name.Equals(currentLevelSelected.ToString()));
         }
     }
