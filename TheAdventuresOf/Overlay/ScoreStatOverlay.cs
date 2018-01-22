@@ -100,15 +100,15 @@ namespace TheAdventuresOf
          */
         void initializeMonsters() {
             //TEST VALUES
-            ScoringManager.Instance.blockMonstersKilled = 27;
-            ScoringManager.Instance.sunMonstersKilled = 100;
-            ScoringManager.Instance.bileMonstersKilled = 46;
-            ScoringManager.Instance.dashMonstersKilled = 12;
-            ScoringManager.Instance.groundCannonMonstersKilled = 155;
-            ScoringManager.Instance.flyingCannonMonstersKilled = 13;
-            ScoringManager.Instance.spikeMonstersKilled = 66;
-            ScoringManager.Instance.undergroundMonstersKilled = 123;
-            ScoringManager.Instance.swoopMonstersKilled = 1;
+            //ScoringManager.Instance.blockMonstersKilled = 27;
+            //ScoringManager.Instance.sunMonstersKilled = 100;
+            //ScoringManager.Instance.bileMonstersKilled = 46;
+            //ScoringManager.Instance.dashMonstersKilled = 12;
+            //ScoringManager.Instance.groundCannonMonstersKilled = 155;
+            //ScoringManager.Instance.flyingCannonMonstersKilled = 13;
+            //ScoringManager.Instance.spikeMonstersKilled = 66;
+            //ScoringManager.Instance.undergroundMonstersKilled = 123;
+            //ScoringManager.Instance.swoopMonstersKilled = 1;
 
             blockMonster = monsterManager.GenerateBlockMonster();
             blockMonster.rotation = 0;
