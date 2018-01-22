@@ -252,7 +252,9 @@ namespace TheAdventuresOf
             {
                 MoveUpDown(gameTime, DOWN, deathSpeed);
             } else {
-                isDead = true;
+                if(!bullet.isActive) {
+					isDead = true;
+                }
             }
 
             HandleFadeOut(gameTime);

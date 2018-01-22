@@ -52,6 +52,7 @@ namespace TheAdventuresOf
                 blockMonstersKilled++;
             } else if(monster is SunMonster) {
                 pointsEarned = sunMonsterScore;
+                sunMonstersKilled++;
             } else if(monster is BileMonster) {
                 pointsEarned = bileMonsterScore;
                 bileMonstersKilled++;

@@ -56,7 +56,7 @@
 	<Overlay>
 		<ScoreStat>
 			<TotalScoreString>Total Score: </TotalScoreString>
-			<TotalKillString>Total Kill String: </TotalKillString>
+			<TotalKillString>Total Kill: </TotalKillString>
 			<JumpToContinueString>Jump to continue!</JumpToContinueString>
 			<CountPositionXMultiplier>0.30</CountPositionXMultiplier>
 			<CountPositionYMultiplier>0.03</CountPositionYMultiplier>

@@ -23,7 +23,6 @@
 	</SpawnDelayTime>
 
   <!-- NOTE: the last tier is effectively the "max score" that will end a level-->
-  <!--
   <TierScores>
     <Tier1>1500</Tier1>
     <Tier2>3000</Tier2>
@@ -36,8 +35,8 @@
     <Tier9>26000</Tier9>
     <Tier10>36000</Tier10>
   </TierScores>
-  -->
 
+  <!--
   <TierScores>
     <Tier1>1</Tier1>
     <Tier2>2</Tier2>
@@ -50,6 +49,7 @@
     <Tier9>9</Tier9>
     <Tier10>200</Tier10>
   </TierScores>
+  -->
 
 
   <MonsterCountTiers>
@@ -79,7 +79,7 @@
     </Tier2>
     <Tier3>
       <!--26--> <!-- explosion of block monster-->
-      <BlockMonsterLimit>       15</BlockMonsterLimit>
+      <BlockMonsterLimit>       25</BlockMonsterLimit>
       <SunMonsterLimit>         9</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
@@ -116,7 +116,7 @@
     <Tier6>
       <!--30--> <!-- explosion of sunmonster-->
       <BlockMonsterLimit>       11</BlockMonsterLimit>
-      <SunMonsterLimit>         16</SunMonsterLimit>
+      <SunMonsterLimit>         20</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        1</BileMonsterLimit>
@@ -155,7 +155,7 @@
       <SunMonsterLimit>         12</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
-      <BileMonsterLimit>        8</BileMonsterLimit>
+      <BileMonsterLimit>        16</BileMonsterLimit>
       <SpikeMonsterLimit>       1</SpikeMonsterLimit>
       <DashMonsterLimit>        0</DashMonsterLimit>
       <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
