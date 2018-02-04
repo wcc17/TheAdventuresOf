@@ -111,7 +111,12 @@ namespace TheAdventuresOf
         {
             spriteBatch.GraphicsDevice.Clear(Color.White);
             spriteBatch.Draw(AssetManager.Instance.chooseLevelPreviewOutlineTexture, levelPreviewOutlinePositionVector, Color.White);
-            spriteBatch.Draw(currentPreviewTexture, levelPreviewPositionVector, Color.White);
+
+            if(SaveGameManager.Instance.IsLevelUnlocked(currentLevelSelected)) {
+                spriteBatch.Draw(currentPreviewTexture, levelPreviewPositionVector, Color.White);
+            } else {
+                spriteBatch.Draw(AssetManager.Instance.chooseLevelLockedPreviewTexture, levelPreviewPositionVector, Color.White);
+            }
         }
 
         void changePreviewTexture() {

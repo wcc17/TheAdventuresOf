@@ -73,6 +73,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controller\GameController\GameControllerMobile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controller\GameController\GameControllerWindows.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Overlay\ScoreStatOverlay.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\SaveGameManager\SaveGame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\SaveGameManager\SaveGameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

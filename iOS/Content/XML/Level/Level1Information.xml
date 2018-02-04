@@ -22,7 +22,8 @@
       <SwoopMonster>       15</SwoopMonster>
 	</SpawnDelayTime>
 
-  <!-- NOTE: the last tier is effectively the "max score" that will end a level-->
+    <!-- NOTE: the last tier is effectively the "max score" that will end a level-->
+    <!--
   <TierScores>
     <Tier1>1500</Tier1>
     <Tier2>3000</Tier2>
@@ -35,8 +36,8 @@
     <Tier9>26000</Tier9>
     <Tier10>36000</Tier10>
   </TierScores>
+    -->
 
-  <!--
   <TierScores>
     <Tier1>1</Tier1>
     <Tier2>2</Tier2>
@@ -49,8 +50,6 @@
     <Tier9>9</Tier9>
     <Tier10>200</Tier10>
   </TierScores>
-  -->
-
 
   <MonsterCountTiers>
     <Tier1> 
