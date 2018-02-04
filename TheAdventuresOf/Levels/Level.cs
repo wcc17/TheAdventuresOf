@@ -47,6 +47,7 @@ namespace TheAdventuresOf
 		public override void Update(GameTime gameTime, GameController gameController)
 		{
             if(!showScoreStatOverlay) {
+                base.Update(gameTime, gameController);
                 updateLevel(gameTime, gameController);
             } else {
                 updateScoreStatOverlay(gameTime, gameController);
@@ -54,7 +55,6 @@ namespace TheAdventuresOf
 		}
 
         void updateLevel(GameTime gameTime, GameController gameController) {
-            base.Update(gameTime, gameController);
             monsterManager.Update(gameTime);
 
             if (ScoringManager.Instance.score > tierScores[currentTier] && currentTier < (maxTier - 1))

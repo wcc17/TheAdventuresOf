@@ -20,6 +20,7 @@ namespace TheAdventuresOf
 
         static SaveGameManager instance;
         static string saveFileName = "game.sav";
+        static XmlSerializer xmlSerializer;
 
         public static SaveGameManager Instance
         {
@@ -42,15 +43,18 @@ namespace TheAdventuresOf
                 return;
             }
 
-            IsolatedStorageFileStream stream = storageFile.OpenFile(saveFileName, FileMode.Open);
-            stream.Position = 0;
+            //create file
+            IsolatedStorageFileStream stream = null;
+            using (stream = storageFile.OpenFile(saveFileName, FileMode.Open, FileAccess.ReadWrite))
+            {
+                SaveGame loadedSaveGame = (SaveGame)xmlSerializer.Deserialize(stream);
+                saveGame = loadedSaveGame;
+            }
 
-            //TODO: instead of bool, create a SaveGame object to save everything in 
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(SaveGame));
-            saveGame = (SaveGame)xmlSerializer.Deserialize(stream);
+            storageFile.Close();
+            stream.Dispose();  
 
-            stream.Close();
-            storageFile.Dispose();
+            Logger.WriteToConsole("Loaded Game");
         }
 
         public void OverwriteSave() 
@@ -62,16 +66,18 @@ namespace TheAdventuresOf
             }
 
             //create file
-            IsolatedStorageFileStream stream = storageFile.CreateFile(saveFileName);
+            IsolatedStorageFileStream stream = null;
+            using (stream = storageFile.CreateFile(saveFileName))
+            {
+                stream.Seek(0, SeekOrigin.Begin);
+                xmlSerializer.Serialize(stream, saveGame);
+                stream.SetLength(stream.Position);
+            }
 
-            //convert stuff to xml data and put in stream
-            XmlSerializer xmlSerializer = new XmlSerializer(typeof(SaveGame));
-            xmlSerializer.Serialize(stream, saveGame);
+            storageFile.Close();
+            stream.Dispose();
 
-            stream.Close();
-            storageFile.Dispose();
-
-            Console.WriteLine("Successfully saved game");
+            Logger.WriteToConsole("Saved game");
         }
 
         /**
@@ -98,6 +104,7 @@ namespace TheAdventuresOf
         private SaveGameManager()
         {
             saveGame = new SaveGame();
+            xmlSerializer = new XmlSerializer(typeof(SaveGame));
         }
     }
 }

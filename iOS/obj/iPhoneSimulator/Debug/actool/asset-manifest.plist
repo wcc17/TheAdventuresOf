@@ -6,8 +6,25 @@
 	<dict>
 		<key>output-files</key>
 		<array>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon20x20@2x.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon20x20@3x.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon29x29@2x.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon29x29@3x.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon40x40@2x.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon40x40@3x.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon60x60@2x.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon60x60@3x.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon20x20~ipad.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon20x20@2x~ipad.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon29x29~ipad.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon29x29@2x~ipad.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon40x40~ipad.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon40x40@2x~ipad.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon76x76~ipad.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon76x76@2x~ipad.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/AppIcon83.5x83.5@2x~ipad.png</string>
 			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/LaunchImage-800-Landscape-736h@3x.png</string>
-			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/LaunchImage.png</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/bundle/Assets.car</string>
 			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/partial-info.plist</string>
 		</array>
 	</dict>
@@ -19,19 +36,7 @@
 				<string>./LaunchImage.launchimage/[iphone][736h][3x][landscape][full-screen][8.0]</string>
 			</array>
 			<key>catalog</key>
-			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/Assets.xcassets</string>
-			<key>message</key>
-			<string>This launch image only applies to iOS 6.x and prior but the minimum deployment is 7.0 or later.</string>
-			<key>type</key>
-			<string>Inapplicable Content</string>
-		</dict>
-		<dict>
-			<key>affected-items</key>
-			<array>
-				<string>./LaunchImage.launchimage/[iphone][][1x][portrait][full-screen][]</string>
-			</array>
-			<key>catalog</key>
-			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/Assets.xcassets</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/cloned-assets/Assets.xcassets</string>
 			<key>message</key>
 			<string>This launch image only applies to iOS 6.x and prior but the minimum deployment is 7.0 or later.</string>
 			<key>type</key>
@@ -46,11 +51,47 @@
 				<string>./LaunchImage.launchimage</string>
 			</array>
 			<key>catalog</key>
-			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/Assets.xcassets</string>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/cloned-assets/Assets.xcassets</string>
 			<key>message</key>
 			<string>An iPhone Retina (4-inch) launch image for iOS 7.0 and later is required.</string>
 			<key>type</key>
 			<string>Missing Content</string>
+		</dict>
+		<dict>
+			<key>affected-items</key>
+			<array>
+				<string>./AppIcon.appiconset/(null)[2d][GameThumbnail.png]</string>
+			</array>
+			<key>catalog</key>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/cloned-assets/Assets.xcassets</string>
+			<key>message</key>
+			<string>The app icon set "AppIcon" has an unassigned child.</string>
+			<key>type</key>
+			<string>Ambiguous Content</string>
+		</dict>
+		<dict>
+			<key>affected-items</key>
+			<array>
+				<string>./LaunchImage.launchimage/[ipad][][2x][portrait][full-screen][7.0][1d][(null)]</string>
+			</array>
+			<key>catalog</key>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/cloned-assets/Assets.xcassets</string>
+			<key>message</key>
+			<string>The launch image set "LaunchImage" has an unassigned child.</string>
+			<key>type</key>
+			<string>Ambiguous Content</string>
+		</dict>
+		<dict>
+			<key>affected-items</key>
+			<array>
+				<string>./AppIcon.appiconset/(null)[2d][GameThumbnail.png]</string>
+			</array>
+			<key>catalog</key>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/cloned-assets/Assets.xcassets</string>
+			<key>message</key>
+			<string>The app icon set "AppIcon" has an unassigned child.</string>
+			<key>type</key>
+			<string>Ambiguous Content</string>
 		</dict>
 	</array>
 </dict>

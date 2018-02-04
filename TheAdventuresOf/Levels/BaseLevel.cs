@@ -22,6 +22,7 @@ namespace TheAdventuresOf
 		public bool nextLevel;
 
         Timer delayPlayerMovementTimer;
+        public bool isDelayingMovement = true;
 
         public BaseLevel(Texture2D levelTexture)
         {
@@ -43,6 +44,8 @@ namespace TheAdventuresOf
             if (!delayPlayerMovementTimer.IsTimeUp(gameTime.ElapsedGameTime))
             {
                 gameController.ResetButtonPressedValues();
+            } else {
+                isDelayingMovement = false;
             }
 
             PlayerManager.Instance.Update(gameTime, gameController);
