@@ -40,6 +40,7 @@ namespace TheAdventuresOf
 
         bool chooseLevelMenuAssetsLoaded;
         bool mainMenuAssetsLoaded;
+        bool storyMode = true;
 
         Controller currentController;
 
@@ -299,8 +300,7 @@ namespace TheAdventuresOf
             mainMenu.Update(gameTime, (MainMenuController) currentController);
 
             if(mainMenu.proceedToGameState) {
-                //TODO: after implenting save games, this will need to change
-                //right now we're just starting a new game everytime we press play on the menu
+                storyMode = true;
                 currentLevelNumber = levelNumberMin;
                 prepareLevelState(PRE_LEVEL_STATE);
             } else if(mainMenu.proceedToChooseLevelState) {
@@ -315,6 +315,7 @@ namespace TheAdventuresOf
             chooseLevelMenu.Update(gameTime, (ChooseLevelMenuController) currentController);
 
             if(chooseLevelMenu.proceedToLevelState) {
+                storyMode = false; //set storyMode to false when choosing level in ChooseLevelMenu screen. 
                 currentLevelNumber = chooseLevelMenu.currentLevelSelected;
                 prepareLevelState(LEVEL_STATE);
             } else if(chooseLevelMenu.proceedToMainMenuState) {
@@ -407,10 +408,15 @@ namespace TheAdventuresOf
 
             if (currentLevel.nextLevel) {
                 gameState = LOAD_STATE;
-                nextGameState = STORE_LEVEL_STATE;
-
                 AssetManager.Instance.DisposeLevelAssets();
-                loadStoreLevelAssets();
+
+                if(storyMode) {
+                    nextGameState = STORE_LEVEL_STATE;
+                    loadStoreLevelAssets();
+                } else {
+                    nextGameState = CHOOSE_LEVEL_STATE;
+                    loadChooseLevelMenu();
+                }
             }
         }
 
