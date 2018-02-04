@@ -248,6 +248,14 @@ namespace TheAdventuresOf
 
             if(gameState != SPLASH_STATE && gameState != LOAD_STATE) {
                 screenManager.Update(currentController);
+
+                if(gameState == LEVEL_STATE && currentLevel.isDelayingMovement) {
+                    currentController.ResetButtonPressedValues();
+                }
+            } else {
+                if(currentController != null) {
+                    currentController.ResetButtonPressedValues();
+                }
             }
 
             switch(gameState) {

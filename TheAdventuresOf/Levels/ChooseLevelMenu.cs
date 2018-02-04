@@ -54,7 +54,9 @@ namespace TheAdventuresOf
             {
                 if (chooseLevelMenuController.chooseButtonPressed)
                 {
-                    proceedToLevelState = true;
+                    if(SaveGameManager.Instance.IsLevelUnlocked((currentLevelSelected))) {
+                        proceedToLevelState = true;
+                    }
 
                 }
                 else if (chooseLevelMenuController.leftArrowButtonPressed)
@@ -111,6 +113,16 @@ namespace TheAdventuresOf
         {
             spriteBatch.GraphicsDevice.Clear(Color.White);
             spriteBatch.Draw(AssetManager.Instance.chooseLevelPreviewOutlineTexture, levelPreviewOutlinePositionVector, Color.White);
+
+            spriteBatch.DrawString(AssetManager.Instance.font,
+                             "LEVEL " + currentLevelSelected,
+                             new Vector2(levelPreviewOutlinePositionVector.X + AssetManager.Instance.chooseLevelPreviewOutlineTexture.Width),
+                             Color.Black,
+                             0,
+                             new Vector2(0, 0),
+                             1.0f,
+                             SpriteEffects.None,
+                             0);
 
             if(SaveGameManager.Instance.IsLevelUnlocked(currentLevelSelected)) {
                 spriteBatch.Draw(currentPreviewTexture, levelPreviewPositionVector, Color.White);
