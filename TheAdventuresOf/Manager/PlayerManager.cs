@@ -123,6 +123,14 @@ namespace TheAdventuresOf
             return swordLevel >= SWORD_LEVEL_LIMIT;
         }
 
+        public bool IsPlayerDead() {
+            return player.isDead;
+        }
+
+        public bool IsPlayerDying() {
+            return player.isDying;
+        }
+
         public void CheckPlayerCollisionProjectile(Projectile proj) {
             bool projectileDamagedPlayer = false;
             foreach(Accessory accessory in accessories) {

@@ -70,6 +70,10 @@ namespace TheAdventuresOf {
             return value;
         }
 
+        public void SetValue(int value) {
+            this.value = value;
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             Logger.Instance.AddOrUpdateValue(valueText + ": ", value.ToString());

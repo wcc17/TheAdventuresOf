@@ -21,7 +21,7 @@ namespace TheAdventuresOf
         public float playerStartX;
 		public bool nextLevel;
 
-        Timer delayPlayerMovementTimer;
+        public Timer delayPlayerMovementTimer;
         public bool isDelayingMovement = true;
 
         public BaseLevel(Texture2D levelTexture)
@@ -41,12 +41,7 @@ namespace TheAdventuresOf
         }
 
         public virtual void Update(GameTime gameTime, GameController gameController) {
-            if (!delayPlayerMovementTimer.IsTimeUp(gameTime.ElapsedGameTime))
-            {
-                gameController.ResetButtonPressedValues();
-            } else {
-                isDelayingMovement = false;
-            }
+            HandleDelayMovementTimer(gameTime, gameController);
 
             PlayerManager.Instance.Update(gameTime, gameController);
 
@@ -101,6 +96,18 @@ namespace TheAdventuresOf
         public virtual void CheckPlayerCollisionWithMonster(Monster monster)
         {
             PlayerManager.Instance.CheckPlayerCollisionWithMonster(monster);
+        }
+
+        public virtual void HandleDelayMovementTimer(GameTime gameTime, GameController gameController) 
+        {
+            if (!delayPlayerMovementTimer.IsTimeUp(gameTime.ElapsedGameTime))
+            {
+                gameController.ResetButtonPressedValues();
+            }
+            else
+            {
+                isDelayingMovement = false;
+            }
         }
     }
 }

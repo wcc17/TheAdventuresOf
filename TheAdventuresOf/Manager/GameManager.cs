@@ -149,6 +149,9 @@ namespace TheAdventuresOf
             HeartManager.Instance.Initialize();
             HealthShieldManager.Instance.Initialize();
 
+            //TODO: UNCOMMENT FOR TESTING
+            HealthShieldManager.Instance.DecreaseHealthByAmount(975);
+
             #if __IOS__ || __ANDROID__
                 currentController = new GameControllerMobile();
             #else
@@ -465,6 +468,8 @@ namespace TheAdventuresOf
          * Called when player hits "Quit" in the pause menu during any type of level
          */
         void handleQuitToMenu() {
+            ScoringManager.Instance.ClearScores();
+
             gameState = LOAD_STATE;
             nextGameState = SPLASH_STATE;
 
