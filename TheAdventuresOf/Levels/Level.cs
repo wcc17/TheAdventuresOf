@@ -6,6 +6,9 @@ namespace TheAdventuresOf
 {
     public class Level : BaseLevel
     {
+        //TODO: should be loaded from XML
+        public const float gameOverDelayTimeLimit = 5.0f;
+
         int levelNumber;
         public static MonsterManager monsterManager;
 
@@ -27,6 +30,10 @@ namespace TheAdventuresOf
 
         ScoreStatOverlay scoreStatOverlay;
         bool showScoreStatOverlay;
+        Vector2 gameOverTextPositionVector;
+        string gameOverText;
+        bool playerDied;
+        Timer gameOverDelayTimer = new Timer(gameOverDelayTimeLimit);
 
         public Level(Texture2D levelTexture, int levelNumber) : base(levelTexture: levelTexture) {
             this.levelNumber = levelNumber;
@@ -34,6 +41,11 @@ namespace TheAdventuresOf
             currentTier = 0;
             CoinManager.Instance.RemoveAllItems();
             HeartManager.Instance.RemoveAllItems();
+
+            gameOverText = "You died!";
+            Vector2 gameOverTextDimensionsVector = AssetManager.Instance.font.MeasureString(gameOverText);
+            gameOverTextPositionVector = new Vector2((ScreenManager.FULL_SCREEN_WIDTH / 2) - (gameOverTextDimensionsVector.X / 2),
+                                                     ((ScreenManager.FULL_SCREEN_HEIGHT * 0.3f) - (gameOverTextDimensionsVector.Y / 2)));
         }
 
 		public override void InitializeLevel(bool usePlayerSpawnAnimation)
@@ -47,7 +59,6 @@ namespace TheAdventuresOf
 		public override void Update(GameTime gameTime, GameController gameController)
 		{
             if(!showScoreStatOverlay) {
-                base.Update(gameTime, gameController);
                 updateLevel(gameTime, gameController);
             } else {
                 updateScoreStatOverlay(gameTime, gameController);
@@ -55,17 +66,34 @@ namespace TheAdventuresOf
 		}
 
         void updateLevel(GameTime gameTime, GameController gameController) {
-            monsterManager.Update(gameTime);
+            HandleDelayMovementTimer(gameTime, gameController);
 
-            if (ScoringManager.Instance.score > tierScores[currentTier] && currentTier < (maxTier - 1))
-            {
-                currentTier = currentTier + 1;
+            if(!playerDied) {
+                PlayerManager.Instance.Update(gameTime, gameController);
             }
 
-            if (currentTier == (maxTier - 1) && ScoringManager.Instance.score > tierScores[currentTier])
-            {
-                scoreStatOverlay = new ScoreStatOverlay(monsterManager);
-                showScoreStatOverlay = true;
+            HealthShieldManager.Instance.Update();
+            monsterManager.Update(gameTime);
+
+            //using this condition twice because I want these methods to be called in a specific order 
+            if(!playerDied) {
+                if (ScoringManager.Instance.score > tierScores[currentTier] && currentTier < (maxTier - 1))
+                {
+                    currentTier = currentTier + 1;
+                }
+
+                if (currentTier == (maxTier - 1) && ScoringManager.Instance.score > tierScores[currentTier])
+                {
+                    scoreStatOverlay = new ScoreStatOverlay(monsterManager);
+                    showScoreStatOverlay = true;
+                }
+
+                if (PlayerManager.Instance.IsPlayerDead())
+                {
+                    playerDied = true;
+                }
+            } else {
+                handleGameOverDelay(gameTime);
             }
         }
 
@@ -75,15 +103,7 @@ namespace TheAdventuresOf
                 if (gameController.jumpButtonPressed)
                 {
                     SaveGameManager.Instance.SetLevelUnlocked(levelNumber);
-
-                    //reset jump button so player doesn't jump at beginning of store
-                    gameController.jumpButtonPressed = false;
-                    gameController.isButtonPressed = false;
-
-                    showScoreStatOverlay = false;
-                    ScoringManager.Instance.ClearScores();
-                    monsterManager.ResetMonsters();
-                    nextLevel = true;
+                    goToStoreLevel(gameController);
                 }
             }
         }
@@ -105,6 +125,20 @@ namespace TheAdventuresOf
                 HealthShieldManager.Instance.Draw(spriteBatch);
             } else {
                 scoreStatOverlay.Draw(spriteBatch);
+            }
+
+            if(playerDied) {
+                spriteBatch.Draw(AssetManager.Instance.transparentBlackBackgroundTexture, levelPositionVector);
+
+                spriteBatch.DrawString(AssetManager.Instance.font,
+                             gameOverText,
+                             gameOverTextPositionVector,
+                             Color.White,
+                             0,
+                             new Vector2(0, 0),
+                             1.0f,
+                             SpriteEffects.None,
+                             0);
             }
             
 		}
@@ -128,6 +162,26 @@ namespace TheAdventuresOf
 			groundCannonMonster.rightSideX = rightSideBound 
                 - AssetManager.Instance.cannonMonsterTexture.Width 
                 - groundCannonMonster.boundOffset;
+        }
+
+        void handleGameOverDelay(GameTime gameTime) {
+            if(gameOverDelayTimer.IsTimeUp(gameTime.ElapsedGameTime)) {
+                goToNextState();
+            }
+        }
+
+        void goToStoreLevel(GameController gameController) {
+            //reset jump button so player doesn't jump at beginning of store
+            gameController.jumpButtonPressed = false;
+            gameController.isButtonPressed = false;
+            goToNextState();
+        }
+
+        void goToNextState() {
+            showScoreStatOverlay = false;
+            ScoringManager.Instance.ClearScores();
+            monsterManager.ResetMonsters();
+            nextLevel = true;
         }
 	}
 }

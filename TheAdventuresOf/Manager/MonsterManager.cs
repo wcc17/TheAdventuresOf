@@ -311,17 +311,21 @@ namespace TheAdventuresOf
             {
                 //these methods go first so that monster can update in reaction to them
                 level.CheckCollisionWithBounds(monster);
-                level.CheckPlayerCollisionWithMonster(monster);
 
-                if (monster is BaseCannonMonster)
-                {
-                    level.CheckPlayerCollisionProjectile(((BaseCannonMonster)monster).bullet);
-                }
-                if (monster is BileMonster) 
-                {
-                    foreach (Bile bile in ((BileMonster) monster).activeBileObjects) 
+                //only check player related collisions if player is alive
+                if(!PlayerManager.Instance.IsPlayerDying() && !PlayerManager.Instance.IsPlayerDead()) {
+                    level.CheckPlayerCollisionWithMonster(monster);
+
+                    if (monster is BaseCannonMonster)
                     {
-                        level.CheckPlayerCollisionProjectile(bile);    
+                        level.CheckPlayerCollisionProjectile(((BaseCannonMonster)monster).bullet);
+                    }
+                    if (monster is BileMonster)
+                    {
+                        foreach (Bile bile in ((BileMonster)monster).activeBileObjects)
+                        {
+                            level.CheckPlayerCollisionProjectile(bile);
+                        }
                     }
                 }
 
