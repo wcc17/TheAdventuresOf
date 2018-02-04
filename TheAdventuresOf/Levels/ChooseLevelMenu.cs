@@ -18,8 +18,10 @@ namespace TheAdventuresOf
         Vector2 levelPreviewOutlinePositionVector;
         Vector2 levelPreviewPositionVector;
         Vector2 basePositionVector;
+        Vector2 currentLevelTextPositionVector;
         List<Texture2D> previewTextures;
         Texture2D currentPreviewTexture;
+        string currentLevelString = "Level 1";
 
         public void LoadMenu()
         {
@@ -41,7 +43,13 @@ namespace TheAdventuresOf
                 Logger.WriteToConsole("No preview textures loaded");
             }
 
+            float currentLevelTextX = levelPreviewOutlinePositionVector.X
+               + AssetManager.Instance.chooseLevelPreviewOutlineTexture.Width
+               - AssetManager.Instance.font.MeasureString(currentLevelString).X;
+            float currentLevelTextY = levelPreviewOutlinePositionVector.Y 
+               - AssetManager.Instance.font.MeasureString(currentLevelString).Y;
             basePositionVector = new Vector2(0, 0);
+            currentLevelTextPositionVector = new Vector2(currentLevelTextX, currentLevelTextY);
 
             changePreviewTexture();
         }
@@ -63,9 +71,14 @@ namespace TheAdventuresOf
                 {
                     if (currentLevelSelected > GameManager.levelNumberMin)
                     {
-                        currentLevelSelected--;
+                        int previousLevel = (currentLevelSelected - 1 >= 1) ? (currentLevelSelected - 1) : GameManager.levelNumberLimit;
+                        //should never be moving backwards to a locked level
+                        if(SaveGameManager.Instance.IsLevelUnlocked(previousLevel)) {
+                            currentLevelSelected--;
+                            currentLevelString = "Level " + currentLevelSelected;
+                        }
                     }
-                    else
+                    else if(currentLevelSelected < 1)
                     {
                         currentLevelSelected = GameManager.levelNumberLimit;
                     }
@@ -77,7 +90,11 @@ namespace TheAdventuresOf
                 {
                     if (currentLevelSelected < GameManager.levelNumberLimit)
                     {
-                        currentLevelSelected++;
+                        //if the current level is locked and the next level is locked as well, don't let player see the next locked level number
+                        if(SaveGameManager.Instance.IsLevelUnlocked(currentLevelSelected)) {
+                            currentLevelSelected++;
+                            currentLevelString = "Level " + currentLevelSelected;
+                        }
                     }
                     else
                     {
@@ -114,21 +131,21 @@ namespace TheAdventuresOf
             spriteBatch.GraphicsDevice.Clear(Color.White);
             spriteBatch.Draw(AssetManager.Instance.chooseLevelPreviewOutlineTexture, levelPreviewOutlinePositionVector, Color.White);
 
+            if(SaveGameManager.Instance.IsLevelUnlocked(currentLevelSelected)) {
+                spriteBatch.Draw(currentPreviewTexture, levelPreviewPositionVector, Color.White);
+            } else {
+                spriteBatch.Draw(AssetManager.Instance.chooseLevelLockedPreviewTexture, levelPreviewPositionVector, Color.White);
+            }
+
             spriteBatch.DrawString(AssetManager.Instance.font,
-                             "LEVEL " + currentLevelSelected,
-                             new Vector2(levelPreviewOutlinePositionVector.X + AssetManager.Instance.chooseLevelPreviewOutlineTexture.Width),
+                             currentLevelString,
+                             currentLevelTextPositionVector,
                              Color.Black,
                              0,
                              new Vector2(0, 0),
                              1.0f,
                              SpriteEffects.None,
                              0);
-
-            if(SaveGameManager.Instance.IsLevelUnlocked(currentLevelSelected)) {
-                spriteBatch.Draw(currentPreviewTexture, levelPreviewPositionVector, Color.White);
-            } else {
-                spriteBatch.Draw(AssetManager.Instance.chooseLevelLockedPreviewTexture, levelPreviewPositionVector, Color.White);
-            }
         }
 
         void changePreviewTexture() {

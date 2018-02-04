@@ -110,41 +110,57 @@ namespace TheAdventuresOf
             //ScoringManager.Instance.undergroundMonstersKilled = 123;
             //ScoringManager.Instance.swoopMonstersKilled = 1;
 
+            Monster previousMonster;
+
             blockMonster = monsterManager.GenerateBlockMonster();
             blockMonster.rotation = 0;
             blockMonster.positionVector = new Vector2(countPositionVector.X, countPositionVector.Y);
+            if (ScoringManager.Instance.blockMonstersKilled > 0) {
+                previousMonster = blockMonster;
+            } else {
+                previousMonster = new Monster();
+                previousMonster.positionVector = new Vector2(countPositionVector.X, countPositionVector.Y);
+            }
 
             sunMonster = monsterManager.GenerateSunMonster();
             sunMonster.rotation = 0;
-            sunMonster.positionVector = new Vector2(countPositionVector.X, blockMonster.positionVector.Y + blockMonster.entityHeight);
+            sunMonster.positionVector = new Vector2(countPositionVector.X, previousMonster.positionVector.Y + previousMonster.entityHeight);
+            if (ScoringManager.Instance.sunMonstersKilled > 0) { previousMonster = sunMonster; }
 
             bileMonster = monsterManager.GenerateBileMonster();
             bileMonster.rotation = 0;
-            bileMonster.positionVector = new Vector2(countPositionVector.X, sunMonster.positionVector.Y + sunMonster.entityHeight);
+            bileMonster.positionVector = new Vector2(countPositionVector.X, previousMonster.positionVector.Y + previousMonster.entityHeight);
+            if (ScoringManager.Instance.bileMonstersKilled > 0) { previousMonster = bileMonster; }
 
             dashMonster = monsterManager.GenerateDashMonster();
             dashMonster.rotation = 0;
-            dashMonster.positionVector = new Vector2(countPositionVector.X, bileMonster.positionVector.Y + bileMonster.entityHeight);
+            dashMonster.positionVector = new Vector2(countPositionVector.X, previousMonster.positionVector.Y + previousMonster.entityHeight);
+            if (ScoringManager.Instance.dashMonstersKilled > 0) { previousMonster = dashMonster; }
 
             groundCannonMonster = monsterManager.GenerateGroundCannonMonster();
             groundCannonMonster.rotation = 0;
-            groundCannonMonster.positionVector = new Vector2(countPositionVector.X, dashMonster.positionVector.Y + dashMonster.entityHeight);
+            groundCannonMonster.positionVector = new Vector2(countPositionVector.X, previousMonster.positionVector.Y + previousMonster.entityHeight);
+            if (ScoringManager.Instance.groundCannonMonstersKilled > 0) { previousMonster = groundCannonMonster; }
 
             flyingCannonMonster = monsterManager.GenerateFlyingCannonMonster();
             flyingCannonMonster.rotation = 0;
-            flyingCannonMonster.positionVector = new Vector2(countPositionVector.X, groundCannonMonster.positionVector.Y + groundCannonMonster.entityHeight);
+            flyingCannonMonster.positionVector = new Vector2(countPositionVector.X, previousMonster.positionVector.Y + previousMonster.entityHeight);
+            if (ScoringManager.Instance.flyingCannonMonstersKilled > 0) { previousMonster = flyingCannonMonster; }
 
             spikeMonster = monsterManager.GenerateSpikeMonster();
             spikeMonster.rotation = 0;
-            spikeMonster.positionVector = new Vector2(countPositionVector.X, flyingCannonMonster.positionVector.Y + flyingCannonMonster.entityHeight);
+            spikeMonster.positionVector = new Vector2(countPositionVector.X, previousMonster.positionVector.Y + previousMonster.entityHeight);
+            if (ScoringManager.Instance.spikeMonstersKilled > 0) { previousMonster = spikeMonster; }
 
             undergroundMonster = monsterManager.GenerateUndergroundMonster();
             undergroundMonster.rotation = 0;
-            undergroundMonster.positionVector = new Vector2(countPositionVector.X, spikeMonster.positionVector.Y + spikeMonster.entityHeight);
+            undergroundMonster.positionVector = new Vector2(countPositionVector.X, previousMonster.positionVector.Y + previousMonster.entityHeight);
+            if (ScoringManager.Instance.undergroundMonstersKilled > 0) { previousMonster = undergroundMonster; }
 
             swoopMonster = monsterManager.GenerateSwoopMonster();
             swoopMonster.rotation = 0;
-            swoopMonster.positionVector = new Vector2(countPositionVector.X, undergroundMonster.positionVector.Y + undergroundMonster.entityHeight);
+            swoopMonster.positionVector = new Vector2(countPositionVector.X, previousMonster.positionVector.Y + previousMonster.entityHeight);
+            if (ScoringManager.Instance.swoopMonstersKilled > 0) { previousMonster = swoopMonster; }
         }
 
         void initializeKillTotal() {
