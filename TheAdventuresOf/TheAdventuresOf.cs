@@ -35,6 +35,7 @@ namespace TheAdventuresOf
         /// </summary>
         protected override void Initialize()
 		{
+            SaveGameManager.Instance.LoadSave();
             gameManager = new GameManager(this.GraphicsDevice, Content);
             gameManager = XmlManager.LoadGameManagerInformation(gameManager);
             gameManager.Initialize();

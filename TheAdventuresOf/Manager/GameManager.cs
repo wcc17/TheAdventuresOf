@@ -210,7 +210,7 @@ namespace TheAdventuresOf
 
             loadPlayerAccessories();
 
-            currentLevel = new Level(AssetManager.Instance.levelTexture);
+            currentLevel = new Level(AssetManager.Instance.levelTexture, currentLevelNumber);
 
             XmlManager.LoadLevelInformation((Level)currentLevel, currentLevelNumber);
             CoinManager.Instance.UpdateGroundLevel(((Level)currentLevel).groundLevel + CoinManager.coinYOffset);

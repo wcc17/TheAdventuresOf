@@ -30,6 +30,7 @@ namespace TheAdventuresOf
         public Texture2D chooseLevelMenuRightArrowTexture;
         public Texture2D chooseLevelMenuBackArrowTexture;
         public Texture2D chooseLevelPreviewOutlineTexture;
+        public Texture2D chooseLevelLockedPreviewTexture;
         public List<Texture2D> chooseLevelPreviewTextures;
 
         //used by both choose level menu and main menu
@@ -191,6 +192,10 @@ namespace TheAdventuresOf
             using (var stream = TitleContainer.OpenStream(menuFilePath + "levelpreview_outline_1080p.png"))
             {
                 chooseLevelPreviewOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "levellockedpreview_1080p.png"))
+            {
+                chooseLevelLockedPreviewTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
 #if !__IOS__ && !__ANDROID__
@@ -496,6 +501,7 @@ namespace TheAdventuresOf
             chooseLevelMenuBackArrowTexture.Dispose();
             chooseLevelMenuRightArrowTexture.Dispose();
             chooseLevelMenuLeftArrowTexture.Dispose();
+            chooseLevelLockedPreviewTexture.Dispose();
 
             foreach (Texture2D previewTexture in chooseLevelPreviewTextures) {
                 previewTexture.Dispose();

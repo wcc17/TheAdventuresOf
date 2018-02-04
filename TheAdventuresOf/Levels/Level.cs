@@ -6,6 +6,7 @@ namespace TheAdventuresOf
 {
     public class Level : BaseLevel
     {
+        int levelNumber;
         public static MonsterManager monsterManager;
 
         public int maxTier;
@@ -27,7 +28,9 @@ namespace TheAdventuresOf
         ScoreStatOverlay scoreStatOverlay;
         bool showScoreStatOverlay;
 
-        public Level(Texture2D levelTexture) : base(levelTexture: levelTexture) {
+        public Level(Texture2D levelTexture, int levelNumber) : base(levelTexture: levelTexture) {
+            this.levelNumber = levelNumber;
+
             currentTier = 0;
             CoinManager.Instance.RemoveAllItems();
             HeartManager.Instance.RemoveAllItems();
@@ -71,6 +74,8 @@ namespace TheAdventuresOf
             {
                 if (gameController.jumpButtonPressed)
                 {
+                    SaveGameManager.Instance.SetLevelUnlocked(levelNumber);
+
                     //reset jump button so player doesn't jump at beginning of store
                     gameController.jumpButtonPressed = false;
                     gameController.isButtonPressed = false;
