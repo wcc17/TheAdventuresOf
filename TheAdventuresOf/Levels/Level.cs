@@ -8,6 +8,7 @@ namespace TheAdventuresOf
     {
         //TODO: should be loaded from XML
         public const float gameOverDelayTimeLimit = 5.0f;
+        public string gameOverText = "You died!"; 
 
         int levelNumber;
         public static MonsterManager monsterManager;
@@ -27,12 +28,11 @@ namespace TheAdventuresOf
         public Dictionary<int, List<int>> tierMonsterLimits;
         public Dictionary<int, int> tierScores = new Dictionary<int, int>();
         public Dictionary<int, float> spawnDelayTimes; //an individual spawn delay time for each monster
+        public bool playerDied;
 
         ScoreStatOverlay scoreStatOverlay;
         bool showScoreStatOverlay;
         Vector2 gameOverTextPositionVector;
-        string gameOverText;
-        bool playerDied;
         Timer gameOverDelayTimer = new Timer(gameOverDelayTimeLimit);
 
         public Level(Texture2D levelTexture, int levelNumber) : base(levelTexture: levelTexture) {
@@ -42,7 +42,6 @@ namespace TheAdventuresOf
             CoinManager.Instance.RemoveAllItems();
             HeartManager.Instance.RemoveAllItems();
 
-            gameOverText = "You died!";
             Vector2 gameOverTextDimensionsVector = AssetManager.Instance.font.MeasureString(gameOverText);
             gameOverTextPositionVector = new Vector2((ScreenManager.FULL_SCREEN_WIDTH / 2) - (gameOverTextDimensionsVector.X / 2),
                                                      ((ScreenManager.FULL_SCREEN_HEIGHT * 0.3f) - (gameOverTextDimensionsVector.Y / 2)));
@@ -90,6 +89,7 @@ namespace TheAdventuresOf
 
                 if (PlayerManager.Instance.IsPlayerDead())
                 {
+                    MusicManager.Instance.PlayGameOverSoundEffect();
                     playerDied = true;
                 }
             } else {

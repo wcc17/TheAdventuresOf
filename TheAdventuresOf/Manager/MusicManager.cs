@@ -9,18 +9,31 @@ namespace TheAdventuresOf
 
     public class MusicManager
     {
-        public bool changingSongs;
-        public int gameState;
-
+        private static MusicManager instance;
         float volume = 1.0f;
         Song currentSong;
 
-        public MusicManager(int gameState)
+        public bool changingSongs;
+        public int gameState;
+
+        public static MusicManager Instance
         {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new MusicManager();
+                }
+                return instance;
+            }
+        }
+        private MusicManager() { }
+
+        public void InitializeMusicManager(int gameState) {
             //default is 0 (splash screen), but I'd rather set it explicitly
             this.gameState = gameState;
 
-            MediaPlayer.IsRepeating = true; 
+            MediaPlayer.IsRepeating = true;
             MediaPlayer.MediaStateChanged += HandleMediaStateChange;
         }
 
@@ -92,6 +105,11 @@ namespace TheAdventuresOf
 
         public void HandleMediaStateChange(object sender, EventArgs e) {
             Logger.WriteToConsole("Media State Changed");
+        }
+
+        public void PlayGameOverSoundEffect() {
+            MediaPlayer.Stop();
+            AssetManager.Instance.gameOverSoundEffect.Play();
         }
     }
 }

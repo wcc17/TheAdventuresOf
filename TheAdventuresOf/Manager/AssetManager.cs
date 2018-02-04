@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
@@ -76,7 +77,6 @@ namespace TheAdventuresOf
         //accessory textures
         Dictionary<String, Texture2D> accessoryTextures;
 
-
         //level textures
         public Texture2D levelTexture;
         public Texture2D blockMonsterTexture;
@@ -90,6 +90,7 @@ namespace TheAdventuresOf
         public Texture2D swoopMonsterTexture;
         public Song levelOneSong;
         public Song levelFiveSong;
+        public SoundEffect gameOverSoundEffect;
 
         public Texture2D bulletTexture;
         public Texture2D bileTexture;
@@ -297,13 +298,16 @@ namespace TheAdventuresOf
             using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_silver_1080p.png")) {
                 silverCoinTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_bronze_1080p.png")) {
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_bronze_1080p.png"))
+            {
                 bronzeCoinTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(gameFilePath + "heart_1080p.png")) {
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "heart_1080p.png"))
+            {
                 heartTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(gameFilePath + "heart_small_1080p.png")) {
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "heart_small_1080p.png"))
+            {
                 heartSmallTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
@@ -400,6 +404,7 @@ namespace TheAdventuresOf
             //music
             levelOneSong = contentManager.Load<Song>("Level/level1_music");
             levelFiveSong = contentManager.Load<Song>("Level/level5_music");
+            gameOverSoundEffect = contentManager.Load<SoundEffect>("Level/level_gameover_sound");
         }
 
         public void LoadPreLevelAssets(GraphicsDevice graphicsDevice, int levelNumber)
@@ -542,6 +547,7 @@ namespace TheAdventuresOf
             //TODO: need to dispose of level music
             //levelOneSong.Dispose();
             //levelFiveSong.Dispose();
+            //gameOverSoundEffect.Dispose();
 
             foreach(Texture2D accessoryTexture in accessoryTextures.Values) {
                 accessoryTexture.Dispose();

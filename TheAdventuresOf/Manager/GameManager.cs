@@ -32,7 +32,6 @@ namespace TheAdventuresOf
         GraphicsDevice graphicsDevice;
         ContentManager contentManager;
         ScreenManager screenManager;
-        MusicManager musicManager;
         SpriteBatch spriteBatch;
         BaseLevel currentLevel = null;
         MainMenu mainMenu;
@@ -57,7 +56,7 @@ namespace TheAdventuresOf
         {
             this.graphicsDevice = graphicsDevice;
             this.contentManager = contentManager;
-            this.musicManager = new MusicManager(gameState);
+            MusicManager.Instance.InitializeMusicManager(gameState);
         }
 
         //to be called after loading XML information
@@ -87,7 +86,7 @@ namespace TheAdventuresOf
             AssetManager.Instance.LoadSplashAssets(graphicsDevice, contentManager);
 
             gameState = SPLASH_STATE;
-            musicManager.ChangeState(gameState, currentLevelNumber);
+            MusicManager.Instance.ChangeState(gameState, currentLevelNumber);
 
             splashTimer = new Timer(splashTimeLimit);
         }
@@ -150,7 +149,7 @@ namespace TheAdventuresOf
             HealthShieldManager.Instance.Initialize();
 
             //TODO: UNCOMMENT FOR TESTING
-            HealthShieldManager.Instance.DecreaseHealthByAmount(975);
+            //HealthShieldManager.Instance.DecreaseHealthByAmount(975);
 
             #if __IOS__ || __ANDROID__
                 currentController = new GameControllerMobile();
@@ -248,7 +247,7 @@ namespace TheAdventuresOf
 
         public void Update(GameTime gameTime, bool isGameActive)
         {
-            musicManager.Update(gameTime);
+            MusicManager.Instance.Update(gameTime);
 
             if(gameState != SPLASH_STATE && gameState != LOAD_STATE) {
                 screenManager.Update(currentController);
@@ -413,13 +412,22 @@ namespace TheAdventuresOf
                 gameState = LOAD_STATE;
                 AssetManager.Instance.DisposeLevelAssets();
 
-                if(storyMode) {
-                    nextGameState = STORE_LEVEL_STATE;
-                    loadStoreLevelAssets();
-                } else {
+                //if player is dead at this point, go to main menu
+                if (storyMode)
+                {
+                    if (((Level)currentLevel).playerDied)
+                    {
+                        handleQuitToMenu();
+                    } else {
+                        nextGameState = STORE_LEVEL_STATE;
+                        loadStoreLevelAssets();
+                    }
+                }
+                else
+                {
                     nextGameState = CHOOSE_LEVEL_STATE;
                     loadChooseLevelMenu();
-                }
+                }   
             }
         }
 
@@ -438,13 +446,13 @@ namespace TheAdventuresOf
 
         void updateLoadState(GameTime gameTime) {
             //if musicManager is still on the current state, change its state to prepare for the next
-            if (musicManager.gameState != nextGameState)
+            if (MusicManager.Instance.gameState != nextGameState)
             {
-                musicManager.ChangeState(nextGameState, currentLevelNumber);
+                MusicManager.Instance.ChangeState(nextGameState, currentLevelNumber);
             }
 
             //if musicManager is no longer changing a song, load the main menu
-            if (!musicManager.changingSongs)
+            if (!MusicManager.Instance.changingSongs)
             {
                 switch (nextGameState)
                 {

@@ -20,6 +20,12 @@
 /processorParam:TextureFormat=Compressed
 /build:Game/arial.spritefont
 
+#begin Level/level_gameover_sound.ogg
+/importer:OggImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Level/level_gameover_sound.ogg
+
 #begin Level/level1_music.mp3
 /importer:Mp3Importer
 /processor:SongProcessor
