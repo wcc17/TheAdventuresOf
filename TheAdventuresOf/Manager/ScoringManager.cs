@@ -87,6 +87,15 @@ namespace TheAdventuresOf
 
         public void ClearScores() {
             score = 0;
+            blockMonstersKilled = 0;
+            sunMonstersKilled = 0;
+            bileMonstersKilled = 0;
+            dashMonstersKilled = 0;
+            groundCannonMonstersKilled = 0;
+            flyingCannonMonstersKilled = 0;
+            spikeMonstersKilled = 0;
+            undergroundMonstersKilled = 0;
+            swoopMonstersKilled = 0;
         }
 
     }
