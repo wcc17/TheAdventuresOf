@@ -27,6 +27,7 @@ namespace TheAdventuresOf
 
         //choose level menu textures
         public Texture2D chooseButtonTexture;
+        public Texture2D chooseEndlessButtonTexture;
         public Texture2D chooseLevelMenuLeftArrowTexture;
         public Texture2D chooseLevelMenuRightArrowTexture;
         public Texture2D chooseLevelMenuBackArrowTexture;
@@ -177,6 +178,10 @@ namespace TheAdventuresOf
             using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_playbutton_1080p.png"))
             {
                 chooseButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_playendlessbutton_1080p.png"))
+            {
+                chooseEndlessButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
             using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_leftarrow_1080p.png"))
             {
@@ -503,6 +508,7 @@ namespace TheAdventuresOf
 
         public void DisposeChooseLevelMenuAssets() {
             chooseButtonTexture.Dispose();
+            chooseEndlessButtonTexture.Dispose();
             chooseLevelMenuBackArrowTexture.Dispose();
             chooseLevelMenuRightArrowTexture.Dispose();
             chooseLevelMenuLeftArrowTexture.Dispose();

@@ -232,6 +232,7 @@
     <BundleResource Include="Content\Player\sword_2_1080p.png" />
     <BundleResource Include="Content\Game\transparent_background_black_1080p.png" />
     <BundleResource Include="Content\Menu\choose\levellockedpreview_1080p.png" />
+    <BundleResource Include="Content\Menu\choose\choosemenu_playendlessbutton_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

@@ -98,5 +98,35 @@ namespace TheAdventuresOf
             swoopMonstersKilled = 0;
         }
 
+        public void Draw(SpriteBatch spriteBatch, Vector2 scorePositionVector, 
+                         Vector2 highScorePositionVector, bool isEndlessMode, 
+                         int savedHighScore) {
+            //Draw total score
+            spriteBatch.DrawString(AssetManager.Instance.font,
+                                   "Score: " + ScoringManager.Instance.score.ToString(),
+                                   scorePositionVector + new Vector2(-1, -1),
+                                   Color.Black);
+            spriteBatch.DrawString(AssetManager.Instance.font,
+                                   "Score: " + ScoringManager.Instance.score.ToString(),
+                                   scorePositionVector + new Vector2(1, -1),
+                                   Color.White);
+
+            int currentScore = ScoringManager.Instance.score;
+            string scoreString = currentScore.ToString();
+            if (isEndlessMode)
+            {
+                scoreString = (currentScore > savedHighScore) ? scoreString : savedHighScore.ToString();
+
+                //draw high score
+                spriteBatch.DrawString(AssetManager.Instance.font,
+                                       "High Score: " + savedHighScore,
+                                       highScorePositionVector + new Vector2(-1, -1),
+                                   Color.Black);
+                spriteBatch.DrawString(AssetManager.Instance.font,
+                                       "High Score: " + savedHighScore,
+                                       highScorePositionVector + new Vector2(1, -1),
+                                       Color.White);
+            }
+        }
     }
 }

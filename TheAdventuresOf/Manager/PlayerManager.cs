@@ -66,9 +66,6 @@ namespace TheAdventuresOf
 
         public void Draw(SpriteBatch spriteBatch) 
         {
-            CoinManager.Instance.Draw(spriteBatch);
-            HeartManager.Instance.Draw(spriteBatch);
-
             foreach (Accessory accessory in accessories)
             {
                 if(accessory.drawBeforePlayer)

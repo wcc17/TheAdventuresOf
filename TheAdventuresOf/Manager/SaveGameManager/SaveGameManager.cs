@@ -48,7 +48,7 @@ namespace TheAdventuresOf
             using (stream = storageFile.OpenFile(saveFileName, FileMode.Open, FileAccess.ReadWrite))
             {
                 SaveGame loadedSaveGame = (SaveGame)xmlSerializer.Deserialize(stream);
-                saveGame = loadedSaveGame;
+                initializeLoadedSave(loadedSaveGame);
             }
 
             storageFile.Close();
@@ -64,6 +64,8 @@ namespace TheAdventuresOf
             {
                 storageFile.DeleteFile(saveFileName);
             }
+
+            saveGame.SetSerializableValues();
 
             //create file
             IsolatedStorageFileStream stream = null;
@@ -92,8 +94,27 @@ namespace TheAdventuresOf
             }
         }
 
+        public void SetLevelHighScore(int levelNumber, int score) {
+            if(score > saveGame.GetLevelHighScoreInt(levelNumber)) {
+                saveGame.SetLevelHighScore(levelNumber, score);
+                OverwriteSave();
+            }
+        }
+
         public bool IsLevelUnlocked(int levelNumber) {
             return saveGame.IsLevelUnlocked(levelNumber);
+        }
+
+        /**
+         * Can return N/A if level locked
+         */
+        public String GetLevelHighScoreString(int levelNumber) {
+            return saveGame.GetLevelHighScoreString(levelNumber);
+        }
+
+        public int GetLevelHighScoreInt(int levelNumber)
+        {
+            return saveGame.GetLevelHighScoreInt(levelNumber);
         }
 
         public void ResetSave() {
@@ -105,6 +126,12 @@ namespace TheAdventuresOf
         {
             saveGame = new SaveGame();
             xmlSerializer = new XmlSerializer(typeof(SaveGame));
+        }
+
+        public void initializeLoadedSave(SaveGame loadedSave)
+        {
+            saveGame = loadedSave;
+            saveGame.Initialize();
         }
     }
 }

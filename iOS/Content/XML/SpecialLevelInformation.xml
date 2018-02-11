@@ -7,7 +7,7 @@
 		<ChooseLevelButtonY>875</ChooseLevelButtonY>
 	</MainMenu>
 	<ChooseLevelMenu>
-		<ButtonOffset>30</ButtonOffset>
+		<ButtonOffset>80</ButtonOffset>
 	</ChooseLevelMenu>
 	<PreLevel>
 		<GroundLevel>555</GroundLevel>
