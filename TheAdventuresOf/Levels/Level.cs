@@ -43,7 +43,7 @@ namespace TheAdventuresOf
             this.endlessMode = endlessMode;
 
             currentTier = 0;
-            CoinManager.Instance.RemoveAllItems();
+            CoinManager.Instance.RemoveAllItems(); 
             HeartManager.Instance.RemoveAllItems();
 
             Vector2 gameOverTextDimensionsVector = AssetManager.Instance.font.MeasureString(gameOverText);
@@ -93,6 +93,7 @@ namespace TheAdventuresOf
                 if (PlayerManager.Instance.IsPlayerDead())
                 {
                     MusicManager.Instance.PlayGameOverSoundEffect();
+                    monsterManager.ResetMonsters();
                     playerDied = true;
 
                     if(endlessMode) {
@@ -109,8 +110,10 @@ namespace TheAdventuresOf
             {
                 if (gameController.jumpButtonPressed)
                 {
+                    //if player is dead or if its not story mode go to menu, otherwise go to store
                     if(PlayerManager.Instance.IsPlayerDead() 
                        || (!PlayerManager.Instance.IsPlayerDead()) && !storyMode) {
+                        ResetUponReturnToMenu();
                         goToNextState();
                     } else if(storyMode){
                         SaveGameManager.Instance.SetLevelUnlocked(levelNumber);
@@ -196,6 +199,8 @@ namespace TheAdventuresOf
         void initiateScoreStatOverlay() {
             scoreStatOverlay = new ScoreStatOverlay(monsterManager);
             showScoreStatOverlay = true;
+            CoinManager.Instance.RemoveAllItems();
+            TextManager.Instance.RemoveAllText();
         }
 	}
 }

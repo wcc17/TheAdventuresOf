@@ -217,5 +217,9 @@ namespace TheAdventuresOf
                 }
             }
         }
+
+        public void ResetPlayer() {
+            swordLevel = 0;
+        }
     }
 }

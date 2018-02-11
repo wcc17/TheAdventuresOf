@@ -127,5 +127,11 @@ namespace TheAdventuresOf
         public float GetShieldBarHeight() {
             return shieldManager.progressBarTexture.Height;
         }
+
+        public void Reset() {
+            RestoreHealthToMax();
+            RestoreShieldToMax();
+            shouldDrawShieldManager = false;
+        }
     }
 }
