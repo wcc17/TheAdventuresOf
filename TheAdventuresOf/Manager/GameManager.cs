@@ -489,6 +489,7 @@ namespace TheAdventuresOf
             SaveGameManager.Instance.SetLevelHighScore(currentLevelNumber, 
                                                        ScoringManager.Instance.score);
             ScoringManager.Instance.ClearScores();
+            currentLevel.ResetUponReturnToMenu();
 
             gameState = LOAD_STATE;
             nextGameState = SPLASH_STATE;

@@ -147,6 +147,10 @@ namespace TheAdventuresOf
                 amountToAdd--;
             }
         }
+
+        public void ResetCoins() {
+            coinXSpacing = 0;
+        }
     }
 }
 

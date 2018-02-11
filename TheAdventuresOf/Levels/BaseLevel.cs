@@ -105,5 +105,12 @@ namespace TheAdventuresOf
                 isDelayingMovement = false;
             }
         }
+
+        public virtual void ResetUponReturnToMenu()
+        {
+            HealthShieldManager.Instance.Reset();
+            PlayerManager.Instance.ResetPlayer();
+            CoinManager.Instance.ResetCoins();
+        }
     }
 }
