@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework;
 
 namespace TheAdventuresOf
 {
@@ -41,25 +42,15 @@ namespace TheAdventuresOf
             shieldManager.RemoveAll();
         }
 
-        public void InitializeHealthManager(int maxValue, float barXOffset, float barY,
-            float textPositionXOffset, float textPositionYOffset, string valueText)
+        public void InitializeHealthManager(int maxValue, string valueText)
         {
             healthManager.maxValue = maxValue;
-            healthManager.barXOffset = barXOffset;
-            healthManager.barY = barY;
-            healthManager.textPositionXOffset = textPositionXOffset;
-            healthManager.textPositionYOffset = textPositionYOffset;
             healthManager.valueText = valueText;
         }
 
-        public void InitializeShieldManager(int maxValue, float barXOffset, float barY,
-            float textPositionXOffset, float textPositionYOffset, string valueText)
+        public void InitializeShieldManager(int maxValue, string valueText)
         {
             shieldManager.maxValue = maxValue;
-            shieldManager.barXOffset = barXOffset;
-            shieldManager.barY = barY;
-            shieldManager.textPositionXOffset = textPositionXOffset;
-            shieldManager.textPositionYOffset = textPositionYOffset;
             shieldManager.valueText = valueText;
         }
 
@@ -115,14 +106,26 @@ namespace TheAdventuresOf
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 healthPositionVector, Vector2 shieldPositionVector)
         {
-            healthManager.Draw(spriteBatch);
+            healthManager.Draw(spriteBatch, healthPositionVector);
 
             if (shouldDrawShieldManager)
             {
-                shieldManager.Draw(spriteBatch);
+                shieldManager.Draw(spriteBatch, shieldPositionVector);
             }
+        }
+
+        public float GetHealthBarWidth() {
+            return healthManager.progressBarTexture.Width;
+        }
+
+        public float GetShieldBarWidth() {
+            return shieldManager.progressBarTexture.Width;
+        }
+
+        public float GetShieldBarHeight() {
+            return shieldManager.progressBarTexture.Height;
         }
     }
 }

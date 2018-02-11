@@ -75,6 +75,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Overlay\ScoreStatOverlay.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\SaveGameManager\SaveGame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\SaveGameManager\SaveGameManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\HUDManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

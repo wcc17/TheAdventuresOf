@@ -13,6 +13,12 @@ namespace TheAdventuresOf
         [NonSerialized] const int LEVEL_4 = 4;
         [NonSerialized] const int LEVEL_5 = 5;
 
+        [NonSerialized] const bool LOCKED = false;
+        [NonSerialized] const bool UNLOCKED = true;
+
+        [NonSerialized] Dictionary<int, bool> levelUnlockStatus = new Dictionary<int, bool>();
+        [NonSerialized] Dictionary<int, int> levelHighScores = new Dictionary<int, int>();
+
         //must be public or serialization won't pick them up (and it won't warn)
         public bool level1Unlocked;
         public bool level2Unlocked;
@@ -20,42 +26,63 @@ namespace TheAdventuresOf
         public bool level4Unlocked;
         public bool level5Unlocked;
 
+        public int level1HighScore;
+        public int level2HighScore;
+        public int level3HighScore;
+        public int level4HighScore;
+        public int level5HighScore;
+
+        public void Initialize() {
+            levelUnlockStatus.Add(LEVEL_1, level1Unlocked);
+            levelUnlockStatus.Add(LEVEL_2, level2Unlocked);
+            levelUnlockStatus.Add(LEVEL_3, level3Unlocked);
+            levelUnlockStatus.Add(LEVEL_4, level4Unlocked);
+            levelUnlockStatus.Add(LEVEL_5, level5Unlocked);
+
+            levelHighScores.Add(LEVEL_1, level1HighScore);
+            levelHighScores.Add(LEVEL_2, level2HighScore);
+            levelHighScores.Add(LEVEL_3, level3HighScore);
+            levelHighScores.Add(LEVEL_4, level4HighScore);
+            levelHighScores.Add(LEVEL_5, level5HighScore);
+        }
+
         public void SetLevelUnlocked(int levelNumber) {
-            switch(levelNumber) {
-                case LEVEL_1:
-                    level1Unlocked = true;
-                    break;
-                case LEVEL_2:
-                    level2Unlocked = true;
-                    break;
-                case LEVEL_3:
-                    level3Unlocked = true;
-                    break;
-                case LEVEL_4:
-                    level4Unlocked = true;
-                    break;
-                case LEVEL_5:
-                    level5Unlocked = true;
-                    break;
-            }
+            levelUnlockStatus[levelNumber] = UNLOCKED;
         }
 
         public bool IsLevelUnlocked(int levelNumber) {
-            switch (levelNumber)
-            {
-                case LEVEL_1:
-                    return level1Unlocked;
-                case LEVEL_2:
-                    return level2Unlocked;
-                case LEVEL_3:
-                    return level3Unlocked;
-                case LEVEL_4:
-                    return level4Unlocked;
-                case LEVEL_5:
-                    return level5Unlocked;
+            return levelUnlockStatus[levelNumber];
+        }
+
+        public void SetLevelHighScore(int levelNumber, int score) {
+            levelHighScores[levelNumber] = score;
+        }
+
+        public String GetLevelHighScoreString(int levelNumber) {
+            if(IsLevelUnlocked(levelNumber)) {
+                return levelHighScores[levelNumber].ToString();
             }
 
-            return false;
+            return "N/A";
+        }
+
+        public int GetLevelHighScoreInt(int levelNumber)
+        {
+            return levelHighScores[levelNumber];
+        }
+
+        public void SetSerializableValues() {
+            level1Unlocked = levelUnlockStatus[LEVEL_1];
+            level2Unlocked = levelUnlockStatus[LEVEL_2];
+            level3Unlocked = levelUnlockStatus[LEVEL_3];
+            level4Unlocked = levelUnlockStatus[LEVEL_4];
+            level5Unlocked = levelUnlockStatus[LEVEL_5];
+
+            level1HighScore = levelHighScores[LEVEL_1];
+            level2HighScore = levelHighScores[LEVEL_2];
+            level3HighScore = levelHighScores[LEVEL_3];
+            level4HighScore = levelHighScores[LEVEL_4];
+            level5HighScore = levelHighScores[LEVEL_5];
         }
     }
 }

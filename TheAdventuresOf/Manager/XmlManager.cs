@@ -104,9 +104,6 @@ namespace TheAdventuresOf
             CoinManager.randomCoinLimitBronze = (int)coinManagerElement.Element("RandomCoinLimitBronze");
             CoinManager.randomCoinLimitSilver = (int)coinManagerElement.Element("RandomCoinLimitSilver");
             CoinManager.randomCoinLimitGold = (int)coinManagerElement.Element("RandomCoinLimitGold");
-            CoinManager.coinCountSymbolXOffset = (float)coinManagerElement.Element("CoinCountSymbolXOffset");
-            CoinManager.coinCountSymbolY = (float)coinManagerElement.Element("CoinCountSymbolY");
-            CoinManager.coinCountY = (float)coinManagerElement.Element("CoinCountY");
             CoinManager.coinDropSpeed = (float)coinElement.Element("CoinDropSpeed");
             CoinManager.coinFloatSpeed = (float)coinElement.Element("CoinFloatSpeed");
             CoinManager.coinFloatLimit = (float)coinElement.Element("CoinFloatLimit");
@@ -152,18 +149,10 @@ namespace TheAdventuresOf
 
             HealthShieldManager.Instance.InitializeHealthManager(
                 (int)healthElement.Element("MaxValue"),
-                (float)healthElement.Element("BarXOffset"),
-                (float)healthElement.Element("BarY"),
-                (float)healthElement.Element("TextPositionXOffset"),
-                (float)healthElement.Element("TextPositionYOffset"),
                 (string)healthElement.Element("ValueText"));
 
             HealthShieldManager.Instance.InitializeShieldManager(
                 (int)shieldElement.Element("MaxValue"),
-                (float)shieldElement.Element("BarXOffset"),
-                (float)shieldElement.Element("BarY"),
-                (float)shieldElement.Element("TextPositionXOffset"),
-                (float)shieldElement.Element("TextPositionYOffset"),
                 (string)shieldElement.Element("ValueText"));
         }
 
@@ -173,8 +162,6 @@ namespace TheAdventuresOf
 
             gameManager.splashTimeLimit = (float)gameManagerElement.Element("SplashTimeLimit");
             gameManager.pausedTextVectorXOffset = (float)gameManagerElement.Element("PausedTextVectorXOffset");
-            gameManager.totalScoreTextX = (float)gameManagerElement.Element("TotalScoreTextX");
-            gameManager.totalScoreTextY = (float)gameManagerElement.Element("TotalScoreTextY");
 
             return gameManager;
         }

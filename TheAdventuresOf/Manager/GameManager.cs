@@ -40,17 +40,13 @@ namespace TheAdventuresOf
         bool chooseLevelMenuAssetsLoaded;
         bool mainMenuAssetsLoaded;
         bool storyMode = true;
+        bool endlessMode = false;
 
         Controller currentController;
 
         public float splashTimeLimit;
         public float pausedTextVectorXOffset;
         Timer splashTimer;
-
-        //score related position stuff
-        public float totalScoreTextX;
-        public float totalScoreTextY;
-        static Vector2 totalScorePositionVector;
 
         public GameManager(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {
@@ -63,7 +59,6 @@ namespace TheAdventuresOf
         public void Initialize() {
             basePositionVector = new Vector2(0, 0);
             pausedTextVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH / 2 - pausedTextVectorXOffset, ScreenManager.FULL_SCREEN_HEIGHT / 2);
-            totalScorePositionVector = new Vector2(totalScoreTextX, totalScoreTextY);
         }
 
         public void LoadContent() {
@@ -133,12 +128,15 @@ namespace TheAdventuresOf
             XmlManager.LoadChooseLevelMenuInformation();
             ((ChooseLevelMenuController)currentController)
                 .InitializeTextures(AssetManager.Instance.chooseButtonTexture,
+                                    AssetManager.Instance.chooseEndlessButtonTexture,
                                     AssetManager.Instance.chooseLevelMenuBackArrowTexture,
                                     AssetManager.Instance.chooseLevelMenuRightArrowTexture,
                                     AssetManager.Instance.chooseLevelMenuLeftArrowTexture,
                                     AssetManager.Instance.arrowOutlineTexture,
                                     AssetManager.Instance.buttonOutlineTexture);
-            currentController.InitializeController();
+            ((ChooseLevelMenuController)currentController).InitializeChooseLevelMenuController(
+                chooseLevelMenu.levelPreviewPositionVector,
+                AssetManager.Instance.chooseLevelPreviewTextures[0].Width);
         }
 
         void loadCommonLevelAssets() {
@@ -213,7 +211,7 @@ namespace TheAdventuresOf
 
             loadPlayerAccessories();
 
-            currentLevel = new Level(AssetManager.Instance.levelTexture, currentLevelNumber);
+            currentLevel = new Level(AssetManager.Instance.levelTexture, currentLevelNumber, storyMode, endlessMode);
 
             XmlManager.LoadLevelInformation((Level)currentLevel, currentLevelNumber);
             CoinManager.Instance.UpdateGroundLevel(((Level)currentLevel).groundLevel + CoinManager.coinYOffset);
@@ -227,6 +225,8 @@ namespace TheAdventuresOf
 
         void loadPreLevel()
         {
+            HUDManager.Instance.Initialize(currentLevelNumber, endlessMode);
+
             currentLevel.InitializeLevel(NO_PLAYER_SPAWN_ANIMATION);
 
             gameState = PRE_LEVEL_STATE;
@@ -234,12 +234,16 @@ namespace TheAdventuresOf
 
         void loadLevel()
         {
+            HUDManager.Instance.Initialize(currentLevelNumber, endlessMode);
+
             currentLevel.InitializeLevel(USE_PLAYER_SPAWN_ANIMATION);
 
             gameState = LEVEL_STATE;
         }
 
         void loadStoreLevel() {
+            HUDManager.Instance.Initialize(currentLevelNumber, endlessMode);
+
             currentLevel.InitializeLevel(NO_PLAYER_SPAWN_ANIMATION);
 
             gameState = STORE_LEVEL_STATE;
@@ -317,8 +321,14 @@ namespace TheAdventuresOf
             chooseLevelMenu.Update(gameTime, (ChooseLevelMenuController) currentController);
 
             if(chooseLevelMenu.proceedToLevelState) {
-                storyMode = false; //set storyMode to false when choosing level in ChooseLevelMenu screen. 
+                storyMode = false; //set storyMode to false when choosing level in ChooseLevelMenu screen.
+                endlessMode = false;
                 currentLevelNumber = chooseLevelMenu.currentLevelSelected;
+                prepareLevelState(LEVEL_STATE);
+            } else if(chooseLevelMenu.proceedToEndlessLevelState) {
+                storyMode = false;
+                endlessMode = true;
+                currentLevelNumber = chooseLevelMenu.currentLevelSelected;;
                 prepareLevelState(LEVEL_STATE);
             } else if(chooseLevelMenu.proceedToMainMenuState) {
                 gameState = LOAD_STATE;
@@ -476,6 +486,8 @@ namespace TheAdventuresOf
          * Called when player hits "Quit" in the pause menu during any type of level
          */
         void handleQuitToMenu() {
+            SaveGameManager.Instance.SetLevelHighScore(currentLevelNumber, 
+                                                       ScoringManager.Instance.score);
             ScoringManager.Instance.ClearScores();
 
             gameState = LOAD_STATE;
@@ -566,15 +578,11 @@ namespace TheAdventuresOf
             //Draw text related stuff
             TextManager.Instance.Draw(spriteBatch);
 
-            //Draw total score
-            spriteBatch.DrawString(AssetManager.Instance.font, 
-                                   "Score: " + ScoringManager.Instance.score.ToString(), 
-                                   totalScorePositionVector + new Vector2(-1, -1),
-                                   Color.Black);
-            spriteBatch.DrawString(AssetManager.Instance.font,
-                                   "Score: " + ScoringManager.Instance.score.ToString(),
-                                   totalScorePositionVector + new Vector2(1, -1),
-                                   Color.White);
+            //Draw coins on level
+            CoinManager.Instance.Draw(spriteBatch);
+
+            //health, coin counts, scores, etc
+            HUDManager.Instance.Draw(spriteBatch);
         }
 
         void drawLoadScreen()

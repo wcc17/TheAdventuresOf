@@ -29,14 +29,18 @@ namespace TheAdventuresOf
         public Dictionary<int, int> tierScores = new Dictionary<int, int>();
         public Dictionary<int, float> spawnDelayTimes; //an individual spawn delay time for each monster
         public bool playerDied;
+        public bool endlessMode;
 
+        bool storyMode;
         ScoreStatOverlay scoreStatOverlay;
         bool showScoreStatOverlay;
         Vector2 gameOverTextPositionVector;
         Timer gameOverDelayTimer = new Timer(gameOverDelayTimeLimit);
 
-        public Level(Texture2D levelTexture, int levelNumber) : base(levelTexture: levelTexture) {
+        public Level(Texture2D levelTexture, int levelNumber, bool storyMode, bool endlessMode) : base(levelTexture: levelTexture) {
             this.levelNumber = levelNumber;
+            this.storyMode = storyMode;
+            this.endlessMode = endlessMode;
 
             currentTier = 0;
             CoinManager.Instance.RemoveAllItems();
@@ -81,16 +85,19 @@ namespace TheAdventuresOf
                     currentTier = currentTier + 1;
                 }
 
-                if (currentTier == (maxTier - 1) && ScoringManager.Instance.score > tierScores[currentTier])
+                if (!endlessMode && currentTier == (maxTier - 1) && ScoringManager.Instance.score > tierScores[currentTier])
                 {
-                    scoreStatOverlay = new ScoreStatOverlay(monsterManager);
-                    showScoreStatOverlay = true;
+                    initiateScoreStatOverlay();
                 }
 
                 if (PlayerManager.Instance.IsPlayerDead())
                 {
                     MusicManager.Instance.PlayGameOverSoundEffect();
                     playerDied = true;
+
+                    if(endlessMode) {
+                        SaveGameManager.Instance.SetLevelHighScore(levelNumber, ScoringManager.Instance.score);
+                    }
                 }
             } else {
                 handleGameOverDelay(gameTime);
@@ -102,8 +109,13 @@ namespace TheAdventuresOf
             {
                 if (gameController.jumpButtonPressed)
                 {
-                    SaveGameManager.Instance.SetLevelUnlocked(levelNumber);
-                    goToStoreLevel(gameController);
+                    if(PlayerManager.Instance.IsPlayerDead() 
+                       || (!PlayerManager.Instance.IsPlayerDead()) && !storyMode) {
+                        goToNextState();
+                    } else if(storyMode){
+                        SaveGameManager.Instance.SetLevelUnlocked(levelNumber);
+                        goToStoreLevel(gameController);
+                    }
                 }
             }
         }
@@ -120,14 +132,11 @@ namespace TheAdventuresOf
                 
                 //Draw player
                 PlayerManager.Instance.Draw(spriteBatch);
-
-                //Draw health and shield
-                HealthShieldManager.Instance.Draw(spriteBatch);
             } else {
                 scoreStatOverlay.Draw(spriteBatch);
             }
 
-            if(playerDied) {
+            if(playerDied && !showScoreStatOverlay) {
                 spriteBatch.Draw(AssetManager.Instance.transparentBlackBackgroundTexture, levelPositionVector);
 
                 spriteBatch.DrawString(AssetManager.Instance.font,
@@ -166,7 +175,7 @@ namespace TheAdventuresOf
 
         void handleGameOverDelay(GameTime gameTime) {
             if(gameOverDelayTimer.IsTimeUp(gameTime.ElapsedGameTime)) {
-                goToNextState();
+                initiateScoreStatOverlay();
             }
         }
 
@@ -182,6 +191,11 @@ namespace TheAdventuresOf
             ScoringManager.Instance.ClearScores();
             monsterManager.ResetMonsters();
             nextLevel = true;
+        }
+
+        void initiateScoreStatOverlay() {
+            scoreStatOverlay = new ScoreStatOverlay(monsterManager);
+            showScoreStatOverlay = true;
         }
 	}
 }

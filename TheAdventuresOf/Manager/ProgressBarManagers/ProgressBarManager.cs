@@ -13,15 +13,9 @@ namespace TheAdventuresOf {
         public Texture2D progressBarTexture;
         public Texture2D progressBarFillTexture;
         public int maxValue; //the highest this manager's value can go (max health, max shield, etc.)
-        public float barXOffset;
-        public float barY;
-        public float textPositionXOffset;
-        public float textPositionYOffset;
         public string valueText;
 
         int value; //this manager's value (its health, its shield, etc)
-        Vector2 positionVector;
-        Vector2 textPositionVector;
         Rectangle barFillSourceRectangle;
 
         public void Initialize(Texture2D progressBarTexture, Texture2D progressBarFillTexture)
@@ -30,9 +24,7 @@ namespace TheAdventuresOf {
             this.progressBarFillTexture = progressBarFillTexture;
 
             value = maxValue;
-            positionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH - (progressBarTexture.Width + barXOffset), barY);
             barFillSourceRectangle = new Rectangle(0, 0, progressBarFillTexture.Width, progressBarFillTexture.Height);
-            textPositionVector = new Vector2(positionVector.X + textPositionXOffset, positionVector.Y + textPositionYOffset);
         }
 
         public int DecreaseValueByAmount(int amount)
@@ -74,9 +66,12 @@ namespace TheAdventuresOf {
             this.value = value;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 positionVector)
         {
             Logger.Instance.AddOrUpdateValue(valueText + ": ", value.ToString());
+
+            Vector2 textPositionVector = new Vector2(positionVector.X + ScreenManager.FULL_SCREEN_WIDTH * 0.01f,
+                                                     positionVector.Y + ScreenManager.FULL_SCREEN_HEIGHT * 0.01f);
 
             spriteBatch.Draw(progressBarFillTexture, positionVector, sourceRectangle: barFillSourceRectangle);
             spriteBatch.Draw(progressBarTexture, positionVector);

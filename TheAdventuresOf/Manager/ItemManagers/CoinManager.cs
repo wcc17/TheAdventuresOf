@@ -9,8 +9,6 @@ namespace TheAdventuresOf
     {
         private static CoinManager instance;
         
-        Vector2 coinCountSymbolPositionVector;
-        Vector2 coinCountPositionVector;
         Random rand;
         int coinTotal;
         int amountToAdd;
@@ -18,9 +16,6 @@ namespace TheAdventuresOf
 
 		public static float coinYOffset;
         public static int coinXSpacing;
-        public static float coinCountSymbolXOffset;
-        public static float coinCountSymbolY;
-        public static float coinCountY;
         public static float coinDropSpeed;
         public static float coinFloatSpeed;
         public static float coinFloatLimit;
@@ -47,11 +42,9 @@ namespace TheAdventuresOf
         public override void Initialize() {
             base.Initialize();
 
-            //coinTotal = 20000;
+            coinTotal = 20000;
 
             rand = new Random();
-            coinCountSymbolPositionVector = new Vector2(coinCountSymbolXOffset, coinCountSymbolY);
-            coinCountPositionVector = new Vector2(coinCountSymbolPositionVector.X + AssetManager.Instance.goldCoinTexture.Width, coinCountY);
         }
 
         public override void AddItem(float x, float y) {
@@ -120,7 +113,14 @@ namespace TheAdventuresOf
 
         public override void Draw(SpriteBatch spriteBatch) {
             base.Draw(spriteBatch);
-            drawCoinCount(spriteBatch);
+        }
+
+        public void DrawCoinCount(SpriteBatch spriteBatch,
+                           Vector2 coinCountSymbolPositionVector,
+                           Vector2 coinCountPositionVector)
+        {
+            spriteBatch.Draw(AssetManager.Instance.goldCoinTexture, coinCountSymbolPositionVector);
+            spriteBatch.DrawString(AssetManager.Instance.font, " x " + coinTotal, coinCountPositionVector, Color.White);
         }
 
         public int GetCoinTotal()
@@ -146,12 +146,6 @@ namespace TheAdventuresOf
                 coinTotal++;
                 amountToAdd--;
             }
-        }
-
-        void drawCoinCount(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(AssetManager.Instance.goldCoinTexture, coinCountSymbolPositionVector);
-            spriteBatch.DrawString(AssetManager.Instance.font, " x " + coinTotal, coinCountPositionVector, Color.White);
         }
     }
 }

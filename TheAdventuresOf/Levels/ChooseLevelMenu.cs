@@ -8,20 +8,24 @@ namespace TheAdventuresOf
     public class ChooseLevelMenu
     {
         //TODO: HARDCODED NUMBER
+        public Timer initialButtonDelayTimer = new Timer(1.0f); //so that no buttons are accidentally pressed when opening menu
         public Timer buttonDelayTimer = new Timer(0.2f);
         public bool disableButtonPress;
 
         public bool proceedToMainMenuState;
         public bool proceedToLevelState;
+        public bool proceedToEndlessLevelState;
         public int currentLevelSelected = 1;
 
         Vector2 levelPreviewOutlinePositionVector;
-        Vector2 levelPreviewPositionVector;
+        public Vector2 levelPreviewPositionVector;
         Vector2 basePositionVector;
         Vector2 currentLevelTextPositionVector;
+        Vector2 currentLevelHighScoreTextPositionVector;
         List<Texture2D> previewTextures;
         Texture2D currentPreviewTexture;
         string currentLevelString = "Level 1";
+        string currentLevelHighScoreString = "High Score: 0";
 
         public void LoadMenu()
         {
@@ -49,81 +53,103 @@ namespace TheAdventuresOf
             float currentLevelTextY = levelPreviewOutlinePositionVector.Y 
                - AssetManager.Instance.font.MeasureString(currentLevelString).Y;
             basePositionVector = new Vector2(0, 0);
+            float currentLevelHighScoreTextX = levelPreviewPositionVector.X;
+            float currentLevelHighScoreTextY = currentLevelTextY;
+            basePositionVector = new Vector2(0, 0);
             currentLevelTextPositionVector = new Vector2(currentLevelTextX, currentLevelTextY);
+            currentLevelHighScoreTextPositionVector = new Vector2(currentLevelHighScoreTextX, currentLevelHighScoreTextY);
 
+            setLevelHighscoreString();
             changePreviewTexture();
         }
 
         public void Update(GameTime gameTime, ChooseLevelMenuController chooseLevelMenuController)
         {
-            chooseLevelMenuController.Update(gameTime);
+            if(initialButtonDelayTimer.IsTimeUp(gameTime.ElapsedGameTime)) { //don't allow buttons to be pressed as soon as menu is loaded
+                chooseLevelMenuController.Update(gameTime);
 
-            if (!disableButtonPress)
-            {
-                if (chooseLevelMenuController.chooseButtonPressed)
+                if (!disableButtonPress)
                 {
-                    if(SaveGameManager.Instance.IsLevelUnlocked((currentLevelSelected))) {
-                        proceedToLevelState = true;
-                    }
-
-                }
-                else if (chooseLevelMenuController.leftArrowButtonPressed)
-                {
-                    if (currentLevelSelected > GameManager.levelNumberMin)
+                    if (chooseLevelMenuController.chooseButtonPressed)
                     {
-                        int previousLevel = (currentLevelSelected - 1 >= 1) ? (currentLevelSelected - 1) : GameManager.levelNumberLimit;
-                        //should never be moving backwards to a locked level
-                        if(SaveGameManager.Instance.IsLevelUnlocked(previousLevel)) {
-                            currentLevelSelected--;
-                            currentLevelString = "Level " + currentLevelSelected;
+                        if (SaveGameManager.Instance.IsLevelUnlocked((currentLevelSelected)))
+                        {
+                            proceedToLevelState = true;
+                        }
+
+                    }
+                    else if (chooseLevelMenuController.chooseEndlessButtonPressed)
+                    {
+                        if (SaveGameManager.Instance.IsLevelUnlocked((currentLevelSelected)))
+                        {
+                            proceedToEndlessLevelState = true;
                         }
                     }
-                    else if(currentLevelSelected < 1)
+                    else if (chooseLevelMenuController.leftArrowButtonPressed)
                     {
-                        currentLevelSelected = GameManager.levelNumberLimit;
-                    }
+                        if (currentLevelSelected > GameManager.levelNumberMin)
+                        {
+                            int previousLevel = (currentLevelSelected - 1 >= 1) ? (currentLevelSelected - 1) : GameManager.levelNumberLimit;
 
-                    changePreviewTexture();
+                            //should never be moving backwards to a locked level
+                            if (SaveGameManager.Instance.IsLevelUnlocked(previousLevel))
+                            {
+                                currentLevelSelected--;
+                                currentLevelString = "Level " + currentLevelSelected;
+                                setLevelHighscoreString();
+                            }
 
-                }
-                else if (chooseLevelMenuController.rightArrowButtonPressed)
-                {
-                    if (currentLevelSelected < GameManager.levelNumberLimit)
-                    {
-                        //if the current level is locked and the next level is locked as well, don't let player see the next locked level number
-                        if(SaveGameManager.Instance.IsLevelUnlocked(currentLevelSelected)) {
-                            currentLevelSelected++;
-                            currentLevelString = "Level " + currentLevelSelected;
                         }
+                        else if (currentLevelSelected < 1)
+                        {
+                            currentLevelSelected = GameManager.levelNumberLimit;
+                        }
+
+                        changePreviewTexture();
+
                     }
-                    else
+                    else if (chooseLevelMenuController.rightArrowButtonPressed)
                     {
-                        currentLevelSelected = GameManager.levelNumberMin;
+                        if (currentLevelSelected < GameManager.levelNumberLimit)
+                        {
+                            //if the current level is locked and the next level is locked as well, don't let player see the next locked level number
+                            if (SaveGameManager.Instance.IsLevelUnlocked(currentLevelSelected))
+                            {
+                                currentLevelSelected++;
+                                currentLevelString = "Level " + currentLevelSelected;
+                                setLevelHighscoreString();
+                            }
+
+                        }
+                        else
+                        {
+                            currentLevelSelected = GameManager.levelNumberMin;
+                        }
+
+                        changePreviewTexture();
+
+                    }
+                    else if (chooseLevelMenuController.backArrowButtonPressed)
+                    {
+                        proceedToMainMenuState = true;
                     }
 
-                    changePreviewTexture();
-
+                    //if any button is pressed, delay the next one
+                    if (chooseLevelMenuController.isButtonPressed)
+                    {
+                        disableButtonPress = true;
+                        buttonDelayTimer.Reset();
+                    }
                 }
-                else if (chooseLevelMenuController.backArrowButtonPressed)
+                else
                 {
-                    proceedToMainMenuState = true;
-                }
-
-                //if any button is pressed, delay the next one
-                if (chooseLevelMenuController.isButtonPressed)
-                {
-                    disableButtonPress = true;
-                    buttonDelayTimer.Reset();
+                    bool isTimeUp = buttonDelayTimer.IsTimeUp(gameTime.ElapsedGameTime);
+                    if (isTimeUp)
+                    {
+                        disableButtonPress = false;
+                    }
                 }
             }
-            else
-            {
-                bool isTimeUp = buttonDelayTimer.IsTimeUp(gameTime.ElapsedGameTime);
-                if(isTimeUp) {
-                    disableButtonPress = false;
-                }
-            }
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -146,10 +172,24 @@ namespace TheAdventuresOf
                              1.0f,
                              SpriteEffects.None,
                              0);
+
+            spriteBatch.DrawString(AssetManager.Instance.font,
+                             currentLevelHighScoreString,
+                             currentLevelHighScoreTextPositionVector,
+                             Color.Black,
+                             0,
+                             new Vector2(0, 0),
+                             1.0f,
+                             SpriteEffects.None,
+                             0);
         }
 
         void changePreviewTexture() {
             currentPreviewTexture = previewTextures.Find(pT => pT.Name.Equals(currentLevelSelected.ToString()));
+        }
+
+        void setLevelHighscoreString() {
+            currentLevelHighScoreString = "Endless High Score: " + SaveGameManager.Instance.GetLevelHighScoreString(currentLevelSelected);
         }
     }
 }
