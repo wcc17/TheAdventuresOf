@@ -8,8 +8,8 @@ namespace TheAdventuresOf
     public class ChooseLevelMenu
     {
         //TODO: HARDCODED NUMBER
-        public Timer initialButtonDelayTimer = new Timer(1.0f); //so that no buttons are accidentally pressed when opening menu
-        public Timer buttonDelayTimer = new Timer(0.2f);
+        public Timer initialButtonDelayTimer = new Timer(0.8f); //so that no buttons are accidentally pressed when opening menu
+        public Timer buttonDelayTimer = new Timer(0.2f); //delay after pressing any button so we don't accidentally press twice
         public bool disableButtonPress;
 
         public bool proceedToMainMenuState;

@@ -87,9 +87,12 @@ namespace TheAdventuresOf
 
         public void Draw(SpriteBatch spriteBatch) {
 
-            CoinManager.Instance.DrawCoinCount(spriteBatch, 
-                                      coinCountSymbolPositionVector, 
+            if(!isEndlessMode) {
+                CoinManager.Instance.DrawCoinCount(spriteBatch,
+                                      coinCountSymbolPositionVector,
                                       coinCountPositionVector);
+            }
+
             HeartManager.Instance.Draw(spriteBatch);
             ScoringManager.Instance.Draw(spriteBatch, scorePositionVector, 
                                          highScorePositionVector, isEndlessMode,
