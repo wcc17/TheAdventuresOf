@@ -335,6 +335,8 @@ namespace TheAdventuresOf
 
                 loadMainMenu();
             }
+
+			CoinManager.isEndlessMode = endlessMode;
         }
 
         //called only after leaving main menu or chooselevel menu since they share so much code
@@ -378,6 +380,7 @@ namespace TheAdventuresOf
 
             if(!gameController.isPaused) {
                 TheAdventuresOf.showMouse = false;
+                updateLevelCoins(gameTime);
 
                 switch(gameState) {
                     case PRE_LEVEL_STATE:
@@ -397,6 +400,12 @@ namespace TheAdventuresOf
                     handleQuitToMenu();
                 }
             }
+        }
+
+        void updateLevelCoins(GameTime gameTime) {
+            CoinManager.Instance.Update(gameTime);
+            CoinManager.Instance.CheckCollisionWithLevel(currentLevel.leftSideBounds, currentLevel.rightSideBounds);
+            CoinManager.Instance.CheckItemsCollisionWithPlayer(PlayerManager.Instance.GetPlayerBounds());
         }
 
         void updatePreLevel(GameTime gameTime) {
@@ -579,7 +588,7 @@ namespace TheAdventuresOf
             TextManager.Instance.Draw(spriteBatch);
 
             //Draw coins on level
-            CoinManager.Instance.Draw(spriteBatch);
+			CoinManager.Instance.Draw(spriteBatch);
 
             //health, coin counts, scores, etc
             HUDManager.Instance.Draw(spriteBatch);

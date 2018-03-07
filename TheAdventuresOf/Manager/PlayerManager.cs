@@ -56,9 +56,6 @@ namespace TheAdventuresOf
                 level.CheckCollisionWithBounds(player);
             }
 
-            CoinManager.Instance.Update(gameTime);
-            CoinManager.Instance.CheckCollisionWithLevel(level.leftSideBounds, level.rightSideBounds);
-            CoinManager.Instance.CheckItemsCollisionWithPlayer(player.entityBounds);
             HeartManager.Instance.Update(gameTime);
             HeartManager.Instance.CheckCollisionWithLevel(level.leftSideBounds, level.rightSideBounds);
             HeartManager.Instance.CheckItemsCollisionWithPlayer(player.entityBounds);

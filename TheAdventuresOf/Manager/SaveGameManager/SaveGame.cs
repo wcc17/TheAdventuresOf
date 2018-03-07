@@ -33,7 +33,7 @@ namespace TheAdventuresOf
         public int level5HighScore;
 
         public SaveGame() {
-            Console.WriteLine("Constructor called");
+            Console.WriteLine("SaveGame Constructor called");
             levelUnlockStatus.Add(LEVEL_1, UNLOCKED);
             levelUnlockStatus.Add(LEVEL_2, LOCKED);
             levelUnlockStatus.Add(LEVEL_3, LOCKED);
@@ -48,7 +48,7 @@ namespace TheAdventuresOf
         }
 
         public void Initialize() {
-            Console.WriteLine("Initialize called");
+            Console.WriteLine("SaveGame Initialize called");
             levelUnlockStatus[LEVEL_1] = level1Unlocked;
             levelUnlockStatus[LEVEL_2] = level2Unlocked;
             levelUnlockStatus[LEVEL_3] = level3Unlocked;
