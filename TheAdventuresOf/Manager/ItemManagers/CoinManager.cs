@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -11,8 +10,6 @@ namespace TheAdventuresOf
         
         Random rand;
         int coinTotal;
-        int amountToAdd;
-        int amountToSubtract;
 
 		public static float coinYOffset;
         public static int coinXSpacing;
@@ -70,7 +67,6 @@ namespace TheAdventuresOf
         {
             if(!isEndlessMode) {
                 base.Update(gameTime);
-                updateCoinAmount();
                 Logger.Instance.AddOrUpdateValue("ScreenCoins", items.Count.ToString());
             }
         }
@@ -95,7 +91,7 @@ namespace TheAdventuresOf
         {
             base.HandleItemPickedUp(item);
             Coin coin = (Coin)item;
-            amountToAdd += coin.coinValue;
+            coinTotal += coin.coinValue;
         }
 
         public int GetCoinTotal()
@@ -105,7 +101,7 @@ namespace TheAdventuresOf
 
         public void SubtractFromCoins(int amount)
         {
-            amountToSubtract += amount;
+            coinTotal -= amount;
         }
 
         void addItem(float x, float y)
@@ -169,21 +165,6 @@ namespace TheAdventuresOf
                                        coinFloatSpeed, coinFloatLimit, coinFadeSpeed, coinFlickerSpeed,
                                        coinFlickerLimit, coinFlickerIncreaseAmount, coinDisappearTimeLimit));
                 }
-            }
-        }
-
-        void updateCoinAmount()
-        {
-            if (amountToSubtract > 0)
-            {
-                coinTotal--;
-                amountToSubtract--;
-            }
-
-            if (amountToAdd > 0)
-            {
-                coinTotal++;
-                amountToAdd--;
             }
         }
 

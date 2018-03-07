@@ -31,6 +31,7 @@ namespace TheAdventuresOf
         int costToDraw = 0;
         int costTextIndex = 543; //just a random number to ensure this text is unique. TODO: if i start doing this more it should be loaded from XML
         int activePropItemIndex = NO_ACTIVE_ITEM;
+        bool justBoughtItem = false;
         Vector2 costPositionVector = new Vector2();
         Vector2 coinPositionVector = new Vector2();
         List<Prop> smallBoxProps = new List<Prop>();
@@ -78,6 +79,13 @@ namespace TheAdventuresOf
 
             updatePropItem();
             checkPlayerPurchase();
+
+            if(justBoughtItem) {
+                //player was jumping when justBoughtItem was set to true. Only set to false when player is not jumping again
+                if(!PlayerManager.Instance.IsPlayerJumping()) {
+                    justBoughtItem = false;
+                }
+            }
 
             if (PlayerManager.Instance.GetPlayerPosition().X > rightBoundWidth)
             {
@@ -251,8 +259,9 @@ namespace TheAdventuresOf
             if(activePropItemIndex > NO_ACTIVE_ITEM)
             {
                 //its possible for this if to be hit again after the item is sold while the player is still jumping, so be sure its not already sold out
-                if(PlayerManager.Instance.IsPlayerJumping() && !storeLevelPropItems[activePropItemIndex].isSoldOut)
+                if(PlayerManager.Instance.IsPlayerJumping() && !storeLevelPropItems[activePropItemIndex].isSoldOut && !justBoughtItem)
                 {
+                    justBoughtItem = true;
                     purchaseItem();
                 }
             }
