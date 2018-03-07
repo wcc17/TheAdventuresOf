@@ -32,18 +32,34 @@ namespace TheAdventuresOf
         public int level4HighScore;
         public int level5HighScore;
 
-        public void Initialize() {
-            levelUnlockStatus.Add(LEVEL_1, level1Unlocked);
-            levelUnlockStatus.Add(LEVEL_2, level2Unlocked);
-            levelUnlockStatus.Add(LEVEL_3, level3Unlocked);
-            levelUnlockStatus.Add(LEVEL_4, level4Unlocked);
-            levelUnlockStatus.Add(LEVEL_5, level5Unlocked);
+        public SaveGame() {
+            Console.WriteLine("Constructor called");
+            levelUnlockStatus.Add(LEVEL_1, UNLOCKED);
+            levelUnlockStatus.Add(LEVEL_2, LOCKED);
+            levelUnlockStatus.Add(LEVEL_3, LOCKED);
+            levelUnlockStatus.Add(LEVEL_4, LOCKED);
+            levelUnlockStatus.Add(LEVEL_5, LOCKED);
 
-            levelHighScores.Add(LEVEL_1, level1HighScore);
-            levelHighScores.Add(LEVEL_2, level2HighScore);
-            levelHighScores.Add(LEVEL_3, level3HighScore);
-            levelHighScores.Add(LEVEL_4, level4HighScore);
-            levelHighScores.Add(LEVEL_5, level5HighScore);
+            levelHighScores.Add(LEVEL_1, 0);
+            levelHighScores.Add(LEVEL_2, 0);
+            levelHighScores.Add(LEVEL_3, 0);
+            levelHighScores.Add(LEVEL_4, 0);
+            levelHighScores.Add(LEVEL_5, 0);
+        }
+
+        public void Initialize() {
+            Console.WriteLine("Initialize called");
+            levelUnlockStatus[LEVEL_1] = level1Unlocked;
+            levelUnlockStatus[LEVEL_2] = level2Unlocked;
+            levelUnlockStatus[LEVEL_3] = level3Unlocked;
+            levelUnlockStatus[LEVEL_4] = level4Unlocked;
+            levelUnlockStatus[LEVEL_5] = level5Unlocked;
+
+            levelHighScores[LEVEL_1] = level1HighScore;
+            levelHighScores[LEVEL_2] = level2HighScore;
+            levelHighScores[LEVEL_3] = level3HighScore;
+            levelHighScores[LEVEL_4] = level4HighScore;
+            levelHighScores[LEVEL_5] = level5HighScore;
         }
 
         public void SetLevelUnlocked(int levelNumber) {
@@ -51,7 +67,12 @@ namespace TheAdventuresOf
         }
 
         public bool IsLevelUnlocked(int levelNumber) {
-            return levelUnlockStatus[levelNumber];
+            if(levelUnlockStatus.ContainsKey(levelNumber)) {
+				return levelUnlockStatus[levelNumber];
+            } else {
+                levelUnlockStatus.Add(levelNumber, LOCKED);
+                return LOCKED;
+            }
         }
 
         public void SetLevelHighScore(int levelNumber, int score) {
@@ -60,7 +81,7 @@ namespace TheAdventuresOf
 
         public String GetLevelHighScoreString(int levelNumber) {
             if(IsLevelUnlocked(levelNumber)) {
-                return levelHighScores[levelNumber].ToString();
+                return GetLevelHighScoreInt(levelNumber).ToString();
             }
 
             return "N/A";
@@ -68,7 +89,12 @@ namespace TheAdventuresOf
 
         public int GetLevelHighScoreInt(int levelNumber)
         {
-            return levelHighScores[levelNumber];
+            if(levelHighScores.ContainsKey(levelNumber)) {
+				return levelHighScores[levelNumber];
+            } else {
+                levelHighScores.Add(levelNumber, 0);
+                return 0;
+            }
         }
 
         public void SetSerializableValues() {

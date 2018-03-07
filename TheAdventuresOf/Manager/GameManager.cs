@@ -9,7 +9,6 @@ namespace TheAdventuresOf
 {
     public class GameManager
     {
-        //TODO: THIS SHOULD BE SET SOMEWHERE ELSE, NOT HARDCODED and probably shouldn't be static 
         public static int levelNumberMin = 1;
         public static int levelNumberLimit = 5;
 

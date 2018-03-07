@@ -93,7 +93,7 @@ namespace TheAdventuresOf
                 if (PlayerManager.Instance.IsPlayerDead())
                 {
                     MusicManager.Instance.PlayGameOverSoundEffect();
-                    monsterManager.ResetMonsters();
+                    monsterManager.DespawnMonsters();
                     playerDied = true;
 
                     if(endlessMode) {

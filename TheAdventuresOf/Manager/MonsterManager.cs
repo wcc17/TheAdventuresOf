@@ -218,7 +218,10 @@ namespace TheAdventuresOf
         }
 
         public void Update(GameTime gameTime) {
-            HandleSpawnMonsters(gameTime);
+            if(!PlayerManager.Instance.IsPlayerDead()) {
+				HandleSpawnMonsters(gameTime);
+            }
+
             UpdateMonsters(gameTime);
 
             //Logger.Instance.AddOrUpdateValue("Tier", (level.currentTier+1).ToString());
@@ -363,6 +366,12 @@ namespace TheAdventuresOf
             foreach (Monster monster in monsters.FindAll(m => m is GroundCannonMonster))
             {
                 monster.Draw(spriteBatch);
+            }
+        }
+
+        public void DespawnMonsters() {
+            foreach(Monster monster in monsters) {
+                monster.isDying = true;
             }
         }
 
