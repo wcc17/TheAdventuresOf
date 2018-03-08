@@ -130,90 +130,97 @@ namespace TheAdventuresOf
             handleMasterSpawnDelay(gameTime);
             handleMonsterAvailability(gameTime);
 
-            if (canSpawn)
-            {
-                if ((blockMonsterCount < level.tierMonsterLimits[BLOCK_MONSTER][level.currentTier]) && canSpawnMonster[BLOCK_MONSTER])
-                {
-                    availableMonsters.Add(BLOCK_MONSTER);
-                }
-                if ((sunMonsterCount < level.tierMonsterLimits[SUN_MONSTER][level.currentTier]) && canSpawnMonster[SUN_MONSTER])
-                {
-                    availableMonsters.Add(SUN_MONSTER);
-                }
-                if ((groundCannonMonsterCount < level.tierMonsterLimits[GROUND_CANNON_MONSTER][level.currentTier]) && canSpawnMonster[GROUND_CANNON_MONSTER])
-                {
-                    availableMonsters.Add(GROUND_CANNON_MONSTER);
-                }
-                if ((bileMonsterCount < level.tierMonsterLimits[BILE_MONSTER][level.currentTier]) && canSpawnMonster[BILE_MONSTER])
-                {
-                    availableMonsters.Add(BILE_MONSTER);
-                }
-                if ((spikeMonsterCount < level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier]) && canSpawnMonster[SPIKE_MONSTER])
-                {
-                    availableMonsters.Add(SPIKE_MONSTER);
-                }
-                if ((dashMonsterCount < level.tierMonsterLimits[DASH_MONSTER][level.currentTier]) && canSpawnMonster[DASH_MONSTER])
-                {
-                    availableMonsters.Add(DASH_MONSTER);
-                }
-                if ((flyingCannonMonsterCount < level.tierMonsterLimits[FLYING_CANNON_MONSTER][level.currentTier]) && canSpawnMonster[FLYING_CANNON_MONSTER])
-                {
-                    availableMonsters.Add(FLYING_CANNON_MONSTER);
-                }
-                if ((undergroundMonsterCount < level.tierMonsterLimits[UNDERGROUND_MONSTER][level.currentTier]) && canSpawnMonster[UNDERGROUND_MONSTER])
-                {
-                    availableMonsters.Add(UNDERGROUND_MONSTER);
-                }
-                if ((swoopMonsterCount < level.tierMonsterLimits[SWOOP_MONSTER][level.currentTier]) && canSpawnMonster[SWOOP_MONSTER])
-                {
-                    availableMonsters.Add(SWOOP_MONSTER);
-                }
-
-                //if(availableMonsters.Count > 0) {
-                //int randomMonsterIndex = rand.Next(0, availableMonsters.Count);
-                //int monsterToSpawn = availableMonsters[randomMonsterIndex];
-                foreach(int monsterToSpawn in availableMonsters) {
-                    
-                    switch (monsterToSpawn) {
-                        case BLOCK_MONSTER:
-                            spawnBlockMonster();
-                            break;
-                        case SUN_MONSTER:
-                            spawnSunMonster();
-                            break;
-                        case GROUND_CANNON_MONSTER:
-                            spawnGroundCannonMonster();
-                            break;
-                        case BILE_MONSTER:
-                            spawnBileMonster();
-                            break;
-                        case SPIKE_MONSTER:
-                            spawnSpikeMonster();
-                            break;
-                        case DASH_MONSTER:
-                            spawnDashMonster();
-                            break;
-                        case FLYING_CANNON_MONSTER:
-                            spawnFlyingCannonMonster();
-                            break;
-                        case UNDERGROUND_MONSTER:
-                            spawnUndergroundMonster();
-                            break;
-                        case SWOOP_MONSTER:
-                            spawnSwoopMonster();
-                            break;
-                    }
-
-                    monsterCount++;
-
-                    //don't reset monsters that have a 0 spawnDelayTime. they can always spawn (at least in the context of spawnDelayTime)
-                    if(monsterSpawnDelayTimers[monsterToSpawn].delayTimeLimit > 0) {
-                        canSpawnMonster[monsterToSpawn] = false;
-                        monsterSpawnDelayTimers[monsterToSpawn].Reset();
-                    }
-                }
-
+            //if (canSpawn)
+            //{
+                spawnMonsters();
                 canSpawn = false;
+            //}
+        }
+
+        void spawnMonsters() {
+            
+            if ((blockMonsterCount < level.tierMonsterLimits[BLOCK_MONSTER][level.currentTier]) && canSpawnMonster[BLOCK_MONSTER])
+            {
+                availableMonsters.Add(BLOCK_MONSTER);
+            }
+            if ((sunMonsterCount < level.tierMonsterLimits[SUN_MONSTER][level.currentTier]) && canSpawnMonster[SUN_MONSTER])
+            {
+                availableMonsters.Add(SUN_MONSTER);
+            }
+            if ((groundCannonMonsterCount < level.tierMonsterLimits[GROUND_CANNON_MONSTER][level.currentTier]) && canSpawnMonster[GROUND_CANNON_MONSTER])
+            {
+                availableMonsters.Add(GROUND_CANNON_MONSTER);
+            }
+            if ((bileMonsterCount < level.tierMonsterLimits[BILE_MONSTER][level.currentTier]) && canSpawnMonster[BILE_MONSTER])
+            {
+                availableMonsters.Add(BILE_MONSTER);
+            }
+            if ((spikeMonsterCount < level.tierMonsterLimits[SPIKE_MONSTER][level.currentTier]) && canSpawnMonster[SPIKE_MONSTER])
+            {
+                availableMonsters.Add(SPIKE_MONSTER);
+            }
+            if ((dashMonsterCount < level.tierMonsterLimits[DASH_MONSTER][level.currentTier]) && canSpawnMonster[DASH_MONSTER])
+            {
+                availableMonsters.Add(DASH_MONSTER);
+            }
+            if ((flyingCannonMonsterCount < level.tierMonsterLimits[FLYING_CANNON_MONSTER][level.currentTier]) && canSpawnMonster[FLYING_CANNON_MONSTER])
+            {
+                availableMonsters.Add(FLYING_CANNON_MONSTER);
+            }
+            if ((undergroundMonsterCount < level.tierMonsterLimits[UNDERGROUND_MONSTER][level.currentTier]) && canSpawnMonster[UNDERGROUND_MONSTER])
+            {
+                availableMonsters.Add(UNDERGROUND_MONSTER);
+            }
+            if ((swoopMonsterCount < level.tierMonsterLimits[SWOOP_MONSTER][level.currentTier]) && canSpawnMonster[SWOOP_MONSTER])
+            {
+                availableMonsters.Add(SWOOP_MONSTER);
+            }
+
+            //if(availableMonsters.Count > 0) {
+            //int randomMonsterIndex = rand.Next(0, availableMonsters.Count);
+            //int monsterToSpawn = availableMonsters[randomMonsterIndex];
+            foreach (int monsterToSpawn in availableMonsters)
+            {
+
+                switch (monsterToSpawn)
+                {
+                    case BLOCK_MONSTER:
+                        spawnBlockMonster();
+                        break;
+                    case SUN_MONSTER:
+                        spawnSunMonster();
+                        break;
+                    case GROUND_CANNON_MONSTER:
+                        spawnGroundCannonMonster();
+                        break;
+                    case BILE_MONSTER:
+                        spawnBileMonster();
+                        break;
+                    case SPIKE_MONSTER:
+                        spawnSpikeMonster();
+                        break;
+                    case DASH_MONSTER:
+                        spawnDashMonster();
+                        break;
+                    case FLYING_CANNON_MONSTER:
+                        spawnFlyingCannonMonster();
+                        break;
+                    case UNDERGROUND_MONSTER:
+                        spawnUndergroundMonster();
+                        break;
+                    case SWOOP_MONSTER:
+                        spawnSwoopMonster();
+                        break;
+                }
+
+                monsterCount++;
+
+                //don't reset monsters that have a 0 spawnDelayTime. they can always spawn (at least in the context of spawnDelayTime)
+                if (monsterSpawnDelayTimers[monsterToSpawn].delayTimeLimit > 0)
+                {
+                    canSpawnMonster[monsterToSpawn] = false;
+                    monsterSpawnDelayTimers[monsterToSpawn].Reset();
+                }
             }
         }
 

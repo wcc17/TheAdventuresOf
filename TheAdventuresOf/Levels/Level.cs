@@ -28,6 +28,9 @@ namespace TheAdventuresOf
         public Dictionary<int, List<int>> tierMonsterLimits;
         public Dictionary<int, int> tierScores = new Dictionary<int, int>();
         public Dictionary<int, float> spawnDelayTimes; //an individual spawn delay time for each monster
+        public SortedDictionary<int, bool> tierExplosionMap; //does this tier contain an explosion of monsters
+        public SortedDictionary<int, string> tierExplosionMonsterMap; //what explosion of monsters does this tier contain
+
         public bool playerDied;
         public bool endlessMode;
 
