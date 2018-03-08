@@ -330,6 +330,9 @@ namespace TheAdventuresOf
             level.tierMonsterLimits.Add(MonsterManager.SWOOP_MONSTER, LoadTierMonsterLimits("SwoopMonsterLimit", tierElements));
             level.masterSpawnDelayTime = (float)levelXElement.Element("MasterSpawnDelayTime");
 
+            level.tierExplosionMap = LoadTierExplosionValues(tierElements);
+            level.tierExplosionMonsterMap = LoadTierExplosionMonsterValues(tierElements);
+
             //load individual spawn delay times for each monster
             XElement spawnDelayTimeElement = levelXElement.Element("SpawnDelayTime");
             level.spawnDelayTimes = new Dictionary<int, float>();
@@ -355,6 +358,30 @@ namespace TheAdventuresOf
             }
 
             return monsterLimits;
+        }
+
+        public static SortedDictionary<int, bool> LoadTierExplosionValues(List<XElement> tierElements) {
+            SortedDictionary<int, bool> tierExplosionMap = new SortedDictionary<int, bool>();
+
+            int index = 0;
+            foreach (XElement tierElement in tierElements) {
+                tierExplosionMap.Add(index, (bool)tierElement.Element("Explosion"));
+                index++;
+            }
+
+            return tierExplosionMap;
+        }
+
+        public static SortedDictionary<int, string> LoadTierExplosionMonsterValues(List<XElement> tierElements) {
+            SortedDictionary<int, string> tierExplosionMonsterMap = new SortedDictionary<int, string>();
+
+            int index = 0;
+            foreach (XElement tierElement in tierElements) {
+                tierExplosionMonsterMap.Add(index, (string)tierElement.Element("ExplosionMonster"));
+                index++;
+            }
+
+            return tierExplosionMonsterMap;
         }
 
         public static void LoadMonsterInformation(Level level, int currentLevelNumber) {
