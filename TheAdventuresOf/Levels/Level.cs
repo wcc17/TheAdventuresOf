@@ -6,7 +6,8 @@ namespace TheAdventuresOf
 {
     public class Level : BaseLevel
     {
-        //TODO: should be loaded from XML
+        public const float SHAKE_TIME_SECONDS = 5.0f;
+        public const float shakeOffset = 500.0f;
         public const float gameOverDelayTimeLimit = 5.0f;
         public string gameOverText = "You died!"; 
 
@@ -40,6 +41,11 @@ namespace TheAdventuresOf
         Vector2 gameOverTextPositionVector;
         Timer gameOverDelayTimer = new Timer(gameOverDelayTimeLimit);
 
+        float amountShaken = 0f; //amount in one direction the level has shaken so far
+        int shakeState = 0; //shake up, down, left, or right
+        bool isShaking = false;
+        Timer shakeTimer;
+
         public Level(Texture2D levelTexture, int levelNumber, bool storyMode, bool endlessMode) : base(levelTexture: levelTexture) {
             this.levelNumber = levelNumber;
             this.storyMode = storyMode;
@@ -52,6 +58,8 @@ namespace TheAdventuresOf
             Vector2 gameOverTextDimensionsVector = AssetManager.Instance.font.MeasureString(gameOverText);
             gameOverTextPositionVector = new Vector2((ScreenManager.FULL_SCREEN_WIDTH / 2) - (gameOverTextDimensionsVector.X / 2),
                                                      ((ScreenManager.FULL_SCREEN_HEIGHT * 0.3f) - (gameOverTextDimensionsVector.Y / 2)));
+
+            shakeTimer = new Timer(SHAKE_TIME_SECONDS);
         }
 
 		public override void InitializeLevel(bool usePlayerSpawnAnimation)
@@ -79,7 +87,13 @@ namespace TheAdventuresOf
             }
 
             HealthShieldManager.Instance.Update();
-            monsterManager.Update(gameTime);
+
+            monsterManager.Update(gameTime, tierExplosionMap[currentTier], tierExplosionMonsterMap[currentTier]);
+            if(tierExplosionMap[currentTier] && !isShaking) {
+                isShaking = true;
+            }
+
+			handleLevelShake(gameTime);
 
             //using this condition twice because I want these methods to be called in a specific order 
             if(!playerDied) {
@@ -157,6 +171,48 @@ namespace TheAdventuresOf
             }
             
 		}
+
+        void handleLevelShake(GameTime gameTime) {
+            if(isShaking) {
+                if(shakeTimer.IsTimeUp(gameTime.ElapsedGameTime)) {
+                    isShaking = false;
+                } else {
+					handleShake(gameTime);
+                }
+            }
+        }
+
+        void handleShake(GameTime gameTime) {
+            float shakeDistance = shakeOffset * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            amountShaken += shakeDistance;
+
+            switch (shakeState)
+            {
+                case 0:
+                    levelPositionVector.X += shakeDistance;
+                    break;
+                case 1:
+                    levelPositionVector.Y -= shakeDistance;
+                    break;
+                case 2:
+                    levelPositionVector.X -= shakeDistance;
+                    break;
+                case 3:
+                    levelPositionVector.Y += shakeDistance;
+                    break;
+            }
+
+            if (amountShaken > 4)
+            {
+                amountShaken = 0;
+                shakeState++;
+
+                if (shakeState > 3)
+                {
+                    shakeState = 0;
+                }
+            }
+        }
 
         //load any extra monster information dependent on the current level
         //this assumes that assets have already been loaded for level and for monsters
