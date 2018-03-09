@@ -125,6 +125,10 @@ namespace TheAdventuresOf
             return player.isDying;
         }
 
+        public bool IsPlayerSpawning() {
+            return player.isSpawning;
+        }
+
         public void CheckPlayerCollisionProjectile(Projectile proj) {
             bool projectileDamagedPlayer = false;
             foreach(Accessory accessory in accessories) {

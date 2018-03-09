@@ -17,6 +17,7 @@ namespace TheAdventuresOf
         public const int FLYING_CANNON_MONSTER = 6;
         public const int UNDERGROUND_MONSTER = 7;
         public const int SWOOP_MONSTER = 8;
+        public const float EXPLOSION_MONSTER_SPAWN_DELAY_TIME_LIMIT = 0.2f;
 
         public Level level;
 
@@ -37,6 +38,7 @@ namespace TheAdventuresOf
         List<int> availableMonsters;
         Dictionary<int, Timer> monsterSpawnDelayTimers;
         Dictionary<int, bool> canSpawnMonster;
+        bool defaultMonsterSpawnTimersBeingUsed = false;
 
         static Random rand = new Random();
 
@@ -53,16 +55,7 @@ namespace TheAdventuresOf
 
             this.level = level;
 
-            monsterSpawnDelayTimers = new Dictionary<int, Timer>();
-            monsterSpawnDelayTimers.Add(BLOCK_MONSTER, new Timer(level.spawnDelayTimes[BLOCK_MONSTER]));
-            monsterSpawnDelayTimers.Add(SUN_MONSTER, new Timer(level.spawnDelayTimes[SUN_MONSTER]));
-            monsterSpawnDelayTimers.Add(GROUND_CANNON_MONSTER, new Timer(level.spawnDelayTimes[GROUND_CANNON_MONSTER]));
-            monsterSpawnDelayTimers.Add(BILE_MONSTER, new Timer(level.spawnDelayTimes[BILE_MONSTER]));
-            monsterSpawnDelayTimers.Add(SPIKE_MONSTER, new Timer(level.spawnDelayTimes[SPIKE_MONSTER]));
-            monsterSpawnDelayTimers.Add(DASH_MONSTER, new Timer(level.spawnDelayTimes[DASH_MONSTER]));
-            monsterSpawnDelayTimers.Add(FLYING_CANNON_MONSTER, new Timer(level.spawnDelayTimes[FLYING_CANNON_MONSTER]));
-            monsterSpawnDelayTimers.Add(UNDERGROUND_MONSTER, new Timer(level.spawnDelayTimes[UNDERGROUND_MONSTER]));
-            monsterSpawnDelayTimers.Add(SWOOP_MONSTER, new Timer(level.spawnDelayTimes[SWOOP_MONSTER]));
+            setDefaultMonsterSpawnDelayTimers();
 
             //start each monster being able to spawn so player isn't waiting at the begining of the game
             canSpawnMonster = new Dictionary<int, bool>();
@@ -77,16 +70,16 @@ namespace TheAdventuresOf
             canSpawnMonster.Add(SWOOP_MONSTER, true);
         }
 
-        void handleMasterSpawnDelay(GameTime gameTime)
-        {
-            spawnTimer = spawnTimer.Add(gameTime.ElapsedGameTime);
-            if (spawnTimer.Seconds > level.masterSpawnDelayTime)
-            {
-                //will allow monsters to spawn, then next frame the timer will start adding up again
-                canSpawn = true;
-                spawnTimer = TimeSpan.FromSeconds(0);
-            }
-        }
+        //void handleMasterSpawnDelay(GameTime gameTime)
+        //{
+        //    spawnTimer = spawnTimer.Add(gameTime.ElapsedGameTime);
+        //    if (spawnTimer.Seconds > level.masterSpawnDelayTime)
+        //    {
+        //        //will allow monsters to spawn, then next frame the timer will start adding up again
+        //        canSpawn = true;
+        //        spawnTimer = TimeSpan.FromSeconds(0);
+        //    }
+        //}
 
         void handleMonsterAvailability(GameTime gameTime) {
             availableMonsters.Clear();
@@ -123,17 +116,15 @@ namespace TheAdventuresOf
              * */
         }
 
-
-        //TODO: this method alone is reason enough to move spawning info to its own Manager    
         public void HandleSpawnMonsters(GameTime gameTime)
         {
-            handleMasterSpawnDelay(gameTime);
+            //handleMasterSpawnDelay(gameTime);
             handleMonsterAvailability(gameTime);
 
             //if (canSpawn)
             //{
                 spawnMonsters();
-                canSpawn = false;
+                //canSpawn = false;
             //}
         }
 
@@ -224,12 +215,21 @@ namespace TheAdventuresOf
             }
         }
 
-        public void Update(GameTime gameTime) {
-            if(!PlayerManager.Instance.IsPlayerDead()) {
-				HandleSpawnMonsters(gameTime);
-            }
+        public void Update(GameTime gameTime, bool isMonsterExplosion, string explosionMonster) {
 
-            UpdateMonsters(gameTime);
+            //don't start spawning or updating monsters until player is done spawning
+            if(!PlayerManager.Instance.IsPlayerSpawning()) {
+
+                //handle explosion before spawning monsters
+                handleMonsterExplosion(isMonsterExplosion, explosionMonster);
+
+                if (!PlayerManager.Instance.IsPlayerDead())
+                {
+                    HandleSpawnMonsters(gameTime);
+                }
+
+                UpdateMonsters(gameTime);
+            }
 
             //Logger.Instance.AddOrUpdateValue("Tier", (level.currentTier+1).ToString());
             //Logger.Instance.AddOrUpdateValue("TierLimit", (level.tierScores[level.currentTier].ToString()));
@@ -242,6 +242,17 @@ namespace TheAdventuresOf
             //Logger.Instance.AddOrUpdateValue("Dash Limit: ", level.tierMonsterLimits[DASH_MONSTER][level.currentTier].ToString());
             //Logger.Instance.AddOrUpdateValue("UGround Limit: ", level.tierMonsterLimits[UNDERGROUND_MONSTER][level.currentTier].ToString());
             //Logger.Instance.AddOrUpdateValue("Swoop Limit: ", level.tierMonsterLimits[SWOOP_MONSTER][level.currentTier].ToString());
+            Logger.Instance.AddOrUpdateValue("Block Spawn Delay: ", monsterSpawnDelayTimers[BLOCK_MONSTER].delayTimeLimit.ToString());
+            Logger.Instance.AddOrUpdateValue("Sun Spawn Delay: ", monsterSpawnDelayTimers[SUN_MONSTER].delayTimeLimit.ToString());
+            Logger.Instance.AddOrUpdateValue("GCannon Spawn Delay: ", monsterSpawnDelayTimers[GROUND_CANNON_MONSTER].delayTimeLimit.ToString());
+            Logger.Instance.AddOrUpdateValue("FCannon Spawn Delay: ", monsterSpawnDelayTimers[FLYING_CANNON_MONSTER].delayTimeLimit.ToString());
+            Logger.Instance.AddOrUpdateValue("Bile Spawn Delay: ", monsterSpawnDelayTimers[BILE_MONSTER].delayTimeLimit.ToString());
+            Logger.Instance.AddOrUpdateValue("Spike Spawn Delay: ", monsterSpawnDelayTimers[SPIKE_MONSTER].delayTimeLimit.ToString());
+            Logger.Instance.AddOrUpdateValue("Dash Spawn Delay: ", monsterSpawnDelayTimers[DASH_MONSTER].delayTimeLimit.ToString());
+            Logger.Instance.AddOrUpdateValue("UGround Spawn Delay: ", monsterSpawnDelayTimers[UNDERGROUND_MONSTER].delayTimeLimit.ToString());
+            Logger.Instance.AddOrUpdateValue("Swoop Spawn Delay: ", monsterSpawnDelayTimers[SWOOP_MONSTER].delayTimeLimit.ToString());
+            Logger.Instance.AddOrUpdateValue("Is Explosion?: ", isMonsterExplosion.ToString());
+            Logger.Instance.AddOrUpdateValue("ExplosionMonster: ", explosionMonster);
         }
 
         //Updates whether a monster spawn timer should reset on death or not
@@ -493,6 +504,65 @@ namespace TheAdventuresOf
             }
 
             return getRandomXLocation(monster.entityWidth, leftSideXLimit, rightSideXLimit);
+        }
+
+        void handleMonsterExplosion(bool isMonsterExplosion, string explosionMonster) {
+            if(isMonsterExplosion && defaultMonsterSpawnTimersBeingUsed) {
+                defaultMonsterSpawnTimersBeingUsed = false;
+
+				int explosionMonsterType = getMonsterTypeFromString(explosionMonster);
+
+                //TODO: getMonsterTypeFromString can return -1. Letting the error happen for now so I know to fix the issue when it occurs
+				monsterSpawnDelayTimers[explosionMonsterType].delayTimeLimit = EXPLOSION_MONSTER_SPAWN_DELAY_TIME_LIMIT;
+            } else if(!isMonsterExplosion && !defaultMonsterSpawnTimersBeingUsed){
+				setDefaultMonsterSpawnDelayTimers();
+			}
+        }
+
+        int getMonsterTypeFromString(string explosionMonster) {
+            switch(explosionMonster) {
+                case "BlockMonster":
+                    return BLOCK_MONSTER;
+                case "SunMonster":
+                    return SUN_MONSTER;
+                case "BileMonster":
+                    return BILE_MONSTER;
+                case "GroundCannonMonster":
+                    return GROUND_CANNON_MONSTER;
+                case "FlyingCannonMonster":
+                    return FLYING_CANNON_MONSTER;
+                case "SpikeMonster":
+                    return SPIKE_MONSTER;
+                case "DashMonster":
+                    return DASH_MONSTER;
+                case "UndergroundMonster":
+                    return UNDERGROUND_MONSTER;
+                case "SwoopMonster":
+                    return SWOOP_MONSTER;
+                default:
+                    Console.WriteLine("INCORRECT MONSTER PASSED FOR EXPLOSION");
+                    Console.WriteLine("INCORRECT MONSTER PASSED FOR EXPLOSION");
+                    Console.WriteLine("INCORRECT MONSTER PASSED FOR EXPLOSION");
+                    return -1;
+            }
+        }
+
+        /**
+         * Restores default values for spawn timers for all monsters
+         */
+        void setDefaultMonsterSpawnDelayTimers() {
+            monsterSpawnDelayTimers = new Dictionary<int, Timer>();
+            monsterSpawnDelayTimers.Add(BLOCK_MONSTER, new Timer(level.spawnDelayTimes[BLOCK_MONSTER]));
+            monsterSpawnDelayTimers.Add(SUN_MONSTER, new Timer(level.spawnDelayTimes[SUN_MONSTER]));
+            monsterSpawnDelayTimers.Add(GROUND_CANNON_MONSTER, new Timer(level.spawnDelayTimes[GROUND_CANNON_MONSTER]));
+            monsterSpawnDelayTimers.Add(BILE_MONSTER, new Timer(level.spawnDelayTimes[BILE_MONSTER]));
+            monsterSpawnDelayTimers.Add(SPIKE_MONSTER, new Timer(level.spawnDelayTimes[SPIKE_MONSTER]));
+            monsterSpawnDelayTimers.Add(DASH_MONSTER, new Timer(level.spawnDelayTimes[DASH_MONSTER]));
+            monsterSpawnDelayTimers.Add(FLYING_CANNON_MONSTER, new Timer(level.spawnDelayTimes[FLYING_CANNON_MONSTER]));
+            monsterSpawnDelayTimers.Add(UNDERGROUND_MONSTER, new Timer(level.spawnDelayTimes[UNDERGROUND_MONSTER]));
+            monsterSpawnDelayTimers.Add(SWOOP_MONSTER, new Timer(level.spawnDelayTimes[SWOOP_MONSTER]));
+
+            defaultMonsterSpawnTimersBeingUsed = true;
         }
 
         public BlockMonster GenerateBlockMonster() {

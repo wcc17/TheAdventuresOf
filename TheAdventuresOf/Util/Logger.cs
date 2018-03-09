@@ -8,6 +8,7 @@ namespace TheAdventuresOf
 {
     public class Logger
     {
+        private const float INITIAL_Y_POS = ScreenManager.FULL_SCREEN_HEIGHT - 400;
         private static Logger instance;
 
         static SortedDictionary<string, string> debugStrings;
@@ -28,7 +29,7 @@ namespace TheAdventuresOf
         private Logger()
         {
             debugStrings = new SortedDictionary<string, string>();
-            positionVector = new Vector2(20, ScreenManager.FULL_SCREEN_HEIGHT - 100);
+            positionVector = new Vector2(20, INITIAL_Y_POS);
         }
 
         public void AddOrUpdateValue(String key, String value)
@@ -60,7 +61,7 @@ namespace TheAdventuresOf
                 positionVector.Y -= 24;
             }
 
-            positionVector.Y = ScreenManager.FULL_SCREEN_HEIGHT - 100;
+            positionVector.Y = INITIAL_Y_POS;
         }
 
         public static void WriteToConsole(String message)
