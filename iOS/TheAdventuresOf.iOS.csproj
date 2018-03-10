@@ -235,6 +235,7 @@
     <BundleResource Include="Content\Menu\choose\levellockedpreview_1080p.png" />
     <BundleResource Include="Content\Menu\choose\choosemenu_playendlessbutton_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level4background_1080p.png" />
+    <BundleResource Include="Content\Game\background_black_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

@@ -16,8 +16,9 @@ namespace TheAdventuresOf
         public const string androidFilePath = "Assets/Content/";
         public const string iosFilePath = "Content/";
 
-        //splash textures
+        //textures that should be loaded from start to finish
         public Texture2D splashTexture;
+        public Texture2D blackBackgroundTexture;
 
         //main menu textures
         public Texture2D mainMenuTexture;
@@ -137,6 +138,16 @@ namespace TheAdventuresOf
             using (var stream = TitleContainer.OpenStream(menuFilePath + "splash_1080p.png"))
             {
                 splashTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+
+            String gameFilePath = filePath + "Game/";
+            string blackBackgroundTexturePath = "background_black_1080p.png";
+#if !__IOS__ && !__ANDROID__
+            blackBackgroundTexturePath = "background_black_xbox_1080p.png";
+#endif
+            using (var stream = TitleContainer.OpenStream(gameFilePath + blackBackgroundTexturePath))
+            {
+                blackBackgroundTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
             font = contentManager.Load<SpriteFont>("Game/arial");
@@ -322,6 +333,7 @@ namespace TheAdventuresOf
             using (var stream = TitleContainer.OpenStream(gameFilePath + transparentBackgroundTexturePath)) {
                 transparentBlackBackgroundTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
+
             using (var stream = TitleContainer.OpenStream(gameFilePath + "quit_button_1080p.png"))
             {
                 quitButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
@@ -498,6 +510,8 @@ namespace TheAdventuresOf
 
         public void DisposeMainMenuAssets() {
             //splashTexture.Dispose(); TODO: not disposing right now because its used as load screen
+            //blackBackgroundTexture.Dispose(); //TODO: needs to be disposed when game exits only
+
             mainMenuTexture.Dispose();
             playButtonTexture.Dispose();
             chooseLevelButtonTexture.Dispose();
