@@ -9,7 +9,7 @@ namespace TheAdventuresOf
 {
     public class GameManager
     {
-        public static int levelNumberMin = 1;
+        public static int levelNumberMin = 3;
         public static int levelNumberLimit = 5;
 
         public const bool USE_PLAYER_SPAWN_ANIMATION = true;
@@ -47,6 +47,11 @@ namespace TheAdventuresOf
         public float pausedTextVectorXOffset;
         Timer splashTimer;
 
+        public bool isTransitioningIn = true;
+        public bool isTransitioningOut = false;
+        float transitionTextureAlpha = 1.0f;
+        float fadeSpeed = 0.8f;
+
         public GameManager(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {
             this.graphicsDevice = graphicsDevice;
@@ -79,6 +84,7 @@ namespace TheAdventuresOf
             TheAdventuresOf.showMouse = false;
             AssetManager.Instance.LoadSplashAssets(graphicsDevice, contentManager);
 
+            setIsTransitioningIn();
             gameState = SPLASH_STATE;
             MusicManager.Instance.ChangeState(gameState, currentLevelNumber);
 
@@ -97,6 +103,7 @@ namespace TheAdventuresOf
             mainMenu = new MainMenu();
             mainMenu.LoadMenu();
 
+            setIsTransitioningIn();;
             gameState = MENU_STATE;
 
             currentController = new MainMenuController();
@@ -121,6 +128,7 @@ namespace TheAdventuresOf
             chooseLevelMenu = new ChooseLevelMenu();
             chooseLevelMenu.LoadMenu();
 
+            setIsTransitioningIn();;
             gameState = CHOOSE_LEVEL_STATE;
 
             currentController = new ChooseLevelMenuController();
@@ -228,6 +236,7 @@ namespace TheAdventuresOf
 
             currentLevel.InitializeLevel(NO_PLAYER_SPAWN_ANIMATION);
 
+            setIsTransitioningIn();;
             gameState = PRE_LEVEL_STATE;
         }
 
@@ -237,6 +246,7 @@ namespace TheAdventuresOf
 
             currentLevel.InitializeLevel(USE_PLAYER_SPAWN_ANIMATION);
 
+            setIsTransitioningIn();;
             gameState = LEVEL_STATE;
         }
 
@@ -245,11 +255,17 @@ namespace TheAdventuresOf
 
             currentLevel.InitializeLevel(NO_PLAYER_SPAWN_ANIMATION);
 
+            setIsTransitioningIn();;
             gameState = STORE_LEVEL_STATE;
         }
 
         public void Update(GameTime gameTime, bool isGameActive)
         {
+            if (isTransitioningIn || isTransitioningOut)
+            {
+                handleLevelTransition(gameTime);
+            }
+
             MusicManager.Instance.Update(gameTime);
 
             if(gameState != SPLASH_STATE && gameState != LOAD_STATE) {
@@ -530,6 +546,54 @@ namespace TheAdventuresOf
             loadSplashScreen();
         }
 
+        void handleLevelTransition(GameTime gameTime)
+        {
+            float amountToFade = (float)(fadeSpeed * gameTime.ElapsedGameTime.TotalSeconds);
+
+            int multiplier = 1;
+            if (isTransitioningIn)
+            {
+                multiplier = -1;
+            }
+
+            transitionTextureAlpha += (amountToFade * multiplier);
+
+            if (transitionTextureAlpha < 0 || transitionTextureAlpha > 1)
+            {
+                if (isTransitioningIn)
+                {
+                    transitionTextureAlpha = 0;
+                }
+                else if (isTransitioningOut)
+                {
+                    transitionTextureAlpha = 1;
+                }
+
+                isTransitioningIn = false;
+                isTransitioningOut = false;
+            }
+        }
+
+        void setIsTransitioningIn()
+        {
+            isTransitioningIn = true;
+            transitionTextureAlpha = 1.0f;
+        }
+
+        void setIsTransitioningOut()
+        {
+            isTransitioningOut = true;
+            transitionTextureAlpha = 0f;
+        }
+
+        void drawLevelTransition()
+        {
+            if (isTransitioningIn || isTransitioningOut)
+            {
+                spriteBatch.Draw(AssetManager.Instance.blackBackgroundTexture, new Vector2(0, 0), Color.Black * transitionTextureAlpha);
+            }
+        }
+
         public void Draw(GameTime gameTime) {
             spriteBatch.Begin(transformMatrix: ScreenManager.scaleMatrix);
 
@@ -556,6 +620,8 @@ namespace TheAdventuresOf
                     drawLoadScreen();
                     break;
             }
+
+            drawLevelTransition();
 
             Logger.Instance.DrawToScreen(spriteBatch);
 
