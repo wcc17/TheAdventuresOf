@@ -44,38 +44,21 @@ namespace TheAdventuresOf
             switch(gameState) {
                 case GameManager.SPLASH_STATE:
                     currentSong = AssetManager.Instance.mainMenuSong;
-                    MediaPlayer.Play(currentSong); //TODO: comment out to stop music
+                    MediaPlayer.Play(currentSong); //comment out to stop music
                     break;
                 case GameManager.PRE_LEVEL_STATE:
-                    currentSong = null; //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
-                    MediaPlayer.Stop();
-                    break;
-                case GameManager.LEVEL_STATE:
-                    changingSongs = true;
-                    switch(levelNumber)
-                    {
-                        case 1:
-                            currentSong = AssetManager.Instance.levelOneSong;
-                            break;
-                        case 2:
-                            currentSong = AssetManager.Instance.levelOneSong;
-                            break;
-                        case 3:
-                            currentSong = AssetManager.Instance.levelOneSong; //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
-                            break;
-                        case 4:
-                            currentSong = AssetManager.Instance.levelOneSong; //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
-                            break;
-                        case 5:
-                            currentSong = AssetManager.Instance.levelFiveSong; //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
-                            break;
-                    }
+                    StartLevelMusic();
                     break;
                 case GameManager.STORE_LEVEL_STATE:
                     currentSong = null; //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
                     MediaPlayer.Stop();
                     break;
             }
+        }
+
+        public void StartLevelMusic() {
+            changingSongs = true;
+            currentSong = AssetManager.Instance.levelSong;
         }
 
         public void Update(GameTime gameTime) {

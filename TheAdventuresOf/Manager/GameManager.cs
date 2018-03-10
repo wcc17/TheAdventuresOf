@@ -177,7 +177,7 @@ namespace TheAdventuresOf
             TheAdventuresOf.showMouse = false;
 
             AssetManager.Instance.LoadPlayerAssets(graphicsDevice, currentLevelNumber);
-            AssetManager.Instance.LoadPreLevelAssets(graphicsDevice, currentLevelNumber);
+            AssetManager.Instance.LoadPreLevelAssets(graphicsDevice, contentManager, currentLevelNumber);
 
             loadPlayerAccessories();
 
@@ -322,12 +322,22 @@ namespace TheAdventuresOf
             if(chooseLevelMenu.proceedToLevelState) {
                 storyMode = false; //set storyMode to false when choosing level in ChooseLevelMenu screen.
                 endlessMode = false;
-                currentLevelNumber = chooseLevelMenu.currentLevelSelected;
+				currentLevelNumber = chooseLevelMenu.currentLevelSelected;
+
+                //have to force the music to start since it normally starts in the pre level
+				AssetManager.Instance.LoadLevelMusicAssets(graphicsDevice, contentManager, currentLevelNumber); //need to force load music 
+                MusicManager.Instance.StartLevelMusic();
+
                 prepareLevelState(LEVEL_STATE);
             } else if(chooseLevelMenu.proceedToEndlessLevelState) {
                 storyMode = false;
                 endlessMode = true;
-                currentLevelNumber = chooseLevelMenu.currentLevelSelected;;
+                currentLevelNumber = chooseLevelMenu.currentLevelSelected;
+
+                //have to force the music to start since it normally starts in the pre level
+                AssetManager.Instance.LoadLevelMusicAssets(graphicsDevice, contentManager, currentLevelNumber); //need to force load music 
+                MusicManager.Instance.StartLevelMusic();
+
                 prepareLevelState(LEVEL_STATE);
             } else if(chooseLevelMenu.proceedToMainMenuState) {
                 gameState = LOAD_STATE;
