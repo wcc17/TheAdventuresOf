@@ -89,8 +89,7 @@ namespace TheAdventuresOf
         public Texture2D flyingCannonMonsterTexture;
         public Texture2D undergroundMonsterTexture;
         public Texture2D swoopMonsterTexture;
-        public Song levelOneSong;
-        public Song levelFiveSong;
+        public Song levelSong;
         public SoundEffect gameOverSoundEffect;
 
         public Texture2D bulletTexture;
@@ -406,13 +405,11 @@ namespace TheAdventuresOf
                 bileTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
-            //music
-            levelOneSong = contentManager.Load<Song>("Level/level1_music");
-            levelFiveSong = contentManager.Load<Song>("Level/level5_music");
+            //sound effects
             gameOverSoundEffect = contentManager.Load<SoundEffect>("Level/level_gameover_sound");
         }
 
-        public void LoadPreLevelAssets(GraphicsDevice graphicsDevice, int levelNumber)
+        public void LoadPreLevelAssets(GraphicsDevice graphicsDevice, ContentManager contentManager, int levelNumber)
         {
             string preLevelFilePath = filePath + "PreLevel/";
 
@@ -426,6 +423,12 @@ namespace TheAdventuresOf
                 preLevelTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
+            LoadLevelMusicAssets(graphicsDevice, contentManager, levelNumber);
+        }
+
+        public void LoadLevelMusicAssets(GraphicsDevice graphicsDevice, ContentManager contentManager, int levelNumber) {
+            
+            levelSong = contentManager.Load<Song>("Level/level" + levelNumber + "_music");
         }
 
         public void LoadStoreLevelAssets(GraphicsDevice graphicsDevice) {
@@ -551,8 +554,7 @@ namespace TheAdventuresOf
             bileTexture.Dispose();
 
             //TODO: need to dispose of level music
-            //levelOneSong.Dispose();
-            //levelFiveSong.Dispose();
+            levelSong.Dispose();
             //gameOverSoundEffect.Dispose();
 
             foreach(Texture2D accessoryTexture in accessoryTextures.Values) {
