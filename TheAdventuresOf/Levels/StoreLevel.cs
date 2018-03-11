@@ -18,7 +18,6 @@ namespace TheAdventuresOf
         public static SortedDictionary<int, PropItem> storeLevelPropItems;
 
         //TODO: im not sure if these should be set here or not. it doesn't make a ton of sense for xml loading either though
-        //TODO: especially groundOffset could be a fraction of the screen height instead of hard coded
         int textXOffset = 100;
         int textYOffset = 50;
         int numberOfSmallBoxes = 3;

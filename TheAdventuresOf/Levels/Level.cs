@@ -6,6 +6,8 @@ namespace TheAdventuresOf
 {
     public class Level : BaseLevel
     {
+        public const int EXPLOSION_KILL_LIMIT = 50;
+        public const int ENDLESS_TIER_KILLS = 45;
         public const float SHAKE_TIME_SECONDS = 5.0f;
         public const float shakeOffset = 500.0f;
         public const float gameOverDelayTimeLimit = 5.0f;
@@ -16,6 +18,7 @@ namespace TheAdventuresOf
 
         public int maxTier;
         public int currentTier;
+        public int endlessTier; //will be used after max tier is hit in endless mode
         public float masterSpawnDelayTime; //time before another monster of any kind can be spawned
         public BlockMonster blockMonster;
         public SunMonster sunMonster;
@@ -27,10 +30,8 @@ namespace TheAdventuresOf
         public UndergroundMonster undergroundMonster;
         public SwoopMonster swoopMonster;
         public Dictionary<int, List<int>> tierMonsterLimits;
-        public Dictionary<int, int> tierScores = new Dictionary<int, int>();
+        public Dictionary<int, int> tierKills = new Dictionary<int, int>();
         public Dictionary<int, float> spawnDelayTimes; //an individual spawn delay time for each monster
-        public SortedDictionary<int, bool> tierExplosionMap; //does this tier contain an explosion of monsters
-        public SortedDictionary<int, string> tierExplosionMonsterMap; //what explosion of monsters does this tier contain
 
         public bool playerDied;
         public bool endlessMode;
@@ -41,6 +42,10 @@ namespace TheAdventuresOf
         Vector2 gameOverTextPositionVector;
         Timer gameOverDelayTimer = new Timer(gameOverDelayTimeLimit);
 
+        public int currentTierKills = 0;
+        public int explosionKills = 0;
+        bool isExplosion;
+        int explosionMonster;
         float amountShaken = 0f; //amount in one direction the level has shaken so far
         int shakeState = 0; //shake up, down, left, or right
         bool isShaking = false;
@@ -77,13 +82,20 @@ namespace TheAdventuresOf
                 updateLevel(gameTime, gameController);
             } else {
                 if(!monsterManager.monstersEmpty()) {
-					monsterManager.Update(gameTime, tierExplosionMap[currentTier], tierExplosionMonsterMap[currentTier]); //need to update monsters still since we're not calling UpdateLevel
+					monsterManager.Update(gameTime, isExplosion, explosionMonster); //need to update monsters still since we're not calling UpdateLevel
                 }
                 updateScoreStatOverlay(gameTime, gameController);
             }
 		}
 
         void updateLevel(GameTime gameTime, GameController gameController) {
+            Logger.Instance.AddOrUpdateValue("Explosion Kills: ", explosionKills.ToString());
+            Logger.Instance.AddOrUpdateValue("Tier Kills: ", currentTierKills.ToString());
+            Logger.Instance.AddOrUpdateValue("Tier: ", currentTier.ToString());
+            Logger.Instance.AddOrUpdateValue("Tier Limit: ", tierKills[currentTier].ToString());
+            Logger.Instance.AddOrUpdateValue("Is Explosion?: ", isExplosion.ToString());
+            Logger.Instance.AddOrUpdateValue("ExplosionMonster: ", explosionMonster.ToString());
+
             HandleDelayMovementTimer(gameTime, gameController);
 
             if(!playerDied) {
@@ -92,12 +104,14 @@ namespace TheAdventuresOf
 
             HealthShieldManager.Instance.Update();
 
-            monsterManager.Update(gameTime, tierExplosionMap[currentTier], tierExplosionMonsterMap[currentTier]);
-            if(tierExplosionMap[currentTier] && !isShaking && !hasAlreadyShaken) {
+            handleExplosion();
+
+            monsterManager.Update(gameTime, isExplosion, explosionMonster);
+            if(isExplosion && !isShaking && !hasAlreadyShaken) {
                 isShaking = true;
                 hasAlreadyShaken = true;
                 shakeTimer.Reset();
-            } else if(!tierExplosionMap[currentTier]) {
+            } else if(!isExplosion) {
                 hasAlreadyShaken = false;
             }
 
@@ -105,16 +119,28 @@ namespace TheAdventuresOf
 
             //using this condition twice because I want these methods to be called in a specific order 
             if(!playerDied) {
-                if (ScoringManager.Instance.score > tierScores[currentTier] && currentTier < (maxTier - 1))
+                //if ready to move on to next tier
+                if (currentTierKills > tierKills[currentTier] && currentTier < (maxTier - 1))
                 {
+                    currentTierKills = 0;
                     currentTier = currentTier + 1;
+                    checkExplosion();
                 }
 
-                if (!endlessMode && currentTier == (maxTier - 1) && ScoringManager.Instance.score > tierScores[currentTier])
+                //if ready to move on to next tier and its endless mode
+                if((currentTierKills > ENDLESS_TIER_KILLS) && endlessMode) {
+                    currentTierKills = 0;
+                    endlessTier += 1;
+                    checkExplosion();   
+                }
+
+                //if score limit has been reached
+                if (!endlessMode && currentTier == (maxTier - 1) && currentTierKills > tierKills[currentTier])
                 {
                     initiateScoreStatOverlay();
                 }
 
+                //if player is dead
                 if (PlayerManager.Instance.IsPlayerDead())
                 {
                     SoundManager.Instance.PlayGameOverSoundEffect();
@@ -127,6 +153,36 @@ namespace TheAdventuresOf
                 }
             } else {
                 handleGameOverDelay(gameTime);
+            }
+        }
+
+        void checkExplosion() {
+            int tier = currentTier;
+            if (endlessMode && (currentTier >= (maxTier - 1)))
+            {
+                tier = endlessTier;
+            }
+
+            //start explosion every third tier
+            if ((tier + 1) % 3 == 0)
+            {
+                explosionKills = 0;
+                isExplosion = true;
+                explosionMonster = monsterManager.GetRandomExplosionMonster();
+				monsterManager.InitializeExplosion(explosionMonster);
+            }
+            else
+            {
+                isExplosion = false;
+                explosionMonster = -1;
+            } 
+        }
+
+        void handleExplosion() {
+            if(explosionKills >= EXPLOSION_KILL_LIMIT) {
+                explosionKills = 0;
+				isExplosion = false;
+                monsterManager.ResetExplosion();
             }
         }
 

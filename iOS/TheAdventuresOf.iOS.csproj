@@ -103,7 +103,6 @@
     <None Include="Content\Menu\mainmenu_music.mp3" />
     <None Include="Content\Level\level5_music.mp3" />
     <None Include="Content\Level\level3_music.mp3" />
-    <None Include="Content\XML\Level\EndlessLevelInformation.xml" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Content\Level\level1background_1080p.png" />
@@ -237,6 +236,7 @@
     <BundleResource Include="Content\Menu\choose\choosemenu_playendlessbutton_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level4background_1080p.png" />
     <BundleResource Include="Content\Game\background_black_1080p.png" />
+    <BundleResource Include="Content\XML\Level\EndlessLevelInformation.xml" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

@@ -38,13 +38,13 @@ namespace TheAdventuresOf
         List<int> availableMonsters;
         Dictionary<int, Timer> monsterSpawnDelayTimers;
         Dictionary<int, bool> canSpawnMonster;
-        bool defaultMonsterSpawnTimersBeingUsed = false;
 
         static Random rand = new Random();
 
         TimeSpan spawnTimer = TimeSpan.FromSeconds(0);
         bool canSpawn = false;
         public bool monstersDespawned = false;
+        Dictionary<int, List<int>> tierMonsterLimitsBackup; //to keep track of tier monster limits during explosions
 
         public MonsterManager(Level level)
         {
@@ -206,6 +206,7 @@ namespace TheAdventuresOf
                 monsterCount++;
 
                 //don't reset monsters that have a 0 spawnDelayTime. they can always spawn (at least in the context of spawnDelayTime)
+                //TODO: come here
                 if (monsterSpawnDelayTimers[monsterToSpawn].delayTimeLimit > 0)
                 {
                     canSpawnMonster[monsterToSpawn] = false;
@@ -214,20 +215,17 @@ namespace TheAdventuresOf
             }
         }
 
-        public void Update(GameTime gameTime, bool isMonsterExplosion, string explosionMonster) {
+        public void Update(GameTime gameTime, bool isMonsterExplosion, int explosionMonster) {
 
             //don't start spawning or updating monsters until player is done spawning
             if(!PlayerManager.Instance.IsPlayerSpawning()) {
-
-                //handle explosion before spawning monsters
-                handleMonsterExplosion(isMonsterExplosion, explosionMonster);
 
                 if (!PlayerManager.Instance.IsPlayerDead())
                 {
                     HandleSpawnMonsters(gameTime);
                 }
 
-                UpdateMonsters(gameTime);
+                UpdateMonsters(gameTime, isMonsterExplosion, explosionMonster);
             }
 
             //Logger.Instance.AddOrUpdateValue("Tier", (level.currentTier+1).ToString());
@@ -250,8 +248,6 @@ namespace TheAdventuresOf
             Logger.Instance.AddOrUpdateValue("Dash Spawn Delay: ", monsterSpawnDelayTimers[DASH_MONSTER].delayTimeLimit.ToString());
             Logger.Instance.AddOrUpdateValue("UGround Spawn Delay: ", monsterSpawnDelayTimers[UNDERGROUND_MONSTER].delayTimeLimit.ToString());
             Logger.Instance.AddOrUpdateValue("Swoop Spawn Delay: ", monsterSpawnDelayTimers[SWOOP_MONSTER].delayTimeLimit.ToString());
-            Logger.Instance.AddOrUpdateValue("Is Explosion?: ", isMonsterExplosion.ToString());
-            Logger.Instance.AddOrUpdateValue("ExplosionMonster: ", explosionMonster);
         }
 
         //Updates whether a monster spawn timer should reset on death or not
@@ -324,7 +320,7 @@ namespace TheAdventuresOf
             monsterCount--;
         }
 
-        public void UpdateMonsters(GameTime gameTime)
+        public void UpdateMonsters(GameTime gameTime, bool isExplosion, int explosionMonster)
         {
             //update each monster and remove them if they're dead
             foreach (Monster monster in monsters)
@@ -356,6 +352,7 @@ namespace TheAdventuresOf
                     monstersToRemove.Add(monster);
                     UpdateMonsterAvailability(monster);
                     UpdateMonsterCount(monster);
+                    handleScoreOnMonsterDeath(monster, isExplosion, explosionMonster);
                 }
             }
 
@@ -363,6 +360,39 @@ namespace TheAdventuresOf
             {
                 monsters.RemoveAll(m => monstersToRemove.Contains(m)); //removes all monsters in monstersToRemove from monsters list
                 monstersToRemove.Clear();
+            }
+        }
+
+        public int GetRandomExplosionMonster() {
+            List<int> monstersThatCanSpawn = new List<int>();
+            if(level.tierMonsterLimits[BLOCK_MONSTER][level.currentTier] > 0) 
+            {
+                monstersThatCanSpawn.Add(BLOCK_MONSTER);
+            }
+            if (level.tierMonsterLimits[SUN_MONSTER][level.currentTier] > 0)
+            {
+                monstersThatCanSpawn.Add(SUN_MONSTER);
+            }
+            if (level.tierMonsterLimits[BILE_MONSTER][level.currentTier] > 0)
+            {
+                monstersThatCanSpawn.Add(BILE_MONSTER);
+            }
+            if (level.tierMonsterLimits[DASH_MONSTER][level.currentTier] > 0)
+            {
+                monstersThatCanSpawn.Add(DASH_MONSTER);
+            }
+
+            int monsterIndex = new Random().Next(0, monstersThatCanSpawn.Count);
+            return monstersThatCanSpawn[monsterIndex];
+        }
+
+        void handleScoreOnMonsterDeath(Monster monster, bool isExplosion, int explosionMonster) {
+            if(isExplosion) {
+				if(monster.monsterIndex == explosionMonster) {
+                    level.explosionKills++;
+				}
+            } else {
+                level.currentTierKills++;
             }
         }
 
@@ -522,47 +552,6 @@ namespace TheAdventuresOf
             return getRandomXLocation(monster.entityWidth, leftSideXLimit, rightSideXLimit);
         }
 
-        void handleMonsterExplosion(bool isMonsterExplosion, string explosionMonster) {
-            if(isMonsterExplosion && defaultMonsterSpawnTimersBeingUsed) {
-                defaultMonsterSpawnTimersBeingUsed = false;
-
-				int explosionMonsterType = getMonsterTypeFromString(explosionMonster);
-
-                //TODO: getMonsterTypeFromString can return -1. Letting the error happen for now so I know to fix the issue when it occurs
-				monsterSpawnDelayTimers[explosionMonsterType].delayTimeLimit = EXPLOSION_MONSTER_SPAWN_DELAY_TIME_LIMIT;
-            } else if(!isMonsterExplosion && !defaultMonsterSpawnTimersBeingUsed){
-				setDefaultMonsterSpawnDelayTimers();
-			}
-        }
-
-        int getMonsterTypeFromString(string explosionMonster) {
-            switch(explosionMonster) {
-                case "BlockMonster":
-                    return BLOCK_MONSTER;
-                case "SunMonster":
-                    return SUN_MONSTER;
-                case "BileMonster":
-                    return BILE_MONSTER;
-                case "GroundCannonMonster":
-                    return GROUND_CANNON_MONSTER;
-                case "FlyingCannonMonster":
-                    return FLYING_CANNON_MONSTER;
-                case "SpikeMonster":
-                    return SPIKE_MONSTER;
-                case "DashMonster":
-                    return DASH_MONSTER;
-                case "UndergroundMonster":
-                    return UNDERGROUND_MONSTER;
-                case "SwoopMonster":
-                    return SWOOP_MONSTER;
-                default:
-                    Console.WriteLine("INCORRECT MONSTER PASSED FOR EXPLOSION");
-                    Console.WriteLine("INCORRECT MONSTER PASSED FOR EXPLOSION");
-                    Console.WriteLine("INCORRECT MONSTER PASSED FOR EXPLOSION");
-                    return -1;
-            }
-        }
-
         /**
          * Restores default values for spawn timers for all monsters
          */
@@ -577,12 +566,44 @@ namespace TheAdventuresOf
             monsterSpawnDelayTimers.Add(FLYING_CANNON_MONSTER, new Timer(level.spawnDelayTimes[FLYING_CANNON_MONSTER]));
             monsterSpawnDelayTimers.Add(UNDERGROUND_MONSTER, new Timer(level.spawnDelayTimes[UNDERGROUND_MONSTER]));
             monsterSpawnDelayTimers.Add(SWOOP_MONSTER, new Timer(level.spawnDelayTimes[SWOOP_MONSTER]));
+        }
 
-            defaultMonsterSpawnTimersBeingUsed = true;
+        public void InitializeExplosion(int explosionMonster)
+        {
+            monsterSpawnDelayTimers[explosionMonster].delayTimeLimit = EXPLOSION_MONSTER_SPAWN_DELAY_TIME_LIMIT;
+
+            backupTierMonsterLimits(); 
+            
+            //for each monster, set the current tier scores to 0
+            for (int i = 0; i < level.tierMonsterLimits.Count; i++) {
+                level.tierMonsterLimits[i][level.currentTier] = 0;
+            }
+
+            level.tierMonsterLimits[explosionMonster][level.currentTier] = Level.EXPLOSION_KILL_LIMIT;
+        }
+
+        public void ResetExplosion() {
+            setDefaultMonsterSpawnDelayTimers();
+            restoreTierMonsterLimits();
+        }
+
+        void backupTierMonsterLimits() {
+            tierMonsterLimitsBackup = new Dictionary<int, List<int>>();
+
+            for (int i = 0; i < level.tierMonsterLimits.Values.Count; i++) {
+                tierMonsterLimitsBackup[i] = new List<int>(level.tierMonsterLimits[i]);
+            }
+        }
+
+        void restoreTierMonsterLimits() {
+            for (int i = 0; i < level.tierMonsterLimits.Values.Count; i++) {
+                level.tierMonsterLimits[i] = new List<int>(tierMonsterLimitsBackup[i]);
+            }
         }
 
         public BlockMonster GenerateBlockMonster() {
             BlockMonster blockMonster = new BlockMonster();
+            blockMonster.monsterIndex = BLOCK_MONSTER;
             blockMonster.SetBlockMonsterData(level.blockMonster);
             blockMonster.groundLevel = level.groundLevel;
             blockMonster.InitializeEntity(AssetManager.Instance.blockMonsterTexture.Width / blockMonster.frameCount,
@@ -595,6 +616,7 @@ namespace TheAdventuresOf
 
         public SunMonster GenerateSunMonster() {
             SunMonster sunMonster = new SunMonster();
+            sunMonster.monsterIndex = SUN_MONSTER;
             sunMonster.SetSunMonsterData(level.sunMonster);
             sunMonster.groundLevel = level.groundLevel - SunMonster.floatHeight;
             sunMonster.InitializeEntity(AssetManager.Instance.sunMonsterTexture.Width / sunMonster.frameCount,
@@ -607,6 +629,7 @@ namespace TheAdventuresOf
 
         public BileMonster GenerateBileMonster() {
             BileMonster bileMonster = new BileMonster();
+            bileMonster.monsterIndex = BILE_MONSTER;
             bileMonster.SetBileMonsterData(level.bileMonster);
             bileMonster.groundLevel = level.groundLevel - BileMonster.floatHeight;
             bileMonster.InitializeEntity(AssetManager.Instance.bileMonsterTexture.Width / bileMonster.frameCount,
@@ -619,6 +642,7 @@ namespace TheAdventuresOf
 
         public GroundCannonMonster GenerateGroundCannonMonster() {
             GroundCannonMonster groundCannonMonster = new GroundCannonMonster();
+            groundCannonMonster.monsterIndex = GROUND_CANNON_MONSTER;
             groundCannonMonster.SetCannonMonsterData(level.groundCannonMonster);
             groundCannonMonster.groundLevel = level.groundLevel - GroundCannonMonster.groundOffset;
             //random side of the level is chosen here. if a cannon monster already exists there, it will be handled here
@@ -636,6 +660,7 @@ namespace TheAdventuresOf
 
         public FlyingCannonMonster GenerateFlyingCannonMonster() {
             FlyingCannonMonster flyingCannonMonster = new FlyingCannonMonster();
+            flyingCannonMonster.monsterIndex = FLYING_CANNON_MONSTER;
             flyingCannonMonster.SetFlyingCannonMonsterData(level.flyingCannonMonster);
             flyingCannonMonster.groundLevel = level.groundLevel - FlyingCannonMonster.floatHeight;
             flyingCannonMonster.ChooseRandomSide(baseCannonMonsterCount, flyingCannonMonsterCount, monsters);
@@ -651,6 +676,7 @@ namespace TheAdventuresOf
 
         public SpikeMonster GenerateSpikeMonster() {
             SpikeMonster spikeMonster = new SpikeMonster();
+            spikeMonster.monsterIndex = SPIKE_MONSTER;
             spikeMonster.SetSpikeMonsterData(level.spikeMonster);
             spikeMonster.groundLevel = level.groundLevel - SpikeMonster.floatHeight;
             spikeMonster.InitializeEntity(AssetManager.Instance.spikeMonsterTexture.Width / spikeMonster.frameCount,
@@ -663,6 +689,7 @@ namespace TheAdventuresOf
 
         public DashMonster GenerateDashMonster() {
             DashMonster dashMonster = new DashMonster();
+            dashMonster.monsterIndex = DASH_MONSTER;
             dashMonster.SetDashMonsterData(level.dashMonster);
             dashMonster.groundLevel = level.groundLevel + DashMonster.groundOffset;
             dashMonster.InitializeEntity(AssetManager.Instance.dashMonsterTexture.Width / dashMonster.frameCount,
@@ -675,6 +702,7 @@ namespace TheAdventuresOf
 
         public UndergroundMonster GenerateUndergroundMonster() {
             UndergroundMonster undergroundMonster = new UndergroundMonster();
+            undergroundMonster.monsterIndex = UNDERGROUND_MONSTER;
             undergroundMonster.SetUndergroundMonsterData(level.undergroundMonster);
             undergroundMonster.groundLevel = level.groundLevel;
             undergroundMonster.InitializeEntity(PlayerManager.Instance.GetPlayerPosition().X,
@@ -690,6 +718,7 @@ namespace TheAdventuresOf
 
         public SwoopMonster GenerateSwoopMonster() {
             SwoopMonster swoopMonster = new SwoopMonster();
+            swoopMonster.monsterIndex = SWOOP_MONSTER;
             swoopMonster.SetSwoopMonsterData(level.swoopMonster);
             swoopMonster.groundLevel = level.groundLevel - SwoopMonster.floatHeight;
             swoopMonster.InitializeEntity(AssetManager.Instance.swoopMonsterTexture.Width / swoopMonster.frameCount,
@@ -752,6 +781,36 @@ namespace TheAdventuresOf
         void spawnSwoopMonster() {
             monsters.Add(GenerateSwoopMonster());
             swoopMonsterCount++;
+        }
+
+        int getMonsterTypeFromString(string explosionMonster)
+        {
+            switch (explosionMonster)
+            {
+                case "BlockMonster":
+                    return BLOCK_MONSTER;
+                case "SunMonster":
+                    return SUN_MONSTER;
+                case "BileMonster":
+                    return BILE_MONSTER;
+                case "GroundCannonMonster":
+                    return GROUND_CANNON_MONSTER;
+                case "FlyingCannonMonster":
+                    return FLYING_CANNON_MONSTER;
+                case "SpikeMonster":
+                    return SPIKE_MONSTER;
+                case "DashMonster":
+                    return DASH_MONSTER;
+                case "UndergroundMonster":
+                    return UNDERGROUND_MONSTER;
+                case "SwoopMonster":
+                    return SWOOP_MONSTER;
+                default:
+                    Console.WriteLine("INCORRECT MONSTER PASSED FOR EXPLOSION");
+                    Console.WriteLine("INCORRECT MONSTER PASSED FOR EXPLOSION");
+                    Console.WriteLine("INCORRECT MONSTER PASSED FOR EXPLOSION");
+                    return -1;
+            }
         }
     }
 }

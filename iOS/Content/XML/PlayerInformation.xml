@@ -2,7 +2,7 @@
 <Player>
 	<PlayerInformation>
 		<EntityTag>Player</EntityTag>
-		<Speed>365</Speed>
+		<Speed>375</Speed>
 		<AnimationSpeed>0.07</AnimationSpeed>
 		<FrameCount>2</FrameCount>
 		<InvincibilityTime>1.5</InvincibilityTime>

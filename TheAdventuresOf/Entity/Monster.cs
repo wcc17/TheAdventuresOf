@@ -8,8 +8,9 @@ namespace TheAdventuresOf
 	{
         public const int UP = 0;
         public const int DOWN = 1;
-		public float groundLevel;
+        public float groundLevel;
 
+		public int monsterIndex; //set by constants in monsterManager
         public int spawnType;
         public const int SPAWN_BOTTOM = 0;
         public const int SPAWN_TOP = 1;

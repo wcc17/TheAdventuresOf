@@ -301,8 +301,13 @@ namespace TheAdventuresOf
             StoreLevel.storeLevelPropItems = storeLevelPropItems;
         }
 
-		public static void LoadLevelInformation(Level level, int levelNumber) {
-            Stream levelXDocumentStream = TitleContainer.OpenStream(filePath + "XML/Level/Level" + levelNumber + "Information.xml");
+		public static void LoadLevelInformation(Level level, int levelNumber, bool isEndless) {
+            string levelFilePath = filePath + "XML/Level/Level" + levelNumber + "Information.xml";
+            if(isEndless) {
+                levelFilePath = filePath + "XML/Level/EndlessLevelInformation.xml";
+            }
+
+            Stream levelXDocumentStream = TitleContainer.OpenStream(levelFilePath);
 
             XDocument levelXDocument = XDocument.Load(levelXDocumentStream);
 			XElement levelXElement = levelXDocument.Element("Level");
@@ -317,21 +322,22 @@ namespace TheAdventuresOf
 			level.rightBoundWidth = (int)levelXElement.Element("RightBoundWidth");
 
             int i = 0;
-            XElement tierScoresElement = levelXElement.Element("TierScores");
-            foreach(XElement element in tierScoresElement.Elements())
+            XElement tierKillsElement = levelXElement.Element("TierKills");
+            foreach(XElement element in tierKillsElement.Elements())
             {
                 if(TheAdventuresOf.quickVictory) {
-                    level.tierScores.Add(i++, i);
-                    if(i == tierScoresElement.Elements().Count()-1) {
-                        level.tierScores.Add(i - 1, 500);
+                    level.tierKills.Add(i++, i);
+                    if(i == tierKillsElement.Elements().Count()-1) {
+                        level.tierKills.Add(i - 1, 1);
                     }
                 } else {
-					level.tierScores.Add(i++, (int)element);
+                    level.tierKills.Add(i++, (int)element);
                 }
             }
 
             //get max tiers depending on how many tiers are in the <TierScores> element in LevelInformation.xml
-            level.maxTier = level.tierScores.Count;
+            level.maxTier = level.tierKills.Count;
+            level.endlessTier = level.maxTier - 1; //where endless tiers will start counting up
 
             //MonsterCountTiers
             XElement monsterCountTiersElement = levelXElement.Element("MonsterCountTiers");
@@ -347,9 +353,6 @@ namespace TheAdventuresOf
             level.tierMonsterLimits.Add(MonsterManager.UNDERGROUND_MONSTER, LoadTierMonsterLimits("UndergroundMonsterLimit", tierElements));
             level.tierMonsterLimits.Add(MonsterManager.SWOOP_MONSTER, LoadTierMonsterLimits("SwoopMonsterLimit", tierElements));
             level.masterSpawnDelayTime = (float)levelXElement.Element("MasterSpawnDelayTime");
-
-            level.tierExplosionMap = LoadTierExplosionValues(tierElements);
-            level.tierExplosionMonsterMap = LoadTierExplosionMonsterValues(tierElements);
 
             //load individual spawn delay times for each monster
             XElement spawnDelayTimeElement = levelXElement.Element("SpawnDelayTime");
@@ -376,30 +379,6 @@ namespace TheAdventuresOf
             }
 
             return monsterLimits;
-        }
-
-        public static SortedDictionary<int, bool> LoadTierExplosionValues(List<XElement> tierElements) {
-            SortedDictionary<int, bool> tierExplosionMap = new SortedDictionary<int, bool>();
-
-            int index = 0;
-            foreach (XElement tierElement in tierElements) {
-                tierExplosionMap.Add(index, (bool)tierElement.Element("Explosion"));
-                index++;
-            }
-
-            return tierExplosionMap;
-        }
-
-        public static SortedDictionary<int, string> LoadTierExplosionMonsterValues(List<XElement> tierElements) {
-            SortedDictionary<int, string> tierExplosionMonsterMap = new SortedDictionary<int, string>();
-
-            int index = 0;
-            foreach (XElement tierElement in tierElements) {
-                tierExplosionMonsterMap.Add(index, (string)tierElement.Element("ExplosionMonster"));
-                index++;
-            }
-
-            return tierExplosionMonsterMap;
         }
 
         public static void LoadMonsterInformation(Level level, int currentLevelNumber) {
