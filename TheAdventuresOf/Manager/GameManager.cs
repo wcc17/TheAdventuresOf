@@ -9,7 +9,7 @@ namespace TheAdventuresOf
 {
     public class GameManager
     {
-        public static int levelNumberMin = 3;
+        public static int levelNumberMin = 5;
         public static int levelNumberLimit = 5;
 
         public const bool USE_PLAYER_SPAWN_ANIMATION = true;
@@ -56,7 +56,8 @@ namespace TheAdventuresOf
         public bool isTransitioningOut = false;
         bool isTransitionedOut = false;
         float transitionTextureAlpha = 1.0f;
-        float fadeSpeed = 1.4f;
+        float fadeInSpeed = 2.4f;
+        float fadeOutSpeed = 2.0f;
 
         public GameManager(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {
@@ -192,7 +193,7 @@ namespace TheAdventuresOf
 
             loadPlayerAccessories();
 
-            currentLevel = new PreLevel(AssetManager.Instance.preLevelTexture);
+            currentLevel = new PreLevel(AssetManager.Instance.preLevelTexture, (GameController) currentController);
             XmlManager.LoadPreLevelInformation((PreLevel)currentLevel);
         }
 
@@ -580,14 +581,15 @@ namespace TheAdventuresOf
 
         void handleLevelTransition(GameTime gameTime)
         {
-            float amountToFade = (float)(fadeSpeed * gameTime.ElapsedGameTime.TotalSeconds);
-
+            float fadeSpeed = fadeOutSpeed;
             int multiplier = 1;
             if (isTransitioningIn)
             {
+                fadeSpeed = fadeInSpeed;
                 multiplier = -1;
             }
 
+			float amountToFade = (float)(fadeSpeed * gameTime.ElapsedGameTime.TotalSeconds);
             transitionTextureAlpha += (amountToFade * multiplier);
 
             if (transitionTextureAlpha < 0 || transitionTextureAlpha > 1)

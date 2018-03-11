@@ -129,6 +129,16 @@ namespace TheAdventuresOf
             return player.isSpawning;
         }
 
+        /**
+         * Must be called every frame
+         **/
+        public void MovePlayer(GameTime gameTime) {
+            player.isMoving = true;
+            player.HandlePlayerMovement(gameTime, false, true);
+            player.HandleAnimation(gameTime);
+            player.UpdateEntityBounds();
+        }
+
         public void CheckPlayerCollisionProjectile(Projectile proj) {
             bool projectileDamagedPlayer = false;
             foreach(Accessory accessory in accessories) {
