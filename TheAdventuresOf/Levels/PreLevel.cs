@@ -13,16 +13,22 @@ namespace TheAdventuresOf
         public static float preLevelCharX;
         public static string preLevelCharText;
 
-        public bool textAdded; //to prevent text from being added more than once
+        public Timer playerMovementTimer = new Timer(3.2f);
+        public Timer beforeMovementTimer = new Timer(5.0f);
 
         Vector2 preLevelCharacterPositionVector;
 
-        public PreLevel(Texture2D levelTexture) : base(levelTexture: levelTexture) { }
+        public PreLevel(Texture2D levelTexture, GameController gameController) 
+            : base(levelTexture: levelTexture) { 
+            gameController.Lock();
+        }
 
         public override void InitializeLevel(bool usePlayerSpawnAnimation) {
             base.InitializeLevel(usePlayerSpawnAnimation);
 
             preLevelCharacterPositionVector = new Vector2(preLevelCharX, groundLevel);
+
+            TextManager.Instance.AddOrUpdateIndexedText(textX, textY, preLevelCharText, PRE_LEVEL_TEXT_INDEX);
         }
 
         public override void Draw(SpriteBatch spriteBatch) {
@@ -34,18 +40,16 @@ namespace TheAdventuresOf
         public override void Update(GameTime gameTime, GameController gameController) {
             base.Update(gameTime, gameController);
 
-            if(PlayerManager.Instance.GetPlayerPosition().X > textThreshold) {
-                if(!textAdded)
-                {
-                    textAdded = true;
-                    TextManager.Instance.AddOrUpdateIndexedText(textX, textY, preLevelCharText, PRE_LEVEL_TEXT_INDEX);
-                }
-            }
+            if(beforeMovementTimer.IsTimeUp(gameTime.ElapsedGameTime)) {
 
-            if(PlayerManager.Instance.GetPlayerPosition().X > rightBoundWidth) {
-                TextManager.Instance.RemoveText(PRE_LEVEL_TEXT_INDEX);
-                //nextLevel = true;
-                shouldTransitionOut = true;
+                handlePlayerMovement(gameTime);
+
+                if (playerMovementTimer.IsTimeUp(gameTime.ElapsedGameTime))
+                {
+                    TextManager.Instance.RemoveText(PRE_LEVEL_TEXT_INDEX);
+                    shouldTransitionOut = true;
+                    gameController.Unlock();
+                }
             }
         }
 
@@ -57,8 +61,11 @@ namespace TheAdventuresOf
             }
         }
 
-        public override void CheckPlayerCollisionWithMonster(Monster monster) { }
+        void handlePlayerMovement(GameTime gameTime) {
+            PlayerManager.Instance.MovePlayer(gameTime);
+        }
 
+        public override void CheckPlayerCollisionWithMonster(Monster monster) { }
         public override void CheckPlayerCollisionProjectile(Projectile proj) { }
     }
 }

@@ -10,6 +10,7 @@ namespace TheAdventuresOf
     {
         //used to determine first time mouse button is clicked
         private MouseState oldState;
+        private bool isLocked = false;
 
         public VibrationController vibrationController;
 
@@ -39,8 +40,10 @@ namespace TheAdventuresOf
         }
 
         public virtual void HandleInput(List<Point> points) {
-            foreach(Point point in points) {
-                HandleSingleInput(point);
+            if(!isLocked) {
+				foreach(Point point in points) {
+					HandleSingleInput(point);
+				}
             }
         }
 
@@ -79,6 +82,16 @@ namespace TheAdventuresOf
 
             return false;
 
+        }
+
+        public virtual void Lock()
+        {
+            isLocked = true;
+        }
+
+        public virtual void Unlock()
+        {
+            isLocked = false;
         }
 
         public virtual void ResetButtonPressedValues(){ }
