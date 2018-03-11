@@ -100,9 +100,11 @@ namespace TheAdventuresOf
                             }
 
                         }
-                        else if (currentLevelSelected < 1)
+                        else
                         {
                             currentLevelSelected = GameManager.levelNumberLimit;
+                            currentLevelString = "Level " + currentLevelSelected;
+                            setLevelHighscoreString();
                         }
 
                         changePreviewTexture();
@@ -124,6 +126,8 @@ namespace TheAdventuresOf
                         else
                         {
                             currentLevelSelected = GameManager.levelNumberMin;
+                            currentLevelString = "Level " + currentLevelSelected;
+                            setLevelHighscoreString();
                         }
 
                         changePreviewTexture();
