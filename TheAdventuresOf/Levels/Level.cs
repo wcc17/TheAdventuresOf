@@ -157,25 +157,27 @@ namespace TheAdventuresOf
         }
 
         void checkExplosion() {
-            int tier = currentTier;
-            if (endlessMode && (currentTier >= (maxTier - 1)))
-            {
-                tier = endlessTier;
-            }
+            if(!PlayerManager.Instance.IsPlayerDying() && !PlayerManager.Instance.IsPlayerDead()) {
+                int tier = currentTier;
+                if (endlessMode && (currentTier >= (maxTier - 1)))
+                {
+                    tier = endlessTier;
+                }
 
-            //start explosion every third tier
-            if ((tier + 1) % 3 == 0)
-            {
-                explosionKills = 0;
-                isExplosion = true;
-                explosionMonster = monsterManager.GetRandomExplosionMonster();
-				monsterManager.InitializeExplosion(explosionMonster);
+                //start explosion every third tier
+                if ((tier + 1) % 3 == 0)
+                {
+                    explosionKills = 0;
+                    isExplosion = true;
+                    explosionMonster = monsterManager.GetRandomExplosionMonster();
+                    monsterManager.InitializeExplosion(explosionMonster);
+                }
+                else
+                {
+                    isExplosion = false;
+                    explosionMonster = -1;
+                } 
             }
-            else
-            {
-                isExplosion = false;
-                explosionMonster = -1;
-            } 
         }
 
         void handleExplosion() {
