@@ -53,6 +53,21 @@ namespace TheAdventuresOf
                 storeLevelCharacterProp.positionVector.Y - textYOffset, 
                 storeLevelCharText, 
                 1); //item text is using 0 for index
+
+            //ensure items aren't already sold out
+            for (int i = 0; i < storeLevelPropItems.Count; i++) {
+                int? cost = storeLevelPropItems[i].cost;
+                if (cost == null)
+                {
+                    if (PlayerManager.Instance.HasHitSwordLevelLimit()) {
+                        storeLevelPropItems[i].isSoldOut = true;
+                    }
+
+                    handleSoldOutText();
+                    updateCostPosition(i);
+                    TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X - soldOutTextXOffset, costPositionVector.Y, SOLD_OUT, i * 200);
+                }
+            }
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -212,15 +227,19 @@ namespace TheAdventuresOf
                     if(!storeLevelPropItems[i].isSoldOut)
                     {
                         activePropItemIndex = i;
-                        updateCostAndCoinPositions((int)cost);
+                        updateCostAndCoinPositions((int)cost, activePropItemIndex);
                     }
 
                     break;
                 }
             }
 
+            handleSoldOutText();
+        }
+
+        void handleSoldOutText() {
             //go ahead and post the sold out message if applicable
-            if(activePropItemIndex > NO_ACTIVE_ITEM)
+            if (activePropItemIndex > NO_ACTIVE_ITEM)
             {
                 if (storeLevelPropItems[activePropItemIndex].isSoldOut)
                 {
@@ -235,24 +254,28 @@ namespace TheAdventuresOf
                 shouldDrawCost = false;
                 activePropItemIndex = NO_ACTIVE_ITEM;
             }
-            else if(!storeLevelPropItems[activePropItemIndex].isSoldOut)
+            else if (!storeLevelPropItems[activePropItemIndex].isSoldOut)
             {
                 TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X, costPositionVector.Y, "x" + costToDraw.ToString(), costTextIndex);
             }
         }
 
-        void updateCostAndCoinPositions(int cost)
+        void updateCostAndCoinPositions(int cost, int propIndex)
         {
             shouldDrawCost = true;
             costToDraw = cost;
 
-            costPositionVector.X = (smallBoxProps[activePropItemIndex].positionVector.X)
-                + (smallBoxProps[activePropItemIndex].bounds.Width / 2);
-            costPositionVector.Y = smallBoxProps[activePropItemIndex].positionVector.Y
-                - costYOffset;
+            updateCostPosition(propIndex);
 
             coinPositionVector.X = costPositionVector.X - coinXOffset;
             coinPositionVector.Y = costPositionVector.Y;
+        }
+
+        void updateCostPosition(int propIndex) {
+            costPositionVector.X = (smallBoxProps[propIndex].positionVector.X)
+                + (smallBoxProps[propIndex].bounds.Width / 2);
+            costPositionVector.Y = smallBoxProps[propIndex].positionVector.Y
+                - costYOffset;
         }
 
         void checkPlayerPurchase()

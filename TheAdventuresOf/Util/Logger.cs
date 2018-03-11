@@ -46,22 +46,24 @@ namespace TheAdventuresOf
 
         public void DrawToScreen(SpriteBatch spriteBatch)
         {
-            foreach (KeyValuePair<string, string> debugString in debugStrings)
-            {
-                spriteBatch.DrawString(AssetManager.Instance.font,
-                                       debugString.Key + ": " + debugString.Value,
-                                       positionVector,
-                                       Color.White,
-                                       0,
-                                       new Vector2(0, 0),
-                                       0.6f,
-                                       SpriteEffects.None,
-                                       0);
+            if(TheAdventuresOf.showDebug) {
+                foreach (KeyValuePair<string, string> debugString in debugStrings)
+                {
+                    spriteBatch.DrawString(AssetManager.Instance.font,
+                                           debugString.Key + ": " + debugString.Value,
+                                           positionVector,
+                                           Color.White,
+                                           0,
+                                           new Vector2(0, 0),
+                                           0.6f,
+                                           SpriteEffects.None,
+                                           0);
 
-                positionVector.Y -= 24;
+                    positionVector.Y -= 24;
+                }
+
+                positionVector.Y = INITIAL_Y_POS;
             }
-
-            positionVector.Y = INITIAL_Y_POS;
         }
 
         public static void WriteToConsole(String message)

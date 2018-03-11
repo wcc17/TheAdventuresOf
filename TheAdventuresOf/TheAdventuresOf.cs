@@ -10,6 +10,18 @@ namespace TheAdventuresOf
 	public class TheAdventuresOf : Game
 	{
         public static bool showMouse;
+
+        public static bool showDebug = true; //set to false to turn everything else off
+        public static bool giveCoins = true;
+        public static bool quickVictory = false;
+        public static bool lowHealth = false;
+        public static bool straightToStore = true;
+        public static bool skipPreLevel = false;
+        public static bool startWithLevel2 = false;
+        public static bool startWithLevel3 = false;
+        public static bool startWithLevel4 = false;
+        public static bool startWithLevel5 = false;
+
         GraphicsDeviceManager graphics;
         GameManager gameManager;
 
@@ -35,6 +47,7 @@ namespace TheAdventuresOf
         /// </summary>
         protected override void Initialize()
 		{
+            handleDebugFlags();
             SaveGameManager.Instance.LoadSave();
             gameManager = new GameManager(this.GraphicsDevice, Content);
             gameManager = XmlManager.LoadGameManagerInformation(gameManager);
@@ -85,6 +98,21 @@ namespace TheAdventuresOf
 
 			base.Draw(gameTime);
 		}
+
+        void handleDebugFlags() {
+            if (!showDebug)
+            {
+                giveCoins = false;
+                quickVictory = false;
+                lowHealth = false;
+                straightToStore = false;
+                skipPreLevel = false;
+                startWithLevel2 = false;
+                startWithLevel3 = false;
+                startWithLevel4 = false;
+                startWithLevel5 = false;
+            }
+        }
 	}
 }
 

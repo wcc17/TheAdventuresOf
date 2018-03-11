@@ -40,8 +40,10 @@ namespace TheAdventuresOf
         public override void Initialize() {
             base.Initialize();
 
-            //coinTotal = 20000;
-
+            if(TheAdventuresOf.giveCoins) {
+				coinTotal = 20000;
+            }
+			
             rand = new Random();
         }
 

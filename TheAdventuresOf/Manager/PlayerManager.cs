@@ -15,7 +15,7 @@ namespace TheAdventuresOf
         Player player { get; set; }
         BaseLevel level;
         List<Accessory> accessories;
-        int swordLevel = 0;
+        int swordLevel = 2;
 
         public static PlayerManager Instance {
             get {
