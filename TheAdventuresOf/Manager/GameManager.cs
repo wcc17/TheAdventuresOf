@@ -9,6 +9,8 @@ namespace TheAdventuresOf
 {
     public class GameManager
     {
+        public const string QUIT_MESSAGE_TEXT = "WARNING! If you quit all progress will be lost!";
+        public const int QUIT_MESSAGE_TEXT_INDEX = 9843;
         public static int levelNumberMin = 1;
         public static int levelNumberLimit = 5;
 
@@ -59,6 +61,8 @@ namespace TheAdventuresOf
         float fadeInSpeed = 1.9f;
         float fadeOutSpeed = 1.5f;
 
+        Vector2 quitMessagePositionVector;
+
         public GameManager(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {
             this.graphicsDevice = graphicsDevice;
@@ -88,7 +92,6 @@ namespace TheAdventuresOf
         //to be called after loading XML information
         public void Initialize() {
             basePositionVector = new Vector2(0, 0);
-            pausedTextVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH / 2 - pausedTextVectorXOffset, ScreenManager.FULL_SCREEN_HEIGHT / 2);
         }
 
         public void LoadContent() {
@@ -98,6 +101,12 @@ namespace TheAdventuresOf
             screenManager = new ScreenManager(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
 
             loadSplashScreen();
+
+            pausedTextVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH / 2 - pausedTextVectorXOffset, 
+                                           AssetManager.Instance.font.MeasureString("Paused").Y);
+            Vector2 textSize = AssetManager.Instance.font.MeasureString(QUIT_MESSAGE_TEXT);
+            quitMessagePositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH / 2 - (textSize.X / 4), 
+                                                    ScreenManager.FULL_SCREEN_HEIGHT / 2);
         }
 
         public void UpgradePlayerSword() {
@@ -412,14 +421,7 @@ namespace TheAdventuresOf
         void updateLevel(GameTime gameTime, bool isGameActive) {
             GameController gameController = (GameController)currentController;
 
-            //TODO: this currently isn't doing anything when game is no longer active. 
-            if(!isGameActive) {
-                gameController.isPaused = true;
-            }
-
-            if (gameController.pauseButtonPressed) {
-                gameController.isPaused = !gameController.isPaused;
-            }
+            handleLevelPause(isGameActive, gameController);
 
             if(!gameController.isPaused) {
                 TheAdventuresOf.showMouse = false;
@@ -441,6 +443,28 @@ namespace TheAdventuresOf
 
                 if(gameController.quitButtonPressed) {
                     handleQuitToMenu(gameTime);
+                }
+            }
+        }
+
+        void handleLevelPause(bool isGameActive, GameController gameController) {
+            //TODO: this currently isn't doing anything when game is no longer active. 
+            if (!isGameActive)
+            {
+                gameController.isPaused = true;
+            }
+
+            if (gameController.pauseButtonPressed)
+            {
+                gameController.isPaused = !gameController.isPaused;
+
+                if(gameController.isPaused) {
+                    TextManager.Instance.AddOrUpdateIndexedText(quitMessagePositionVector.X, 
+                                                                quitMessagePositionVector.Y, 
+                                                                QUIT_MESSAGE_TEXT, 
+                                                                QUIT_MESSAGE_TEXT_INDEX);
+                } else {
+                    TextManager.Instance.RemoveText(QUIT_MESSAGE_TEXT_INDEX);
                 }
             }
         }
