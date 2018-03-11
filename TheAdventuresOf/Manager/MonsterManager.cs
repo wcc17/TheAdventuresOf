@@ -396,6 +396,7 @@ namespace TheAdventuresOf
                     ((SpikeMonster)monster).delayAction = false;
                     ((SpikeMonster)monster).isAttacking = true;
                     ((SpikeMonster)monster).didDamagePlayer = true; //will force no score to be recorded for the despawned spike monster
+                    ((SpikeMonster)monster).isSpawning = false;
                 }
 
                 if(monster is BaseCannonMonster) {

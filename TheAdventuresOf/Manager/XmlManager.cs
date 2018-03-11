@@ -147,9 +147,15 @@ namespace TheAdventuresOf
             XElement healthElement = progressBarElement.Element("Health");
             XElement shieldElement = progressBarElement.Element("Shield");
 
-            HealthShieldManager.Instance.InitializeHealthManager(
-                (int)healthElement.Element("MaxValue"),
-                (string)healthElement.Element("ValueText"));
+            if(!TheAdventuresOf.lowHealth) {
+				HealthShieldManager.Instance.InitializeHealthManager(
+					(int)healthElement.Element("MaxValue"),
+					(string)healthElement.Element("ValueText"));
+            } else {
+                HealthShieldManager.Instance.InitializeHealthManager(
+                    50,
+                    (string)healthElement.Element("ValueText"));
+            }
 
             HealthShieldManager.Instance.InitializeShieldManager(
                 (int)shieldElement.Element("MaxValue"),
@@ -314,7 +320,14 @@ namespace TheAdventuresOf
             XElement tierScoresElement = levelXElement.Element("TierScores");
             foreach(XElement element in tierScoresElement.Elements())
             {
-                level.tierScores.Add(i++, (int)element);
+                if(TheAdventuresOf.quickVictory) {
+                    level.tierScores.Add(i++, i);
+                    if(i == tierScoresElement.Elements().Count()-1) {
+                        level.tierScores.Add(i - 1, 500);
+                    }
+                } else {
+					level.tierScores.Add(i++, (int)element);
+                }
             }
 
             //get max tiers depending on how many tiers are in the <TierScores> element in LevelInformation.xml

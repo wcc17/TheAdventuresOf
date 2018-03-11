@@ -66,6 +66,23 @@ namespace TheAdventuresOf
             MusicManager.Instance.InitializeMusicManager(gameState);
 
             loadScreenTimer = new Timer(loadScreenTimeLimit);
+            handleDebug();
+        }
+
+        public void handleDebug() {
+            if(TheAdventuresOf.startWithLevel2) {
+                levelNumberMin = 2;
+                currentLevelNumber = 2;
+            } else if(TheAdventuresOf.startWithLevel3) {
+                levelNumberMin = 3;
+                currentLevelNumber = 3;
+            } else if (TheAdventuresOf.startWithLevel4) {
+                levelNumberMin = 4;
+                currentLevelNumber = 4;
+            } else if (TheAdventuresOf.startWithLevel5) {
+                levelNumberMin = 5;
+                currentLevelNumber = 5;
+            }
         }
 
         //to be called after loading XML information
@@ -358,8 +375,11 @@ namespace TheAdventuresOf
 
         //called only after leaving main menu or chooselevel menu since they share so much code
         void prepareLevelState(int nextState, GameTime gameTime) {
-            //setLoadState(STORE_LEVEL_STATE, gameTime); //TODO: uncomment to go straight to storeLevel
-            setLoadState(nextState, gameTime);
+            if(TheAdventuresOf.straightToStore) {
+				setLoadState(STORE_LEVEL_STATE, gameTime);
+            } else {
+				setLoadState(nextState, gameTime);
+            }
 
             if (chooseLevelMenuAssetsLoaded) {
                 AssetManager.Instance.DisposeChooseLevelMenuAssets();
@@ -474,12 +494,17 @@ namespace TheAdventuresOf
             handleLevelTransitionOutBeforeLoad();
 
             if(currentLevel.nextLevel) {
-                setLoadState(PRE_LEVEL_STATE, gameTime);
-                currentLevelNumber++;
+                if(TheAdventuresOf.skipPreLevel) {
+                    setLoadState(LEVEL_STATE, gameTime);
+                    loadLevelAssets();
+                } else {
+					setLoadState(PRE_LEVEL_STATE, gameTime);
+					loadPreLevelAssets();
+                }
 
+                currentLevelNumber++;
                 AssetManager.Instance.DisposeStoreAssets();
-                loadPreLevelAssets();
-            }
+			}
         }
 
         void handleLevelTransitionOutBeforeLoad() {

@@ -38,7 +38,7 @@
 		</data>
 		<key>.monotouch-32/Xamarin.iOS.aotdata.armv7</key>
 		<data>
-		aq/TaM7R0xysskA85oAUP1TphhY=
+		ls6d6mHYKDLcrKvM3WiY0w1+gcE=
 		</data>
 		<key>.monotouch-32/Xamarin.iOS.armv7.aotdata</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>.monotouch-32/Xamarin.iOS.dll</key>
 		<data>
-		IMgUWO3haeEqk0aL0l0LQJ1pLeI=
+		dVjzbgLvTJM6I7N/48Q/kVrtrwA=
 		</data>
 		<key>.monotouch-32/mscorlib.armv7.aotdata</key>
 		<data>
@@ -122,7 +122,7 @@
 		</data>
 		<key>.monotouch-64/Xamarin.iOS.aotdata.arm64</key>
 		<data>
-		mgYBOzGD35BO2ghBDj9s+MtIX34=
+		WLNtpPWPfikHRbY3JhDmZdCYdM8=
 		</data>
 		<key>.monotouch-64/Xamarin.iOS.arm64.aotdata</key>
 		<data>
@@ -130,7 +130,7 @@
 		</data>
 		<key>.monotouch-64/Xamarin.iOS.dll</key>
 		<data>
-		njyoYQuV5W5ejNpCRq6i97iRN3I=
+		qO9zO/84Bq1NA0wPZUl8Df1qyXw=
 		</data>
 		<key>.monotouch-64/mscorlib.arm64.aotdata</key>
 		<data>
@@ -300,6 +300,14 @@
 		<data>
 		89ZGIWb2VZQ4K5VcZXfWh34gz0Q=
 		</data>
+		<key>Content/Level/level2_music.m4a</key>
+		<data>
+		hPsO2//z6i5tmWBtQZN4CEZzFZE=
+		</data>
+		<key>Content/Level/level2_music.xnb</key>
+		<data>
+		d7Zh8h9tK1R+qkaw+MqnF1URVEw=
+		</data>
 		<key>Content/Level/level2background_1080p.png</key>
 		<data>
 		C0OR12S/MDGh7c/MAqT1uTK9yD0=
@@ -315,6 +323,14 @@
 		<key>Content/Level/level3background_1080p.png</key>
 		<data>
 		Bcc5tfJFWpebAiXMDWflPHL6XyY=
+		</data>
+		<key>Content/Level/level4_music.m4a</key>
+		<data>
+		hPsO2//z6i5tmWBtQZN4CEZzFZE=
+		</data>
+		<key>Content/Level/level4_music.xnb</key>
+		<data>
+		nwy71Ai/6rNHTZhDW75TUkDt7Z4=
 		</data>
 		<key>Content/Level/level4background_1080p.png</key>
 		<data>
@@ -746,23 +762,23 @@
 		</data>
 		<key>Content/XML/Level/Level1Information.xml</key>
 		<data>
-		/Rhq0DwDqfk+aEA7GHx+uzHp+VM=
+		+P1n7psTMPFQ7gNLDaJ7WbGV4JQ=
 		</data>
 		<key>Content/XML/Level/Level2Information.xml</key>
 		<data>
-		r+vBJWeLCy66wOFG02xlJqw5F1s=
+		a5uwuGDJGz28ma6znq+DCdgz8NE=
 		</data>
 		<key>Content/XML/Level/Level3Information.xml</key>
 		<data>
-		4S7LgZRVcePGp7Dtqn9zRu6O59Q=
+		cPbegyYOkCYFivzQCDGzijZLOFs=
 		</data>
 		<key>Content/XML/Level/Level4Information.xml</key>
 		<data>
-		2T7H6GWn0wLR4u2cbGymXlSM/wg=
+		oalHKwn937lhgqC7tSt4hIdRejM=
 		</data>
 		<key>Content/XML/Level/Level5Information.xml</key>
 		<data>
-		9pkt72HSF1Qveaa16hoMnpqYqdQ=
+		SbEbVgHSB1FHtNxjBGESf3rsT+k=
 		</data>
 		<key>Content/XML/LevelInformation.xml</key>
 		<data>
@@ -778,7 +794,7 @@
 		</data>
 		<key>Content/XML/SpecialLevelInformation.xml</key>
 		<data>
-		2F/Bc+Tl/vA3LKnzPnOW6QJlZUE=
+		MUDXW+gVdY5qiiWL9r016J/+OTo=
 		</data>
 		<key>Content/arial.xnb</key>
 		<data>
@@ -874,11 +890,11 @@
 		</data>
 		<key>MonoGame.Framework.aotdata.arm64</key>
 		<data>
-		OPY+jquP+wvuL4Ol+FQ0sSaftFo=
+		Y1lQ6DldmAKqQU5ZTyDG+wOfHsY=
 		</data>
 		<key>MonoGame.Framework.aotdata.armv7</key>
 		<data>
-		1xLwEs/qNa09lEhdA3RzSxH8tuo=
+		V6bquVI15cXh8a2fZ8oAPCOnCJg=
 		</data>
 		<key>MonoGame.Framework.dll</key>
 		<data>
@@ -890,11 +906,11 @@
 		</data>
 		<key>OpenTK-1.0.aotdata.arm64</key>
 		<data>
-		R2PvYdwzNdgq7rqwk5CNghwFuFk=
+		5n9BTqDszFcna0/i0bBHZINyQHQ=
 		</data>
 		<key>OpenTK-1.0.aotdata.armv7</key>
 		<data>
-		02kmIDZilxDlIi7byL6VhjOkZ2s=
+		EGMBuvH2uTXaEjVWWBoas+KCNJ4=
 		</data>
 		<key>OpenTK-1.0.dll</key>
 		<data>
@@ -970,15 +986,15 @@
 		</data>
 		<key>TheAdventuresOf.iOS.aotdata.arm64</key>
 		<data>
-		3y8j9akhvgjgvlTu0v7QLg4dW0c=
+		JX8sDW+dB2ieb1Aaya1kPVl80T0=
 		</data>
 		<key>TheAdventuresOf.iOS.aotdata.armv7</key>
 		<data>
-		Rf1MMRmEW6DLTb8NGlWP/vCSPoc=
+		AzWBXkrnIrKtnOFNdn7XWAHbmzc=
 		</data>
 		<key>TheAdventuresOf.iOS.exe</key>
 		<data>
-		yze+GDjbp4p9pMxswbVwvud+qwo=
+		yKE603rmuxUqH2pB/9MUdgYUSzQ=
 		</data>
 		<key>archived-expanded-entitlements.xcent</key>
 		<data>
@@ -1140,11 +1156,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			aq/TaM7R0xysskA85oAUP1TphhY=
+			ls6d6mHYKDLcrKvM3WiY0w1+gcE=
 			</data>
 			<key>hash2</key>
 			<data>
-			be38IfYjJm3YVyPWgA4y5tNNZ+1lizzWP7n6F4ljUFM=
+			icTS5Q9eS3XZEa8oqQMIwTJ7uyjKDZCBeSaSBwdToxs=
 			</data>
 		</dict>
 		<key>.monotouch-32/Xamarin.iOS.armv7.aotdata</key>
@@ -1162,11 +1178,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			IMgUWO3haeEqk0aL0l0LQJ1pLeI=
+			dVjzbgLvTJM6I7N/48Q/kVrtrwA=
 			</data>
 			<key>hash2</key>
 			<data>
-			A4K8UGrMKPKtHHb3jexzyPeg1mg3NytQ3uPwMnK62Xk=
+			3RujmKqwUnRzqgN/fWXNspZe524Hd/hqXNUXG9yhoKQ=
 			</data>
 		</dict>
 		<key>.monotouch-32/mscorlib.armv7.aotdata</key>
@@ -1376,11 +1392,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mgYBOzGD35BO2ghBDj9s+MtIX34=
+			WLNtpPWPfikHRbY3JhDmZdCYdM8=
 			</data>
 			<key>hash2</key>
 			<data>
-			QeZmv/CnIDr1hUovkVEmyg7DL2HjztgGYo4UO72KNDA=
+			b2K4gHv61Az1DDGzqazVSbGbYxberTnYPxgqNENgzII=
 			</data>
 		</dict>
 		<key>.monotouch-64/Xamarin.iOS.arm64.aotdata</key>
@@ -1398,11 +1414,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			njyoYQuV5W5ejNpCRq6i97iRN3I=
+			qO9zO/84Bq1NA0wPZUl8Df1qyXw=
 			</data>
 			<key>hash2</key>
 			<data>
-			It68r0R36Mncbjax6kEyqx4HmozzZniidIx/9muVLX8=
+			feBwS4l6prWX0lDUIbJnBZSpCLK4DbbpkiKsOHfteXo=
 			</data>
 		</dict>
 		<key>.monotouch-64/mscorlib.arm64.aotdata</key>
@@ -1867,6 +1883,28 @@
 			+lGle1iOGBMOjTBTuhLZsmYgU16MA7FfLojMH+FtKXM=
 			</data>
 		</dict>
+		<key>Content/Level/level2_music.m4a</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			hPsO2//z6i5tmWBtQZN4CEZzFZE=
+			</data>
+			<key>hash2</key>
+			<data>
+			Bn767cPhPWMCNtNMHr3b6iXUVWFdsspyDDIwuf2eZos=
+			</data>
+		</dict>
+		<key>Content/Level/level2_music.xnb</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			d7Zh8h9tK1R+qkaw+MqnF1URVEw=
+			</data>
+			<key>hash2</key>
+			<data>
+			cCGyCi3VdVnw33/68WEG1Fq2bUXJ+WPONG7p8zARdkg=
+			</data>
+		</dict>
 		<key>Content/Level/level2background_1080p.png</key>
 		<dict>
 			<key>hash</key>
@@ -1909,6 +1947,28 @@
 			<key>hash2</key>
 			<data>
 			fCtCL0wLzGrLGD7HoKKZvo9Ou5RiCCS0ZjBQSM66YSI=
+			</data>
+		</dict>
+		<key>Content/Level/level4_music.m4a</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			hPsO2//z6i5tmWBtQZN4CEZzFZE=
+			</data>
+			<key>hash2</key>
+			<data>
+			Bn767cPhPWMCNtNMHr3b6iXUVWFdsspyDDIwuf2eZos=
+			</data>
+		</dict>
+		<key>Content/Level/level4_music.xnb</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			nwy71Ai/6rNHTZhDW75TUkDt7Z4=
+			</data>
+			<key>hash2</key>
+			<data>
+			c/cRi0pbUi0jCP4vmsWmndvHMv9j4sZl3Ypoyero4+w=
 			</data>
 		</dict>
 		<key>Content/Level/level4background_1080p.png</key>
@@ -3092,55 +3152,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/Rhq0DwDqfk+aEA7GHx+uzHp+VM=
+			+P1n7psTMPFQ7gNLDaJ7WbGV4JQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			3UZSqkTRapzEG1lF4W10a8aT4Un4dcnzg/cpRtbL1/M=
+			OAy5XaWgDKI8zvkvGqN6pTz+fGMIrJVb091TxQmoVhU=
 			</data>
 		</dict>
 		<key>Content/XML/Level/Level2Information.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			r+vBJWeLCy66wOFG02xlJqw5F1s=
+			a5uwuGDJGz28ma6znq+DCdgz8NE=
 			</data>
 			<key>hash2</key>
 			<data>
-			qW2KfoZT3gx1g/aR1eo0JalUyvlUXvXf0LWH9oKb5B8=
+			5fXSSbnukfnoOsombAdNhrv6TbW9d1BCt2Mr27GEk8s=
 			</data>
 		</dict>
 		<key>Content/XML/Level/Level3Information.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4S7LgZRVcePGp7Dtqn9zRu6O59Q=
+			cPbegyYOkCYFivzQCDGzijZLOFs=
 			</data>
 			<key>hash2</key>
 			<data>
-			DtnqLvWUAm5B32L1ZB/6KBzi50tI1A68cDXGQb79f2g=
+			snHW2Qkgoud0JaNy9UHAPsfBvdtVMIi+fwJGKSQHaR4=
 			</data>
 		</dict>
 		<key>Content/XML/Level/Level4Information.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2T7H6GWn0wLR4u2cbGymXlSM/wg=
+			oalHKwn937lhgqC7tSt4hIdRejM=
 			</data>
 			<key>hash2</key>
 			<data>
-			qAAaVphlc5FIW3hFlpSN5V7rXNudq2lIc2ZJJkpiZug=
+			JvkE/cXvju47Ih9nR/gBi80b4RwDeS1UHyVhzFPwG1Q=
 			</data>
 		</dict>
 		<key>Content/XML/Level/Level5Information.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9pkt72HSF1Qveaa16hoMnpqYqdQ=
+			SbEbVgHSB1FHtNxjBGESf3rsT+k=
 			</data>
 			<key>hash2</key>
 			<data>
-			0Z8Zv5dh4XRSzHhxrMBxT4p6/EmDugeP2Ia2ph4kAOc=
+			xpFYQlMFQLFHlUd6lG/9UmaDuH5uj/9WyBPqWhfCeV0=
 			</data>
 		</dict>
 		<key>Content/XML/LevelInformation.xml</key>
@@ -3180,11 +3240,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2F/Bc+Tl/vA3LKnzPnOW6QJlZUE=
+			MUDXW+gVdY5qiiWL9r016J/+OTo=
 			</data>
 			<key>hash2</key>
 			<data>
-			7fnavFHbffSJfranpdkfuJC0eENRbMI4J4ItBy7QlIg=
+			Feq0UXcqnxGCj65CbvDqSvfpb4uty1gDXK6P9sMhYkM=
 			</data>
 		</dict>
 		<key>Content/arial.xnb</key>
@@ -3433,22 +3493,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OPY+jquP+wvuL4Ol+FQ0sSaftFo=
+			Y1lQ6DldmAKqQU5ZTyDG+wOfHsY=
 			</data>
 			<key>hash2</key>
 			<data>
-			4xWw7GzUqrDWPHUAM3OYNnxf72I8lrknKLaQdSdKNZU=
+			QLNRSx4yX3LhOaa8lb6YYMwF7yVBMVURtpzaiN2Pkb8=
 			</data>
 		</dict>
 		<key>MonoGame.Framework.aotdata.armv7</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1xLwEs/qNa09lEhdA3RzSxH8tuo=
+			V6bquVI15cXh8a2fZ8oAPCOnCJg=
 			</data>
 			<key>hash2</key>
 			<data>
-			J7LzObOQSMZuvzcjdkPx/FrU+xP5H2i6OzC8KAeiAA0=
+			wM7GS4Lk7QaGgP6OoO4Fo5CEEbTrI0t8WGvL8WWL0EM=
 			</data>
 		</dict>
 		<key>MonoGame.Framework.dll</key>
@@ -3477,22 +3537,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			R2PvYdwzNdgq7rqwk5CNghwFuFk=
+			5n9BTqDszFcna0/i0bBHZINyQHQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			3wphPzzIp9w6ZOOacydM6H8sWXwNtpu2ZYE5shm3U1I=
+			Tx30D4f5VbVoguyEt6PzxqD9m98EywX5PBuSHa3QSVo=
 			</data>
 		</dict>
 		<key>OpenTK-1.0.aotdata.armv7</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			02kmIDZilxDlIi7byL6VhjOkZ2s=
+			EGMBuvH2uTXaEjVWWBoas+KCNJ4=
 			</data>
 			<key>hash2</key>
 			<data>
-			f5Pyz9kupvijNuYfCuNB/4QHWrEBicl+FtS1VEUzLP4=
+			OaHq/dPhjb6XY+h7SVzT3ssCbOcmrSRZDq00Pi7zfO4=
 			</data>
 		</dict>
 		<key>OpenTK-1.0.dll</key>
@@ -3686,33 +3746,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3y8j9akhvgjgvlTu0v7QLg4dW0c=
+			JX8sDW+dB2ieb1Aaya1kPVl80T0=
 			</data>
 			<key>hash2</key>
 			<data>
-			1q3AJ+M90K35STFj239zNndgbGxL1ogdF4XeZMKOHLo=
+			oei4SN4n6X8qb2vUSzmQoLzUWxnF/QSVfpOtlhxeYLk=
 			</data>
 		</dict>
 		<key>TheAdventuresOf.iOS.aotdata.armv7</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Rf1MMRmEW6DLTb8NGlWP/vCSPoc=
+			AzWBXkrnIrKtnOFNdn7XWAHbmzc=
 			</data>
 			<key>hash2</key>
 			<data>
-			yKT9dYrL+duH0EqqN7tsgvp4zK0HsNY6uVf4T535NOQ=
+			SHu3pQFb8XT7lB/r+nJO5BOJ+FVd1BJFufdFO50Tp00=
 			</data>
 		</dict>
 		<key>TheAdventuresOf.iOS.exe</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yze+GDjbp4p9pMxswbVwvud+qwo=
+			yKE603rmuxUqH2pB/9MUdgYUSzQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			lDfVmu66SSD3DflKVfQ1Ipvyyz4i4h3Iukl9wzJxU60=
+			BtvbwtHyS22mysrN3QqmcpCZFQEnMwc74pSoVFV5EGI=
 			</data>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
