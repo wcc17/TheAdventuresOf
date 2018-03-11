@@ -56,8 +56,8 @@ namespace TheAdventuresOf
         public bool isTransitioningOut = false;
         bool isTransitionedOut = false;
         float transitionTextureAlpha = 1.0f;
-        float fadeInSpeed = 2.4f;
-        float fadeOutSpeed = 2.0f;
+        float fadeInSpeed = 1.9f;
+        float fadeOutSpeed = 1.5f;
 
         public GameManager(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {

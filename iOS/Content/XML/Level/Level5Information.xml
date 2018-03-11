@@ -82,15 +82,15 @@
     </Tier2>
     <Tier3>
       <!--39--> <!-- explosion of undergound monster-->
-      <BlockMonsterLimit>       2</BlockMonsterLimit>
-      <SunMonsterLimit>         2</SunMonsterLimit>
-      <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
+      <BlockMonsterLimit>       0</BlockMonsterLimit>
+      <SunMonsterLimit>         0</SunMonsterLimit>
+      <GroundCannonMonsterLimit>0</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
-      <BileMonsterLimit>        2</BileMonsterLimit>
-      <SpikeMonsterLimit>       1</SpikeMonsterLimit>
-      <DashMonsterLimit>        1</DashMonsterLimit>
-      <UndergroundMonsterLimit> 25</UndergroundMonsterLimit>
-      <SwoopMonsterLimit>       1</SwoopMonsterLimit>
+      <BileMonsterLimit>        0</BileMonsterLimit>
+      <SpikeMonsterLimit>       0</SpikeMonsterLimit>
+      <DashMonsterLimit>        0</DashMonsterLimit>
+      <UndergroundMonsterLimit> 35</UndergroundMonsterLimit>
+      <SwoopMonsterLimit>       0</SwoopMonsterLimit>
       <Explosion>             True</Explosion>
       <ExplosionMonster>UndergroundMonster</ExplosionMonster>
     </Tier3>
@@ -166,15 +166,15 @@
     </Tier8>
     <Tier9>
       <!--49--> <!-- explosion of swoop monster-->
-      <BlockMonsterLimit>       2</BlockMonsterLimit>
-      <SunMonsterLimit>         2</SunMonsterLimit>
-      <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
-      <FlyingCannonMonsterLimit>1</FlyingCannonMonsterLimit>
-      <BileMonsterLimit>        2</BileMonsterLimit>
-      <SpikeMonsterLimit>       1</SpikeMonsterLimit>
-      <DashMonsterLimit>        2</DashMonsterLimit>
-      <UndergroundMonsterLimit> 2</UndergroundMonsterLimit>
-      <SwoopMonsterLimit>       25</SwoopMonsterLimit>
+      <BlockMonsterLimit>       0</BlockMonsterLimit>
+      <SunMonsterLimit>         0</SunMonsterLimit>
+      <GroundCannonMonsterLimit>0</GroundCannonMonsterLimit>
+      <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
+      <BileMonsterLimit>        0</BileMonsterLimit>
+      <SpikeMonsterLimit>       0</SpikeMonsterLimit>
+      <DashMonsterLimit>        0</DashMonsterLimit>
+      <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
+      <SwoopMonsterLimit>       30</SwoopMonsterLimit>
       <Explosion>            True</Explosion>
       <ExplosionMonster>SwoopMonster</ExplosionMonster>
     </Tier9>

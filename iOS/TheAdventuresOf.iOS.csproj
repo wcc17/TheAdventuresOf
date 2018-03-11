@@ -103,6 +103,7 @@
     <None Include="Content\Menu\mainmenu_music.mp3" />
     <None Include="Content\Level\level5_music.mp3" />
     <None Include="Content\Level\level3_music.mp3" />
+    <None Include="Content\XML\Level\EndlessLevelInformation.xml" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Content\Level\level1background_1080p.png" />
