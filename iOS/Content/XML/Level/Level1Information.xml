@@ -164,12 +164,12 @@
       <ExplosionMonster>     None</ExplosionMonster>
     </Tier8>
     <Tier9>
-      <!--38--> <!-- explosion of bile monster-->
+      <!--38--> <!-- explosion of sun monster-->
       <BlockMonsterLimit>       0</BlockMonsterLimit>
-      <SunMonsterLimit>         0</SunMonsterLimit>
+      <SunMonsterLimit>         35</SunMonsterLimit>
       <GroundCannonMonsterLimit>0</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
-      <BileMonsterLimit>        35</BileMonsterLimit>
+      <BileMonsterLimit>        0</BileMonsterLimit>
       <SpikeMonsterLimit>       0</SpikeMonsterLimit>
       <DashMonsterLimit>        0</DashMonsterLimit>
       <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
