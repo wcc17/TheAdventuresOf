@@ -44,6 +44,7 @@ namespace TheAdventuresOf
 
         TimeSpan spawnTimer = TimeSpan.FromSeconds(0);
         bool canSpawn = false;
+        public bool monstersDespawned = false;
 
         public MonsterManager(Level level)
         {
@@ -121,11 +122,9 @@ namespace TheAdventuresOf
             //handleMasterSpawnDelay(gameTime);
             handleMonsterAvailability(gameTime);
 
-            //if (canSpawn)
-            //{
+            if (!monstersDespawned) {
                 spawnMonsters();
-                //canSpawn = false;
-            //}
+            }
         }
 
         void spawnMonsters() {
@@ -388,11 +387,19 @@ namespace TheAdventuresOf
         }
 
         public void DespawnMonsters() {
+            monstersDespawned = true;
+
             foreach(Monster monster in monsters) {
                 monster.isDying = true;
 
                 if(monster is SpikeMonster) {
                     ((SpikeMonster)monster).delayAction = false;
+                    ((SpikeMonster)monster).isAttacking = true;
+                    ((SpikeMonster)monster).didDamagePlayer = true; //will force no score to be recorded for the despawned spike monster
+                }
+
+                if(monster is BaseCannonMonster) {
+                    ((BaseCannonMonster)monster).bullet.hasCollidedWithPlayer = true;
                 }
             }
         }
@@ -400,6 +407,10 @@ namespace TheAdventuresOf
         public void ResetMonsters() {
             monstersToRemove.Clear();
             monsters.Clear();
+        }
+
+        public bool monstersEmpty() {
+            return (monsters.Count < 1);
         }
 
         //TODO: all spawn*Monster methods should be moved to a MonsterSpawner class.

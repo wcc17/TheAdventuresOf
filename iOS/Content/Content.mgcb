@@ -49,3 +49,15 @@
 /processorParam:Quality=Best
 /build:Level/level3_music.mp3
 
+#begin Level/level2_music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Level/level2_music.mp3
+
+#begin Level/level4_music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Level/level4_music.mp3
+

@@ -15,7 +15,7 @@ namespace TheAdventuresOf
         public TimeSpan attackTimeDelayed = TimeSpan.FromSeconds(0);
         //when attackTimeDelayed passes attackDelayTime, this will be true and monster will drop
         //differentiation from attackState to be clear about each one means. isAttacking is attacking, isAttackState is for animation
-        bool isAttacking = false; 
+        public bool isAttacking = false; 
 
         Animation attackAnimation;
         Animation movingAnimation;

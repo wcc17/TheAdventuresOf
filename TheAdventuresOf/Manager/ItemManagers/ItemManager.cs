@@ -84,7 +84,7 @@ namespace TheAdventuresOf
             this.groundLevel = newGroundLevel;
         }
 
-        public void RemoveAllItems()
+        public virtual void RemoveAllItems()
         {
             itemsToRemove.Clear();
             items.Clear();

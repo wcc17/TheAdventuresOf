@@ -27,13 +27,13 @@
   <TierScores>
     <Tier1>  8000</Tier1>
     <Tier2> 13000</Tier2>
-    <Tier3> 22000</Tier3> <!-- explosion in this tier -->
+    <Tier3> 22000</Tier3> 
     <Tier4> 25000</Tier4>
     <Tier5> 30000</Tier5>
     <Tier6> 40000</Tier6> 
     <Tier7> 46000</Tier7>
     <Tier8> 52000</Tier8>
-    <Tier9> 62000</Tier9> <!-- explosion in this tier -->
+    <Tier9> 62000</Tier9> 
     <Tier10>74000</Tier10>
   </TierScores>
 

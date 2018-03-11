@@ -36,7 +36,7 @@ namespace TheAdventuresOf
         public bool endlessMode;
 
         bool storyMode;
-        ScoreStatOverlay scoreStatOverlay;
+        public ScoreStatOverlay scoreStatOverlay;
         bool showScoreStatOverlay;
         Vector2 gameOverTextPositionVector;
         Timer gameOverDelayTimer = new Timer(gameOverDelayTimeLimit);
@@ -75,6 +75,9 @@ namespace TheAdventuresOf
             if(!showScoreStatOverlay) {
                 updateLevel(gameTime, gameController);
             } else {
+                if(!monsterManager.monstersEmpty()) {
+					monsterManager.Update(gameTime, tierExplosionMap[currentTier], tierExplosionMonsterMap[currentTier]); //need to update monsters still since we're not calling UpdateLevel
+                }
                 updateScoreStatOverlay(gameTime, gameController);
             }
 		}
@@ -146,14 +149,18 @@ namespace TheAdventuresOf
             //Draw level
             spriteBatch.Draw(levelTexture, levelPositionVector);
 
-			//Draw monsters
-			monsterManager.DrawMonsters(spriteBatch);
 
             if(!showScoreStatOverlay) {
+				//Draw monsters
+				monsterManager.DrawMonsters(spriteBatch);
                 
                 //Draw player
                 PlayerManager.Instance.Draw(spriteBatch);
             } else {
+                if(!monsterManager.monstersEmpty()) {
+                    monsterManager.DrawMonsters(spriteBatch);
+                }
+
                 scoreStatOverlay.Draw(spriteBatch);
             }
 
@@ -261,6 +268,7 @@ namespace TheAdventuresOf
             monsterManager.DespawnMonsters();
             scoreStatOverlay = new ScoreStatOverlay(monsterManager);
             showScoreStatOverlay = true;
+			HeartManager.Instance.RemoveAllItems();
             CoinManager.Instance.RemoveAllItems();
             TextManager.Instance.RemoveAllText();
         }
