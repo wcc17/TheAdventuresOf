@@ -252,7 +252,7 @@ namespace TheAdventuresOf
             showScoreStatOverlay = false;
             ScoringManager.Instance.ClearScores();
             monsterManager.ResetMonsters();
-            nextLevel = true;
+            shouldTransitionOut = true;
         }
 
         void initiateScoreStatOverlay() {

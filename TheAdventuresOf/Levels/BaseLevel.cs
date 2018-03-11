@@ -19,6 +19,7 @@ namespace TheAdventuresOf
         public int rightBoundWidth;
         public float groundLevel;
         public float playerStartX;
+        public bool shouldTransitionOut;
 		public bool nextLevel;
 
         public Timer delayPlayerMovementTimer;
@@ -104,6 +105,10 @@ namespace TheAdventuresOf
             {
                 isDelayingMovement = false;
             }
+        }
+
+        public virtual void prepareNextLevel() {
+            shouldTransitionOut = true;
         }
 
         public virtual void ResetUponReturnToMenu()

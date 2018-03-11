@@ -90,7 +90,8 @@ namespace TheAdventuresOf
             if (PlayerManager.Instance.GetPlayerPosition().X > rightBoundWidth)
             {
                 TextManager.Instance.RemoveAllText();
-                nextLevel = true;
+                //nextLevel = true;
+                shouldTransitionOut = true;
             }
         }
 
