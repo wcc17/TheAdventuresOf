@@ -9,7 +9,7 @@ namespace TheAdventuresOf
 {
     public class GameManager
     {
-        public static int levelNumberMin = 5;
+        public static int levelNumberMin = 3;
         public static int levelNumberLimit = 5;
 
         public const bool USE_PLAYER_SPAWN_ANIMATION = true;
@@ -194,7 +194,7 @@ namespace TheAdventuresOf
             loadPlayerAccessories();
 
             currentLevel = new PreLevel(AssetManager.Instance.preLevelTexture, (GameController) currentController);
-            XmlManager.LoadPreLevelInformation((PreLevel)currentLevel);
+            XmlManager.LoadPreLevelInformation((PreLevel)currentLevel, currentLevelNumber);
         }
 
         void loadStoreLevelAssets() {

@@ -15,7 +15,13 @@
 		<LeftBoundWidth>0</LeftBoundWidth>
 		<RightBoundWidth>1920</RightBoundWidth>
 		<PreLevelCharX>1560</PreLevelCharX>
-		<PreLevelCharText>Can I have your sword when you die?</PreLevelCharText>
+		<PreLevelCharText>
+            <Level1>Can I have your sword when you die?</Level1>
+            <Level2>Can I have your sword when you die?</Level2>
+            <Level3>I am really spaced out right now..</Level3>
+            <Level4>Can I have your sword when you die?</Level4>
+            <Level5>Can I have your sword when you die?</Level5>
+        </PreLevelCharText>
 		<TextX>1100</TextX>
 		<TextY>500</TextY>
 		<TextThreshold>400</TextThreshold>

@@ -25,7 +25,7 @@
 
   <!-- NOTE: the last tier is effectively the "max score" that will end a level-->
   <TierScores>
-    <Tier1>  10000</Tier1>
+    <Tier1> 10000</Tier1>
     <Tier2> 15000</Tier2>
     <Tier3> 24000</Tier3> <!-- explosion in this tier -->
     <Tier4> 27000</Tier4>
@@ -82,13 +82,13 @@
     </Tier2>
     <Tier3>
       <!--38--> <!-- explosion of dash monster-->
-      <BlockMonsterLimit>       7</BlockMonsterLimit>
-      <SunMonsterLimit>         6</SunMonsterLimit>
+      <BlockMonsterLimit>       2</BlockMonsterLimit>
+      <SunMonsterLimit>         2</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        2</BileMonsterLimit>
       <SpikeMonsterLimit>       1</SpikeMonsterLimit>
-      <DashMonsterLimit>        20</DashMonsterLimit>
+      <DashMonsterLimit>        25</DashMonsterLimit>
       <UndergroundMonsterLimit> 1</UndergroundMonsterLimit>
       <SwoopMonsterLimit>       0</SwoopMonsterLimit>
       <Explosion>             True</Explosion>
@@ -166,14 +166,14 @@
     </Tier8>
     <Tier9>
       <!--45--> <!-- explosion of underground monster-->
-      <BlockMonsterLimit>       7</BlockMonsterLimit>
-      <SunMonsterLimit>         6</SunMonsterLimit>
+      <BlockMonsterLimit>       2</BlockMonsterLimit>
+      <SunMonsterLimit>         2</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
-      <BileMonsterLimit>        5</BileMonsterLimit>
+      <BileMonsterLimit>        2</BileMonsterLimit>
       <SpikeMonsterLimit>       1</SpikeMonsterLimit>
       <DashMonsterLimit>        2</DashMonsterLimit>
-      <UndergroundMonsterLimit> 20</UndergroundMonsterLimit>
+      <UndergroundMonsterLimit> 25</UndergroundMonsterLimit>
       <SwoopMonsterLimit>       2</SwoopMonsterLimit>
       <Explosion>            True</Explosion>
       <ExplosionMonster>UndergroundMonster</ExplosionMonster>
