@@ -45,6 +45,7 @@ namespace TheAdventuresOf
         int shakeState = 0; //shake up, down, left, or right
         bool isShaking = false;
         Timer shakeTimer;
+        bool hasAlreadyShaken = false;
 
         public Level(Texture2D levelTexture, int levelNumber, bool storyMode, bool endlessMode) : base(levelTexture: levelTexture) {
             this.levelNumber = levelNumber;
@@ -92,8 +93,12 @@ namespace TheAdventuresOf
             HealthShieldManager.Instance.Update();
 
             monsterManager.Update(gameTime, tierExplosionMap[currentTier], tierExplosionMonsterMap[currentTier]);
-            if(tierExplosionMap[currentTier] && !isShaking) {
+            if(tierExplosionMap[currentTier] && !isShaking && !hasAlreadyShaken) {
                 isShaking = true;
+                hasAlreadyShaken = true;
+                shakeTimer.Reset();
+            } else if(!tierExplosionMap[currentTier]) {
+                hasAlreadyShaken = false;
             }
 
 			handleLevelShake(gameTime);
@@ -184,7 +189,6 @@ namespace TheAdventuresOf
             if(isShaking) {
                 if(shakeTimer.IsTimeUp(gameTime.ElapsedGameTime)) {
                     isShaking = false;
-                    shakeTimer.Reset();
                 } else {
 					handleShake(gameTime);
                 }
