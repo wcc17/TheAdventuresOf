@@ -89,10 +89,5 @@ namespace TheAdventuresOf
         public void HandleMediaStateChange(object sender, EventArgs e) {
             Logger.WriteToConsole("Media State Changed");
         }
-
-        public void PlayGameOverSoundEffect() {
-            MediaPlayer.Stop();
-            AssetManager.Instance.gameOverSoundEffect.Play();
-        }
     }
 }
