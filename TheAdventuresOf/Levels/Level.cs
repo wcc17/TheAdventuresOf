@@ -146,9 +146,10 @@ namespace TheAdventuresOf
             //Draw level
             spriteBatch.Draw(levelTexture, levelPositionVector);
 
+			//Draw monsters
+			monsterManager.DrawMonsters(spriteBatch);
+
             if(!showScoreStatOverlay) {
-                //Draw monsters
-                monsterManager.DrawMonsters(spriteBatch);
                 
                 //Draw player
                 PlayerManager.Instance.Draw(spriteBatch);
@@ -176,6 +177,7 @@ namespace TheAdventuresOf
             if(isShaking) {
                 if(shakeTimer.IsTimeUp(gameTime.ElapsedGameTime)) {
                     isShaking = false;
+                    shakeTimer.Reset();
                 } else {
 					handleShake(gameTime);
                 }
@@ -256,6 +258,7 @@ namespace TheAdventuresOf
         }
 
         void initiateScoreStatOverlay() {
+            monsterManager.DespawnMonsters();
             scoreStatOverlay = new ScoreStatOverlay(monsterManager);
             showScoreStatOverlay = true;
             CoinManager.Instance.RemoveAllItems();

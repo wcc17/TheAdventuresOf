@@ -439,7 +439,6 @@ namespace TheAdventuresOf
         }
 
         public void LoadLevelMusicAssets(GraphicsDevice graphicsDevice, ContentManager contentManager, int levelNumber) {
-            
             levelSong = contentManager.Load<Song>("Level/level" + levelNumber + "_music");
         }
 

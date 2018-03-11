@@ -206,7 +206,8 @@ namespace TheAdventuresOf
             ScoreStatOverlay.monsterScoreYMultiplier = (float)scoreStatOverlayElement.Element("MonsterScoreYMultiplier"); 
         }
 
-        public static void LoadPreLevelInformation(PreLevel preLevel) {
+        public static void LoadPreLevelInformation(PreLevel preLevel, int currentLevel)
+        {
             XElement specialLevelElement = specialLevelDocument.Element("Level");
             XElement preLevelElement = specialLevelElement.Element("PreLevel");
 
@@ -219,10 +220,14 @@ namespace TheAdventuresOf
             preLevel.leftBoundWidth = (int)preLevelElement.Element("LeftBoundWidth");
             preLevel.rightBoundWidth = (int)preLevelElement.Element("RightBoundWidth");
             PreLevel.preLevelCharX = (float)preLevelElement.Element("PreLevelCharX");
-            PreLevel.preLevelCharText = (string)preLevelElement.Element("PreLevelCharText");
             PreLevel.textX = (float)preLevelElement.Element("TextX");
             PreLevel.textY = (float)preLevelElement.Element("TextY");
             PreLevel.textThreshold = (float)preLevelElement.Element("TextThreshold");
+
+            List<XElement> preLevelTextElements = new List<XElement>(preLevelElement.Elements("PreLevelCharText"));
+            foreach (XElement preLevelTextElement in preLevelTextElements) {
+                PreLevel.preLevelCharText = (string)preLevelTextElement.Element("Level" + currentLevel);
+            }
         }
 
         public static void LoadStoreLevelInformation(StoreLevel storeLevel) {

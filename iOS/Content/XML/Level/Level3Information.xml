@@ -51,6 +51,7 @@
     <Tier10>200</Tier10>
   </TierScores>
     -->
+    
   <MonsterCountTiers>
     <Tier1> 
       <!--17-->
@@ -82,11 +83,11 @@
     </Tier2>
     <Tier3>
       <!--36--> <!-- explosion of bile monster-->
-      <BlockMonsterLimit>       7</BlockMonsterLimit>
-      <SunMonsterLimit>         6</SunMonsterLimit>
+      <BlockMonsterLimit>       2</BlockMonsterLimit>
+      <SunMonsterLimit>         2</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
-      <BileMonsterLimit>        20</BileMonsterLimit>
+      <BileMonsterLimit>        25</BileMonsterLimit>
       <SpikeMonsterLimit>       1</SpikeMonsterLimit>
       <DashMonsterLimit>        1</DashMonsterLimit>
       <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
@@ -166,13 +167,13 @@
     </Tier8>
     <Tier9>
       <!--40--> <!-- explosion of dash monster-->
-      <BlockMonsterLimit>       9</BlockMonsterLimit>
-      <SunMonsterLimit>         8</SunMonsterLimit>
+      <BlockMonsterLimit>       2</BlockMonsterLimit>
+      <SunMonsterLimit>         2</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        5</BileMonsterLimit>
       <SpikeMonsterLimit>       1</SpikeMonsterLimit>
-      <DashMonsterLimit>        20</DashMonsterLimit>
+      <DashMonsterLimit>        25</DashMonsterLimit>
       <UndergroundMonsterLimit> 2</UndergroundMonsterLimit>
       <SwoopMonsterLimit>       0</SwoopMonsterLimit>
       <Explosion>            True</Explosion>

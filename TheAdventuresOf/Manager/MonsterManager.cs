@@ -390,6 +390,10 @@ namespace TheAdventuresOf
         public void DespawnMonsters() {
             foreach(Monster monster in monsters) {
                 monster.isDying = true;
+
+                if(monster is SpikeMonster) {
+                    ((SpikeMonster)monster).delayAction = false;
+                }
             }
         }
 

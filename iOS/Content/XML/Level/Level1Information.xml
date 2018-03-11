@@ -81,8 +81,8 @@
     </Tier2>
     <Tier3>
       <!--32--> <!-- explosion of block monster-->
-      <BlockMonsterLimit>       25</BlockMonsterLimit>
-      <SunMonsterLimit>         6</SunMonsterLimit>
+      <BlockMonsterLimit>       30</BlockMonsterLimit>
+      <SunMonsterLimit>         1</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
       <BileMonsterLimit>        0</BileMonsterLimit>
@@ -165,11 +165,11 @@
     </Tier8>
     <Tier9>
       <!--38--> <!-- explosion of bile monster-->
-      <BlockMonsterLimit>       11</BlockMonsterLimit>
-      <SunMonsterLimit>         10</SunMonsterLimit>
+      <BlockMonsterLimit>       2</BlockMonsterLimit>
+      <SunMonsterLimit>         2</SunMonsterLimit>
       <GroundCannonMonsterLimit>1</GroundCannonMonsterLimit>
       <FlyingCannonMonsterLimit>0</FlyingCannonMonsterLimit>
-      <BileMonsterLimit>        15</BileMonsterLimit>
+      <BileMonsterLimit>        25</BileMonsterLimit>
       <SpikeMonsterLimit>       1</SpikeMonsterLimit>
       <DashMonsterLimit>        0</DashMonsterLimit>
       <UndergroundMonsterLimit> 0</UndergroundMonsterLimit>
