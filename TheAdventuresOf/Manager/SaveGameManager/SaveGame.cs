@@ -45,6 +45,9 @@ namespace TheAdventuresOf
             levelHighScores.Add(LEVEL_3, 0);
             levelHighScores.Add(LEVEL_4, 0);
             levelHighScores.Add(LEVEL_5, 0);
+
+            //lazy way of doing it, letting the above code run and then overwriting the results here oh well
+            handleDebug();
         }
 
         public void Initialize() {
@@ -60,6 +63,20 @@ namespace TheAdventuresOf
             levelHighScores[LEVEL_3] = level3HighScore;
             levelHighScores[LEVEL_4] = level4HighScore;
             levelHighScores[LEVEL_5] = level5HighScore;
+
+            //lazy way of doing it, letting the above code run and then overwriting the results here oh well
+            handleDebug();
+        }
+
+        void handleDebug() {
+            if (TheAdventuresOf.unlockAllLevels)
+            {
+                levelUnlockStatus[LEVEL_1] = UNLOCKED;
+                levelUnlockStatus[LEVEL_2] = UNLOCKED;
+                levelUnlockStatus[LEVEL_3] = UNLOCKED;
+                levelUnlockStatus[LEVEL_4] = UNLOCKED;
+                levelUnlockStatus[LEVEL_5] = UNLOCKED;
+            }
         }
 
         public void SetLevelUnlocked(int levelNumber) {

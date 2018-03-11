@@ -241,7 +241,7 @@ namespace TheAdventuresOf
 
             currentLevel = new Level(AssetManager.Instance.levelTexture, currentLevelNumber, storyMode, endlessMode);
 
-            XmlManager.LoadLevelInformation((Level)currentLevel, currentLevelNumber);
+            XmlManager.LoadLevelInformation((Level)currentLevel, currentLevelNumber, endlessMode);
             CoinManager.Instance.UpdateGroundLevel(((Level)currentLevel).groundLevel + CoinManager.coinYOffset);
             HeartManager.Instance.UpdateGroundLevel(((Level)currentLevel).groundLevel + HeartManager.heartYOffset);
         }
@@ -333,9 +333,16 @@ namespace TheAdventuresOf
             mainMenu.Update(gameTime, (MainMenuController) currentController);
 
             if(mainMenu.proceedToGameState) {
+                endlessMode = false;
                 storyMode = true;
                 currentLevelNumber = levelNumberMin;
-                prepareLevelState(PRE_LEVEL_STATE, gameTime);
+
+                if(TheAdventuresOf.skipPreLevel) {
+                    nextGameState = LEVEL_STATE;
+                    prepareLevelState(LEVEL_STATE, gameTime);
+                } else {
+					prepareLevelState(PRE_LEVEL_STATE, gameTime);
+                }
             } else if(mainMenu.proceedToChooseLevelState) {
                 setLoadState(CHOOSE_LEVEL_STATE, gameTime);
                 loadChooseLevelMenu();

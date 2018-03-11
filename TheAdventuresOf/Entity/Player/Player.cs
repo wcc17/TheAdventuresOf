@@ -292,7 +292,9 @@ namespace TheAdventuresOf
 
 		void handlePlayerTakingDamage(Entity entity)
 		{
-            HealthShieldManager.Instance.DecreaseHealthByAmount(entity.damage);
+            if(!TheAdventuresOf.isInvincible) {
+				HealthShieldManager.Instance.DecreaseHealthByAmount(entity.damage);
+            }
 
             DamageText damageText = new DamageText(positionVector.X, positionVector.Y, "-" + entity.damage.ToString(), -1);
             TextManager.Instance.AddText(damageText);

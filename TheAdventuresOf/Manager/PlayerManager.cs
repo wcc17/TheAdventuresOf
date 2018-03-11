@@ -15,7 +15,7 @@ namespace TheAdventuresOf
         Player player { get; set; }
         BaseLevel level;
         List<Accessory> accessories;
-        int swordLevel = 2;
+        int swordLevel = 0;
 
         public static PlayerManager Instance {
             get {
@@ -38,6 +38,10 @@ namespace TheAdventuresOf
                                     AssetManager.Instance.playerTexture.Width / player.frameCount,
                                     AssetManager.Instance.playerTexture.Height,
                                     usePlayerSpawnAnimation);
+
+            if(TheAdventuresOf.giveMaxSword) {
+                swordLevel = SWORD_LEVEL_LIMIT;
+            }
         }
 
         public void SetPlayerAccessories(List<Accessory> accessories) {
