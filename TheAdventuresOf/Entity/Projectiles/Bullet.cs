@@ -6,7 +6,7 @@ namespace TheAdventuresOf
 {
     public class Bullet : Projectile
     {
-        bool hasCollidedWithPlayer;
+        public bool hasCollidedWithPlayer;
 
         public Bullet()
         {

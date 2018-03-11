@@ -9,7 +9,7 @@ namespace TheAdventuresOf
 {
     public class GameManager
     {
-        public static int levelNumberMin = 3;
+        public static int levelNumberMin = 1;
         public static int levelNumberLimit = 5;
 
         public const bool USE_PLAYER_SPAWN_ANIMATION = true;
@@ -427,12 +427,7 @@ namespace TheAdventuresOf
         void updatePreLevel(GameTime gameTime) {
             currentLevel.Update(gameTime, (GameController)currentController);
 
-            if(currentLevel.shouldTransitionOut && !isTransitioningOut && !isTransitionedOut) {
-                isTransitionedOut = false;
-                setIsTransitioningOut();
-            } else if(currentLevel.shouldTransitionOut && isTransitionedOut) {
-                currentLevel.nextLevel = true;
-            }
+            handleLevelTransitionOutBeforeLoad();
 
             if (currentLevel.nextLevel) {
                 setLoadState(LEVEL_STATE, gameTime);
@@ -448,12 +443,7 @@ namespace TheAdventuresOf
 
             TextManager.Instance.Update(gameTime);
 
-            if(currentLevel.shouldTransitionOut && !isTransitioningOut) {
-                isTransitionedOut = false;
-                setIsTransitioningOut();
-            } else if(currentLevel.shouldTransitionOut && isTransitionedOut) {
-                currentLevel.nextLevel = true;
-            }
+            handleLevelTransitionOutBeforeLoad();
 
             if (currentLevel.nextLevel) {
                 setLoadState(-1, gameTime);
@@ -481,12 +471,7 @@ namespace TheAdventuresOf
         void updateStoreLevel(GameTime gameTime) {
             currentLevel.Update(gameTime, (GameController)currentController);
 
-            if(currentLevel.shouldTransitionOut && !isTransitioningOut) {
-                isTransitionedOut = false;
-                setIsTransitioningOut();
-            } else if(currentLevel.shouldTransitionOut && isTransitionedOut) {
-                currentLevel.nextLevel = true;
-            }
+            handleLevelTransitionOutBeforeLoad();
 
             if(currentLevel.nextLevel) {
                 setLoadState(PRE_LEVEL_STATE, gameTime);
@@ -494,6 +479,18 @@ namespace TheAdventuresOf
 
                 AssetManager.Instance.DisposeStoreAssets();
                 loadPreLevelAssets();
+            }
+        }
+
+        void handleLevelTransitionOutBeforeLoad() {
+            if (currentLevel.shouldTransitionOut && !isTransitioningOut && !isTransitionedOut)
+            {
+                isTransitionedOut = false;
+                setIsTransitioningOut();
+            }
+            else if (currentLevel.shouldTransitionOut && isTransitionedOut)
+            {
+                currentLevel.nextLevel = true;
             }
         }
 
