@@ -321,16 +321,14 @@ namespace TheAdventuresOf
 			level.leftBoundWidth = (int)levelXElement.Element("LeftBoundWidth");
 			level.rightBoundWidth = (int)levelXElement.Element("RightBoundWidth");
 
-            int i = 0;
-            XElement tierKillsElement = levelXElement.Element("TierKills");
-            foreach(XElement element in tierKillsElement.Elements())
-            {
-                if(TheAdventuresOf.quickVictory) {
-                    level.tierKills.Add(i++, i);
-                    if(i == tierKillsElement.Elements().Count()-1) {
-                        level.tierKills.Add(i - 1, 1);
-                    }
-                } else {
+            if(TheAdventuresOf.quickVictory) {
+                for (int i = 0; i < 10; i++) {
+					level.tierKills.Add(i, 1);
+                }
+            } else {
+                int i = 0;
+                XElement tierKillsElement = levelXElement.Element("TierKills");
+                foreach (XElement element in tierKillsElement.Elements()) {
                     level.tierKills.Add(i++, (int)element);
                 }
             }

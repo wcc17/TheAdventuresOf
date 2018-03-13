@@ -19,7 +19,6 @@ namespace TheAdventuresOf
         public int rightBoundWidth;
         public float groundLevel;
         public float playerStartX;
-        public bool shouldTransitionOut;
 		public bool nextLevel;
 
         public Timer delayPlayerMovementTimer;
@@ -27,6 +26,7 @@ namespace TheAdventuresOf
 
         public BaseLevel(Texture2D levelTexture)
         {
+            ScoringManager.Instance.ClearScores();
             levelPositionVector = new Vector2(0, 0);
             this.levelTexture = levelTexture;
             TextManager.Instance.RemoveAllText();
@@ -107,15 +107,18 @@ namespace TheAdventuresOf
             }
         }
 
-        public virtual void prepareNextLevel() {
-            shouldTransitionOut = true;
-        }
-
         public virtual void ResetUponReturnToMenu()
         {
             HealthShieldManager.Instance.Reset();
             PlayerManager.Instance.ResetPlayer();
             CoinManager.Instance.ResetCoins();
+        }
+
+        public virtual void GoToNextState() {
+            if (!nextLevel) {
+                TransitionManager.Instance.FadeOut();
+                nextLevel = true;
+            }
         }
     }
 }

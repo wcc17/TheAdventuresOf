@@ -9,13 +9,13 @@ namespace TheAdventuresOf
 {
     public class GameManager
     {
-        public const string QUIT_MESSAGE_TEXT = "WARNING! If you quit all progress will be lost!";
-        public const int QUIT_MESSAGE_TEXT_INDEX = 9843;
         public static int levelNumberMin = 1;
         public static int levelNumberLimit = 5;
 
         public const bool USE_PLAYER_SPAWN_ANIMATION = true;
         public const bool NO_PLAYER_SPAWN_ANIMATION = false;
+
+		public const int NO_STATE_SPECIFIED = -1;
         public const int SPLASH_STATE = 0;
         public const int MENU_STATE = 1;
         public const int PRE_LEVEL_STATE = 2;
@@ -28,7 +28,7 @@ namespace TheAdventuresOf
         Vector2 pausedTextVector;
 
         int currentLevelNumber = 1;
-        int nextGameState = -1;
+        int nextGameState = NO_STATE_SPECIFIED;
         int gameState = SPLASH_STATE;
         GraphicsDevice graphicsDevice;
         ContentManager contentManager;
@@ -49,19 +49,11 @@ namespace TheAdventuresOf
         public float pausedTextVectorXOffset;
         Timer splashTimer;
 
+        //TODO: load screen manager or at least improve load screen handling
         //ensuring load screen shows for at least x number of seconds
         float loadScreenTimeLimit = 3.0f;
         Timer loadScreenTimer;
         bool stateLoaded = false; //used in UpdateLoadScreen to determine when to load next state after timer is up
-
-        public bool isTransitioningIn = true;
-        public bool isTransitioningOut = false;
-        bool isTransitionedOut = false;
-        float transitionTextureAlpha = 1.0f;
-        float fadeInSpeed = 1.9f;
-        float fadeOutSpeed = 1.5f;
-
-        Vector2 quitMessagePositionVector;
 
         public GameManager(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {
@@ -104,13 +96,8 @@ namespace TheAdventuresOf
 
             pausedTextVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH / 2 - pausedTextVectorXOffset, 
                                            AssetManager.Instance.font.MeasureString("Paused").Y);
-            Vector2 textSize = AssetManager.Instance.font.MeasureString(QUIT_MESSAGE_TEXT);
-            quitMessagePositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH / 2 - (textSize.X / 4), 
-                                                    ScreenManager.FULL_SCREEN_HEIGHT / 2);
-        }
 
-        public void UpgradePlayerSword() {
-            PlayerManager.Instance.UpgradePlayerSword();
+            PauseManager.Instance.Initialize();
         }
 
         void loadSplashScreen() {
@@ -119,7 +106,7 @@ namespace TheAdventuresOf
             TheAdventuresOf.showMouse = false;
             AssetManager.Instance.LoadSplashAssets(graphicsDevice, contentManager);
 
-            setState(SPLASH_STATE, -1);
+            setState(SPLASH_STATE, NO_STATE_SPECIFIED);
             MusicManager.Instance.ChangeState(gameState, currentLevelNumber);
 
             splashTimer = new Timer(splashTimeLimit);
@@ -137,7 +124,7 @@ namespace TheAdventuresOf
             mainMenu = new MainMenu();
             mainMenu.LoadMenu();
 
-            setState(MENU_STATE, -1);
+            setState(MENU_STATE, NO_STATE_SPECIFIED);
 
             currentController = new MainMenuController();
             XmlManager.LoadMainMenuInformation();
@@ -182,9 +169,6 @@ namespace TheAdventuresOf
             CoinManager.Instance.Initialize();
             HeartManager.Instance.Initialize();
             HealthShieldManager.Instance.Initialize();
-
-            //TODO: UNCOMMENT FOR TESTING
-            //HealthShieldManager.Instance.DecreaseHealthByAmount(975);
 
             #if __IOS__ || __ANDROID__
                 currentController = new GameControllerMobile();
@@ -237,7 +221,6 @@ namespace TheAdventuresOf
             XmlManager.LoadStoreLevelInformation((StoreLevel)currentLevel);
         }
 
-        //only load level assets. will eventually have switch for level number
         void loadLevelAssets() {
             Logger.WriteToConsole("Load Level assets");
 
@@ -282,10 +265,7 @@ namespace TheAdventuresOf
 
         public void Update(GameTime gameTime, bool isGameActive)
         {
-            if (isTransitioningIn || isTransitioningOut)
-            {
-                handleLevelTransition(gameTime);
-            }
+            TransitionManager.Instance.Update(gameTime);
 
             MusicManager.Instance.Update(gameTime);
 
@@ -343,6 +323,7 @@ namespace TheAdventuresOf
 
             if(mainMenu.proceedToGameState) {
                 endlessMode = false;
+                CoinManager.isEndlessMode = false;
                 storyMode = true;
                 currentLevelNumber = levelNumberMin;
 
@@ -364,6 +345,7 @@ namespace TheAdventuresOf
             if(chooseLevelMenu.proceedToLevelState) {
                 storyMode = false; //set storyMode to false when choosing level in ChooseLevelMenu screen.
                 endlessMode = false;
+                CoinManager.isEndlessMode = false;
 				currentLevelNumber = chooseLevelMenu.currentLevelSelected;
 
                 //have to force the music to start since it normally starts in the pre level
@@ -374,6 +356,7 @@ namespace TheAdventuresOf
             } else if(chooseLevelMenu.proceedToEndlessLevelState) {
                 storyMode = false;
                 endlessMode = true;
+                CoinManager.isEndlessMode = true;
                 currentLevelNumber = chooseLevelMenu.currentLevelSelected;
 
                 //have to force the music to start since it normally starts in the pre level
@@ -385,8 +368,6 @@ namespace TheAdventuresOf
                 setLoadState(MENU_STATE, gameTime);
                 loadMainMenu();
             }
-
-			CoinManager.isEndlessMode = endlessMode;
         }
 
         //called only after leaving main menu or chooselevel menu since they share so much code
@@ -421,10 +402,9 @@ namespace TheAdventuresOf
         void updateLevel(GameTime gameTime, bool isGameActive) {
             GameController gameController = (GameController)currentController;
 
-            handleLevelPause(isGameActive, gameController);
+            PauseManager.Instance.Update(gameTime, gameController, isGameActive);
 
-            if(!gameController.isPaused) {
-                TheAdventuresOf.showMouse = false;
+            if(!PauseManager.Instance.IsPaused()) {
                 updateLevelCoins(gameTime);
 
                 switch(gameState) {
@@ -439,32 +419,8 @@ namespace TheAdventuresOf
                         break;
                 }
             } else {
-                TheAdventuresOf.showMouse = true;
-
-                if(gameController.quitButtonPressed) {
+                if(PauseManager.Instance.HandleQuit(gameTime, gameController)) {
                     handleQuitToMenu(gameTime);
-                }
-            }
-        }
-
-        void handleLevelPause(bool isGameActive, GameController gameController) {
-            //TODO: this currently isn't doing anything when game is no longer active. 
-            if (!isGameActive)
-            {
-                gameController.isPaused = true;
-            }
-
-            if (gameController.pauseButtonPressed)
-            {
-                gameController.isPaused = !gameController.isPaused;
-
-                if(gameController.isPaused) {
-                    TextManager.Instance.AddOrUpdateIndexedText(quitMessagePositionVector.X, 
-                                                                quitMessagePositionVector.Y, 
-                                                                QUIT_MESSAGE_TEXT, 
-                                                                QUIT_MESSAGE_TEXT_INDEX);
-                } else {
-                    TextManager.Instance.RemoveText(QUIT_MESSAGE_TEXT_INDEX);
                 }
             }
         }
@@ -478,76 +434,68 @@ namespace TheAdventuresOf
         void updatePreLevel(GameTime gameTime) {
             currentLevel.Update(gameTime, (GameController)currentController);
 
-            handleLevelTransitionOutBeforeLoad();
-
-            if (currentLevel.nextLevel) {
-                setLoadState(LEVEL_STATE, gameTime);
-
-                AssetManager.Instance.DisposePreLevelAssets();
-                loadLevelAssets();
+            //wait for transition before continuing
+            if (currentLevel.nextLevel && !TransitionManager.Instance.IsTransitioning()) {
+                handleNextStateAfterPreLevel(gameTime);
             }                
 
         }
 
         void updateGameLevel(GameTime gameTime) {
             currentLevel.Update(gameTime, (GameController) currentController);
-
             TextManager.Instance.Update(gameTime);
 
-            handleLevelTransitionOutBeforeLoad();
-
-            if (currentLevel.nextLevel) {
-                setLoadState(-1, gameTime);
-                AssetManager.Instance.DisposeLevelAssets();
-
-                //if player is dead at this point, go to main menu
-                if (storyMode)
-                {
-                    if (((Level)currentLevel).playerDied)
-                    {
-                        handleQuitToMenu(gameTime);
-                    } else {
-                        nextGameState = STORE_LEVEL_STATE;
-                        loadStoreLevelAssets();
-                    }
-                }
-                else
-                {
-                    nextGameState = CHOOSE_LEVEL_STATE;
-                    loadChooseLevelMenu();
-                }   
+            //wait for transition before continuing
+            if (currentLevel.nextLevel && !TransitionManager.Instance.IsTransitioning()) {
+                handleNextStateAfterGameLevel(gameTime);
             }
         }
 
         void updateStoreLevel(GameTime gameTime) {
             currentLevel.Update(gameTime, (GameController)currentController);
 
-            handleLevelTransitionOutBeforeLoad();
-
-            if(currentLevel.nextLevel) {
-                if(TheAdventuresOf.skipPreLevel) {
-                    setLoadState(LEVEL_STATE, gameTime);
-                    loadLevelAssets();
-                } else {
-					setLoadState(PRE_LEVEL_STATE, gameTime);
-					loadPreLevelAssets();
-                }
-
-                currentLevelNumber++;
-                AssetManager.Instance.DisposeStoreAssets();
+            //wait for transition before continuing
+            if(currentLevel.nextLevel && !TransitionManager.Instance.IsTransitioning()) {
+                handleNextStateAfterStoreLevel(gameTime);
 			}
         }
 
-        void handleLevelTransitionOutBeforeLoad() {
-            if (currentLevel.shouldTransitionOut && !isTransitioningOut && !isTransitionedOut)
-            {
-                isTransitionedOut = false;
-                setIsTransitioningOut();
+        void handleNextStateAfterPreLevel(GameTime gameTime) {
+            setLoadState(LEVEL_STATE, gameTime);
+            AssetManager.Instance.DisposePreLevelAssets();
+            loadLevelAssets();
+        }
+
+        void handleNextStateAfterGameLevel(GameTime gameTime) {
+            setLoadState(NO_STATE_SPECIFIED, gameTime);
+            AssetManager.Instance.DisposeLevelAssets();
+
+            //if player is dead at this point, go to main menu
+            if (storyMode) {
+                if (((Level)currentLevel).playerDied) {
+                    handleQuitToMenu(gameTime);
+                } else {
+                    nextGameState = STORE_LEVEL_STATE;
+                    loadStoreLevelAssets();
+                }
+            } else {
+                nextGameState = CHOOSE_LEVEL_STATE;
+                loadChooseLevelMenu();
             }
-            else if (currentLevel.shouldTransitionOut && isTransitionedOut)
-            {
-                currentLevel.nextLevel = true;
+        }
+
+        void handleNextStateAfterStoreLevel(GameTime gameTime) {
+			currentLevelNumber++;
+
+            if (TheAdventuresOf.skipPreLevel) {
+                setLoadState(LEVEL_STATE, gameTime);
+                loadLevelAssets();
+            } else {
+                setLoadState(PRE_LEVEL_STATE, gameTime);
+                loadPreLevelAssets();
             }
+
+            AssetManager.Instance.DisposeStoreAssets();
         }
 
         void updateLoadState(GameTime gameTime) {
@@ -595,10 +543,12 @@ namespace TheAdventuresOf
         }
 
         void updateLoadStateNextState(GameTime gameTime, int nextState) {
+            TransitionManager.Instance.FadeOut();
+
             if (loadScreenTimer.IsTimeUp(gameTime.ElapsedGameTime) && stateLoaded)
             {
                 loadScreenTimer.Reset();
-                setState(nextState, -1);
+                setState(nextState, NO_STATE_SPECIFIED);
                 stateLoaded = false;
             }
         }
@@ -628,66 +578,23 @@ namespace TheAdventuresOf
             }
             AssetManager.Instance.DisposeGameAssets();
 
-            //loadMainMenu();
             loadSplashScreen();
         }
 
-        void handleLevelTransition(GameTime gameTime)
-        {
-            float fadeSpeed = fadeOutSpeed;
-            int multiplier = 1;
-            if (isTransitioningIn)
-            {
-                fadeSpeed = fadeInSpeed;
-                multiplier = -1;
-            }
-
-			float amountToFade = (float)(fadeSpeed * gameTime.ElapsedGameTime.TotalSeconds);
-            transitionTextureAlpha += (amountToFade * multiplier);
-
-            if (transitionTextureAlpha < 0 || transitionTextureAlpha > 1)
-            {
-                if (isTransitioningIn)
-                {
-                    transitionTextureAlpha = 0;
-                }
-                else if (isTransitioningOut)
-                {
-                    transitionTextureAlpha = 1;
-                    isTransitionedOut = true;
-                }
-
-                isTransitioningIn = false;
-                isTransitioningOut = false;
-            }
-        }
-
-        void setIsTransitioningIn()
-        {
-            isTransitioningIn = true;
-            transitionTextureAlpha = 1.0f;
-        }
-
-        void setIsTransitioningOut()
-        {
-            isTransitioningOut = true;
-            transitionTextureAlpha = 0f;
-        }
-
         /**
-         * Passing -1 here for either state just means we don't care
+         * Passing -1 (NO_STATE_SPECIFIED) here for either state just means we don't care
          * what that state is going to be, it will be taken care of 
          * else where
          */
         void setState(int state, int nextState)
         {
-            setIsTransitioningIn();
+            TransitionManager.Instance.FadeIn();
 
-            if(gameState > -1) {
+            if(gameState > NO_STATE_SPECIFIED) {
 				gameState = state;
             }
 
-            if(nextState > -1) {
+            if(nextState > NO_STATE_SPECIFIED) {
 				nextGameState = nextState;
             }
         }
@@ -695,14 +602,6 @@ namespace TheAdventuresOf
         void setLoadState(int nextState, GameTime gameTime) {
             setState(LOAD_STATE, nextState);
             loadScreenTimer.IsTimeUp(gameTime.ElapsedGameTime);
-        }
-
-        void drawLevelTransition()
-        {
-            if (isTransitioningIn || isTransitioningOut)
-            {
-                spriteBatch.Draw(AssetManager.Instance.blackBackgroundTexture, new Vector2(0, 0), Color.Black * transitionTextureAlpha);
-            }
         }
 
         public void Draw(GameTime gameTime) {
@@ -732,7 +631,7 @@ namespace TheAdventuresOf
                     break;
             }
 
-            drawLevelTransition();
+            TransitionManager.Instance.Draw(spriteBatch);
 
             Logger.Instance.DrawToScreen(spriteBatch);
 

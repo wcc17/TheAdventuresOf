@@ -77,6 +77,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Manager\SaveGameManager\SaveGameManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\HUDManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\SoundManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\TransitionManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\PauseManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

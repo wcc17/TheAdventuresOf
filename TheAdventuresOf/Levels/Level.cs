@@ -168,7 +168,9 @@ namespace TheAdventuresOf
                 if ((tier + 1) % 3 == 0)
                 {
                     explosionKills = 0;
-                    isExplosion = true;
+                    if(!TheAdventuresOf.quickVictory) {
+						isExplosion = true;
+                    }
                     explosionMonster = monsterManager.GetRandomExplosionMonster();
                     monsterManager.InitializeExplosion(explosionMonster);
                 }
@@ -197,7 +199,7 @@ namespace TheAdventuresOf
                     if(PlayerManager.Instance.IsPlayerDead() 
                        || (!PlayerManager.Instance.IsPlayerDead()) && !storyMode) {
                         ResetUponReturnToMenu();
-                        goToNextState();
+                        GoToNextState();
                     } else if(storyMode){
                         SaveGameManager.Instance.SetLevelUnlocked(levelNumber);
                         goToStoreLevel(gameController);
@@ -316,14 +318,13 @@ namespace TheAdventuresOf
             //reset jump button so player doesn't jump at beginning of store
             gameController.jumpButtonPressed = false;
             gameController.isButtonPressed = false;
-            goToNextState();
+            GoToNextState();
         }
 
-        void goToNextState() {
-            showScoreStatOverlay = false;
-            ScoringManager.Instance.ClearScores();
+        public override void GoToNextState() {
+            base.GoToNextState();
+            //showScoreStatOverlay = false; no reason to set this to fault, itll be lost when a new level is created and keeps screen from flickering upon continue
             monsterManager.ResetMonsters();
-            shouldTransitionOut = true;
         }
 
         void initiateScoreStatOverlay() {
