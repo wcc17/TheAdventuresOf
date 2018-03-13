@@ -47,8 +47,8 @@ namespace TheAdventuresOf
                 if (playerMovementTimer.IsTimeUp(gameTime.ElapsedGameTime))
                 {
                     TextManager.Instance.RemoveText(PRE_LEVEL_TEXT_INDEX);
-                    shouldTransitionOut = true;
                     gameController.Unlock();
+                    GoToNextState();
                 }
             }
         }

@@ -94,9 +94,9 @@ namespace TheAdventuresOf
             }
 
             HeartManager.Instance.Draw(spriteBatch);
-            ScoringManager.Instance.Draw(spriteBatch, scorePositionVector, 
-                                         highScorePositionVector, isEndlessMode,
-                                         savedHighScore);
+			ScoringManager.Instance.Draw(spriteBatch, scorePositionVector, 
+			                             highScorePositionVector, isEndlessMode,
+			                             savedHighScore);
             HealthShieldManager.Instance.Draw(spriteBatch, 
                                               healthPositionVector, 
                                               shieldPositionVector);

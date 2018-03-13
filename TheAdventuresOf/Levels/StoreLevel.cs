@@ -60,11 +60,10 @@ namespace TheAdventuresOf
                 {
                     if (PlayerManager.Instance.HasHitSwordLevelLimit()) {
                         storeLevelPropItems[i].isSoldOut = true;
+                        handleSoldOutText();
+                        updateCostPosition(i);
+                        TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X - soldOutTextXOffset, costPositionVector.Y, SOLD_OUT, i * 200);
                     }
-
-                    handleSoldOutText();
-                    updateCostPosition(i);
-                    TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X - soldOutTextXOffset, costPositionVector.Y, SOLD_OUT, i * 200);
                 }
             }
         }
@@ -104,8 +103,7 @@ namespace TheAdventuresOf
             if (PlayerManager.Instance.GetPlayerPosition().X > rightBoundWidth)
             {
                 TextManager.Instance.RemoveAllText();
-                //nextLevel = true;
-                shouldTransitionOut = true;
+                GoToNextState();
             }
         }
 

@@ -754,31 +754,35 @@
 		</data>
 		<key>Content/XML/CharacterInformation.xml</key>
 		<data>
-		F53nkiQ8VioouaNnTOZCB2S70Z4=
+		zVloU3s+8U71VS54fK4es8a55eY=
 		</data>
 		<key>Content/XML/GameInformation.xml</key>
 		<data>
 		1s/O69frnZonD3TLiX2t+ZuF9ZY=
 		</data>
+		<key>Content/XML/Level/EndlessLevelInformation.xml</key>
+		<data>
+		eOdhHsDxfC94x8+kgPXzNIaxK/c=
+		</data>
 		<key>Content/XML/Level/Level1Information.xml</key>
 		<data>
-		+P1n7psTMPFQ7gNLDaJ7WbGV4JQ=
+		NXXt7mG/GdVhXSt/37HzDV2Sp0s=
 		</data>
 		<key>Content/XML/Level/Level2Information.xml</key>
 		<data>
-		a5uwuGDJGz28ma6znq+DCdgz8NE=
+		8LhD/3HPPsVEdmPouPZ+KqpL9a0=
 		</data>
 		<key>Content/XML/Level/Level3Information.xml</key>
 		<data>
-		cPbegyYOkCYFivzQCDGzijZLOFs=
+		5b8appuM0h6fwXIcIJi/DUc3pIc=
 		</data>
 		<key>Content/XML/Level/Level4Information.xml</key>
 		<data>
-		oalHKwn937lhgqC7tSt4hIdRejM=
+		Hy/Gp2+J5/AncpT4cQecwe+Suvs=
 		</data>
 		<key>Content/XML/Level/Level5Information.xml</key>
 		<data>
-		SbEbVgHSB1FHtNxjBGESf3rsT+k=
+		tMVpP7aG8uQf5MPqqALCDNpemlg=
 		</data>
 		<key>Content/XML/LevelInformation.xml</key>
 		<data>
@@ -786,7 +790,7 @@
 		</data>
 		<key>Content/XML/PlayerInformation.xml</key>
 		<data>
-		dq7MDSJsLFerWOK6Vhbl1RqlMDs=
+		ZOH+M1/Vu2GFxLaCgVvCAXXnoWY=
 		</data>
 		<key>Content/XML/ProjectileInformation.xml</key>
 		<data>
@@ -986,15 +990,15 @@
 		</data>
 		<key>TheAdventuresOf.iOS.aotdata.arm64</key>
 		<data>
-		JX8sDW+dB2ieb1Aaya1kPVl80T0=
+		RST4KdhaN24NBHy1Bl8UGJZXVAU=
 		</data>
 		<key>TheAdventuresOf.iOS.aotdata.armv7</key>
 		<data>
-		AzWBXkrnIrKtnOFNdn7XWAHbmzc=
+		TG0ZRacXWHeKXqNiotk7uUCyAIc=
 		</data>
 		<key>TheAdventuresOf.iOS.exe</key>
 		<data>
-		yKE603rmuxUqH2pB/9MUdgYUSzQ=
+		cP2CkLHn9Rr3uKPSnrZyRtc4hUk=
 		</data>
 		<key>archived-expanded-entitlements.xcent</key>
 		<data>
@@ -3130,11 +3134,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			F53nkiQ8VioouaNnTOZCB2S70Z4=
+			zVloU3s+8U71VS54fK4es8a55eY=
 			</data>
 			<key>hash2</key>
 			<data>
-			sWMuNyT29b0QJyxLTTBX37MaaKr1iBJMfTO/VbuCh0Q=
+			1YPWF8aNpDriRs9bi86IGPcpc+mju105Po47Oq4CBs4=
 			</data>
 		</dict>
 		<key>Content/XML/GameInformation.xml</key>
@@ -3148,59 +3152,70 @@
 			UHkrohdSQXbYK76kRKadKwlCYMjAIhW8t+LRToI3ijU=
 			</data>
 		</dict>
+		<key>Content/XML/Level/EndlessLevelInformation.xml</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			eOdhHsDxfC94x8+kgPXzNIaxK/c=
+			</data>
+			<key>hash2</key>
+			<data>
+			me4VqG6qkPWybSgyEQxAl1TBSVBAXnkzdmUUQCORH/0=
+			</data>
+		</dict>
 		<key>Content/XML/Level/Level1Information.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+P1n7psTMPFQ7gNLDaJ7WbGV4JQ=
+			NXXt7mG/GdVhXSt/37HzDV2Sp0s=
 			</data>
 			<key>hash2</key>
 			<data>
-			OAy5XaWgDKI8zvkvGqN6pTz+fGMIrJVb091TxQmoVhU=
+			L/W1nZYotTAHiauXPzc8t0+9R+55vXMqsGuYOLvxF1o=
 			</data>
 		</dict>
 		<key>Content/XML/Level/Level2Information.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			a5uwuGDJGz28ma6znq+DCdgz8NE=
+			8LhD/3HPPsVEdmPouPZ+KqpL9a0=
 			</data>
 			<key>hash2</key>
 			<data>
-			5fXSSbnukfnoOsombAdNhrv6TbW9d1BCt2Mr27GEk8s=
+			4j3bBgmRVo2iRfYZIYPe9SohXv2+uE/Up3gvdQJTUKk=
 			</data>
 		</dict>
 		<key>Content/XML/Level/Level3Information.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cPbegyYOkCYFivzQCDGzijZLOFs=
+			5b8appuM0h6fwXIcIJi/DUc3pIc=
 			</data>
 			<key>hash2</key>
 			<data>
-			snHW2Qkgoud0JaNy9UHAPsfBvdtVMIi+fwJGKSQHaR4=
+			15NPLvO7xJgmcAwBCnH6vv5eRUb/CIDPvBTQp+rjJy4=
 			</data>
 		</dict>
 		<key>Content/XML/Level/Level4Information.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			oalHKwn937lhgqC7tSt4hIdRejM=
+			Hy/Gp2+J5/AncpT4cQecwe+Suvs=
 			</data>
 			<key>hash2</key>
 			<data>
-			JvkE/cXvju47Ih9nR/gBi80b4RwDeS1UHyVhzFPwG1Q=
+			pnSOZyR9AjK0GVY6krcnO1ZcZzbttaaR1HCbsja4oNI=
 			</data>
 		</dict>
 		<key>Content/XML/Level/Level5Information.xml</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			SbEbVgHSB1FHtNxjBGESf3rsT+k=
+			tMVpP7aG8uQf5MPqqALCDNpemlg=
 			</data>
 			<key>hash2</key>
 			<data>
-			xpFYQlMFQLFHlUd6lG/9UmaDuH5uj/9WyBPqWhfCeV0=
+			jCVauNAjAxCyqPSgdPj94eT9x/0P8FapY7AZ41qzv24=
 			</data>
 		</dict>
 		<key>Content/XML/LevelInformation.xml</key>
@@ -3218,11 +3233,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dq7MDSJsLFerWOK6Vhbl1RqlMDs=
+			ZOH+M1/Vu2GFxLaCgVvCAXXnoWY=
 			</data>
 			<key>hash2</key>
 			<data>
-			EIQamODqjHom3C6kSKWi9Wn8hITYrviD6Kbz2/GK5HI=
+			s/1lakpEbEDIs15zG2n+QOHlTmUOszFDi/JmwZ9rVLM=
 			</data>
 		</dict>
 		<key>Content/XML/ProjectileInformation.xml</key>
@@ -3746,33 +3761,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JX8sDW+dB2ieb1Aaya1kPVl80T0=
+			RST4KdhaN24NBHy1Bl8UGJZXVAU=
 			</data>
 			<key>hash2</key>
 			<data>
-			oei4SN4n6X8qb2vUSzmQoLzUWxnF/QSVfpOtlhxeYLk=
+			hm8e4gQ3WIDuZ43YwmZgc5rAnyHF1HczvXb1p9L8G44=
 			</data>
 		</dict>
 		<key>TheAdventuresOf.iOS.aotdata.armv7</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			AzWBXkrnIrKtnOFNdn7XWAHbmzc=
+			TG0ZRacXWHeKXqNiotk7uUCyAIc=
 			</data>
 			<key>hash2</key>
 			<data>
-			SHu3pQFb8XT7lB/r+nJO5BOJ+FVd1BJFufdFO50Tp00=
+			cTMcq80n95XbhaizDKTuVRNVkN03VYqiTZf17qKwpJQ=
 			</data>
 		</dict>
 		<key>TheAdventuresOf.iOS.exe</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yKE603rmuxUqH2pB/9MUdgYUSzQ=
+			cP2CkLHn9Rr3uKPSnrZyRtc4hUk=
 			</data>
 			<key>hash2</key>
 			<data>
-			BtvbwtHyS22mysrN3QqmcpCZFQEnMwc74pSoVFV5EGI=
+			SwSOfI5a1osixiHIk3HWl5QiFX0sXPG9dE15QqKH7TI=
 			</data>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
