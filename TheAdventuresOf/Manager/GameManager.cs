@@ -55,11 +55,14 @@ namespace TheAdventuresOf
         Timer loadScreenTimer;
         bool stateLoaded = false; //used in UpdateLoadScreen to determine when to load next state after timer is up
 
+        RenderTarget2D renderTarget;
         public GameManager(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {
             this.graphicsDevice = graphicsDevice;
             this.contentManager = contentManager;
             MusicManager.Instance.InitializeMusicManager(gameState);
+
+            renderTarget = new RenderTarget2D(graphicsDevice, 1920, 1080);
 
             loadScreenTimer = new Timer(loadScreenTimeLimit);
             handleDebug();
@@ -604,8 +607,31 @@ namespace TheAdventuresOf
             loadScreenTimer.IsTimeUp(gameTime.ElapsedGameTime);
         }
 
+        void preDraw() {
+            // Tell the graphics device where to draw too
+            graphicsDevice.SetRenderTarget(renderTarget);
+
+            // Clear the buffer with transparent so the image is transparent
+            graphicsDevice.Clear(Color.Transparent);
+
+            spriteBatch.Begin();
+
+        }
+
+        void postDraw() {
+            spriteBatch.End();
+            // Let the graphics device know you are done and return to drawing according to its dimensions
+            graphicsDevice.SetRenderTarget(null);
+
+            spriteBatch.Begin();
+            //spriteBatch.Draw(renderTarget, new Vector2(258, 0));
+            spriteBatch.Draw(renderTarget, new Vector2(0, 0));
+            spriteBatch.End();
+        }
+
         public void Draw(GameTime gameTime) {
-            spriteBatch.Begin(transformMatrix: ScreenManager.scaleMatrix);
+            preDraw();
+            //spriteBatch.Begin(transformMatrix: ScreenManager.scaleMatrix);
 
             switch(gameState) {
                 case SPLASH_STATE:
@@ -635,7 +661,7 @@ namespace TheAdventuresOf
 
             Logger.Instance.DrawToScreen(spriteBatch);
 
-            spriteBatch.End();
+            postDraw();
         }
 
         void drawSplash()
