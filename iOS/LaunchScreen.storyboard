@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_9" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" customColorSpace="sRGB" colorSpace="calibratedRGB" red="0" green="0" blue="0" alpha="1"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="394" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" image="Content/Misc/splash_1080p.png">
+                                <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES" widthSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Content/Level/level1background_1080p.png" width="1920" height="850"/>
+        <image name="Content/Game/controller_1080p.png" width="1920" height="230"/>
+        <image name="Content/Game/emptyheart_1080p.png" width="37" height="37"/>
+        <image name="Content/Game/heart_1080p.png" width="37" height="37"/>
+        <image name="Content/Game/leftarrow_1080p.png" width="225" height="200"/>
+        <image name="Content/Game/rightarrow_1080p.png" width="225" height="200"/>
+        <image name="Content/PreLevel/pre_level1background_1080p.png" width="1920" height="850"/>
+        <image name="Content/PreLevel/pre_level1character_1080p.png" width="85" height="88"/>
+        <image name="Content/Projectile/bullet_1080p.png" width="45" height="25"/>
+        <image name="Content/StoreLevel/store_level_1080p.png" width="1920" height="850"/>
+        <image name="Content/StoreLevel/store_level_character_1080p.png" width="85" height="88"/>
+        <image name="Content/Game/coin_bronze_1080p.png" width="35" height="35"/>
+        <image name="Content/Game/coin_gold_1080p.png" width="45" height="45"/>
+        <image name="Content/Game/coin_silver_1080p.png" width="40" height="40"/>
+        <image name="Content/Game/button_1080p.png" width="200" height="200"/>
+        <image name="Content/Game/pause_1080p.png" width="200" height="92"/>
+        <image name="Content/PreLevel/pre_level2character_1080p.png" width="85" height="88"/>
+        <image name="Content/PreLevel/pre_level2background_1080p.png" width="1920" height="850"/>
+        <image name="Content/Level/level2background_1080p.png" width="1920" height="850"/>
+        <image name="Content/Monster/Level1/bilemonster_1080p.png" width="290" height="88"/>
+        <image name="Content/Monster/Level1/blockmonster_1080p.png" width="176" height="90"/>
+        <image name="Content/Monster/Level1/cannonmonster_1080p.png" width="85" height="130"/>
+        <image name="Content/Monster/Level1/dashmonster_1080p.png" width="250" height="80"/>
+        <image name="Content/Monster/Level1/flyingcannonmonster_1080p.png" width="215" height="50"/>
+        <image name="Content/Monster/Level1/spikemonster_1080p.png" width="375" height="95"/>
+        <image name="Content/Monster/Level1/sunmonster_1080p.png" width="261" height="87"/>
+        <image name="Content/Monster/Level1/swoopmonster_1080p.png" width="115" height="101"/>
+        <image name="Content/Monster/Level1/undergroundmonster_1080p.png" width="88" height="78"/>
+        <image name="Content/Monster/Level2/bilemonster_1080p.png" width="290" height="88"/>
+        <image name="Content/Monster/Level2/blockmonster_1080p.png" width="166" height="85"/>
+        <image name="Content/Monster/Level2/cannonmonster_1080p.png" width="85" height="130"/>
+        <image name="Content/Monster/Level2/dashmonster_1080p.png" width="250" height="80"/>
+        <image name="Content/Monster/Level2/flyingcannonmonster_1080p.png" width="215" height="50"/>
+        <image name="Content/Monster/Level2/spikemonster_1080p.png" width="375" height="95"/>
+        <image name="Content/Monster/Level2/sunmonster_1080p.png" width="261" height="87"/>
+        <image name="Content/Monster/Level2/swoopmonster_1080p.png" width="115" height="101"/>
+        <image name="Content/Monster/Level2/undergroundmonster_1080p.png" width="88" height="78"/>
+        <image name="Content/Player/level1_character_1080p.png" width="170" height="88"/>
+        <image name="Content/Player/level2_character_1080p.png" width="170" height="88"/>
+        <image name="Content/Player/level2_character_hat_1080p.png" width="113" height="70"/>
+        <image name="Content/Menu/choose/level1preview_1080p.png" width="1150" height="509"/>
+        <image name="Content/Menu/choose/level2preview_1080p.png" width="1150" height="509"/>
+        <image name="Content/Menu/main/mainmenu_1080p.png" width="1920" height="1080"/>
+        <image name="Content/Menu/main/mainmenu_playbutton_1080p.png" width="570" height="144"/>
+        <image name="Content/Menu/splash/splash_1080p.png" width="1920" height="1080"/>
+        <image name="Content/Menu/splash/splash_iphone6plus.png" width="2208" height="1242"/>
+        <image name="Content/Menu/splash/splash_iphone6splus_old.png" width="2208" height="1242"/>
+        <image name="Content/Menu/choose/choosemenu_leftarrow_1080p.png" width="225" height="200"/>
+        <image name="Content/Menu/choose/choosemenu_rightarrow_1080p.png" width="225" height="200"/>
+        <image name="Content/Menu/choose/choosemenu_backarrow_1080p.png" width="225" height="200"/>
+        <image name="Content/Game/quit_button_1080p.png" width="569" height="144"/>
+        <image name="Content/Projectile/level1_bile_1080p.png" width="77" height="58"/>
+        <image name="Content/Projectile/level2_bile_1080p.png" width="77" height="58"/>
+        <image name="Content/Menu/choose/choosemenu_playbutton_1080p.png" width="570" height="144"/>
+        <image name="Content/Menu/main/mainmenu_chooselevelbutton_1080p.png" width="569" height="144"/>
+        <image name="Content/PreLevel/pre_level3background_1080p.png" width="1920" height="850"/>
+        <image name="Content/PreLevel/pre_level3character_1080p.png" width="85" height="88"/>
+        <image name="Content/Player/level3_character_1080p.png" width="170" height="88"/>
+        <image name="Content/Player/level3_character_hat_1080p.png" width="113" height="70"/>
+        <image name="Content/Projectile/level3_bile_1080p.png" width="77" height="58"/>
+        <image name="Content/Monster/Level3/bilemonster_1080p.png" width="290" height="88"/>
+        <image name="Content/Monster/Level3/blockmonster_1080p.png" width="166" height="85"/>
+        <image name="Content/Monster/Level3/cannonmonster_1080p.png" width="85" height="130"/>
+        <image name="Content/Monster/Level3/dashmonster_1080p.png" width="250" height="80"/>
+        <image name="Content/Monster/Level3/flyingcannonmonster_1080p.png" width="215" height="50"/>
+        <image name="Content/Monster/Level3/spikemonster_1080p.png" width="375" height="95"/>
+        <image name="Content/Monster/Level3/sunmonster_1080p.png" width="261" height="87"/>
+        <image name="Content/Monster/Level3/swoopmonster_1080p.png" width="115" height="101"/>
+        <image name="Content/Monster/Level3/undergroundmonster_1080p.png" width="88" height="78"/>
+        <image name="Content/Menu/choose/level3preview_1080p.png" width="1150" height="509"/>
+        <image name="Content/Menu/choose/level4preview_1080p.png" width="1150" height="509"/>
+        <image name="Content/Level/level3background_1080p.png" width="1920" height="850"/>
+        <image name="Content/Level/level4background_1080p.png" width="1920" height="850"/>
+        <image name="Content/Monster/Level4/bilemonster_1080p.png" width="290" height="88"/>
+        <image name="Content/Monster/Level4/blockmonster_1080p.png" width="166" height="85"/>
+        <image name="Content/Monster/Level4/cannonmonster_1080p.png" width="85" height="130"/>
+        <image name="Content/Monster/Level4/dashmonster_1080p.png" width="250" height="80"/>
+        <image name="Content/Monster/Level4/flyingcannonmonster_1080p.png" width="215" height="50"/>
+        <image name="Content/Monster/Level4/spikemonster_1080p.png" width="375" height="95"/>
+        <image name="Content/Monster/Level4/sunmonster_1080p.png" width="261" height="87"/>
+        <image name="Content/Monster/Level4/swoopmonster_1080p.png" width="115" height="101"/>
+        <image name="Content/Monster/Level4/undergroundmonster_1080p.png" width="88" height="78"/>
+        <image name="Content/Player/level4_character_1080p.png" width="170" height="88"/>
+        <image name="Content/Projectile/level4_bile_1080p.png" width="77" height="58"/>
+        <image name="Content/Level/level5background_1080p.png" width="1920" height="850"/>
+        <image name="Content/Menu/choose/level5preview_1080p.png" width="1150" height="509"/>
+        <image name="Content/Monster/Level5/bilemonster_1080p.png" width="290" height="88"/>
+        <image name="Content/Monster/Level5/blockmonster_1080p.png" width="166" height="85"/>
+        <image name="Content/Monster/Level5/cannonmonster_1080p.png" width="85" height="130"/>
+        <image name="Content/Monster/Level5/dashmonster_1080p.png" width="250" height="80"/>
+        <image name="Content/Monster/Level5/flyingcannonmonster_1080p.png" width="215" height="50"/>
+        <image name="Content/Monster/Level5/spikemonster_1080p.png" width="375" height="95"/>
+        <image name="Content/Monster/Level5/sunmonster_1080p.png" width="261" height="87"/>
+        <image name="Content/Monster/Level5/swoopmonster_1080p.png" width="115" height="101"/>
+        <image name="Content/Monster/Level5/undergroundmonster_1080p.png" width="88" height="78"/>
+        <image name="Content/Player/level5_character_1080p.png" width="170" height="88"/>
+        <image name="Content/Player/level5_character_aura_1080p.png" width="105" height="115"/>
+        <image name="Content/Player/level5_character_hat_1080p.png" width="113" height="27"/>
+        <image name="Content/PreLevel/pre_level4character_1080p.png" width="85" height="88"/>
+        <image name="Content/PreLevel/pre_level5background_1080p.png" width="1920" height="850"/>
+        <image name="Content/PreLevel/pre_level5character_1080p.png" width="85" height="88"/>
+        <image name="Content/Projectile/level5_bile_1080p.png" width="78" height="59"/>
+        <image name="Content/Menu/choose/levelpreview_outline_1080p.png" width="1170" height="529"/>
+        <image name="Content/Player/level5_character_wings_1080p.png" width="135" height="88"/>
+        <image name="Content/Game/heart_small_1080p.png" width="20" height="20"/>
+        <image name="Content/StoreLevel/big_box_1080p.png" width="230" height="300"/>
+        <image name="Content/StoreLevel/heart_1080p.png" width="74" height="74"/>
+        <image name="Content/StoreLevel/shield_1080p.png" width="74" height="74"/>
+        <image name="Content/StoreLevel/small_box_1080p.png" width="285" height="140"/>
+        <image name="Content/Game/progressbar_fill_health_1080p.png" width="275" height="41"/>
+        <image name="Content/Game/progressbar_fill_shield_1080p.png" width="137" height="41"/>
+        <image name="Content/Game/progressbar_health_1080p.png" width="275" height="41"/>
+        <image name="Content/Game/progressbar_shield_1080p.png" width="137" height="41"/>
+        <image name="Content/Player/sword_0_1080p.png" width="112" height="37"/>
+        <image name="Content/Player/sword_1_1080p.png" width="122" height="37"/>
+        <image name="Content/Player/sword_2_1080p.png" width="132" height="37"/>
+        <image name="Content/Game/transparent_background_black_1080p.png" width="1920" height="850"/>
+        <image name="Content/Menu/choose/levellockedpreview_1080p.png" width="1150" height="509"/>
+        <image name="Content/Menu/choose/choosemenu_playendlessbutton_1080p.png" width="570" height="144"/>
+        <image name="Content/PreLevel/pre_level4background_1080p.png" width="1920" height="850"/>
+        <image name="Content/Game/background_black_1080p.png" width="1920" height="1080"/>
+        <image name="Content/Misc/splash_1080p.png" width="1920" height="1080"/>
+        <image name="Content/Misc/splash_2160p.png" width="3840" height="2160"/>
+    </resources>
+</document>

@@ -6,8 +6,6 @@
 	<string>project.MonoGame.TheAdventuresOf.iOS</string>
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
-	<key>XSLaunchImageAssets</key>
-	<string>Assets.xcassets/LaunchImage.launchimage</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
@@ -19,5 +17,9 @@
 	<string>The Adventures Of..</string>
 	<key>CFBundleDisplayName</key>
 	<string>The Adventures Of..</string>
+	<key>XSLaunchImageAssets</key>
+	<string>Assets.xcassets/LaunchImage.launchimage</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
 </dict>
 </plist>
