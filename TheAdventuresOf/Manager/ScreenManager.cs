@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
 
 namespace TheAdventuresOf
@@ -9,29 +10,54 @@ namespace TheAdventuresOf
 	{
 		public const float FULL_SCREEN_WIDTH = 1920f;
 		public const float FULL_SCREEN_HEIGHT = 1080f;
-		public static Matrix scaleMatrix { get; set; }
+        public float deviceScreenWidth;
+        public float deviceScreenHeight;
+        public Viewport viewport;
+        public static Matrix transformMatrix;
 
 		public const int MULTI_TOUCH_LIMIT = 2;
 
 
 		//actual width and actual height are the values that the device thinks the screen should be, not what we want it to be
 		//so those weird scaled res for iphone 6s plus, etc.
-		public ScreenManager(int actualWidth, int actualHeight)
-		{
+        public ScreenManager(float deviceScreenWidth, float deviceScreenHeight) {
 			Logger.WriteToConsole("Instantiating ScreenManager object");
 
-			scaleMatrix = CreateScaleMatrix(actualWidth, actualHeight);
+            this.deviceScreenWidth = deviceScreenWidth;
+            this.deviceScreenHeight = deviceScreenHeight;
+            createVirtualViewport();
+            createTransformMatrix();
 		}
 
-		private Matrix CreateScaleMatrix(int actualWidth, int actualHeight)
+
+        void createVirtualViewport() {
+            viewport = new Viewport {
+                X = 0, //(int)((deviceScreenWidth / 2) - (FULL_SCREEN_WIDTH / 2)),
+                Y = 0,
+                Width = (int)FULL_SCREEN_WIDTH,
+                Height = (int)FULL_SCREEN_HEIGHT
+            };
+        }
+
+        void createTransformMatrix()
 		{
-			Logger.WriteToConsole("Generating scaling matrix");
+            Logger.WriteToConsole("Generating scaling matrix");
 
-			var scaleX = (float)actualWidth / FULL_SCREEN_WIDTH;
-			var scaleY = (float)actualHeight / FULL_SCREEN_HEIGHT;
-			var matrix = Matrix.CreateScale(scaleX, scaleY, 1.0f);
+            float scaleX = (float)deviceScreenWidth / FULL_SCREEN_WIDTH;
+            float scaleY = (float)deviceScreenHeight / FULL_SCREEN_HEIGHT;
 
-			return matrix;
+            //TODO: only needs to happen on the iphoneX
+            Vector3 translateVector = new Vector3() {
+                X = (deviceScreenWidth / 2) - (FULL_SCREEN_WIDTH / 2),
+                Y = 0,
+                Z = 0
+            };
+
+            //TODO: only needs to happen on the iphoneX
+            transformMatrix = Matrix.CreateTranslation(translateVector);
+
+            //TODO: needs to happen on other phones
+            //scaleMatrix = Matrix.CreateScale(scaleX, scaleY, 1.0f);
 		}
 
 		public void Update(Controller controller)
@@ -88,7 +114,7 @@ namespace TheAdventuresOf
 
 		public static Point GetScaledInputPoint(Point originalPoint)
 		{
-			var matrix = Matrix.Invert(scaleMatrix);
+			var matrix = Matrix.Invert(transformMatrix);
 			Point scaledPoint = Vector2.Transform(originalPoint.ToVector2(), matrix).ToPoint();
 			return scaledPoint;
 		}
