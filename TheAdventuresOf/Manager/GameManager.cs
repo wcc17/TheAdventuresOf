@@ -31,6 +31,9 @@ namespace TheAdventuresOf
         int nextGameState = NO_STATE_SPECIFIED;
         int gameState = SPLASH_STATE;
         GraphicsDevice graphicsDevice;
+		RenderTarget2D renderTarget;
+        Vector2 renderTargetPositionVector;
+        Rectangle renderTargetRect;
         ContentManager contentManager;
         ScreenManager screenManager;
         SpriteBatch spriteBatch;
@@ -55,14 +58,11 @@ namespace TheAdventuresOf
         Timer loadScreenTimer;
         bool stateLoaded = false; //used in UpdateLoadScreen to determine when to load next state after timer is up
 
-        RenderTarget2D renderTarget;
         public GameManager(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {
             this.graphicsDevice = graphicsDevice;
             this.contentManager = contentManager;
             MusicManager.Instance.InitializeMusicManager(gameState);
-
-            renderTarget = new RenderTarget2D(graphicsDevice, 1920, 1080);
 
             loadScreenTimer = new Timer(loadScreenTimeLimit);
             handleDebug();
@@ -93,7 +93,20 @@ namespace TheAdventuresOf
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(graphicsDevice);
 
-            screenManager = new ScreenManager(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
+            screenManager = new ScreenManager(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, 
+                                              GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
+
+            //TODO: only needs to happen on iphoneX
+            graphicsDevice.Viewport = screenManager.viewport;
+            renderTarget = new RenderTarget2D(graphicsDevice,
+                                              (int)screenManager.deviceScreenWidth,
+                                              (int)screenManager.deviceScreenHeight);
+            renderTargetPositionVector = new Vector2((screenManager.deviceScreenWidth / 2) - (ScreenManager.FULL_SCREEN_WIDTH / 2),
+                                                     0);
+            renderTargetRect = new Rectangle((int)renderTargetPositionVector.X,
+                                             (int)renderTargetPositionVector.Y,
+                                             (int)ScreenManager.FULL_SCREEN_WIDTH,
+                                             (int)ScreenManager.FULL_SCREEN_HEIGHT);
 
             loadSplashScreen();
 
@@ -608,30 +621,34 @@ namespace TheAdventuresOf
         }
 
         void preDraw() {
-            // Tell the graphics device where to draw too
+            // Tell the graphics device where to draw to
             graphicsDevice.SetRenderTarget(renderTarget);
 
             // Clear the buffer with transparent so the image is transparent
-            graphicsDevice.Clear(Color.Transparent);
+            graphicsDevice.Clear(Color.Black);
 
-            spriteBatch.Begin();
-
+            //spriteBatch.Begin();
+            spriteBatch.Begin(transformMatrix: ScreenManager.transformMatrix);
         }
 
         void postDraw() {
             spriteBatch.End();
+
             // Let the graphics device know you are done and return to drawing according to its dimensions
             graphicsDevice.SetRenderTarget(null);
 
             spriteBatch.Begin();
-            //spriteBatch.Draw(renderTarget, new Vector2(258, 0));
-            spriteBatch.Draw(renderTarget, new Vector2(0, 0));
+            spriteBatch.Draw(renderTarget,
+                             renderTargetPositionVector,
+                             renderTargetRect,
+                             Color.White);
             spriteBatch.End();
         }
 
         public void Draw(GameTime gameTime) {
             preDraw();
-            //spriteBatch.Begin(transformMatrix: ScreenManager.scaleMatrix);
+            //TODO: only if its not iphone X
+            //spriteBatch.Begin(transformMatrix: ScreenManager.transformMatrix);
 
             switch(gameState) {
                 case SPLASH_STATE:
@@ -661,6 +678,8 @@ namespace TheAdventuresOf
 
             Logger.Instance.DrawToScreen(spriteBatch);
 
+            //TODO: only if its not iphone X
+            //spriteBatch.End();
             postDraw();
         }
 
