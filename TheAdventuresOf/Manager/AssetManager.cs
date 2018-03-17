@@ -72,6 +72,7 @@ namespace TheAdventuresOf
         public Texture2D storeLevelCoinTexture;
         public Texture2D storeLevelBigBoxTexture;
         public Texture2D storeLevelSmallBoxTexture;
+        public Texture2D storeLevelSignTexture;
 
         //player textures
         public Texture2D playerTexture;
@@ -470,6 +471,9 @@ namespace TheAdventuresOf
             {
                 storeLevelSmallBoxTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
+            using (var stream = TitleContainer.OpenStream(storeLevelFilePath + "store_sign_1080p.png")) {
+                storeLevelSignTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
 
             //it was either use game content folder or copy assets from the game folder into the store folder
             //i went with this because it would be easier to keep track of assets when changes are made to them
@@ -549,6 +553,7 @@ namespace TheAdventuresOf
             storeLevelCoinTexture.Dispose();
             storeLevelBigBoxTexture.Dispose();
             storeLevelSmallBoxTexture.Dispose();
+            storeLevelSignTexture.Dispose();
     }
 
 		public void DisposeLevelAssets() {

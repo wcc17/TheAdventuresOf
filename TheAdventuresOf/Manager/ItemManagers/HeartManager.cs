@@ -111,6 +111,7 @@ namespace TheAdventuresOf
                                                    PlayerManager.Instance.GetPlayerPosition().Y, 
                                                    "+" + heart.healthValue.ToString(),
                                                    Color.Green,
+                                                   TextManager.DEFAULT_TEXT_SCALE,
                                                    -1);
             TextManager.Instance.AddText(healthText);
         }

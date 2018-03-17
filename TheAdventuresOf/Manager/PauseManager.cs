@@ -41,10 +41,11 @@ namespace TheAdventuresOf {
             if(isPaused) {
                 TheAdventuresOf.showMouse = true;
                 TextManager.Instance.AddOrUpdateIndexedText(quitMessagePositionVector.X,
-                                                                quitMessagePositionVector.Y,
-                                                                QUIT_MESSAGE_TEXT,
-                                                                Color.White,
-                                                                GlobalTextIndexConstants.PAUSE_SCREEN_QUIT_MESSAGE_TEXT_INDEX);
+                                                            quitMessagePositionVector.Y,
+                                                            QUIT_MESSAGE_TEXT,
+                                                            Color.White,
+                                                            TextManager.DEFAULT_TEXT_SCALE,
+                                                            GlobalTextIndexConstants.PAUSE_SCREEN_QUIT_MESSAGE_TEXT_INDEX);
             } else {
                 TheAdventuresOf.showMouse = false;
                 TextManager.Instance.RemoveText(GlobalTextIndexConstants.PAUSE_SCREEN_QUIT_MESSAGE_TEXT_INDEX);
