@@ -62,13 +62,13 @@
 	<Overlay>
 		<ScoreStat>
 			<TotalScoreString>Total Score: </TotalScoreString>
-			<TotalKillString>Total Kill: </TotalKillString>
+			<TotalKillString>Total Kills: </TotalKillString>
 			<JumpToContinueString>Jump to continue!</JumpToContinueString>
 			<CountPositionXMultiplier>0.30</CountPositionXMultiplier>
 			<CountPositionYMultiplier>0.03</CountPositionYMultiplier>
 			<TotalScorePositionXMultiplier>0.60</TotalScorePositionXMultiplier>
 			<TotalScorePositionYMultiplier>0.25</TotalScorePositionYMultiplier>
-			<ContinueDelayTimeLimit>3.0</ContinueDelayTimeLimit>
+			<ContinueDelayTimeLimit>1.5</ContinueDelayTimeLimit>
 			<FontScale>0.90</FontScale>
 			<MonsterTextureScale>0.75</MonsterTextureScale>
 			<TotalKilledPositionYMultiplier>21.6</TotalKilledPositionYMultiplier>

@@ -27,7 +27,7 @@ namespace TheAdventuresOf
 
             preLevelCharacterPositionVector = new Vector2(preLevelCharX, groundLevel);
 
-            TextManager.Instance.AddOrUpdateIndexedText(textX, textY, preLevelCharText, Color.White, GlobalTextIndexContants.PRE_LEVEL_TEXT_INDEX);
+            TextManager.Instance.AddOrUpdateIndexedText(textX, textY, preLevelCharText, Color.White, GlobalTextIndexConstants.PRE_LEVEL_TEXT_INDEX);
         }
 
         public override void Draw(SpriteBatch spriteBatch) {
@@ -45,7 +45,7 @@ namespace TheAdventuresOf
 
                 if (playerMovementTimer.IsTimeUp(gameTime.ElapsedGameTime))
                 {
-                    TextManager.Instance.RemoveText(GlobalTextIndexContants.PRE_LEVEL_TEXT_INDEX);
+                    TextManager.Instance.RemoveText(GlobalTextIndexConstants.PRE_LEVEL_TEXT_INDEX);
                     gameController.Unlock();
                     GoToNextState();
                 }

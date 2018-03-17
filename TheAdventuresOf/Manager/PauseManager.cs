@@ -44,10 +44,10 @@ namespace TheAdventuresOf {
                                                                 quitMessagePositionVector.Y,
                                                                 QUIT_MESSAGE_TEXT,
                                                                 Color.White,
-                                                                GlobalTextIndexContants.PAUSE_SCREEN_QUIT_MESSAGE_TEXT_INDEX);
+                                                                GlobalTextIndexConstants.PAUSE_SCREEN_QUIT_MESSAGE_TEXT_INDEX);
             } else {
                 TheAdventuresOf.showMouse = false;
-                TextManager.Instance.RemoveText(GlobalTextIndexContants.PAUSE_SCREEN_QUIT_MESSAGE_TEXT_INDEX);
+                TextManager.Instance.RemoveText(GlobalTextIndexConstants.PAUSE_SCREEN_QUIT_MESSAGE_TEXT_INDEX);
             }
         }
 

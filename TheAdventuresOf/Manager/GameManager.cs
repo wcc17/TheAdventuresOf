@@ -574,8 +574,11 @@ namespace TheAdventuresOf
          * Called when player hits "Quit" in the pause menu during any type of level
          */
         void handleQuitToMenu(GameTime gameTime) {
-            SaveGameManager.Instance.SetLevelHighScore(currentLevelNumber, 
-                                                       ScoringManager.Instance.score);
+            //if(endlessMode) {
+            //    SaveGameManager.Instance.SetLevelHighScore(currentLevelNumber, 
+				        //                                   ScoringManager.Instance.score);
+            //}
+
             ScoringManager.Instance.ClearScores();
             currentLevel.ResetUponReturnToMenu();
 

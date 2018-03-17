@@ -52,7 +52,7 @@ namespace TheAdventuresOf
                                                         storeLevelCharacterProp.positionVector.Y - textYOffset, 
                                                         storeLevelCharText,
                                                         Color.White,
-                                                        GlobalTextIndexContants.STORE_LEVEL_CHARACTER_TEXT_INDEX);
+                                                        GlobalTextIndexConstants.STORE_LEVEL_CHARACTER_TEXT_INDEX);
 
             //ensure items aren't already sold out
             for (int i = 0; i < storeLevelPropItems.Count; i++) {
