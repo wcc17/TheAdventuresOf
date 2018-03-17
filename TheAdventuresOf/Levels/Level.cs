@@ -39,6 +39,7 @@ namespace TheAdventuresOf
         bool storyMode;
         public ScoreStatOverlay scoreStatOverlay;
         bool showScoreStatOverlay;
+        bool showIsNewHighScoreText;
         Vector2 gameOverTextPositionVector;
         Timer gameOverDelayTimer = new Timer(gameOverDelayTimeLimit);
 
@@ -146,10 +147,6 @@ namespace TheAdventuresOf
                     SoundManager.Instance.PlayGameOverSoundEffect();
                     monsterManager.DespawnMonsters();
                     playerDied = true;
-
-                    if(endlessMode) {
-                        SaveGameManager.Instance.SetLevelHighScore(levelNumber, ScoringManager.Instance.score);
-                    }
                 }
             } else {
                 handleGameOverDelay(gameTime);
@@ -331,6 +328,14 @@ namespace TheAdventuresOf
             monsterManager.DespawnMonsters();
             scoreStatOverlay = new ScoreStatOverlay(monsterManager);
             showScoreStatOverlay = true;
+
+            if (endlessMode) {
+                if (ScoringManager.Instance.score > SaveGameManager.Instance.GetLevelHighScoreInt(levelNumber)) {
+                    scoreStatOverlay.CheckShowHighScoreText();
+                    SaveGameManager.Instance.SetLevelHighScore(levelNumber, ScoringManager.Instance.score);
+                }
+            }
+
 			HeartManager.Instance.RemoveAllItems();
             CoinManager.Instance.RemoveAllItems();
             TextManager.Instance.RemoveAllText();

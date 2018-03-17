@@ -95,10 +95,8 @@ namespace TheAdventuresOf
         }
 
         public void SetLevelHighScore(int levelNumber, int score) {
-            if(score > saveGame.GetLevelHighScoreInt(levelNumber)) {
                 saveGame.SetLevelHighScore(levelNumber, score);
                 OverwriteSave();
-            }
         }
 
         public bool IsLevelUnlocked(int levelNumber) {

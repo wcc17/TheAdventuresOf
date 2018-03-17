@@ -32,6 +32,8 @@ namespace TheAdventuresOf
         public static float monsterScoreXMultiplier;
         public static float monsterScoreYMultiplier;
 
+        const string newHighScoreTextString = "NEW HIGH SCORE!";
+
         float totalKilledPositionYOffset;
         float continueTextPositionYOffset;
         float monsterKillCountXOffset;
@@ -43,11 +45,13 @@ namespace TheAdventuresOf
         Vector2 positionVector = new Vector2(0, 0);
         Vector2 zeroOriginVector = new Vector2(0, 0);
         Vector2 countPositionVector;
+        Vector2 newHighScoreTextPositionVector;
         Vector2 totalScorePositionVector;
         Vector2 totalKilledPositionVector;
         Vector2 continueTextPositionVector;
         Color fontColor = Color.White;
         bool showContinueText;
+        bool showHighScoreText;
         Timer continueDelayTimer; //how long to wait before player can hit jump to go to next level
         int totalMonstersKilled;
 
@@ -77,6 +81,9 @@ namespace TheAdventuresOf
                                               ScreenManager.VIRTUAL_SCREEN_HEIGHT * countPositionYMultiplier);
             totalScorePositionVector = new Vector2(ScreenManager.VIRTUAL_SCREEN_WIDTH * totalScorePositionXMultiplier, 
                                                    ScreenManager.VIRTUAL_SCREEN_HEIGHT * totalScorePositionYMultiplier);
+            //i hate the way i positioned the text here so just placing new high score text right above other text
+            newHighScoreTextPositionVector = new Vector2(totalScorePositionVector.X,
+                                                         totalScorePositionVector.Y - AssetManager.Instance.font.MeasureString(newHighScoreTextString).Y - 20);
             totalKilledPositionVector = new Vector2(totalScorePositionVector.X, 
                                                     totalScorePositionVector.Y + totalKilledPositionYOffset);
             continueTextPositionVector = new Vector2(totalScorePositionVector.X,
@@ -237,10 +244,26 @@ namespace TheAdventuresOf
                                        fontColor,
                                        0,
                                        zeroOriginVector,
-                                       fontScale,
+                                       (float)fontScale+0.5f,
                                        SpriteEffects.None,
                                        0);
             }
+
+            if(showHighScoreText) {
+                spriteBatch.DrawString(AssetManager.Instance.font,
+                                       newHighScoreTextString,
+                                       newHighScoreTextPositionVector,
+                                       Color.Red,
+                                       0,
+                                       zeroOriginVector,
+                                       (float)fontScale + 0.5f,
+                                       SpriteEffects.None,
+                                       0);
+            }
+        }
+
+        public void CheckShowHighScoreText() {
+            showHighScoreText = true;
         }
 
         void drawMonsterScore(SpriteBatch spriteBatch, Monster monster, int monsterScore, int monsterKillCount) {
