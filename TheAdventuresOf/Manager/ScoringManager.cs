@@ -80,7 +80,7 @@ namespace TheAdventuresOf
 
             //generate a new ScoringText object
             float scoreTextX = monster.positionVector.X + monster.entityBounds.Width / 2;
-            ScoreText newScoreText = new ScoreText(scoreTextX, monster.groundLevel, pointsEarned.ToString(), 0);
+            ScoreText newScoreText = new ScoreText(scoreTextX, monster.groundLevel, pointsEarned.ToString(), Color.White, 0);
 
             TextManager.Instance.AddText(newScoreText);
         }

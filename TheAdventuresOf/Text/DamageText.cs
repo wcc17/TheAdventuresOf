@@ -5,9 +5,7 @@ namespace TheAdventuresOf
 {
     public class DamageText : Text
     {
-        public DamageText(float startX, float startY, string text, int index) : base(startX, startY, text, index) {
-            color = Color.Red;
-        }
+        public DamageText(float startX, float startY, string text, Color color, int index) : base(startX, startY, text, color, index) { }
 
         public override void Update(GameTime gameTime)
         {

@@ -7,10 +7,7 @@ namespace TheAdventuresOf
 {
     public class HealthText : Text
     {
-        public HealthText(float startX, float startY, string text, int index) : base(startX, startY, text, index)
-        {
-            color = Color.Green;
-        }
+        public HealthText(float startX, float startY, string text, Color color, int index) : base(startX, startY, text, color, index) { }
 
         public override void Update(GameTime gameTime)
         {
