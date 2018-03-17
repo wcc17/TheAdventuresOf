@@ -66,17 +66,17 @@ namespace TheAdventuresOf
             this.monsterManager = monsterManager;
 			continueDelayTimer = new Timer(continueDelayTimeLimit);
 
-			totalKilledPositionYOffset = ScreenManager.FULL_SCREEN_HEIGHT / totalKilledPositionYMultiplier;
-			continueTextPositionYOffset = ScreenManager.FULL_SCREEN_HEIGHT / continueTextPositionYMultiplier;
-			monsterKillCountXOffset = ScreenManager.FULL_SCREEN_WIDTH / monsterKillCountXMultiplier;
-			monsterKillCountYOffset = ScreenManager.FULL_SCREEN_HEIGHT / monsterKillCountYMultiplier;
-			monsterScoreXOffset = ScreenManager.FULL_SCREEN_WIDTH / monsterScoreXMultiplier;
-			monsterScoreYOffset = ScreenManager.FULL_SCREEN_HEIGHT / monsterScoreYMultiplier;
+			totalKilledPositionYOffset = ScreenManager.VIRTUAL_SCREEN_HEIGHT / totalKilledPositionYMultiplier;
+			continueTextPositionYOffset = ScreenManager.VIRTUAL_SCREEN_HEIGHT / continueTextPositionYMultiplier;
+			monsterKillCountXOffset = ScreenManager.VIRTUAL_SCREEN_WIDTH / monsterKillCountXMultiplier;
+			monsterKillCountYOffset = ScreenManager.VIRTUAL_SCREEN_HEIGHT / monsterKillCountYMultiplier;
+			monsterScoreXOffset = ScreenManager.VIRTUAL_SCREEN_WIDTH / monsterScoreXMultiplier;
+			monsterScoreYOffset = ScreenManager.VIRTUAL_SCREEN_HEIGHT / monsterScoreYMultiplier;
 
-            countPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH * countPositionXMultiplier, 
-                                              ScreenManager.FULL_SCREEN_HEIGHT * countPositionYMultiplier);
-            totalScorePositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH * totalScorePositionXMultiplier, 
-                                                   ScreenManager.FULL_SCREEN_HEIGHT * totalScorePositionYMultiplier);
+            countPositionVector = new Vector2(ScreenManager.VIRTUAL_SCREEN_WIDTH * countPositionXMultiplier, 
+                                              ScreenManager.VIRTUAL_SCREEN_HEIGHT * countPositionYMultiplier);
+            totalScorePositionVector = new Vector2(ScreenManager.VIRTUAL_SCREEN_WIDTH * totalScorePositionXMultiplier, 
+                                                   ScreenManager.VIRTUAL_SCREEN_HEIGHT * totalScorePositionYMultiplier);
             totalKilledPositionVector = new Vector2(totalScorePositionVector.X, 
                                                     totalScorePositionVector.Y + totalKilledPositionYOffset);
             continueTextPositionVector = new Vector2(totalScorePositionVector.X,

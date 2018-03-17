@@ -70,8 +70,8 @@ namespace TheAdventuresOf {
         {
             Logger.Instance.AddOrUpdateValue(valueText + ": ", value.ToString());
 
-            Vector2 textPositionVector = new Vector2(positionVector.X + ScreenManager.FULL_SCREEN_WIDTH * 0.01f,
-                                                     positionVector.Y + ScreenManager.FULL_SCREEN_HEIGHT * 0.01f);
+            Vector2 textPositionVector = new Vector2(positionVector.X + ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.01f,
+                                                     positionVector.Y + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.01f);
 
             spriteBatch.Draw(progressBarFillTexture, positionVector, sourceRectangle: barFillSourceRectangle);
             spriteBatch.Draw(progressBarTexture, positionVector);

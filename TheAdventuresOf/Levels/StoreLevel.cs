@@ -21,11 +21,11 @@ namespace TheAdventuresOf
         int textXOffset = 100;
         int textYOffset = 50;
         int numberOfSmallBoxes = 3;
-        float groundOffset = ScreenManager.FULL_SCREEN_HEIGHT * 0.018f; //so that the lines of the boxes don't perfectly line up with the lines of characters, etc
-        float smallPropYOffset = ScreenManager.FULL_SCREEN_HEIGHT * 0.15f; //offset the items x% of the screen height from the boxes
-        float costYOffset = ScreenManager.FULL_SCREEN_HEIGHT * 0.13f;
-        float coinXOffset = ScreenManager.FULL_SCREEN_WIDTH * 0.035f;
-        float soldOutTextXOffset = ScreenManager.FULL_SCREEN_WIDTH * 0.025f;
+        float groundOffset = ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.018f; //so that the lines of the boxes don't perfectly line up with the lines of characters, etc
+        float smallPropYOffset = ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.15f; //offset the items x% of the screen height from the boxes
+        float costYOffset = ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.13f;
+        float coinXOffset = ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.035f;
+        float soldOutTextXOffset = ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.025f;
         bool shouldDrawCost = false;
         int costToDraw = 0;
         int costTextIndex = 543; //just a random number to ensure this text is unique. TODO: if i start doing this more it should be loaded from XML
@@ -121,7 +121,7 @@ namespace TheAdventuresOf
             Texture2D largeBoxTexture = AssetManager.Instance.storeLevelBigBoxTexture;
 
             //split the room up so the boxes are evenly spaced, with more free space at the beginning and end of the level
-            float roomWidth = (ScreenManager.FULL_SCREEN_WIDTH) 
+            float roomWidth = (ScreenManager.VIRTUAL_SCREEN_WIDTH) 
                 - (smallBoxTexture.Width* numberOfSmallBoxes) 
                 - (largeBoxTexture.Width);
             float largeSpace = (3f / 9f) * roomWidth; //each large space is 1/3 of the room

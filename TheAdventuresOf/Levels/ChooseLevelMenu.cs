@@ -35,7 +35,7 @@ namespace TheAdventuresOf
             try {
                 float previewTextureWidth = previewTextures[0].Width;
                 float previewTextureHeight = previewTextures[0].Height;
-                levelPreviewPositionVector = new Vector2((ScreenManager.FULL_SCREEN_WIDTH / 2) - (previewTextureWidth / 2), (ScreenManager.FULL_SCREEN_HEIGHT / 2) - (previewTextureHeight / 2));
+                levelPreviewPositionVector = new Vector2((ScreenManager.VIRTUAL_SCREEN_WIDTH / 2) - (previewTextureWidth / 2), (ScreenManager.VIRTUAL_SCREEN_HEIGHT / 2) - (previewTextureHeight / 2));
 
                 float previewOutlineTextureWidth = AssetManager.Instance.chooseLevelPreviewOutlineTexture.Width;
                 float previewOutlineTextureHeight = AssetManager.Instance.chooseLevelPreviewOutlineTexture.Height;

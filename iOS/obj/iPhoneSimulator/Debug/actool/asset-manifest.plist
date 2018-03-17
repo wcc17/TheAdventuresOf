@@ -33,6 +33,18 @@
 		<dict>
 			<key>affected-items</key>
 			<array>
+				<string>./AppIcon.appiconset/[][ipad][76x76][][][1x][][]</string>
+			</array>
+			<key>catalog</key>
+			<string>/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/actool/cloned-assets/Assets.xcassets</string>
+			<key>message</key>
+			<string>76x76@1x app icons only apply to iPad apps targeting releases of iOS prior to 10.0.</string>
+			<key>type</key>
+			<string>Inapplicable Content</string>
+		</dict>
+		<dict>
+			<key>affected-items</key>
+			<array>
 				<string>./LaunchImage.launchimage/[iphone][736h][3x][landscape][full-screen][8.0]</string>
 			</array>
 			<key>catalog</key>

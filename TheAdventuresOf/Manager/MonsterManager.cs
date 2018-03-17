@@ -490,12 +490,12 @@ namespace TheAdventuresOf
         void handleTopBottomSpawn(Monster monster, int spawnType) {
             monster.positionVector.X = getRandomXLocation(monster.entityWidth, 
                                                           level.leftBoundWidth, 
-                                                          (int)(ScreenManager.FULL_SCREEN_WIDTH - level.rightBoundWidth));
+                                                          (int)(ScreenManager.VIRTUAL_SCREEN_WIDTH - level.rightBoundWidth));
 
             if (spawnType == Monster.SPAWN_TOP) {
                 monster.positionVector.Y = 0 - monster.entityHeight;
             } else {
-                monster.positionVector.Y = ScreenManager.FULL_SCREEN_HEIGHT + monster.entityHeight;
+                monster.positionVector.Y = ScreenManager.VIRTUAL_SCREEN_HEIGHT + monster.entityHeight;
             }
         }
 
@@ -513,7 +513,7 @@ namespace TheAdventuresOf
                 monster.positionVector.X = 0 - monster.entityWidth;
             } else {
                 monster.moveLeft = true;
-                monster.positionVector.X = ScreenManager.FULL_SCREEN_WIDTH + monster.entityWidth;
+                monster.positionVector.X = ScreenManager.VIRTUAL_SCREEN_WIDTH + monster.entityWidth;
             }
         }
 
@@ -540,11 +540,11 @@ namespace TheAdventuresOf
             int rightSideXLimit;
             if(spawnType == Monster.SPAWN_LEFT) {
                 leftSideXLimit = level.leftBoundWidth + 1;
-                rightSideXLimit = (int)(ScreenManager.FULL_SCREEN_WIDTH / 2) 
+                rightSideXLimit = (int)(ScreenManager.VIRTUAL_SCREEN_WIDTH / 2) 
                                  - monster.entityWidth;
             } else {
-                leftSideXLimit = (int)(ScreenManager.FULL_SCREEN_WIDTH / 2);
-                rightSideXLimit = (int)ScreenManager.FULL_SCREEN_WIDTH
+                leftSideXLimit = (int)(ScreenManager.VIRTUAL_SCREEN_WIDTH / 2);
+                rightSideXLimit = (int)ScreenManager.VIRTUAL_SCREEN_WIDTH
                                         - level.rightBoundWidth
                                         - monster.entityWidth;
             }
@@ -648,7 +648,7 @@ namespace TheAdventuresOf
             //random side of the level is chosen here. if a cannon monster already exists there, it will be handled here
             groundCannonMonster.ChooseRandomSide(baseCannonMonsterCount, groundCannonMonsterCount, monsters);
             groundCannonMonster.InitializeEntity(groundCannonMonster.positionVector.X,
-                                              ScreenManager.FULL_SCREEN_HEIGHT + AssetManager.Instance.cannonMonsterTexture.Height,
+                                              ScreenManager.VIRTUAL_SCREEN_HEIGHT + AssetManager.Instance.cannonMonsterTexture.Height,
                                               AssetManager.Instance.cannonMonsterTexture.Width / groundCannonMonster.frameCount,
                                               AssetManager.Instance.cannonMonsterTexture.Height);
 
@@ -706,7 +706,7 @@ namespace TheAdventuresOf
             undergroundMonster.SetUndergroundMonsterData(level.undergroundMonster);
             undergroundMonster.groundLevel = level.groundLevel;
             undergroundMonster.InitializeEntity(PlayerManager.Instance.GetPlayerPosition().X,
-                                                   ScreenManager.FULL_SCREEN_HEIGHT + AssetManager.Instance.undergroundMonsterTexture.Height,
+                                                   ScreenManager.VIRTUAL_SCREEN_HEIGHT + AssetManager.Instance.undergroundMonsterTexture.Height,
                                                    AssetManager.Instance.undergroundMonsterTexture.Width,
                                                    AssetManager.Instance.undergroundMonsterTexture.Height);
 

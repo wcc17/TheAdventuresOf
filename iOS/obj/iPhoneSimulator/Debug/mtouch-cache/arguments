@@ -1,41 +1,25 @@
-# Version: 11.6.1.3 (xcode9.2: f70a1348)
-# [first argument, ignore] # --cache
-/Library/Frameworks/Xamarin.iOS.framework/Versions/11.6.1.3/lib/mtouch/mtouch.exe \
-	/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/mtouch-cache \
-	--sim \
-	/Users/wcc17/Development/TheAdventuresOf/iOS/bin/iPhoneSimulator/Debug/TheAdventuresOf.iOS.app \
-	--executable \
-	TheAdventuresOf.iOS \
+# Version: 11.8.0.20 (d15-6: 1c6f300e)
+# [first argument, ignore] # --cache=/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/mtouch-cache
+/Library/Frameworks/Xamarin.iOS.framework/Versions/11.8.0.20/lib/mtouch/mtouch.exe \
+	--sim=/Users/wcc17/Development/TheAdventuresOf/iOS/bin/iPhoneSimulator/Debug/TheAdventuresOf.iOS.app \
+	--executable=TheAdventuresOf.iOS \
 	--debug \
 	--nolink \
-	--sdkroot \
-	/Applications/Xcode.app/Contents/Developer \
-	--sdk \
-	11.2 \
-	--targetver \
-	8.0 \
+	--sdkroot=/Applications/Xcode.app/Contents/Developer \
+	--sdk=11.2 \
+	--targetver=8.0 \
 	--aot-options=-O=-float32 \
 	--http-message-handler=HttpClientHandler \
 	--abi=i386 \
-	--symbollist \
-	/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/mtouch-symbols.list \
+	--symbollist=/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/mtouch-symbols.list \
 	--dsym=no \
-	-r \
-	/Library/Frameworks/Mono.framework/External/xbuild/MonoGame/v3.0/Assemblies/iOS/MonoGame.Framework.dll \
-	-r \
-	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/mscorlib.dll \
-	-r \
-	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Core.dll \
-	-r \
-	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.dll \
-	-r \
-	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Xml.dll \
-	-r \
-	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Xml.Linq.dll \
-	-r \
-	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Xamarin.iOS.dll \
-	-r \
-	/Library/Frameworks/Mono.framework/External/xbuild/MonoGame/v3.0/Assemblies/iOS/MonoGame.Framework.dll \
-	--target-framework \
-	'Xamarin.iOS,v1.0' \
-	/Users/wcc17/Development/TheAdventuresOf/iOS/bin/iPhoneSimulator/Debug/TheAdventuresOf.iOS.exe \
+	-r=/Library/Frameworks/Mono.framework/External/xbuild/MonoGame/v3.0/Assemblies/iOS/MonoGame.Framework.dll \
+	-r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/mscorlib.dll \
+	-r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Core.dll \
+	-r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.dll \
+	-r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Xml.dll \
+	-r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Xml.Linq.dll \
+	-r=/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Xamarin.iOS.dll \
+	-r=/Library/Frameworks/Mono.framework/External/xbuild/MonoGame/v3.0/Assemblies/iOS/MonoGame.Framework.dll \
+	'--target-framework=Xamarin.iOS,v1.0' \
+	--root-assembly=/Users/wcc17/Development/TheAdventuresOf/iOS/bin/iPhoneSimulator/Debug/TheAdventuresOf.iOS.exe \

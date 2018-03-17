@@ -8,14 +8,15 @@ namespace TheAdventuresOf
 {
 	public class ScreenManager
 	{
-		public const float FULL_SCREEN_WIDTH = 1920f;
-		public const float FULL_SCREEN_HEIGHT = 1080f;
+		public static Matrix transformMatrix;
+        public const float VIRTUAL_SCREEN_WIDTH = 1920f;
+        public const float VIRTUAL_SCREEN_HEIGHT = 1080f;
         public float deviceScreenWidth;
         public float deviceScreenHeight;
         public Viewport viewport;
-        public static Matrix transformMatrix;
-
 		public const int MULTI_TOUCH_LIMIT = 2;
+        public bool isResolutionHigherThanDesired;
+        public bool isAspectRatioWrong;
 
 
 		//actual width and actual height are the values that the device thinks the screen should be, not what we want it to be
@@ -25,39 +26,50 @@ namespace TheAdventuresOf
 
             this.deviceScreenWidth = deviceScreenWidth;
             this.deviceScreenHeight = deviceScreenHeight;
+
+            checkDeviceScreenSize();
+
             createVirtualViewport();
             createTransformMatrix();
 		}
 
+        void checkDeviceScreenSize() {
+            float desiredAspectRatio = VIRTUAL_SCREEN_WIDTH / VIRTUAL_SCREEN_HEIGHT;
+            float actualAspectRatio = deviceScreenWidth / deviceScreenHeight;
 
-        void createVirtualViewport() {
-            viewport = new Viewport {
-                X = 0, //(int)((deviceScreenWidth / 2) - (FULL_SCREEN_WIDTH / 2)),
-                Y = 0,
-                Width = (int)FULL_SCREEN_WIDTH,
-                Height = (int)FULL_SCREEN_HEIGHT
-            };
+            double roundedDesiredAspectRatio = Math.Round(desiredAspectRatio, 2);
+            double roundedActualAspectRatio = Math.Round(actualAspectRatio, 2);
+
+            isAspectRatioWrong = roundedActualAspectRatio > roundedDesiredAspectRatio;
         }
 
-        void createTransformMatrix()
-		{
+        void createVirtualViewport() {
+            if(isAspectRatioWrong) {
+				viewport = new Viewport {
+					X = 0,
+					Y = 0,
+					Width = (int)VIRTUAL_SCREEN_WIDTH,
+					Height = (int)VIRTUAL_SCREEN_HEIGHT
+				};
+            }
+        }
+
+        void createTransformMatrix() {
             Logger.WriteToConsole("Generating scaling matrix");
 
-            float scaleX = (float)deviceScreenWidth / FULL_SCREEN_WIDTH;
-            float scaleY = (float)deviceScreenHeight / FULL_SCREEN_HEIGHT;
-
-            //TODO: only needs to happen on the iphoneX
-            Vector3 translateVector = new Vector3() {
-                X = (deviceScreenWidth / 2) - (FULL_SCREEN_WIDTH / 2),
-                Y = 0,
-                Z = 0
-            };
-
-            //TODO: only needs to happen on the iphoneX
-            transformMatrix = Matrix.CreateTranslation(translateVector);
-
-            //TODO: needs to happen on other phones
-            //scaleMatrix = Matrix.CreateScale(scaleX, scaleY, 1.0f);
+            if(isAspectRatioWrong) {
+				Vector3 translateVector = new Vector3() {
+					X = (deviceScreenWidth / 2) - (VIRTUAL_SCREEN_WIDTH / 2),
+					Y = 0,
+					Z = 0
+				};
+				
+				transformMatrix = Matrix.CreateTranslation(translateVector);
+            } else {
+                float scaleX = (float)deviceScreenWidth / VIRTUAL_SCREEN_WIDTH;
+                float scaleY = (float)deviceScreenHeight / VIRTUAL_SCREEN_HEIGHT;
+                transformMatrix = Matrix.CreateScale(scaleX, scaleY, 1.0f);
+            }
 		}
 
 		public void Update(Controller controller)

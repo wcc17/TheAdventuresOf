@@ -56,8 +56,8 @@ namespace TheAdventuresOf
             Move(gameTime);
 
             //velocity will only be greater than 0 when we've hit the top of th attack and are coming back down
-            if ( (positionVector.Y > (ScreenManager.FULL_SCREEN_HEIGHT + entityHeight)) && velocity > 0) {
-                positionVector.Y = ScreenManager.FULL_SCREEN_HEIGHT + entityHeight;
+            if ( (positionVector.Y > (ScreenManager.VIRTUAL_SCREEN_HEIGHT + entityHeight)) && velocity > 0) {
+                positionVector.Y = ScreenManager.VIRTUAL_SCREEN_HEIGHT + entityHeight;
                 isMoving = false;
                 delayAction = true;
             }

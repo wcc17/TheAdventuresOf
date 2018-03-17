@@ -5,7 +5,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>project.MonoGame.TheAdventuresOf.iOS</string>
 	<key>MinimumOSVersion</key>
-	<string>8.0</string>
+	<string>9.0</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
