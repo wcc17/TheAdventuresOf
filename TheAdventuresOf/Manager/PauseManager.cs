@@ -25,8 +25,8 @@ namespace TheAdventuresOf {
 
         public void Initialize() {
             Vector2 textSize = AssetManager.Instance.font.MeasureString(QUIT_MESSAGE_TEXT);
-            quitMessagePositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH / 2 - (textSize.X / 4),
-                                                    ScreenManager.FULL_SCREEN_HEIGHT / 2);
+            quitMessagePositionVector = new Vector2(ScreenManager.VIRTUAL_SCREEN_WIDTH / 2 - (textSize.X / 4),
+                                                    ScreenManager.VIRTUAL_SCREEN_HEIGHT / 2);
         }
 
         public void Update(GameTime gameTime, GameController gameController, bool isGameActive) {

@@ -49,12 +49,12 @@ namespace TheAdventuresOf
         }
 
         float initializeScore(float textHeight, float lastTextDrawYPos) {
-            scorePositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH * 0.01f,
-                                              ScreenManager.FULL_SCREEN_HEIGHT * 0.005f);
+            scorePositionVector = new Vector2(ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.01f,
+                                              ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.005f);
             highScorePositionVector = new Vector2(scorePositionVector.X,
                                                   scorePositionVector.Y
                                                     + textHeight
-                                                    + ScreenManager.FULL_SCREEN_HEIGHT
+                                                    + ScreenManager.VIRTUAL_SCREEN_HEIGHT
                                                     * 0.01f);
             if(isEndlessMode) {
                 return highScorePositionVector.Y;
@@ -64,8 +64,8 @@ namespace TheAdventuresOf
         }
 
         float initializeCoinCount(float textHeight, float lastTextDrawYPos) {
-            coinCountSymbolPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH * 0.01f, 
-                                                        lastTextDrawYPos + textHeight + ScreenManager.FULL_SCREEN_HEIGHT * 0.005f);
+            coinCountSymbolPositionVector = new Vector2(ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.01f, 
+                                                        lastTextDrawYPos + textHeight + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.005f);
             coinCountPositionVector = new Vector2(coinCountSymbolPositionVector.X 
                                                   + AssetManager.Instance.goldCoinTexture.Width, 
                                                   coinCountSymbolPositionVector.Y);
@@ -75,14 +75,14 @@ namespace TheAdventuresOf
 
         //is drawn on the right side of the screen 
         void initializeHealthAndShield() {
-            healthPositionVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH 
+            healthPositionVector = new Vector2(ScreenManager.VIRTUAL_SCREEN_WIDTH 
                                                - HealthShieldManager.Instance.GetHealthBarWidth()
-                                               - (ScreenManager.FULL_SCREEN_WIDTH * 0.01f), 
-                                               ScreenManager.FULL_SCREEN_HEIGHT * 0.01f);
+                                               - (ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.01f), 
+                                               ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.01f);
             shieldPositionVector = new Vector2(healthPositionVector.X,
                                                healthPositionVector.Y
                                                + HealthShieldManager.Instance.GetShieldBarHeight()
-                                               + ScreenManager.FULL_SCREEN_HEIGHT * 0.01f);
+                                               + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.01f);
         }
 
         public void Draw(SpriteBatch spriteBatch) {

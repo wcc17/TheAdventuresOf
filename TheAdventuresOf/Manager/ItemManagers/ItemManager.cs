@@ -41,7 +41,7 @@ namespace TheAdventuresOf
                 }
                 else if (item.bounds.Intersects(levelBoundsRight))
                 {
-                    item.positionVector.X = ScreenManager.FULL_SCREEN_WIDTH
+                    item.positionVector.X = ScreenManager.VIRTUAL_SCREEN_WIDTH
                         - levelBoundsRight.Width
                         - item.bounds.Width;
                     item.bounds.X = (int)item.positionVector.X;

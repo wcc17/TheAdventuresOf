@@ -62,8 +62,8 @@ namespace TheAdventuresOf
             HeartManager.Instance.RemoveAllItems();
 
             Vector2 gameOverTextDimensionsVector = AssetManager.Instance.font.MeasureString(gameOverText);
-            gameOverTextPositionVector = new Vector2((ScreenManager.FULL_SCREEN_WIDTH / 2) - (gameOverTextDimensionsVector.X / 2),
-                                                     ((ScreenManager.FULL_SCREEN_HEIGHT * 0.3f) - (gameOverTextDimensionsVector.Y / 2)));
+            gameOverTextPositionVector = new Vector2((ScreenManager.VIRTUAL_SCREEN_WIDTH / 2) - (gameOverTextDimensionsVector.X / 2),
+                                                     ((ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.3f) - (gameOverTextDimensionsVector.Y / 2)));
 
             shakeTimer = new Timer(SHAKE_TIME_SECONDS);
         }

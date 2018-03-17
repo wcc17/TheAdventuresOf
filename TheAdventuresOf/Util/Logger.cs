@@ -8,7 +8,7 @@ namespace TheAdventuresOf
 {
     public class Logger
     {
-        private const float INITIAL_Y_POS = ScreenManager.FULL_SCREEN_HEIGHT - 400;
+        private const float INITIAL_Y_POS = ScreenManager.VIRTUAL_SCREEN_HEIGHT - 400;
         private static Logger instance;
 
         static SortedDictionary<string, string> debugStrings;

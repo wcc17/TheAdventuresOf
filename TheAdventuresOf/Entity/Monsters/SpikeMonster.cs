@@ -141,7 +141,7 @@ namespace TheAdventuresOf
 
                 attackSpeed += 35;
 
-                if(positionVector.Y > (ScreenManager.FULL_SCREEN_HEIGHT + entityHeight) )
+                if(positionVector.Y > (ScreenManager.VIRTUAL_SCREEN_HEIGHT + entityHeight) )
                 {
                     Logger.WriteToConsole("spike monster is dead");
                     isDead = true;

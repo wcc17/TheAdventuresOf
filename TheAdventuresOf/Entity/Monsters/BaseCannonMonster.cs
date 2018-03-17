@@ -248,7 +248,7 @@ namespace TheAdventuresOf
         }
 
         public void HandleDespawn(GameTime gameTime) {
-            if (positionVector.Y < ScreenManager.FULL_SCREEN_HEIGHT + this.entityHeight)
+            if (positionVector.Y < ScreenManager.VIRTUAL_SCREEN_HEIGHT + this.entityHeight)
             {
                 MoveUpDown(gameTime, DOWN, deathSpeed);
             } else {

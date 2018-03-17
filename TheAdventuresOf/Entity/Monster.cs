@@ -216,7 +216,7 @@ namespace TheAdventuresOf
             {
                 Rotate(gameTime);
             }
-            else if (positionVector.Y < ScreenManager.FULL_SCREEN_HEIGHT + this.entityHeight)
+            else if (positionVector.Y < ScreenManager.VIRTUAL_SCREEN_HEIGHT + this.entityHeight)
             {
                 MoveUpDown(gameTime, DOWN, deathSpeed);
             }

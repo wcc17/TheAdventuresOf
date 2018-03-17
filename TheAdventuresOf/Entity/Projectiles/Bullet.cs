@@ -74,7 +74,7 @@ namespace TheAdventuresOf
 
             if (moveRight)
             {
-                if (positionVector.X > ScreenManager.FULL_SCREEN_WIDTH + 10)
+                if (positionVector.X > ScreenManager.VIRTUAL_SCREEN_WIDTH + 10)
                 {
                     //Logger.WriteToConsole("bullet is off screen");
                     isActive = false;

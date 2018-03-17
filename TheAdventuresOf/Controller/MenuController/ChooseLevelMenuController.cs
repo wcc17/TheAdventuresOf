@@ -76,23 +76,23 @@ namespace TheAdventuresOf
                                       0, 0);
 
             chooseButton.buttonPositionVector.X = chooseLevelPreviewPositionVector.X;
-            chooseButton.buttonPositionVector.Y = ScreenManager.FULL_SCREEN_HEIGHT - chooseButtonTexture.Height - buttonOffset;
+            chooseButton.buttonPositionVector.Y = ScreenManager.VIRTUAL_SCREEN_HEIGHT - chooseButtonTexture.Height - buttonOffset;
             chooseButton.ResetInitialPosition();
 
             chooseEndlessButton.buttonPositionVector.X = chooseLevelPreviewPositionVector.X + chooseLevelPreviewWidth - chooseEndlessButtonTexture.Width;
-            chooseEndlessButton.buttonPositionVector.Y = ScreenManager.FULL_SCREEN_HEIGHT - chooseEndlessButtonTexture.Height - buttonOffset;
+            chooseEndlessButton.buttonPositionVector.Y = ScreenManager.VIRTUAL_SCREEN_HEIGHT - chooseEndlessButtonTexture.Height - buttonOffset;
             chooseEndlessButton.ResetInitialPosition();
 
             backArrowButton.buttonPositionVector.X = buttonOffset / 2;
             backArrowButton.buttonPositionVector.Y = buttonOffset / 2;
             backArrowButton.ResetInitialPosition();
 
-            rightArrowButton.buttonPositionVector.X = ScreenManager.FULL_SCREEN_WIDTH - rightArrowButtonTexture.Width - buttonOffset;
-            rightArrowButton.buttonPositionVector.Y = (ScreenManager.FULL_SCREEN_HEIGHT / 2) - (rightArrowButtonTexture.Height / 2);
+            rightArrowButton.buttonPositionVector.X = ScreenManager.VIRTUAL_SCREEN_WIDTH - rightArrowButtonTexture.Width - buttonOffset;
+            rightArrowButton.buttonPositionVector.Y = (ScreenManager.VIRTUAL_SCREEN_HEIGHT / 2) - (rightArrowButtonTexture.Height / 2);
             rightArrowButton.ResetInitialPosition();
 
             leftArrowButton.buttonPositionVector.X = buttonOffset;
-            leftArrowButton.buttonPositionVector.Y = (ScreenManager.FULL_SCREEN_HEIGHT / 2) - (rightArrowButtonTexture.Height / 2);
+            leftArrowButton.buttonPositionVector.Y = (ScreenManager.VIRTUAL_SCREEN_HEIGHT / 2) - (rightArrowButtonTexture.Height / 2);
             leftArrowButton.ResetInitialPosition();
 
 #if !__IOS__ && !__ANDROID__

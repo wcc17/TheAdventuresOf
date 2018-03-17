@@ -96,21 +96,22 @@ namespace TheAdventuresOf
             screenManager = new ScreenManager(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, 
                                               GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
 
-            //TODO: only needs to happen on iphoneX
-            graphicsDevice.Viewport = screenManager.viewport;
-            renderTarget = new RenderTarget2D(graphicsDevice,
-                                              (int)screenManager.deviceScreenWidth,
-                                              (int)screenManager.deviceScreenHeight);
-            renderTargetPositionVector = new Vector2((screenManager.deviceScreenWidth / 2) - (ScreenManager.FULL_SCREEN_WIDTH / 2),
-                                                     0);
-            renderTargetRect = new Rectangle((int)renderTargetPositionVector.X,
-                                             (int)renderTargetPositionVector.Y,
-                                             (int)ScreenManager.FULL_SCREEN_WIDTH,
-                                             (int)ScreenManager.FULL_SCREEN_HEIGHT);
+            if(screenManager.isAspectRatioWrong) {
+                graphicsDevice.Viewport = screenManager.viewport;
+                renderTarget = new RenderTarget2D(graphicsDevice,
+                                                  (int)screenManager.deviceScreenWidth,
+                                                  (int)screenManager.deviceScreenHeight);
+                renderTargetPositionVector = new Vector2((screenManager.deviceScreenWidth / 2) - (ScreenManager.VIRTUAL_SCREEN_WIDTH / 2),
+                                                         0);
+                renderTargetRect = new Rectangle((int)renderTargetPositionVector.X,
+                                                 (int)renderTargetPositionVector.Y,
+                                                 (int)ScreenManager.VIRTUAL_SCREEN_WIDTH,
+                                                 (int)ScreenManager.VIRTUAL_SCREEN_HEIGHT); 
+            }
 
             loadSplashScreen();
 
-            pausedTextVector = new Vector2(ScreenManager.FULL_SCREEN_WIDTH / 2 - pausedTextVectorXOffset, 
+            pausedTextVector = new Vector2(ScreenManager.VIRTUAL_SCREEN_WIDTH / 2 - pausedTextVectorXOffset, 
                                            AssetManager.Instance.font.MeasureString("Paused").Y);
 
             PauseManager.Instance.Initialize();
@@ -621,10 +622,12 @@ namespace TheAdventuresOf
         }
 
         void preDraw() {
-            // Tell the graphics device where to draw to
-            graphicsDevice.SetRenderTarget(renderTarget);
+            if(screenManager.isAspectRatioWrong) {
+                // Tell the graphics device where to draw to
+                graphicsDevice.SetRenderTarget(renderTarget);
+            }
 
-            // Clear the buffer with transparent so the image is transparent
+            // Clear the buffer
             graphicsDevice.Clear(Color.Black);
 
             //spriteBatch.Begin();
@@ -632,23 +635,24 @@ namespace TheAdventuresOf
         }
 
         void postDraw() {
-            spriteBatch.End();
+            if(screenManager.isAspectRatioWrong) {
+				spriteBatch.End();
+                
+				// Let the graphics device know you are done and return to drawing according to its dimensions
+				graphicsDevice.SetRenderTarget(null);
+				
+				spriteBatch.Begin();
+				spriteBatch.Draw(renderTarget,
+				                 renderTargetPositionVector,
+				                 renderTargetRect,
+				                 Color.White);
+            }
 
-            // Let the graphics device know you are done and return to drawing according to its dimensions
-            graphicsDevice.SetRenderTarget(null);
-
-            spriteBatch.Begin();
-            spriteBatch.Draw(renderTarget,
-                             renderTargetPositionVector,
-                             renderTargetRect,
-                             Color.White);
             spriteBatch.End();
         }
 
         public void Draw(GameTime gameTime) {
             preDraw();
-            //TODO: only if its not iphone X
-            //spriteBatch.Begin(transformMatrix: ScreenManager.transformMatrix);
 
             switch(gameState) {
                 case SPLASH_STATE:
@@ -678,8 +682,6 @@ namespace TheAdventuresOf
 
             Logger.Instance.DrawToScreen(spriteBatch);
 
-            //TODO: only if its not iphone X
-            //spriteBatch.End();
             postDraw();
         }
 
