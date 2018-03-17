@@ -296,7 +296,7 @@ namespace TheAdventuresOf
 				HealthShieldManager.Instance.DecreaseHealthByAmount(entity.damage);
             }
 
-            DamageText damageText = new DamageText(positionVector.X, positionVector.Y, "-" + entity.damage.ToString(), -1);
+            DamageText damageText = new DamageText(positionVector.X, positionVector.Y, "-" + entity.damage.ToString(), Color.Red, -1);
             TextManager.Instance.AddText(damageText);
 
             if (HealthShieldManager.Instance.GetHealth() > 0)

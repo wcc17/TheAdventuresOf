@@ -6,9 +6,7 @@ namespace TheAdventuresOf {
     public class PauseManager {
 
         private static PauseManager instance;
-
         public const string QUIT_MESSAGE_TEXT = "WARNING! If you quit all progress will be lost!";
-        public const int QUIT_MESSAGE_TEXT_INDEX = 9843;
 
         bool isPaused;
         Vector2 quitMessagePositionVector;
@@ -45,10 +43,11 @@ namespace TheAdventuresOf {
                 TextManager.Instance.AddOrUpdateIndexedText(quitMessagePositionVector.X,
                                                                 quitMessagePositionVector.Y,
                                                                 QUIT_MESSAGE_TEXT,
-                                                                QUIT_MESSAGE_TEXT_INDEX);
+                                                                Color.White,
+                                                                GlobalTextIndexContants.PAUSE_SCREEN_QUIT_MESSAGE_TEXT_INDEX);
             } else {
                 TheAdventuresOf.showMouse = false;
-                TextManager.Instance.RemoveText(QUIT_MESSAGE_TEXT_INDEX);
+                TextManager.Instance.RemoveText(GlobalTextIndexContants.PAUSE_SCREEN_QUIT_MESSAGE_TEXT_INDEX);
             }
         }
 

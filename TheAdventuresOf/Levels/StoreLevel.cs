@@ -49,9 +49,10 @@ namespace TheAdventuresOf
 
             //initialize character text above storelevel character
             TextManager.Instance.AddOrUpdateIndexedText(storeLevelCharacterProp.positionVector.X - textXOffset,
-                storeLevelCharacterProp.positionVector.Y - textYOffset, 
-                storeLevelCharText, 
-                1); //item text is using 0 for index
+                                                        storeLevelCharacterProp.positionVector.Y - textYOffset, 
+                                                        storeLevelCharText,
+                                                        Color.White,
+                                                        GlobalTextIndexContants.STORE_LEVEL_CHARACTER_TEXT_INDEX);
 
             //ensure items aren't already sold out
             for (int i = 0; i < storeLevelPropItems.Count; i++) {
@@ -62,7 +63,11 @@ namespace TheAdventuresOf
                         storeLevelPropItems[i].isSoldOut = true;
                         handleSoldOutText();
                         updateCostPosition(i);
-                        TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X - soldOutTextXOffset, costPositionVector.Y, SOLD_OUT, i * 200);
+                        TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X - soldOutTextXOffset, 
+                                                                    costPositionVector.Y, 
+                                                                    SOLD_OUT, 
+                                                                    Color.White,
+                                                                    i * 200);
                     }
                 }
             }
@@ -241,7 +246,11 @@ namespace TheAdventuresOf
                 if (storeLevelPropItems[activePropItemIndex].isSoldOut)
                 {
                     //again, the 200 is just getting a random index to store text at so nothing else bothers it
-                    TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X - soldOutTextXOffset, costPositionVector.Y, SOLD_OUT, activePropItemIndex * 200);
+                    TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X - soldOutTextXOffset, 
+                                                                costPositionVector.Y, 
+                                                                SOLD_OUT, 
+                                                                Color.White,
+                                                                activePropItemIndex * 200);
                 }
             }
 
@@ -253,7 +262,11 @@ namespace TheAdventuresOf
             }
             else if (!storeLevelPropItems[activePropItemIndex].isSoldOut)
             {
-                TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X, costPositionVector.Y, "x" + costToDraw.ToString(), costTextIndex);
+                TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X, 
+                                                            costPositionVector.Y, 
+                                                            "x" + costToDraw.ToString(), 
+                                                            Color.White,
+                                                            costTextIndex);
             }
         }
 

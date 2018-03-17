@@ -20,16 +20,14 @@ namespace TheAdventuresOf
         public float startX, endX; //where player needs to be for text to show (if applicable)
         public string text;
 
-        public Text(float x, float y, string text, int index = -1, float startX = -1, float endX = -1)
+        public Text(float x, float y, string text, Color color, int index = -1, float startX = -1, float endX = -1)
         {
             positionVector = new Vector2(x-textPositionOffset, y);
             this.text = text;
-
+            this.color = color;
             this.index = index;
             this.startX = startX;
             this.endX = endX;
-
-            color = Color.White;
         }
 
         public virtual void Update(GameTime gameTime)

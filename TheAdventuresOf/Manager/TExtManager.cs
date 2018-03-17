@@ -29,9 +29,9 @@ namespace TheAdventuresOf
             activeIndexedText = new SortedDictionary<int, Text>();
         }
 
-        public void AddOrUpdateIndexedText(float x, float y, string stringText, int index)
+        public void AddOrUpdateIndexedText(float x, float y, string stringText, Color color, int index)
         {
-            Text text = new Text(x, y, stringText, index);
+            Text text = new Text(x, y, stringText, color, index);
             AddOrUpdateIndexedText(text);
         }
 

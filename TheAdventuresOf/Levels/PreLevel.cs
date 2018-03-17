@@ -6,7 +6,6 @@ namespace TheAdventuresOf
 {
     public class PreLevel : BaseLevel
     {
-        public const int PRE_LEVEL_TEXT_INDEX = 0;
         public static float textThreshold;
         public static float textX;
         public static float textY;
@@ -28,7 +27,7 @@ namespace TheAdventuresOf
 
             preLevelCharacterPositionVector = new Vector2(preLevelCharX, groundLevel);
 
-            TextManager.Instance.AddOrUpdateIndexedText(textX, textY, preLevelCharText, PRE_LEVEL_TEXT_INDEX);
+            TextManager.Instance.AddOrUpdateIndexedText(textX, textY, preLevelCharText, Color.White, GlobalTextIndexContants.PRE_LEVEL_TEXT_INDEX);
         }
 
         public override void Draw(SpriteBatch spriteBatch) {
@@ -46,7 +45,7 @@ namespace TheAdventuresOf
 
                 if (playerMovementTimer.IsTimeUp(gameTime.ElapsedGameTime))
                 {
-                    TextManager.Instance.RemoveText(PRE_LEVEL_TEXT_INDEX);
+                    TextManager.Instance.RemoveText(GlobalTextIndexContants.PRE_LEVEL_TEXT_INDEX);
                     gameController.Unlock();
                     GoToNextState();
                 }
