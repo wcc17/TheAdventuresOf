@@ -10,7 +10,6 @@ namespace TheAdventuresOf
 
         public static float textFloatSpeed;
         public static float textDisappearSpeed;
-        public static float textFontScale;
         public static float textPositionOffset;
         public bool isActive = true;
 
@@ -19,8 +18,9 @@ namespace TheAdventuresOf
         public Vector2 positionVector;          //where text shows up
         public float startX, endX; //where player needs to be for text to show (if applicable)
         public string text;
+        public float scale;
 
-        public Text(float x, float y, string text, Color color, int index = -1, float startX = -1, float endX = -1)
+        public Text(float x, float y, string text, Color color, float scale, int index = -1, float startX = -1, float endX = -1)
         {
             positionVector = new Vector2(x-textPositionOffset, y);
             this.text = text;
@@ -28,6 +28,7 @@ namespace TheAdventuresOf
             this.index = index;
             this.startX = startX;
             this.endX = endX;
+            this.scale = scale;
         }
 
         public virtual void Update(GameTime gameTime)
@@ -41,13 +42,13 @@ namespace TheAdventuresOf
 
         public void Draw(SpriteBatch spriteBatch) {
             spriteBatch.DrawString(AssetManager.Instance.font,
-                                   text, positionVector + new Vector2(-1 * textFontScale, -1 * textFontScale),
+                                   text, positionVector + new Vector2(-1 * scale, -1 * scale),
                                    Color.Black * alpha, 0, new Vector2(0, 0),
-                                   textFontScale, SpriteEffects.None, 0);
+                                   scale, SpriteEffects.None, 0);
             spriteBatch.DrawString(AssetManager.Instance.font,
-                                   text, positionVector + new Vector2(1 * textFontScale, -1 * textFontScale),
+                                   text, positionVector + new Vector2(1 * scale, -1 * scale),
                                    color * alpha, 0, new Vector2(0,0), 
-                                   textFontScale, SpriteEffects.None, 0);
+                                   scale, SpriteEffects.None, 0);
 
         }
     }

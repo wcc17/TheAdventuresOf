@@ -10,19 +10,25 @@ namespace TheAdventuresOf
         //Used to prevent accidental jumps or pauses at beginnings of levels 
         //can consider using XML if need different values on different levels in the future
 		public const float DELAY_PLAYER_MOVEMENT_TIME_LIMIT = 0.4f;
+        const float DIALOG_TIMER_DELAY = 0.040f;
 
+		public Vector2 originVector = new Vector2(0, 0);
         public Vector2 levelPositionVector;
+        public Vector2 characterTextPositionVector;
         public Rectangle leftSideBounds;
         public Rectangle rightSideBounds;
-		public Texture2D levelTexture;
+        public Texture2D levelTexture;
         public int leftBoundWidth;
         public int rightBoundWidth;
         public float groundLevel;
         public float playerStartX;
-		public bool nextLevel;
-
+        public float charTextScale = 1.0f;
+        public Timer dialogTimer;
         public Timer delayPlayerMovementTimer;
+		public bool nextLevel;
         public bool isDelayingMovement = true;
+        public string characterTextToDraw = "";
+        public string characterText;
 
         public BaseLevel(Texture2D levelTexture)
         {
@@ -30,6 +36,7 @@ namespace TheAdventuresOf
             levelPositionVector = new Vector2(0, 0);
             this.levelTexture = levelTexture;
             TextManager.Instance.RemoveAllText();
+            dialogTimer = new Timer(DIALOG_TIMER_DELAY);
         }
 
         public virtual void InitializeLevel(bool usePlayerSpawnAnimation) {
@@ -68,6 +75,18 @@ namespace TheAdventuresOf
             PlayerManager.Instance.Draw(spriteBatch);
         }
 
+        public virtual void DrawCharacterDialogText(SpriteBatch spriteBatch, float charTextScale) {
+            spriteBatch.DrawString(AssetManager.Instance.font,
+                                   characterTextToDraw,
+                                   characterTextPositionVector,
+                                   Color.White,
+                                   0,
+                                   originVector,
+                                   charTextScale,
+                                   SpriteEffects.None,
+                                   0);
+        }
+
         public virtual void CheckCollisionWithBounds(Entity entity)
         {
             entity.isCollidingWithLevelBounds = false;
@@ -104,6 +123,20 @@ namespace TheAdventuresOf
             else
             {
                 isDelayingMovement = false;
+            }
+        }
+
+        public virtual void UpdateDialogText(GameTime gameTime)
+        {
+            if (dialogTimer.IsTimeUp(gameTime.ElapsedGameTime))
+            {
+                dialogTimer.Reset();
+
+                int size = characterTextToDraw.Length;
+                if (size < characterText.Length)
+                {
+                    characterTextToDraw += characterText[size];
+                }
             }
         }
 

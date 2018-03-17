@@ -8,6 +8,7 @@ namespace TheAdventuresOf
 {
     public class TextManager
     {
+        public const float DEFAULT_TEXT_SCALE = 0.7f;
         private static TextManager instance;
         SortedDictionary<int, Text> activeIndexedText;
         List<Text> activeText;
@@ -29,9 +30,9 @@ namespace TheAdventuresOf
             activeIndexedText = new SortedDictionary<int, Text>();
         }
 
-        public void AddOrUpdateIndexedText(float x, float y, string stringText, Color color, int index)
+        public void AddOrUpdateIndexedText(float x, float y, string stringText, Color color, float scale, int index)
         {
-            Text text = new Text(x, y, stringText, color, index);
+            Text text = new Text(x, y, stringText, color, scale, index);
             AddOrUpdateIndexedText(text);
         }
 

@@ -90,7 +90,6 @@ namespace TheAdventuresOf
 
             Text.textFloatSpeed = (float)scoringElement.Element("TextFloatSpeed");
             Text.textDisappearSpeed = (float)scoringElement.Element("TextDisappearSpeed");
-            Text.textFontScale = (float)scoringElement.Element("TextFontScale");
             Text.textPositionOffset = (float)scoringElement.Element("TextPositionOffset");
         }
 
@@ -226,9 +225,6 @@ namespace TheAdventuresOf
             preLevel.leftBoundWidth = (int)preLevelElement.Element("LeftBoundWidth");
             preLevel.rightBoundWidth = (int)preLevelElement.Element("RightBoundWidth");
             PreLevel.preLevelCharX = (float)preLevelElement.Element("PreLevelCharX");
-            PreLevel.textX = (float)preLevelElement.Element("TextX");
-            PreLevel.textY = (float)preLevelElement.Element("TextY");
-            PreLevel.textThreshold = (float)preLevelElement.Element("TextThreshold");
 
             List<XElement> preLevelTextElements = new List<XElement>(preLevelElement.Elements("PreLevelCharText"));
             foreach (XElement preLevelTextElement in preLevelTextElements) {

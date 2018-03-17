@@ -65,7 +65,6 @@
 	<Scoring>
 		<TextFloatSpeed>100</TextFloatSpeed>
 		<TextDisappearSpeed>1.2</TextDisappearSpeed>
-		<TextFontScale> 0.70</TextFontScale>
 		<TextPositionOffset>20</TextPositionOffset>
 		<BlockMonster>100</BlockMonster>
 		<SunMonster>125</SunMonster>

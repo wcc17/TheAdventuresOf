@@ -243,6 +243,7 @@
     <BundleResource Include="Content\XML\Level\EndlessLevelInformation.xml" />
     <BundleResource Include="Content\Misc\splash_1080p.png" />
     <BundleResource Include="Content\Misc\splash_2160p.png" />
+    <BundleResource Include="Content\StoreLevel\store_sign_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

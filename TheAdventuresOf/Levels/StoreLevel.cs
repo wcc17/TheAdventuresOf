@@ -13,13 +13,14 @@ namespace TheAdventuresOf
         public const string SWORD_PROP_ITEM = "Sword Upgrade";
         public const string SOLD_OUT = "Sold Out!";
         public const int NO_ACTIVE_ITEM = -1;
+        public const float CHAR_TEXT_OFFSET_X = 0.023f; //can't change text size without changing this
+        public const float SIGN_OFFSET_X = 0.019f;
+        public const float SIGN_OFFSET_Y = 0.067f;
 
         public static string storeLevelCharText;
         public static SortedDictionary<int, PropItem> storeLevelPropItems;
 
         //TODO: im not sure if these should be set here or not. it doesn't make a ton of sense for xml loading either though
-        int textXOffset = 100;
-        int textYOffset = 50;
         int numberOfSmallBoxes = 3;
         float groundOffset = ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.018f; //so that the lines of the boxes don't perfectly line up with the lines of characters, etc
         float smallPropYOffset = ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.15f; //offset the items x% of the screen height from the boxes
@@ -33,6 +34,7 @@ namespace TheAdventuresOf
         bool justBoughtItem = false;
         Vector2 costPositionVector = new Vector2();
         Vector2 coinPositionVector = new Vector2();
+        Vector2 signPositionVector = new Vector2();
         List<Prop> smallBoxProps = new List<Prop>();
         Prop largeBoxProp;
         Prop storeLevelCharacterProp;
@@ -47,30 +49,18 @@ namespace TheAdventuresOf
             initializeStoreLevelCharacter();
             initializeStoreLevelPropItems();
 
-            //initialize character text above storelevel character
-            TextManager.Instance.AddOrUpdateIndexedText(storeLevelCharacterProp.positionVector.X - textXOffset,
-                                                        storeLevelCharacterProp.positionVector.Y - textYOffset, 
-                                                        storeLevelCharText,
-                                                        Color.White,
-                                                        GlobalTextIndexConstants.STORE_LEVEL_CHARACTER_TEXT_INDEX);
+            charTextScale = 1.1f;
 
-            //ensure items aren't already sold out
-            for (int i = 0; i < storeLevelPropItems.Count; i++) {
-                int? cost = storeLevelPropItems[i].cost;
-                if (cost == null)
-                {
-                    if (PlayerManager.Instance.HasHitSwordLevelLimit()) {
-                        storeLevelPropItems[i].isSoldOut = true;
-                        handleSoldOutText();
-                        updateCostPosition(i);
-                        TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X - soldOutTextXOffset, 
-                                                                    costPositionVector.Y, 
-                                                                    SOLD_OUT, 
-                                                                    Color.White,
-                                                                    i * 200);
-                    }
-                }
-            }
+            //initialize character text above storelevel character
+            float storeLevelCharacterTextPosX = storeLevelCharacterProp.positionVector.X - ((storeLevelCharacterProp.texture.Width / 2) + (AssetManager.Instance.font.MeasureString(storeLevelCharText).X / 2)) + (ScreenManager.VIRTUAL_SCREEN_WIDTH * CHAR_TEXT_OFFSET_X);
+            float storeLevelCharacterTextPosY = storeLevelCharacterProp.positionVector.Y - ((storeLevelCharacterProp.texture.Height / 2) + (AssetManager.Instance.font.MeasureString(storeLevelCharText).Y / 2));
+            characterTextPositionVector = new Vector2(storeLevelCharacterTextPosX, storeLevelCharacterTextPosY);
+            characterText = storeLevelCharText;
+
+            signPositionVector = new Vector2((ScreenManager.VIRTUAL_SCREEN_WIDTH - AssetManager.Instance.storeLevelSignTexture.Width) - (ScreenManager.VIRTUAL_SCREEN_WIDTH * SIGN_OFFSET_X),
+                                             (groundLevel - AssetManager.Instance.storeLevelSignTexture.Height) - (ScreenManager.VIRTUAL_SCREEN_HEIGHT * SIGN_OFFSET_Y));
+
+            checkForAlreadySoldOutItems();
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -87,20 +77,26 @@ namespace TheAdventuresOf
             //draw cost and coin texture
             drawCost(spriteBatch);
 
+            spriteBatch.Draw(AssetManager.Instance.storeLevelSignTexture, signPositionVector);
+
             //draw other things that level should be drawing (player, health, etc)
             DrawWithoutLevel(spriteBatch);
+
+            DrawCharacterDialogText(spriteBatch, charTextScale);
         }
 
         public override void Update(GameTime gameTime, GameController gameController)
         {
             base.Update(gameTime, gameController);
-
+            UpdateDialogText(gameTime);
             updatePropItem();
             checkPlayerPurchase();
 
-            if(justBoughtItem) {
+            if (justBoughtItem)
+            {
                 //player was jumping when justBoughtItem was set to true. Only set to false when player is not jumping again
-                if(!PlayerManager.Instance.IsPlayerJumping()) {
+                if (!PlayerManager.Instance.IsPlayerJumping())
+                {
                     justBoughtItem = false;
                 }
             }
@@ -126,8 +122,8 @@ namespace TheAdventuresOf
             Texture2D largeBoxTexture = AssetManager.Instance.storeLevelBigBoxTexture;
 
             //split the room up so the boxes are evenly spaced, with more free space at the beginning and end of the level
-            float roomWidth = (ScreenManager.VIRTUAL_SCREEN_WIDTH) 
-                - (smallBoxTexture.Width* numberOfSmallBoxes) 
+            float roomWidth = (ScreenManager.VIRTUAL_SCREEN_WIDTH)
+                - (smallBoxTexture.Width * numberOfSmallBoxes)
                 - (largeBoxTexture.Width);
             float largeSpace = (3f / 9f) * roomWidth; //each large space is 1/3 of the room
             float smallSpace = (1f / 9f) * roomWidth; //each small space is 1/9 of the room
@@ -135,7 +131,7 @@ namespace TheAdventuresOf
             //place the small boxes first
             float boxX = largeSpace;
             float boxY = groundLevel - smallBoxTexture.Height + groundOffset;
-            for(int i = 1; i <= numberOfSmallBoxes; i++)
+            for (int i = 1; i <= numberOfSmallBoxes; i++)
             {
                 Vector2 propPositionVector = new Vector2(boxX, boxY);
                 Rectangle propBounds = new Rectangle((int)boxX, (int)boxY, smallBoxTexture.Width, smallBoxTexture.Height);
@@ -161,8 +157,8 @@ namespace TheAdventuresOf
             Texture2D storeLevelCharacterTexture = AssetManager.Instance.storeLevelCharacterTexture;
 
             //store level character will stand in the middle of the large box
-            float charX = largeBoxProp.positionVector.X 
-                + ((largeBoxProp.bounds.Width / 2) 
+            float charX = largeBoxProp.positionVector.X
+                + ((largeBoxProp.bounds.Width / 2)
                 - (storeLevelCharacterTexture.Width / 2));
             float charY = largeBoxProp.positionVector.Y - storeLevelCharacterTexture.Height + groundOffset;
 
@@ -174,9 +170,9 @@ namespace TheAdventuresOf
 
         void initializeStoreLevelPropItems()
         {
-            foreach(PropItem propItem in storeLevelPropItems.Values)
+            foreach (PropItem propItem in storeLevelPropItems.Values)
             {
-                switch(propItem.name)
+                switch (propItem.name)
                 {
                     case HEART_PROP_ITEM:
                         propItem.texture = AssetManager.Instance.storeLevelHeartTexture;
@@ -196,10 +192,10 @@ namespace TheAdventuresOf
 
         void setPropItemPosition(PropItem propItem, int smallBoxIndex)
         {
-            float propX = (smallBoxProps[smallBoxIndex].positionVector.X) 
-                + (smallBoxProps[smallBoxIndex].bounds.Width / 2) 
+            float propX = (smallBoxProps[smallBoxIndex].positionVector.X)
+                + (smallBoxProps[smallBoxIndex].bounds.Width / 2)
                 - (propItem.texture.Width / 2);
-            float propY = smallBoxProps[smallBoxIndex].positionVector.Y 
+            float propY = smallBoxProps[smallBoxIndex].positionVector.Y
                 - smallPropYOffset
                 - propItem.texture.Height;
 
@@ -210,23 +206,25 @@ namespace TheAdventuresOf
         {
             shouldDrawCost = false;
 
-            for(int i = 0; i < smallBoxProps.Count; i++)
+            for (int i = 0; i < smallBoxProps.Count; i++)
             {
-                if(smallBoxProps[i].CheckCollision(PlayerManager.Instance.GetPlayerBounds()))
+                if (smallBoxProps[i].CheckCollision(PlayerManager.Instance.GetPlayerBounds()))
                 {
                     int? cost = storeLevelPropItems[i].cost;
-                    if(cost == null)
+                    if (cost == null)
                     {
-                        if(!PlayerManager.Instance.HasHitSwordLevelLimit()) {
+                        if (!PlayerManager.Instance.HasHitSwordLevelLimit())
+                        {
                             cost = storeLevelPropItems[i].itemCosts[PlayerManager.Instance.GetSwordLevel() + 1]; //get the cost of the next sword level
-                        } else
+                        }
+                        else
                         {
                             storeLevelPropItems[i].isSoldOut = true;
                         }
                     }
 
 
-                    if(!storeLevelPropItems[i].isSoldOut)
+                    if (!storeLevelPropItems[i].isSoldOut)
                     {
                         activePropItemIndex = i;
                         updateCostAndCoinPositions((int)cost, activePropItemIndex);
@@ -239,17 +237,19 @@ namespace TheAdventuresOf
             handleSoldOutText();
         }
 
-        void handleSoldOutText() {
+        void handleSoldOutText()
+        {
             //go ahead and post the sold out message if applicable
             if (activePropItemIndex > NO_ACTIVE_ITEM)
             {
                 if (storeLevelPropItems[activePropItemIndex].isSoldOut)
                 {
                     //again, the 200 is just getting a random index to store text at so nothing else bothers it
-                    TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X - soldOutTextXOffset, 
-                                                                costPositionVector.Y, 
-                                                                SOLD_OUT, 
+                    TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X - soldOutTextXOffset,
+                                                                costPositionVector.Y,
+                                                                SOLD_OUT,
                                                                 Color.White,
+                                                                TextManager.DEFAULT_TEXT_SCALE,
                                                                 activePropItemIndex * 200);
                 }
             }
@@ -262,10 +262,11 @@ namespace TheAdventuresOf
             }
             else if (!storeLevelPropItems[activePropItemIndex].isSoldOut)
             {
-                TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X, 
-                                                            costPositionVector.Y, 
-                                                            "x" + costToDraw.ToString(), 
+                TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X,
+                                                            costPositionVector.Y,
+                                                            "x" + costToDraw.ToString(),
                                                             Color.White,
+                                                            TextManager.DEFAULT_TEXT_SCALE,
                                                             costTextIndex);
             }
         }
@@ -281,7 +282,8 @@ namespace TheAdventuresOf
             coinPositionVector.Y = costPositionVector.Y;
         }
 
-        void updateCostPosition(int propIndex) {
+        void updateCostPosition(int propIndex)
+        {
             costPositionVector.X = (smallBoxProps[propIndex].positionVector.X)
                 + (smallBoxProps[propIndex].bounds.Width / 2);
             costPositionVector.Y = smallBoxProps[propIndex].positionVector.Y
@@ -290,10 +292,10 @@ namespace TheAdventuresOf
 
         void checkPlayerPurchase()
         {
-            if(activePropItemIndex > NO_ACTIVE_ITEM)
+            if (activePropItemIndex > NO_ACTIVE_ITEM)
             {
                 //its possible for this if to be hit again after the item is sold while the player is still jumping, so be sure its not already sold out
-                if(PlayerManager.Instance.IsPlayerJumping() && !storeLevelPropItems[activePropItemIndex].isSoldOut && !justBoughtItem)
+                if (PlayerManager.Instance.IsPlayerJumping() && !storeLevelPropItems[activePropItemIndex].isSoldOut && !justBoughtItem)
                 {
                     justBoughtItem = true;
                     purchaseItem();
@@ -310,7 +312,7 @@ namespace TheAdventuresOf
                 cost = storeLevelPropItems[activePropItemIndex].itemCosts[PlayerManager.Instance.GetSwordLevel() + 1]; //get the cost of the next sword level
             }
 
-            if(CoinManager.Instance.GetCoinTotal() >= cost)
+            if (CoinManager.Instance.GetCoinTotal() >= cost)
             {
                 CoinManager.Instance.SubtractFromCoins((int)cost);
 
@@ -323,7 +325,7 @@ namespace TheAdventuresOf
 
         void applyPurchasedItem()
         {
-            switch(storeLevelPropItems[activePropItemIndex].name)
+            switch (storeLevelPropItems[activePropItemIndex].name)
             {
                 case HEART_PROP_ITEM:
                     HealthShieldManager.Instance.RestoreHealthToMax();
@@ -339,9 +341,9 @@ namespace TheAdventuresOf
 
         void drawCost(SpriteBatch spriteBatch)
         {
-            if(shouldDrawCost)
+            if (shouldDrawCost)
             {
-                if(!storeLevelPropItems[activePropItemIndex].isSoldOut)
+                if (!storeLevelPropItems[activePropItemIndex].isSoldOut)
                 {
                     spriteBatch.Draw(coinTexture, coinPositionVector);
                 }
@@ -350,7 +352,7 @@ namespace TheAdventuresOf
 
         void drawProps(SpriteBatch spriteBatch)
         {
-            foreach(Prop prop in smallBoxProps)
+            foreach (Prop prop in smallBoxProps)
             {
                 prop.Draw(spriteBatch);
             }
@@ -361,11 +363,35 @@ namespace TheAdventuresOf
 
         void drawPropItems(SpriteBatch spriteBatch)
         {
-            foreach(PropItem propItem in storeLevelPropItems.Values)
+            foreach (PropItem propItem in storeLevelPropItems.Values)
             {
-                if(!propItem.isSoldOut)
+                if (!propItem.isSoldOut)
                 {
                     propItem.Draw(spriteBatch);
+                }
+            }
+        }
+
+        void checkForAlreadySoldOutItems()
+        {
+            //ensure items aren't already sold out
+            for (int i = 0; i < storeLevelPropItems.Count; i++)
+            {
+                int? cost = storeLevelPropItems[i].cost;
+                if (cost == null)
+                {
+                    if (PlayerManager.Instance.HasHitSwordLevelLimit())
+                    {
+                        storeLevelPropItems[i].isSoldOut = true;
+                        handleSoldOutText();
+                        updateCostPosition(i);
+                        TextManager.Instance.AddOrUpdateIndexedText(costPositionVector.X - soldOutTextXOffset,
+                                                                    costPositionVector.Y,
+                                                                    SOLD_OUT,
+                                                                    Color.White,
+                                                                    TextManager.DEFAULT_TEXT_SCALE,
+                                                                    i * 200);
+                    }
                 }
             }
         }
