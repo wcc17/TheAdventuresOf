@@ -40,6 +40,7 @@ namespace TheAdventuresOf
             double roundedDesiredAspectRatio = Math.Round(desiredAspectRatio, 2);
             double roundedActualAspectRatio = Math.Round(actualAspectRatio, 2);
 
+            //TODO: if they make an even larger iphone X the image will appear very small on the screen
             isAspectRatioWrong = roundedActualAspectRatio > roundedDesiredAspectRatio;
         }
 
