@@ -26,45 +26,16 @@
   <TierKills>
     <Tier1> 10</Tier1>
     <Tier2> 15</Tier2>
-    <Tier3> 20</Tier3> 
+    <Tier3> 30</Tier3> 
     <Tier4> 20</Tier4>
     <Tier5> 25</Tier5>
-    <Tier6> 25</Tier6> 
+    <Tier6> 35</Tier6> 
     <Tier7> 30</Tier7>
     <Tier8> 30</Tier8>
-    <Tier9> 35</Tier9> 
+    <Tier9> 45</Tier9> 
     <Tier10>45</Tier10>
   </TierKills>
-
-    <!--
-    <TierScores>
-    <Tier1>  6000</Tier1>
-    <Tier2> 11000</Tier2>
-    <Tier3> 20000</Tier3> 
-    <Tier4> 23000</Tier4>
-    <Tier5> 28000</Tier5>
-    <Tier6> 38000</Tier6> 
-    <Tier7> 44000</Tier7>
-    <Tier8> 50000</Tier8>
-    <Tier9> 60000</Tier9> 
-    <Tier10>70000</Tier10>
-  </TierScores>
-    -->
-
-    <!--
-  <TierScores>
-    <Tier1>1</Tier1>
-    <Tier2>2</Tier2>
-    <Tier3>3</Tier3>
-    <Tier4>4</Tier4>
-    <Tier5>5</Tier5>
-    <Tier6>6</Tier6>
-    <Tier7>7</Tier7>
-    <Tier8>8</Tier8>
-    <Tier9>9</Tier9>
-    <Tier10>200</Tier10>
-  </TierScores>
-    -->
+    
   <MonsterCountTiers>
     <Tier1> 
       <!--12-->
