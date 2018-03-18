@@ -43,6 +43,7 @@ namespace TheAdventuresOf
         Vector2 gameOverTextPositionVector;
         Timer gameOverDelayTimer = new Timer(gameOverDelayTimeLimit);
 
+        public int totalKills = 0;
         public int currentTierKills = 0;
         public int explosionKills = 0;
         bool isExplosion;
@@ -75,6 +76,10 @@ namespace TheAdventuresOf
 			monsterManager = new MonsterManager(this);
 
             loadMonsterLevelInformation();
+
+            if(!endlessMode) {
+                HUDManager.Instance.InitializeLevelProgressBar(maxTier, tierKills);
+            }
 		}
 
 		public override void Update(GameTime gameTime, GameController gameController)
@@ -117,6 +122,10 @@ namespace TheAdventuresOf
             }
 
 			handleLevelShake(gameTime);
+
+            if(!endlessMode) {
+                HUDManager.Instance.UpdateLevelProgressBar(totalKills);
+            }
 
             //using this condition twice because I want these methods to be called in a specific order 
             if(!playerDied) {

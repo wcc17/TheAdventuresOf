@@ -13,6 +13,8 @@ namespace TheAdventuresOf
         ProgressBarManager healthManager;
         ProgressBarManager shieldManager;
         bool shouldDrawShieldManager = false;
+        Vector2 healthPositionVector;
+
 
         public static HealthShieldManager Instance
         {
@@ -32,12 +34,15 @@ namespace TheAdventuresOf
             shieldManager = new ProgressBarManager();
         }
 
-        public void Initialize()
-        {
-            healthManager.Initialize(AssetManager.Instance.progressBarHealthTexture,
-                AssetManager.Instance.progressBarFillHealthTexture);
-            shieldManager.Initialize(AssetManager.Instance.progressBarShieldTexture,
-               AssetManager.Instance.progressBarFillShieldTexture);
+        public void Initialize(Vector2 healthPositionVector, Vector2 shieldPositionVector) {
+            healthManager.Initialize(AssetManager.Instance.progressBarOutlineTexture,
+                                     AssetManager.Instance.progressBarFillHealthTexture,
+                                     "Health:",
+                                     healthPositionVector);
+            shieldManager.Initialize(AssetManager.Instance.progressBarOutlineTexture,
+                                     AssetManager.Instance.progressBarFillShieldTexture,
+                                     "Sheild:",
+                                     shieldPositionVector);
 
             shieldManager.RemoveAll();
         }
@@ -106,13 +111,13 @@ namespace TheAdventuresOf
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 healthPositionVector, Vector2 shieldPositionVector)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            healthManager.Draw(spriteBatch, healthPositionVector);
+            healthManager.Draw(spriteBatch);
 
             if (shouldDrawShieldManager)
             {
-                shieldManager.Draw(spriteBatch, shieldPositionVector);
+                shieldManager.Draw(spriteBatch);
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -14,14 +15,17 @@ namespace TheAdventuresOf
     {
         private static HUDManager instance;
 
+        ProgressBarManager levelProgressBarManager;
         Vector2 scorePositionVector;
         Vector2 highScorePositionVector;
         Vector2 coinCountSymbolPositionVector;
         Vector2 coinCountPositionVector;
         Vector2 healthPositionVector;
         Vector2 shieldPositionVector;
+        Vector2 levelProgressPositionVector;
         int savedHighScore;
         bool isEndlessMode;
+        int levelProgressTotalKills = 0;
 
         public static HUDManager Instance
         {
@@ -45,7 +49,30 @@ namespace TheAdventuresOf
             float textHeight = AssetManager.Instance.font.MeasureString("TestString").Y;
             lastTextDrawYPos = initializeScore(textHeight, lastTextDrawYPos);
             lastTextDrawYPos = initializeCoinCount(textHeight, lastTextDrawYPos);
+
+            if(!isEndlessMode) {
+                initializeLevelProgress();
+            }
             initializeHealthAndShield();
+        }
+
+        void initializeLevelProgress() {
+            levelProgressBarManager = new ProgressBarManager();
+
+            levelProgressPositionVector = new Vector2()
+            {
+                X = ScreenManager.VIRTUAL_SCREEN_WIDTH
+                                 - AssetManager.Instance.progressBarOutlineTexture.Width
+                                 - (ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.01f),
+                Y = ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.01f
+            };
+
+            levelProgressBarManager.Initialize(AssetManager.Instance.progressBarOutlineTexture,
+                                               AssetManager.Instance.progressBarFillLevelTexture,
+                                               "Progress:",
+                                               levelProgressPositionVector);
+            levelProgressBarManager.SetValueAndRecalculate(0);
+            levelProgressBarManager.shouldShowValueText = false;
         }
 
         float initializeScore(float textHeight, float lastTextDrawYPos) {
@@ -75,14 +102,41 @@ namespace TheAdventuresOf
 
         //is drawn on the right side of the screen 
         void initializeHealthAndShield() {
-            healthPositionVector = new Vector2(ScreenManager.VIRTUAL_SCREEN_WIDTH 
-                                               - HealthShieldManager.Instance.GetHealthBarWidth()
-                                               - (ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.01f), 
-                                               ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.01f);
+            //adjust for level progress bar if in normal play
+            float healthBarPosY;
+            if(!isEndlessMode) {
+                healthBarPosY = levelProgressPositionVector.Y 
+                    + AssetManager.Instance.progressBarOutlineTexture.Height 
+                    + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.01f;
+            } else {
+                healthBarPosY = ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.01f;
+            }
+
+            healthPositionVector = new Vector2(ScreenManager.VIRTUAL_SCREEN_WIDTH
+                                               - AssetManager.Instance.progressBarOutlineTexture.Width
+                                               - (ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.01f),
+                                              healthBarPosY);
             shieldPositionVector = new Vector2(healthPositionVector.X,
                                                healthPositionVector.Y
-                                               + HealthShieldManager.Instance.GetShieldBarHeight()
+                                               + AssetManager.Instance.progressBarOutlineTexture.Height
                                                + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.01f);
+
+            HealthShieldManager.Instance.Initialize(healthPositionVector, shieldPositionVector);
+        }
+
+        public void InitializeLevelProgressBar(int maxTier, Dictionary<int, int> tierKills) {
+            levelProgressTotalKills = 0;
+            for (int i = 0; i < maxTier; i++) {
+                levelProgressTotalKills += tierKills[i];
+            }
+
+            levelProgressBarManager.maxValue = levelProgressTotalKills;
+        }
+
+        public void UpdateLevelProgressBar(int currentTotalKills) {
+            if(currentTotalKills > levelProgressBarManager.GetValue()) {
+                levelProgressBarManager.IncreaseValueByAmount(currentTotalKills - levelProgressBarManager.GetValue());
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch) {
@@ -91,15 +145,15 @@ namespace TheAdventuresOf
                 CoinManager.Instance.DrawCoinCount(spriteBatch,
                                       coinCountSymbolPositionVector,
                                       coinCountPositionVector);
+
+                levelProgressBarManager.Draw(spriteBatch);
             }
 
             HeartManager.Instance.Draw(spriteBatch);
 			ScoringManager.Instance.Draw(spriteBatch, scorePositionVector, 
 			                             highScorePositionVector, isEndlessMode,
 			                             savedHighScore);
-            HealthShieldManager.Instance.Draw(spriteBatch, 
-                                              healthPositionVector, 
-                                              shieldPositionVector);
+            HealthShieldManager.Instance.Draw(spriteBatch);
 
         }
     }
