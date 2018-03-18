@@ -12,6 +12,7 @@ namespace TheAdventuresOf
         private static TextManager instance;
         SortedDictionary<int, Text> activeIndexedText;
         List<Text> activeText;
+        Vector2 zeroPositionVector = new Vector2(0, 0);
 
         public static TextManager Instance {
             get
@@ -83,6 +84,43 @@ namespace TheAdventuresOf
             {
                 text.Draw(spriteBatch);
             }
+        }
+
+        public void DrawOutlinedString(SpriteBatch spriteBatch, String text, Vector2 textPositionVector, Color color, float scale, float alpha = 1.0f) {
+            Color outlineColor;
+            if(!color.Equals(Color.Black)) {
+                outlineColor = Color.Black;
+            } else {
+                outlineColor = Color.White;
+            }
+
+            outlineColor *= alpha;
+            color *= alpha;
+
+            float scaledOffset = 2 * scale;
+            //declaring new variables is more clear, would have to use instantiate new vector for each either way
+            Vector2 positionVector1 = new Vector2(scaledOffset, scaledOffset);
+			Vector2 positionVector4 = new Vector2(-scaledOffset, -scaledOffset);
+			Vector2 positionVector3 = new Vector2(-scaledOffset, scaledOffset);
+            Vector2 positionVector2 = new Vector2(scaledOffset, -scaledOffset);
+
+            DrawString(spriteBatch, text, textPositionVector + positionVector1, outlineColor, scale);
+            DrawString(spriteBatch, text, textPositionVector + positionVector2, outlineColor, scale);
+            DrawString(spriteBatch, text, textPositionVector + positionVector3, outlineColor, scale);
+            DrawString(spriteBatch, text, textPositionVector + positionVector4, outlineColor, scale);
+            DrawString(spriteBatch, text, textPositionVector, color, scale);
+        }
+
+        public void DrawString(SpriteBatch spriteBatch, String text, Vector2 textPositionVector, Color color, float scale) {
+            spriteBatch.DrawString(AssetManager.Instance.font,
+                                   text,
+                                   textPositionVector,
+                                   color,
+                                   0,
+                                   zeroPositionVector,
+                                   scale,
+                                   SpriteEffects.None,
+                                   0);
         }
     }
 }

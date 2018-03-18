@@ -41,14 +41,12 @@ namespace TheAdventuresOf
         }
 
         public void Draw(SpriteBatch spriteBatch) {
-            spriteBatch.DrawString(AssetManager.Instance.font,
-                                   text, positionVector + new Vector2(-1 * scale, -1 * scale),
-                                   Color.Black * alpha, 0, new Vector2(0, 0),
-                                   scale, SpriteEffects.None, 0);
-            spriteBatch.DrawString(AssetManager.Instance.font,
-                                   text, positionVector + new Vector2(1 * scale, -1 * scale),
-                                   color * alpha, 0, new Vector2(0,0), 
-                                   scale, SpriteEffects.None, 0);
+            TextManager.Instance.DrawOutlinedString(spriteBatch,
+                                                    text,
+                                                    positionVector,
+                                                    color,
+                                                    scale,
+                                                    alpha);
 
         }
     }

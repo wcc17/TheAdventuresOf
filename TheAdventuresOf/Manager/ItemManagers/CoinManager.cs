@@ -85,7 +85,7 @@ namespace TheAdventuresOf
         {
             if(!isEndlessMode) {
 				spriteBatch.Draw(AssetManager.Instance.goldCoinTexture, coinCountSymbolPositionVector);
-				spriteBatch.DrawString(AssetManager.Instance.font, " x " + coinTotal, coinCountPositionVector, Color.White);
+                TextManager.Instance.DrawOutlinedString(spriteBatch, " x " + coinTotal, coinCountPositionVector, Color.White, 1.0f);
             }
         }
 

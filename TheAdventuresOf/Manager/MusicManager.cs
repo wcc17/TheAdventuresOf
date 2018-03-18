@@ -32,7 +32,6 @@ namespace TheAdventuresOf
         public void InitializeMusicManager(int gameState) {
             //default is 0 (splash screen), but I'd rather set it explicitly
             this.gameState = gameState;
-
             MediaPlayer.IsRepeating = true;
             MediaPlayer.MediaStateChanged += HandleMediaStateChange;
         }

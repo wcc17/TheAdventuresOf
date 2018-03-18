@@ -217,48 +217,32 @@ namespace TheAdventuresOf
                              ScoringManager.swoopMonsterScore,
                              ScoringManager.Instance.swoopMonstersKilled);
 
-            spriteBatch.DrawString(AssetManager.Instance.font,
-                                   totalScoreString + ScoringManager.Instance.score,
-                                   totalScorePositionVector,
-                                   fontColor,
-                                   0,
-                                   zeroOriginVector,
-                                   fontScale,
-                                   SpriteEffects.None,
-                                   0);
+            TextManager.Instance.DrawOutlinedString(spriteBatch,
+                                                    totalScoreString + ScoringManager.Instance.score,
+                                                    totalScorePositionVector,
+                                                    fontColor,
+                                                    fontScale);
 
-            spriteBatch.DrawString(AssetManager.Instance.font,
-                                   totalKillString + totalMonstersKilled,
-                                   totalKilledPositionVector,
-                                   fontColor,
-                                   0,
-                                   zeroOriginVector,
-                                   fontScale,
-                                   SpriteEffects.None,
-                                   0);
+            TextManager.Instance.DrawOutlinedString(spriteBatch,
+                                                    totalKillString + totalMonstersKilled,
+                                                    totalKilledPositionVector,
+                                                    fontColor,
+                                                    fontScale);
 
             if(showContinueText) {
-                spriteBatch.DrawString(AssetManager.Instance.font,
-                                       jumpToContinueString,
-                                       continueTextPositionVector,
-                                       fontColor,
-                                       0,
-                                       zeroOriginVector,
-                                       (float)fontScale+0.5f,
-                                       SpriteEffects.None,
-                                       0);
+                TextManager.Instance.DrawOutlinedString(spriteBatch,
+                                                        jumpToContinueString,
+                                                        continueTextPositionVector,
+                                                        fontColor,
+                                                        (float)fontScale + 0.5f);
             }
 
             if(showHighScoreText) {
-                spriteBatch.DrawString(AssetManager.Instance.font,
-                                       newHighScoreTextString,
-                                       newHighScoreTextPositionVector,
-                                       Color.Red,
-                                       0,
-                                       zeroOriginVector,
-                                       (float)fontScale + 0.5f,
-                                       SpriteEffects.None,
-                                       0);
+                TextManager.Instance.DrawOutlinedString(spriteBatch,
+                                                        newHighScoreTextString,
+                                                        newHighScoreTextPositionVector,
+                                                        Color.Red,
+                                                        (float)fontScale + 0.5f);
             }
         }
 
@@ -276,24 +260,16 @@ namespace TheAdventuresOf
                                                            monster.positionVector.Y + (monster.entityHeight / 2) - monsterScoreYOffset);
             if(monsterKillCount > 0) {
                 monster.DrawAtScale(spriteBatch, monster.monsterTexture, monsterTextureScale);
-                spriteBatch.DrawString(AssetManager.Instance.font,
-                                       killCountString,
-                                       killCountPositionVector,
-                                       fontColor,
-                                       0,
-                                       zeroOriginVector,
-                                       fontScale,
-                                       SpriteEffects.None,
-                                       0);
-                spriteBatch.DrawString(AssetManager.Instance.font,
-                                       monsterScoreString,
-                                       scoreTotalPositionVector,
-                                       fontColor,
-                                       0,
-                                       zeroOriginVector,
-                                       fontScale,
-                                       SpriteEffects.None,
-                                       0);
+                TextManager.Instance.DrawOutlinedString(spriteBatch, 
+                                                        killCountString,
+                                                        killCountPositionVector,
+                                                        fontColor, 
+                                                        fontScale);
+                TextManager.Instance.DrawOutlinedString(spriteBatch,
+                                                        monsterScoreString,
+                                                        scoreTotalPositionVector,
+                                                        fontColor,
+                                                        fontScale);
             }
         }
     }

@@ -33,8 +33,8 @@ namespace TheAdventuresOf {
 
             value = maxValue;
             barFillSourceRectangle = new Rectangle(0, 0, progressBarFillTexture.Width, progressBarFillTexture.Height);
-            valueTextPositionVector = new Vector2(positionVector.X + ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.01f,
-                                                  positionVector.Y + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.01f);
+            valueTextPositionVector = new Vector2(positionVector.X + ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.009f,
+                                                  positionVector.Y + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.008f);
             labelTextPositionVector = new Vector2(positionVector.X - (AssetManager.Instance.font.MeasureString(label).X / 2) - (ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.004f),
                                                   positionVector.Y + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.009f);
             isInitialized = true;
@@ -94,26 +94,9 @@ namespace TheAdventuresOf {
 
                 if (shouldShowValueText)
                 {
-                    spriteBatch.DrawString(AssetManager.Instance.font,
-                                           value + "/" + maxValue,
-                                           valueTextPositionVector,
-                                           Color.Black,
-                                           0,
-                                           zeroPositionVector,
-                                           0.5f,
-                                           SpriteEffects.None,
-                                           0);
+                    TextManager.Instance.DrawOutlinedString(spriteBatch, value + "/" + maxValue, valueTextPositionVector, Color.Black, 0.5f);
                 }
-
-                spriteBatch.DrawString(AssetManager.Instance.font,
-                                      label,
-                                       labelTextPositionVector,
-                                      Color.White,
-                                      0,
-                                      zeroPositionVector,
-                                      0.5f,
-                                      SpriteEffects.None,
-                                      0);
+                TextManager.Instance.DrawOutlinedString(spriteBatch, label, labelTextPositionVector, Color.White, 0.5f);
             }
         }
 

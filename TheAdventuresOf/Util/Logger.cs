@@ -49,15 +49,11 @@ namespace TheAdventuresOf
             if(TheAdventuresOf.showDebug) {
                 foreach (KeyValuePair<string, string> debugString in debugStrings)
                 {
-                    spriteBatch.DrawString(AssetManager.Instance.font,
-                                           debugString.Key + ": " + debugString.Value,
-                                           positionVector,
-                                           Color.White,
-                                           0,
-                                           new Vector2(0, 0),
-                                           0.6f,
-                                           SpriteEffects.None,
-                                           0);
+                    TextManager.Instance.DrawOutlinedString(spriteBatch,
+                                                            debugString.Key + ": " + debugString.Value,
+                                                            positionVector,
+                                                            Color.White,
+                                                            0.6f);
 
                     positionVector.Y -= 24;
                 }

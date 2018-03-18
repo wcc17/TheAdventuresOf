@@ -4,6 +4,7 @@ using System.Text;
 
 #if __IOS__ || __ANDROID__
 using UIKit;
+using AudioToolbox;
 #endif
 
 namespace TheAdventuresOf
@@ -27,6 +28,12 @@ namespace TheAdventuresOf
         {
             #if __IOS__ || __ANDROID__
             impactGenerator.ImpactOccurred();
+            #endif
+        }
+
+        public static void Vibrate() {
+            #if __IOS__ || __ANDROID__
+            AudioToolbox.SystemSound.Vibrate.PlaySystemSound();
             #endif
         }
     }

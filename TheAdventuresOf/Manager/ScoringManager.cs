@@ -107,15 +107,12 @@ namespace TheAdventuresOf
                          Vector2 highScorePositionVector, bool isEndlessMode, 
                          int savedHighScore) {
             //Draw total score
-            spriteBatch.DrawString(AssetManager.Instance.font,
-                                   "Score: " + ScoringManager.Instance.score.ToString(),
-                                   scorePositionVector + new Vector2(-1, -1),
-                                   Color.Black);
-            spriteBatch.DrawString(AssetManager.Instance.font,
-                                   "Score: " + ScoringManager.Instance.score.ToString(),
-                                   scorePositionVector + new Vector2(1, -1),
-                                   Color.White);
-
+            TextManager.Instance.DrawOutlinedString(spriteBatch,
+                                                    "Score: " + ScoringManager.Instance.score.ToString(),
+                                                    scorePositionVector,
+                                                    Color.White,
+                                                    1.0f);
+            
             int currentScore = ScoringManager.Instance.score;
             string scoreString = currentScore.ToString();
             if (isEndlessMode)
@@ -123,14 +120,11 @@ namespace TheAdventuresOf
                 scoreString = (currentScore > savedHighScore) ? scoreString : savedHighScore.ToString();
 
                 //draw high score
-                spriteBatch.DrawString(AssetManager.Instance.font,
-                                       "High Score: " + savedHighScore,
-                                       highScorePositionVector + new Vector2(-1, -1),
-                                   Color.Black);
-                spriteBatch.DrawString(AssetManager.Instance.font,
-                                       "High Score: " + savedHighScore,
-                                       highScorePositionVector + new Vector2(1, -1),
-                                       Color.White);
+                TextManager.Instance.DrawOutlinedString(spriteBatch,
+                                                        "High Score: " + savedHighScore,
+                                                        highScorePositionVector,
+                                                        Color.White,
+                                                        1.0f);
             }
         }
     }
