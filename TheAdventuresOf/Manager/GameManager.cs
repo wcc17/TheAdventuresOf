@@ -25,7 +25,6 @@ namespace TheAdventuresOf
         public const int CHOOSE_LEVEL_STATE = 6;
 
         Vector2 basePositionVector;
-        Vector2 pausedTextVector;
 
         int currentLevelNumber = 1;
         int nextGameState = NO_STATE_SPECIFIED;
@@ -49,7 +48,6 @@ namespace TheAdventuresOf
         Controller currentController;
 
         public float splashTimeLimit;
-        public float pausedTextVectorXOffset;
         Timer splashTimer;
 
         //TODO: load screen manager or at least improve load screen handling
@@ -110,9 +108,6 @@ namespace TheAdventuresOf
             }
 
             loadSplashScreen();
-
-            pausedTextVector = new Vector2(ScreenManager.VIRTUAL_SCREEN_WIDTH / 2 - pausedTextVectorXOffset, 
-                                           AssetManager.Instance.font.MeasureString("Paused").Y);
 
             PauseManager.Instance.Initialize();
         }
@@ -710,23 +705,22 @@ namespace TheAdventuresOf
             //Draw level related stuff (background and monsters)
             currentLevel.Draw(spriteBatch);
 
-            if (((GameController)currentController).isPaused)
-            {
-                spriteBatch.Draw(AssetManager.Instance.transparentBlackBackgroundTexture, basePositionVector);
-                TextManager.Instance.DrawOutlinedString(spriteBatch, "Paused.", pausedTextVector, Color.White, 1.0f);
-            }
+			//Draw text related stuff
+			TextManager.Instance.Draw(spriteBatch);
+
+            //Draw coins on level
+            CoinManager.Instance.Draw(spriteBatch);
+
+            //health, coin counts, scores, etc
+            HUDManager.Instance.Draw(spriteBatch);
 
             //Draw controller and buttons
             currentController.Draw(spriteBatch);
 
-            //Draw text related stuff
-            TextManager.Instance.Draw(spriteBatch);
-
-            //Draw coins on level
-			CoinManager.Instance.Draw(spriteBatch);
-
-            //health, coin counts, scores, etc
-            HUDManager.Instance.Draw(spriteBatch);
+            if (((GameController)currentController).isPaused)
+            {
+                PauseManager.Instance.Draw(spriteBatch);
+            }
         }
 
         void drawLoadScreen()

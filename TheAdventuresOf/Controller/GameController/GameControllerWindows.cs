@@ -9,6 +9,7 @@ namespace TheAdventuresOf
 {
     class GameControllerWindows : GameController {
 
+        const float quitButtonYOffset = 0.037f * ScreenManager.VIRTUAL_SCREEN_HEIGHT;
         public static Vector2 quitButtonPositionVector;
         Texture2D quitButtonTexture;
         Button quitButton;
@@ -22,6 +23,10 @@ namespace TheAdventuresOf
 
         public override void InitializeController() {
             base.InitializeController();
+
+            quitButtonPositionVector = new Vector2(
+                (ScreenManager.VIRTUAL_SCREEN_WIDTH / 2) - (quitButtonTexture.Width / 2),
+                ((ScreenManager.VIRTUAL_SCREEN_HEIGHT / 2) - quitButtonTexture.Height - quitButtonYOffset));
 
             quitButton = new Button(quitButtonTexture.Width,
                                                     quitButtonTexture.Height,

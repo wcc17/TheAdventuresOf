@@ -7,6 +7,7 @@ namespace TheAdventuresOf
 {
     public class GameControllerMobile : GameController
 	{
+        const float quitButtonYOffset = 0.037f * ScreenManager.VIRTUAL_SCREEN_HEIGHT;
         public static Vector2 controllerPositionVector;
         public static Vector2 leftButtonPositionVector;
         public static Vector2 rightButtonPositionVector;
@@ -45,6 +46,10 @@ namespace TheAdventuresOf
 
 		public override void InitializeController() {
             base.InitializeController();
+
+            quitButtonPositionVector = new Vector2(
+                (ScreenManager.VIRTUAL_SCREEN_WIDTH / 2) - (quitButtonTexture.Width / 2),
+                ((ScreenManager.VIRTUAL_SCREEN_HEIGHT / 2) - quitButtonTexture.Height - quitButtonYOffset));
 
 			leftButton = new Button(leftArrowButtonTexture.Width, 
 			                        leftArrowButtonTexture.Height, 

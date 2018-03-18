@@ -13,7 +13,6 @@ namespace TheAdventuresOf
         public bool disableButtonPress;
 
         public bool proceedToMainMenuState;
-        //public bool proceedToLevelState;
         public bool proceedToEndlessLevelState;
         public int currentLevelSelected = 1;
 
