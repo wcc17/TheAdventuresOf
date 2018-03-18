@@ -60,6 +60,17 @@ namespace TheAdventuresOf
         public Texture2D heartTexture;
         public SpriteFont font;
 
+        //game sound effects
+        public SoundEffect gameOverSoundEffect;
+        public SoundEffect bigCoinPickupSoundEffect;
+        public SoundEffect bigHeartPickupSoundEffect;
+        public SoundEffect hurtSoundEffect;
+        public SoundEffect jumpSoundEffect;
+        public SoundEffect littleCoinPickupSoundEffect;
+        public SoundEffect monsterHurtSoundEffect;
+        public SoundEffect selectSoundEffect;
+        public SoundEffect smallHeartPickupSoundEffect;
+
         //prelevel textures
         public Texture2D preLevelCharacterTexture;
         public Texture2D preLevelTexture;
@@ -94,7 +105,6 @@ namespace TheAdventuresOf
         public Texture2D swoopMonsterTexture;
 
         public Song levelSong;
-        public SoundEffect gameOverSoundEffect;
 
         public Texture2D bulletTexture;
         public Texture2D bileTexture;
@@ -153,7 +163,7 @@ namespace TheAdventuresOf
                 blackBackgroundTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
-            font = contentManager.Load<SpriteFont>("Game/arial");
+            font = contentManager.Load<SpriteFont>("Game/titillium-web-regular");
             mainMenuSong = contentManager.Load<Song>("Menu/mainmenu_music");
         }
 
@@ -419,8 +429,23 @@ namespace TheAdventuresOf
                 bileTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
-            //sound effects
-            gameOverSoundEffect = contentManager.Load<SoundEffect>("Level/level_gameover_sound");
+            LoadSoundEffects(contentManager);
+        }
+
+        public void LoadSoundEffects(ContentManager contentManager) {
+            String soundFilePath = "Sound/";
+
+            gameOverSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "level_gameover_sound");
+            bigCoinPickupSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "big_coin_pickup");
+            bigHeartPickupSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "big_heart_pickup");
+            hurtSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "hurt");
+            jumpSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "jump");
+            littleCoinPickupSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "little_coin_pickup");
+            monsterHurtSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "monster_hurt");
+            selectSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "select");
+            smallHeartPickupSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "small_heart_pickup");
+
+            SoundManager.Instance.InitializeDictionary();
         }
 
         public void LoadPreLevelAssets(GraphicsDevice graphicsDevice, ContentManager contentManager, int levelNumber)
@@ -605,6 +630,20 @@ namespace TheAdventuresOf
 
             //TODO: these should be disposed in every level
             playerTexture.Dispose();
+
+            DisposeSoundEffects();
+        }
+
+        public void DisposeSoundEffects() {
+            gameOverSoundEffect.Dispose();
+            bigCoinPickupSoundEffect.Dispose();
+            bigHeartPickupSoundEffect.Dispose();
+            hurtSoundEffect.Dispose();
+            jumpSoundEffect.Dispose();
+            littleCoinPickupSoundEffect.Dispose();
+            monsterHurtSoundEffect.Dispose();
+            selectSoundEffect.Dispose();
+            smallHeartPickupSoundEffect.Dispose();
         }
 
         public void DisposeAsset(Texture2D asset) {

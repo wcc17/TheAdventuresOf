@@ -88,5 +88,9 @@ namespace TheAdventuresOf
         public void HandleMediaStateChange(object sender, EventArgs e) {
             Logger.WriteToConsole("Media State Changed");
         }
+
+        public void StopMusic() {
+            MediaPlayer.Stop();
+        }
     }
 }
