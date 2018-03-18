@@ -107,9 +107,8 @@ namespace TheAdventuresOf
 
             coinCountSymbolPositionVector = new Vector2(ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.01f, 
                                                         posY);
-            coinCountPositionVector = new Vector2(coinCountSymbolPositionVector.X 
-                                                  + AssetManager.Instance.goldCoinTexture.Width, 
-                                                  coinCountSymbolPositionVector.Y);
+            coinCountPositionVector = new Vector2(coinCountSymbolPositionVector.X + AssetManager.Instance.goldCoinTexture.Width, 
+                                                  coinCountSymbolPositionVector.Y - ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.014f);
 
             return coinCountPositionVector.Y;
         }

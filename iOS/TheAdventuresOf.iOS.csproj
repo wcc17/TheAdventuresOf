@@ -103,7 +103,6 @@
     <None Include="Content\Level\level1_music.mp3" />
     <None Include="Content\PreLevel\.DS_Store" />
     <None Include="Content\StoreLevel\.DS_Store" />
-    <None Include="Content\Game\arial.spritefont" />
     <None Include="Content\Menu\mainmenu_music.mp3" />
     <None Include="Content\Level\level5_music.mp3" />
     <None Include="Content\Level\level3_music.mp3" />

@@ -94,6 +94,12 @@ namespace TheAdventuresOf
             base.HandleItemPickedUp(item);
             Coin coin = (Coin)item;
             coinTotal += coin.coinValue;
+
+            if(coin.coinValue == Coin.GOLD_COIN_AMOUNT) {
+                SoundManager.Instance.PlaySoundEffect(SoundManager.BIG_COIN_PICKUP);
+            } else {
+                SoundManager.Instance.PlaySoundEffect(SoundManager.LITTLE_COIN_PICKUP);
+            }
         }
 
         public int GetCoinTotal()

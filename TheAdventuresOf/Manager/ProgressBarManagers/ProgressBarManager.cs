@@ -34,9 +34,9 @@ namespace TheAdventuresOf {
             value = maxValue;
             barFillSourceRectangle = new Rectangle(0, 0, progressBarFillTexture.Width, progressBarFillTexture.Height);
             valueTextPositionVector = new Vector2(positionVector.X + ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.009f,
-                                                  positionVector.Y + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.008f);
+                                                  positionVector.Y + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.002f);
             labelTextPositionVector = new Vector2(positionVector.X - (AssetManager.Instance.font.MeasureString(label).X / 2) - (ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.004f),
-                                                  positionVector.Y + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.009f);
+                                                  positionVector.Y);
             isInitialized = true;
         }
 

@@ -86,6 +86,7 @@ namespace TheAdventuresOf
                 if (GamePad.GetState(PlayerIndex.One).Buttons.A == ButtonState.Pressed 
                     || CheckButtonClicked(Mouse.GetState(), mouseState.X, mouseState.Y, quitButton))
                 {
+                    SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
                     isButtonPressed = true;
                     quitButtonPressed = true;
                 }

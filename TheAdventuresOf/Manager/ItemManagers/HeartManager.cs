@@ -117,6 +117,12 @@ namespace TheAdventuresOf
             Heart heart = (Heart)item;
             HealthShieldManager.Instance.IncreaseHealthByAmount(heart.healthValue);
 
+            if(heart.healthValue == HeartManager.smallHeartHealthValue) {
+                SoundManager.Instance.PlaySoundEffect(SoundManager.SMALL_HEART_PICKUP);
+            } else {
+                SoundManager.Instance.PlaySoundEffect(SoundManager.BIG_HEART_PICKUP);
+            }
+
             HealthText healthText = new HealthText(PlayerManager.Instance.GetPlayerPosition().X,
                                                    PlayerManager.Instance.GetPlayerPosition().Y, 
                                                    "+" + heart.healthValue.ToString(),

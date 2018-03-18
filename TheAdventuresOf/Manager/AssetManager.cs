@@ -163,7 +163,7 @@ namespace TheAdventuresOf
                 blackBackgroundTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
-            font = contentManager.Load<SpriteFont>("Game/titillium-web-regular");
+            font = contentManager.Load<SpriteFont>("Game/titilliam-web-regular");
             mainMenuSong = contentManager.Load<Song>("Menu/mainmenu_music");
         }
 
