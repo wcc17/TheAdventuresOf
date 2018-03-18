@@ -109,10 +109,7 @@ namespace TheAdventuresOf
             PlayerManager.Instance.CheckPlayerCollisionProjectile(proj);
         }
 
-        public virtual void CheckPlayerCollisionWithMonster(Monster monster)
-        {
-            PlayerManager.Instance.CheckPlayerCollisionWithMonster(monster);
-        }
+        public virtual void CheckPlayerCollisionWithMonster(Monster monster) { }
 
         public virtual void HandleDelayMovementTimer(GameTime gameTime, GameController gameController) 
         {

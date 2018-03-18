@@ -11,7 +11,7 @@ namespace TheAdventuresOf
 	{
         public static bool showMouse;
 
-        public static bool showDebug = false; //set to false to turn everything else off
+        public static bool showDebug = true; //set to false to turn everything else off
         public static bool giveCoins = false;
         public static bool quickVictory = false;
         public static bool lowHealth = false;
@@ -24,6 +24,7 @@ namespace TheAdventuresOf
         public static bool unlockAllLevels = true;
         public static bool isInvincible = false;
         public static bool giveMaxSword = false;
+        public static bool giveShield = true;
 
         GraphicsDeviceManager graphics;
         GameManager gameManager;
@@ -117,6 +118,7 @@ namespace TheAdventuresOf
                 unlockAllLevels = false;
                 isInvincible = false;
                 giveMaxSword = false;
+                giveShield = false;
             }
         }
 	}

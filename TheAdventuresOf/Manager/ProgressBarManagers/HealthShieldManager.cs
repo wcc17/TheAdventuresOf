@@ -39,12 +39,16 @@ namespace TheAdventuresOf
                                      AssetManager.Instance.progressBarFillHealthTexture,
                                      "Health:",
                                      healthPositionVector);
-            shieldManager.Initialize(AssetManager.Instance.progressBarOutlineTexture,
+            shieldManager.Initialize(AssetManager.Instance.progressBarHalfOutlineTexture,
                                      AssetManager.Instance.progressBarFillShieldTexture,
                                      "Sheild:",
                                      shieldPositionVector);
 
-            shieldManager.RemoveAll();
+            if(!TheAdventuresOf.giveShield) {
+				shieldManager.RemoveAll();
+            } else {
+                RestoreShieldToMax();
+            }
         }
 
         public void InitializeHealthManager(int maxValue, string valueText)

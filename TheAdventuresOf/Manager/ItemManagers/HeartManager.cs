@@ -51,7 +51,7 @@ namespace TheAdventuresOf
             rand = new Random();
         }
 
-        public override void AddItem(float x, float y)
+        public void AddItem(float x, float y, bool isExplosion)
         {
             base.AddItem(x, y);
 
@@ -67,8 +67,18 @@ namespace TheAdventuresOf
                 //move the next coin over a little bit so its easy to tell the different coins on the ground
                 int heartX = ((int)x + (i * heartXSpacing));
 
-                int shouldSpawnCoin = rand.Next(99); //0 - 99
-                if (shouldSpawnCoin < smallHeartChance)
+                int shouldSpawnHeart = rand.Next(99); //0 - 99;
+                float finalSmallHeartChance = smallHeartChance;
+                float finalHeartChance = heartChance;
+                if(isExplosion) {
+                    //less numbers to choose from increases chance of the number being less than one of the heart chance numbers
+                    shouldSpawnHeart = rand.Next(30); //0-30
+                    finalSmallHeartChance += 2;
+                    finalHeartChance += 1;
+                }
+
+                //smallHeartChance is currently 5 and heartChance is 1
+                if (shouldSpawnHeart < finalSmallHeartChance)
                 {
                     if(numSmallHearts < smallHeartLimit)
                     {
@@ -80,7 +90,7 @@ namespace TheAdventuresOf
                             heartFlickerLimit, heartFlickerIncreaseAmount, heartDisappearTimeLimit));
                     }
                 }
-                else if (shouldSpawnCoin < (smallHeartChance + heartChance))
+                else if (shouldSpawnHeart < (finalSmallHeartChance + finalHeartChance))
                 {
                     //if theres already a regular sized heart, just skip
                     if (numHearts < heartLimit)

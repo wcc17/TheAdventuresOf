@@ -230,7 +230,6 @@
     <BundleResource Include="Content\StoreLevel\small_box_1080p.png" />
     <BundleResource Include="Content\Game\progressbar_fill_health_1080p.png" />
     <BundleResource Include="Content\Game\progressbar_fill_shield_1080p.png" />
-    <BundleResource Include="Content\Game\progressbar_1080p.png" />
     <BundleResource Include="Content\Player\sword_0_1080p.png" />
     <BundleResource Include="Content\Player\sword_1_1080p.png" />
     <BundleResource Include="Content\Player\sword_2_1080p.png" />
@@ -244,6 +243,8 @@
     <BundleResource Include="Content\Misc\splash_2160p.png" />
     <BundleResource Include="Content\StoreLevel\store_sign_1080p.png" />
     <BundleResource Include="Content\Game\progressbar_fill_level_1080p.png" />
+    <BundleResource Include="Content\Game\progressbar_outline_1080p.png" />
+    <BundleResource Include="Content\Game\progressbar_outline_half_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
