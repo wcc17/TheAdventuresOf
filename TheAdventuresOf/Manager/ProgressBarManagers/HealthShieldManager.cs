@@ -41,7 +41,7 @@ namespace TheAdventuresOf
                                      healthPositionVector);
             shieldManager.Initialize(AssetManager.Instance.progressBarHalfOutlineTexture,
                                      AssetManager.Instance.progressBarFillShieldTexture,
-                                     "Sheild:",
+                                     "Shield:",
                                      shieldPositionVector);
 
             if(!TheAdventuresOf.giveShield) {

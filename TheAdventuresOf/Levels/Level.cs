@@ -237,16 +237,7 @@ namespace TheAdventuresOf
 
             if(playerDied && !showScoreStatOverlay) {
                 spriteBatch.Draw(AssetManager.Instance.transparentBlackBackgroundTexture, levelPositionVector);
-
-                spriteBatch.DrawString(AssetManager.Instance.font,
-                             gameOverText,
-                             gameOverTextPositionVector,
-                             Color.White,
-                             0,
-                             new Vector2(0, 0),
-                             1.0f,
-                             SpriteEffects.None,
-                             0);
+                TextManager.Instance.DrawOutlinedString(spriteBatch, gameOverText, gameOverTextPositionVector, Color.White, 1.0f);
             }
             
 		}
@@ -266,6 +257,8 @@ namespace TheAdventuresOf
         }
 
         void handleShake(GameTime gameTime) {
+            VibrationController.Vibrate();
+
             float shakeDistance = shakeOffset * (float)gameTime.ElapsedGameTime.TotalSeconds;
             amountShaken += shakeDistance;
 

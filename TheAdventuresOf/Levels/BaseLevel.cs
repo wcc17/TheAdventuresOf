@@ -76,15 +76,11 @@ namespace TheAdventuresOf
         }
 
         public virtual void DrawCharacterDialogText(SpriteBatch spriteBatch, float charTextScale) {
-            spriteBatch.DrawString(AssetManager.Instance.font,
-                                   characterTextToDraw,
-                                   characterTextPositionVector,
-                                   Color.White,
-                                   0,
-                                   originVector,
-                                   charTextScale,
-                                   SpriteEffects.None,
-                                   0);
+            TextManager.Instance.DrawOutlinedString(spriteBatch, 
+                                                    characterTextToDraw, 
+                                                    characterTextPositionVector, 
+                                                    Color.White, 
+                                                    charTextScale);
         }
 
         public virtual void CheckCollisionWithBounds(Entity entity)
