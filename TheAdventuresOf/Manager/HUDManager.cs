@@ -26,6 +26,9 @@ namespace TheAdventuresOf
         int savedHighScore;
         bool isEndlessMode;
         int levelProgressTotalKills = 0;
+        bool isGameLevel;
+        bool shouldShowLevelProgress;
+        bool isStoreLevel;
 
         public static HUDManager Instance
         {
@@ -41,7 +44,9 @@ namespace TheAdventuresOf
 
         private HUDManager() { }
 
-        public void Initialize(int currentLevelNumber, bool isEndlessMode) {
+        public void Initialize(int currentLevelNumber, bool isEndlessMode, bool isGameLevel, bool isStoreLevel) {
+            this.isGameLevel = isGameLevel;
+            this.isStoreLevel = isStoreLevel;
             this.isEndlessMode = isEndlessMode;
             savedHighScore = SaveGameManager.Instance.GetLevelHighScoreInt(currentLevelNumber);
 
@@ -49,11 +54,13 @@ namespace TheAdventuresOf
             float textHeight = AssetManager.Instance.font.MeasureString("TestString").Y;
             lastTextDrawYPos = initializeScore(textHeight, lastTextDrawYPos);
             lastTextDrawYPos = initializeCoinCount(textHeight, lastTextDrawYPos);
+			shouldShowLevelProgress = !isEndlessMode && isGameLevel;
 
-            if(!isEndlessMode) {
+            if(shouldShowLevelProgress) {
                 initializeLevelProgress();
             }
             initializeHealthAndShield();
+
         }
 
         void initializeLevelProgress() {
@@ -91,8 +98,15 @@ namespace TheAdventuresOf
         }
 
         float initializeCoinCount(float textHeight, float lastTextDrawYPos) {
+            float posY;
+            if(isStoreLevel) {
+                posY = ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.01f;
+            } else {
+                posY = lastTextDrawYPos + textHeight + (ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.005f);
+            }
+
             coinCountSymbolPositionVector = new Vector2(ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.01f, 
-                                                        lastTextDrawYPos + textHeight + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.005f);
+                                                        posY);
             coinCountPositionVector = new Vector2(coinCountSymbolPositionVector.X 
                                                   + AssetManager.Instance.goldCoinTexture.Width, 
                                                   coinCountSymbolPositionVector.Y);
@@ -104,7 +118,7 @@ namespace TheAdventuresOf
         void initializeHealthAndShield() {
             //adjust for level progress bar if in normal play
             float healthBarPosY;
-            if(!isEndlessMode) {
+            if(shouldShowLevelProgress) {
                 healthBarPosY = levelProgressPositionVector.Y 
                     + AssetManager.Instance.progressBarOutlineTexture.Height 
                     + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.01f;
@@ -141,19 +155,24 @@ namespace TheAdventuresOf
 
         public void Draw(SpriteBatch spriteBatch) {
 
-            if(!isEndlessMode) {
+            if(!isEndlessMode && (isStoreLevel || isGameLevel)) {
                 CoinManager.Instance.DrawCoinCount(spriteBatch,
                                       coinCountSymbolPositionVector,
                                       coinCountPositionVector);
-
-                levelProgressBarManager.Draw(spriteBatch);
             }
 
-            HeartManager.Instance.Draw(spriteBatch);
-			ScoringManager.Instance.Draw(spriteBatch, scorePositionVector, 
-			                             highScorePositionVector, isEndlessMode,
-			                             savedHighScore);
-            HealthShieldManager.Instance.Draw(spriteBatch);
+            if(shouldShowLevelProgress) {
+				levelProgressBarManager.Draw(spriteBatch);
+            }
+
+            if(isGameLevel) {
+				HeartManager.Instance.Draw(spriteBatch);
+				ScoringManager.Instance.Draw(spriteBatch, scorePositionVector, 
+				                             highScorePositionVector, isEndlessMode,
+				                             savedHighScore);
+                
+				HealthShieldManager.Instance.Draw(spriteBatch);
+            }
 
         }
     }

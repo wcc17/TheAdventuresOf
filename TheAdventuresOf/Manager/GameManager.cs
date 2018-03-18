@@ -258,20 +258,20 @@ namespace TheAdventuresOf
 
         void loadPreLevel()
         {
-            HUDManager.Instance.Initialize(currentLevelNumber, endlessMode);
+            HUDManager.Instance.Initialize(currentLevelNumber, endlessMode, false, false);
 
             currentLevel.InitializeLevel(NO_PLAYER_SPAWN_ANIMATION);
         }
 
         void loadLevel()
         {
-            HUDManager.Instance.Initialize(currentLevelNumber, endlessMode);
+            HUDManager.Instance.Initialize(currentLevelNumber, endlessMode, true, false);
 
             currentLevel.InitializeLevel(USE_PLAYER_SPAWN_ANIMATION);
         }
 
         void loadStoreLevel() {
-            HUDManager.Instance.Initialize(currentLevelNumber, endlessMode);
+            HUDManager.Instance.Initialize(currentLevelNumber, endlessMode, false, true);
 
             currentLevel.InitializeLevel(NO_PLAYER_SPAWN_ANIMATION);
         }
