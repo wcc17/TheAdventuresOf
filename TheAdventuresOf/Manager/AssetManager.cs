@@ -43,6 +43,7 @@ namespace TheAdventuresOf
         //game textures
         public Texture2D controllerTexture;
         public Texture2D progressBarOutlineTexture;
+        public Texture2D progressBarHalfOutlineTexture;
         public Texture2D progressBarFillHealthTexture;
         public Texture2D progressBarFillShieldTexture;
         public Texture2D progressBarFillLevelTexture;
@@ -291,9 +292,12 @@ namespace TheAdventuresOf
             String gameFilePath = filePath + "Game/";
 
 			//game textures
-			using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_health_1080p.png")) {
+			using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_outline_1080p.png")) {
                 progressBarOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_outline_half_1080p.png")) {
+                progressBarHalfOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
 			using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_fill_health_1080p.png")) {
 				progressBarFillHealthTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
@@ -585,6 +589,8 @@ namespace TheAdventuresOf
             jumpButtonTexture.Dispose();
             pauseButtonTexture.Dispose();
 #endif
+            progressBarOutlineTexture.Dispose();
+            progressBarHalfOutlineTexture.Dispose();
             progressBarFillHealthTexture.Dispose();
             progressBarFillShieldTexture.Dispose();
 			progressBarFillLevelTexture.Dispose();
