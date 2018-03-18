@@ -16,20 +16,33 @@
 #begin Game/arial.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:Game/arial.spritefont
-
-#begin Level/level_gameover_sound.ogg
-/importer:OggImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:Level/level_gameover_sound.ogg
 
 #begin Level/level1_music.mp3
 /importer:Mp3Importer
 /processor:SongProcessor
 /processorParam:Quality=Best
 /build:Level/level1_music.mp3
+
+#begin Level/level2_music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Level/level2_music.mp3
+
+#begin Level/level3_music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Level/level3_music.mp3
+
+#begin Level/level4_music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Level/level4_music.mp3
 
 #begin Level/level5_music.mp3
 /importer:Mp3Importer
@@ -42,22 +55,4 @@
 /processor:SongProcessor
 /processorParam:Quality=Best
 /build:Menu/mainmenu_music.mp3
-
-#begin Level/level3_music.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Level/level3_music.mp3
-
-#begin Level/level2_music.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Level/level2_music.mp3
-
-#begin Level/level4_music.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Level/level4_music.mp3
 
