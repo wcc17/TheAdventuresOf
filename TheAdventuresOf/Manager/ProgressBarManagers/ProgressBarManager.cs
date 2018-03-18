@@ -9,22 +9,35 @@ namespace TheAdventuresOf {
     public class ProgressBarManager
     {
         Vector2 zeroPositionVector = new Vector2(0, 0);
+        Vector2 valueTextPositionVector;
+		Vector2 labelTextPositionVector;
+        Vector2 positionVector;
 
         public Texture2D progressBarTexture;
         public Texture2D progressBarFillTexture;
         public int maxValue; //the highest this manager's value can go (max health, max shield, etc.)
         public string valueText;
+        public string label;
+        public bool shouldShowValueText = true;
+        bool isInitialized = false;
 
         int value; //this manager's value (its health, its shield, etc)
         Rectangle barFillSourceRectangle;
 
-        public void Initialize(Texture2D progressBarTexture, Texture2D progressBarFillTexture)
+        public void Initialize(Texture2D progressBarTexture, Texture2D progressBarFillTexture, String label, Vector2 positionVector)
         {
             this.progressBarTexture = progressBarTexture;
             this.progressBarFillTexture = progressBarFillTexture;
+			this.positionVector = positionVector;
+            this.label = label;
 
             value = maxValue;
             barFillSourceRectangle = new Rectangle(0, 0, progressBarFillTexture.Width, progressBarFillTexture.Height);
+            valueTextPositionVector = new Vector2(positionVector.X + ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.01f,
+                                                  positionVector.Y + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.01f);
+            labelTextPositionVector = new Vector2(positionVector.X - (AssetManager.Instance.font.MeasureString(label).X / 2) - (ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.004f),
+                                                  positionVector.Y + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.009f);
+            isInitialized = true;
         }
 
         public int DecreaseValueByAmount(int amount)
@@ -66,24 +79,42 @@ namespace TheAdventuresOf {
             this.value = value;
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 positionVector)
+        public void SetValueAndRecalculate(int value) {
+            this.value = value;
+            recalculateBarFill();
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
         {
-            Logger.Instance.AddOrUpdateValue(valueText + ": ", value.ToString());
+            if(isInitialized) {
+                Logger.Instance.AddOrUpdateValue(valueText + ": ", value.ToString());
 
-            Vector2 textPositionVector = new Vector2(positionVector.X + ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.01f,
-                                                     positionVector.Y + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.01f);
+                spriteBatch.Draw(progressBarFillTexture, positionVector, sourceRectangle: barFillSourceRectangle);
+                spriteBatch.Draw(progressBarTexture, positionVector);
 
-            spriteBatch.Draw(progressBarFillTexture, positionVector, sourceRectangle: barFillSourceRectangle);
-            spriteBatch.Draw(progressBarTexture, positionVector);
-            spriteBatch.DrawString(AssetManager.Instance.font,
-                                   value + "/" + maxValue,
-                                   textPositionVector,
-                                   Color.Black,
-                                   0,
-                                   zeroPositionVector,
-                                   0.5f,
-                                   SpriteEffects.None,
-                                   0);
+                if (shouldShowValueText)
+                {
+                    spriteBatch.DrawString(AssetManager.Instance.font,
+                                           value + "/" + maxValue,
+                                           valueTextPositionVector,
+                                           Color.Black,
+                                           0,
+                                           zeroPositionVector,
+                                           0.5f,
+                                           SpriteEffects.None,
+                                           0);
+                }
+
+                spriteBatch.DrawString(AssetManager.Instance.font,
+                                      label,
+                                       labelTextPositionVector,
+                                      Color.White,
+                                      0,
+                                      zeroPositionVector,
+                                      0.5f,
+                                      SpriteEffects.None,
+                                      0);
+            }
         }
 
         int enforceLimits()

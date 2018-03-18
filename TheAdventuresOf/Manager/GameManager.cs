@@ -182,7 +182,6 @@ namespace TheAdventuresOf
             XmlManager.LoadGameInformation();
             CoinManager.Instance.Initialize();
             HeartManager.Instance.Initialize();
-            HealthShieldManager.Instance.Initialize();
 
             #if __IOS__ || __ANDROID__
                 currentController = new GameControllerMobile();

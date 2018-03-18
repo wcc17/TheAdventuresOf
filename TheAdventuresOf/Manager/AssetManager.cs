@@ -42,10 +42,10 @@ namespace TheAdventuresOf
 
         //game textures
         public Texture2D controllerTexture;
-        public Texture2D progressBarHealthTexture;
+        public Texture2D progressBarOutlineTexture;
         public Texture2D progressBarFillHealthTexture;
-        public Texture2D progressBarShieldTexture;
         public Texture2D progressBarFillShieldTexture;
+        public Texture2D progressBarFillLevelTexture;
         public Texture2D leftArrowButtonTexture;
         public Texture2D rightArrowButtonTexture;
         public Texture2D jumpButtonTexture;
@@ -91,6 +91,7 @@ namespace TheAdventuresOf
         public Texture2D flyingCannonMonsterTexture;
         public Texture2D undergroundMonsterTexture;
         public Texture2D swoopMonsterTexture;
+
         public Song levelSong;
         public SoundEffect gameOverSoundEffect;
 
@@ -291,18 +292,18 @@ namespace TheAdventuresOf
 
 			//game textures
 			using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_health_1080p.png")) {
-                progressBarHealthTexture = Texture2D.FromStream(graphicsDevice, stream);
+                progressBarOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
 			using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_fill_health_1080p.png")) {
 				progressBarFillHealthTexture = Texture2D.FromStream(graphicsDevice, stream);
 			}
-            using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_shield_1080p.png"))
-            {
-                progressBarShieldTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
             using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_fill_shield_1080p.png"))
             {
                 progressBarFillShieldTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(gameFilePath + "progressbar_fill_level_1080p.png"))
+            {
+                progressBarFillLevelTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
             using (var stream = TitleContainer.OpenStream(gameFilePath + "coin_gold_1080p.png")) {
                 goldCoinTexture = Texture2D.FromStream(graphicsDevice, stream);
@@ -584,10 +585,9 @@ namespace TheAdventuresOf
             jumpButtonTexture.Dispose();
             pauseButtonTexture.Dispose();
 #endif
-            progressBarHealthTexture.Dispose();
-            progressBarShieldTexture.Dispose();
             progressBarFillHealthTexture.Dispose();
             progressBarFillShieldTexture.Dispose();
+			progressBarFillLevelTexture.Dispose();
             transparentBlackBackgroundTexture.Dispose();
             quitButtonTexture.Dispose();
 

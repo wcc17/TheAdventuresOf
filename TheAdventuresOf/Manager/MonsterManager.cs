@@ -393,6 +393,7 @@ namespace TheAdventuresOf
 				}
             } else {
                 level.currentTierKills++;
+                level.totalKills++;
             }
         }
 
