@@ -10,7 +10,7 @@ namespace TheAdventuresOf
     public class SoundManager
     {
 		private static SoundManager instance;
-        private Dictionary<int, Microsoft.Xna.Framework.Audio.SoundEffect> soundEffectDictionary;
+        private Dictionary<int, SoundEffect> soundEffectDictionary;
 
         public const int GAME_OVER = 0;
         public const int BIG_COIN_PICKUP = 1;
@@ -20,6 +20,7 @@ namespace TheAdventuresOf
         public const int MONSTER_HURT = 5;
         public const int SELECT = 6;
         public const int SMALL_HEART_PICKUP = 7;
+        public const int BIG_HEART_PICKUP = 8;
 
         public static SoundManager Instance
         {
@@ -44,6 +45,9 @@ namespace TheAdventuresOf
             soundEffectDictionary.Add(MONSTER_HURT, AssetManager.Instance.monsterHurtSoundEffect);
             soundEffectDictionary.Add(SELECT, AssetManager.Instance.selectSoundEffect);
             soundEffectDictionary.Add(SMALL_HEART_PICKUP, AssetManager.Instance.smallHeartPickupSoundEffect);
+            soundEffectDictionary.Add(BIG_HEART_PICKUP, AssetManager.Instance.bigHeartPickupSoundEffect);
+
+            SoundEffect.MasterVolume = 0.2f;
         }
 
         public void PlaySoundEffect(int soundEffectIndex) {

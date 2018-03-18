@@ -1,9 +1,9 @@
 
 #----------------------------- Global Properties ----------------------------#
 
-/outputDir:bin/$(Platform)
-/intermediateDir:obj/$(Platform)
-/platform:iOS
+/outputDir:bin
+/intermediateDir:obj
+/platform:Windows
 /config:
 /profile:Reach
 /compress:False
@@ -12,13 +12,6 @@
 
 
 #---------------------------------- Content ---------------------------------#
-
-#begin Game/arial.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:PremultiplyAlpha=True
-/processorParam:TextureFormat=Compressed
-/build:Game/arial.spritefont
 
 #begin Level/level1_music.mp3
 /importer:Mp3Importer
@@ -49,6 +42,67 @@
 /processor:SongProcessor
 /processorParam:Quality=Best
 /build:Level/level5_music.mp3
+
+#begin Sound/big_coin_pickup.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/big_coin_pickup.wav
+
+#begin Sound/big_heart_pickup.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/big_heart_pickup.wav
+
+#begin Sound/hurt.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/hurt.wav
+
+#begin Sound/jump.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/jump.wav
+
+#begin Sound/level_gameover_sound.ogg
+/importer:OggImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/level_gameover_sound.ogg
+
+#begin Sound/little_coin_pickup.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/little_coin_pickup.wav
+
+#begin Sound/monster_hurt.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/monster_hurt.wav
+
+#begin Sound/select.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/select.wav
+
+#begin Sound/small_heart_pickup.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/small_heart_pickup.wav
+
+#begin Game/titilliam-web-regular.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Game/titilliam-web-regular.spritefont
 
 #begin Menu/mainmenu_music.mp3
 /importer:Mp3Importer

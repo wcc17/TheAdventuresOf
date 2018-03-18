@@ -224,6 +224,7 @@ namespace TheAdventuresOf
 
                     if (!(monster is SpikeMonster))
                     {
+                        SoundManager.Instance.PlaySoundEffect(SoundManager.MONSTER_HURT);
                         monster.isDying = true;
                         ScoringManager.Instance.HandleMonsterKill(monster);
                     }
@@ -292,6 +293,8 @@ namespace TheAdventuresOf
 
 		void handlePlayerTakingDamage(Entity entity)
 		{
+            SoundManager.Instance.PlaySoundEffect(SoundManager.HURT);
+
             if(!TheAdventuresOf.isInvincible) {
 				HealthShieldManager.Instance.DecreaseHealthByAmount(entity.damage);
             }
@@ -349,6 +352,7 @@ namespace TheAdventuresOf
 			//if jump button was pressed and character is not already jumping
 			if (hasJumped && !isJumping)
 			{
+                SoundManager.Instance.PlaySoundEffect(SoundManager.JUMP);
 				hasJumped = false;
 				isJumping = true;
                 velocityY = initialJumpVelocity;
