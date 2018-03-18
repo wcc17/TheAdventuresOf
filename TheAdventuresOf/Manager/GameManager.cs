@@ -169,15 +169,12 @@ namespace TheAdventuresOf
             XmlManager.LoadChooseLevelMenuInformation();
             ((ChooseLevelMenuController)currentController)
                 .InitializeTextures(AssetManager.Instance.chooseButtonTexture,
-                                    AssetManager.Instance.chooseEndlessButtonTexture,
                                     AssetManager.Instance.chooseLevelMenuBackArrowTexture,
                                     AssetManager.Instance.chooseLevelMenuRightArrowTexture,
                                     AssetManager.Instance.chooseLevelMenuLeftArrowTexture,
                                     AssetManager.Instance.arrowOutlineTexture,
                                     AssetManager.Instance.buttonOutlineTexture);
-            ((ChooseLevelMenuController)currentController).InitializeChooseLevelMenuController(
-                chooseLevelMenu.levelPreviewPositionVector,
-                AssetManager.Instance.chooseLevelPreviewTextures[0].Width);
+            ((ChooseLevelMenuController)currentController).InitializeChooseLevelMenuController();
         }
 
         void loadCommonLevelAssets() {
@@ -359,18 +356,21 @@ namespace TheAdventuresOf
         void updateChooseLevelMenu(GameTime gameTime) {
             chooseLevelMenu.Update(gameTime, (ChooseLevelMenuController) currentController);
 
-            if(chooseLevelMenu.proceedToLevelState) {
-                storyMode = false; //set storyMode to false when choosing level in ChooseLevelMenu screen.
-                endlessMode = false;
-                CoinManager.isEndlessMode = false;
-				currentLevelNumber = chooseLevelMenu.currentLevelSelected;
+            //leaving this mess here in case I change my mind about removing the old "Play" button on the choose menu
+    //        if(chooseLevelMenu.proceedToLevelState) {
+    //            storyMode = false; //set storyMode to false when choosing level in ChooseLevelMenu screen.
+    //            endlessMode = false;
+    //            CoinManager.isEndlessMode = false;
+				//currentLevelNumber = chooseLevelMenu.currentLevelSelected;
 
-                //have to force the music to start since it normally starts in the pre level
-				AssetManager.Instance.LoadLevelMusicAssets(graphicsDevice, contentManager, currentLevelNumber); //need to force load music 
-                MusicManager.Instance.StartLevelMusic();
+    //            //have to force the music to start since it normally starts in the pre level
+				//AssetManager.Instance.LoadLevelMusicAssets(graphicsDevice, contentManager, currentLevelNumber); //need to force load music 
+            //    MusicManager.Instance.StartLevelMusic();
 
-                prepareLevelState(LEVEL_STATE, gameTime);
-            } else if(chooseLevelMenu.proceedToEndlessLevelState) {
+            //    prepareLevelState(LEVEL_STATE, gameTime);
+            //} else 
+
+            if(chooseLevelMenu.proceedToEndlessLevelState) {
                 storyMode = false;
                 endlessMode = true;
                 CoinManager.isEndlessMode = true;
