@@ -13,7 +13,7 @@ namespace TheAdventuresOf
         public bool disableButtonPress;
 
         public bool proceedToMainMenuState;
-        public bool proceedToLevelState;
+        //public bool proceedToLevelState;
         public bool proceedToEndlessLevelState;
         public int currentLevelSelected = 1;
 
@@ -26,6 +26,8 @@ namespace TheAdventuresOf
         Texture2D currentPreviewTexture;
         string currentLevelString = "Level 1";
         string currentLevelHighScoreString = "High Score: 0";
+        string instructionTextString = "Survive as long as possible and try to beat your high score!";
+        Vector2 instructionTextPositionVector;
 
         public void LoadMenu()
         {
@@ -59,6 +61,9 @@ namespace TheAdventuresOf
             currentLevelTextPositionVector = new Vector2(currentLevelTextX, currentLevelTextY);
             currentLevelHighScoreTextPositionVector = new Vector2(currentLevelHighScoreTextX, currentLevelHighScoreTextY);
 
+            instructionTextPositionVector = new Vector2(ScreenManager.VIRTUAL_SCREEN_WIDTH - AssetManager.Instance.font.MeasureString(instructionTextString).X - 150, 
+                                                        AssetManager.Instance.font.MeasureString(instructionTextString).Y / 3);
+
             setLevelHighscoreString();
             changePreviewTexture();
         }
@@ -71,14 +76,6 @@ namespace TheAdventuresOf
                 if (!disableButtonPress)
                 {
                     if (chooseLevelMenuController.chooseButtonPressed)
-                    {
-                        if (SaveGameManager.Instance.IsLevelUnlocked((currentLevelSelected)))
-                        {
-                            proceedToLevelState = true;
-                        }
-
-                    }
-                    else if (chooseLevelMenuController.chooseEndlessButtonPressed)
                     {
                         if (SaveGameManager.Instance.IsLevelUnlocked((currentLevelSelected)))
                         {
@@ -186,6 +183,16 @@ namespace TheAdventuresOf
                              1.0f,
                              SpriteEffects.None,
                              0);
+
+            spriteBatch.DrawString(AssetManager.Instance.font,
+                                  instructionTextString,
+                                  instructionTextPositionVector,
+                                  Color.Black,
+                                  0,
+                                  new Vector2(0, 0),
+                                  1.1f,
+                                  SpriteEffects.None,
+                                   0);
         }
 
         void changePreviewTexture() {

@@ -15,10 +15,6 @@ namespace TheAdventuresOf
         public bool chooseButtonPressed;
         Texture2D chooseButtonTexture;
 
-        public static Button chooseEndlessButton;
-        public bool chooseEndlessButtonPressed;
-        Texture2D chooseEndlessButtonTexture;
-
         public static Button leftArrowButton;
         public bool leftArrowButtonPressed;
         Texture2D leftArrowButtonTexture;
@@ -35,7 +31,6 @@ namespace TheAdventuresOf
          * Must be called before InitializeController()
          */
         public void InitializeTextures(Texture2D chooseButtonTexture,
-                                       Texture2D chooseEndlessButtonTexture,
                                        Texture2D backArrowButtonTexture,
                                        Texture2D rightArrowButtonTexture,
                                        Texture2D leftArrowButtonTexture,
@@ -48,20 +43,15 @@ namespace TheAdventuresOf
             this.rightArrowButtonTexture = rightArrowButtonTexture;
             this.leftArrowButtonTexture = leftArrowButtonTexture;
             this.backArrowButtonTexture = backArrowButtonTexture;
-            this.chooseEndlessButtonTexture = chooseEndlessButtonTexture;
         }
 
-        public void InitializeChooseLevelMenuController(Vector2 chooseLevelPreviewPositionVector, int chooseLevelPreviewWidth)
+        public void InitializeChooseLevelMenuController()
         {
             base.InitializeController();
 
             chooseButton = new Button(chooseButtonTexture.Width,
                                       chooseButtonTexture.Height,
                                       0, 0);
-
-            chooseEndlessButton = new Button(chooseEndlessButtonTexture.Width,
-                                             chooseEndlessButtonTexture.Height,
-                                             0, 0);
 
             backArrowButton = new Button(backArrowButtonTexture.Width,
                                       backArrowButtonTexture.Height,
@@ -75,13 +65,9 @@ namespace TheAdventuresOf
                                       leftArrowButtonTexture.Height,
                                       0, 0);
 
-            chooseButton.buttonPositionVector.X = chooseLevelPreviewPositionVector.X;
+            chooseButton.buttonPositionVector.X = (ScreenManager.VIRTUAL_SCREEN_WIDTH / 2) - (chooseButtonTexture.Width / 2);
             chooseButton.buttonPositionVector.Y = ScreenManager.VIRTUAL_SCREEN_HEIGHT - chooseButtonTexture.Height - buttonOffset;
             chooseButton.ResetInitialPosition();
-
-            chooseEndlessButton.buttonPositionVector.X = chooseLevelPreviewPositionVector.X + chooseLevelPreviewWidth - chooseEndlessButtonTexture.Width;
-            chooseEndlessButton.buttonPositionVector.Y = ScreenManager.VIRTUAL_SCREEN_HEIGHT - chooseEndlessButtonTexture.Height - buttonOffset;
-            chooseEndlessButton.ResetInitialPosition();
 
             backArrowButton.buttonPositionVector.X = buttonOffset / 2;
             backArrowButton.buttonPositionVector.Y = buttonOffset / 2;
@@ -111,12 +97,6 @@ namespace TheAdventuresOf
                 chooseButtonPressed = true;
             }
 
-            if (chooseEndlessButton.IsPressed(point))
-            {
-                isButtonPressed = true;
-                chooseEndlessButtonPressed = true;
-            }
-
             if (backArrowButton.IsPressed(point))
             {
                 isButtonPressed = true;
@@ -139,7 +119,6 @@ namespace TheAdventuresOf
         public override void HandleImpacts()
         {
             HandleImpact(chooseButton, chooseButtonPressed);
-            HandleImpact(chooseEndlessButton, chooseEndlessButtonPressed);
             HandleImpact(backArrowButton, backArrowButtonPressed);
             HandleImpact(rightArrowButton, rightArrowButtonPressed);
             HandleImpact(leftArrowButton, leftArrowButtonPressed);
@@ -149,7 +128,6 @@ namespace TheAdventuresOf
         {
             isButtonPressed = false;
             chooseButtonPressed = false;
-            chooseEndlessButtonPressed = false;
             backArrowButtonPressed = false;
             rightArrowButtonPressed = false;
             leftArrowButtonPressed = false;
@@ -161,7 +139,6 @@ namespace TheAdventuresOf
 
             //Draw player button
             chooseButton.Draw(spriteBatch, chooseButtonTexture);
-            chooseEndlessButton.Draw(spriteBatch, chooseEndlessButtonTexture);
             backArrowButton.Draw(spriteBatch, backArrowButtonTexture);
             rightArrowButton.Draw(spriteBatch, rightArrowButtonTexture);
             leftArrowButton.Draw(spriteBatch, leftArrowButtonTexture);
