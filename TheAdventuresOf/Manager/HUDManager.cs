@@ -87,9 +87,7 @@ namespace TheAdventuresOf
                                               ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.005f);
             highScorePositionVector = new Vector2(scorePositionVector.X,
                                                   scorePositionVector.Y
-                                                    + textHeight
-                                                    + ScreenManager.VIRTUAL_SCREEN_HEIGHT
-                                                    * 0.01f);
+                                                    + textHeight - 20);
             if(isEndlessMode) {
                 return highScorePositionVector.Y;
             } else {

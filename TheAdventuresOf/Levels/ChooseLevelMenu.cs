@@ -9,7 +9,7 @@ namespace TheAdventuresOf
     {
         //TODO: HARDCODED NUMBER
         public Timer initialButtonDelayTimer = new Timer(0.4f); //so that no buttons are accidentally pressed when opening menu
-        public Timer buttonDelayTimer = new Timer(0.18f); //delay after pressing any button so we don't accidentally press twice
+        public Timer buttonDelayTimer = new Timer(0.26f); //delay after pressing any button so we don't accidentally press twice
         public bool disableButtonPress;
 
         public bool proceedToMainMenuState;
@@ -195,6 +195,8 @@ namespace TheAdventuresOf
         }
 
         void changePreviewTexture() {
+            //best place for sound. it should only play when the picture changes
+            
             currentPreviewTexture = previewTextures.Find(pT => pT.Name.Equals(currentLevelSelected.ToString()));
         }
 
