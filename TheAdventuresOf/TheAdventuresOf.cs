@@ -11,7 +11,7 @@ namespace TheAdventuresOf
 	{
         public static bool showMouse;
 
-        public static bool showDebug = true; //set to false to turn everything else off
+        public static bool showDebug = false; //set to false to turn everything else off
         public static bool giveCoins = true;
         public static bool quickVictory = true;
         public static bool lowHealth = false;
