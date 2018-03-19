@@ -31,7 +31,6 @@ namespace TheAdventuresOf {
 			this.positionVector = positionVector;
             this.label = label;
 
-            value = maxValue;
             barFillSourceRectangle = new Rectangle(0, 0, progressBarFillTexture.Width, progressBarFillTexture.Height);
             valueTextPositionVector = new Vector2(positionVector.X + ScreenManager.VIRTUAL_SCREEN_WIDTH * 0.009f,
                                                   positionVector.Y + ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.002f);
@@ -81,6 +80,10 @@ namespace TheAdventuresOf {
 
         public void SetValueAndRecalculate(int value) {
             this.value = value;
+            recalculateBarFill();
+        }
+
+        public void Recalculate() {
             recalculateBarFill();
         }
 

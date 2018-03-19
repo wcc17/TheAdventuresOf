@@ -24,11 +24,12 @@ namespace TheAdventuresOf
         Vector2 shieldPositionVector;
         Vector2 levelProgressPositionVector;
         int savedHighScore;
-        bool isEndlessMode;
         int levelProgressTotalKills = 0;
+		bool isEndlessMode;
         bool isGameLevel;
         bool shouldShowLevelProgress;
         bool isStoreLevel;
+        bool isInitialized;
 
         public static HUDManager Instance
         {
@@ -44,25 +45,42 @@ namespace TheAdventuresOf
 
         private HUDManager() { }
 
-        public void Initialize(int currentLevelNumber, bool isEndlessMode, bool isGameLevel, bool isStoreLevel) {
-            this.isGameLevel = isGameLevel;
-            this.isStoreLevel = isStoreLevel;
-            this.isEndlessMode = isEndlessMode;
+        public void Initialize(int currentLevelNumber, bool isEndless, bool isGame, bool isStore) {
+            this.isGameLevel = isGame;
+            this.isStoreLevel = isStore;
+            this.isEndlessMode = isEndless;
             savedHighScore = SaveGameManager.Instance.GetLevelHighScoreInt(currentLevelNumber);
 
+            if ((this.isEndlessMode != isEndless) || (!isInitialized)) {
+                initialize(currentLevelNumber, isEndlessMode, isGame, isStore);
+            }
+            else {
+                initializeProgressBars();
+            }
+
+        }
+
+        void initialize(int currentLevelNumber, bool isEndless, bool isGame, bool isStore) {
+            initializeProgressBars();
+            HealthShieldManager.Instance.RestoreHealthToMax();
+            HealthShieldManager.Instance.EmptyShield();
+            isInitialized = true;
+        }
+
+        void initializeProgressBars() {
             float lastTextDrawYPos = 0;
             float textHeight = AssetManager.Instance.font.MeasureString("TestString").Y;
             lastTextDrawYPos = initializeScore(textHeight, lastTextDrawYPos);
             lastTextDrawYPos = initializeCoinCount(textHeight, lastTextDrawYPos);
-			shouldShowLevelProgress = !isEndlessMode && isGameLevel;
+            shouldShowLevelProgress = !isEndlessMode && isGameLevel;
 
-            if(shouldShowLevelProgress) {
+            if (shouldShowLevelProgress)
+            {
                 initializeLevelProgress();
             }
             initializeHealthAndShield();
-
+            HealthShieldManager.Instance.RecalculateFills();
         }
-
         void initializeLevelProgress() {
             levelProgressBarManager = new ProgressBarManager();
 
@@ -162,13 +180,16 @@ namespace TheAdventuresOf
 				levelProgressBarManager.Draw(spriteBatch);
             }
 
-            if(isGameLevel) {
-				HeartManager.Instance.Draw(spriteBatch);
-				ScoringManager.Instance.Draw(spriteBatch, scorePositionVector, 
-				                             highScorePositionVector, isEndlessMode,
-				                             savedHighScore);
+            if(isGameLevel || isStoreLevel) {
                 
-				HealthShieldManager.Instance.Draw(spriteBatch);
+                HealthShieldManager.Instance.Draw(spriteBatch);
+
+                if(isGameLevel) {
+					HeartManager.Instance.Draw(spriteBatch);
+					ScoringManager.Instance.Draw(spriteBatch, scorePositionVector, 
+	                                             highScorePositionVector, isEndlessMode,
+					                             savedHighScore);
+                }
             }
 
         }

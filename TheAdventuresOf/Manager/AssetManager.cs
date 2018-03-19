@@ -193,9 +193,6 @@ namespace TheAdventuresOf
                 buttonOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 #endif
-            String soundFilePath = "Sound/";
-            selectSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "select");
-            SoundManager.Instance.InitializeDictionary();
     }
 
         public void LoadChooseLevelMenuAssets(GraphicsDevice graphicsDevice, int levelNumberLimit) {
@@ -300,7 +297,7 @@ namespace TheAdventuresOf
             } 
         }
 
-        public void LoadGameAssets(GraphicsDevice graphicsDevice) {
+        public void LoadGameAssets(GraphicsDevice graphicsDevice, ContentManager contentManager) {
             String playerFilePath = filePath + "Player/";
             String gameFilePath = filePath + "Game/";
 
@@ -372,6 +369,8 @@ namespace TheAdventuresOf
                     pauseButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
                 }
             }
+
+            LoadSoundEffects(contentManager);
         }
 
         public void LoadLevelAssets(GraphicsDevice graphicsDevice, ContentManager contentManager, int levelNumber)
@@ -431,8 +430,6 @@ namespace TheAdventuresOf
             {
                 bileTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-
-            LoadSoundEffects(contentManager);
         }
 
         public void LoadSoundEffects(ContentManager contentManager) {
@@ -548,7 +545,6 @@ namespace TheAdventuresOf
             playButtonTexture.Dispose();
             chooseLevelButtonTexture.Dispose();
             mainMenuSong.Dispose();
-            selectSoundEffect.Dispose();
 
 #if !__IOS__ && !__ANDROID__
             arrowOutlineTexture.Dispose();

@@ -51,7 +51,7 @@ namespace TheAdventuresOf
         }
 
         public void PlaySoundEffect(int soundEffectIndex) {
-            soundEffectDictionary[soundEffectIndex].Play();
+			soundEffectDictionary[soundEffectIndex].Play();
         }
     }
 }

@@ -173,7 +173,7 @@ namespace TheAdventuresOf
         }
 
         void loadCommonLevelAssets() {
-            AssetManager.Instance.LoadGameAssets(graphicsDevice);
+            AssetManager.Instance.LoadGameAssets(graphicsDevice, contentManager);
             XmlManager.LoadGameInformation();
             CoinManager.Instance.Initialize();
             HeartManager.Instance.Initialize();
@@ -254,20 +254,17 @@ namespace TheAdventuresOf
         void loadPreLevel()
         {
             HUDManager.Instance.Initialize(currentLevelNumber, endlessMode, false, false);
-
             currentLevel.InitializeLevel(NO_PLAYER_SPAWN_ANIMATION);
         }
 
         void loadLevel()
         {
             HUDManager.Instance.Initialize(currentLevelNumber, endlessMode, true, false);
-
             currentLevel.InitializeLevel(USE_PLAYER_SPAWN_ANIMATION);
         }
 
         void loadStoreLevel() {
             HUDManager.Instance.Initialize(currentLevelNumber, endlessMode, false, true);
-
             currentLevel.InitializeLevel(NO_PLAYER_SPAWN_ANIMATION);
         }
 
@@ -383,7 +380,7 @@ namespace TheAdventuresOf
 
         //called only after leaving main menu or chooselevel menu since they share so much code
         void prepareLevelState(int nextState, GameTime gameTime) {
-            if(TheAdventuresOf.straightToStore) {
+            if(TheAdventuresOf.straightToStore && !endlessMode) {
 				setLoadState(STORE_LEVEL_STATE, gameTime);
             } else {
 				setLoadState(nextState, gameTime);
