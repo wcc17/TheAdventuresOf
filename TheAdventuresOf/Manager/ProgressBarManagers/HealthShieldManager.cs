@@ -44,9 +44,7 @@ namespace TheAdventuresOf
                                      "Shield:",
                                      shieldPositionVector);
 
-            if(!TheAdventuresOf.giveShield) {
-				shieldManager.RemoveAll();
-            } else {
+            if(TheAdventuresOf.giveShield) {
                 RestoreShieldToMax();
             }
         }
@@ -141,6 +139,15 @@ namespace TheAdventuresOf
             RestoreHealthToMax();
             RestoreShieldToMax();
             shouldDrawShieldManager = false;
+        }
+
+        public void EmptyShield() {
+            shieldManager.RemoveAll();
+        }
+
+        public void RecalculateFills() {
+            shieldManager.Recalculate();
+            healthManager.Recalculate();
         }
     }
 }
