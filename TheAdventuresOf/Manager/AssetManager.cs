@@ -167,7 +167,7 @@ namespace TheAdventuresOf
             mainMenuSong = contentManager.Load<Song>("Menu/mainmenu_music");
         }
 
-        public void LoadMainMenuAssets(GraphicsDevice graphicsDevice)
+        public void LoadMainMenuAssets(GraphicsDevice graphicsDevice, ContentManager contentManager)
         {
             string menuFilePath = filePath + "Menu/main/";
 
@@ -193,6 +193,9 @@ namespace TheAdventuresOf
                 buttonOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 #endif
+            String soundFilePath = "Sound/";
+            selectSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "select");
+            SoundManager.Instance.InitializeDictionary();
     }
 
         public void LoadChooseLevelMenuAssets(GraphicsDevice graphicsDevice, int levelNumberLimit) {
@@ -442,8 +445,8 @@ namespace TheAdventuresOf
             jumpSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "jump");
             littleCoinPickupSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "little_coin_pickup");
             monsterHurtSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "monster_hurt");
-            selectSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "select");
             smallHeartPickupSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "small_heart_pickup");
+            selectSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "select");
 
             SoundManager.Instance.InitializeDictionary();
         }
@@ -545,6 +548,7 @@ namespace TheAdventuresOf
             playButtonTexture.Dispose();
             chooseLevelButtonTexture.Dispose();
             mainMenuSong.Dispose();
+            selectSoundEffect.Dispose();
 
 #if !__IOS__ && !__ANDROID__
             arrowOutlineTexture.Dispose();
@@ -642,8 +646,8 @@ namespace TheAdventuresOf
             jumpSoundEffect.Dispose();
             littleCoinPickupSoundEffect.Dispose();
             monsterHurtSoundEffect.Dispose();
-            selectSoundEffect.Dispose();
             smallHeartPickupSoundEffect.Dispose();
+            selectSoundEffect.Dispose();
         }
 
         public void DisposeAsset(Texture2D asset) {

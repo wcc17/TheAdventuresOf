@@ -93,28 +93,24 @@ namespace TheAdventuresOf
         {
             if (chooseButton.IsPressed(point))
             {
-                SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
                 isButtonPressed = true;
                 chooseButtonPressed = true;
             }
 
             if (backArrowButton.IsPressed(point))
             {
-                SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
                 isButtonPressed = true;
                 backArrowButtonPressed = true;
             }
 
             if (rightArrowButton.IsPressed(point))
             {
-                SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
                 isButtonPressed = true;
                 rightArrowButtonPressed = true;
             }
 
             if (leftArrowButton.IsPressed(point))
             {
-                SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
                 isButtonPressed = true;
                 leftArrowButtonPressed = true;
             }
@@ -191,25 +187,21 @@ namespace TheAdventuresOf
             {
                 if (activeButton.Equals(leftArrowButton))
                 {
-                    SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
                     isButtonPressed = true;
                     leftArrowButtonPressed = true;
                 }
                 else if (activeButton.Equals(rightArrowButton))
                 {
-                    SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
                     isButtonPressed = true;
                     rightArrowButtonPressed = true;
                 }
                 else if (activeButton.Equals(backArrowButton))
                 {
-                    SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
                     isButtonPressed = true;
                     backArrowButtonPressed = true;
                 }
                 else if (activeButton.Equals(chooseButton))
                 {
-                    SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
                     isButtonPressed = true;
                     chooseButtonPressed = true;
                 }
@@ -244,25 +236,23 @@ namespace TheAdventuresOf
 
             if (CheckButtonInputWindows(mouseState, mouseX, mouseY, chooseButton))
             {
-                SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
+                
                 isButtonPressed = true;
                 chooseButtonPressed = true;
             }
             if (CheckButtonInputWindows(mouseState, mouseX, mouseY, leftArrowButton))
             {
-                SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
+                
                 isButtonPressed = true;
                 leftArrowButtonPressed = true;
             }
             if (CheckButtonInputWindows(mouseState, mouseX, mouseY, rightArrowButton))
             {
-                SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
                 isButtonPressed = true;
                 rightArrowButtonPressed = true;
             }
             if (CheckButtonInputWindows(mouseState, mouseX, mouseY, backArrowButton))
             {
-                SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
                 isButtonPressed = true;
                 backArrowButtonPressed = true;
             }

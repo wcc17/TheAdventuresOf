@@ -47,6 +47,7 @@ namespace TheAdventuresOf {
                 gameController.isPaused = !gameController.isPaused;
             }
 
+            this.isPaused = gameController.isPaused;
             TheAdventuresOf.showMouse = gameController.isPaused;
         }
 

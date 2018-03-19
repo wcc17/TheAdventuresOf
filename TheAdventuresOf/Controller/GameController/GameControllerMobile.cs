@@ -108,7 +108,6 @@ namespace TheAdventuresOf
             {
                 if(quitButton.IsPressed(point)) 
                 {
-                    SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
                     isButtonPressed = true;
                     quitButtonPressed = true;
                 }

@@ -130,7 +130,7 @@ namespace TheAdventuresOf
             TheAdventuresOf.showMouse = true;
 
             if(!mainMenuAssetsLoaded) {
-                AssetManager.Instance.LoadMainMenuAssets(graphicsDevice);
+                AssetManager.Instance.LoadMainMenuAssets(graphicsDevice, contentManager);
             }
 
             mainMenu = new MainMenu();

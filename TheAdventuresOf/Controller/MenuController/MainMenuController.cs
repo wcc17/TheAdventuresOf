@@ -67,11 +67,9 @@ namespace TheAdventuresOf
         public override void HandleSingleInput(Point point)
         {
             if (playButton.IsPressed(point)) {
-                SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
                 isButtonPressed = true;
                 playButtonPressed = true;
             } else if(chooseLevelButton.IsPressed(point)) {
-                SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
                 isButtonPressed = true;
                 chooseLevelButtonPressed = true;
             }
@@ -148,12 +146,11 @@ namespace TheAdventuresOf
                 switch (activeButtonIndex)
                 {
                     case PLAY_BUTTON_ACTIVE:
-                        SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
+                        
                         isButtonPressed = true;
                         playButtonPressed = true;
                         break;
                     case CHOOSE_LEVEL_BUTTON_ACTIVE:
-                        SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
                         isButtonPressed = true;
                         chooseLevelButtonPressed = true;
                         break;
@@ -198,14 +195,14 @@ namespace TheAdventuresOf
 
             if (CheckButtonInputWindows(mouseState, mouseX, mouseY, playButton))
             {
-                SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
+                
                 isButtonPressed = true;
                 playButtonPressed = true;
             }
 
             if (CheckButtonInputWindows(mouseState, mouseX, mouseY, chooseLevelButton))
             {
-                SoundManager.Instance.PlaySoundEffect(SoundManager.SELECT);
+                
                 isButtonPressed = true;
                 chooseLevelButtonPressed = true;
             }
