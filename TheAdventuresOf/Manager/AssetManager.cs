@@ -70,6 +70,7 @@ namespace TheAdventuresOf
         public SoundEffect monsterHurtSoundEffect;
         public SoundEffect selectSoundEffect;
         public SoundEffect smallHeartPickupSoundEffect;
+        public bool soundEffectsAlreadyLoaded;
 
         //prelevel textures
         public Texture2D preLevelCharacterTexture;
@@ -370,7 +371,10 @@ namespace TheAdventuresOf
                 }
             }
 
-            LoadSoundEffects(contentManager);
+            if(!soundEffectsAlreadyLoaded) {
+                soundEffectsAlreadyLoaded = true;
+				LoadSoundEffects(contentManager);
+            }
         }
 
         public void LoadLevelAssets(GraphicsDevice graphicsDevice, ContentManager contentManager, int levelNumber)
@@ -631,7 +635,8 @@ namespace TheAdventuresOf
             //TODO: these should be disposed in every level
             playerTexture.Dispose();
 
-            DisposeSoundEffects();
+            //TODO: needs to be disposed on app close
+            //DisposeSoundEffects();
         }
 
         public void DisposeSoundEffects() {
