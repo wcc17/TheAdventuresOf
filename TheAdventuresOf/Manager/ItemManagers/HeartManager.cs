@@ -51,7 +51,7 @@ namespace TheAdventuresOf
             rand = new Random();
         }
 
-        public void AddItem(float x, float y, bool isExplosion)
+        public void AddItem(float x, float y, bool isExplosion, bool isEndless)
         {
             base.AddItem(x, y);
 
@@ -68,13 +68,17 @@ namespace TheAdventuresOf
                 int heartX = ((int)x + (i * heartXSpacing));
 
                 int shouldSpawnHeart = rand.Next(99); //0 - 99;
-                float finalSmallHeartChance = smallHeartChance;
+				float finalSmallHeartChance = smallHeartChance;
                 float finalHeartChance = heartChance;
-                if(isExplosion) {
-                    //less numbers to choose from increases chance of the number being less than one of the heart chance numbers
+                if(isExplosion && isEndless) {
+                    //a smaller number means a greater chance of a heart being spawned in that pass in the loop
+                    //adding to a final heart chance variable increases the number of times we'll try to spawn a heart
                     shouldSpawnHeart = rand.Next(30); //0-30
                     finalSmallHeartChance += 2;
                     finalHeartChance += 1;
+                } else if(isExplosion) {
+                    shouldSpawnHeart = rand.Next(45); //0-45
+                    finalSmallHeartChance += 1;
                 }
 
                 //smallHeartChance is currently 5 and heartChance is 1

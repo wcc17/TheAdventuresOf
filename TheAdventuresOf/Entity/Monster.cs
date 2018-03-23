@@ -238,13 +238,13 @@ namespace TheAdventuresOf
             }
         }
 
-        public void HandleItemDropOnDeath(bool isExplosion) {
+        public void HandleItemDropOnDeath(bool isExplosion, bool isEndless) {
 			//it would look weird if coins just appeared on the level when either of these monsters died
             if (!(this is SpikeMonster) 
                 && !(this is UndergroundMonster) 
                 && !isCollidingWithLevelBounds) {
 				CoinManager.Instance.AddItem(positionVector.X, positionVector.Y);
-                HeartManager.Instance.AddItem(positionVector.X, positionVector.Y, isExplosion);
+                HeartManager.Instance.AddItem(positionVector.X, positionVector.Y, isExplosion, isEndless);
 			}
         }
 

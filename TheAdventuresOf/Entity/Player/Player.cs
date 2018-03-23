@@ -217,7 +217,7 @@ namespace TheAdventuresOf
         }
 
 
-		public void CheckCollisionMonster(Monster monster, bool accessoryDamagedMonster, bool monsterDamagedAccessory, bool isExplosion)
+		public void CheckCollisionMonster(Monster monster, bool accessoryDamagedMonster, bool monsterDamagedAccessory, bool isExplosion, bool isEndless)
 		{
             if(!monster.isDying && !monster.isDead && !monster.isInvincible) {
                 if(accessoryDamagedMonster) {
@@ -229,7 +229,7 @@ namespace TheAdventuresOf
                         ScoringManager.Instance.HandleMonsterKill(monster);
                     }
 
-                    monster.HandleItemDropOnDeath(isExplosion);
+                    monster.HandleItemDropOnDeath(isExplosion, isEndless);
 
                 } else if (collisionBounds.Intersects(monster.entityBounds) || monsterDamagedAccessory)
                 {

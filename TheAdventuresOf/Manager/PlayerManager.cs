@@ -155,7 +155,7 @@ namespace TheAdventuresOf
             player.CheckCollisionProjectile(proj, projectileDamagedPlayer);
         }
 
-        public void CheckPlayerCollisionWithMonster(Monster monster, bool isExplosion) {
+        public void CheckPlayerCollisionWithMonster(Monster monster, bool isExplosion, bool isEndless) {
             bool accessoryDamagedMonster = false;
             bool monsterDamagedAccessory = false;
 
@@ -167,7 +167,7 @@ namespace TheAdventuresOf
                 }
             }
 
-            player.CheckCollisionMonster(monster, accessoryDamagedMonster, monsterDamagedAccessory, isExplosion);
+            player.CheckCollisionMonster(monster, accessoryDamagedMonster, monsterDamagedAccessory, isExplosion, isEndless);
         }
 
         public void SetPlayerX(float X)

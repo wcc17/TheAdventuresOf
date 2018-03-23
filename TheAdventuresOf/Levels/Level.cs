@@ -244,7 +244,7 @@ namespace TheAdventuresOf
 		}
 
         public override void CheckPlayerCollisionWithMonster(Monster monster) {
-            PlayerManager.Instance.CheckPlayerCollisionWithMonster(monster, isExplosion);
+            PlayerManager.Instance.CheckPlayerCollisionWithMonster(monster, isExplosion, endlessMode);
         }
 
         void handleLevelShake(GameTime gameTime) {
