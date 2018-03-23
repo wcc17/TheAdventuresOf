@@ -96,7 +96,7 @@ namespace TheAdventuresOf
                             }
 
                         }
-                        else
+                        else if(SaveGameManager.Instance.IsLevelUnlocked(GameManager.levelNumberLimit))
                         {
                             currentLevelSelected = GameManager.levelNumberLimit;
                             currentLevelString = "Level " + currentLevelSelected;

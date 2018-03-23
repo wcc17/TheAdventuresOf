@@ -11,7 +11,7 @@ namespace TheAdventuresOf
 	{
         public static bool showMouse;
 
-        public static bool showDebug = false; //set to false to turn everything else off
+        public static bool showDebug = true; //set to false to turn everything else off
         public static bool giveCoins = true;
         public static bool quickVictory = true;
         public static bool lowHealth = false;
@@ -21,7 +21,7 @@ namespace TheAdventuresOf
         public static bool startWithLevel3 = false;
         public static bool startWithLevel4 = false;
         public static bool startWithLevel5 = false;
-        public static bool unlockAllLevels = false;
+        public static bool unlockAllLevels = true;
         public static bool isInvincible = false;
         public static bool giveMaxSword = false;
         public static bool giveShield = false;
