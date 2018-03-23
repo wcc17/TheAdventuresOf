@@ -52,7 +52,7 @@ namespace TheAdventuresOf
             savedHighScore = SaveGameManager.Instance.GetLevelHighScoreInt(currentLevelNumber);
 
             if ((this.isEndlessMode != isEndless) || (!isInitialized)) {
-                initialize(currentLevelNumber, isEndlessMode, isGame, isStore);
+                initialize();
             }
             else {
                 initializeProgressBars();
@@ -60,7 +60,7 @@ namespace TheAdventuresOf
 
         }
 
-        void initialize(int currentLevelNumber, bool isEndless, bool isGame, bool isStore) {
+        void initialize() {
             initializeProgressBars();
             HealthShieldManager.Instance.RestoreHealthToMax();
             HealthShieldManager.Instance.EmptyShield();
