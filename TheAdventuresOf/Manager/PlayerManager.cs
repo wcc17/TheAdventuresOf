@@ -133,6 +133,10 @@ namespace TheAdventuresOf
             return player.isSpawning;
         }
 
+        public void SetPlayerGroundLevel(float groundLevel) {
+            player.groundLevel = groundLevel;
+        }
+
         /**
          * Must be called every frame
          **/

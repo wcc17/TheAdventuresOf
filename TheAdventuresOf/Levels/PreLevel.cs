@@ -21,14 +21,25 @@ namespace TheAdventuresOf
         Vector2 preLevelCharacterPositionVector;
 		float textX;
 		float textY;
+        bool hasAlreadyLetterBoxedIn;
+        bool hasAlreadyLetterBoxedOut;
+        int currentLevelNumber;
 
-        public PreLevel(Texture2D levelTexture, GameController gameController) 
+        public PreLevel(Texture2D levelTexture, GameController gameController, int currentLevelNumber) 
             : base(levelTexture: levelTexture) { 
             gameController.Lock();
             charTextScale = 1.0f;
+            this.currentLevelNumber = currentLevelNumber;
         }
 
         public override void InitializeLevel(bool usePlayerSpawnAnimation) {
+            //TODO: This was stupid art mistake. I don't feel like editing everything right now
+            //0.213 is the percentage of the screen divided by 2 that the ground level moves when transitioning from iphone size to xbox size
+            if (currentLevelNumber > 1)
+            {
+                groundLevel += (ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.106f);
+            }
+
             base.InitializeLevel(usePlayerSpawnAnimation);
 
             playerMovementTimer = new Timer(PLAYER_MOVEMENT_TIMER_DELAY);
@@ -57,6 +68,8 @@ namespace TheAdventuresOf
             base.Update(gameTime, gameController);
             UpdateDialogText(gameTime);
 
+            handleLetterBoxingIn();
+
             if(beforeMovementTimer.IsTimeUp(gameTime.ElapsedGameTime)) {
 
                 handlePlayerMovement(gameTime);
@@ -80,6 +93,14 @@ namespace TheAdventuresOf
 
         void handlePlayerMovement(GameTime gameTime) {
             PlayerManager.Instance.MovePlayer(gameTime);
+        }
+
+        void handleLetterBoxingIn() {
+            if (!hasAlreadyLetterBoxedIn)
+            {
+                hasAlreadyLetterBoxedIn = true;
+                CutsceneManager.Instance.SetShouldLetterboxIn();
+            }
         }
 
         public override void CheckPlayerCollisionWithMonster(Monster monster) { }

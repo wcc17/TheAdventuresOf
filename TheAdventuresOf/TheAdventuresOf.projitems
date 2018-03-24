@@ -80,6 +80,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Manager\TransitionManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\PauseManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Text\GlobalTextIndexConstants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Manager\CutsceneManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

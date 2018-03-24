@@ -64,6 +64,9 @@ namespace TheAdventuresOf
 
             loadScreenTimer = new Timer(loadScreenTimeLimit);
             handleDebug();
+
+            levelNumberMin = 3;
+            currentLevelNumber = 3;
         }
 
         public void handleDebug() {
@@ -211,7 +214,7 @@ namespace TheAdventuresOf
 
             loadPlayerAccessories();
 
-            currentLevel = new PreLevel(AssetManager.Instance.preLevelTexture, (GameController) currentController);
+            currentLevel = new PreLevel(AssetManager.Instance.preLevelTexture, (GameController) currentController, currentLevelNumber);
             XmlManager.LoadPreLevelInformation((PreLevel)currentLevel, currentLevelNumber);
         }
 
@@ -271,6 +274,7 @@ namespace TheAdventuresOf
         public void Update(GameTime gameTime, bool isGameActive)
         {
             TransitionManager.Instance.Update(gameTime);
+            CutsceneManager.Instance.Update(gameTime);
 
             MusicManager.Instance.Update(gameTime);
 
@@ -607,6 +611,7 @@ namespace TheAdventuresOf
         }
 
         void setLoadState(int nextState, GameTime gameTime) {
+            CutsceneManager.Instance.ResetLetterbox();
             setState(LOAD_STATE, nextState);
             loadScreenTimer.IsTimeUp(gameTime.ElapsedGameTime);
         }
@@ -655,7 +660,7 @@ namespace TheAdventuresOf
                     drawChooseLevelMenu();
                     break;
                 case PRE_LEVEL_STATE:
-                    drawLevel();
+                    drawPreLevel();
                     break;
                 case LEVEL_STATE:
                     drawLevel();
@@ -669,6 +674,7 @@ namespace TheAdventuresOf
             }
 
             TransitionManager.Instance.Draw(spriteBatch);
+            CutsceneManager.Instance.Draw(spriteBatch);
 
             Logger.Instance.DrawToScreen(spriteBatch);
 
@@ -714,6 +720,20 @@ namespace TheAdventuresOf
             {
                 PauseManager.Instance.Draw(spriteBatch);
             }
+        }
+
+        void drawPreLevel() {
+            //Draw level related stuff (background and monsters)
+            currentLevel.Draw(spriteBatch);
+
+            //Draw text related stuff
+            TextManager.Instance.Draw(spriteBatch);
+
+            //Draw coins on level
+            CoinManager.Instance.Draw(spriteBatch);
+
+            //health, coin counts, scores, etc
+            HUDManager.Instance.Draw(spriteBatch);
         }
 
         void drawLoadScreen()

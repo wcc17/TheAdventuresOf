@@ -543,7 +543,6 @@ namespace TheAdventuresOf
 
         public void DisposeMainMenuAssets() {
             //splashTexture.Dispose(); TODO: not disposing right now because its used as load screen
-            //blackBackgroundTexture.Dispose(); //TODO: needs to be disposed when game exits only
 
             mainMenuTexture.Dispose();
             playButtonTexture.Dispose();
@@ -651,15 +650,16 @@ namespace TheAdventuresOf
             selectSoundEffect.Dispose();
         }
 
-        public void DisposeAsset(Texture2D asset) {
-            asset.Dispose();
+        //TODO: THIS NEEDS TO BE CALLED SOMEWHERE !!!!
+        public void DisposeOnExit() {
+            blackBackgroundTexture.Dispose();
         }
 
         string getPreLevelString(int levelNumber) {
             string preLevelString = "pre_level" + levelNumber + "background_";
 
 #if __IOS__ || __ANROID__
-            preLevelString += "1080p.png";
+            preLevelString += "full_1080p.png";
 #else
             preLevelString += "xbox_1080p.png";
 #endif
