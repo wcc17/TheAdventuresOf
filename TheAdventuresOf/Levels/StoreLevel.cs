@@ -297,6 +297,7 @@ namespace TheAdventuresOf
                 //its possible for this if to be hit again after the item is sold while the player is still jumping, so be sure its not already sold out
                 if (PlayerManager.Instance.IsPlayerJumping() && !storeLevelPropItems[activePropItemIndex].isSoldOut && !justBoughtItem)
                 {
+                    SoundManager.Instance.PlaySoundEffect(SoundManager.PURCHASE);
                     justBoughtItem = true;
                     purchaseItem();
                 }
@@ -320,6 +321,8 @@ namespace TheAdventuresOf
                 TextManager.Instance.RemoveText(costTextIndex);
 
                 applyPurchasedItem();
+            } else {
+                SoundManager.Instance.PlaySoundEffect(SoundManager.PURCHASE_DENIED);
             }
         }
 

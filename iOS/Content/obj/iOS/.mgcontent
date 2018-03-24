@@ -20,5 +20,13 @@
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/small_heart_pickup.wav</File>
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Game/titilliam-web-regular.spritefont</File>
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Menu/mainmenu_music.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/tanner_explosion.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/tanner_hurt.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/tanner_jump.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/tanner_monster_hurt.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/tanner_purchase_denied.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/tanner_purchase.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/tanner_select.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/tanner_victory_sound.mp3</File>
   </SourceFiles>
 </SourceFileCollection>

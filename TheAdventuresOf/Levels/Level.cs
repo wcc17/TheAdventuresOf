@@ -177,6 +177,7 @@ namespace TheAdventuresOf
                     explosionKills = 0;
                     if(!TheAdventuresOf.quickVictory) {
 						isExplosion = true;
+                        SoundManager.Instance.PlaySoundEffect(SoundManager.EXPLOSION);
                     }
                     explosionMonster = monsterManager.GetRandomExplosionMonster();
                     monsterManager.InitializeExplosion(explosionMonster);
@@ -335,6 +336,8 @@ namespace TheAdventuresOf
             monsterManager.DespawnMonsters();
             scoreStatOverlay = new ScoreStatOverlay(monsterManager);
             showScoreStatOverlay = true;
+            SoundManager.Instance.PlaySoundEffect(SoundManager.VICTORY);
+            MusicManager.Instance.StopMusic();
 
             if (endlessMode) {
                 if (ScoringManager.Instance.score > SaveGameManager.Instance.GetLevelHighScoreInt(levelNumber)) {

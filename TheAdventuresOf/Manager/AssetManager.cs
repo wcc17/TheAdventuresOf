@@ -70,6 +70,10 @@ namespace TheAdventuresOf
         public SoundEffect monsterHurtSoundEffect;
         public SoundEffect selectSoundEffect;
         public SoundEffect smallHeartPickupSoundEffect;
+        public SoundEffect explosionSoundEffect;
+        public SoundEffect victorySoundEffect;
+        public SoundEffect purchaseSoundEffect;
+        public SoundEffect purchaseDeniedSoundEffect;
         public bool soundEffectsAlreadyLoaded;
 
         //prelevel textures
@@ -439,15 +443,23 @@ namespace TheAdventuresOf
         public void LoadSoundEffects(ContentManager contentManager) {
             String soundFilePath = "Sound/";
 
+            //hurtSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "hurt");
+            hurtSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "tanner_hurt");
+            //jumpSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "jump");
+            jumpSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "tanner_jump");
+            //monsterHurtSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "monster_hurt");
+            monsterHurtSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "tanner_monster_hurt");
+
             gameOverSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "level_gameover_sound");
             bigCoinPickupSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "big_coin_pickup");
             bigHeartPickupSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "big_heart_pickup");
-            hurtSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "hurt");
-            jumpSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "jump");
             littleCoinPickupSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "little_coin_pickup");
-            monsterHurtSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "monster_hurt");
             smallHeartPickupSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "small_heart_pickup");
             selectSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "select");
+            explosionSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "tanner_explosion");
+            victorySoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "tanner_victory_sound");
+            purchaseSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "tanner_purchase");
+            purchaseDeniedSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "tanner_purchase_denied");
 
             SoundManager.Instance.InitializeDictionary();
         }
@@ -648,6 +660,10 @@ namespace TheAdventuresOf
             monsterHurtSoundEffect.Dispose();
             smallHeartPickupSoundEffect.Dispose();
             selectSoundEffect.Dispose();
+            explosionSoundEffect.Dispose();
+            victorySoundEffect.Dispose();
+            purchaseSoundEffect.Dispose();
+            purchaseDeniedSoundEffect.Dispose();
         }
 
         //TODO: THIS NEEDS TO BE CALLED SOMEWHERE !!!!

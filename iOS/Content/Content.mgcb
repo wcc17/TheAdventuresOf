@@ -110,3 +110,51 @@
 /processorParam:Quality=Best
 /build:Menu/mainmenu_music.mp3
 
+#begin Sound/tanner_explosion.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/tanner_explosion.mp3
+
+#begin Sound/tanner_hurt.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/tanner_hurt.mp3
+
+#begin Sound/tanner_jump.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/tanner_jump.mp3
+
+#begin Sound/tanner_monster_hurt.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/tanner_monster_hurt.mp3
+
+#begin Sound/tanner_purchase_denied.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/tanner_purchase_denied.mp3
+
+#begin Sound/tanner_purchase.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/tanner_purchase.mp3
+
+#begin Sound/tanner_select.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/tanner_select.mp3
+
+#begin Sound/tanner_victory_sound.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/tanner_victory_sound.mp3
+

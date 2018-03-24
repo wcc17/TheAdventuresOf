@@ -64,9 +64,6 @@ namespace TheAdventuresOf
 
             loadScreenTimer = new Timer(loadScreenTimeLimit);
             handleDebug();
-
-            levelNumberMin = 3;
-            currentLevelNumber = 3;
         }
 
         public void handleDebug() {
