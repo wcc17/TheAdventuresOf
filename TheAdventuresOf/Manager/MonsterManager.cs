@@ -18,6 +18,7 @@ namespace TheAdventuresOf
         public const int UNDERGROUND_MONSTER = 7;
         public const int SWOOP_MONSTER = 8;
         public const float EXPLOSION_MONSTER_SPAWN_DELAY_TIME_LIMIT = 0.2f;
+        const float monsterLevelSpeedIncrease = 2.5f;
 
         public Level level;
 
@@ -612,6 +613,8 @@ namespace TheAdventuresOf
             blockMonster = (BlockMonster)handleSpawnType(blockMonster, Monster.SPAWN_BOTTOM);
             blockMonster.InitializeSpawn();
 
+            blockMonster.speed += ((level.levelNumber - 1) * monsterLevelSpeedIncrease);
+
             return blockMonster;
         }
 
@@ -625,6 +628,8 @@ namespace TheAdventuresOf
             sunMonster = (SunMonster)determineSpawnTypeRandom(sunMonster);
             sunMonster.InitializeSpawn();
 
+            sunMonster.speed += ((level.levelNumber - 1) * monsterLevelSpeedIncrease);
+
             return sunMonster;
         }
 
@@ -637,6 +642,8 @@ namespace TheAdventuresOf
                                          AssetManager.Instance.bileMonsterTexture.Height);
             bileMonster = (BileMonster)determineSpawnTypeRandom(bileMonster);
             bileMonster.InitializeSpawn();
+
+            bileMonster.speed += ((level.levelNumber - 1) * monsterLevelSpeedIncrease);
 
             return bileMonster;
         }
@@ -656,6 +663,8 @@ namespace TheAdventuresOf
             groundCannonMonster.spawnType = Monster.SPAWN_BOTTOM; //is default, but want to be explicit here
             groundCannonMonster.InitializeSpawn();
 
+            groundCannonMonster.speed += ((level.levelNumber - 1) * monsterLevelSpeedIncrease);
+
             return groundCannonMonster;
         }
 
@@ -672,6 +681,8 @@ namespace TheAdventuresOf
 
             flyingCannonMonster.spawnType = Monster.SPAWN_TOP;
             flyingCannonMonster.InitializeSpawn();
+
+            flyingCannonMonster.speed += ((level.levelNumber - 1) * monsterLevelSpeedIncrease);
             return flyingCannonMonster;
         }
 
@@ -685,6 +696,8 @@ namespace TheAdventuresOf
             spikeMonster = (SpikeMonster)determineSpawnTypeRandom(spikeMonster);
             spikeMonster.InitializeSpawn();
 
+            spikeMonster.speed += ((level.levelNumber - 1) * monsterLevelSpeedIncrease);
+
             return spikeMonster;
         }
 
@@ -697,6 +710,8 @@ namespace TheAdventuresOf
                                          AssetManager.Instance.dashMonsterTexture.Height);
             dashMonster = (DashMonster)handleSpawnType(dashMonster, Monster.SPAWN_BOTTOM);
             dashMonster.InitializeSpawn();
+
+            dashMonster.speed += ((level.levelNumber - 1) * monsterLevelSpeedIncrease);
 
             return dashMonster;
         }
@@ -714,6 +729,8 @@ namespace TheAdventuresOf
             //even though theres no true "spawn", just need to get him ready
             undergroundMonster.InitializeSpawn();
 
+            undergroundMonster.speed += ((level.levelNumber - 1) * monsterLevelSpeedIncrease);
+
             return undergroundMonster;
         }
 
@@ -726,6 +743,8 @@ namespace TheAdventuresOf
                                           AssetManager.Instance.swoopMonsterTexture.Height);
             swoopMonster = (SwoopMonster)determineSpawnTypeRandom(swoopMonster);
             swoopMonster.InitializeSpawn();
+
+            swoopMonster.speed += ((level.levelNumber - 1) * monsterLevelSpeedIncrease);
 
             return swoopMonster;
         }

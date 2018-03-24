@@ -13,7 +13,7 @@ namespace TheAdventuresOf
         public const float gameOverDelayTimeLimit = 5.0f;
         public string gameOverText = "You died!"; 
 
-        int levelNumber;
+        public int levelNumber;
         public static MonsterManager monsterManager;
 
         public int maxTier;
