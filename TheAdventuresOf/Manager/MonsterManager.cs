@@ -18,7 +18,7 @@ namespace TheAdventuresOf
         public const int UNDERGROUND_MONSTER = 7;
         public const int SWOOP_MONSTER = 8;
         public const float EXPLOSION_MONSTER_SPAWN_DELAY_TIME_LIMIT = 0.2f;
-        const float monsterLevelSpeedIncrease = 2.5f;
+        const float monsterLevelSpeedIncrease = 5.5f;
 
         public Level level;
 
