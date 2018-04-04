@@ -189,6 +189,7 @@ namespace TheAdventuresOf
             ScoreStatOverlay.totalScoreString = (string)scoreStatOverlayElement.Element("TotalScoreString");
             ScoreStatOverlay.totalKillString = (string)scoreStatOverlayElement.Element("TotalKillString");
             ScoreStatOverlay.jumpToContinueString = (string)scoreStatOverlayElement.Element("JumpToContinueString");
+            ScoreStatOverlay.jumpToGoToMenuString = (string)scoreStatOverlayElement.Element("JumpToGoToMenuString");
             ScoreStatOverlay.countPositionXMultiplier = (float)scoreStatOverlayElement.Element("CountPositionXMultiplier"); 
             ScoreStatOverlay.countPositionYMultiplier = (float)scoreStatOverlayElement.Element("CountPositionYMultiplier"); 
             ScoreStatOverlay.totalScorePositionXMultiplier = (float)scoreStatOverlayElement.Element("TotalScorePositionXMultiplier"); 

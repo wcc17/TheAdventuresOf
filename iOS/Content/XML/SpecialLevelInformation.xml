@@ -64,6 +64,7 @@
 			<TotalScoreString>Total Score: </TotalScoreString>
 			<TotalKillString>Total Kills: </TotalKillString>
 			<JumpToContinueString>Jump to continue!</JumpToContinueString>
+            <JumpToGoToMenuString>You lost.. Jump to continue!</JumpToGoToMenuString>
 			<CountPositionXMultiplier>0.30</CountPositionXMultiplier>
 			<CountPositionYMultiplier>0.03</CountPositionYMultiplier>
 			<TotalScorePositionXMultiplier>0.60</TotalScorePositionXMultiplier>

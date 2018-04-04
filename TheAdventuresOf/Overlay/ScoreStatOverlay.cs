@@ -18,6 +18,7 @@ namespace TheAdventuresOf
         public static string totalScoreString;
         public static string totalKillString;
         public static string jumpToContinueString;
+        public static string jumpToGoToMenuString;
         public static float countPositionXMultiplier;
         public static float countPositionYMultiplier;
         public static float totalScorePositionXMultiplier;
@@ -49,9 +50,12 @@ namespace TheAdventuresOf
         Vector2 totalScorePositionVector;
         Vector2 totalKilledPositionVector;
         Vector2 continueTextPositionVector;
+        Vector2 goToMenuTextPositionVector;
         Color fontColor = Color.White;
         bool showContinueText;
+        bool showMenuText;
         bool showHighScoreText;
+        bool playerDied;
         Timer continueDelayTimer; //how long to wait before player can hit jump to go to next level
         int totalMonstersKilled;
 
@@ -65,10 +69,11 @@ namespace TheAdventuresOf
         UndergroundMonster undergroundMonster;
         SwoopMonster swoopMonster;
 
-        public ScoreStatOverlay(MonsterManager monsterManager) {
+        public ScoreStatOverlay(MonsterManager monsterManager, bool playerDied) {
             XmlManager.LoadScoreStatOverlayInformation();
             this.monsterManager = monsterManager;
 			continueDelayTimer = new Timer(continueDelayTimeLimit);
+            this.playerDied = playerDied;
 
 			totalKilledPositionYOffset = ScreenManager.VIRTUAL_SCREEN_HEIGHT / totalKilledPositionYMultiplier;
 			continueTextPositionYOffset = ScreenManager.VIRTUAL_SCREEN_HEIGHT / continueTextPositionYMultiplier;
@@ -88,6 +93,8 @@ namespace TheAdventuresOf
                                                     totalScorePositionVector.Y + totalKilledPositionYOffset);
             continueTextPositionVector = new Vector2(totalScorePositionVector.X,
                                                      totalScorePositionVector.Y + continueTextPositionYOffset);
+            goToMenuTextPositionVector = new Vector2(totalScorePositionVector.X - 40,
+                                                     totalScorePositionVector.Y + continueTextPositionYOffset);
 
             initializeMonsters();
             initializeKillTotal();
@@ -95,7 +102,14 @@ namespace TheAdventuresOf
 
         public bool CanContinueToNextLevel(GameTime gameTime) {
             if(continueDelayTimer.IsTimeUp(gameTime.ElapsedGameTime)) {
-                showContinueText = true;
+                if(playerDied) {
+                    showContinueText = false;
+                    showMenuText = true;
+                } else {
+					showContinueText = true;
+                    showMenuText = false;
+                }
+
                 return true;
             }
 
@@ -233,6 +247,14 @@ namespace TheAdventuresOf
                 TextManager.Instance.DrawOutlinedString(spriteBatch,
                                                         jumpToContinueString,
                                                         continueTextPositionVector,
+                                                        fontColor,
+                                                        (float)fontScale + 0.5f);
+            }
+
+            if(showMenuText) {
+                TextManager.Instance.DrawOutlinedString(spriteBatch,
+                                                        jumpToGoToMenuString,
+                                                        goToMenuTextPositionVector,
                                                         fontColor,
                                                         (float)fontScale + 0.5f);
             }

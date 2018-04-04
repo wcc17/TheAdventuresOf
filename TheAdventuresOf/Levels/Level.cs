@@ -334,14 +334,18 @@ namespace TheAdventuresOf
 
         void initiateScoreStatOverlay() {
             monsterManager.DespawnMonsters();
-            scoreStatOverlay = new ScoreStatOverlay(monsterManager);
+            scoreStatOverlay = new ScoreStatOverlay(monsterManager, playerDied);
             showScoreStatOverlay = true;
-            SoundManager.Instance.PlaySoundEffect(SoundManager.VICTORY);
-            MusicManager.Instance.StopMusic();
+			MusicManager.Instance.StopMusic();
+
+            if(!playerDied) {
+                SoundManager.Instance.PlaySoundEffect(SoundManager.VICTORY);
+            }
 
             if (endlessMode) {
                 if (ScoringManager.Instance.score > SaveGameManager.Instance.GetLevelHighScoreInt(levelNumber)) {
                     scoreStatOverlay.CheckShowHighScoreText();
+					SoundManager.Instance.PlaySoundEffect(SoundManager.VICTORY);
                     SaveGameManager.Instance.SetLevelHighScore(levelNumber, ScoringManager.Instance.score);
                 }
             }
