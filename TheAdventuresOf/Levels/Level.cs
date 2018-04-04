@@ -123,7 +123,7 @@ namespace TheAdventuresOf
 
 			handleLevelShake(gameTime);
 
-            if(!endlessMode) {
+            if(!endlessMode && !playerDied) {
                 HUDManager.Instance.UpdateLevelProgressBar(totalKills);
             }
 
