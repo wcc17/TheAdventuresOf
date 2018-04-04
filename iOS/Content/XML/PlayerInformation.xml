@@ -5,7 +5,7 @@
 		<Speed>375</Speed>
 		<AnimationSpeed>0.07</AnimationSpeed>
 		<FrameCount>2</FrameCount>
-		<InvincibilityTime>1.5</InvincibilityTime>
+		<InvincibilityTime>1.8</InvincibilityTime>
 		<KnockBackDistanceLimit>45</KnockBackDistanceLimit>
 		<KnockBackSpeed>950</KnockBackSpeed>
 		<RotationSpeed>550</RotationSpeed>
