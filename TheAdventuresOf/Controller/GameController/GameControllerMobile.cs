@@ -65,7 +65,7 @@ namespace TheAdventuresOf
 			                      jumpButtonPositionVector.Y);
             pauseButton = new Button(pauseButtonTexture.Width,
                                      pauseButtonTexture.Height,
-                                     pauseButtonPositionVector.X,
+                                     (ScreenManager.VIRTUAL_SCREEN_WIDTH / 2) - (pauseButtonTexture.Width / 2),
                                      pauseButtonPositionVector.Y);
             quitButton = new Button(quitButtonTexture.Width,
                                     quitButtonTexture.Height,
