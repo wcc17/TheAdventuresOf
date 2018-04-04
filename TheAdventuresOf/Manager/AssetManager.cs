@@ -13,6 +13,10 @@ namespace TheAdventuresOf
     {
         private static AssetManager instance;
 
+        public ContentManager soundContentManager;
+        public ContentManager musicContentManager;
+        public ContentManager fontContentManager;
+
         public const string androidFilePath = "Assets/Content/";
         public const string iosFilePath = "Content/";
 
@@ -24,7 +28,6 @@ namespace TheAdventuresOf
         public Texture2D mainMenuTexture;
         public Texture2D playButtonTexture;
         public Texture2D chooseLevelButtonTexture;
-        public Song mainMenuSong;
 
         //choose level menu textures
         public Texture2D chooseButtonTexture;
@@ -109,12 +112,15 @@ namespace TheAdventuresOf
         public Texture2D undergroundMonsterTexture;
         public Texture2D swoopMonsterTexture;
 
-        public Song levelSong;
+        //only one song will be playing at a time
+        public Song currentSong;
 
         public Texture2D bulletTexture;
         public Texture2D bileTexture;
 
         public static string filePath;
+
+        bool levelMusicLoaded;
 
         //xbox related stuff for the store level only
         string storeLevelString;
@@ -149,7 +155,7 @@ namespace TheAdventuresOf
         }
 
 
-        public void LoadSplashAssets(GraphicsDevice graphicsDevice, ContentManager contentManager)
+        public void LoadSplashAssets(GraphicsDevice graphicsDevice)
         {
             string menuFilePath = filePath + "Menu/splash/";
 
@@ -168,11 +174,12 @@ namespace TheAdventuresOf
                 blackBackgroundTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
-            font = contentManager.Load<SpriteFont>("Game/titilliam-web-regular");
-            mainMenuSong = contentManager.Load<Song>("Menu/mainmenu_music");
+            fontContentManager = new ContentManager(TheAdventuresOf.contentManager.ServiceProvider, TheAdventuresOf.contentManager.RootDirectory);
+            font = fontContentManager.Load<SpriteFont>("Game/titilliam-web-regular");
+            loadMusic("Menu/mainmenu_music");
         }
 
-        public void LoadMainMenuAssets(GraphicsDevice graphicsDevice, ContentManager contentManager)
+        public void LoadMainMenuAssets(GraphicsDevice graphicsDevice)
         {
             string menuFilePath = filePath + "Menu/main/";
 
@@ -302,7 +309,7 @@ namespace TheAdventuresOf
             } 
         }
 
-        public void LoadGameAssets(GraphicsDevice graphicsDevice, ContentManager contentManager) {
+        public void LoadGameAssets(GraphicsDevice graphicsDevice) {
             String playerFilePath = filePath + "Player/";
             String gameFilePath = filePath + "Game/";
 
@@ -375,13 +382,10 @@ namespace TheAdventuresOf
                 }
             }
 
-            if(!soundEffectsAlreadyLoaded) {
-                soundEffectsAlreadyLoaded = true;
-				LoadSoundEffects(contentManager);
-            }
+			loadSoundEffects();
         }
 
-        public void LoadLevelAssets(GraphicsDevice graphicsDevice, ContentManager contentManager, int levelNumber)
+        public void LoadLevelAssets(GraphicsDevice graphicsDevice, int levelNumber)
         {
             string levelFilePath = filePath + "Level/";
             string monsterFilePath = filePath + "Monster/Level" + levelNumber + "/";
@@ -438,33 +442,13 @@ namespace TheAdventuresOf
             {
                 bileTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
+
+            if(!levelMusicLoaded) {
+				loadLevelMusicAssets(graphicsDevice, levelNumber);
+            }
         }
 
-        public void LoadSoundEffects(ContentManager contentManager) {
-            String soundFilePath = "Sound/";
-
-            //hurtSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "hurt");
-            hurtSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "tanner_hurt");
-            //jumpSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "jump");
-            jumpSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "tanner_jump");
-            //monsterHurtSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "monster_hurt");
-            monsterHurtSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "tanner_monster_hurt");
-
-            gameOverSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "level_gameover_sound");
-            bigCoinPickupSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "big_coin_pickup");
-            bigHeartPickupSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "big_heart_pickup");
-            littleCoinPickupSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "little_coin_pickup");
-            smallHeartPickupSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "small_heart_pickup");
-            selectSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "select");
-            explosionSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "tanner_explosion");
-            victorySoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "tanner_victory_sound");
-            purchaseSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "tanner_purchase");
-            purchaseDeniedSoundEffect = contentManager.Load<SoundEffect>(soundFilePath + "tanner_purchase_denied");
-
-            SoundManager.Instance.InitializeDictionary();
-        }
-
-        public void LoadPreLevelAssets(GraphicsDevice graphicsDevice, ContentManager contentManager, int levelNumber)
+        public void LoadPreLevelAssets(GraphicsDevice graphicsDevice, int levelNumber)
         {
             string preLevelFilePath = filePath + "PreLevel/";
 
@@ -478,11 +462,7 @@ namespace TheAdventuresOf
                 preLevelTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
-            LoadLevelMusicAssets(graphicsDevice, contentManager, levelNumber);
-        }
-
-        public void LoadLevelMusicAssets(GraphicsDevice graphicsDevice, ContentManager contentManager, int levelNumber) {
-            levelSong = contentManager.Load<Song>("Level/level" + levelNumber + "_music");
+            loadLevelMusicAssets(graphicsDevice, levelNumber);
         }
 
         public void LoadStoreLevelAssets(GraphicsDevice graphicsDevice) {
@@ -553,13 +533,16 @@ namespace TheAdventuresOf
             preLevelTexture.Dispose();
         }
 
-        public void DisposeMainMenuAssets() {
+        public void DisposeMainMenuAssets(bool shouldDisposeMusic) {
             //splashTexture.Dispose(); TODO: not disposing right now because its used as load screen
 
             mainMenuTexture.Dispose();
             playButtonTexture.Dispose();
             chooseLevelButtonTexture.Dispose();
-            mainMenuSong.Dispose();
+
+            if(shouldDisposeMusic) {
+				DisposeMusic();
+            }
 
 #if !__IOS__ && !__ANDROID__
             arrowOutlineTexture.Dispose();
@@ -611,9 +594,7 @@ namespace TheAdventuresOf
             bulletTexture.Dispose();
             bileTexture.Dispose();
 
-            //TODO: need to dispose of level music
-            levelSong.Dispose();
-            //gameOverSoundEffect.Dispose();
+            DisposeMusic();
 
             foreach(Texture2D accessoryTexture in accessoryTextures.Values) {
                 accessoryTexture.Dispose();
@@ -646,8 +627,16 @@ namespace TheAdventuresOf
             //TODO: these should be disposed in every level
             playerTexture.Dispose();
 
-            //TODO: needs to be disposed on app close
-            //DisposeSoundEffects();
+            DisposeSoundEffects();
+        }
+
+        public void DisposeMusic() {
+            //stop music from playing just in case its still playing
+            MusicManager.Instance.StopMusic();
+
+            levelMusicLoaded = false;
+            currentSong.Dispose();
+            musicContentManager.Dispose();
         }
 
         public void DisposeSoundEffects() {
@@ -664,10 +653,13 @@ namespace TheAdventuresOf
             victorySoundEffect.Dispose();
             purchaseSoundEffect.Dispose();
             purchaseDeniedSoundEffect.Dispose();
+
+            soundContentManager.Dispose();
         }
 
         //TODO: THIS NEEDS TO BE CALLED SOMEWHERE !!!!
         public void DisposeOnExit() {
+            fontContentManager.Dispose();
             blackBackgroundTexture.Dispose();
         }
 
@@ -703,6 +695,47 @@ namespace TheAdventuresOf
 #else
             storeLevelString = "store_level_xbox_1080p.png";
 #endif
+        }
+
+        void loadLevelMusicAssets(GraphicsDevice graphicsDevice, int levelNumber)
+        {
+            loadMusic("Level/level" + levelNumber + "_music");
+            levelMusicLoaded = true;
+        }
+
+        void loadMusic(String songPath)
+        {
+            //prepare musicContentManager to be used again
+            musicContentManager = new ContentManager(TheAdventuresOf.contentManager.ServiceProvider, TheAdventuresOf.contentManager.RootDirectory);
+
+            currentSong = musicContentManager.Load<Song>(songPath);
+        }
+
+        void loadSoundEffects()
+        {
+			//prepare musicContentManager to be used again
+			soundContentManager = new ContentManager(TheAdventuresOf.contentManager.ServiceProvider, TheAdventuresOf.contentManager.RootDirectory);
+            String soundFilePath = "Sound/";
+
+            //hurtSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "hurt");
+            hurtSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_hurt");
+            //jumpSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "jump");
+            jumpSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_jump");
+            //monsterHurtSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "monster_hurt");
+            monsterHurtSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_monster_hurt");
+
+            gameOverSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "level_gameover_sound");
+            bigCoinPickupSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "big_coin_pickup");
+            bigHeartPickupSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "big_heart_pickup");
+            littleCoinPickupSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "little_coin_pickup");
+            smallHeartPickupSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "small_heart_pickup");
+            selectSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "select");
+            explosionSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_explosion");
+            victorySoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_victory_sound");
+            purchaseSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_purchase");
+            purchaseDeniedSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_purchase_denied");
+
+            SoundManager.Instance.InitializeDictionary();
         }
     }
 }

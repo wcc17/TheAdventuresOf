@@ -1,4 +1,5 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -10,10 +11,11 @@ namespace TheAdventuresOf
 	public class TheAdventuresOf : Game
 	{
         public static bool showMouse;
+        public static ContentManager contentManager;
 
-        public static bool showDebug = false; //set to false to turn everything else off
+        public static bool showDebug = true; //set to false to turn everything else off
         public static bool giveCoins = false;
-        public static bool quickVictory = false;
+        public static bool quickVictory = true;
         public static bool lowHealth = false;
         public static bool straightToStore = false;
         public static bool skipPreLevel = false; //TODO; will crash after beating a level
@@ -34,7 +36,9 @@ namespace TheAdventuresOf
 			//despite the annoying xamarin warning that graphics isn't used, this MUST be instantiated
 			graphics = new GraphicsDeviceManager(this);
 
-			Content.RootDirectory = "Content";
+            contentManager = Content;
+            contentManager.RootDirectory = "Content";
+
             XmlManager.GetXMLInformation();
 
 #if !__IOS__ && !__TVOS__ && !__ANDROID__
@@ -53,7 +57,7 @@ namespace TheAdventuresOf
 		{
             handleDebugFlags();
             SaveGameManager.Instance.LoadSave();
-            gameManager = new GameManager(this.GraphicsDevice, Content);
+            gameManager = new GameManager(this.GraphicsDevice);
             gameManager = XmlManager.LoadGameManagerInformation(gameManager);
             gameManager.Initialize();
 			base.Initialize();

@@ -11,7 +11,6 @@ namespace TheAdventuresOf
     {
         private static MusicManager instance;
         float volume = 1.0f;
-        Song currentSong;
 
         public bool changingSongs;
         public int gameState;
@@ -42,14 +41,12 @@ namespace TheAdventuresOf
 
             switch(gameState) {
                 case GameManager.SPLASH_STATE:
-                    currentSong = AssetManager.Instance.mainMenuSong;
-                    MediaPlayer.Play(currentSong); //comment out to stop music
+                    MediaPlayer.Play(AssetManager.Instance.currentSong); //comment out to stop music
                     break;
                 case GameManager.PRE_LEVEL_STATE:
                     StartLevelMusic();
                     break;
                 case GameManager.STORE_LEVEL_STATE:
-                    currentSong = null; //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
                     MediaPlayer.Stop();
                     break;
             }
@@ -57,11 +54,10 @@ namespace TheAdventuresOf
 
         public void StartLevelMusic() {
             changingSongs = true;
-            currentSong = AssetManager.Instance.levelSong;
         }
 
         public void Update(GameTime gameTime) {
-            if(currentSong != null) { //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
+            if(AssetManager.Instance.currentSong != null) { //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
                 HandleMusicVolume(gameTime);
                 //HandleRepeatDelay(gameTime);
             }
@@ -81,7 +77,7 @@ namespace TheAdventuresOf
 
                 MediaPlayer.Volume = volume;
 
-                MediaPlayer.Play(currentSong); //TODO: comment to stop music
+                MediaPlayer.Play(AssetManager.Instance.currentSong); //TODO: comment to stop music
             }
         }
 

@@ -33,15 +33,12 @@ namespace TheAdventuresOf
 		RenderTarget2D renderTarget;
         Vector2 renderTargetPositionVector;
         Rectangle renderTargetRect;
-        ContentManager contentManager;
         ScreenManager screenManager;
         SpriteBatch spriteBatch;
         BaseLevel currentLevel = null;
         MainMenu mainMenu;
         ChooseLevelMenu chooseLevelMenu;
 
-        bool chooseLevelMenuAssetsLoaded;
-        bool mainMenuAssetsLoaded;
         bool storyMode = true;
         bool endlessMode = false;
 
@@ -56,10 +53,9 @@ namespace TheAdventuresOf
         Timer loadScreenTimer;
         bool stateLoaded = false; //used in UpdateLoadScreen to determine when to load next state after timer is up
 
-        public GameManager(GraphicsDevice graphicsDevice, ContentManager contentManager)
+        public GameManager(GraphicsDevice graphicsDevice)
         {
             this.graphicsDevice = graphicsDevice;
-            this.contentManager = contentManager;
             MusicManager.Instance.InitializeMusicManager(gameState);
 
             loadScreenTimer = new Timer(loadScreenTimeLimit);
@@ -116,7 +112,7 @@ namespace TheAdventuresOf
             Logger.WriteToConsole("Load splash screen");
 
             TheAdventuresOf.showMouse = false;
-            AssetManager.Instance.LoadSplashAssets(graphicsDevice, contentManager);
+            AssetManager.Instance.LoadSplashAssets(graphicsDevice);
 
             setState(SPLASH_STATE, NO_STATE_SPECIFIED);
             MusicManager.Instance.ChangeState(gameState, currentLevelNumber);
@@ -126,13 +122,9 @@ namespace TheAdventuresOf
 
         void loadMainMenu() {
             Logger.WriteToConsole("Load Main Menu");
-
             TheAdventuresOf.showMouse = true;
 
-            if(!mainMenuAssetsLoaded) {
-                AssetManager.Instance.LoadMainMenuAssets(graphicsDevice, contentManager);
-            }
-
+            AssetManager.Instance.LoadMainMenuAssets(graphicsDevice);
             mainMenu = new MainMenu();
             mainMenu.LoadMenu();
 
@@ -153,10 +145,7 @@ namespace TheAdventuresOf
 
             TheAdventuresOf.showMouse = true;
 
-            if(!chooseLevelMenuAssetsLoaded) {
-                AssetManager.Instance.LoadChooseLevelMenuAssets(graphicsDevice, levelNumberLimit);
-            }
-
+            AssetManager.Instance.LoadChooseLevelMenuAssets(graphicsDevice, levelNumberLimit);
             chooseLevelMenu = new ChooseLevelMenu();
             chooseLevelMenu.LoadMenu();
 
@@ -173,7 +162,7 @@ namespace TheAdventuresOf
         }
 
         void loadCommonLevelAssets() {
-            AssetManager.Instance.LoadGameAssets(graphicsDevice, contentManager);
+            AssetManager.Instance.LoadGameAssets(graphicsDevice);
             XmlManager.LoadGameInformation();
             CoinManager.Instance.Initialize();
             HeartManager.Instance.Initialize();
@@ -207,7 +196,7 @@ namespace TheAdventuresOf
             TheAdventuresOf.showMouse = false;
 
             AssetManager.Instance.LoadPlayerAssets(graphicsDevice, currentLevelNumber);
-            AssetManager.Instance.LoadPreLevelAssets(graphicsDevice, contentManager, currentLevelNumber);
+            AssetManager.Instance.LoadPreLevelAssets(graphicsDevice, currentLevelNumber);
 
             loadPlayerAccessories();
 
@@ -235,7 +224,7 @@ namespace TheAdventuresOf
             TheAdventuresOf.showMouse = false;
 
             AssetManager.Instance.LoadPlayerAssets(graphicsDevice, currentLevelNumber);
-            AssetManager.Instance.LoadLevelAssets(graphicsDevice, contentManager, currentLevelNumber);
+            AssetManager.Instance.LoadLevelAssets(graphicsDevice, currentLevelNumber);
 
             loadPlayerAccessories();
 
@@ -340,6 +329,7 @@ namespace TheAdventuresOf
 					prepareLevelState(PRE_LEVEL_STATE, gameTime);
                 }
             } else if(mainMenu.proceedToChooseLevelState) {
+                AssetManager.Instance.DisposeMainMenuAssets(false);
                 setLoadState(CHOOSE_LEVEL_STATE, gameTime);
                 loadChooseLevelMenu();
             }
@@ -348,32 +338,17 @@ namespace TheAdventuresOf
         void updateChooseLevelMenu(GameTime gameTime) {
             chooseLevelMenu.Update(gameTime, (ChooseLevelMenuController) currentController);
 
-            //leaving this mess here in case I change my mind about removing the old "Play" button on the choose menu
-    //        if(chooseLevelMenu.proceedToLevelState) {
-    //            storyMode = false; //set storyMode to false when choosing level in ChooseLevelMenu screen.
-    //            endlessMode = false;
-    //            CoinManager.isEndlessMode = false;
-				//currentLevelNumber = chooseLevelMenu.currentLevelSelected;
-
-    //            //have to force the music to start since it normally starts in the pre level
-				//AssetManager.Instance.LoadLevelMusicAssets(graphicsDevice, contentManager, currentLevelNumber); //need to force load music 
-            //    MusicManager.Instance.StartLevelMusic();
-
-            //    prepareLevelState(LEVEL_STATE, gameTime);
-            //} else 
-
             if(chooseLevelMenu.proceedToEndlessLevelState) {
                 storyMode = false;
                 endlessMode = true;
                 CoinManager.isEndlessMode = true;
                 currentLevelNumber = chooseLevelMenu.currentLevelSelected;
 
-                //have to force the music to start since it normally starts in the pre level
-                AssetManager.Instance.LoadLevelMusicAssets(graphicsDevice, contentManager, currentLevelNumber); //need to force load music 
                 MusicManager.Instance.StartLevelMusic();
 
                 prepareLevelState(LEVEL_STATE, gameTime);
             } else if(chooseLevelMenu.proceedToMainMenuState) {
+                AssetManager.Instance.DisposeChooseLevelMenuAssets();
                 setLoadState(MENU_STATE, gameTime);
                 loadMainMenu();
             }
@@ -381,19 +356,18 @@ namespace TheAdventuresOf
 
         //called only after leaving main menu or chooselevel menu since they share so much code
         void prepareLevelState(int nextState, GameTime gameTime) {
+            if (gameState == CHOOSE_LEVEL_STATE) {
+                AssetManager.Instance.DisposeMusic(); //manually dispose menu music 
+                AssetManager.Instance.DisposeChooseLevelMenuAssets();
+            }
+            if (gameState == MENU_STATE) {
+                AssetManager.Instance.DisposeMainMenuAssets(true);
+            }
+
             if(TheAdventuresOf.straightToStore && !endlessMode) {
 				setLoadState(STORE_LEVEL_STATE, gameTime);
             } else {
 				setLoadState(nextState, gameTime);
-            }
-
-            if (chooseLevelMenuAssetsLoaded) {
-                AssetManager.Instance.DisposeChooseLevelMenuAssets();
-                chooseLevelMenuAssetsLoaded = false;
-            }
-            if (mainMenuAssetsLoaded) {
-                AssetManager.Instance.DisposeMainMenuAssets();
-                mainMenuAssetsLoaded = false;
             }
 
             //load level assets for nextGameState
