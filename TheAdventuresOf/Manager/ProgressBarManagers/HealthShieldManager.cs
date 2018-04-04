@@ -137,7 +137,7 @@ namespace TheAdventuresOf
 
         public void Reset() {
             RestoreHealthToMax();
-            RestoreShieldToMax();
+            EmptyShield();
             shouldDrawShieldManager = false;
         }
 
