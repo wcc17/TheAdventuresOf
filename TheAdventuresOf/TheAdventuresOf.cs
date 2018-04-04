@@ -14,7 +14,7 @@ namespace TheAdventuresOf
         public static ContentManager contentManager;
 
         public static bool showDebug = true; //set to false to turn everything else off
-        public static bool giveCoins = true;
+        public static bool giveCoins = false;
         public static bool quickVictory = true;
         public static bool lowHealth = true;
         public static bool straightToStore = false;

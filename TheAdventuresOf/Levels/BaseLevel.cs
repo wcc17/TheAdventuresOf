@@ -133,13 +133,6 @@ namespace TheAdventuresOf
             }
         }
 
-        public virtual void ResetUponReturnToMenu()
-        {
-            HealthShieldManager.Instance.Reset();
-            PlayerManager.Instance.ResetPlayer();
-            CoinManager.Instance.ResetCoins();
-        }
-
         public virtual void GoToNextState() {
             if (!nextLevel) {
                 TransitionManager.Instance.FadeOut();

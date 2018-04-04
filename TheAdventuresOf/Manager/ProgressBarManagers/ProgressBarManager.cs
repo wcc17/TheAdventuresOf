@@ -123,11 +123,13 @@ namespace TheAdventuresOf {
 
         void recalculateBarFill()
         {
-            float fullWidth = progressBarFillTexture.Width;
-            float remainingHealth = maxValue - value;
-            float newWidth = fullWidth - (remainingHealth * (fullWidth / maxValue));
+            if(isInitialized) {
+                float fullWidth = progressBarFillTexture.Width;
+                float remainingHealth = maxValue - value;
+                float newWidth = fullWidth - (remainingHealth * (fullWidth / maxValue));
 
-            barFillSourceRectangle.Width = (int)newWidth;
+                barFillSourceRectangle.Width = (int)newWidth; 
+            }
         }
     }
 }

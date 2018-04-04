@@ -326,8 +326,10 @@ namespace TheAdventuresOf
                     nextGameState = LEVEL_STATE;
                     prepareLevelState(LEVEL_STATE, gameTime);
                 } else {
-					prepareLevelState(PRE_LEVEL_STATE, gameTime);
+                    prepareLevelState(PRE_LEVEL_STATE, gameTime);
                 }
+
+				resetPlayerStats();
             } else if(mainMenu.proceedToChooseLevelState) {
                 AssetManager.Instance.DisposeMainMenuAssets(false);
                 setLoadState(CHOOSE_LEVEL_STATE, gameTime);
@@ -347,6 +349,8 @@ namespace TheAdventuresOf
                 MusicManager.Instance.StartLevelMusic();
 
                 prepareLevelState(LEVEL_STATE, gameTime);
+
+				resetPlayerStats();
             } else if(chooseLevelMenu.proceedToMainMenuState) {
                 AssetManager.Instance.DisposeChooseLevelMenuAssets();
                 setLoadState(MENU_STATE, gameTime);
@@ -541,7 +545,6 @@ namespace TheAdventuresOf
          */
         void handleQuitToMenu(GameTime gameTime) {
             ScoringManager.Instance.ClearScores();
-            currentLevel.ResetUponReturnToMenu();
 
             setLoadState(SPLASH_STATE, gameTime);
 
@@ -711,6 +714,13 @@ namespace TheAdventuresOf
         {
             //TODO: should have a new screen for load screen rather than splash screen
             drawSplash();
+        }
+
+        void resetPlayerStats()
+        {
+            HealthShieldManager.Instance.Reset();
+            PlayerManager.Instance.ResetPlayer();
+            CoinManager.Instance.ResetCoins();
         }
     }
 }

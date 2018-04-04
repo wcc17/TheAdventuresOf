@@ -206,7 +206,6 @@ namespace TheAdventuresOf
                     //if player is dead or if its not story mode go to menu, otherwise go to store
                     if(PlayerManager.Instance.IsPlayerDead() 
                        || (!PlayerManager.Instance.IsPlayerDead()) && !storyMode) {
-                        ResetUponReturnToMenu();
                         GoToNextState();
                     } else if(storyMode){
                         SaveGameManager.Instance.SetLevelUnlocked(levelNumber);
