@@ -13,10 +13,10 @@ namespace TheAdventuresOf
         public static bool showMouse;
         public static ContentManager contentManager;
 
-        public static bool showDebug = true; //set to false to turn everything else off
+        public static bool showDebug = false; //set to false to turn everything else off
         public static bool giveCoins = false;
         public static bool quickVictory = true;
-        public static bool lowHealth = true;
+        public static bool lowHealth = false;
         public static bool straightToStore = false;
         public static bool skipPreLevel = false; //TODO; will crash after beating a level
         public static bool startWithLevel2 = false;

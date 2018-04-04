@@ -55,7 +55,7 @@ namespace TheAdventuresOf
             soundEffectDictionary.Add(PURCHASE, AssetManager.Instance.purchaseSoundEffect);
             soundEffectDictionary.Add(PURCHASE_DENIED, AssetManager.Instance.purchaseDeniedSoundEffect);
 
-            SoundEffect.MasterVolume = 0.4f;
+            SoundEffect.MasterVolume = 0.2f;
         }
 
         public void PlaySoundEffect(int soundEffectIndex) {

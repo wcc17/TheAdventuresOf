@@ -177,6 +177,7 @@ namespace TheAdventuresOf
         }
 
         public void ResetCoins() {
+            coinTotal = 0;
             coinXSpacing = 0;
         }
     }
