@@ -596,6 +596,7 @@ namespace TheAdventuresOf
 
             DisposeMusic();
 
+            playerTexture.Dispose();
             foreach(Texture2D accessoryTexture in accessoryTextures.Values) {
                 accessoryTexture.Dispose();
             }
@@ -623,9 +624,6 @@ namespace TheAdventuresOf
             goldCoinTexture.Dispose();
             heartTexture.Dispose();
             heartSmallTexture.Dispose();
-
-            //TODO: these should be disposed in every level
-            playerTexture.Dispose();
 
             DisposeSoundEffects();
         }
