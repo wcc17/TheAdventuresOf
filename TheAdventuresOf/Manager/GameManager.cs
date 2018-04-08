@@ -23,6 +23,7 @@ namespace TheAdventuresOf
         public const int LOAD_STATE = 4;
         public const int STORE_LEVEL_STATE = 5;
         public const int CHOOSE_LEVEL_STATE = 6;
+        public const int HELP_MENU_STATE = 7;
 
         Vector2 basePositionVector;
 
@@ -38,6 +39,7 @@ namespace TheAdventuresOf
         BaseLevel currentLevel = null;
         MainMenu mainMenu;
         ChooseLevelMenu chooseLevelMenu;
+        HelpMenu helpMenu;
 
         bool storyMode = true;
         bool endlessMode = false;
@@ -136,7 +138,8 @@ namespace TheAdventuresOf
                 .InitializeTextures(AssetManager.Instance.playButtonTexture,
                                     AssetManager.Instance.chooseLevelButtonTexture,
                                     AssetManager.Instance.arrowOutlineTexture,
-                                    AssetManager.Instance.buttonOutlineTexture);
+                                    AssetManager.Instance.buttonOutlineTexture,
+                                    AssetManager.Instance.helpButtonTexture);
             currentController.InitializeController();
         }
 
@@ -159,6 +162,24 @@ namespace TheAdventuresOf
                                     AssetManager.Instance.arrowOutlineTexture,
                                     AssetManager.Instance.buttonOutlineTexture);
             ((ChooseLevelMenuController)currentController).InitializeChooseLevelMenuController();
+        }
+
+        void loadHelpMenu() {
+            Logger.WriteToConsole("Load Help Menu");
+
+            TheAdventuresOf.showMouse = true;
+
+            AssetManager.Instance.LoadHelpMenuAssets(graphicsDevice);
+            helpMenu = new HelpMenu();
+            helpMenu.LoadMenu();
+
+            currentController = new HelpMenuController();
+            //XmlManager.LoadHelpMenuInformation();
+            ((HelpMenuController)currentController)
+                .InitializeTextures(AssetManager.Instance.helpMenuBackButtonTexture,
+                                    AssetManager.Instance.arrowOutlineTexture,
+                                    AssetManager.Instance.buttonOutlineTexture);
+            ((HelpMenuController)currentController).InitializeHelpMenuController();
         }
 
         void loadCommonLevelAssets() {
@@ -286,6 +307,9 @@ namespace TheAdventuresOf
                 case CHOOSE_LEVEL_STATE:
                     updateChooseLevelMenu(gameTime);
                     break;
+                case HELP_MENU_STATE:
+                    updateHelpMenu(gameTime);
+                    break;
                 case LOAD_STATE:
                     updateLoadState(gameTime);
                     break;
@@ -317,6 +341,8 @@ namespace TheAdventuresOf
             mainMenu.Update(gameTime, (MainMenuController) currentController);
 
             if(mainMenu.proceedToGameState) {
+                //main menu is disposed in prepareLevelState
+
                 endlessMode = false;
                 CoinManager.isEndlessMode = false;
                 storyMode = true;
@@ -334,6 +360,10 @@ namespace TheAdventuresOf
                 AssetManager.Instance.DisposeMainMenuAssets(false);
                 setLoadState(CHOOSE_LEVEL_STATE, gameTime);
                 loadChooseLevelMenu();
+            } else if(mainMenu.proceedToHelpMenuState) {
+                AssetManager.Instance.DisposeMainMenuAssets(false);
+                setLoadState(HELP_MENU_STATE, gameTime);
+                loadHelpMenu();
             }
         }
 
@@ -358,7 +388,17 @@ namespace TheAdventuresOf
             }
         }
 
-        //called only after leaving main menu or chooselevel menu since they share so much code
+        void updateHelpMenu(GameTime gameTime) {
+            helpMenu.Update(gameTime, (HelpMenuController)currentController);
+
+            if(helpMenu.proceedToMenuState) {
+                AssetManager.Instance.DisposeHelpMenuAssets();
+                setLoadState(HELP_MENU_STATE, gameTime);
+                loadMainMenu();
+            }
+        }
+
+        //called after leaving main menu or chooselevel menu since they share so much code
         void prepareLevelState(int nextState, GameTime gameTime) {
             if (gameState == CHOOSE_LEVEL_STATE) {
                 AssetManager.Instance.DisposeMusic(); //manually dispose menu music 
@@ -525,6 +565,13 @@ namespace TheAdventuresOf
                         }
                         updateLoadStateNextState(gameTime, CHOOSE_LEVEL_STATE);
                         break;
+                    case HELP_MENU_STATE:
+                        if(!stateLoaded) {
+                            loadHelpMenu();
+                            stateLoaded = true;
+                        }
+                        updateLoadStateNextState(gameTime, HELP_MENU_STATE);
+                        break;
                 }
             }
         }
@@ -633,6 +680,9 @@ namespace TheAdventuresOf
                 case CHOOSE_LEVEL_STATE:
                     drawChooseLevelMenu();
                     break;
+                case HELP_MENU_STATE:
+                    drawHelpMenu();
+                    break;
                 case PRE_LEVEL_STATE:
                     drawPreLevel();
                     break;
@@ -663,13 +713,16 @@ namespace TheAdventuresOf
         void drawMainMenu()
         {
             mainMenu.Draw(spriteBatch);
-
-            //draw play buttons, etc
             currentController.Draw(spriteBatch);
         }
 
         void drawChooseLevelMenu() {
             chooseLevelMenu.Draw(spriteBatch);
+            currentController.Draw(spriteBatch);
+        }
+
+        void drawHelpMenu() {
+            helpMenu.Draw(spriteBatch);
             currentController.Draw(spriteBatch);
         }
 

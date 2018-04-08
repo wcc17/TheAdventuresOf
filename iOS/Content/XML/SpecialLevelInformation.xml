@@ -2,9 +2,7 @@
 <Level>
 	<MainMenu>
 		<PlayButtonX>200</PlayButtonX>
-		<PlayButtonY>700</PlayButtonY>
-		<ChooseLevelButtonX>200</ChooseLevelButtonX>
-		<ChooseLevelButtonY>875</ChooseLevelButtonY>
+		<PlayButtonY>570</PlayButtonY>
 	</MainMenu>
 	<ChooseLevelMenu>
 		<ButtonOffset>80</ButtonOffset>

@@ -249,6 +249,8 @@
     <BundleResource Include="Content\PreLevel\pre_level3background_full_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level4background_full_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level5background_full_1080p.png" />
+    <BundleResource Include="Content\Menu\help\helpmenu_leftarrow_1080p.png" />
+    <BundleResource Include="Content\Menu\main\mainmenu_helpbutton_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

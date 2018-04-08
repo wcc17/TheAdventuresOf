@@ -170,8 +170,9 @@ namespace TheAdventuresOf
 
             MainMenuController.playButtonX = (float)mainMenuElement.Element("PlayButtonX");
             MainMenuController.playButtonY = (float)mainMenuElement.Element("PlayButtonY");
-            MainMenuController.chooseLevelButtonX = (float)mainMenuElement.Element("ChooseLevelButtonX");
-            MainMenuController.chooseLevelButtonY = (float)mainMenuElement.Element("ChooseLevelButtonY");
+            //MainMenuController.chooseLevelButtonX = (float)mainMenuElement.Element("ChooseLevelButtonX");
+            //MainMenuController.chooseLevelButtonY = (float)mainMenuElement.Element("ChooseLevelButtonY");
+            //MainMenuController.helpButtonX = (float)
         }
 
         public static void LoadChooseLevelMenuInformation() {

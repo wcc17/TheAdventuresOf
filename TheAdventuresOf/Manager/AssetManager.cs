@@ -28,6 +28,7 @@ namespace TheAdventuresOf
         public Texture2D mainMenuTexture;
         public Texture2D playButtonTexture;
         public Texture2D chooseLevelButtonTexture;
+        public Texture2D helpButtonTexture;
 
         //choose level menu textures
         public Texture2D chooseButtonTexture;
@@ -38,6 +39,9 @@ namespace TheAdventuresOf
         public Texture2D chooseLevelPreviewOutlineTexture;
         public Texture2D chooseLevelLockedPreviewTexture;
         public List<Texture2D> chooseLevelPreviewTextures;
+
+        //help menu textures
+        public Texture2D helpMenuBackButtonTexture;
 
         //used by both choose level menu and main menu
         public Texture2D arrowOutlineTexture;
@@ -195,6 +199,10 @@ namespace TheAdventuresOf
             {
                 chooseLevelButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_helpbutton_1080p.png"))
+            {
+                helpButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
 #if !__IOS__ && !__ANDROID__
             using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_arrowoutline_1080p.png"))
             {
@@ -205,7 +213,7 @@ namespace TheAdventuresOf
                 buttonOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 #endif
-    }
+        }
 
         public void LoadChooseLevelMenuAssets(GraphicsDevice graphicsDevice, int levelNumberLimit) {
             string menuFilePath = filePath + "Menu/choose/";
@@ -258,6 +266,27 @@ namespace TheAdventuresOf
                     chooseLevelPreviewTextures.Add(previewTexture);
                 }
             }
+        }
+
+        public void LoadHelpMenuAssets(GraphicsDevice graphicsDevice)
+        {
+            string menuFilePath = filePath + "Menu/help/";
+
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "helpmenu_leftarrow_1080p.png"))
+            {
+                helpMenuBackButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+
+#if !__IOS__ && !__ANDROID__
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_arrowoutline_1080p.png"))
+            {
+                arrowOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_buttonoutline_1080p.png"))
+            {
+                buttonOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+#endif
         }
 
         public void LoadPlayerAssets(GraphicsDevice graphicsDevice, int levelNumber) {
@@ -534,11 +563,12 @@ namespace TheAdventuresOf
         }
 
         public void DisposeMainMenuAssets(bool shouldDisposeMusic) {
-            //splashTexture.Dispose(); TODO: not disposing right now because its used as load screen
+            //splashTexture.Dispose(); TODO: need to dispose this on game exit
 
             mainMenuTexture.Dispose();
             playButtonTexture.Dispose();
             chooseLevelButtonTexture.Dispose();
+            helpButtonTexture.Dispose();
 
             if(shouldDisposeMusic) {
 				DisposeMusic();
@@ -560,6 +590,15 @@ namespace TheAdventuresOf
             foreach (Texture2D previewTexture in chooseLevelPreviewTextures) {
                 previewTexture.Dispose();
             }
+
+#if !__IOS__ && !__ANDROID__
+            arrowOutlineTexture.Dispose();
+            buttonOutlineTexture.Dispose();
+#endif
+        }
+
+        public void DisposeHelpMenuAssets() {
+            helpMenuBackButtonTexture.Dispose();
 
 #if !__IOS__ && !__ANDROID__
             arrowOutlineTexture.Dispose();

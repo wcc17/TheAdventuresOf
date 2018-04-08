@@ -81,6 +81,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Manager\PauseManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Text\GlobalTextIndexConstants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Manager\CutsceneManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Levels\HelpMenu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controller\MenuController\HelpMenuController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Util\" />

@@ -10,6 +10,7 @@ namespace TheAdventuresOf
         Vector2 basePositionVector = new Vector2(0, 0);
         public bool proceedToGameState = false;
         public bool proceedToChooseLevelState = false;
+        public bool proceedToHelpMenuState = false;
 
         public void LoadMenu() {
             Logger.WriteToConsole("Loading menu");
@@ -27,6 +28,8 @@ namespace TheAdventuresOf
                 proceedToGameState = true; 
             } else if(mainMenuController.chooseLevelButtonPressed) {
                 proceedToChooseLevelState = true;
+            } else if(mainMenuController.helpButtonPressed) {
+                proceedToHelpMenuState = true;
             }
         }
 
