@@ -251,6 +251,10 @@
     <BundleResource Include="Content\PreLevel\pre_level5background_full_1080p.png" />
     <BundleResource Include="Content\Menu\help\helpmenu_leftarrow_1080p.png" />
     <BundleResource Include="Content\Menu\main\mainmenu_helpbutton_1080p.png" />
+    <BundleResource Include="Content\Menu\help\helpmenu_background_1080p.png" />
+    <BundleResource Include="Content\Victory\trophy_1080p.png" />
+    <BundleResource Include="Content\Victory\victory_background_1080p.png" />
+    <BundleResource Include="Content\Victory\victory_character_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

@@ -41,6 +41,7 @@ namespace TheAdventuresOf
         public List<Texture2D> chooseLevelPreviewTextures;
 
         //help menu textures
+        public Texture2D helpMenuBackgroundTexture;
         public Texture2D helpMenuBackButtonTexture;
 
         //used by both choose level menu and main menu
@@ -275,6 +276,11 @@ namespace TheAdventuresOf
             using (var stream = TitleContainer.OpenStream(menuFilePath + "helpmenu_leftarrow_1080p.png"))
             {
                 helpMenuBackButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+
+            using (var stream = TitleContainer.OpenStream(menuFilePath + "helpmenu_background_1080p.png"))
+            {
+                helpMenuBackgroundTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
 #if !__IOS__ && !__ANDROID__
@@ -599,6 +605,7 @@ namespace TheAdventuresOf
 
         public void DisposeHelpMenuAssets() {
             helpMenuBackButtonTexture.Dispose();
+            helpMenuBackgroundTexture.Dispose();
 
 #if !__IOS__ && !__ANDROID__
             arrowOutlineTexture.Dispose();

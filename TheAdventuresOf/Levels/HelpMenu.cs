@@ -23,7 +23,7 @@ namespace TheAdventuresOf
         }
 
         public void Draw(SpriteBatch spriteBatch) {
-            spriteBatch.Draw(AssetManager.Instance.blackBackgroundTexture, basePositionVector);
+            spriteBatch.Draw(AssetManager.Instance.helpMenuBackgroundTexture, basePositionVector);
         }
     }
 }
