@@ -24,6 +24,7 @@ namespace TheAdventuresOf
         public const int STORE_LEVEL_STATE = 5;
         public const int CHOOSE_LEVEL_STATE = 6;
         public const int HELP_MENU_STATE = 7;
+        public const int VICTORY_STATE = 8;
 
         Vector2 basePositionVector;
 
@@ -77,6 +78,7 @@ namespace TheAdventuresOf
             } else if (TheAdventuresOf.startWithLevel5) {
                 levelNumberMin = 5;
                 currentLevelNumber = 5;
+            } else if (TheAdventuresOf.startWithVictoryLevel) {
             }
         }
 
@@ -256,6 +258,18 @@ namespace TheAdventuresOf
             HeartManager.Instance.UpdateGroundLevel(((Level)currentLevel).groundLevel + HeartManager.heartYOffset);
         }
 
+        void loadVictoryLevelAssets()
+        {
+            Logger.WriteToConsole("Load VictoryLevel Assets");
+
+            TheAdventuresOf.showMouse = false;
+
+            AssetManager.Instance.LoadPlayerAssets(graphicsDevice, 1);
+            AssetManager.Instance.LoadVictoryLevelAssets(graphicsDevice);
+
+            currentLevel = new VictoryLevel(AssetManager.Instance.victoryLevelBackgroundTexture, (GameController)currentController);
+        }
+
         void loadPlayerAccessories() {
             List<Accessory> playerAccessories = XmlManager.LoadPlayerAccessories(currentLevelNumber);
             PlayerManager.Instance.LoadPlayerAccessoryAssets(graphicsDevice, playerAccessories);
@@ -275,6 +289,11 @@ namespace TheAdventuresOf
 
         void loadStoreLevel() {
             HUDManager.Instance.Initialize(currentLevelNumber, endlessMode, false, true);
+            currentLevel.InitializeLevel(NO_PLAYER_SPAWN_ANIMATION);
+        }
+
+        void loadVictoryLevel() {
+            HUDManager.Instance.Initialize(1, endlessMode, false, false);
             currentLevel.InitializeLevel(NO_PLAYER_SPAWN_ANIMATION);
         }
 
@@ -316,6 +335,7 @@ namespace TheAdventuresOf
                 case PRE_LEVEL_STATE:
                 case STORE_LEVEL_STATE:
                 case LEVEL_STATE:
+                case VICTORY_STATE:
                     updateLevel(gameTime, isGameActive);
                     break;
             }
@@ -353,6 +373,11 @@ namespace TheAdventuresOf
                     prepareLevelState(LEVEL_STATE, gameTime);
                 } else {
                     prepareLevelState(PRE_LEVEL_STATE, gameTime);
+                }
+
+                if(TheAdventuresOf.startWithVictoryLevel) {
+                    nextGameState = VICTORY_STATE;
+                    prepareLevelState(VICTORY_STATE, gameTime);
                 }
 
 				resetPlayerStats();
@@ -421,8 +446,10 @@ namespace TheAdventuresOf
                 loadPreLevelAssets();
             } else if(nextGameState == LEVEL_STATE) {
                 loadLevelAssets();
-            } else if(nextGameState == STORE_LEVEL_STATE) {
-                loadStoreLevelAssets(); //added for debugging even though this shouldn't happen
+            } else if(nextGameState == STORE_LEVEL_STATE && TheAdventuresOf.straightToStore) {
+                loadStoreLevelAssets(); 
+            } else if(nextGameState == VICTORY_STATE && TheAdventuresOf.startWithVictoryLevel) {
+                loadVictoryLevelAssets(); 
             }
         }
 
@@ -443,6 +470,9 @@ namespace TheAdventuresOf
                         break;
                     case STORE_LEVEL_STATE:
                         updateStoreLevel(gameTime);
+                        break;
+                    case VICTORY_STATE:
+                        updateVictoryLevel(gameTime);
                         break;
                 }
             } else {
@@ -465,7 +495,6 @@ namespace TheAdventuresOf
             if (currentLevel.nextLevel && !TransitionManager.Instance.IsTransitioning()) {
                 handleNextStateAfterPreLevel(gameTime);
             }                
-
         }
 
         void updateGameLevel(GameTime gameTime) {
@@ -487,6 +516,14 @@ namespace TheAdventuresOf
 			}
         }
 
+        void updateVictoryLevel(GameTime gameTime) {
+            currentLevel.Update(gameTime, (GameController)currentController);
+
+            if(currentLevel.nextLevel && !TransitionManager.Instance.IsTransitioning()) {
+                handleNextStateAfterVictoryLevel(gameTime);
+            }
+        }
+
         void handleNextStateAfterPreLevel(GameTime gameTime) {
             setLoadState(LEVEL_STATE, gameTime);
             AssetManager.Instance.DisposePreLevelAssets();
@@ -497,10 +534,12 @@ namespace TheAdventuresOf
             setLoadState(NO_STATE_SPECIFIED, gameTime);
             AssetManager.Instance.DisposeLevelAssets();
 
-            //if player is dead at this point, go to main menu
             if (storyMode) {
                 if (((Level)currentLevel).playerDied) {
                     handleQuitToMenu(gameTime);
+                } else if ((currentLevelNumber + 1) > levelNumberLimit) {
+                    nextGameState = VICTORY_STATE;
+                    loadVictoryLevelAssets();
                 } else {
                     nextGameState = STORE_LEVEL_STATE;
                     loadStoreLevelAssets();
@@ -523,6 +562,10 @@ namespace TheAdventuresOf
             }
 
             AssetManager.Instance.DisposeStoreAssets();
+        }
+
+        void handleNextStateAfterVictoryLevel(GameTime gameTime) {
+            handleQuitToMenu(gameTime);
         }
 
         void updateLoadState(GameTime gameTime) {
@@ -572,6 +615,13 @@ namespace TheAdventuresOf
                         }
                         updateLoadStateNextState(gameTime, HELP_MENU_STATE);
                         break;
+                    case VICTORY_STATE:
+                        if(!stateLoaded) {
+                            loadVictoryLevel();
+                            stateLoaded = true;
+                        }
+                        updateLoadStateNextState(gameTime, VICTORY_STATE);
+                        break;
                 }
             }
         }
@@ -605,6 +655,9 @@ namespace TheAdventuresOf
                     break;
                 case STORE_LEVEL_STATE:
                     AssetManager.Instance.DisposeStoreAssets();
+                    break;
+                case VICTORY_STATE:
+                    AssetManager.Instance.DisposeVictoryLevelAssets();
                     break;
             }
 
@@ -684,16 +737,19 @@ namespace TheAdventuresOf
                     drawHelpMenu();
                     break;
                 case PRE_LEVEL_STATE:
-                    drawPreLevel();
+                    drawCutsceneLevel();
                     break;
                 case LEVEL_STATE:
                     drawLevel();
                     break;
                 case STORE_LEVEL_STATE:
-                    drawLevel();
+                    drawLevel(); 
                     break;
                 case LOAD_STATE:
                     drawLoadScreen();
+                    break;
+                case VICTORY_STATE:
+                    drawCutsceneLevel();
                     break;
             }
 
@@ -749,7 +805,7 @@ namespace TheAdventuresOf
             }
         }
 
-        void drawPreLevel() {
+        void drawCutsceneLevel() {
             //Draw level related stuff (background and monsters)
             currentLevel.Draw(spriteBatch);
 

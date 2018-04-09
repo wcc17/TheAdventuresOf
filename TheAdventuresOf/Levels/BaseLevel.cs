@@ -29,6 +29,8 @@ namespace TheAdventuresOf
         public bool isDelayingMovement = true;
         public string characterTextToDraw = "";
         public string characterText;
+        public bool hasAlreadyLetterBoxedIn;
+        public bool hasAlreadyLetterBoxedOut;
 
         public BaseLevel(Texture2D levelTexture)
         {
@@ -62,6 +64,10 @@ namespace TheAdventuresOf
 
             //Draw player
             PlayerManager.Instance.Draw(spriteBatch);
+        }
+
+        public virtual void DrawWithoutPlayer(SpriteBatch spriteBatch) {
+            spriteBatch.Draw(levelTexture, levelPositionVector);
         }
 
         /**
@@ -137,6 +143,24 @@ namespace TheAdventuresOf
             if (!nextLevel) {
                 TransitionManager.Instance.FadeOut();
                 nextLevel = true;
+            }
+        }
+
+        public virtual void HandleLetterBoxingIn()
+        {
+            if (!hasAlreadyLetterBoxedIn)
+            {
+                hasAlreadyLetterBoxedIn = true;
+                CutsceneManager.Instance.SetShouldLetterboxIn();
+            }
+        }
+
+        public virtual void HandleLetterBoxingOut()
+        {
+            if (!hasAlreadyLetterBoxedOut)
+            {
+                hasAlreadyLetterBoxedOut = true;
+                CutsceneManager.Instance.SetShouldLetterboxOut();
             }
         }
     }

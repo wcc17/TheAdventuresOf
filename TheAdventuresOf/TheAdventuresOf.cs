@@ -23,6 +23,7 @@ namespace TheAdventuresOf
         public static bool startWithLevel3 = false;
         public static bool startWithLevel4 = false;
         public static bool startWithLevel5 = false;
+        public static bool startWithVictoryLevel = true;
         public static bool unlockAllLevels = true;
         public static bool isInvincible = false;
         public static bool giveMaxSword = false;

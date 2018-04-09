@@ -99,6 +99,11 @@ namespace TheAdventuresOf
         public Texture2D storeLevelSmallBoxTexture;
         public Texture2D storeLevelSignTexture;
 
+        //victory level textures
+        public Texture2D victoryLevelTrophyTexture;
+        public Texture2D victoryLevelBackgroundTexture;
+        public Texture2D victoryLevelPlayerVictoryPoseTexture;
+
         //player textures
         public Texture2D playerTexture;
 
@@ -500,6 +505,22 @@ namespace TheAdventuresOf
             loadLevelMusicAssets(graphicsDevice, levelNumber);
         }
 
+        public void LoadVictoryLevelAssets(GraphicsDevice graphicsDevice) {
+            string victoryFilePath = filePath + "Victory/";
+
+            using (var stream = TitleContainer.OpenStream(victoryFilePath + "trophy_1080p.png")) {
+                victoryLevelTrophyTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(victoryFilePath + "victory_background_1080p.png"))
+            {
+                victoryLevelBackgroundTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+            using (var stream = TitleContainer.OpenStream(victoryFilePath + "victory_character_1080p.png"))
+            {
+                victoryLevelPlayerVictoryPoseTexture = Texture2D.FromStream(graphicsDevice, stream);
+            }
+        }
+
         public void LoadStoreLevelAssets(GraphicsDevice graphicsDevice) {
             setupStoreLevel(); //sets file path for background based on OS
             string storeLevelFilePath = filePath + "StoreLevel/";
@@ -566,6 +587,7 @@ namespace TheAdventuresOf
         public void DisposePreLevelAssets() {
             preLevelCharacterTexture.Dispose();
             preLevelTexture.Dispose();
+            DisposePlayerAssets();
         }
 
         public void DisposeMainMenuAssets(bool shouldDisposeMusic) {
@@ -623,7 +645,15 @@ namespace TheAdventuresOf
             storeLevelBigBoxTexture.Dispose();
             storeLevelSmallBoxTexture.Dispose();
             storeLevelSignTexture.Dispose();
-    }
+            DisposePlayerAssets();
+        }
+
+        public void DisposeVictoryLevelAssets() {
+            victoryLevelTrophyTexture.Dispose();
+            victoryLevelBackgroundTexture.Dispose();
+            victoryLevelPlayerVictoryPoseTexture.Dispose();
+            DisposePlayerAssets();
+        }
 
 		public void DisposeLevelAssets() {
 			levelTexture.Dispose();
@@ -642,11 +672,16 @@ namespace TheAdventuresOf
 
             DisposeMusic();
 
+            DisposePlayerAssets();
+		}
+
+        public void DisposePlayerAssets() {
             playerTexture.Dispose();
-            foreach(Texture2D accessoryTexture in accessoryTextures.Values) {
+            foreach (Texture2D accessoryTexture in accessoryTextures.Values)
+            {
                 accessoryTexture.Dispose();
             }
-		}
+        }
 
         //TODO: this needs to be called somewhere when exiting the game
         public void DisposeGameAssets() {
