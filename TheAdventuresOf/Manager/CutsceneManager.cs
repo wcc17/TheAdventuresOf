@@ -49,7 +49,7 @@ namespace TheAdventuresOf
             if (shouldStartLetterboxOut)
             {
                 shouldStartLetterboxOut = false;
-                ResetLetterbox();
+                letterBoxDistanceMoved = 0f;
                 isLetterBoxingOut = true;
             }
 
