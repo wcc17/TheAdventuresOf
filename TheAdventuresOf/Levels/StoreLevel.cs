@@ -49,13 +49,13 @@ namespace TheAdventuresOf
             initializeStoreLevelCharacter();
             initializeStoreLevelPropItems();
 
-            charTextScale = 1.1f;
+            textScale = 1.1f;
 
             //initialize character text above storelevel character
             float storeLevelCharacterTextPosX = storeLevelCharacterProp.positionVector.X - ((storeLevelCharacterProp.texture.Width / 2) + (AssetManager.Instance.font.MeasureString(storeLevelCharText).X / 2)) + (ScreenManager.VIRTUAL_SCREEN_WIDTH * CHAR_TEXT_OFFSET_X);
             float storeLevelCharacterTextPosY = storeLevelCharacterProp.positionVector.Y - ((storeLevelCharacterProp.texture.Height / 2) + (AssetManager.Instance.font.MeasureString(storeLevelCharText).Y / 2));
-            characterTextPositionVector = new Vector2(storeLevelCharacterTextPosX, storeLevelCharacterTextPosY);
-            characterText = storeLevelCharText;
+            dialogTextPositionVector = new Vector2(storeLevelCharacterTextPosX, storeLevelCharacterTextPosY);
+            dialogText = storeLevelCharText;
 
             signPositionVector = new Vector2((ScreenManager.VIRTUAL_SCREEN_WIDTH - AssetManager.Instance.storeLevelSignTexture.Width) - (ScreenManager.VIRTUAL_SCREEN_WIDTH * SIGN_OFFSET_X),
                                              (groundLevel - AssetManager.Instance.storeLevelSignTexture.Height) - (ScreenManager.VIRTUAL_SCREEN_HEIGHT * SIGN_OFFSET_Y));
@@ -82,7 +82,7 @@ namespace TheAdventuresOf
             //draw other things that level should be drawing (player, health, etc)
             DrawWithoutLevel(spriteBatch);
 
-            DrawCharacterDialogText(spriteBatch, charTextScale);
+            DrawDialogText(spriteBatch, textScale);
         }
 
         public override void Update(GameTime gameTime, GameController gameController)

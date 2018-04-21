@@ -27,7 +27,7 @@ namespace TheAdventuresOf
         public PreLevel(Texture2D levelTexture, GameController gameController, int currentLevelNumber) 
             : base(levelTexture: levelTexture) { 
             gameController.Lock();
-            charTextScale = 1.0f;
+            textScale = 1.0f;
             this.currentLevelNumber = currentLevelNumber;
         }
 
@@ -52,15 +52,14 @@ namespace TheAdventuresOf
             textY = preLevelCharacterPositionVector.Y
                     - (AssetManager.Instance.font.MeasureString(preLevelCharText).Y / 2)
                     - (ScreenManager.VIRTUAL_SCREEN_HEIGHT * PRE_LEVEL_CHAR_TEXT_OFFSET_Y);
-            characterTextPositionVector = new Vector2(textX, textY);
-
-            characterText = preLevelCharText;
+            dialogTextPositionVector = new Vector2(textX, textY);
+            dialogText = preLevelCharText;
         }
 
         public override void Draw(SpriteBatch spriteBatch) {
             base.Draw(spriteBatch);
             spriteBatch.Draw(AssetManager.Instance.preLevelCharacterTexture, preLevelCharacterPositionVector);
-            DrawCharacterDialogText(spriteBatch, charTextScale);
+            DrawDialogText(spriteBatch, textScale);
         }
 
         public override void Update(GameTime gameTime, GameController gameController) {

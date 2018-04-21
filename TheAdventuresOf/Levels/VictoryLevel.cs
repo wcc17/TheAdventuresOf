@@ -6,10 +6,15 @@ namespace TheAdventuresOf
 {
     public class VictoryLevel : BaseLevel
     {
+        const string VICTORY_TEXT = "YOU WON THE GAME!";
         const float BEFORE_PLAYER_MOVEMENT_TIMER_DELAY = 2.0f;
         const float BEFORE_FADE_TIMER_DELAY = 2.2f;
         const float AFTER_TROPHY_MOVEMENT_TIMER_DELAY = 5.0f;
-        const float VICTORY_LEVEL_GROUND_LEVEL_OFFSET = 0.106f;
+		
+        float victoryLevelGroundLevel = 0.65277778f; //was "705" when height was 1080
+        float trophyPositionYOffset = 0.04629630f; //was "50" when height was 1080
+        float victoryLevelPlayerStartX = 0.052083333f; //was "100" when width was 1920
+        float trophyPositionXOffset = 0.00677083f; //was "13" when width was 1920
 
         Vector2 trophyPositionVector;
         Rectangle trophyBounds;
@@ -31,8 +36,17 @@ namespace TheAdventuresOf
 
         public override void InitializeLevel(bool usePlayerSpawnAnimation)
         {
-            this.groundLevel = 705;
-            this.playerStartX = 100;
+            textScale = 2.5f;
+            dialogText = VICTORY_TEXT;
+
+            //initialize offsets based on current screen width
+            this.trophyPositionXOffset *= ScreenManager.VIRTUAL_SCREEN_WIDTH;
+			this.victoryLevelPlayerStartX *= ScreenManager.VIRTUAL_SCREEN_WIDTH;
+            this.trophyPositionYOffset *= ScreenManager.VIRTUAL_SCREEN_HEIGHT;
+            this.victoryLevelGroundLevel *= ScreenManager.VIRTUAL_SCREEN_HEIGHT;
+
+            this.groundLevel = victoryLevelGroundLevel;
+            this.playerStartX = victoryLevelPlayerStartX;
 
             base.InitializeLevel(usePlayerSpawnAnimation);
 
@@ -50,6 +64,7 @@ namespace TheAdventuresOf
 
             if(shouldDrawVictoryPose) {
                 spriteBatch.Draw(playerVictoryPoseTexture, playerVictoryPosePositionVector);
+                DrawDialogText(spriteBatch, textScale);
             } else {
 				PlayerManager.Instance.Draw(spriteBatch);
             }
@@ -62,9 +77,11 @@ namespace TheAdventuresOf
         public override void Update(GameTime gameTime, GameController gameController)
 		{
             base.Update(gameTime, gameController);
-			//UpdateDialogText(gameTime);
-
             updateCutscene(gameTime, gameController);
+
+            if(shouldDrawVictoryPose) {
+                UpdateDialogText(gameTime);
+            }
 		}
 
         void updateCutscene(GameTime gameTime, GameController gameController) {
@@ -129,8 +146,8 @@ namespace TheAdventuresOf
         void initializeTrophy() {
             trophyTexture = AssetManager.Instance.victoryLevelTrophyTexture;
             trophyPositionVector = new Vector2(
-                (ScreenManager.VIRTUAL_SCREEN_WIDTH / 2) - (trophyTexture.Width / 2) + 13,
-                (ScreenManager.VIRTUAL_SCREEN_HEIGHT / 2) - 50);
+                (ScreenManager.VIRTUAL_SCREEN_WIDTH / 2) - (trophyTexture.Width / 2) + trophyPositionXOffset,
+                (ScreenManager.VIRTUAL_SCREEN_HEIGHT / 2) - trophyPositionYOffset);
             trophyBounds = new Rectangle((int)trophyPositionVector.X,
                                          (int)trophyPositionVector.Y,
                                          trophyTexture.Width,
@@ -153,6 +170,12 @@ namespace TheAdventuresOf
             trophyPositionVector = new Vector2(
                 playerVictoryPosePositionVector.X + ((playerVictoryPoseTexture.Width / 2) - (trophyTexture.Width / 2)),
                 (playerVictoryPosePositionVector.Y) - (trophyTexture.Height / 2) - (playerVictoryPoseTexture.Height));
+
+            float textWidth = AssetManager.Instance.font.MeasureString(VICTORY_TEXT).X * textScale;
+            float textHeight = AssetManager.Instance.font.MeasureString(VICTORY_TEXT).Y * textScale;
+            float textX = trophyPositionVector.X + (trophyTexture.Width / 2) - (textWidth / 2);
+            float textY = trophyPositionVector.Y - (textHeight * 1.0f);
+            dialogTextPositionVector = new Vector2(textX, textY);
         }
 
         public override void CheckCollisionWithBounds(Entity entity) { }

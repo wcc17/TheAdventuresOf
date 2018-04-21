@@ -14,7 +14,7 @@ namespace TheAdventuresOf
 
 		public Vector2 originVector = new Vector2(0, 0);
         public Vector2 levelPositionVector;
-        public Vector2 characterTextPositionVector;
+        public Vector2 dialogTextPositionVector;
         public Rectangle leftSideBounds;
         public Rectangle rightSideBounds;
         public Texture2D levelTexture;
@@ -22,13 +22,13 @@ namespace TheAdventuresOf
         public int rightBoundWidth;
         public float groundLevel;
         public float playerStartX;
-        public float charTextScale = 1.0f;
+        public float textScale = 1.0f;
         public Timer dialogTimer;
         public Timer delayPlayerMovementTimer;
 		public bool nextLevel;
         public bool isDelayingMovement = true;
-        public string characterTextToDraw = "";
-        public string characterText;
+        public string dialogTextToDraw = "";
+        public string dialogText;
         public bool hasAlreadyLetterBoxedIn;
         public bool hasAlreadyLetterBoxedOut;
 
@@ -81,10 +81,10 @@ namespace TheAdventuresOf
             PlayerManager.Instance.Draw(spriteBatch);
         }
 
-        public virtual void DrawCharacterDialogText(SpriteBatch spriteBatch, float charTextScale) {
+        public virtual void DrawDialogText(SpriteBatch spriteBatch, float charTextScale) {
             TextManager.Instance.DrawOutlinedString(spriteBatch, 
-                                                    characterTextToDraw, 
-                                                    characterTextPositionVector, 
+                                                    dialogTextToDraw, 
+                                                    dialogTextPositionVector, 
                                                     Color.White, 
                                                     charTextScale);
         }
@@ -131,10 +131,10 @@ namespace TheAdventuresOf
             {
                 dialogTimer.Reset();
 
-                int size = characterTextToDraw.Length;
-                if (size < characterText.Length)
+                int size = dialogTextToDraw.Length;
+                if (size < dialogText.Length)
                 {
-                    characterTextToDraw += characterText[size];
+                    dialogTextToDraw += dialogText[size];
                 }
             }
         }
