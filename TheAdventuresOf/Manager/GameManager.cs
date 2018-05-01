@@ -267,6 +267,8 @@ namespace TheAdventuresOf
             AssetManager.Instance.LoadPlayerAssets(graphicsDevice, 1);
             AssetManager.Instance.LoadVictoryLevelAssets(graphicsDevice);
 
+			loadPlayerAccessories();
+
             currentLevel = new VictoryLevel(AssetManager.Instance.victoryLevelBackgroundTexture, (GameController)currentController);
         }
 
