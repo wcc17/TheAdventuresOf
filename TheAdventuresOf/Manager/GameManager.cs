@@ -553,6 +553,8 @@ namespace TheAdventuresOf
         void handleNextStateAfterStoreLevel(GameTime gameTime) {
 			currentLevelNumber++;
 
+			AssetManager.Instance.DisposeStoreAssets();
+
             if (TheAdventuresOf.skipPreLevel) {
                 setLoadState(LEVEL_STATE, gameTime);
                 loadLevelAssets();
@@ -560,8 +562,6 @@ namespace TheAdventuresOf
                 setLoadState(PRE_LEVEL_STATE, gameTime);
                 loadPreLevelAssets();
             }
-
-            AssetManager.Instance.DisposeStoreAssets();
         }
 
         void handleNextStateAfterVictoryLevel(GameTime gameTime) {
