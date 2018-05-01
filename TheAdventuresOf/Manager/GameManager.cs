@@ -446,9 +446,9 @@ namespace TheAdventuresOf
                 loadPreLevelAssets();
             } else if(nextGameState == LEVEL_STATE) {
                 loadLevelAssets();
-            } else if(nextGameState == STORE_LEVEL_STATE && TheAdventuresOf.straightToStore) {
+            } else if(nextGameState == STORE_LEVEL_STATE && TheAdventuresOf.straightToStore) { //only for debug, don't freak out
                 loadStoreLevelAssets(); 
-            } else if(nextGameState == VICTORY_STATE && TheAdventuresOf.startWithVictoryLevel) {
+            } else if(nextGameState == VICTORY_STATE && TheAdventuresOf.startWithVictoryLevel) { //only for debug, don't freak out
                 loadVictoryLevelAssets(); 
             }
         }
