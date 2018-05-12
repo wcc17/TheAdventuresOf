@@ -108,7 +108,14 @@ namespace TheAdventuresOf
 			base.Draw(gameTime);
 		}
 
-        void handleDebugFlags() {
+		protected override void Dispose(bool disposing)
+		{
+			base.Dispose(disposing);
+
+            AssetManager.Instance.DisposeOnExit();
+		}
+
+		void handleDebugFlags() {
             if (!showDebug)
             {
                 giveCoins = false;

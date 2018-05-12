@@ -57,7 +57,7 @@ namespace TheAdventuresOf
         }
 
         public void Update(GameTime gameTime) {
-            if(AssetManager.Instance.currentSong != null) { //TODO: MUSIC FIX: THIS IS A BANDAID. no song here yet anyway
+            if(AssetManager.Instance.currentSong != null) { 
                 HandleMusicVolume(gameTime);
                 //HandleRepeatDelay(gameTime);
             }
@@ -77,7 +77,7 @@ namespace TheAdventuresOf
 
                 MediaPlayer.Volume = volume;
 
-                MediaPlayer.Play(AssetManager.Instance.currentSong); //TODO: comment to stop music
+                MediaPlayer.Play(AssetManager.Instance.currentSong); 
             }
         }
 

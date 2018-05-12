@@ -736,7 +736,6 @@ namespace TheAdventuresOf
             soundContentManager.Dispose();
         }
 
-        //TODO: THIS NEEDS TO BE CALLED SOMEWHERE !!!!
         public void DisposeOnExit() {
             fontContentManager.Dispose();
             blackBackgroundTexture.Dispose();
