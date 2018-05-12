@@ -474,11 +474,11 @@ namespace TheAdventuresOf
             }
 
             //projectiles
-            using (var stream = TitleContainer.OpenStream(projectileFilePath + "bullet_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(projectileFilePath + "bullet/level" + levelNumber + "_bullet_1080p.png"))
             {
                 bulletTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
-            using (var stream = TitleContainer.OpenStream(projectileFilePath + "level" + levelNumber + "_bile_1080p.png"))
+            using (var stream = TitleContainer.OpenStream(projectileFilePath + "bile/level" + levelNumber + "_bile_1080p.png"))
             {
                 bileTexture = Texture2D.FromStream(graphicsDevice, stream);
             }

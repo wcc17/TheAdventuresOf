@@ -8,8 +8,8 @@
 		<ButtonOffset>80</ButtonOffset>
 	</ChooseLevelMenu>
 	<PreLevel>
-		<GroundLevel>555</GroundLevel>
-		<WindowsGroundLevel>555</WindowsGroundLevel>
+		<GroundLevel>653</GroundLevel>
+		<WindowsGroundLevel>655</WindowsGroundLevel>
 		<LeftBoundWidth>0</LeftBoundWidth>
 		<RightBoundWidth>1920</RightBoundWidth>
 		<PreLevelCharX>1560</PreLevelCharX>

@@ -10,7 +10,7 @@ namespace TheAdventuresOf
         const float PRE_LEVEL_CHAR_TEXT_OFFSET_Y = 0.037f;
         const float PLAYER_MOVEMENT_TIMER_DELAY = 4.2f;
         const float BEFORE_MOVEMENT_TIMER_DELAY = 4.0f;
-        const float PRE_LEVEL_GROUND_LEVEL_OFFSET = 0.106f;
+        const float PRE_LEVEL_GROUND_LEVEL_OFFSET = 0.0185f;
 
         public static float preLevelCharX;
         public static string preLevelCharText;
@@ -32,7 +32,7 @@ namespace TheAdventuresOf
         }
 
         public override void InitializeLevel(bool usePlayerSpawnAnimation) {
-            //TODO: This was stupid art mistake. I don't feel like editing everything right now
+            //TODO: ground level is a tad bit different on later levels
             //0.213 is the percentage of the screen divided by 2 that the ground level moves when transitioning from iphone size to xbox size
             if (currentLevelNumber > 1)
             {

@@ -116,7 +116,6 @@
     <BundleResource Include="Content\Game\rightarrow_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level1background_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level1character_1080p.png" />
-    <BundleResource Include="Content\Projectile\bullet_1080p.png" />
     <BundleResource Include="Content\StoreLevel\store_level_1080p.png" />
     <BundleResource Include="Content\StoreLevel\store_level_character_1080p.png" />
     <BundleResource Include="Content\XML\CharacterInformation.xml" />
@@ -166,15 +165,12 @@
     <BundleResource Include="Content\Menu\choose\choosemenu_rightarrow_1080p.png" />
     <BundleResource Include="Content\Menu\choose\choosemenu_backarrow_1080p.png" />
     <BundleResource Include="Content\Game\quit_button_1080p.png" />
-    <BundleResource Include="Content\Projectile\level1_bile_1080p.png" />
-    <BundleResource Include="Content\Projectile\level2_bile_1080p.png" />
     <BundleResource Include="Content\Menu\choose\choosemenu_playbutton_1080p.png" />
     <BundleResource Include="Content\Menu\main\mainmenu_chooselevelbutton_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level3background_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level3character_1080p.png" />
     <BundleResource Include="Content\Player\level3_character_1080p.png" />
     <BundleResource Include="Content\Player\level3_character_hat_1080p.png" />
-    <BundleResource Include="Content\Projectile\level3_bile_1080p.png" />
     <BundleResource Include="Content\Monster\Level3\bilemonster_1080p.png" />
     <BundleResource Include="Content\Monster\Level3\blockmonster_1080p.png" />
     <BundleResource Include="Content\Monster\Level3\cannonmonster_1080p.png" />
@@ -200,7 +196,6 @@
     <BundleResource Include="Content\Player\level4_character_1080p.png" />
     <BundleResource Include="Content\XML\Level\Level4Information.xml" />
     <BundleResource Include="Content\XML\Level\Level3Information.xml" />
-    <BundleResource Include="Content\Projectile\level4_bile_1080p.png" />
     <BundleResource Include="Content\Level\level5background_1080p.png" />
     <BundleResource Include="Content\Menu\choose\level5preview_1080p.png" />
     <BundleResource Include="Content\Monster\Level5\bilemonster_1080p.png" />
@@ -218,7 +213,6 @@
     <BundleResource Include="Content\PreLevel\pre_level4character_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level5background_1080p.png" />
     <BundleResource Include="Content\PreLevel\pre_level5character_1080p.png" />
-    <BundleResource Include="Content\Projectile\level5_bile_1080p.png" />
     <BundleResource Include="Content\XML\Level\Level5Information.xml" />
     <BundleResource Include="Content\Menu\choose\levelpreview_outline_1080p.png" />
     <BundleResource Include="Content\Player\level5_character_wings_1080p.png" />
@@ -255,6 +249,16 @@
     <BundleResource Include="Content\Victory\trophy_1080p.png" />
     <BundleResource Include="Content\Victory\victory_background_1080p.png" />
     <BundleResource Include="Content\Victory\victory_character_1080p.png" />
+    <BundleResource Include="Content\Projectile\bullet\level1_bullet_1080p.png" />
+    <BundleResource Include="Content\Projectile\bullet\level2_bullet_1080p.png" />
+    <BundleResource Include="Content\Projectile\bullet\level3_bullet_1080p.png" />
+    <BundleResource Include="Content\Projectile\bullet\level4_bullet_1080p.png" />
+    <BundleResource Include="Content\Projectile\bullet\level5_bullet_1080p.png" />
+    <BundleResource Include="Content\Projectile\bile\level1_bile_1080p.png" />
+    <BundleResource Include="Content\Projectile\bile\level2_bile_1080p.png" />
+    <BundleResource Include="Content\Projectile\bile\level3_bile_1080p.png" />
+    <BundleResource Include="Content\Projectile\bile\level4_bile_1080p.png" />
+    <BundleResource Include="Content\Projectile\bile\level5_bile_1080p.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -291,6 +295,7 @@
     <Folder Include="Content\Menu\main\" />
     <Folder Include="Content\Menu\splash\" />
     <Folder Include="Content\Monster\Level4\" />
+    <Folder Include="Content\Projectile\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
