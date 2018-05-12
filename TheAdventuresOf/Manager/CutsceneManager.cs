@@ -8,9 +8,12 @@ namespace TheAdventuresOf
     public class CutsceneManager
     {
         static CutsceneManager instance;
-        static float letterBoxSize = ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.17f;
+        static float topLetterBoxSize = ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.30f;
+        static float bottomLetterBoxSize = ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.17f;
         static float letterBoxMoveSpeed = 175.0f;
-        static float letterBoxDistanceMoved;
+        static float topLetterBoxMoveSpeed;
+        static float topLetterBoxDistanceMoved;
+        static float bottomLetterBoxDistanceMoved;
 
         Texture2D blackBackgroundTexture;
         Vector2 topBarPositionVector;
@@ -35,6 +38,10 @@ namespace TheAdventuresOf
         private CutsceneManager() {
             blackBackgroundTexture = AssetManager.Instance.blackBackgroundTexture;
             ResetLetterbox();
+
+            //we have a letterBoxMoveSpeed
+            //the top Letter box needs to move faster to reach the same point
+            topLetterBoxMoveSpeed = ((topLetterBoxSize) * (letterBoxMoveSpeed)) / (bottomLetterBoxSize);
         }
 
         public void Update(GameTime gameTime)
@@ -49,7 +56,8 @@ namespace TheAdventuresOf
             if (shouldStartLetterboxOut)
             {
                 shouldStartLetterboxOut = false;
-                letterBoxDistanceMoved = 0f;
+                topLetterBoxDistanceMoved = 0f;
+                bottomLetterBoxDistanceMoved = 0f;
                 isLetterBoxingOut = true;
             }
 
@@ -57,7 +65,7 @@ namespace TheAdventuresOf
         }
 
         public void Draw(SpriteBatch spriteBatch) {
-            if(isLetterBoxingIn || isLetterBoxingOut || (letterBoxDistanceMoved > 0)) {
+            if(isLetterBoxingIn || isLetterBoxingOut || (topLetterBoxDistanceMoved > 0)) {
                 spriteBatch.Draw(blackBackgroundTexture, topBarPositionVector);
                 spriteBatch.Draw(blackBackgroundTexture, bottomBarPositionVector);
             }
@@ -77,7 +85,8 @@ namespace TheAdventuresOf
         {
             topBarPositionVector = new Vector2(0, -ScreenManager.VIRTUAL_SCREEN_HEIGHT);
             bottomBarPositionVector = new Vector2(0, ScreenManager.VIRTUAL_SCREEN_HEIGHT);
-            letterBoxDistanceMoved = 0f;
+            topLetterBoxDistanceMoved = 0f;
+            bottomLetterBoxDistanceMoved = 0f;
         }
 
         void handleLetterBoxing(GameTime gameTime)
@@ -89,18 +98,26 @@ namespace TheAdventuresOf
                     multiplier = -1;
                 }
 
-                if(letterBoxDistanceMoved < letterBoxSize) {
-                    float distanceToMove = (float)(gameTime.ElapsedGameTime.TotalSeconds * letterBoxMoveSpeed);
-                    letterBoxDistanceMoved += distanceToMove;
+                if(topLetterBoxDistanceMoved < topLetterBoxSize) {
+                    float distanceToMove = (float)(gameTime.ElapsedGameTime.TotalSeconds * topLetterBoxMoveSpeed);
+                    topLetterBoxDistanceMoved += distanceToMove;
 
                     topBarPositionVector.Y += (distanceToMove * multiplier);
+                } 
+
+                if(bottomLetterBoxDistanceMoved < bottomLetterBoxSize) {
+                    float distanceToMove = (float)(gameTime.ElapsedGameTime.TotalSeconds * letterBoxMoveSpeed);
+                    bottomLetterBoxDistanceMoved += distanceToMove;
+
                     bottomBarPositionVector.Y -= (distanceToMove * multiplier);
-                } else {
+                }
+
+                if ((topLetterBoxDistanceMoved >= topLetterBoxSize) 
+                    && (bottomLetterBoxDistanceMoved >= bottomLetterBoxSize)) {
                     isLetterBoxingIn = false;
                     isLetterBoxingOut = false;
                 }
             }
         }
-
     }
 }

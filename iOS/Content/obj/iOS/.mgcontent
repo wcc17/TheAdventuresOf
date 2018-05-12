@@ -9,15 +9,7 @@
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Level/level3_music.mp3</File>
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Level/level4_music.mp3</File>
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Level/level5_music.mp3</File>
-    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/big_coin_pickup.wav</File>
-    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/big_heart_pickup.wav</File>
-    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/hurt.wav</File>
-    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/jump.wav</File>
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/level_gameover_sound.ogg</File>
-    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/little_coin_pickup.wav</File>
-    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/monster_hurt.wav</File>
-    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/select.wav</File>
-    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/small_heart_pickup.wav</File>
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Game/titilliam-web-regular.spritefont</File>
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Menu/mainmenu_music.mp3</File>
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/tanner_explosion.mp3</File>
@@ -28,5 +20,12 @@
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/tanner_purchase.mp3</File>
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/tanner_select.mp3</File>
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/tanner_victory_sound.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/big_coin_pickup.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/big_heart_pickup.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/hurt.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/jump.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/little_coin_pickup.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/monster_hurt.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/small_heart_pickup.mp3</File>
   </SourceFiles>
 </SourceFileCollection>

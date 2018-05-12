@@ -18,7 +18,6 @@ namespace TheAdventuresOf
         public const int JUMP = 3;
         public const int LITTLE_COIN_PICKUP = 4;
         public const int MONSTER_HURT = 5;
-        public const int SELECT = 6;
         public const int SMALL_HEART_PICKUP = 7;
         public const int BIG_HEART_PICKUP = 8;
         public const int EXPLOSION = 9;
@@ -47,7 +46,6 @@ namespace TheAdventuresOf
             soundEffectDictionary.Add(JUMP, AssetManager.Instance.jumpSoundEffect);
             soundEffectDictionary.Add(LITTLE_COIN_PICKUP, AssetManager.Instance.littleCoinPickupSoundEffect);
             soundEffectDictionary.Add(MONSTER_HURT, AssetManager.Instance.monsterHurtSoundEffect);
-            soundEffectDictionary.Add(SELECT, AssetManager.Instance.selectSoundEffect);
             soundEffectDictionary.Add(SMALL_HEART_PICKUP, AssetManager.Instance.smallHeartPickupSoundEffect);
             soundEffectDictionary.Add(BIG_HEART_PICKUP, AssetManager.Instance.bigHeartPickupSoundEffect);
             soundEffectDictionary.Add(EXPLOSION, AssetManager.Instance.explosionSoundEffect);
@@ -55,7 +53,7 @@ namespace TheAdventuresOf
             soundEffectDictionary.Add(PURCHASE, AssetManager.Instance.purchaseSoundEffect);
             soundEffectDictionary.Add(PURCHASE_DENIED, AssetManager.Instance.purchaseDeniedSoundEffect);
 
-            SoundEffect.MasterVolume = 0.2f;
+            SoundEffect.MasterVolume = 0.8f;
         }
 
         public void PlaySoundEffect(int soundEffectIndex) {

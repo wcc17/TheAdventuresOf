@@ -727,7 +727,6 @@ namespace TheAdventuresOf
             littleCoinPickupSoundEffect.Dispose();
             monsterHurtSoundEffect.Dispose();
             smallHeartPickupSoundEffect.Dispose();
-            selectSoundEffect.Dispose();
             explosionSoundEffect.Dispose();
             victorySoundEffect.Dispose();
             purchaseSoundEffect.Dispose();
@@ -795,19 +794,15 @@ namespace TheAdventuresOf
 			soundContentManager = new ContentManager(TheAdventuresOf.contentManager.ServiceProvider, TheAdventuresOf.contentManager.RootDirectory);
             String soundFilePath = "Sound/";
 
-            hurtSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "hurt");
-            //hurtSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_hurt");
+            hurtSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_hurt");
             jumpSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "jump");
-            //jumpSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_jump");
             monsterHurtSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "monster_hurt");
-            //monsterHurtSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_monster_hurt");
 
             gameOverSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "level_gameover_sound");
             bigCoinPickupSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "big_coin_pickup");
             bigHeartPickupSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "big_heart_pickup");
             littleCoinPickupSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "little_coin_pickup");
             smallHeartPickupSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "small_heart_pickup");
-            selectSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "select");
             explosionSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_explosion");
             victorySoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_victory_sound");
             purchaseSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_purchase");

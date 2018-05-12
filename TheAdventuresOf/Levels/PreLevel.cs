@@ -8,6 +8,7 @@ namespace TheAdventuresOf
     {
         const float PRE_LEVEL_CHAR_TEXT_OFFSET_X = 0.041f;
         const float PRE_LEVEL_CHAR_TEXT_OFFSET_Y = 0.037f;
+        const float LETTERBOX_OUT_TIMER_DELAY = 3.2f;
         const float PLAYER_MOVEMENT_TIMER_DELAY = 4.2f;
         const float BEFORE_MOVEMENT_TIMER_DELAY = 4.0f;
         const float PRE_LEVEL_GROUND_LEVEL_OFFSET = 0.0185f;
@@ -17,6 +18,7 @@ namespace TheAdventuresOf
 
         Timer playerMovementTimer;
         Timer beforeMovementTimer;
+        Timer letterBoxOutTimer;
 
         Vector2 preLevelTextPositionVector;
         Vector2 preLevelCharacterPositionVector;
@@ -43,6 +45,7 @@ namespace TheAdventuresOf
 
             playerMovementTimer = new Timer(PLAYER_MOVEMENT_TIMER_DELAY);
             beforeMovementTimer = new Timer(BEFORE_MOVEMENT_TIMER_DELAY);
+            letterBoxOutTimer = new Timer(LETTERBOX_OUT_TIMER_DELAY);
 
             preLevelCharacterPositionVector = new Vector2(preLevelCharX, groundLevel);
 
@@ -71,6 +74,10 @@ namespace TheAdventuresOf
             if(beforeMovementTimer.IsTimeUp(gameTime.ElapsedGameTime)) {
 
                 handlePlayerMovement(gameTime);
+
+                if(letterBoxOutTimer.IsTimeUp(gameTime.ElapsedGameTime)) {
+                    HandleLetterBoxingOut();
+                }
 
                 if (playerMovementTimer.IsTimeUp(gameTime.ElapsedGameTime))
                 {
