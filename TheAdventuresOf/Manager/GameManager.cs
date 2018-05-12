@@ -273,7 +273,10 @@ namespace TheAdventuresOf
         }
 
         void loadPlayerAccessories() {
-            List<Accessory> playerAccessories = XmlManager.LoadPlayerAccessories(currentLevelNumber);
+            //use level 1 accessories (should be sword only) if going to the victory state
+            int levelNumberToUse = (nextGameState == VICTORY_STATE) ? 1 : currentLevelNumber;
+
+            List<Accessory> playerAccessories = XmlManager.LoadPlayerAccessories(levelNumberToUse);
             PlayerManager.Instance.LoadPlayerAccessoryAssets(graphicsDevice, playerAccessories);
         }
 
