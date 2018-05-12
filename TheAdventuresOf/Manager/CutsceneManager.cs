@@ -8,7 +8,7 @@ namespace TheAdventuresOf
     public class CutsceneManager
     {
         static CutsceneManager instance;
-        static float topLetterBoxSize = ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.30f;
+        static float topLetterBoxSize = ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.25f;
         static float bottomLetterBoxSize = ScreenManager.VIRTUAL_SCREEN_HEIGHT * 0.17f;
         static float letterBoxMoveSpeed = 175.0f;
         static float topLetterBoxMoveSpeed;
