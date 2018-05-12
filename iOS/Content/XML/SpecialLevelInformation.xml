@@ -15,10 +15,10 @@
 		<PreLevelCharX>1560</PreLevelCharX>
 		<PreLevelCharText>
             <Level1>Can I have your sword when you die?</Level1>
-            <Level2>Can I have your sword when you die?</Level2>
+            <Level2>I'm not sure how I'm here right now</Level2>
             <Level3>I am really spaced out right now..</Level3>
-            <Level4>Can I have your sword when you die?</Level4>
-            <Level5>Can I have your sword when you die?</Level5>
+            <Level4>I heard the monsters here are pretty cool!</Level4>
+            <Level5>This level is kind of dark!</Level5>
         </PreLevelCharText>
 		<TextX>1100</TextX>
 		<TextY>500</TextY>
