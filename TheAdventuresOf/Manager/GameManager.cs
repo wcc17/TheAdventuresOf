@@ -406,7 +406,7 @@ namespace TheAdventuresOf
                 CoinManager.isEndlessMode = true;
                 currentLevelNumber = chooseLevelMenu.currentLevelSelected;
 
-                MusicManager.Instance.StartLevelMusic();
+                MusicManager.Instance.StartMusic();
 
                 prepareLevelState(LEVEL_STATE, gameTime);
 

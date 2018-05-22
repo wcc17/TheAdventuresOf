@@ -152,3 +152,9 @@
 /processorParam:Quality=Best
 /build:Sound/small_heart_pickup.mp3
 
+#begin StoreLevel/store_level_music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:StoreLevel/store_level_music.mp3
+

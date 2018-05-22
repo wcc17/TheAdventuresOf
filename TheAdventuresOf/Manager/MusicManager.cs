@@ -44,15 +44,15 @@ namespace TheAdventuresOf
                     MediaPlayer.Play(AssetManager.Instance.currentSong); //comment out to stop music
                     break;
                 case GameManager.PRE_LEVEL_STATE:
-                    StartLevelMusic();
+                    StartMusic();
                     break;
                 case GameManager.STORE_LEVEL_STATE:
-                    MediaPlayer.Stop();
+                    StartMusic();
                     break;
             }
         }
 
-        public void StartLevelMusic() {
+        public void StartMusic() {
             changingSongs = true;
         }
 

@@ -563,6 +563,11 @@ namespace TheAdventuresOf
             {
                 storeLevelSwordTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
+
+            if (!levelMusicLoaded)
+            {
+                loadStoreLevelMusicAssets(graphicsDevice);
+            }
         }
 
         /**
@@ -777,6 +782,11 @@ namespace TheAdventuresOf
         void loadLevelMusicAssets(GraphicsDevice graphicsDevice, int levelNumber)
         {
             loadMusic("Level/level" + levelNumber + "_music");
+            levelMusicLoaded = true;
+        }
+
+        void loadStoreLevelMusicAssets(GraphicsDevice graphicsDevice) {
+            loadMusic("StoreLevel/store_level_music");
             levelMusicLoaded = true;
         }
 
