@@ -651,6 +651,7 @@ namespace TheAdventuresOf
             storeLevelSmallBoxTexture.Dispose();
             storeLevelSignTexture.Dispose();
             DisposePlayerAssets();
+            DisposeMusic();
         }
 
         public void DisposeVictoryLevelAssets() {
