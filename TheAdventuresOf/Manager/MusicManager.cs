@@ -49,11 +49,22 @@ namespace TheAdventuresOf
                 case GameManager.STORE_LEVEL_STATE:
                     StartMusic();
                     break;
+                case GameManager.VICTORY_STATE:
+                    StartMusic();
+                    break;
             }
         }
 
         public void StartMusic() {
             changingSongs = true;
+        }
+
+        public void StartMusicImmediately() {
+            MediaPlayer.Play(AssetManager.Instance.currentSong);
+        }
+
+        public bool IsMusicPlaying() {
+            return MediaPlayer.State.Equals(MediaState.Playing);
         }
 
         public void Update(GameTime gameTime) {

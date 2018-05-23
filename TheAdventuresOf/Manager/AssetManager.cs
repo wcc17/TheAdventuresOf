@@ -82,6 +82,7 @@ namespace TheAdventuresOf
         public SoundEffect victorySoundEffect;
         public SoundEffect purchaseSoundEffect;
         public SoundEffect purchaseDeniedSoundEffect;
+        public SoundEffect victoryTrumpetSoundEffect;
         public bool soundEffectsAlreadyLoaded;
 
         //prelevel textures
@@ -519,6 +520,10 @@ namespace TheAdventuresOf
             {
                 victoryLevelPlayerVictoryPoseTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
+
+            if(!levelMusicLoaded) {
+				loadVictoryLevelMusicAssets(graphicsDevice);
+            }
         }
 
         public void LoadStoreLevelAssets(GraphicsDevice graphicsDevice) {
@@ -659,6 +664,7 @@ namespace TheAdventuresOf
             victoryLevelBackgroundTexture.Dispose();
             victoryLevelPlayerVictoryPoseTexture.Dispose();
             DisposePlayerAssets();
+            DisposeMusic();
         }
 
 		public void DisposeLevelAssets() {
@@ -737,6 +743,7 @@ namespace TheAdventuresOf
             victorySoundEffect.Dispose();
             purchaseSoundEffect.Dispose();
             purchaseDeniedSoundEffect.Dispose();
+            victoryTrumpetSoundEffect.Dispose();
 
             soundContentManager.Dispose();
         }
@@ -791,6 +798,11 @@ namespace TheAdventuresOf
             levelMusicLoaded = true;
         }
 
+        void loadVictoryLevelMusicAssets(GraphicsDevice grpahicsDevice) {
+            loadMusic("Victory/victory_level_music");
+            levelMusicLoaded = true;
+        }
+
         void loadMusic(String songPath)
         {
             //prepare musicContentManager to be used again
@@ -818,6 +830,7 @@ namespace TheAdventuresOf
             victorySoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_victory_sound");
             purchaseSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_purchase");
             purchaseDeniedSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_purchase_denied");
+            victoryTrumpetSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "victory_level_trumpet");
 
             SoundManager.Instance.InitializeDictionary();
         }

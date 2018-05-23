@@ -28,5 +28,7 @@
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/monster_hurt.mp3</File>
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/small_heart_pickup.mp3</File>
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/StoreLevel/store_level_music.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/victory_level_trumpet.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Victory/victory_level_music.mp3</File>
   </SourceFiles>
 </SourceFileCollection>

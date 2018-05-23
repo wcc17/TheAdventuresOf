@@ -24,6 +24,7 @@ namespace TheAdventuresOf
         public const int VICTORY = 10;
         public const int PURCHASE = 11;
         public const int PURCHASE_DENIED = 12;
+        public const int VICTORY_TRUMPET = 13;
 
         public static SoundManager Instance
         {
@@ -52,6 +53,7 @@ namespace TheAdventuresOf
             soundEffectDictionary.Add(VICTORY, AssetManager.Instance.victorySoundEffect);
             soundEffectDictionary.Add(PURCHASE, AssetManager.Instance.purchaseSoundEffect);
             soundEffectDictionary.Add(PURCHASE_DENIED, AssetManager.Instance.purchaseDeniedSoundEffect);
+            soundEffectDictionary.Add(VICTORY_TRUMPET, AssetManager.Instance.victoryTrumpetSoundEffect);
 
             SoundEffect.MasterVolume = 0.6f;
         }

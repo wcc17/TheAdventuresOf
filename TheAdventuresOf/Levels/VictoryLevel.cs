@@ -100,7 +100,14 @@ namespace TheAdventuresOf
                         playerGrabbedTrophy = true;
 						shouldDrawVictoryPose = true;
 						initializeTrophyForPlayerVictoryPose();
+
+                        MusicManager.Instance.StopMusic();
+                        SoundManager.Instance.PlaySoundEffect(SoundManager.VICTORY_TRUMPET);
                     } else if(playerShouldStartMovingAgain(gameTime)) {
+                        if(!MusicManager.Instance.IsMusicPlaying()) {
+							MusicManager.Instance.StartMusicImmediately();
+                        }
+
                         HandleLetterBoxingOut();
                         playerGrabbedTrophy = true;
                         shouldDrawTrophy = false;

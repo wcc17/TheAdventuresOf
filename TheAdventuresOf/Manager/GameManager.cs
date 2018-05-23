@@ -447,14 +447,24 @@ namespace TheAdventuresOf
             //load level assets for nextGameState
             loadCommonLevelAssets();
 
-            if(nextGameState == PRE_LEVEL_STATE) {
-                loadPreLevelAssets();
-            } else if(nextGameState == LEVEL_STATE) {
-                loadLevelAssets();
-            } else if(nextGameState == STORE_LEVEL_STATE && TheAdventuresOf.straightToStore) { //only for debug, don't freak out
-                loadStoreLevelAssets(); 
-            } else if(nextGameState == VICTORY_STATE && TheAdventuresOf.startWithVictoryLevel) { //only for debug, don't freak out
-                loadVictoryLevelAssets(); 
+            if(TheAdventuresOf.straightToStore || TheAdventuresOf.startWithVictoryLevel) {
+                if (TheAdventuresOf.straightToStore)
+                { //only for debug, don't freak out
+                    loadStoreLevelAssets();
+                }
+                else if (TheAdventuresOf.startWithVictoryLevel)
+                { //only for debug, don't freak out
+                    loadVictoryLevelAssets();
+                }
+            } else {
+                if (nextGameState == PRE_LEVEL_STATE)
+                {
+                    loadPreLevelAssets();
+                }
+                else if (nextGameState == LEVEL_STATE)
+                {
+                    loadLevelAssets();
+                } 
             }
         }
 

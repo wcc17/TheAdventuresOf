@@ -158,3 +158,15 @@
 /processorParam:Quality=Best
 /build:StoreLevel/store_level_music.mp3
 
+#begin Sound/victory_level_trumpet.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/victory_level_trumpet.mp3
+
+#begin Victory/victory_level_music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Victory/victory_level_music.mp3
+
