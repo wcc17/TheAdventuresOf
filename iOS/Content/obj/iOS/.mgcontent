@@ -30,5 +30,10 @@
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/StoreLevel/store_level_music.mp3</File>
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/victory_level_trumpet.mp3</File>
     <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Victory/victory_level_music.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/new_explosion.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/swoop_monster_sound.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/cannon_monster_shoot.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/bile_monster_sound.mp3</File>
+    <File>/Users/wcc17/Development/TheAdventuresOf/iOS/Content/Sound/spike_monster_drop.mp3</File>
   </SourceFiles>
 </SourceFileCollection>

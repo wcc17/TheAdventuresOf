@@ -83,6 +83,10 @@ namespace TheAdventuresOf
         public SoundEffect purchaseSoundEffect;
         public SoundEffect purchaseDeniedSoundEffect;
         public SoundEffect victoryTrumpetSoundEffect;
+        public SoundEffect spikeMonsterSoundEffect;
+        public SoundEffect swoopMonsterSoundEffect;
+        public SoundEffect bileMonsterSoundEffect;
+        public SoundEffect cannonMonsterSoundEffect;
         public bool soundEffectsAlreadyLoaded;
 
         //prelevel textures
@@ -826,11 +830,15 @@ namespace TheAdventuresOf
             bigHeartPickupSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "big_heart_pickup");
             littleCoinPickupSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "little_coin_pickup");
             smallHeartPickupSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "small_heart_pickup");
-            explosionSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_explosion");
+            explosionSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "new_explosion");
             victorySoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_victory_sound");
             purchaseSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_purchase");
             purchaseDeniedSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "tanner_purchase_denied");
             victoryTrumpetSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "victory_level_trumpet");
+            spikeMonsterSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "spike_monster_drop");
+            swoopMonsterSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "swoop_monster_sound");
+            bileMonsterSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "bile_monster_sound");
+            cannonMonsterSoundEffect = soundContentManager.Load<SoundEffect>(soundFilePath + "cannon_monster_shoot");
 
             SoundManager.Instance.InitializeDictionary();
         }

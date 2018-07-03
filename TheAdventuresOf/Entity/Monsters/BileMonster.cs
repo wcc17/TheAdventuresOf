@@ -179,6 +179,7 @@ namespace TheAdventuresOf
             bool timeUp = buildupTimer.IsTimeUp(gameTime.ElapsedGameTime);
             if(timeUp) 
             {
+                SoundManager.Instance.PlaySoundEffect(SoundManager.BILE_MONSTER);
                 isThrowing = true;
                 spawnNewBileObject();
                 buildupTimer.Reset();

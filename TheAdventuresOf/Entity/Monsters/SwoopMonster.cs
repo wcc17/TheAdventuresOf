@@ -176,6 +176,7 @@ namespace TheAdventuresOf
             bool timeUp = swoopDelayTimer.IsTimeUp(gameTime.ElapsedGameTime);
             if (timeUp)
             {
+                SoundManager.Instance.PlaySoundEffect(SoundManager.SWOOP_MONSTER);
                 swoopDelayTimer.Reset();
                 delaySwoop = false;
                 MoveTowardPlayer();

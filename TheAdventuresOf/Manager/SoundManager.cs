@@ -25,6 +25,10 @@ namespace TheAdventuresOf
         public const int PURCHASE = 11;
         public const int PURCHASE_DENIED = 12;
         public const int VICTORY_TRUMPET = 13;
+        public const int SPIKE_MONSTER = 14;
+        public const int SWOOP_MONSTER = 15;
+        public const int BILE_MONSTER = 16;
+        public const int CANNON_MONSTER = 17;
 
         public static SoundManager Instance
         {
@@ -54,6 +58,10 @@ namespace TheAdventuresOf
             soundEffectDictionary.Add(PURCHASE, AssetManager.Instance.purchaseSoundEffect);
             soundEffectDictionary.Add(PURCHASE_DENIED, AssetManager.Instance.purchaseDeniedSoundEffect);
             soundEffectDictionary.Add(VICTORY_TRUMPET, AssetManager.Instance.victoryTrumpetSoundEffect);
+            soundEffectDictionary.Add(SPIKE_MONSTER, AssetManager.Instance.spikeMonsterSoundEffect);
+            soundEffectDictionary.Add(SWOOP_MONSTER, AssetManager.Instance.swoopMonsterSoundEffect);
+            soundEffectDictionary.Add(BILE_MONSTER, AssetManager.Instance.bileMonsterSoundEffect);
+            soundEffectDictionary.Add(CANNON_MONSTER, AssetManager.Instance.cannonMonsterSoundEffect);
 
             SoundEffect.MasterVolume = 0.6f;
         }

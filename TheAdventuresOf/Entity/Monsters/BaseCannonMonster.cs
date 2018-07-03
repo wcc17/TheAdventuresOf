@@ -59,6 +59,7 @@ namespace TheAdventuresOf
             {
                 if (!isShooting)
                 {
+                    SoundManager.Instance.PlaySoundEffect(SoundManager.CANNON_MONSTER);
                     isShooting = true;
                     isRecoil = true;
                     shootCount++;

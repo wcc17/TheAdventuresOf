@@ -170,3 +170,33 @@
 /processorParam:Quality=Best
 /build:Victory/victory_level_music.mp3
 
+#begin Sound/new_explosion.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/new_explosion.mp3
+
+#begin Sound/swoop_monster_sound.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/swoop_monster_sound.mp3
+
+#begin Sound/cannon_monster_shoot.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/cannon_monster_shoot.mp3
+
+#begin Sound/bile_monster_sound.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/bile_monster_sound.mp3
+
+#begin Sound/spike_monster_drop.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/spike_monster_drop.mp3
+

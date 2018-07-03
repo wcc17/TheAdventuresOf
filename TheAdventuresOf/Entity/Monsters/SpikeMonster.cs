@@ -126,6 +126,7 @@ namespace TheAdventuresOf
                 {
                     isAttacking = true;
                     attackTimeDelayed = TimeSpan.FromSeconds(0);
+                    SoundManager.Instance.PlaySoundEffect(SoundManager.SPIKE_MONSTER);
                 }
                 else 
                 {
