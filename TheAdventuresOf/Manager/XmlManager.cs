@@ -326,7 +326,7 @@ namespace TheAdventuresOf
 
             //get max tiers depending on how many tiers are in the <TierScores> element in LevelInformation.xml
             level.maxTier = level.tierKills.Count;
-            level.endlessTier = level.maxTier - 1; //where endless tiers will start counting up
+            level.endlessTier = 1; //where endless tiers will start counting up
 
             //MonsterCountTiers
             XElement monsterCountTiersElement = levelXElement.Element("MonsterCountTiers");

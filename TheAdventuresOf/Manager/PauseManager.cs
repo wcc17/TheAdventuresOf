@@ -49,6 +49,12 @@ namespace TheAdventuresOf {
 
             this.isPaused = gameController.isPaused;
             TheAdventuresOf.showMouse = gameController.isPaused;
+
+            if(this.isPaused) {
+                MusicManager.Instance.PauseMusic();
+            } else {
+                MusicManager.Instance.UnPauseMusic();
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch) {

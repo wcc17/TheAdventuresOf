@@ -562,6 +562,7 @@ namespace TheAdventuresOf
             } else {
                 nextGameState = CHOOSE_LEVEL_STATE;
                 loadChooseLevelMenu();
+				MusicManager.Instance.ChangeState(CHOOSE_LEVEL_STATE, currentLevelNumber);
             }
         }
 

@@ -41,7 +41,8 @@ namespace TheAdventuresOf
 
             switch(gameState) {
                 case GameManager.SPLASH_STATE:
-                    MediaPlayer.Play(AssetManager.Instance.currentSong); //comment out to stop music
+                    //MediaPlayer.Play(AssetManager.Instance.currentSong); //comment out to stop music
+                    StartMusic();
                     break;
                 case GameManager.PRE_LEVEL_STATE:
                     StartMusic();
@@ -52,6 +53,11 @@ namespace TheAdventuresOf
                 case GameManager.VICTORY_STATE:
                     StartMusic();
                     break;
+                case GameManager.CHOOSE_LEVEL_STATE:
+                    if(MediaPlayer.State.Equals(MediaState.Stopped)) {
+						StartMusic();
+                    }
+                    break;
             }
         }
 
@@ -60,6 +66,7 @@ namespace TheAdventuresOf
         }
 
         public void StartMusicImmediately() {
+            MediaPlayer.IsRepeating = true;
             MediaPlayer.Play(AssetManager.Instance.currentSong);
         }
 
@@ -98,6 +105,14 @@ namespace TheAdventuresOf
 
         public void StopMusic() {
             MediaPlayer.Stop();
+        }
+
+        public void PauseMusic() {
+            MediaPlayer.Pause();
+        }
+
+        public void UnPauseMusic() {
+            MediaPlayer.Resume();
         }
     }
 }

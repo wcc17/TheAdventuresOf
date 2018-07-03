@@ -191,7 +191,11 @@ namespace TheAdventuresOf
 
             fontContentManager = new ContentManager(TheAdventuresOf.contentManager.ServiceProvider, TheAdventuresOf.contentManager.RootDirectory);
             font = fontContentManager.Load<SpriteFont>("Game/titilliam-web-regular");
-            loadMusic("Menu/mainmenu_music");
+            LoadMainMenuMusic(graphicsDevice);
+        }
+
+        public void LoadMainMenuMusic(GraphicsDevice graphicsDevice) {
+			loadMusic("Menu/mainmenu_music");
         }
 
         public void LoadMainMenuAssets(GraphicsDevice graphicsDevice)
@@ -277,6 +281,8 @@ namespace TheAdventuresOf
                     chooseLevelPreviewTextures.Add(previewTexture);
                 }
             }
+
+            LoadMainMenuMusic(graphicsDevice);
         }
 
         public void LoadHelpMenuAssets(GraphicsDevice graphicsDevice)
