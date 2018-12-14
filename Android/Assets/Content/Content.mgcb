@@ -1,8 +1,8 @@
 
 #----------------------------- Global Properties ----------------------------#
 
-/outputDir:bin/$(Platform)
-/intermediateDir:obj/$(Platform)
+/outputDir:bin
+/intermediateDir:obj
 /platform:Windows
 /config:
 /profile:Reach
@@ -12,4 +12,191 @@
 
 
 #---------------------------------- Content ---------------------------------#
+
+#begin Level/level1_music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Level/level1_music.mp3
+
+#begin Level/level2_music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Level/level2_music.mp3
+
+#begin Level/level3_music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Level/level3_music.mp3
+
+#begin Level/level4_music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Level/level4_music.mp3
+
+#begin Level/level5_music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Level/level5_music.mp3
+
+#begin Sound/level_gameover_sound.ogg
+/importer:OggImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/level_gameover_sound.ogg
+
+#begin Game/titilliam-web-regular.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Game/titilliam-web-regular.spritefont
+
+#begin Menu/mainmenu_music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Menu/mainmenu_music.mp3
+
+#begin Sound/tanner_explosion.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/tanner_explosion.mp3
+
+#begin Sound/tanner_hurt.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/tanner_hurt.mp3
+
+#begin Sound/tanner_jump.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/tanner_jump.mp3
+
+#begin Sound/tanner_monster_hurt.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/tanner_monster_hurt.mp3
+
+#begin Sound/tanner_purchase_denied.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/tanner_purchase_denied.mp3
+
+#begin Sound/tanner_purchase.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/tanner_purchase.mp3
+
+#begin Sound/tanner_select.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/tanner_select.mp3
+
+#begin Sound/tanner_victory_sound.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/tanner_victory_sound.mp3
+
+#begin Sound/big_coin_pickup.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/big_coin_pickup.mp3
+
+#begin Sound/big_heart_pickup.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/big_heart_pickup.mp3
+
+#begin Sound/hurt.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/hurt.mp3
+
+#begin Sound/jump.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/jump.mp3
+
+#begin Sound/little_coin_pickup.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/little_coin_pickup.mp3
+
+#begin Sound/monster_hurt.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/monster_hurt.mp3
+
+#begin Sound/small_heart_pickup.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/small_heart_pickup.mp3
+
+#begin StoreLevel/store_level_music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:StoreLevel/store_level_music.mp3
+
+#begin Sound/victory_level_trumpet.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/victory_level_trumpet.mp3
+
+#begin Victory/victory_level_music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Victory/victory_level_music.mp3
+
+#begin Sound/new_explosion.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/new_explosion.mp3
+
+#begin Sound/swoop_monster_sound.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/swoop_monster_sound.mp3
+
+#begin Sound/cannon_monster_shoot.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/cannon_monster_shoot.mp3
+
+#begin Sound/bile_monster_sound.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/bile_monster_sound.mp3
+
+#begin Sound/spike_monster_drop.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sound/spike_monster_drop.mp3
 

@@ -30,7 +30,7 @@ namespace TheAdventuresOf
             filePath = iosFilePath;
 			#endif
 
-			Stream gameDocumentStream = TitleContainer.OpenStream(filePath + "XML/GameInformation.xml");
+			Stream gameDocumentStream = TitleContainer.OpenStream(@filePath + "XML/GameInformation.xml");
 			Stream characterDocumentStream = TitleContainer.OpenStream(filePath + "XML/CharacterInformation.xml");
 			Stream projectileDocumentStream = TitleContainer.OpenStream(filePath + "XML/ProjectileInformation.xml");
 			Stream specialLevelDocumentStream = TitleContainer.OpenStream(filePath + "XML/SpecialLevelInformation.xml");

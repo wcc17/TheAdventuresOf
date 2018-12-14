@@ -120,7 +120,6 @@
     <BundleResource Include="Content\StoreLevel\store_level_1080p.png" />
     <BundleResource Include="Content\StoreLevel\store_level_character_1080p.png" />
     <BundleResource Include="Content\XML\CharacterInformation.xml" />
-    <BundleResource Include="Content\XML\GameInformation.xml" />
     <BundleResource Include="Content\XML\SpecialLevelInformation.xml" />
     <BundleResource Include="Content\XML\ProjectileInformation.xml" />
     <BundleResource Include="Content\Game\coin_bronze_1080p.png" />
@@ -260,6 +259,7 @@
     <BundleResource Include="Content\Projectile\bile\level3_bile_1080p.png" />
     <BundleResource Include="Content\Projectile\bile\level4_bile_1080p.png" />
     <BundleResource Include="Content\Projectile\bile\level5_bile_1080p.png" />
+    <BundleResource Include="Content\XML\GameInformation.xml" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

@@ -1,16 +1,16 @@
-# Version: 11.8.0.20 (d15-6: 1c6f300e)
+# Version: 11.12.0.4 (d15-7: 64fece5f)
 # [first argument, ignore] # --cache=/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/mtouch-cache
-/Library/Frameworks/Xamarin.iOS.framework/Versions/11.8.0.20/lib/mtouch/mtouch.exe \
+/Library/Frameworks/Xamarin.iOS.framework/Versions/11.12.0.4/lib/mtouch/mtouch.exe \
 	--sim=/Users/wcc17/Development/TheAdventuresOf/iOS/bin/iPhoneSimulator/Debug/TheAdventuresOf.iOS.app \
 	--executable=TheAdventuresOf.iOS \
 	--debug \
 	--nolink \
 	--sdkroot=/Applications/Xcode.app/Contents/Developer \
-	--sdk=11.2 \
-	--targetver=8.0 \
+	--sdk=11.4 \
+	--targetver=9.0 \
 	--aot-options=-O=-float32 \
 	--http-message-handler=HttpClientHandler \
-	--abi=i386 \
+	--abi=x86_64 \
 	--symbollist=/Users/wcc17/Development/TheAdventuresOf/iOS/obj/iPhoneSimulator/Debug/mtouch-symbols.list \
 	--dsym=no \
 	-r=/Library/Frameworks/Mono.framework/External/xbuild/MonoGame/v3.0/Assemblies/iOS/MonoGame.Framework.dll \
