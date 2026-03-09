@@ -91,11 +91,32 @@ namespace TheAdventuresOf
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(graphicsDevice);
 
-            screenManager = new ScreenManager(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, 
-                                              GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
+            ConfigureScreen(graphicsDevice.Viewport.Width, graphicsDevice.Viewport.Height);
 
-            if(screenManager.isAspectRatioWrong) {
+            loadSplashScreen();
+
+            PauseManager.Instance.Initialize();
+        }
+
+        public void OnWindowResized(int width, int height)
+        {
+            if (spriteBatch == null)
+            {
+                return;
+            }
+
+            ConfigureScreen(width, height);
+        }
+
+        void ConfigureScreen(int width, int height)
+        {
+            screenManager = new ScreenManager(width, height);
+
+            if (screenManager.isAspectRatioWrong)
+            {
                 graphicsDevice.Viewport = screenManager.viewport;
+
+                renderTarget?.Dispose();
                 renderTarget = new RenderTarget2D(graphicsDevice,
                                                   (int)screenManager.deviceScreenWidth,
                                                   (int)screenManager.deviceScreenHeight);
@@ -104,12 +125,14 @@ namespace TheAdventuresOf
                 renderTargetRect = new Rectangle((int)renderTargetPositionVector.X,
                                                  (int)renderTargetPositionVector.Y,
                                                  (int)ScreenManager.VIRTUAL_SCREEN_WIDTH,
-                                                 (int)ScreenManager.VIRTUAL_SCREEN_HEIGHT); 
+                                                 (int)ScreenManager.VIRTUAL_SCREEN_HEIGHT);
             }
-
-            loadSplashScreen();
-
-            PauseManager.Instance.Initialize();
+            else
+            {
+                renderTarget?.Dispose();
+                renderTarget = null;
+                graphicsDevice.Viewport = new Viewport(0, 0, width, height);
+            }
         }
 
         void loadSplashScreen() {
@@ -211,6 +234,7 @@ namespace TheAdventuresOf
             }
 
             currentController.InitializeController();
+            ((GameController)currentController).isPaused = false;
         }
 
         void loadPreLevelAssets() {
@@ -470,10 +494,17 @@ namespace TheAdventuresOf
 
         void updateLevel(GameTime gameTime, bool isGameActive) {
             GameController gameController = (GameController)currentController;
+            bool allowPause = gameState == LEVEL_STATE || gameState == STORE_LEVEL_STATE;
+            if (allowPause)
+            {
+                PauseManager.Instance.Update(gameTime, gameController, isGameActive);
+            }
+            else
+            {
+                gameController.isPaused = false;
+            }
 
-            PauseManager.Instance.Update(gameTime, gameController, isGameActive);
-
-            if(!PauseManager.Instance.IsPaused()) {
+            if(!allowPause || !PauseManager.Instance.IsPaused()) {
                 updateLevelCoins(gameTime);
 
                 switch(gameState) {

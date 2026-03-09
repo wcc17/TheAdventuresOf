@@ -219,7 +219,7 @@ namespace TheAdventuresOf
 		public override void Draw(SpriteBatch spriteBatch)
 		{
             //Draw level
-            spriteBatch.Draw(levelTexture, levelPositionVector);
+            DrawLevelTexture(spriteBatch);
 
 
             if(!showScoreStatOverlay) {
@@ -355,4 +355,3 @@ namespace TheAdventuresOf
         }
 	}
 }
-

@@ -9,3 +9,13 @@ obj
 */*/*/bin/*
 */*/*/obj/*
 .vs/*
+.idea/
+.vscode/
+
+# Local machine-specific native dependencies for DesktopGL.
+DesktopGL/native/
+
+# Common .NET/IDE user files.
+*.user
+*.suo
+*.sln.docstates

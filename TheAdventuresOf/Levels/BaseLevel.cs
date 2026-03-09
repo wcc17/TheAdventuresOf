@@ -60,14 +60,14 @@ namespace TheAdventuresOf
 
         public virtual void Draw(SpriteBatch spriteBatch) {
             //Draw level
-            spriteBatch.Draw(levelTexture, levelPositionVector);
+            DrawLevelTexture(spriteBatch);
 
             //Draw player
             PlayerManager.Instance.Draw(spriteBatch);
         }
 
         public virtual void DrawWithoutPlayer(SpriteBatch spriteBatch) {
-            spriteBatch.Draw(levelTexture, levelPositionVector);
+            DrawLevelTexture(spriteBatch);
         }
 
         /**
@@ -144,6 +144,11 @@ namespace TheAdventuresOf
                 TransitionManager.Instance.FadeOut();
                 nextLevel = true;
             }
+        }
+
+        protected void DrawLevelTexture(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(levelTexture, levelPositionVector);
         }
 
         public virtual void HandleLetterBoxingIn()

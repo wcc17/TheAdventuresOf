@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -184,10 +185,10 @@ namespace TheAdventuresOf
 #if !__IOS__ && !__ANDROID__
             blackBackgroundTexturePath = "background_black_xbox_1080p.png";
 #endif
-            using (var stream = TitleContainer.OpenStream(gameFilePath + blackBackgroundTexturePath))
-            {
-                blackBackgroundTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
+            blackBackgroundTexture = LoadTextureWithFallback(
+                graphicsDevice,
+                gameFilePath + blackBackgroundTexturePath,
+                gameFilePath + "background_black_1080p.png");
 
             fontContentManager = new ContentManager(TheAdventuresOf.contentManager.ServiceProvider, TheAdventuresOf.contentManager.RootDirectory);
             font = fontContentManager.Load<SpriteFont>("Game/titilliam-web-regular");
@@ -219,14 +220,14 @@ namespace TheAdventuresOf
                 helpButtonTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 #if !__IOS__ && !__ANDROID__
-            using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_arrowoutline_1080p.png"))
-            {
-                arrowOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
-            using (var stream = TitleContainer.OpenStream(menuFilePath + "mainmenu_buttonoutline_1080p.png"))
-            {
-                buttonOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
+            arrowOutlineTexture = LoadTextureWithFallback(
+                graphicsDevice,
+                menuFilePath + "mainmenu_arrowoutline_1080p.png",
+                filePath + "Menu/choose/levelpreview_outline_1080p.png");
+            buttonOutlineTexture = LoadTextureWithFallback(
+                graphicsDevice,
+                menuFilePath + "mainmenu_buttonoutline_1080p.png",
+                filePath + "Menu/choose/levelpreview_outline_1080p.png");
 #endif
         }
 
@@ -259,14 +260,14 @@ namespace TheAdventuresOf
             }
 
 #if !__IOS__ && !__ANDROID__
-            using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_arrowoutline_1080p.png"))
-            {
-                arrowOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
-            using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_buttonoutline_1080p.png"))
-            {
-                buttonOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
+            arrowOutlineTexture = LoadTextureWithFallback(
+                graphicsDevice,
+                menuFilePath + "choosemenu_arrowoutline_1080p.png",
+                menuFilePath + "levelpreview_outline_1080p.png");
+            buttonOutlineTexture = LoadTextureWithFallback(
+                graphicsDevice,
+                menuFilePath + "choosemenu_buttonoutline_1080p.png",
+                menuFilePath + "levelpreview_outline_1080p.png");
 #endif
 
             chooseLevelPreviewTextures = new List<Texture2D>();
@@ -300,14 +301,14 @@ namespace TheAdventuresOf
             }
 
 #if !__IOS__ && !__ANDROID__
-            using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_arrowoutline_1080p.png"))
-            {
-                arrowOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
-            using (var stream = TitleContainer.OpenStream(menuFilePath + "choosemenu_buttonoutline_1080p.png"))
-            {
-                buttonOutlineTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
+            arrowOutlineTexture = LoadTextureWithFallback(
+                graphicsDevice,
+                filePath + "Menu/choose/choosemenu_arrowoutline_1080p.png",
+                filePath + "Menu/choose/levelpreview_outline_1080p.png");
+            buttonOutlineTexture = LoadTextureWithFallback(
+                graphicsDevice,
+                filePath + "Menu/choose/choosemenu_buttonoutline_1080p.png",
+                filePath + "Menu/choose/levelpreview_outline_1080p.png");
 #endif
         }
 
@@ -405,9 +406,10 @@ namespace TheAdventuresOf
 #if !__IOS__ && !__ANDROID__
             transparentBackgroundTexturePath = "transparent_background_black_xbox_1080p.png";
 #endif
-            using (var stream = TitleContainer.OpenStream(gameFilePath + transparentBackgroundTexturePath)) {
-                transparentBlackBackgroundTexture = Texture2D.FromStream(graphicsDevice, stream);
-            }
+            transparentBlackBackgroundTexture = LoadTextureWithFallback(
+                graphicsDevice,
+                gameFilePath + transparentBackgroundTexturePath,
+                gameFilePath + "transparent_background_black_1080p.png");
 
             using (var stream = TitleContainer.OpenStream(gameFilePath + "quit_button_1080p.png"))
             {
@@ -441,8 +443,13 @@ namespace TheAdventuresOf
             string levelFilePath = filePath + "Level/";
             string monsterFilePath = filePath + "Monster/Level" + levelNumber + "/";
             string projectileFilePath = filePath + "Projectile/";
+            string levelTexturePath = levelFilePath + getLevelString(levelNumber);
 
-            using (var stream = TitleContainer.OpenStream(levelFilePath + getLevelString(levelNumber)))
+#if DESKTOPGL
+            Logger.WriteToConsole("DesktopGL level texture: " + levelTexturePath);
+#endif
+
+            using (var stream = TitleContainer.OpenStream(levelTexturePath))
             {
                 levelTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
@@ -502,13 +509,18 @@ namespace TheAdventuresOf
         public void LoadPreLevelAssets(GraphicsDevice graphicsDevice, int levelNumber)
         {
             string preLevelFilePath = filePath + "PreLevel/";
+            string preLevelTexturePath = preLevelFilePath + getPreLevelString(levelNumber);
 
             using (var stream = TitleContainer.OpenStream(preLevelFilePath + "pre_level" + levelNumber + "character_1080p.png"))
             {
                 preLevelCharacterTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
 
-            using (var stream = TitleContainer.OpenStream(preLevelFilePath + getPreLevelString(levelNumber)))
+            #if DESKTOPGL
+            Logger.WriteToConsole("DesktopGL prelevel texture: " + preLevelTexturePath);
+            #endif
+
+            using (var stream = TitleContainer.OpenStream(preLevelTexturePath))
             {
                 preLevelTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
@@ -539,8 +551,13 @@ namespace TheAdventuresOf
         public void LoadStoreLevelAssets(GraphicsDevice graphicsDevice) {
             setupStoreLevel(); //sets file path for background based on OS
             string storeLevelFilePath = filePath + "StoreLevel/";
+            string storeLevelTexturePath = storeLevelFilePath + storeLevelString;
 
-            using (var stream = TitleContainer.OpenStream(storeLevelFilePath + storeLevelString))
+#if DESKTOPGL
+            Logger.WriteToConsole("DesktopGL store texture: " + storeLevelTexturePath);
+#endif
+
+            using (var stream = TitleContainer.OpenStream(storeLevelTexturePath))
             {
                 storeLevelTexture = Texture2D.FromStream(graphicsDevice, stream);
             }
@@ -623,8 +640,8 @@ namespace TheAdventuresOf
             }
 
 #if !__IOS__ && !__ANDROID__
-            arrowOutlineTexture.Dispose();
-            buttonOutlineTexture.Dispose();
+            arrowOutlineTexture?.Dispose();
+            buttonOutlineTexture?.Dispose();
 #endif
         }
 
@@ -640,8 +657,8 @@ namespace TheAdventuresOf
             }
 
 #if !__IOS__ && !__ANDROID__
-            arrowOutlineTexture.Dispose();
-            buttonOutlineTexture.Dispose();
+            arrowOutlineTexture?.Dispose();
+            buttonOutlineTexture?.Dispose();
 #endif
         }
 
@@ -650,8 +667,8 @@ namespace TheAdventuresOf
             helpMenuBackgroundTexture.Dispose();
 
 #if !__IOS__ && !__ANDROID__
-            arrowOutlineTexture.Dispose();
-            buttonOutlineTexture.Dispose();
+            arrowOutlineTexture?.Dispose();
+            buttonOutlineTexture?.Dispose();
 #endif
         }
 
@@ -759,41 +776,61 @@ namespace TheAdventuresOf
         }
 
         public void DisposeOnExit() {
-            fontContentManager.Dispose();
-            blackBackgroundTexture.Dispose();
+            fontContentManager?.Dispose();
+            blackBackgroundTexture?.Dispose();
         }
 
         string getPreLevelString(int levelNumber) {
-            string preLevelString = "pre_level" + levelNumber + "background_";
+            string preLevelString;
+            string fallbackPreLevelString;
 
-#if __IOS__ || __ANROID__
-            preLevelString += "full_1080p.png";
+#if __IOS__ || __ANDROID__
+            preLevelString = "pre_level" + levelNumber + "background_full_1080p.png";
+            fallbackPreLevelString = preLevelString;
+#elif DESKTOPGL
+            preLevelString = "pre_level" + levelNumber + "background_xbox_1080p.png";
+            fallbackPreLevelString = "pre_level" + levelNumber + "background_full_1080p.png";
 #else
-            preLevelString += "xbox_1080p.png";
+            preLevelString = "pre_level" + levelNumber + "background_xbox_1080p.png";
+            fallbackPreLevelString = "pre_level" + levelNumber + "background_full_1080p.png";
 #endif
 
-            return preLevelString;
+            return ResolveContentFileName("PreLevel", preLevelString, fallbackPreLevelString);
         }
 
         string getLevelString(int levelNumber)
         {
-            string levelString = "level" + levelNumber + "background_";
+            string levelString;
+            string fallbackLevelString;
 
-#if __IOS__ || __ANROID__
-            levelString += "1080p.png";
+#if __IOS__ || __ANDROID__
+            levelString = "level" + levelNumber + "background_1080p.png";
+            fallbackLevelString = levelString;
+#elif DESKTOPGL
+            levelString = "level" + levelNumber + "background_xbox_1080p.png";
+            fallbackLevelString = "level" + levelNumber + "background_1080p.png";
 #else
-            levelString += "xbox_1080p.png";
+            levelString = "level" + levelNumber + "background_xbox_1080p.png";
+            fallbackLevelString = "level" + levelNumber + "background_1080p.png";
 #endif
 
-            return levelString;
+            return ResolveContentFileName("Level", levelString, fallbackLevelString);
         }
 
         void setupStoreLevel()
         {
-#if __IOS__ || __ANROID__
+#if __IOS__ || __ANDROID__
             storeLevelString = "store_level_1080p.png";
+#elif DESKTOPGL
+            storeLevelString = ResolveContentFileName(
+                "StoreLevel",
+                "store_level_xbox_1080p.png",
+                "store_level_1080p.png");
 #else
-            storeLevelString = "store_level_xbox_1080p.png";
+            storeLevelString = ResolveContentFileName(
+                "StoreLevel",
+                "store_level_xbox_1080p.png",
+                "store_level_1080p.png");
 #endif
         }
 
@@ -848,6 +885,53 @@ namespace TheAdventuresOf
 
             SoundManager.Instance.InitializeDictionary();
         }
+
+        Texture2D LoadTextureWithFallback(GraphicsDevice graphicsDevice, string primaryPath, string fallbackPath)
+        {
+            string pathToLoad = ResolveRelativeContentPath(primaryPath, fallbackPath);
+            using (var stream = TitleContainer.OpenStream(pathToLoad))
+            {
+                return Texture2D.FromStream(graphicsDevice, stream);
+            }
+        }
+
+        string ResolveRelativeContentPath(string primaryPath, string fallbackPath)
+        {
+            if (RelativeContentPathExists(primaryPath))
+            {
+                return primaryPath;
+            }
+
+            return fallbackPath;
+        }
+
+        string ResolveContentFileName(string folder, string primaryFileName, string fallbackFileName)
+        {
+            string primaryPath = filePath + folder + "/" + primaryFileName;
+            string fallbackPath = filePath + folder + "/" + fallbackFileName;
+            string resolvedPath = ResolveRelativeContentPath(
+                primaryPath,
+                fallbackPath);
+            return Path.GetFileName(resolvedPath);
+        }
+
+        bool RelativeContentPathExists(string path)
+        {
+            try
+            {
+                using (TitleContainer.OpenStream(path))
+                {
+                    return true;
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                return false;
+            }
+            catch (DirectoryNotFoundException)
+            {
+                return false;
+            }
+        }
     }
 }
-

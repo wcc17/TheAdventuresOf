@@ -64,7 +64,7 @@ namespace TheAdventuresOf
 
         public static void WriteToConsole(String message)
         {
-            #if __IOS__ || __ANDROID__
+#if __IOS__ || __ANDROID__ || DESKTOPGL
                 Console.WriteLine(message);
             #else
                 Debug.WriteLine(DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fff") + ": " + message);

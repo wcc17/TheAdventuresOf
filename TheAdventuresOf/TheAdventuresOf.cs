@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -45,6 +46,11 @@ namespace TheAdventuresOf
 #if !__IOS__ && !__TVOS__ && !__ANDROID__
             //TODO: keyboard is really weird in fullscreen mode
             //graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 720;
+            graphics.ApplyChanges();
+            Window.AllowUserResizing = true;
+            Window.ClientSizeChanged += HandleClientSizeChanged;
 #endif
         }
 
@@ -134,6 +140,15 @@ namespace TheAdventuresOf
                 startWithVictoryLevel = false;
             }
         }
+
+        void HandleClientSizeChanged(object sender, EventArgs e)
+        {
+#if !__IOS__ && !__TVOS__ && !__ANDROID__
+            if (gameManager != null)
+            {
+                gameManager.OnWindowResized(Window.ClientBounds.Width, Window.ClientBounds.Height);
+            }
+#endif
+        }
 	}
 }
-

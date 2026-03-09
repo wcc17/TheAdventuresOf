@@ -213,6 +213,9 @@ namespace TheAdventuresOf
 
 #if __IOS__ || __ANDROID__
             preLevel.groundLevel = (float)preLevelElement.Element("GroundLevel");
+#elif DESKTOPGL
+            // DesktopGL uses xbox pre-level backgrounds; legacy iOS XML values sit ~100px lower.
+            preLevel.groundLevel = (float)preLevelElement.Element("WindowsGroundLevel") - 100f;
 #else
             preLevel.groundLevel = (float)preLevelElement.Element("WindowsGroundLevel");
 #endif
@@ -220,10 +223,24 @@ namespace TheAdventuresOf
             preLevel.leftBoundWidth = (int)preLevelElement.Element("LeftBoundWidth");
             preLevel.rightBoundWidth = (int)preLevelElement.Element("RightBoundWidth");
             PreLevel.preLevelCharX = (float)preLevelElement.Element("PreLevelCharX");
-
-            List<XElement> preLevelTextElements = new List<XElement>(preLevelElement.Elements("PreLevelCharText"));
-            foreach (XElement preLevelTextElement in preLevelTextElements) {
-                PreLevel.preLevelCharText = (string)preLevelTextElement.Element("Level" + currentLevel);
+            XElement preLevelTextContainer = preLevelElement.Element("PreLevelCharText");
+            if (preLevelTextContainer != null)
+            {
+                // iOS/Android XML format
+                XElement levelTextElement = preLevelTextContainer.Element("Level" + currentLevel);
+                if (levelTextElement != null)
+                {
+                    PreLevel.preLevelCharText = (string)levelTextElement;
+                }
+                else
+                {
+                    // UWP/desktop XML format
+                    PreLevel.preLevelCharText = (string)preLevelTextContainer;
+                }
+            }
+            if (PreLevel.preLevelCharText == null)
+            {
+                PreLevel.preLevelCharText = "";
             }
         }
 
@@ -720,4 +737,3 @@ namespace TheAdventuresOf
         }
 	}
 }
-

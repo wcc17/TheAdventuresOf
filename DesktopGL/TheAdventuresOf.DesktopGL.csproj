@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <RollForward>Major</RollForward>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <DefineConstants>$(DefineConstants);DESKTOPGL</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(OS)' != 'Windows_NT'">
+    <DotnetCommand>env DYLD_LIBRARY_PATH=$(MSBuildProjectDirectory)/native dotnet</DotnetCommand>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
+    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <MonoGameContentReference Include="../Android/Assets/Content/Content.mgcb" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../Android/Assets/Content/**"
+          Exclude="../Android/Assets/Content/Content.mgcb;../Android/Assets/Content/bin/**;../Android/Assets/Content/obj/**"
+          Link="Content/%(RecursiveDir)%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../TheAdventuresOf.UWP/Content/Game/transparent_background_black_xbox_1080p.png"
+          Link="Content/Game/%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../TheAdventuresOf.UWP/Content/Level/level*background_xbox_1080p.png"
+          Link="Content/Level/%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../TheAdventuresOf.UWP/Content/PreLevel/pre_level*background_xbox_1080p.png"
+          Link="Content/PreLevel/%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../TheAdventuresOf.UWP/Content/StoreLevel/store_level_xbox_1080p.png"
+          Link="Content/StoreLevel/%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../TheAdventuresOf.UWP/Content/Menu/main/mainmenu_arrowoutline_1080p.png"
+          Link="Content/Menu/main/%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../TheAdventuresOf.UWP/Content/Menu/main/mainmenu_buttonoutline_1080p.png"
+          Link="Content/Menu/main/%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../TheAdventuresOf.UWP/Content/Menu/choose/choosemenu_arrowoutline_1080p.png"
+          Link="Content/Menu/choose/%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../TheAdventuresOf.UWP/Content/Menu/choose/choosemenu_buttonoutline_1080p.png"
+          Link="Content/Menu/choose/%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <Import Project="../TheAdventuresOf/TheAdventuresOf.projitems" Label="Shared" />
+</Project>

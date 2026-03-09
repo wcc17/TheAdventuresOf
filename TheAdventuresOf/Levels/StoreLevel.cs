@@ -66,7 +66,7 @@ namespace TheAdventuresOf
         public override void Draw(SpriteBatch spriteBatch)
         {
             //draw level manually
-            spriteBatch.Draw(levelTexture, levelPositionVector);
+            DrawLevelTexture(spriteBatch);
 
             //draw props
             drawProps(spriteBatch);
